@@ -1,0 +1,126 @@
+==============================================================================
+Tier [GEN]: general-K symbolic verification
+==============================================================================
+[PASS] [GEN] 0a: 1 - a = 1/(ahat*K) > 0  (a < 1)
+[PASS] [GEN] 0b: a = (ahat*K-1)/(ahat*K) > 0
+[PASS] [GEN] 0c: ahat - 1 = t > 0  (ahat > 1)
+[PASS] [GEN] 0d: G(x,y) = 1 - a^{x+1}(K-y)/(K-1) for y>=1 (closed form)
+[PASS] [GEN] 1a: DxG(x,0)  = 1        * DxF(x,0)
+[PASS] [GEN] 1b: DxG(x,y)  = aK/(K-1) * DxF(x,y)  for 1<=y<=K
+[PASS] [GEN] 1c: DyG(x,0)  = (1/ahat) * DyF(x,0)
+[PASS] [GEN] 1d: DyG(x,y)  = aK/(K-1) * DyF(x,y)  for 1<=y<=K-1
+[PASS] [GEN] 1e: DxF(x,K) = 0 = DxG(x,K)  (only zero-gain direction; finiteness)
+[PASS] [GEN] 1f: aK/(K-1) - 1 = t/((1+t)(K-1)) > 0  (so R > 1 > 1/ahat)
+[PASS] [GEN] 1g: 1 - 1/ahat = t/(1+t) > 0
+[PASS] [GEN] 2a: DxF = p(1-a)(K-y)/K = p w /(ahat K^2) >= 0
+[PASS] [GEN] 2b: DyF = p/K > 0
+[PASS] [GEN] 2c: DxF(x+1,y)-DxF(x,y) = -p(1-a)^2(K-y)/K <= 0
+[PASS] [GEN] 2d: DxF(x,y+1)-DxF(x,y) = -p(1-a)/K <= 0
+[PASS] [GEN] 2e: DyF(x+1,y)-DyF(x,y) = -p(1-a)/K <= 0
+[PASS] [GEN] 2f: DyF(x,y+1)-DyF(x,y) = 0  (modular in y)
+[PASS] [GEN] 3:  G(x,K) = 1 for all x
+[PASS] [GEN] 4:  DxG(t,0) = DyG(t,0)  (= p(1-a); tie -> B picks B at every step)
+[PASS] [GEN] P1: pair case dy=0,y=0:   dtilde = d  (= p(1-Q); zero iff dx=0)
+[PASS] [GEN] P2: pair case dy=0,y>=1:  dtilde = aK/(K-1) * d  (both 0 iff y=K or dx=0)
+[PASS] [GEN] P3: pair case dy>=1,y>=1: dtilde = aK/(K-1) * d
+[PASS] [GEN] P4: pair case dy>=1,y>=1: d = (p/K)[(K-y)(1-Q)+Q dy] > 0 (finiteness ok)
+[PASS] [GEN] P5: pair case dy>=1,y=0:  d = (p/K)[K(1-Q)+Q dy] > 0
+[PASS] [GEN] P6: pair case dy>=1,y=0:  aK/(K-1)*d - dtilde = p(R-1) > 0
+[PASS] [GEN] P7: pair case dy>=1,y=0:  dtilde - d/ahat = p t/(1+t) * [(K-1)(1-Q)+(dy-1)Q]/(K-1) >= 0
+[PASS] [GEN] P8: all-pairs eta_u = ahat, eta_o = aK/(K-1)  (assembled from P1-P7,1b,1c,1f,1g)
+[PASS] [GEN] 5a: eta = ahat * aK/(K-1) = (ahat*K - 1)/(K-1)
+[PASS] [GEN] 5b: ahat = (eta(K-1)+1)/K inverts eta(ahat)
+[PASS] [GEN] 5c: a(eta) = 1 - 1/(eta(K-1)+1)
+[PASS] [GEN] 5d: greedy ratio 1 - a^K = U_K(eta) = 1 - (1 - 1/(eta(K-1)+1))^K
+[PASS] [GEN] 5e: ahat - 1 = (eta-1)(K-1)/K  (ahat>1 <=> eta>1)
+[PASS] [GEN] 6a: OPT = 1: F(0,K) = 1 and 1 - F(x,y) = p(K-y)/K >= 0
+[PASS] [GEN] 6b: greedy final value F(K,0) = 1 - a^K  [GEN+IND: trajectory y=0 by induction on tie identity 4; explicit simulation below for K=2..8]
+[PASS] [GEN] 6c: path O-move: DyF(x,0) = ahat * DyG(x,0)  => path eta_u = ahat, path eta_o = max(1,1/ahat) = 1, path error = ahat
+==============================================================================
+Tier [CONC]: exhaustive lattice verification, K = 2..8 (exact in t = ahat-1)
+==============================================================================
+[PASS] [CONC-K2] monotonicity of F on full lattice
+[PASS] [CONC-K2] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K2] four ratio classes exact at every lattice move
+[PASS] [CONC-K2] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K2] G(x,K) = 1 for all x
+[PASS] [CONC-K2] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K2] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K2] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K2] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K2] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=2 done in 0.0s]
+[PASS] [CONC-K3] monotonicity of F on full lattice
+[PASS] [CONC-K3] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K3] four ratio classes exact at every lattice move
+[PASS] [CONC-K3] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K3] G(x,K) = 1 for all x
+[PASS] [CONC-K3] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K3] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K3] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K3] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K3] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=3 done in 0.1s]
+[PASS] [CONC-K4] monotonicity of F on full lattice
+[PASS] [CONC-K4] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K4] four ratio classes exact at every lattice move
+[PASS] [CONC-K4] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K4] G(x,K) = 1 for all x
+[PASS] [CONC-K4] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K4] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K4] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K4] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K4] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=4 done in 0.1s]
+[PASS] [CONC-K5] monotonicity of F on full lattice
+[PASS] [CONC-K5] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K5] four ratio classes exact at every lattice move
+[PASS] [CONC-K5] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K5] G(x,K) = 1 for all x
+[PASS] [CONC-K5] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K5] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K5] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K5] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K5] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=5 done in 0.3s]
+[PASS] [CONC-K6] monotonicity of F on full lattice
+[PASS] [CONC-K6] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K6] four ratio classes exact at every lattice move
+[PASS] [CONC-K6] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K6] G(x,K) = 1 for all x
+[PASS] [CONC-K6] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K6] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K6] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K6] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K6] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=6 done in 0.6s]
+[PASS] [CONC-K7] monotonicity of F on full lattice
+[PASS] [CONC-K7] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K7] four ratio classes exact at every lattice move
+[PASS] [CONC-K7] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K7] G(x,K) = 1 for all x
+[PASS] [CONC-K7] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K7] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K7] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K7] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K7] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=7 done in 1.0s]
+[PASS] [CONC-K8] monotonicity of F on full lattice
+[PASS] [CONC-K8] submodularity (all second differences <= 0) on full lattice
+[PASS] [CONC-K8] four ratio classes exact at every lattice move
+[PASS] [CONC-K8] finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)
+[PASS] [CONC-K8] G(x,K) = 1 for all x
+[PASS] [CONC-K8] all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0
+[PASS] [CONC-K8] greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0
+[PASS] [CONC-K8] OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)
+[PASS] [CONC-K8] greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)
+[PASS] [CONC-K8] path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat
+    [K=8 done in 1.7s]
+==============================================================================
+TOTAL: 105/105 checks passed (35 general-K, 70 concrete-K), 4.2s
+ALL PASS
+Verification scope: items 1,2,3,4,5 + all-pairs eta + path error + OPT are
+general-K symbolic ([VERIFIED-SYMBOLIC], via p=a^x, Q=a^dx parametrization);
+the greedy trajectory (y=0 by induction on the tie identity) is verified by
+explicit symbolic simulation for K=2..8 and by the general-K tie identity
+plus a one-line induction for general K.

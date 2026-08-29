@@ -1,0 +1,645 @@
+{
+ "n_pass": 105,
+ "n_fail": 0,
+ "allpairs_exhaustive_K": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "checks": [
+  {
+   "tier": "GEN",
+   "name": "0a: 1 - a = 1/(ahat*K) > 0  (a < 1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "0b: a = (ahat*K-1)/(ahat*K) > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "0c: ahat - 1 = t > 0  (ahat > 1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "0d: G(x,y) = 1 - a^{x+1}(K-y)/(K-1) for y>=1 (closed form)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1a: DxG(x,0)  = 1        * DxF(x,0)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1b: DxG(x,y)  = aK/(K-1) * DxF(x,y)  for 1<=y<=K",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1c: DyG(x,0)  = (1/ahat) * DyF(x,0)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1d: DyG(x,y)  = aK/(K-1) * DyF(x,y)  for 1<=y<=K-1",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1e: DxF(x,K) = 0 = DxG(x,K)  (only zero-gain direction; finiteness)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1f: aK/(K-1) - 1 = t/((1+t)(K-1)) > 0  (so R > 1 > 1/ahat)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "1g: 1 - 1/ahat = t/(1+t) > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2a: DxF = p(1-a)(K-y)/K = p w /(ahat K^2) >= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2b: DyF = p/K > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2c: DxF(x+1,y)-DxF(x,y) = -p(1-a)^2(K-y)/K <= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2d: DxF(x,y+1)-DxF(x,y) = -p(1-a)/K <= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2e: DyF(x+1,y)-DyF(x,y) = -p(1-a)/K <= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "2f: DyF(x,y+1)-DyF(x,y) = 0  (modular in y)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "3:  G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "4:  DxG(t,0) = DyG(t,0)  (= p(1-a); tie -> B picks B at every step)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P1: pair case dy=0,y=0:   dtilde = d  (= p(1-Q); zero iff dx=0)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P2: pair case dy=0,y>=1:  dtilde = aK/(K-1) * d  (both 0 iff y=K or dx=0)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P3: pair case dy>=1,y>=1: dtilde = aK/(K-1) * d",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P4: pair case dy>=1,y>=1: d = (p/K)[(K-y)(1-Q)+Q dy] > 0 (finiteness ok)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P5: pair case dy>=1,y=0:  d = (p/K)[K(1-Q)+Q dy] > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P6: pair case dy>=1,y=0:  aK/(K-1)*d - dtilde = p(R-1) > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P7: pair case dy>=1,y=0:  dtilde - d/ahat = p t/(1+t) * [(K-1)(1-Q)+(dy-1)Q]/(K-1) >= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "P8: all-pairs eta_u = ahat, eta_o = aK/(K-1)  (assembled from P1-P7,1b,1c,1f,1g)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "5a: eta = ahat * aK/(K-1) = (ahat*K - 1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "5b: ahat = (eta(K-1)+1)/K inverts eta(ahat)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "5c: a(eta) = 1 - 1/(eta(K-1)+1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "5d: greedy ratio 1 - a^K = U_K(eta) = 1 - (1 - 1/(eta(K-1)+1))^K",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "5e: ahat - 1 = (eta-1)(K-1)/K  (ahat>1 <=> eta>1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "6a: OPT = 1: F(0,K) = 1 and 1 - F(x,y) = p(K-y)/K >= 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "6b: greedy final value F(K,0) = 1 - a^K  [GEN+IND: trajectory y=0 by induction on tie identity 4; explicit simulation below for K=2..8]",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "GEN",
+   "name": "6c: path O-move: DyF(x,0) = ahat * DyG(x,0)  => path eta_u = ahat, path eta_o = max(1,1/ahat) = 1, path error = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K2",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K3",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K4",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K5",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K6",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K7",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "monotonicity of F on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "submodularity (all second differences <= 0) on full lattice",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "four ratio classes exact at every lattice move",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "finiteness: d=0 <=> dtilde=0 (only on Dx at y=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "G(x,K) = 1 for all x",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "all-pairs (exhaustive): every ratio in [1/ahat, aK/(K-1)], both endpoints attained, d=0 => dtilde=0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "greedy: exact tie at every step on y=0 path (tie->B picks all of B), gains > 0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "OPT = 1 (F(0,K)=1, F<=1 on |S|<=K)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "greedy ratio F(K,0)/OPT = 1 - a^K = U_K(eta), eta = (ahat*K-1)/(K-1)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "tier": "CONC-K8",
+   "name": "path error: ratios on path in {1, 1/ahat} exactly => eta^path = ahat",
+   "ok": true,
+   "note": ""
+  }
+ ]
+}
