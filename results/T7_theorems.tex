@@ -1,0 +1,144 @@
+% T7: theorem statements and proof drafts (LaTeX fragment, not a standalone document).
+% Conventions follow the paper: alpha in (0,1], larger is better; d_e(S) = f(S cup {e}) - f(S);
+% eta_u = max d/dtilde, eta_o = max dtilde/d, eta = eta_u eta_o (single-element unless stated);
+% eta^path restricts the max to greedy trajectory states S^t;
+% L_K(eta) = 1 - (1 - 1/(eta K))^K,  U_K(eta) = 1 - (1 - 1/(eta(K-1)+1))^K.
+% Status tags per CLAUDE.md; each tag names the reproducing script in results/.
+
+% ---------------------------------------------------------------------------
+% Theorem A (trajectory-tight guarantee)
+% Status: lower bound [HAND-PROOF-UNREVIEWED] (classical (1/eta)-approximate greedy
+%         analysis; Goundan--Schulz 2007 [CITATION-NEEDS-VERIFICATION]);
+%         tightness instance [VERIFIED-SYMBOLIC] for GENERAL K
+%         (results/T5_symbolic.py, 105/105: monotone+submodular, all four gain
+%         ratios, finite single-element AND all-pairs errors with
+%         eta_u = ahat, eta_o = aK/(K-1), path error = ahat, ratio = L_K(ahat);
+%         the only hand steps are a one-line induction that greedy stays at
+%         y = 0, whose per-step tie identity IS symbolically verified, and the
+%         faithfulness of the p = a^x parametrization, with a in (0,1) verified)
+%         plus [VERIFIED-LP] full lattice K <= 6 (code/check_explicit_instance.py).
+\begin{theorem}[Trajectory-tight guarantee]\label{thm:trajectory}
+Let $f$ be monotone submodular with $f(\emptyset)=0$, and let
+$S^0=\emptyset,S^1,\dots,S^K$ be the states of single-step predictive greedy run
+with predictor $\tilde f$. If the path error satisfies
+$\eta^{\mathrm{path}} \le \hat a$, then
+\[
+  f(S^K) \;\ge\; \Bigl(1-\bigl(1-\tfrac{1}{\hat a K}\bigr)^{K}\Bigr)\, f(O^\ast)
+  \;=\; L_K(\hat a)\, f(O^\ast).
+\]
+Moreover, for every $K\ge 2$ and every $\hat a>1$ there is an instance
+$(f,\tilde f)$ on $|N|=2K$ elements with $\eta^{\mathrm{path}}=\hat a$ exactly,
+on which greedy (with adversarial tie breaking) returns a set of value exactly
+$L_K(\hat a)\, f(O^\ast)$. Hence the bound is tight for every $K$, not only in
+the limit.
+\end{theorem}
+% Proof draft (lower bound): standard approximate-greedy argument. At state S^t let
+% e_t be the picked element and o in O* \ S^t a best optimal element. By choice of
+% e_t, dtilde_{e_t}(S^t) >= dtilde_o(S^t); both inequalities defining eta^path apply
+% at the state S^t, so d_{e_t}(S^t) >= (1/eta^path) d_o(S^t) >= (1/(eta^path K))
+% (f(O*) - f(S^t)) by submodularity + monotonicity. Unrolling gives L_K.
+% NOTE: this uses only gains at trajectory states, hence eta^path suffices.
+% [此步需人工检查：averaging 步骤对 K 个 optimal 元素的标准计数。]
+% Proof draft (tightness): the explicit family of RESEARCH_STATE.md R7 with
+% a = 1 - 1/(ahat K): F(x,y) = 1 - a^x(1 - y/K), G as in R7. Verified properties:
+% monotone submodular, finite single-element and all-pairs errors, greedy with
+% ties toward B picks all of B, ratio = 1 - a^K = L_K(ahat), path error = ahat.
+
+% ---------------------------------------------------------------------------
+% Lemma B (consistency lemma)
+% Status: [HAND-PROOF-UNREVIEWED] (RESEARCH_STATE.md R3; proof is elementary,
+%         uses only single-element error bounds).
+\begin{lemma}[Consistency]\label{lem:consistency}
+Let $f$ be monotone, $S\subseteq N$, $e,e'\notin S$, and suppose
+$\tilde d_e(S)\ge \tilde d_{e'}(S)$. Then
+\[
+ \text{(i)}\quad d_e(S\cup\{e'\}) \;\ge\; \frac{1}{\eta}\, d_{e'}(S\cup\{e\}),
+ \qquad
+ \text{(ii)}\quad \Bigl(1-\frac{1}{\eta}\Bigr) d_{e'}(S\cup\{e\})
+   \;\ge\; d_{e'}(S) - d_{e}(S).
+\]
+\end{lemma}
+% Proof draft: expand ftilde(S cup {e,e'}) - ftilde(S) in the two orders to get
+% dtilde_e(S) + dtilde_{e'}(S cup {e}) = dtilde_{e'}(S) + dtilde_e(S cup {e'});
+% with the hypothesis this yields dtilde_e(S cup {e'}) >= dtilde_{e'}(S cup {e});
+% applying the error bounds gives (i). Applying the same exchange identity to f
+% (not ftilde) and then (i) gives (ii).
+% [此步需人工检查：(ii) 的推导中误差界只在两处使用，方向须逐一核对。]
+
+% ---------------------------------------------------------------------------
+% Theorem C (exact worst case for K = 2)
+% Status: lower bound [HAND-PROOF-UNREVIEWED] (via Lemma B(ii) with S = empty,
+%         e = b_1, e' = o_1, p_1 >= 1/2); upper bound [VERIFIED-LP]
+%         (full-lattice witnesses, results/k2_witness_instances.json,
+%         code/worst_case_lp.py). See the remark below for K = 3, 4.
+\begin{theorem}[Exact ratio for $K=2$]\label{thm:k2}
+For every $\eta\ge 1$,
+\[
+  \rho_2(\eta) \;=\; \min\Bigl\{\frac{1}{\eta},\; \frac{3}{2(\eta+1)}\Bigr\}.
+\]
+\end{theorem}
+% Proof draft: lower bound as in RESEARCH_STATE.md R4. Upper bound: explicit
+% witness instances from the full-lattice factor-revealing LP, stored with
+% exact values in results/k2_witness_instances.json.
+
+% Remark (closed forms for K = 3, 4 as reduced-LP values).
+% Status: [VERIFIED-SYMBOLIC] as the optimal value of the O(K^2) reduced LP of
+% RESEARCH_STATE.md R6 (symbolic primal solutions and dual certificates on every
+% piece, results/T3_K3_closed_form.py); equality with rho_K itself additionally
+% relies on reduced LP = full-lattice LP, verified at 19 test points for K <= 4
+% [VERIFIED-LP] and open in general [HAND-PROOF-UNREVIEWED for the lower-bound
+% direction].
+% With q = (K-1)\eta/((K-1)\eta+1) and V_j(\eta) = 1 - q^j (1 - (K-j)/(K\eta)):
+%   rho_3^{LP}: (16\eta+3)/(3(2\eta+1)^2) on [1,2];  7/(3(2\eta+1)) on [2,3];  1/\eta on [3,\infty).
+%   rho_4^{LP}: (135\eta^2+36\eta+4)/(4(3\eta+1)^3) on [1,2];  (21\eta+2)/(2(3\eta+1)^2) on [2,3];
+%               13/(4(3\eta+1)) on [3,4];  1/\eta on [4,\infty).
+% General-K conjecture [CONJECTURE]: rho_K^{LP} = min_j V_j with integer
+% breakpoints \eta = 2,\dots,K; matches the LP to 9e-16 at 205 points, K <= 6.
+
+% ---------------------------------------------------------------------------
+% Theorem D (1/eta impossibility, with matching exhaustive search)
+% Status: [HAND-PROOF-UNREVIEWED] (RESEARCH_STATE.md R2; elementary).
+\begin{theorem}[Ceiling at $1/\eta$]\label{thm:ceiling}
+For every deterministic algorithm with arbitrary (even exponential) query access
+to $\tilde f$ and every $\eta_u,\eta_o \ge 1$ with $n\ge 2K$, there is a pair
+$(f,\tilde f)$ with all-pairs errors exactly $(\eta_u,\eta_o)$ on which the
+algorithm's output $S$ satisfies $f(S)\le f(O^\ast)/\eta$. Randomized
+algorithms lose at most the additive term $K/n$:
+$\mathbb{E}[f(S)] \le \bigl((1-K/n)/\eta + K/n\bigr) f(O^\ast)$.
+Conversely, exhaustive search over all $K$-subsets of the predicted values
+achieves $f(\hat S) \ge f(O^\ast)/\eta$ for every instance.
+\end{theorem}
+% Proof draft: take ftilde(S) = c|S| (fully symmetric). After the algorithm
+% commits to S (its query answers are independent of O), choose O subseteq N\S
+% and set f(S) = c(|S cap B|/eta_o + eta_u |S cap O|), B = N \ O. The errors are
+% exactly (eta_u, eta_o) in the all-pairs sense and f(S)/f(O) = 1/eta.
+% Matching bound: f(Stilde) >= ftilde(Stilde)/eta_o >= ftilde(O)/eta_o >= f(O)/eta.
+% [此步需人工检查：f 的 monotonicity/submodularity 与误差恰达性需按 R2 核对。]
+
+% ---------------------------------------------------------------------------
+% Corollary E (weak submodularity)
+% Status: [HAND-PROOF-UNREVIEWED]; submodularity-ratio framework of
+%         Das--Kempe 2011 [CITATION-NEEDS-VERIFICATION].
+\begin{corollary}[Weakly submodular objectives]\label{cor:weak}
+If $f$ is monotone with submodularity ratio $\gamma\in(0,1]$ (Das--Kempe), then
+single-step predictive greedy with path error $\eta^{\mathrm{path}}\le\eta$
+returns $S^K$ with
+\[
+  f(S^K) \;\ge\; \Bigl(1-\bigl(1-\tfrac{\gamma}{\eta K}\bigr)^{K}\Bigr) f(O^\ast).
+\]
+\end{corollary}
+% Proof draft: in the averaging step of Theorem A the inequality
+% sum_{o in O*\S} d_o(S) >= gamma (f(O* cup S) - f(S)) replaces submodularity;
+% the rest of the unrolling is unchanged.
+% [此步需人工检查：gamma 进入的位置（分子 vs 分母）与 Das--Kempe 定义的匹配。]
+
+% ---------------------------------------------------------------------------
+% Scope note for the symbolic verification backing Theorem A's tightness
+% (results/T5_symbolic.py): all five R7 item groups are verified for general
+% symbolic K via the p = a^x, Q = a^{dx} parametrization (35 general-K checks);
+% the greedy trajectory itself is additionally simulated symbolically for
+% K = 2..8 (70 checks). The full-lattice numerical verification for K <= 6 is
+% code/check_explicit_instance.py [VERIFIED-LP].
+% Known limitation (unchanged, RESEARCH_STATE.md R7): the U_K instance leaks O
+% under pair queries (G(0,2) != G(2,0)), so it is NOT a poly-query hardness
+% instance; see results/T2_summary.md for the poly-query state of affairs.
