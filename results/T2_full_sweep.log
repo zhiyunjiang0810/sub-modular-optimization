@@ -1,0 +1,126 @@
+[   0.0s] n=8 K=3 eta=1.5 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.142 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=8 K=3 eta=1.5 tau=1 ysmall u    -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.142 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=8 K=3 eta=1.5 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=25 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}]
+[   0.0s] n=8 K=3 eta=1.5 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=25 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.04919496655738309}]
+[   0.0s] n=8 K=3 eta=1.5 tau=2 ysmall sqrt -> FEASIBLE min_delta=2.29355 delta_cc=2.294 explicit=2.29355 hard=0 leak=0.333 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=8 K=3 eta=1.5 tau=2 ysmall u    -> FEASIBLE min_delta=2.29355 delta_cc=2.294 explicit=2.29355 hard=0 leak=0.333 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=8 K=3 eta=1.5 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=80 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}]
+[   0.0s] n=8 K=3 eta=1.5 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=80 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.10455723212924861}]
+[   0.0s] n=8 K=3 eta=2.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.5625 delta_cc=0.5625 explicit=0.5625 hard=0 leak=0.118 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=8 K=3 eta=2.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.5625 delta_cc=0.5625 explicit=0.5625 hard=0 leak=0.118 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=8 K=3 eta=2.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=25 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}]
+[   0.0s] n=8 K=3 eta=2.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=25 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05581632944673065}]
+[   0.0s] n=8 K=3 eta=2.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=3.34028 delta_cc=3.34 explicit=3.34028 hard=0 leak=0.332 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=8 K=3 eta=2.0 tau=2 ysmall u    -> FEASIBLE min_delta=3.34028 delta_cc=3.34 explicit=3.34028 hard=0 leak=0.332 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=8 K=3 eta=2.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=80 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}]
+[   0.0s] n=8 K=3 eta=2.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=80 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.09645061728395055}]
+[   0.0s] n=8 K=3 eta=3.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.777778 delta_cc=0.7778 explicit=0.777778 hard=0 leak=0.107 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=8 K=3 eta=3.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.777778 delta_cc=0.7778 explicit=0.777778 hard=0 leak=0.107 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=8 K=3 eta=3.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=25 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}]
+[   0.0s] n=8 K=3 eta=3.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=25 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 231, "e": 3, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}, {"S": 231, "e": 4, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}, {"S": 235, "e": 2, "size": 6, "xy": [3, 3], "dF": 0.0, "dG": 0.05480779825250803}]
+[   0.0s] n=8 K=3 eta=3.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=4.61866 delta_cc=4.619 explicit=4.61866 hard=0 leak=0.29 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=8 K=3 eta=3.0 tau=2 ysmall u    -> FEASIBLE min_delta=4.61866 delta_cc=4.619 explicit=4.61866 hard=0 leak=0.29 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=8 K=3 eta=3.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=80 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}]
+[   0.0s] n=8 K=3 eta=3.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=80 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 224, "e": 0, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}, {"S": 224, "e": 1, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}, {"S": 224, "e": 2, "size": 3, "xy": [0, 3], "dF": 0.0, "dG": 0.0780368846212467}]
+[   0.1s] n=10 K=3 eta=1.5 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.111 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=10 K=3 eta=1.5 tau=1 ysmall u    -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.111 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=10 K=3 eta=1.5 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=154 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}]
+[   0.0s] n=10 K=3 eta=1.5 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=154 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.03826275176685345}]
+[   0.0s] n=10 K=3 eta=1.5 tau=2 ysmall sqrt -> FEASIBLE min_delta=2.29355 delta_cc=2.294 explicit=2.29355 hard=0 leak=0.283 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=10 K=3 eta=1.5 tau=2 ysmall u    -> FEASIBLE min_delta=2.29355 delta_cc=2.294 explicit=2.29355 hard=0 leak=0.283 ratio_B=0.5295 (LK=0.5295) optO=True
+[   0.0s] n=10 K=3 eta=1.5 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=441 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}]
+[   0.0s] n=10 K=3 eta=1.5 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=2.294 explicit= hard=441 leak= ratio_B=0.5295 (LK=0.5295) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08132229165608218}]
+[   0.0s] n=10 K=3 eta=2.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.5625 delta_cc=0.5625 explicit=0.5625 hard=0 leak=0.167 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=10 K=3 eta=2.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.5625 delta_cc=0.5625 explicit=0.5625 hard=0 leak=0.167 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=10 K=3 eta=2.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=154 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}]
+[   0.0s] n=10 K=3 eta=2.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=154 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04651360787227554}]
+[   0.0s] n=10 K=3 eta=2.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=3.34028 delta_cc=3.34 explicit=3.34028 hard=0 leak=0.311 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=10 K=3 eta=2.0 tau=2 ysmall u    -> FEASIBLE min_delta=3.34028 delta_cc=3.34 explicit=3.34028 hard=0 leak=0.311 ratio_B=0.4213 (LK=0.4213) optO=True
+[   0.0s] n=10 K=3 eta=2.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=441 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}]
+[   0.0s] n=10 K=3 eta=2.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=3.34 explicit= hard=441 leak= ratio_B=0.4213 (LK=0.4213) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.08037551440329216}]
+[   0.0s] n=10 K=3 eta=3.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.777778 delta_cc=0.7778 explicit=0.777778 hard=0 leak=0.115 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=10 K=3 eta=3.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.777778 delta_cc=0.7778 explicit=0.777778 hard=0 leak=0.115 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=10 K=3 eta=3.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=154 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}]
+[   0.0s] n=10 K=3 eta=3.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=154 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 911, "e": 4, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}, {"S": 911, "e": 5, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}, {"S": 911, "e": 6, "size": 7, "xy": [4, 3], "dF": 0.0, "dG": 0.04871804289111825}]
+[   0.0s] n=10 K=3 eta=3.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=4.61866 delta_cc=4.619 explicit=4.61866 hard=0 leak=0.298 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=10 K=3 eta=3.0 tau=2 ysmall u    -> FEASIBLE min_delta=4.61866 delta_cc=4.619 explicit=4.61866 hard=0 leak=0.298 ratio_B=0.2977 (LK=0.2977) optO=True
+[   0.0s] n=10 K=3 eta=3.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=441 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}]
+[   0.0s] n=10 K=3 eta=3.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.619 explicit= hard=441 leak= ratio_B=0.2977 (LK=0.2977) optO=True
+   certificate examples: [{"S": 897, "e": 1, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}, {"S": 897, "e": 2, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}, {"S": 897, "e": 3, "size": 4, "xy": [1, 3], "dF": 0.0, "dG": 0.0693661196633305}]
+[   0.1s] n=10 K=4 eta=1.5 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.234568 delta_cc=0.2346 explicit=0.234568 hard=0 leak=0.123 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.1s] n=10 K=4 eta=1.5 tau=1 ysmall u    -> FEASIBLE min_delta=0.234568 delta_cc=0.2346 explicit=0.234568 hard=0 leak=0.123 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.0s] n=10 K=4 eta=1.5 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=36 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}]
+[   0.0s] n=10 K=4 eta=1.5 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=36 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.03876133989356301}]
+[   0.0s] n=10 K=4 eta=1.5 tau=2 ysmall sqrt -> FEASIBLE min_delta=0.929012 delta_cc=0.929 explicit=0.929012 hard=0 leak=0.326 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.0s] n=10 K=4 eta=1.5 tau=2 ysmall u    -> FEASIBLE min_delta=0.929012 delta_cc=0.929 explicit=0.929012 hard=0 leak=0.326 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.0s] n=10 K=4 eta=1.5 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=186 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}]
+[   0.0s] n=10 K=4 eta=1.5 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=186 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06697959533607689}]
+[   0.1s] n=10 K=4 eta=2.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.222 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.1s] n=10 K=4 eta=2.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.222 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.0s] n=10 K=4 eta=2.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=36 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}]
+[   0.0s] n=10 K=4 eta=2.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=36 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04295111447572708}]
+[   0.0s] n=10 K=4 eta=2.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=1.34473 delta_cc=1.345 explicit=1.34473 hard=0 leak=0.243 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.0s] n=10 K=4 eta=2.0 tau=2 ysmall u    -> FEASIBLE min_delta=1.34473 delta_cc=1.345 explicit=1.34473 hard=0 leak=0.243 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.0s] n=10 K=4 eta=2.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=186 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}]
+[   0.0s] n=10 K=4 eta=2.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=186 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.06411361694335938}]
+[   0.1s] n=10 K=4 eta=3.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.493827 delta_cc=0.4938 explicit=0.493827 hard=0 leak=0.198 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.1s] n=10 K=4 eta=3.0 tau=1 ysmall u    -> FEASIBLE min_delta=0.493827 delta_cc=0.4938 explicit=0.493827 hard=0 leak=0.198 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.0s] n=10 K=4 eta=3.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=36 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}]
+[   0.0s] n=10 K=4 eta=3.0 tau=1 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=36 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 975, "e": 4, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}, {"S": 975, "e": 5, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}, {"S": 983, "e": 3, "size": 8, "xy": [4, 4], "dF": 0.0, "dG": 0.04154418722822406}]
+[   0.0s] n=10 K=4 eta=3.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=1.82427 delta_cc=1.824 explicit=1.82427 hard=0 leak=0.208 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.0s] n=10 K=4 eta=3.0 tau=2 ysmall u    -> FEASIBLE min_delta=1.82427 delta_cc=1.824 explicit=1.82427 hard=0 leak=0.208 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.0s] n=10 K=4 eta=3.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=186 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}]
+[   0.0s] n=10 K=4 eta=3.0 tau=2 true   u    -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=186 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 961, "e": 1, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}, {"S": 961, "e": 2, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}, {"S": 961, "e": 3, "size": 5, "xy": [1, 4], "dF": 0.0, "dG": 0.053935654042352565}]
+[   0.6s] n=12 K=4 eta=1.5 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.234568 delta_cc=0.2346 explicit=0.234568 hard=0 leak=0.127 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.0s] n=12 K=4 eta=1.5 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=232 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 3871, "e": 5, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03230111657796919}, {"S": 3871, "e": 6, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03230111657796919}, {"S": 3871, "e": 7, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03230111657796919}]
+[   0.1s] n=12 K=4 eta=1.5 tau=2 ysmall sqrt -> FEASIBLE min_delta=0.929012 delta_cc=0.929 explicit=0.929012 hard=0 leak=0.282 ratio_B=0.5177 (LK=0.5177) optO=True
+[   0.0s] n=12 K=4 eta=1.5 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=4.358 explicit= hard=960 leak= ratio_B=0.5177 (LK=0.5177) optO=True
+   certificate examples: [{"S": 3843, "e": 2, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 3843, "e": 3, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05581632944673065}, {"S": 3843, "e": 4, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05581632944673065}]
+[   0.5s] n=12 K=4 eta=2.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.361111 delta_cc=0.3611 explicit=0.361111 hard=0 leak=0.166 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.0s] n=12 K=4 eta=2.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=232 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 3871, "e": 5, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.037582225166261196}, {"S": 3871, "e": 6, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.037582225166261196}, {"S": 3871, "e": 7, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.037582225166261196}]
+[   0.1s] n=12 K=4 eta=2.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=1.34473 delta_cc=1.345 explicit=1.34473 hard=0 leak=0.345 ratio_B=0.4138 (LK=0.4138) optO=True
+[   0.0s] n=12 K=4 eta=2.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=6.181 explicit= hard=960 leak= ratio_B=0.4138 (LK=0.4138) optO=True
+   certificate examples: [{"S": 3843, "e": 2, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05609941482543945}, {"S": 3843, "e": 3, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05609941482543945}, {"S": 3843, "e": 4, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.05609941482543945}]
+[   0.5s] n=12 K=4 eta=3.0 tau=1 ysmall sqrt -> FEASIBLE min_delta=0.493827 delta_cc=0.4938 explicit=0.493827 hard=0 leak=0.216 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.0s] n=12 K=4 eta=3.0 tau=1 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=232 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 3871, "e": 5, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03808217162587213}, {"S": 3871, "e": 6, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03808217162587213}, {"S": 3871, "e": 7, "size": 9, "xy": [5, 4], "dF": 0.0, "dG": 0.03808217162587213}]
+[   0.1s] n=12 K=4 eta=3.0 tau=2 ysmall sqrt -> FEASIBLE min_delta=1.82427 delta_cc=1.824 explicit=1.82427 hard=0 leak=0.224 ratio_B=0.2939 (LK=0.2939) optO=True
+[   0.0s] n=12 K=4 eta=3.0 tau=2 true   sqrt -> INFEASIBLE-ANY-DELTA min_delta= delta_cc=8.493 explicit= hard=960 leak= ratio_B=0.2939 (LK=0.2939) optO=True
+   certificate examples: [{"S": 3843, "e": 2, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.049441016205489796}, {"S": 3843, "e": 3, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.049441016205489796}, {"S": 3843, "e": 4, "size": 6, "xy": [2, 4], "dF": 0.0, "dG": 0.049441016205489796}]
