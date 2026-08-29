@@ -10,3 +10,10 @@
 ---
 
 ## 任务日志（倒序追加在此行之下）
+
+### T1 基线复现 [VERIFIED-LP] — PASS
+- 做了什么：运行 `code/check_explicit_instance.py` 与 `code/worst_case_lp.py` 的 worst_case()
+  （K=2 n=4、K=3 n=6，single-element 误差，η_u=η_o=√η，η ∈ {1,1.5,2,2.5,3,4}）。
+- 结果：explicit instance 6 组参数 ALL PASS；12 个 LP 值与 RESEARCH_STATE.md R5 全部一致（<1e-7）。
+- 复现：`python3 results/T1_baseline.py`，输出 `results/T1_baseline.txt`。
+- 下一步：T2。

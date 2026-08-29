@@ -1,0 +1,25 @@
+== T1.1 check_explicit_instance.py ==
+PASS {'K': 2, 'ahat': 2.0, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(2.0), 'eta_o': np.float64(1.5), 'eta': np.float64(3.0), 'eta_formula': 3.0, 'picked_all_B': True, 'ratio': np.float64(0.4375), 'one_minus_aK': 0.4375, 'path_eta': np.float64(2.0), 'path_eta_formula': 2.0}
+PASS {'K': 3, 'ahat': 2.0, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(2.0), 'eta_o': np.float64(1.25), 'eta': np.float64(2.5), 'eta_formula': 2.5, 'picked_all_B': True, 'ratio': np.float64(0.421296), 'one_minus_aK': 0.421296, 'path_eta': np.float64(2.0), 'path_eta_formula': 2.0}
+PASS {'K': 4, 'ahat': 1.5, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(1.5), 'eta_o': np.float64(1.111111), 'eta': np.float64(1.666667), 'eta_formula': 1.666667, 'picked_all_B': True, 'ratio': np.float64(0.517747), 'one_minus_aK': 0.517747, 'path_eta': np.float64(1.5), 'path_eta_formula': 1.5}
+PASS {'K': 5, 'ahat': 3.0, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(3.0), 'eta_o': np.float64(1.166667), 'eta': np.float64(3.5), 'eta_formula': 3.5, 'picked_all_B': True, 'ratio': np.float64(0.291754), 'one_minus_aK': 0.291754, 'path_eta': np.float64(3.0), 'path_eta_formula': 3.0}
+PASS {'K': 6, 'ahat': 2.0, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(2.0), 'eta_o': np.float64(1.1), 'eta': np.float64(2.2), 'eta_formula': 2.2, 'picked_all_B': True, 'ratio': np.float64(0.406708), 'one_minus_aK': 0.406708, 'path_eta': np.float64(2.0), 'path_eta_formula': 2.0}
+PASS {'K': 6, 'ahat': 1.2, 'mono': True, 'submod': True, 'finite': True, 'eta_u': np.float64(1.2), 'eta_o': np.float64(1.033333), 'eta': np.float64(1.24), 'eta_formula': 1.24, 'picked_all_B': True, 'ratio': np.float64(0.592286), 'one_minus_aK': 0.592286, 'path_eta': np.float64(1.2), 'path_eta_formula': 1.2}
+ALL PASS
+exit code: 0 (expect 0)
+
+== T1.2 worst_case_lp vs R5 (single-element error, eta_u=eta_o=sqrt(eta)) ==
+K=2 n=4 eta=1.0: LP=0.750000000  R5=0.750000000 (3/4)  OK
+K=2 n=4 eta=1.5: LP=0.600000000  R5=0.600000000 (3/5)  OK
+K=2 n=4 eta=2.0: LP=0.500000000  R5=0.500000000 (1/2)  OK
+K=2 n=4 eta=2.5: LP=0.400000000  R5=0.400000000 (2/5)  OK
+K=2 n=4 eta=3.0: LP=0.333333333  R5=0.333333333 (1/3)  OK
+K=2 n=4 eta=4.0: LP=0.250000000  R5=0.250000000 (1/4)  OK
+K=3 n=6 eta=1.0: LP=0.703703704  R5=0.703703704 (19/27)  OK
+K=3 n=6 eta=1.5: LP=0.562500000  R5=0.562500000 (9/16)  OK
+K=3 n=6 eta=2.0: LP=0.466666667  R5=0.466666667 (7/15)  OK
+K=3 n=6 eta=2.5: LP=0.388888889  R5=0.388888889 (7/18)  OK
+K=3 n=6 eta=3.0: LP=0.333333333  R5=0.333333333 (1/3)  OK
+K=3 n=6 eta=4.0: LP=0.250000000  R5=0.250000000 (1/4)  OK
+
+T1 RESULT: ALL CONSISTENT [VERIFIED-LP]
