@@ -1,0 +1,7 @@
+[pair]   n=9 K=4 eta=1.5  LP=0.600000  argmin O=(4, 5, 6, 7)  (230s)
+         sanity pair>=Rstep_bound: True  (pair=0.600000, bound=0.555556)
+[pair]   n=9 K=4 eta=2.0  LP=0.500000  argmin O=(4, 5, 6, 7)  (196s)
+         sanity pair>=Rstep_bound: True  (pair=0.500000, bound=0.437500)
+[pair]   n=9 K=4 eta=3.0  LP=0.333333  argmin O=(4, 5, 6, 7)  (324s)
+         sanity pair>=Rstep_bound: True  (pair=0.333333, bound=0.305556)
+wrote /home/user/experiment/overnight/results/T4_pair_vs_single.csv and /home/user/experiment/overnight/results/T4_pair_vs_single.json
