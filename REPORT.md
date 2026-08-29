@@ -1,11 +1,12 @@
 # REPORT.md
 
-## Summary（进行中，完成后更新为 ≤5 行终版）
+## Summary
 
-- 会话开始：2026-08-29（环境：Claude Code 远程容器，4 核，scipy/sympy/sklearn 已装）
-- 注：原计划新建仓库存放本目录，但 GitHub 集成无创建仓库权限（403），保守选择放入
-  `experiment` 仓库 `claude/understand-requirements-oz3ayh` 分支的 `overnight/` 子目录。
-  整个目录自包含，之后可原样迁移到新仓库。
+- 全部 PASS：T1 基线一致；T2 hardness；T3 闭式；T4 lookahead；T5 符号化；T6 实证；T7 定理草稿。无 FAIL（仅 T2 的 4 个超大 LP 超时跳过，已记录）。
+- 最重要发现：R9 候选在真 balanced 定义下有结构性不可行证书（F 在 y=K 处平坦 vs Ĝ 递增，任意 n/δ/τ 都救不了）；放开 F 后 LP 值贴 U_K、K→∞ → 1−e^{−1/η}，且 y≤τ 下最小 δ 有精确闭式 1+δ=(a^τK/(K−τ))²。
+- 意外收获：T3 得到 K=3、K=4 分段闭式 + 一般 K 猜想 min_j V_j（符号对偶证书）；T4 发现 pair greedy 在 K=4 恰等于 ρ_2(η)；T5 把 R7 升级为一般 K [VERIFIED-SYMBOLIC]。
+- 最需人类判断：论文 hardness 一节怎么讲——T2 表明现有技术只能给渐近 1−e^{−1/η}（有限 K 贴 U_K），严格 poly-query 定理需要从 T2_relaxF_solution_example.json 的 LP 最优解解析化新构造。
+- 环境注：GitHub 写权限 403（Claude App 未安装），全部工作在本地分支 commit；装好 App 后一次 push 即可。
 
 ---
 
