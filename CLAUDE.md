@@ -35,3 +35,10 @@
 - ρ_K(η)：single-step predictive greedy 在 tie 对抗打破下的精确最坏比。
 - L_K(η) = 1 − (1 − 1/(ηK))^K（论文 Theorem 6 下界）。
 - U_K(η) = 1 − (1 − 1/(η(K−1)+1))^K（显式实例上界）。
+
+## 空洞性检验（第二晚新增）
+
+定理陈述或贡献句里的**每个限定词**（例如 deterministic、poly-query、single-step、monotone、worst-case、asymptotically、up to constants）逐个做检验：把它去掉、或换成对立面，重新读整句。
+- 若句子的内容/真值不变：删掉该限定词。
+- 若变了：必须能用一句话说清变在哪，并把这句话写进正文或脚注；说不清就不准用。
+写 REPORT、定理草稿和贡献列表时逐条执行；GLOSSARY.md 里列了最容易空洞的词（tight、any algorithm、robust、information-theoretic）。

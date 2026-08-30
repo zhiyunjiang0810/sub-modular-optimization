@@ -12,7 +12,7 @@ f̃(S) = c|S| 对称；算法输出 S；取 O ⊆ N∖S（n ≥ 2K），f(S) = c
 误差恰为 (η_u, η_o)（all-pairs 定义），比值 1/η。随机算法：O 均匀随机，≤ (1−K/n)/η + K/n。
 对 f̃ 穷举 K-子集达到 1/η：f(S̃) ≥ f̃(S̃)/η_o ≥ f̃(O)/η_o ≥ f(O)/η。
 
-## R3 [HAND-PROOF-UNREVIEWED] Consistency lemma
+## R3 [HAND-PROOF-UNREVIEWED] Coherence lemma（原名 consistency lemma，因与 LAA 术语撞名改称，见 GLOSSARY.md）
 f 单调，S ⊆ N，e,e' ∉ S，d̃_e(S) ≥ d̃_{e'}(S)。则
 (i) d_e(S∪{e'}) ≥ d_{e'}(S∪{e})/η；
 (ii) (1 − 1/η)·d_{e'}(S∪{e}) ≥ d_{e'}(S) − d_e(S)。
@@ -66,6 +66,47 @@ G(x,y) = 1 − a^{x+y}（y ≤ τ），G(x,y) = 1 − a^{x+τ}(K−y)/(K−τ)�
 小集合上 band 检查通过（误差膨胀 1+O(τ/K)）。**未解决**：真正的 balanced 区域是 |y − K|S|/n| ≤ τ（不是 y ≤ τ），大集合上 G 的定义是否能同时不泄露 O 且留在 η 带内。
 
 ## 已知的论文错误（改稿时修）
+- Section 1.1 近似比定义方向写反（写成 OPT ≤ α·A）；应为 F^ALG ≥ α·F^OPT，α ∈ (0,1]（第二晚 N0 追加，见 GLOSSARY.md）。
 - Section 3.3 λ 不等式方向写反；Theorem 10 K*=K 情形漏 1/λ；θ(f̃)/λ_o 项需重推。
 - 负面结果的引用应为 Horel & Singer NeurIPS 2016（ε > n^{−1/2} 指数查询下界），不是 [5] Hassidim–Singer 2017（i.i.d. 噪声的正面结果）。
 - R-step 部分将整体删除，只保留穷举达到 1/η 的一句 remark。
+
+## R10 [VERIFIED-SYMBOLIC K=2,3,4（作为 reduced LP 值）；一般 K CONJECTURE] ρ_K^LP 闭式
+k1 = (K−1)η + 1，q = (K−1)η/k1，V_j(η) = 1 − q^j(1 − (K−j)/(Kη))。
+reduced LP 值在段 η ∈ [K−j, K−j+1] 上 = V_j（j ≥ 1），在 [K, ∞) 上 = V_0 = 1/η；分段点为整数 2..K。
+K=2,3,4 全部 9 段有显式 primal 解 + 对偶证书（sympy 精确算术 + Sturm 根计数，duality gap ≤ 1.1e−16）。
+K=3：(16η+3)/(3(2η+1)²)，7/(3(2η+1))，1/η。K=4：(135η²+36η+4)/(4(3η+1)³)，(21η+2)/(2(3η+1)²)，13/(4(3η+1))，1/η。
+一般 K 猜想 ρ_K^LP = min_j V_j：205 点（K=2..6）偏差 ≤ 8.9e−16；两个一般 K 恒等式已符号证。
+净状态：ρ_K ≥ 闭式 = 符号证书 + R6 手证；相等方向只在 R5/R6 有限点 [VERIFIED-LP]。
+primal 最优解结构（段 j）：t < j 为 consistency 步（d_t = q^t/k1，G_t = q^t/K），t ≥ j 为 prediction 步
+（d_t = q^j/(Kη)，G_t = q^j 冻结）。对偶支撑集：sum(0..j)、cons(0..K−2)、pred(j..K−1)。
+详见 results/T3_K3_closed_form.md（含 j=0 段乘子的显式一般 K 公式）。
+
+## R11 [VERIFIED-LP 有限实例] Poly-query hardness 候选（R9）的三条结论
+(a) balanced 取 y ≤ τ：候选可行，最小误差膨胀有精确闭式 1+δ = (a^τK/(K−τ))²，a = 1−1/(ηK)
+（全格点 (n,K) ∈ {(8,3),(10,3),(10,4),(12,4)} + 网格 K ≤ 32 全部吻合；δ = 2τ(1−1/η)/K + O(1/K²) → 0；
+一般 (K,τ,η) 为 CONJECTURE）。LP 最小 δ = 常数-常数约束解析下界 = 显式候选的实际膨胀，三者重合。
+(b) balanced 取真集中带 |y − K|S|/n| ≤ τ：R9 候选对任意 δ 不可行，结构性证书 = balanced 的 S ⊇ O
+加 B 元素时 Δ_e F = 0（F 在 y=K 处 x 方向平坦）但 Ĝ 严格递增；证书对一切 n 存在，必须改 F。
+(c) 放开 F（保单调、submodular、F(O)=1、OPT 归一化，G 在 balanced 区域只依赖 |S|，δ=0）：
+两种定义都可行；min F(K-set ⊆ B) 贴着 U_K(η)，K→∞ → 1−e^{−1/η}（K ≤ 24 网格 + (8,3) 全格点
+双 oracle，对称化经 crosscheck 严格等价）。LP 最优解形状（Ĝ 大集合处饱和、F 线性化）已导出：
+results/T2_relaxF_solution_example.json。意外观察 [CONJECTURE]：(8,3) τ=1 y≤τ 时 relaxF 值 = ρ_3(η) 逐点。
+详见 results/T2_summary.md。
+
+## R12 [VERIFIED-LP n=8,9] Pair greedy（R=2 lookahead）在 K=4 恰为 ρ_2(η)
+all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5,2,3} 为 3/5, 1/2, 1/3 = ρ_2(η)
+（吻合到 3.3e−16）。同误差模型 single-step = R5 值；改善 +0.056/+0.051/+0.008，η ≥ K/2 时 pair 达 1/η。
+论文 R-step 下界 1−(1−1/(2η))² 成立但不紧。一般 K 的 ρ_{K/R} 对应关系 [CONJECTURE]；
+若成立则由 R8 知常数 R lookahead 不改变 1−e^{−1/η} 极限。数据 results/T4_pair_vs_single.csv。
+
+## R13 [实证测量] 真实 surrogate 的 η^path（feature selection，30 splits）
+η^path 大且重尾（K=7 中位数：breast_cancer 43，wine 60，digits20 371），L_K(η^path) 下界 vacuous；
+但 ratio(K=7) 中位数 0.963/0.941/0.957（630 行最差 0.718）。机制：η 爆炸由 accuracy 量化尺度的
+近零增益主导（argmax 对的 d̃ 或 d 恰为 1 个量化单位）；方向一致性违反率 17%-32%，d ≤ 0 占 29%-53%。
+含义：multiplicative 误差对 ML surrogate 过于悲观，动机 → additive-multiplicative / trimmed 变体（N6）。
+数据 results/T6_eta_path.csv，诊断 results/T6_argmax_diagnostic.json。
+
+## 更新（第二晚 N0）
+- R7 已由 T5 升级为一般 K [VERIFIED-SYMBOLIC]（p=a^x、Q=a^dx 参数化；results/T5_symbolic.py，105/105）。
+- R3 改称 coherence lemma（GLOSSARY.md）。

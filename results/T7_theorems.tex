@@ -45,10 +45,11 @@ the limit.
 % ties toward B picks all of B, ratio = 1 - a^K = L_K(ahat), path error = ahat.
 
 % ---------------------------------------------------------------------------
-% Lemma B (consistency lemma)
+% Lemma B (coherence lemma; renamed from "consistency lemma" to avoid the
+% clash with the LAA notion of consistency -- see GLOSSARY.md)
 % Status: [HAND-PROOF-UNREVIEWED] (RESEARCH_STATE.md R3; proof is elementary,
 %         uses only single-element error bounds).
-\begin{lemma}[Consistency]\label{lem:consistency}
+\begin{lemma}[Coherence]\label{lem:coherence}
 Let $f$ be monotone, $S\subseteq N$, $e,e'\notin S$, and suppose
 $\tilde d_e(S)\ge \tilde d_{e'}(S)$. Then
 \[
