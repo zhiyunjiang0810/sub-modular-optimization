@@ -12,6 +12,17 @@
 
 ## 任务日志（倒序追加在此行之下）
 
+### ——— 第二晚（TASKS2.md）———
+
+### N0 术语表与规则更新 — PASS
+- GLOSSARY.md 建立（13 个词条，含任务规定的 8 个必含术语：近似比方向、consistency 撞名改称
+  coherence lemma、tight 三义、any algorithm 三范围、robust 禁用、η 与 Agarwal-Balkanski 撞名、
+  information-theoretic、deterministic vs randomized 下界）。
+- CLAUDE.md 末尾新增"空洞性检验"规则；RESEARCH_STATE.md 追加 R10-R13（各带状态标签）、
+  R7 升级注记、R3 更名、已知论文错误新增"Section 1.1 近似比定义方向写反"。
+- results/T7_theorems.tex 的 Lemma B 同步改名 Coherence。代码内部约束标识 cons(t) 不动
+  （属脚本内部命名，改动会破坏第一晚脚本的可复现性，保守处理并在 GLOSSARY 注明）。
+
 ### T7 定理陈述与证明草稿 — PASS
 - `results/T7_theorems.tex`：Theorem A（trajectory-tight，L_K(η^path) 下界 + U_K 逐 K 紧，
   紧性现为一般 K [VERIFIED-SYMBOLIC]）、Lemma B（consistency，[HAND-PROOF-UNREVIEWED]）、
