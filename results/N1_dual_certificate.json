@@ -1,0 +1,4230 @@
+{
+ "overall": "PASS",
+ "n_checks": 320,
+ "n_pass": 320,
+ "KMAX_explicit": 10,
+ "checks": [
+  {
+   "part": "A",
+   "name": "D2 at t=0 (j>=1): y_sum(0) = y_cons(0) forces it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D2 for 1 <= t <= j-1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D2 at t=j (j>=1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D2 for j+1 <= t <= K-1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D2 at t=K (needs y_cons(K-1) = 0)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D2 at t=0 for the j=0 segment",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D1 for t >= j: y_pred(t) + y_cons(t) = -1/K  (and sum_{s>t} y_sum(s) = 0)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D1 base at t=j-1: -y_sum(j) - K y_cons(j-1) = 1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "D1 downward induction step for t <= j-2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "b'y = V_j for j >= 1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "A",
+   "name": "b'y = V_0 = 1/eta for j = 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "P_t = 1-q^t for t<=j: step (1-q^{t+1}) - (1-q^t) = d_t = q^t/k1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "P_t for t>=j: step = d_t = q^j/(K eta)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "P_t claims agree at t=j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "sum(t) is TIGHT for t <= j:  K G_t = q^t = r_t",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "sum(t) slack for t > j equals (t-j) q^j/(K eta) >= 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "pred(t) slack for t < j equals q^t (eta-1)/(K eta k1) >= 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "pred(t) is TIGHT for t >= j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "mono(t) slack for t < j equals q^t/(K k1) > 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "mono(t) is TIGHT for t >= j (G frozen)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "cons(t) is TIGHT for t < j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "cons(t) is TIGHT for t >= j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "B",
+   "name": "c'x = P_K = 1 - q^j(1-(K-j)/(K eta)) = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "C",
+   "name": "k1 > 0 on segment j>=1",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 1, 1, 1, 2]"
+  },
+  {
+   "part": "C",
+   "name": "numerator of q is > 0  =>  q > 0",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 1, 1, 1, 1]"
+  },
+  {
+   "part": "C",
+   "name": "M = K eta - (K-j) > 0 on segment j>=1",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 1, 1, 2, 1]"
+  },
+  {
+   "part": "C",
+   "name": "-y_sum(j) numerator = K-j+1-eta = 1-s >= 0 (=0 at eta=K-j+1)",
+   "pass": true,
+   "detail": "coeffs=[1]"
+  },
+  {
+   "part": "C",
+   "name": "K k1 > 0  =>  y_sum(0), y_cons(t<=j-1) <= 0 (with q>0, M>0)",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 1, 3, 3, 4, 2, 2, 4]"
+  },
+  {
+   "part": "C",
+   "name": "k1^2 > 0  =>  y_sum(1..j-1) <= 0",
+   "pass": true,
+   "detail": "coeffs=[1, 2, 2, 1, 2, 1, 2, 4, 6, 2, 6, 4, 1, 2, 4, 1, 4, 4]"
+  },
+  {
+   "part": "C",
+   "name": "j<=K-2: K(eta-1) > 0 on [K-j, K-j+1]",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 1, 2, 2, 2]"
+  },
+  {
+   "part": "C",
+   "name": "-y_pred(j+m) numerator = eta-(K-j-m) = s+m >= 0 (=0 at eta=K-j, m=0)",
+   "pass": true,
+   "detail": "coeffs=[1, 1]"
+  },
+  {
+   "part": "C",
+   "name": "-y_cons(j+m) numerator = K-1-t = u-1-m >= 0",
+   "pass": true,
+   "detail": "coeffs=[1]"
+  },
+  {
+   "part": "C",
+   "name": "j=K-1: y_pred(K-1) = -(eta-1)/(K(eta-1)) = -1/K (removable at eta=1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "C",
+   "name": "j=K-1: y_cons(K-1) = -(K-1-(K-1))/(K(eta-1)) = 0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "C",
+   "name": "j=0: K(eta-1) > 0 on [K,oo)",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 3, 2, 2]"
+  },
+  {
+   "part": "C",
+   "name": "j=0: -y_pred(t) numerator = eta-(K-t) = s+t >= 0 on [K,oo)",
+   "pass": true,
+   "detail": "coeffs=[1, 1]"
+  },
+  {
+   "part": "C",
+   "name": "j=0: -y_cons(t) numerator = K-1-t >= 0",
+   "pass": true,
+   "detail": "coeffs=[1]"
+  },
+  {
+   "part": "C",
+   "name": "j=0: -y_sum(0) = 1/eta > 0",
+   "pass": true,
+   "detail": "coeffs=[1, 1, 2]"
+  },
+  {
+   "part": "D",
+   "name": "V_i - V_{i+1} = q^i (K-i-eta) / (K eta k1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "D",
+   "name": "i<=j-1 on segment: K-i-eta = 1+a-s >= 0",
+   "pass": true,
+   "detail": "coeffs=[1, 1]"
+  },
+  {
+   "part": "D",
+   "name": "i>=j on segment: -(K-i-eta) = a+s >= 0",
+   "pass": true,
+   "detail": "coeffs=[1, 1]"
+  },
+  {
+   "part": "D",
+   "name": "V_0 = 1/eta",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "D",
+   "name": "V_j - V_{j-1} = 0 exactly at eta = K-j+1 (breakpoints are integers)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "D",
+   "name": "U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k1) >= 0 for eta >= 1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=0 eta in [2,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=0 eta in [2,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=0 eta in [2,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=0 eta in [2,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.0s)"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=0 eta in [2,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=1 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=1 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=1 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=1 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 3/(2*(eta + 1))  (0.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=2 j=1 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=0 eta in [3,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=0 eta in [3,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=0 eta in [3,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=0 eta in [3,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=0 eta in [3,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=1 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=1 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=1 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=1 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 7/(3*(2*eta + 1))  (0.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=1 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=2 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=2 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=2 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=2 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (16*eta + 3)/(3*(2*eta + 1)**2)  (0.2s)"
+  },
+  {
+   "part": "E",
+   "name": "K=3 j=2 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=0 eta in [4,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=0 eta in [4,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=0 eta in [4,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=0 eta in [4,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=0 eta in [4,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=1 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=1 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=1 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=1 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 13/(4*(3*eta + 1))  (0.2s)"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=1 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=2 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=2 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=2 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=2 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (21*eta + 2)/(2*(3*eta + 1)**2)  (0.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=2 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=3 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=3 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=3 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=3 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (135*eta**2 + 36*eta + 4)/(4*(3*eta + 1)**3)  (0.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=4 j=3 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=0 eta in [5,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=0 eta in [5,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=0 eta in [5,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=0 eta in [5,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.2s)"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=0 eta in [5,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=1 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=1 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=1 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=1 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 21/(5*(4*eta + 1))  (0.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=1 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=2 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=2 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=2 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=2 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (88*eta + 5)/(5*(4*eta + 1)**2)  (0.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=2 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=3 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=3 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=3 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=3 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (368*eta**2 + 60*eta + 5)/(5*(4*eta + 1)**3)  (0.5s)"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=3 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=4 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=4 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=4 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=4 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (1536*eta**3 + 480*eta**2 + 80*eta + 5)/(5*(4*eta + 1)**4)  (0.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=5 j=4 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=0 eta in [6,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=0 eta in [6,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=0 eta in [6,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=0 eta in [6,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.2s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=0 eta in [6,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=1 eta in [5,6]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=1 eta in [5,6]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=1 eta in [5,6]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=1 eta in [5,6]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 31/(6*(5*eta + 1))  (0.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=1 eta in [5,6]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=2 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=2 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=2 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=2 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (80*eta + 3)/(3*(5*eta + 1)**2)  (0.5s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=2 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=3 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=3 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=3 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=3 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (275*eta**2 + 30*eta + 2)/(2*(5*eta + 1)**3)  (0.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=3 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=4 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=4 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=4 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=4 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (2125*eta**3 + 450*eta**2 + 60*eta + 3)/(3*(5*eta + 1)**4)  (0.8s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=4 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=5 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=5 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=5 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=5 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (21875*eta**4 + 7500*eta**3 + 1500*eta**2 + 150*eta + 6)/(6*(5*eta + 1)**5)  (0.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=6 j=5 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=0 eta in [7,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=0 eta in [7,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=0 eta in [7,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=0 eta in [7,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=0 eta in [7,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=1 eta in [6,7]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=1 eta in [6,7]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=1 eta in [6,7]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=1 eta in [6,7]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 43/(7*(6*eta + 1))  (0.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=1 eta in [6,7]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=2 eta in [5,6]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=2 eta in [5,6]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=2 eta in [5,6]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=2 eta in [5,6]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (264*eta + 7)/(7*(6*eta + 1)**2)  (0.7s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=2 eta in [5,6]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=3 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=3 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=3 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=3 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (1620*eta**2 + 126*eta + 7)/(7*(6*eta + 1)**3)  (0.8s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=3 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=4 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=4 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=4 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=4 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (9936*eta**3 + 1512*eta**2 + 168*eta + 7)/(7*(6*eta + 1)**4)  (0.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=4 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=5 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=5 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=5 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=5 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (60912*eta**4 + 15120*eta**3 + 2520*eta**2 + 210*eta + 7)/(7*(6*eta + 1)**5)  (1.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=5 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=6 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=6 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=6 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=6 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (373248*eta**5 + 136080*eta**4 + 30240*eta**3 + 3780*eta**2 + 252*eta + 7)/(7*(6*eta + 1)**6)  (1.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=7 j=6 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=0 eta in [8,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=0 eta in [8,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=0 eta in [8,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=0 eta in [8,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=0 eta in [8,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=1 eta in [7,8]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=1 eta in [7,8]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=1 eta in [7,8]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=1 eta in [7,8]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 57/(8*(7*eta + 1))  (0.8s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=1 eta in [7,8]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=2 eta in [6,7]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=2 eta in [6,7]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=2 eta in [6,7]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=2 eta in [6,7]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (203*eta + 4)/(4*(7*eta + 1)**2)  (0.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=2 eta in [6,7]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=3 eta in [5,6]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=3 eta in [5,6]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=3 eta in [5,6]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=3 eta in [5,6]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (2891*eta**2 + 168*eta + 8)/(8*(7*eta + 1)**3)  (1.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=3 eta in [5,6]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=4 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=4 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=4 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=4 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (5145*eta**3 + 588*eta**2 + 56*eta + 2)/(2*(7*eta + 1)**4)  (1.2s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=4 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=5 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=5 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=5 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=5 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (146461*eta**4 + 27440*eta**3 + 3920*eta**2 + 280*eta + 8)/(8*(7*eta + 1)**5)  (1.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=5 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=6 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=6 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=6 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=6 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (521017*eta**5 + 144060*eta**4 + 27440*eta**3 + 2940*eta**2 + 168*eta + 4)/(4*(7*eta + 1)**6)  (1.8s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=6 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=7 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=7 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=7 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=7 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (7411887*eta**6 + 2823576*eta**5 + 672280*eta**4 + 96040*eta**3 + 8232*eta**2 + 392*eta + 8)/(8*(7*eta + 1)**7)  (2.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=8 j=7 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=0 eta in [9,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=0 eta in [9,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=0 eta in [9,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=0 eta in [9,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.5s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=0 eta in [9,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=1 eta in [8,9]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=1 eta in [8,9]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=1 eta in [8,9]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=1 eta in [8,9]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 73/(9*(8*eta + 1))  (0.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=1 eta in [8,9]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=2 eta in [7,8]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=2 eta in [7,8]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=2 eta in [7,8]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=2 eta in [7,8]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (592*eta + 9)/(9*(8*eta + 1)**2)  (1.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=2 eta in [7,8]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=3 eta in [6,7]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=3 eta in [6,7]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=3 eta in [6,7]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=3 eta in [6,7]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (1600*eta**2 + 72*eta + 3)/(3*(8*eta + 1)**3)  (1.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=3 eta in [6,7]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=4 eta in [5,6]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=4 eta in [5,6]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=4 eta in [5,6]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=4 eta in [5,6]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (38912*eta**3 + 3456*eta**2 + 288*eta + 9)/(9*(8*eta + 1)**4)  (1.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=4 eta in [5,6]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=5 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=5 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=5 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=5 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (315392*eta**4 + 46080*eta**3 + 5760*eta**2 + 360*eta + 9)/(9*(8*eta + 1)**5)  (1.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=5 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=6 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=6 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=6 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=6 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (851968*eta**5 + 184320*eta**4 + 30720*eta**3 + 2880*eta**2 + 144*eta + 3)/(3*(8*eta + 1)**6)  (2.0s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=6 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=7 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=7 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=7 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=7 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (20709376*eta**6 + 6193152*eta**5 + 1290240*eta**4 + 161280*eta**3 + 12096*eta**2 + 504*eta + 9)/(9*(8*eta + 1)**7)  (2.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=7 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=8 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=8 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=8 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=8 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (167772160*eta**7 + 66060288*eta**6 + 16515072*eta**5 + 2580480*eta**4 + 258048*eta**3 + 16128*eta**2 + 576*eta + 9)/(9*(8*eta + 1)**8)  (2.7s)"
+  },
+  {
+   "part": "E",
+   "name": "K=9 j=8 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=0 eta in [10,oo]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=0 eta in [10,oo]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=0 eta in [10,oo]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=0 eta in [10,oo]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 1/eta  (0.7s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=0 eta in [10,oo]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=1 eta in [9,10]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=1 eta in [9,10]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=1 eta in [9,10]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=1 eta in [9,10]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = 91/(10*(9*eta + 1))  (1.1s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=1 eta in [9,10]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=2 eta in [8,9]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=2 eta in [8,9]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=2 eta in [8,9]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=2 eta in [8,9]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (414*eta + 5)/(5*(9*eta + 1)**2)  (1.3s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=2 eta in [8,9]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=3 eta in [7,8]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=3 eta in [7,8]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=3 eta in [7,8]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=3 eta in [7,8]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (7533*eta**2 + 270*eta + 10)/(10*(9*eta + 1)**3)  (1.4s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=3 eta in [7,8]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=4 eta in [6,7]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=4 eta in [6,7]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=4 eta in [6,7]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=4 eta in [6,7]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (34263*eta**3 + 2430*eta**2 + 180*eta + 5)/(5*(9*eta + 1)**4)  (1.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=4 eta in [6,7]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=5 eta in [5,6]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=5 eta in [5,6]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=5 eta in [5,6]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=5 eta in [5,6]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (124659*eta**4 + 14580*eta**3 + 1620*eta**2 + 90*eta + 2)/(2*(9*eta + 1)**5)  (1.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=5 eta in [5,6]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=6 eta in [4,5]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=6 eta in [4,5]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=6 eta in [4,5]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=6 eta in [4,5]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (2834352*eta**5 + 492075*eta**4 + 72900*eta**3 + 6075*eta**2 + 270*eta + 5)/(5*(9*eta + 1)**6)  (2.6s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=6 eta in [4,5]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=7 eta in [3,4]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=7 eta in [3,4]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=7 eta in [3,4]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=7 eta in [3,4]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (51549777*eta**6 + 12400290*eta**5 + 2296350*eta**4 + 255150*eta**3 + 17010*eta**2 + 630*eta + 10)/(10*(9*eta + 1)**7)  (2.9s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=7 eta in [3,4]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=8 eta in [2,3]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=8 eta in [2,3]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=8 eta in [2,3]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=8 eta in [2,3]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (234365481*eta**7 + 74401740*eta**6 + 16533720*eta**5 + 2296350*eta**4 + 204120*eta**3 + 11340*eta**2 + 360*eta + 5)/(5*(9*eta + 1)**8)  (3.5s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=8 eta in [2,3]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=9 eta in [1,2]: A'y = c",
+   "pass": true,
+   "detail": "0 bad columns"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=9 eta in [1,2]: y <= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=9 eta in [1,2]: A x <= b and x >= 0 on segment",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=9 eta in [1,2]: b'y = V_j",
+   "pass": true,
+   "detail": "b'y = (4261625379*eta**8 + 1721868840*eta**7 + 446410440*eta**6 + 74401740*eta**5 + 8266860*eta**4 + 612360*eta**3 + 29160*eta**2 + 810*eta + 10)/(10*(9*eta + 1)**9)  (3.8s)"
+  },
+  {
+   "part": "E",
+   "name": "K=10 j=9 eta in [1,2]: c'x = V_j",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "part": "F",
+   "name": "closed-form y is dual feasible AND optimal (b'y = LP), K=2..6, every segment",
+   "pass": true,
+   "detail": "max violation 3.33e-16 at (5, 4, 1.5)"
+  },
+  {
+   "part": "F",
+   "name": "closed form = scipy dual symmetrised over i, wherever scipy stays on the same face (mono multipliers 0)",
+   "pass": true,
+   "detail": "max rel dev 7.63e-16 at (5, 2, 3.5); 2/60 points had a degenerate dual face"
+  },
+  {
+   "part": "F",
+   "name": "LP value = V_{j(eta)} on grid, K=2..10",
+   "pass": true,
+   "detail": "max abs dev 6.66e-16 at (10, 2.5)"
+  },
+  {
+   "part": "F",
+   "name": "corollary y_mono=0: dropping the mono(t,i) rows leaves the LP value unchanged",
+   "pass": true,
+   "detail": "max abs dev 2.22e-16 at (7, 6.5)"
+  },
+  {
+   "part": "F",
+   "name": "sandwich L_K(eta) <= min_j V_j(eta) <= U_K(eta), K=2..24 grid",
+   "pass": true,
+   "detail": "max L_K excess 0.00e+00 at None, max U_K excess 6.66e-16"
+  },
+  {
+   "part": "G",
+   "name": "general-K formula reproduces EVERY T3 multiplier (K=2,3,4, all 9 segments)",
+   "pass": true,
+   "detail": "58 multipliers compared, 0 mismatches []"
+  }
+ ],
+ "segments_explicit": {
+  "K=2 j=0 eta in [2,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=2 j=1 eta in [1,2]": {
+   "V_j": "3/(2*(eta + 1))",
+   "b_dot_y": "3/(2*(eta + 1))"
+  },
+  "K=3 j=0 eta in [3,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=3 j=1 eta in [2,3]": {
+   "V_j": "7/(3*(2*eta + 1))",
+   "b_dot_y": "7/(3*(2*eta + 1))"
+  },
+  "K=3 j=2 eta in [1,2]": {
+   "V_j": "(16*eta + 3)/(3*(2*eta + 1)**2)",
+   "b_dot_y": "(16*eta + 3)/(3*(2*eta + 1)**2)"
+  },
+  "K=4 j=0 eta in [4,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=4 j=1 eta in [3,4]": {
+   "V_j": "13/(4*(3*eta + 1))",
+   "b_dot_y": "13/(4*(3*eta + 1))"
+  },
+  "K=4 j=2 eta in [2,3]": {
+   "V_j": "(21*eta + 2)/(2*(3*eta + 1)**2)",
+   "b_dot_y": "(21*eta + 2)/(2*(3*eta + 1)**2)"
+  },
+  "K=4 j=3 eta in [1,2]": {
+   "V_j": "(135*eta**2 + 36*eta + 4)/(4*(3*eta + 1)**3)",
+   "b_dot_y": "(135*eta**2 + 36*eta + 4)/(4*(3*eta + 1)**3)"
+  },
+  "K=5 j=0 eta in [5,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=5 j=1 eta in [4,5]": {
+   "V_j": "21/(5*(4*eta + 1))",
+   "b_dot_y": "21/(5*(4*eta + 1))"
+  },
+  "K=5 j=2 eta in [3,4]": {
+   "V_j": "(88*eta + 5)/(5*(4*eta + 1)**2)",
+   "b_dot_y": "(88*eta + 5)/(5*(4*eta + 1)**2)"
+  },
+  "K=5 j=3 eta in [2,3]": {
+   "V_j": "(368*eta**2 + 60*eta + 5)/(5*(4*eta + 1)**3)",
+   "b_dot_y": "(368*eta**2 + 60*eta + 5)/(5*(4*eta + 1)**3)"
+  },
+  "K=5 j=4 eta in [1,2]": {
+   "V_j": "(1536*eta**3 + 480*eta**2 + 80*eta + 5)/(5*(4*eta + 1)**4)",
+   "b_dot_y": "(1536*eta**3 + 480*eta**2 + 80*eta + 5)/(5*(4*eta + 1)**4)"
+  },
+  "K=6 j=0 eta in [6,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=6 j=1 eta in [5,6]": {
+   "V_j": "31/(6*(5*eta + 1))",
+   "b_dot_y": "31/(6*(5*eta + 1))"
+  },
+  "K=6 j=2 eta in [4,5]": {
+   "V_j": "(80*eta + 3)/(3*(5*eta + 1)**2)",
+   "b_dot_y": "(80*eta + 3)/(3*(5*eta + 1)**2)"
+  },
+  "K=6 j=3 eta in [3,4]": {
+   "V_j": "(275*eta**2 + 30*eta + 2)/(2*(5*eta + 1)**3)",
+   "b_dot_y": "(275*eta**2 + 30*eta + 2)/(2*(5*eta + 1)**3)"
+  },
+  "K=6 j=4 eta in [2,3]": {
+   "V_j": "(2125*eta**3 + 450*eta**2 + 60*eta + 3)/(3*(5*eta + 1)**4)",
+   "b_dot_y": "(2125*eta**3 + 450*eta**2 + 60*eta + 3)/(3*(5*eta + 1)**4)"
+  },
+  "K=6 j=5 eta in [1,2]": {
+   "V_j": "(21875*eta**4 + 7500*eta**3 + 1500*eta**2 + 150*eta + 6)/(6*(5*eta + 1)**5)",
+   "b_dot_y": "(21875*eta**4 + 7500*eta**3 + 1500*eta**2 + 150*eta + 6)/(6*(5*eta + 1)**5)"
+  },
+  "K=7 j=0 eta in [7,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=7 j=1 eta in [6,7]": {
+   "V_j": "43/(7*(6*eta + 1))",
+   "b_dot_y": "43/(7*(6*eta + 1))"
+  },
+  "K=7 j=2 eta in [5,6]": {
+   "V_j": "(264*eta + 7)/(7*(6*eta + 1)**2)",
+   "b_dot_y": "(264*eta + 7)/(7*(6*eta + 1)**2)"
+  },
+  "K=7 j=3 eta in [4,5]": {
+   "V_j": "(1620*eta**2 + 126*eta + 7)/(7*(6*eta + 1)**3)",
+   "b_dot_y": "(1620*eta**2 + 126*eta + 7)/(7*(6*eta + 1)**3)"
+  },
+  "K=7 j=4 eta in [3,4]": {
+   "V_j": "(9936*eta**3 + 1512*eta**2 + 168*eta + 7)/(7*(6*eta + 1)**4)",
+   "b_dot_y": "(9936*eta**3 + 1512*eta**2 + 168*eta + 7)/(7*(6*eta + 1)**4)"
+  },
+  "K=7 j=5 eta in [2,3]": {
+   "V_j": "(60912*eta**4 + 15120*eta**3 + 2520*eta**2 + 210*eta + 7)/(7*(6*eta + 1)**5)",
+   "b_dot_y": "(60912*eta**4 + 15120*eta**3 + 2520*eta**2 + 210*eta + 7)/(7*(6*eta + 1)**5)"
+  },
+  "K=7 j=6 eta in [1,2]": {
+   "V_j": "(373248*eta**5 + 136080*eta**4 + 30240*eta**3 + 3780*eta**2 + 252*eta + 7)/(7*(6*eta + 1)**6)",
+   "b_dot_y": "(373248*eta**5 + 136080*eta**4 + 30240*eta**3 + 3780*eta**2 + 252*eta + 7)/(7*(6*eta + 1)**6)"
+  },
+  "K=8 j=0 eta in [8,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=8 j=1 eta in [7,8]": {
+   "V_j": "57/(8*(7*eta + 1))",
+   "b_dot_y": "57/(8*(7*eta + 1))"
+  },
+  "K=8 j=2 eta in [6,7]": {
+   "V_j": "(203*eta + 4)/(4*(7*eta + 1)**2)",
+   "b_dot_y": "(203*eta + 4)/(4*(7*eta + 1)**2)"
+  },
+  "K=8 j=3 eta in [5,6]": {
+   "V_j": "(2891*eta**2 + 168*eta + 8)/(8*(7*eta + 1)**3)",
+   "b_dot_y": "(2891*eta**2 + 168*eta + 8)/(8*(7*eta + 1)**3)"
+  },
+  "K=8 j=4 eta in [4,5]": {
+   "V_j": "(5145*eta**3 + 588*eta**2 + 56*eta + 2)/(2*(7*eta + 1)**4)",
+   "b_dot_y": "(5145*eta**3 + 588*eta**2 + 56*eta + 2)/(2*(7*eta + 1)**4)"
+  },
+  "K=8 j=5 eta in [3,4]": {
+   "V_j": "(146461*eta**4 + 27440*eta**3 + 3920*eta**2 + 280*eta + 8)/(8*(7*eta + 1)**5)",
+   "b_dot_y": "(146461*eta**4 + 27440*eta**3 + 3920*eta**2 + 280*eta + 8)/(8*(7*eta + 1)**5)"
+  },
+  "K=8 j=6 eta in [2,3]": {
+   "V_j": "(521017*eta**5 + 144060*eta**4 + 27440*eta**3 + 2940*eta**2 + 168*eta + 4)/(4*(7*eta + 1)**6)",
+   "b_dot_y": "(521017*eta**5 + 144060*eta**4 + 27440*eta**3 + 2940*eta**2 + 168*eta + 4)/(4*(7*eta + 1)**6)"
+  },
+  "K=8 j=7 eta in [1,2]": {
+   "V_j": "(7411887*eta**6 + 2823576*eta**5 + 672280*eta**4 + 96040*eta**3 + 8232*eta**2 + 392*eta + 8)/(8*(7*eta + 1)**7)",
+   "b_dot_y": "(7411887*eta**6 + 2823576*eta**5 + 672280*eta**4 + 96040*eta**3 + 8232*eta**2 + 392*eta + 8)/(8*(7*eta + 1)**7)"
+  },
+  "K=9 j=0 eta in [9,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=9 j=1 eta in [8,9]": {
+   "V_j": "73/(9*(8*eta + 1))",
+   "b_dot_y": "73/(9*(8*eta + 1))"
+  },
+  "K=9 j=2 eta in [7,8]": {
+   "V_j": "(592*eta + 9)/(9*(8*eta + 1)**2)",
+   "b_dot_y": "(592*eta + 9)/(9*(8*eta + 1)**2)"
+  },
+  "K=9 j=3 eta in [6,7]": {
+   "V_j": "(1600*eta**2 + 72*eta + 3)/(3*(8*eta + 1)**3)",
+   "b_dot_y": "(1600*eta**2 + 72*eta + 3)/(3*(8*eta + 1)**3)"
+  },
+  "K=9 j=4 eta in [5,6]": {
+   "V_j": "(38912*eta**3 + 3456*eta**2 + 288*eta + 9)/(9*(8*eta + 1)**4)",
+   "b_dot_y": "(38912*eta**3 + 3456*eta**2 + 288*eta + 9)/(9*(8*eta + 1)**4)"
+  },
+  "K=9 j=5 eta in [4,5]": {
+   "V_j": "(315392*eta**4 + 46080*eta**3 + 5760*eta**2 + 360*eta + 9)/(9*(8*eta + 1)**5)",
+   "b_dot_y": "(315392*eta**4 + 46080*eta**3 + 5760*eta**2 + 360*eta + 9)/(9*(8*eta + 1)**5)"
+  },
+  "K=9 j=6 eta in [3,4]": {
+   "V_j": "(851968*eta**5 + 184320*eta**4 + 30720*eta**3 + 2880*eta**2 + 144*eta + 3)/(3*(8*eta + 1)**6)",
+   "b_dot_y": "(851968*eta**5 + 184320*eta**4 + 30720*eta**3 + 2880*eta**2 + 144*eta + 3)/(3*(8*eta + 1)**6)"
+  },
+  "K=9 j=7 eta in [2,3]": {
+   "V_j": "(20709376*eta**6 + 6193152*eta**5 + 1290240*eta**4 + 161280*eta**3 + 12096*eta**2 + 504*eta + 9)/(9*(8*eta + 1)**7)",
+   "b_dot_y": "(20709376*eta**6 + 6193152*eta**5 + 1290240*eta**4 + 161280*eta**3 + 12096*eta**2 + 504*eta + 9)/(9*(8*eta + 1)**7)"
+  },
+  "K=9 j=8 eta in [1,2]": {
+   "V_j": "(167772160*eta**7 + 66060288*eta**6 + 16515072*eta**5 + 2580480*eta**4 + 258048*eta**3 + 16128*eta**2 + 576*eta + 9)/(9*(8*eta + 1)**8)",
+   "b_dot_y": "(167772160*eta**7 + 66060288*eta**6 + 16515072*eta**5 + 2580480*eta**4 + 258048*eta**3 + 16128*eta**2 + 576*eta + 9)/(9*(8*eta + 1)**8)"
+  },
+  "K=10 j=0 eta in [10,oo]": {
+   "V_j": "1/eta",
+   "b_dot_y": "1/eta"
+  },
+  "K=10 j=1 eta in [9,10]": {
+   "V_j": "91/(10*(9*eta + 1))",
+   "b_dot_y": "91/(10*(9*eta + 1))"
+  },
+  "K=10 j=2 eta in [8,9]": {
+   "V_j": "(414*eta + 5)/(5*(9*eta + 1)**2)",
+   "b_dot_y": "(414*eta + 5)/(5*(9*eta + 1)**2)"
+  },
+  "K=10 j=3 eta in [7,8]": {
+   "V_j": "(7533*eta**2 + 270*eta + 10)/(10*(9*eta + 1)**3)",
+   "b_dot_y": "(7533*eta**2 + 270*eta + 10)/(10*(9*eta + 1)**3)"
+  },
+  "K=10 j=4 eta in [6,7]": {
+   "V_j": "(34263*eta**3 + 2430*eta**2 + 180*eta + 5)/(5*(9*eta + 1)**4)",
+   "b_dot_y": "(34263*eta**3 + 2430*eta**2 + 180*eta + 5)/(5*(9*eta + 1)**4)"
+  },
+  "K=10 j=5 eta in [5,6]": {
+   "V_j": "(124659*eta**4 + 14580*eta**3 + 1620*eta**2 + 90*eta + 2)/(2*(9*eta + 1)**5)",
+   "b_dot_y": "(124659*eta**4 + 14580*eta**3 + 1620*eta**2 + 90*eta + 2)/(2*(9*eta + 1)**5)"
+  },
+  "K=10 j=6 eta in [4,5]": {
+   "V_j": "(2834352*eta**5 + 492075*eta**4 + 72900*eta**3 + 6075*eta**2 + 270*eta + 5)/(5*(9*eta + 1)**6)",
+   "b_dot_y": "(2834352*eta**5 + 492075*eta**4 + 72900*eta**3 + 6075*eta**2 + 270*eta + 5)/(5*(9*eta + 1)**6)"
+  },
+  "K=10 j=7 eta in [3,4]": {
+   "V_j": "(51549777*eta**6 + 12400290*eta**5 + 2296350*eta**4 + 255150*eta**3 + 17010*eta**2 + 630*eta + 10)/(10*(9*eta + 1)**7)",
+   "b_dot_y": "(51549777*eta**6 + 12400290*eta**5 + 2296350*eta**4 + 255150*eta**3 + 17010*eta**2 + 630*eta + 10)/(10*(9*eta + 1)**7)"
+  },
+  "K=10 j=8 eta in [2,3]": {
+   "V_j": "(234365481*eta**7 + 74401740*eta**6 + 16533720*eta**5 + 2296350*eta**4 + 204120*eta**3 + 11340*eta**2 + 360*eta + 5)/(5*(9*eta + 1)**8)",
+   "b_dot_y": "(234365481*eta**7 + 74401740*eta**6 + 16533720*eta**5 + 2296350*eta**4 + 204120*eta**3 + 11340*eta**2 + 360*eta + 5)/(5*(9*eta + 1)**8)"
+  },
+  "K=10 j=9 eta in [1,2]": {
+   "V_j": "(4261625379*eta**8 + 1721868840*eta**7 + 446410440*eta**6 + 74401740*eta**5 + 8266860*eta**4 + 612360*eta**3 + 29160*eta**2 + 810*eta + 10)/(10*(9*eta + 1)**9)",
+   "b_dot_y": "(4261625379*eta**8 + 1721868840*eta**7 + 446410440*eta**6 + 74401740*eta**5 + 8266860*eta**4 + 612360*eta**3 + 29160*eta**2 + 810*eta + 10)/(10*(9*eta + 1)**9)"
+  }
+ },
+ "numeric": {
+  "dual_match": [
+   {
+    "K": 2,
+    "j": 0,
+    "eta": 2.25,
+    "rel_dev_vs_scipy": 1.1102230246251565e-16,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.4444444444444444,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 2,
+    "j": 0,
+    "eta": 2.5,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.4,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 2,
+    "j": 0,
+    "eta": 2.75,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.36363636363636365,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 2,
+    "j": 1,
+    "eta": 1.25,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.6666666666666666,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 2,
+    "j": 1,
+    "eta": 1.5,
+    "rel_dev_vs_scipy": 1.6653345369377348e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.5999999999999999,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 2,
+    "j": 1,
+    "eta": 1.75,
+    "rel_dev_vs_scipy": 8.326672684688674e-17,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.5454545454545455,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 0,
+    "eta": 3.25,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.3076923076923077,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 0,
+    "eta": 3.5,
+    "rel_dev_vs_scipy": 1.3877787807814457e-16,
+    "our_dual_violation": 0.0,
+    "lp": 0.2857142857142857,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 0,
+    "eta": 3.75,
+    "rel_dev_vs_scipy": 1.1102230246251565e-16,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.2666666666666666,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 1,
+    "eta": 2.25,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.4242424242424242,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 1,
+    "eta": 2.5,
+    "rel_dev_vs_scipy": 8.326672684688674e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.38888888888888895,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 1,
+    "eta": 2.75,
+    "rel_dev_vs_scipy": 1.1102230246251565e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.358974358974359,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 2,
+    "eta": 1.25,
+    "rel_dev_vs_scipy": 2.7755575615628914e-16,
+    "our_dual_violation": 0.0,
+    "lp": 0.6258503401360545,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 2,
+    "eta": 1.5,
+    "rel_dev_vs_scipy": 1.1102230246251565e-16,
+    "our_dual_violation": 0.0,
+    "lp": 0.5625,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 3,
+    "j": 2,
+    "eta": 1.75,
+    "rel_dev_vs_scipy": 1.942890293094024e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.5102880658436213,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 0,
+    "eta": 4.25,
+    "rel_dev_vs_scipy": 4.163336342344337e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.23529411764705882,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 0,
+    "eta": 4.5,
+    "rel_dev_vs_scipy": 6.938893903907228e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.22222222222222215,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 0,
+    "eta": 4.75,
+    "rel_dev_vs_scipy": 8.326672684688674e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.21052631578947367,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 1,
+    "eta": 3.25,
+    "rel_dev_vs_scipy": 1.5265566588595902e-16,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.3023255813953489,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 1,
+    "eta": 3.5,
+    "rel_dev_vs_scipy": 1.3877787807814457e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.2826086956521739,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 1,
+    "eta": 3.75,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.26530612244897955,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 2,
+    "eta": 2.25,
+    "rel_dev_vs_scipy": 6.800116025829084e-16,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.4099895941727367,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 2,
+    "eta": 2.5,
+    "rel_dev_vs_scipy": 4.163336342344337e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.3771626297577856,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 2,
+    "eta": 2.75,
+    "rel_dev_vs_scipy": 3.469446951953614e-16,
+    "our_dual_violation": 1.6653345369377348e-16,
+    "lp": 0.3491599707815922,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 3,
+    "eta": 1.25,
+    "rel_dev_vs_scipy": 1.942890293094024e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.6063566117509841,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 3,
+    "eta": 1.5,
+    "rel_dev_vs_scipy": 1.1102230246251565e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.5435762584522914,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 4,
+    "j": 3,
+    "eta": 1.75,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.49196799999999996,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 0,
+    "eta": 5.25,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.19047619047619047,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 0,
+    "eta": 5.5,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.18181818181818185,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 0,
+    "eta": 5.75,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.17391304347826084,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 1,
+    "eta": 4.25,
+    "rel_dev_vs_scipy": 1.214306433183765e-16,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.23333333333333336,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 1,
+    "eta": 4.5,
+    "rel_dev_vs_scipy": 4.753142324176451e-16,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.2210526315789473,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 1,
+    "eta": 4.75,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.21000000000000008,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 2,
+    "eta": 3.25,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.29693877551020403,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 2,
+    "eta": 3.5,
+    "rel_dev_vs_scipy": 7.632783294297951e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.278222222222222,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 2,
+    "eta": 3.75,
+    "rel_dev_vs_scipy": 4.510281037539698e-16,
+    "our_dual_violation": 0.0,
+    "lp": 0.26171875,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 3,
+    "eta": 2.25,
+    "rel_dev_vs_scipy": 6.938893903907228e-17,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.40060000000000007,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 3,
+    "eta": 2.5,
+    "rel_dev_vs_scipy": 2.7755575615628914e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.3688955672426747,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 3,
+    "eta": 2.75,
+    "rel_dev_vs_scipy": 9.71445146547012e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.3417824074074074,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 4,
+    "eta": 1.25,
+    "rel_dev_vs_scipy": 1.249000902703301e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.5949074074074076,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 4,
+    "eta": 1.5,
+    "rel_dev_vs_scipy": 8.326672684688674e-17,
+    "our_dual_violation": 3.3306690738754696e-16,
+    "lp": 0.5321949187838404,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 5,
+    "j": 4,
+    "eta": 1.75,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 0.0,
+    "lp": 0.480810546875,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 0,
+    "eta": 6.25,
+    "rel_dev_vs_scipy": 4.85722573273506e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.15999999999999998,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 0,
+    "eta": 6.5,
+    "rel_dev_vs_scipy": 4.163336342344337e-17,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.15384615384615385,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 0,
+    "eta": 6.75,
+    "rel_dev_vs_scipy": 1.249000902703301e-16,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.1481481481481481,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 1,
+    "eta": 5.25,
+    "rel_dev_vs_scipy": 2.7755575615628914e-17,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.1896024464831804,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 1,
+    "eta": 5.5,
+    "rel_dev_vs_scipy": 8.326672684688674e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.18128654970760238,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 1,
+    "eta": 5.75,
+    "rel_dev_vs_scipy": 6.938893903907228e-17,
+    "our_dual_violation": 2.7755575615628914e-17,
+    "lp": 0.17366946778711487,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 2,
+    "eta": 4.25,
+    "rel_dev_vs_scipy": 2.671474153004283e-16,
+    "our_dual_violation": 1.1102230246251565e-16,
+    "lp": 0.23094727096747056,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 2,
+    "eta": 4.5,
+    "rel_dev_vs_scipy": 3.9898639947466563e-16,
+    "our_dual_violation": 8.326672684688674e-17,
+    "lp": 0.21910366681756444,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 2,
+    "eta": 4.75,
+    "rel_dev_vs_scipy": 2.636779683484747e-16,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.20841410740400645,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 3,
+    "eta": 3.25,
+    "rel_dev_vs_scipy": 0.057692307692307716,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.29263734022507754,
+    "scipy_max_mono_multiplier": 0.03994082840236685
+   },
+   {
+    "K": 6,
+    "j": 3,
+    "eta": 3.5,
+    "rel_dev_vs_scipy": 1.249000902703301e-16,
+    "our_dual_violation": 0.0,
+    "lp": 0.274475351904132,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 3,
+    "eta": 3.75,
+    "rel_dev_vs_scipy": 1.0408340855860843e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.25842580404389914,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 4,
+    "eta": 2.25,
+    "rel_dev_vs_scipy": 1.3877787807814457e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.3940597429122013,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 4,
+    "eta": 2.5,
+    "rel_dev_vs_scipy": 5.551115123125783e-17,
+    "our_dual_violation": 5.551115123125783e-17,
+    "lp": 0.362974127576407,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 4,
+    "eta": 2.75,
+    "rel_dev_vs_scipy": 0.015873015873015928,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.33636884026700753,
+    "scipy_max_mono_multiplier": 0.010101010101010237
+   },
+   {
+    "K": 6,
+    "j": 5,
+    "eta": 1.25,
+    "rel_dev_vs_scipy": 1.3877787807814457e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.587368719974358,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 5,
+    "eta": 1.5,
+    "rel_dev_vs_scipy": 2.498001805406602e-16,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.5246000125364736,
+    "scipy_max_mono_multiplier": 0.0
+   },
+   {
+    "K": 6,
+    "j": 5,
+    "eta": 1.75,
+    "rel_dev_vs_scipy": 6.938893903907228e-17,
+    "our_dual_violation": 2.220446049250313e-16,
+    "lp": 0.4733143414588066,
+    "scipy_max_mono_multiplier": 0.0
+   }
+  ],
+  "value_match": [
+   {
+    "K": 2,
+    "eta": 1.0,
+    "j": 1,
+    "lp": 0.75,
+    "V_j": 0.75
+   },
+   {
+    "K": 2,
+    "eta": 1.3,
+    "j": 1,
+    "lp": 0.6521739130434782,
+    "V_j": 0.6521739130434783
+   },
+   {
+    "K": 2,
+    "eta": 1.6,
+    "j": 1,
+    "lp": 0.5769230769230769,
+    "V_j": 0.5769230769230769
+   },
+   {
+    "K": 2,
+    "eta": 1.9,
+    "j": 1,
+    "lp": 0.5172413793103448,
+    "V_j": 0.5172413793103448
+   },
+   {
+    "K": 2,
+    "eta": 2.2,
+    "j": 0,
+    "lp": 0.45454545454545453,
+    "V_j": 0.4545454545454546
+   },
+   {
+    "K": 2,
+    "eta": 2.5,
+    "j": 0,
+    "lp": 0.4,
+    "V_j": 0.4
+   },
+   {
+    "K": 2,
+    "eta": 2.8,
+    "j": 0,
+    "lp": 0.35714285714285715,
+    "V_j": 0.3571428571428572
+   },
+   {
+    "K": 2,
+    "eta": 3.1,
+    "j": 0,
+    "lp": 0.3225806451612903,
+    "V_j": 0.32258064516129026
+   },
+   {
+    "K": 2,
+    "eta": 3.4,
+    "j": 0,
+    "lp": 0.29411764705882354,
+    "V_j": 0.2941176470588236
+   },
+   {
+    "K": 2,
+    "eta": 3.7,
+    "j": 0,
+    "lp": 0.27027027027027023,
+    "V_j": 0.2702702702702702
+   },
+   {
+    "K": 2,
+    "eta": 4.0,
+    "j": 0,
+    "lp": 0.25,
+    "V_j": 0.25
+   },
+   {
+    "K": 3,
+    "eta": 1.0,
+    "j": 2,
+    "lp": 0.7037037037037037,
+    "V_j": 0.7037037037037037
+   },
+   {
+    "K": 3,
+    "eta": 1.3,
+    "j": 2,
+    "lp": 0.6121399176954732,
+    "V_j": 0.6121399176954733
+   },
+   {
+    "K": 3,
+    "eta": 1.6,
+    "j": 2,
+    "lp": 0.5404383975812548,
+    "V_j": 0.5404383975812548
+   },
+   {
+    "K": 3,
+    "eta": 1.9,
+    "j": 2,
+    "lp": 0.48321759259259256,
+    "V_j": 0.48321759259259267
+   },
+   {
+    "K": 3,
+    "eta": 2.2,
+    "j": 1,
+    "lp": 0.43209876543209885,
+    "V_j": 0.4320987654320987
+   },
+   {
+    "K": 3,
+    "eta": 2.5,
+    "j": 1,
+    "lp": 0.38888888888888895,
+    "V_j": 0.38888888888888884
+   },
+   {
+    "K": 3,
+    "eta": 2.8,
+    "j": 1,
+    "lp": 0.3535353535353536,
+    "V_j": 0.3535353535353536
+   },
+   {
+    "K": 3,
+    "eta": 3.1,
+    "j": 0,
+    "lp": 0.32258064516129026,
+    "V_j": 0.32258064516129026
+   },
+   {
+    "K": 3,
+    "eta": 3.4,
+    "j": 0,
+    "lp": 0.2941176470588235,
+    "V_j": 0.2941176470588236
+   },
+   {
+    "K": 3,
+    "eta": 3.7,
+    "j": 0,
+    "lp": 0.2702702702702702,
+    "V_j": 0.2702702702702702
+   },
+   {
+    "K": 3,
+    "eta": 4.0,
+    "j": 0,
+    "lp": 0.25,
+    "V_j": 0.25
+   },
+   {
+    "K": 3,
+    "eta": 4.3,
+    "j": 0,
+    "lp": 0.23255813953488372,
+    "V_j": 0.2325581395348837
+   },
+   {
+    "K": 3,
+    "eta": 4.6,
+    "j": 0,
+    "lp": 0.2173913043478261,
+    "V_j": 0.21739130434782616
+   },
+   {
+    "K": 3,
+    "eta": 4.9,
+    "j": 0,
+    "lp": 0.2040816326530612,
+    "V_j": 0.20408163265306123
+   },
+   {
+    "K": 4,
+    "eta": 1.0,
+    "j": 3,
+    "lp": 0.68359375,
+    "V_j": 0.68359375
+   },
+   {
+    "K": 4,
+    "eta": 1.3,
+    "j": 3,
+    "lp": 0.5927589694770036,
+    "V_j": 0.5927589694770036
+   },
+   {
+    "K": 4,
+    "eta": 1.6,
+    "j": 3,
+    "lp": 0.521751609332076,
+    "V_j": 0.521751609332076
+   },
+   {
+    "K": 4,
+    "eta": 1.9,
+    "j": 3,
+    "lp": 0.46527498395746825,
+    "V_j": 0.46527498395746814
+   },
+   {
+    "K": 4,
+    "eta": 2.2,
+    "j": 2,
+    "lp": 0.4172437673130194,
+    "V_j": 0.4172437673130194
+   },
+   {
+    "K": 4,
+    "eta": 2.5,
+    "j": 2,
+    "lp": 0.3771626297577856,
+    "V_j": 0.3771626297577855
+   },
+   {
+    "K": 4,
+    "eta": 2.8,
+    "j": 2,
+    "lp": 0.34404708012675406,
+    "V_j": 0.34404708012675433
+   },
+   {
+    "K": 4,
+    "eta": 3.1,
+    "j": 1,
+    "lp": 0.31553398058252424,
+    "V_j": 0.31553398058252424
+   },
+   {
+    "K": 4,
+    "eta": 3.4,
+    "j": 1,
+    "lp": 0.29017857142857145,
+    "V_j": 0.2901785714285714
+   },
+   {
+    "K": 4,
+    "eta": 3.7,
+    "j": 1,
+    "lp": 0.268595041322314,
+    "V_j": 0.26859504132231393
+   },
+   {
+    "K": 4,
+    "eta": 4.0,
+    "j": 0,
+    "lp": 0.24999999999999994,
+    "V_j": 0.25
+   },
+   {
+    "K": 4,
+    "eta": 4.3,
+    "j": 0,
+    "lp": 0.2325581395348837,
+    "V_j": 0.2325581395348837
+   },
+   {
+    "K": 4,
+    "eta": 4.6,
+    "j": 0,
+    "lp": 0.21739130434782616,
+    "V_j": 0.21739130434782616
+   },
+   {
+    "K": 4,
+    "eta": 4.9,
+    "j": 0,
+    "lp": 0.2040816326530612,
+    "V_j": 0.20408163265306123
+   },
+   {
+    "K": 4,
+    "eta": 5.2,
+    "j": 0,
+    "lp": 0.1923076923076923,
+    "V_j": 0.1923076923076923
+   },
+   {
+    "K": 4,
+    "eta": 5.5,
+    "j": 0,
+    "lp": 0.18181818181818188,
+    "V_j": 0.18181818181818188
+   },
+   {
+    "K": 4,
+    "eta": 5.8,
+    "j": 0,
+    "lp": 0.1724137931034483,
+    "V_j": 0.1724137931034483
+   },
+   {
+    "K": 5,
+    "eta": 1.0,
+    "j": 4,
+    "lp": 0.67232,
+    "V_j": 0.6723199999999999
+   },
+   {
+    "K": 5,
+    "eta": 1.3,
+    "j": 4,
+    "lp": 0.581306759673034,
+    "V_j": 0.5813067596730339
+   },
+   {
+    "K": 5,
+    "eta": 1.6,
+    "j": 4,
+    "lp": 0.5104454740014333,
+    "V_j": 0.510445474001433
+   },
+   {
+    "K": 5,
+    "eta": 1.9,
+    "j": 4,
+    "lp": 0.45429757391553366,
+    "V_j": 0.4542975739155335
+   },
+   {
+    "K": 5,
+    "eta": 2.2,
+    "j": 3,
+    "lp": 0.4075937747027174,
+    "V_j": 0.4075937747027174
+   },
+   {
+    "K": 5,
+    "eta": 2.5,
+    "j": 3,
+    "lp": 0.3688955672426747,
+    "V_j": 0.3688955672426748
+   },
+   {
+    "K": 5,
+    "eta": 2.8,
+    "j": 3,
+    "lp": 0.3368255492750495,
+    "V_j": 0.3368255492750494
+   },
+   {
+    "K": 5,
+    "eta": 3.1,
+    "j": 2,
+    "lp": 0.3094230340833147,
+    "V_j": 0.30942303408331473
+   },
+   {
+    "K": 5,
+    "eta": 3.4,
+    "j": 2,
+    "lp": 0.28541940326515314,
+    "V_j": 0.285419403265153
+   },
+   {
+    "K": 5,
+    "eta": 3.7,
+    "j": 2,
+    "lp": 0.26486140041659956,
+    "V_j": 0.2648614004166
+   },
+   {
+    "K": 5,
+    "eta": 4.0,
+    "j": 1,
+    "lp": 0.2470588235294117,
+    "V_j": 0.24705882352941178
+   },
+   {
+    "K": 5,
+    "eta": 4.3,
+    "j": 1,
+    "lp": 0.23076923076923084,
+    "V_j": 0.23076923076923084
+   },
+   {
+    "K": 5,
+    "eta": 4.6,
+    "j": 1,
+    "lp": 0.21649484536082475,
+    "V_j": 0.21649484536082475
+   },
+   {
+    "K": 5,
+    "eta": 4.9,
+    "j": 1,
+    "lp": 0.20388349514563087,
+    "V_j": 0.20388349514563098
+   },
+   {
+    "K": 5,
+    "eta": 5.2,
+    "j": 0,
+    "lp": 0.1923076923076923,
+    "V_j": 0.1923076923076923
+   },
+   {
+    "K": 5,
+    "eta": 5.5,
+    "j": 0,
+    "lp": 0.18181818181818185,
+    "V_j": 0.18181818181818188
+   },
+   {
+    "K": 5,
+    "eta": 5.8,
+    "j": 0,
+    "lp": 0.17241379310344832,
+    "V_j": 0.1724137931034483
+   },
+   {
+    "K": 5,
+    "eta": 6.1,
+    "j": 0,
+    "lp": 0.1639344262295082,
+    "V_j": 0.16393442622950816
+   },
+   {
+    "K": 5,
+    "eta": 6.4,
+    "j": 0,
+    "lp": 0.15625000000000003,
+    "V_j": 0.15625
+   },
+   {
+    "K": 5,
+    "eta": 6.7,
+    "j": 0,
+    "lp": 0.1492537313432836,
+    "V_j": 0.14925373134328357
+   },
+   {
+    "K": 5,
+    "eta": 7.0,
+    "j": 0,
+    "lp": 0.14285714285714285,
+    "V_j": 0.1428571428571428
+   },
+   {
+    "K": 6,
+    "eta": 1.0,
+    "j": 5,
+    "lp": 0.6651020233196159,
+    "V_j": 0.6651020233196159
+   },
+   {
+    "K": 6,
+    "eta": 1.3,
+    "j": 5,
+    "lp": 0.5737398079561041,
+    "V_j": 0.5737398079561042
+   },
+   {
+    "K": 6,
+    "eta": 1.6,
+    "j": 5,
+    "lp": 0.5028761424127987,
+    "V_j": 0.5028761424127985
+   },
+   {
+    "K": 6,
+    "eta": 1.9,
+    "j": 5,
+    "lp": 0.44690463498984645,
+    "V_j": 0.44690463498984634
+   },
+   {
+    "K": 6,
+    "eta": 2.2,
+    "j": 4,
+    "lp": 0.4009130658436215,
+    "V_j": 0.4009130658436215
+   },
+   {
+    "K": 6,
+    "eta": 2.5,
+    "j": 4,
+    "lp": 0.362974127576407,
+    "V_j": 0.362974127576407
+   },
+   {
+    "K": 6,
+    "eta": 2.8,
+    "j": 4,
+    "lp": 0.3315028806584362,
+    "V_j": 0.33150288065843625
+   },
+   {
+    "K": 6,
+    "eta": 3.1,
+    "j": 3,
+    "lp": 0.3047277179508584,
+    "V_j": 0.3047277179508583
+   },
+   {
+    "K": 6,
+    "eta": 3.4,
+    "j": 3,
+    "lp": 0.2814643347050755,
+    "V_j": 0.2814643347050756
+   },
+   {
+    "K": 6,
+    "eta": 3.7,
+    "j": 3,
+    "lp": 0.26148451592238575,
+    "V_j": 0.26148451592238575
+   },
+   {
+    "K": 6,
+    "eta": 4.0,
+    "j": 2,
+    "lp": 0.24414210128495842,
+    "V_j": 0.2441421012849585
+   },
+   {
+    "K": 6,
+    "eta": 4.3,
+    "j": 2,
+    "lp": 0.22847736625514392,
+    "V_j": 0.22847736625514403
+   },
+   {
+    "K": 6,
+    "eta": 4.6,
+    "j": 2,
+    "lp": 0.21469907407407407,
+    "V_j": 0.21469907407407396
+   },
+   {
+    "K": 6,
+    "eta": 4.9,
+    "j": 2,
+    "lp": 0.2024862232474689,
+    "V_j": 0.2024862232474688
+   },
+   {
+    "K": 6,
+    "eta": 5.2,
+    "j": 1,
+    "lp": 0.19135802469135801,
+    "V_j": 0.1913580246913581
+   },
+   {
+    "K": 6,
+    "eta": 5.5,
+    "j": 1,
+    "lp": 0.18128654970760238,
+    "V_j": 0.18128654970760227
+   },
+   {
+    "K": 6,
+    "eta": 5.8,
+    "j": 1,
+    "lp": 0.17222222222222225,
+    "V_j": 0.17222222222222217
+   },
+   {
+    "K": 6,
+    "eta": 6.1,
+    "j": 0,
+    "lp": 0.16393442622950818,
+    "V_j": 0.16393442622950816
+   },
+   {
+    "K": 6,
+    "eta": 6.4,
+    "j": 0,
+    "lp": 0.15624999999999997,
+    "V_j": 0.15625
+   },
+   {
+    "K": 6,
+    "eta": 6.7,
+    "j": 0,
+    "lp": 0.14925373134328357,
+    "V_j": 0.14925373134328357
+   },
+   {
+    "K": 6,
+    "eta": 7.0,
+    "j": 0,
+    "lp": 0.14285714285714285,
+    "V_j": 0.1428571428571428
+   },
+   {
+    "K": 6,
+    "eta": 7.3,
+    "j": 0,
+    "lp": 0.13698630136986298,
+    "V_j": 0.136986301369863
+   },
+   {
+    "K": 6,
+    "eta": 7.6,
+    "j": 0,
+    "lp": 0.13157894736842105,
+    "V_j": 0.13157894736842102
+   },
+   {
+    "K": 6,
+    "eta": 7.9,
+    "j": 0,
+    "lp": 0.12658227848101264,
+    "V_j": 0.12658227848101267
+   },
+   {
+    "K": 7,
+    "eta": 1.0,
+    "j": 6,
+    "lp": 0.6600833229108862,
+    "V_j": 0.6600833229108863
+   },
+   {
+    "K": 7,
+    "eta": 1.3,
+    "j": 6,
+    "lp": 0.5683664344481503,
+    "V_j": 0.5683664344481503
+   },
+   {
+    "K": 7,
+    "eta": 1.6,
+    "j": 6,
+    "lp": 0.4974556950476713,
+    "V_j": 0.4974556950476713
+   },
+   {
+    "K": 7,
+    "eta": 1.9,
+    "j": 6,
+    "lp": 0.44159092513255643,
+    "V_j": 0.4415909251325566
+   },
+   {
+    "K": 7,
+    "eta": 2.2,
+    "j": 5,
+    "lp": 0.3960346664849896,
+    "V_j": 0.39603466648498975
+   },
+   {
+    "K": 7,
+    "eta": 2.5,
+    "j": 5,
+    "lp": 0.3585688727242606,
+    "V_j": 0.35856887272426063
+   },
+   {
+    "K": 7,
+    "eta": 2.8,
+    "j": 5,
+    "lp": 0.32748342343086684,
+    "V_j": 0.3274834234308669
+   },
+   {
+    "K": 7,
+    "eta": 3.1,
+    "j": 4,
+    "lp": 0.3011091347422797,
+    "V_j": 0.3011091347422795
+   },
+   {
+    "K": 7,
+    "eta": 3.4,
+    "j": 4,
+    "lp": 0.2783078951937216,
+    "V_j": 0.2783078951937217
+   },
+   {
+    "K": 7,
+    "eta": 3.7,
+    "j": 4,
+    "lp": 0.2586971385779283,
+    "V_j": 0.2586971385779284
+   },
+   {
+    "K": 7,
+    "eta": 4.0,
+    "j": 3,
+    "lp": 0.24165485714285703,
+    "V_j": 0.24165485714285717
+   },
+   {
+    "K": 7,
+    "eta": 4.3,
+    "j": 3,
+    "lp": 0.2263781140442332,
+    "V_j": 0.22637811404423314
+   },
+   {
+    "K": 7,
+    "eta": 4.6,
+    "j": 3,
+    "lp": 0.2129136451108186,
+    "V_j": 0.21291364511081867
+   },
+   {
+    "K": 7,
+    "eta": 4.9,
+    "j": 3,
+    "lp": 0.200957740286485,
+    "V_j": 0.20095774028648494
+   },
+   {
+    "K": 7,
+    "eta": 5.2,
+    "j": 2,
+    "lp": 0.19011061081197295,
+    "V_j": 0.19011061081197256
+   },
+   {
+    "K": 7,
+    "eta": 5.5,
+    "j": 2,
+    "lp": 0.1803015323776569,
+    "V_j": 0.180301532377657
+   },
+   {
+    "K": 7,
+    "eta": 5.8,
+    "j": 2,
+    "lp": 0.17145443115294257,
+    "V_j": 0.17145443115294245
+   },
+   {
+    "K": 7,
+    "eta": 6.1,
+    "j": 1,
+    "lp": 0.16337386018237077,
+    "V_j": 0.16337386018237088
+   },
+   {
+    "K": 7,
+    "eta": 6.4,
+    "j": 1,
+    "lp": 0.15591007976794774,
+    "V_j": 0.15591007976794768
+   },
+   {
+    "K": 7,
+    "eta": 6.7,
+    "j": 1,
+    "lp": 0.14909847434119278,
+    "V_j": 0.14909847434119283
+   },
+   {
+    "K": 7,
+    "eta": 7.0,
+    "j": 0,
+    "lp": 0.14285714285714274,
+    "V_j": 0.1428571428571428
+   },
+   {
+    "K": 7,
+    "eta": 7.3,
+    "j": 0,
+    "lp": 0.136986301369863,
+    "V_j": 0.136986301369863
+   },
+   {
+    "K": 7,
+    "eta": 7.6,
+    "j": 0,
+    "lp": 0.13157894736842102,
+    "V_j": 0.13157894736842102
+   },
+   {
+    "K": 7,
+    "eta": 7.9,
+    "j": 0,
+    "lp": 0.12658227848101264,
+    "V_j": 0.12658227848101267
+   },
+   {
+    "K": 7,
+    "eta": 8.2,
+    "j": 0,
+    "lp": 0.1219512195121951,
+    "V_j": 0.12195121951219512
+   },
+   {
+    "K": 7,
+    "eta": 8.5,
+    "j": 0,
+    "lp": 0.11764705882352938,
+    "V_j": 0.11764705882352944
+   },
+   {
+    "K": 7,
+    "eta": 8.8,
+    "j": 0,
+    "lp": 0.11363636363636365,
+    "V_j": 0.11363636363636365
+   },
+   {
+    "K": 8,
+    "eta": 1.0,
+    "j": 7,
+    "lp": 0.6563910841941833,
+    "V_j": 0.6563910841941833
+   },
+   {
+    "K": 8,
+    "eta": 1.3,
+    "j": 7,
+    "lp": 0.5643530838845954,
+    "V_j": 0.5643530838845952
+   },
+   {
+    "K": 8,
+    "eta": 1.6,
+    "j": 7,
+    "lp": 0.4933834400425116,
+    "V_j": 0.49338344004251156
+   },
+   {
+    "K": 8,
+    "eta": 1.9,
+    "j": 7,
+    "lp": 0.4375887738364098,
+    "V_j": 0.4375887738364097
+   },
+   {
+    "K": 8,
+    "eta": 2.2,
+    "j": 6,
+    "lp": 0.39232248473391323,
+    "V_j": 0.39232248473391296
+   },
+   {
+    "K": 8,
+    "eta": 2.5,
+    "j": 6,
+    "lp": 0.3551771316315745,
+    "V_j": 0.3551771316315745
+   },
+   {
+    "K": 8,
+    "eta": 2.8,
+    "j": 6,
+    "lp": 0.324360152826517,
+    "V_j": 0.324360152826517
+   },
+   {
+    "K": 8,
+    "eta": 3.1,
+    "j": 5,
+    "lp": 0.2982632905563127,
+    "V_j": 0.29826329055631273
+   },
+   {
+    "K": 8,
+    "eta": 3.4,
+    "j": 5,
+    "lp": 0.2757761161826872,
+    "V_j": 0.27577611618268716
+   },
+   {
+    "K": 8,
+    "eta": 3.7,
+    "j": 5,
+    "lp": 0.25642060629746183,
+    "V_j": 0.2564206062974619
+   },
+   {
+    "K": 8,
+    "eta": 4.0,
+    "j": 4,
+    "lp": 0.23958935698824085,
+    "V_j": 0.2395893569882408
+   },
+   {
+    "K": 8,
+    "eta": 4.3,
+    "j": 4,
+    "lp": 0.22457541318303817,
+    "V_j": 0.2245754131830383
+   },
+   {
+    "K": 8,
+    "eta": 4.6,
+    "j": 4,
+    "lp": 0.21132662976530495,
+    "V_j": 0.21132662976530525
+   },
+   {
+    "K": 8,
+    "eta": 4.9,
+    "j": 4,
+    "lp": 0.19954991499521443,
+    "V_j": 0.19954991499521435
+   },
+   {
+    "K": 8,
+    "eta": 5.2,
+    "j": 3,
+    "lp": 0.18889496166428843,
+    "V_j": 0.18889496166428843
+   },
+   {
+    "K": 8,
+    "eta": 5.5,
+    "j": 3,
+    "lp": 0.17926523053957202,
+    "V_j": 0.179265230539572
+   },
+   {
+    "K": 8,
+    "eta": 5.8,
+    "j": 3,
+    "lp": 0.170568605960365,
+    "V_j": 0.17056860596036505
+   },
+   {
+    "K": 8,
+    "eta": 6.1,
+    "j": 2,
+    "lp": 0.16263110766668934,
+    "V_j": 0.16263110766668942
+   },
+   {
+    "K": 8,
+    "eta": 6.4,
+    "j": 2,
+    "lp": 0.1553174043210465,
+    "V_j": 0.15531740432104668
+   },
+   {
+    "K": 8,
+    "eta": 6.7,
+    "j": 2,
+    "lp": 0.14863298189948615,
+    "V_j": 0.14863298189948626
+   },
+   {
+    "K": 8,
+    "eta": 7.0,
+    "j": 1,
+    "lp": 0.14249999999999996,
+    "V_j": 0.14250000000000007
+   },
+   {
+    "K": 8,
+    "eta": 7.3,
+    "j": 1,
+    "lp": 0.13675623800383874,
+    "V_j": 0.13675623800383874
+   },
+   {
+    "K": 8,
+    "eta": 7.6,
+    "j": 1,
+    "lp": 0.13145756457564572,
+    "V_j": 0.13145756457564584
+   },
+   {
+    "K": 8,
+    "eta": 7.9,
+    "j": 1,
+    "lp": 0.12655417406749553,
+    "V_j": 0.12655417406749558
+   },
+   {
+    "K": 8,
+    "eta": 8.2,
+    "j": 0,
+    "lp": 0.12195121951219512,
+    "V_j": 0.12195121951219512
+   },
+   {
+    "K": 8,
+    "eta": 8.5,
+    "j": 0,
+    "lp": 0.11764705882352941,
+    "V_j": 0.11764705882352944
+   },
+   {
+    "K": 8,
+    "eta": 8.8,
+    "j": 0,
+    "lp": 0.11363636363636366,
+    "V_j": 0.11363636363636365
+   },
+   {
+    "K": 8,
+    "eta": 9.1,
+    "j": 0,
+    "lp": 0.10989010989010992,
+    "V_j": 0.10989010989010994
+   },
+   {
+    "K": 8,
+    "eta": 9.4,
+    "j": 0,
+    "lp": 0.10638297872340427,
+    "V_j": 0.1063829787234043
+   },
+   {
+    "K": 8,
+    "eta": 9.7,
+    "j": 0,
+    "lp": 0.10309278350515463,
+    "V_j": 0.1030927835051546
+   },
+   {
+    "K": 8,
+    "eta": 10.0,
+    "j": 0,
+    "lp": 0.09999999999999999,
+    "V_j": 0.09999999999999998
+   },
+   {
+    "K": 9,
+    "eta": 1.0,
+    "j": 8,
+    "lp": 0.6535605838853814,
+    "V_j": 0.6535605838853816
+   },
+   {
+    "K": 9,
+    "eta": 1.3,
+    "j": 8,
+    "lp": 0.5612412205943236,
+    "V_j": 0.561241220594324
+   },
+   {
+    "K": 9,
+    "eta": 1.6,
+    "j": 8,
+    "lp": 0.4902122771033612,
+    "V_j": 0.490212277103361
+   },
+   {
+    "K": 9,
+    "eta": 1.9,
+    "j": 8,
+    "lp": 0.43446647796538007,
+    "V_j": 0.4344664779653804
+   },
+   {
+    "K": 9,
+    "eta": 2.2,
+    "j": 7,
+    "lp": 0.3894055151868864,
+    "V_j": 0.38940551518688615
+   },
+   {
+    "K": 9,
+    "eta": 2.5,
+    "j": 7,
+    "lp": 0.3524903436592226,
+    "V_j": 0.3524903436592228
+   },
+   {
+    "K": 9,
+    "eta": 2.8,
+    "j": 7,
+    "lp": 0.32187060445439086,
+    "V_j": 0.32187060445439053
+   },
+   {
+    "K": 9,
+    "eta": 3.1,
+    "j": 6,
+    "lp": 0.2959767641475051,
+    "V_j": 0.29597676414750496
+   },
+   {
+    "K": 9,
+    "eta": 3.4,
+    "j": 6,
+    "lp": 0.2737160784465501,
+    "V_j": 0.2737160784465503
+   },
+   {
+    "K": 9,
+    "eta": 3.7,
+    "j": 6,
+    "lp": 0.2545472821836905,
+    "V_j": 0.25454728218369027
+   },
+   {
+    "K": 9,
+    "eta": 4.0,
+    "j": 5,
+    "lp": 0.23787243486279092,
+    "V_j": 0.23787243486279086
+   },
+   {
+    "K": 9,
+    "eta": 4.3,
+    "j": 5,
+    "lp": 0.2230476001029497,
+    "V_j": 0.22304760010294966
+   },
+   {
+    "K": 9,
+    "eta": 4.6,
+    "j": 5,
+    "lp": 0.20995586157997503,
+    "V_j": 0.20995586157997526
+   },
+   {
+    "K": 9,
+    "eta": 4.9,
+    "j": 5,
+    "lp": 0.19831113260936953,
+    "V_j": 0.1983111326093695
+   },
+   {
+    "K": 9,
+    "eta": 5.2,
+    "j": 4,
+    "lp": 0.18779556837729694,
+    "V_j": 0.18779556837729694
+   },
+   {
+    "K": 9,
+    "eta": 5.5,
+    "j": 4,
+    "lp": 0.17829588308015398,
+    "V_j": 0.17829588308015387
+   },
+   {
+    "K": 9,
+    "eta": 5.8,
+    "j": 4,
+    "lp": 0.1697095338303209,
+    "V_j": 0.16970953383032072
+   },
+   {
+    "K": 9,
+    "eta": 6.1,
+    "j": 3,
+    "lp": 0.1618766264662959,
+    "V_j": 0.16187662646629597
+   },
+   {
+    "K": 9,
+    "eta": 6.4,
+    "j": 3,
+    "lp": 0.1546713427423665,
+    "V_j": 0.1546713427423666
+   },
+   {
+    "K": 9,
+    "eta": 6.7,
+    "j": 3,
+    "lp": 0.1480797167710986,
+    "V_j": 0.14807971677109877
+   },
+   {
+    "K": 9,
+    "eta": 7.0,
+    "j": 2,
+    "lp": 0.14202660647720658,
+    "V_j": 0.14202660647720677
+   },
+   {
+    "K": 9,
+    "eta": 7.3,
+    "j": 2,
+    "lp": 0.1363743432579947,
+    "V_j": 0.1363743432579947
+   },
+   {
+    "K": 9,
+    "eta": 7.6,
+    "j": 2,
+    "lp": 0.13115465671471577,
+    "V_j": 0.13115465671471582
+   },
+   {
+    "K": 9,
+    "eta": 7.9,
+    "j": 2,
+    "lp": 0.12631972817724121,
+    "V_j": 0.12631972817724124
+   },
+   {
+    "K": 9,
+    "eta": 8.2,
+    "j": 1,
+    "lp": 0.12178845512178849,
+    "V_j": 0.12178845512178849
+   },
+   {
+    "K": 9,
+    "eta": 8.5,
+    "j": 1,
+    "lp": 0.11755233494363936,
+    "V_j": 0.11755233494363926
+   },
+   {
+    "K": 9,
+    "eta": 8.8,
+    "j": 1,
+    "lp": 0.11360099595393713,
+    "V_j": 0.11360099595393702
+   },
+   {
+    "K": 9,
+    "eta": 9.1,
+    "j": 0,
+    "lp": 0.10989010989010992,
+    "V_j": 0.10989010989010994
+   },
+   {
+    "K": 9,
+    "eta": 9.4,
+    "j": 0,
+    "lp": 0.10638297872340427,
+    "V_j": 0.1063829787234043
+   },
+   {
+    "K": 9,
+    "eta": 9.7,
+    "j": 0,
+    "lp": 0.10309278350515465,
+    "V_j": 0.1030927835051546
+   },
+   {
+    "K": 9,
+    "eta": 10.0,
+    "j": 0,
+    "lp": 0.09999999999999995,
+    "V_j": 0.09999999999999998
+   },
+   {
+    "K": 9,
+    "eta": 10.3,
+    "j": 0,
+    "lp": 0.09708737864077667,
+    "V_j": 0.09708737864077666
+   },
+   {
+    "K": 9,
+    "eta": 10.6,
+    "j": 0,
+    "lp": 0.09433962264150945,
+    "V_j": 0.09433962264150941
+   },
+   {
+    "K": 9,
+    "eta": 10.9,
+    "j": 0,
+    "lp": 0.09174311926605506,
+    "V_j": 0.09174311926605505
+   },
+   {
+    "K": 10,
+    "eta": 1.0,
+    "j": 9,
+    "lp": 0.6513215599000001,
+    "V_j": 0.6513215599
+   },
+   {
+    "K": 10,
+    "eta": 1.3,
+    "j": 9,
+    "lp": 0.5587576785155732,
+    "V_j": 0.5587576785155731
+   },
+   {
+    "K": 10,
+    "eta": 1.6,
+    "j": 9,
+    "lp": 0.4876730311210535,
+    "V_j": 0.48767303112105354
+   },
+   {
+    "K": 10,
+    "eta": 1.9,
+    "j": 9,
+    "lp": 0.4319628708290991,
+    "V_j": 0.4319628708290989
+   },
+   {
+    "K": 10,
+    "eta": 2.2,
+    "j": 8,
+    "lp": 0.3870540818763362,
+    "V_j": 0.3870540818763366
+   },
+   {
+    "K": 10,
+    "eta": 2.5,
+    "j": 8,
+    "lp": 0.3503116576972539,
+    "V_j": 0.35031165769725325
+   },
+   {
+    "K": 10,
+    "eta": 2.8,
+    "j": 8,
+    "lp": 0.3198427803383902,
+    "V_j": 0.31984278033839
+   },
+   {
+    "K": 10,
+    "eta": 3.1,
+    "j": 7,
+    "lp": 0.2941037721548329,
+    "V_j": 0.29410377215483285
+   },
+   {
+    "K": 10,
+    "eta": 3.4,
+    "j": 7,
+    "lp": 0.27201373780352045,
+    "V_j": 0.27201373780352067
+   },
+   {
+    "K": 10,
+    "eta": 3.7,
+    "j": 7,
+    "lp": 0.2529872967664679,
+    "V_j": 0.25298729676646803
+   },
+   {
+    "K": 10,
+    "eta": 4.0,
+    "j": 6,
+    "lp": 0.23643296669204605,
+    "V_j": 0.23643296669204583
+   },
+   {
+    "K": 10,
+    "eta": 4.3,
+    "j": 6,
+    "lp": 0.22175040924105788,
+    "V_j": 0.22175040924105804
+   },
+   {
+    "K": 10,
+    "eta": 4.6,
+    "j": 6,
+    "lp": 0.20877797899296563,
+    "V_j": 0.20877797899296557
+   },
+   {
+    "K": 10,
+    "eta": 4.9,
+    "j": 6,
+    "lp": 0.19723446395821587,
+    "V_j": 0.19723446395821598
+   },
+   {
+    "K": 10,
+    "eta": 5.2,
+    "j": 5,
+    "lp": 0.18682447899469867,
+    "V_j": 0.18682447899469867
+   },
+   {
+    "K": 10,
+    "eta": 5.5,
+    "j": 5,
+    "lp": 0.17742327114974565,
+    "V_j": 0.17742327114974576
+   },
+   {
+    "K": 10,
+    "eta": 5.8,
+    "j": 5,
+    "lp": 0.16892115111462577,
+    "V_j": 0.1689211511146259
+   },
+   {
+    "K": 10,
+    "eta": 6.1,
+    "j": 4,
+    "lp": 0.16116797867586696,
+    "V_j": 0.16116797867586707
+   },
+   {
+    "K": 10,
+    "eta": 6.4,
+    "j": 4,
+    "lp": 0.15404455676831372,
+    "V_j": 0.15404455676831375
+   },
+   {
+    "K": 10,
+    "eta": 6.7,
+    "j": 4,
+    "lp": 0.14752356467478103,
+    "V_j": 0.147523564674781
+   },
+   {
+    "K": 10,
+    "eta": 7.0,
+    "j": 3,
+    "lp": 0.1415317535400392,
+    "V_j": 0.141531753540039
+   },
+   {
+    "K": 10,
+    "eta": 7.3,
+    "j": 3,
+    "lp": 0.13594839280750076,
+    "V_j": 0.13594839280750037
+   },
+   {
+    "K": 10,
+    "eta": 7.6,
+    "j": 3,
+    "lp": 0.13078864273432314,
+    "V_j": 0.13078864273432322
+   },
+   {
+    "K": 10,
+    "eta": 7.9,
+    "j": 3,
+    "lp": 0.12600607652460977,
+    "V_j": 0.12600607652460982
+   },
+   {
+    "K": 10,
+    "eta": 8.2,
+    "j": 2,
+    "lp": 0.1215290686036205,
+    "V_j": 0.12152906860362045
+   },
+   {
+    "K": 10,
+    "eta": 8.5,
+    "j": 2,
+    "lp": 0.11734443288241417,
+    "V_j": 0.11734443288241414
+   },
+   {
+    "K": 10,
+    "eta": 8.8,
+    "j": 2,
+    "lp": 0.11343834926399696,
+    "V_j": 0.1134383492639971
+   },
+   {
+    "K": 10,
+    "eta": 9.1,
+    "j": 1,
+    "lp": 0.10977080820265386,
+    "V_j": 0.10977080820265384
+   },
+   {
+    "K": 10,
+    "eta": 9.4,
+    "j": 1,
+    "lp": 0.10630841121495326,
+    "V_j": 0.10630841121495327
+   },
+   {
+    "K": 10,
+    "eta": 9.7,
+    "j": 1,
+    "lp": 0.10305775764439411,
+    "V_j": 0.10305775764439407
+   },
+   {
+    "K": 10,
+    "eta": 10.0,
+    "j": 0,
+    "lp": 0.09999999999999996,
+    "V_j": 0.09999999999999998
+   },
+   {
+    "K": 10,
+    "eta": 10.3,
+    "j": 0,
+    "lp": 0.09708737864077666,
+    "V_j": 0.09708737864077666
+   },
+   {
+    "K": 10,
+    "eta": 10.6,
+    "j": 0,
+    "lp": 0.09433962264150944,
+    "V_j": 0.09433962264150941
+   },
+   {
+    "K": 10,
+    "eta": 10.9,
+    "j": 0,
+    "lp": 0.09174311926605504,
+    "V_j": 0.09174311926605505
+   },
+   {
+    "K": 10,
+    "eta": 11.2,
+    "j": 0,
+    "lp": 0.0892857142857143,
+    "V_j": 0.0892857142857143
+   },
+   {
+    "K": 10,
+    "eta": 11.5,
+    "j": 0,
+    "lp": 0.0869565217391304,
+    "V_j": 0.08695652173913038
+   },
+   {
+    "K": 10,
+    "eta": 11.8,
+    "j": 0,
+    "lp": 0.0847457627118644,
+    "V_j": 0.0847457627118644
+   }
+  ],
+  "dual_face_degenerate": [
+   {
+    "K": 6,
+    "j": 3,
+    "eta": 3.25,
+    "rel_dev": 0.057692307692307716,
+    "scipy_max_mono_multiplier": 0.03994082840236685
+   },
+   {
+    "K": 6,
+    "j": 4,
+    "eta": 2.75,
+    "rel_dev": 0.015873015873015928,
+    "scipy_max_mono_multiplier": 0.010101010101010237
+   }
+  ],
+  "mono_redundant_max_dev": 2.220446049250313e-16,
+  "sandwich": {
+   "max_L_excess": 0.0,
+   "max_U_excess": 6.661338147750939e-16
+  }
+ },
+ "T3_agreement": {
+  "compared": 58,
+  "mismatches": []
+ },
+ "runtime_s": 60.2
+}
