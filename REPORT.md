@@ -1,18 +1,41 @@
 # REPORT.md
 
-## Summary
+## Summary（第二晚）
+
+- 全部 PASS：N0 术语表/规则；N1 一般 K 对偶证书；N2 显式 V_j 实例；N3 K=5 验证；N4 hardness 解析化；N5 有界查询定理草稿；N6 加性误差模型。无任务级 FAIL。
+- 头条：**ρ_K(η) = min_j V_j(η) 两个方向都到证书级**（N1 对偶 + N2 实例，均一般 K 符号验证），只剩 R6 有效不等式一步手证；N4 进一步表明 poly-query 技术的 n→∞ 极限恰是这同一闭式（修正第一晚"贴 U_K"的解读）。
+- 两处对第一晚结论的修正已同步进文档：δ 闭式是 max 双支形式（N5，分歧点经独立 LP 复核）；relaxF 的 n=8K 数值未收敛（N4）。
+- 最需人类判断：N2 实例的 f̃ 单调但不 submodular（R7 同病）——若模型要求 f̃ 也 submodular，全部上界实例失效，ρ_K 可能变大，这是建模决定；其次是 N6 的混合误差模型在量化尺度 ε 下对大多数真实数据行不可行，论文实证叙事需按 md 中的读法措辞。
+- 复现：每个数字有一键脚本（results/N*_*.py，主会话全部复跑过）；第一晚 summary 存档在下方。
+
+## Summary（第一晚，存档）
 
 - 全部 PASS：T1 基线一致；T2 hardness；T3 闭式；T4 lookahead；T5 符号化；T6 实证；T7 定理草稿。无 FAIL（仅 T2 的 4 个超大 LP 超时跳过，已记录）。
-- 最重要发现：R9 候选在真 balanced 定义下有结构性不可行证书（F 在 y=K 处平坦 vs Ĝ 递增，任意 n/δ/τ 都救不了）；放开 F 后 LP 值贴 U_K、K→∞ → 1−e^{−1/η}，且 y≤τ 下最小 δ 有精确闭式 1+δ=(a^τK/(K−τ))²。
+- 最重要发现：R9 候选在真 balanced 定义下有结构性不可行证书（F 在 y=K 处平坦 vs Ĝ 递增，任意 n/δ/τ 都救不了）；放开 F 后 LP 值贴 U_K、K→∞ → 1−e^{−1/η}，且 y≤τ 下最小 δ 有精确闭式 1+δ=(a^τK/(K−τ))²。（注：两处解读已被第二晚 N4/N5 修正，见上。）
 - 意外收获：T3 得到 K=3、K=4 分段闭式 + 一般 K 猜想 min_j V_j（符号对偶证书）；T4 发现 pair greedy 在 K=4 恰等于 ρ_2(η)；T5 把 R7 升级为一般 K [VERIFIED-SYMBOLIC]。
-- 最需人类判断：论文 hardness 一节怎么讲——T2 表明现有技术只能给渐近 1−e^{−1/η}（有限 K 贴 U_K），严格 poly-query 定理需要从 T2_relaxF_solution_example.json 的 LP 最优解解析化新构造。
-- 环境注：GitHub 写权限 403（Claude App 未安装），全部工作在本地分支 commit；装好 App 后一次 push 即可。
+- 最需人类判断（当晚）：论文 hardness 一节怎么讲——第二晚 N4/N5 已给出答案的主体。
 
 ---
 
 ## 任务日志（倒序追加在此行之下）
 
 ### ——— 第二晚（TASKS2.md）———
+
+### N6 加性修正的误差模型 — PASS（理论紧 + 实证半正半负，全部诚实落盘）
+- 理论 [HAND-PROOF-UNREVIEWED + LP oracle]：模型 d/η_u − ε ≤ d̃ ≤ η_o·d + ε 下
+  F^PG ≥ L_K(η)·(OPT − 2Kη_u·ε)；关键结构：ε 只与 η_u 相乘（回代发生在被选元素上）。
+- LP 检验超预期：16/16 无违反且发现 **LP(ε) = ρ_K(η)·max(0, 1−2Kη_u·ε) 精确成立**
+  （29 点残差 ≤2.8e-16，覆盖 K=2,3,4 与三种误差拆分）[CONJECTURE N6-C1]——
+  即推导的 ε 部分是紧的，唯一松弛就是 ε=0 时已有的 ρ_K − L_K。ε* = OPT/(2Kη_u) 只依赖 η_u（已验证）。
+- 实证 trimmed 重测（1260 行）：η^path 大幅下降（K=7 中位数 43→4.8、60→5.5、371→17.9）但
+  下界在 K ≥ 5 仍实质 vacuous（数值 0.009-0.074 vs 实测 ratio 0.94-0.96；wine 转负）；
+  **实质进步在 K=3 的 ε 优化认证下界**：0.286/0.439（breast_cancer/digits20，比 T6 好 10-31 倍），wine 例外。
+- 重要负面结果：任务规定的 ε（1-2 个量化单位）下混合模型对 1110/1260 行不可行
+  （存在 d>0 且 d̃<−ε 的对）；使可行的最小 ε 中位数 3-12.6 个单位。additive_bound 的正确读法
+  已在 md 中写明。s10 的 10 行"违反"全部是前提失配（f(∅)≠0、oracle greedy 非 OPT），非定理反例。
+- 复现：N6_additive_lp.py（11 秒）、N6_eta_trimmed.py（247 秒），主会话复跑均退出码 0；
+  详见 results/N6_additive_model.md、N6_eta_trimmed.csv、figures/N6_*.png。
+- 未做（[FAILED] 子项）：结合 N1 "mono 乘子恒为 0" 检查加性项能否绕开 monotonicity（时间用尽）。
 
 ### N5 有界查询版 hardness 定理草稿 — PASS（含对 T2 结论 1 的实质修正）
 - results/N5_bounded_query_hardness.tex：concentration 引理（并集界 + 超几何，n ≥ 4K^{c+2}）、
