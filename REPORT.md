@@ -14,6 +14,33 @@
 
 ### ——— 第二晚（TASKS2.md）———
 
+### N5 有界查询版 hardness 定理草稿 — PASS（含对 T2 结论 1 的实质修正）
+- results/N5_bounded_query_hardness.tex：concentration 引理（并集界 + 超几何，n ≥ 4K^{c+2}）、
+  取值引理、确定性定理 + 随机化推论（只用平均论证，不冒称 Yao minimax），每步状态标签，
+  第 6 节逐词空洞性检验 V1-V17（删 adaptive；poly-query/查询大小≤K/K≥2τ/(H)/η>1 为承重限定词；
+  all-pairs 版标 open；全文不写 tight）。
+- **修正 T2 结论 1**：δ 闭式完整形式是 1+δ = max{a^τK/(K−τ), a^{1−τ}}²，第二支来自 y 方向
+  balanced 边，第一支占优 iff η ≥ 2−1/τ。第一晚测试点全在第一支区所以未暴露。
+  Oracle：N5_delta_at_etahat.py 40 点 + 主会话在分歧点 (4,1.2,2) 用第一晚网格 LP 独立复核
+  （LP=0.595568=第二支）。已同步修正 RESEARCH_STATE R11(a) 与 T2_summary。
+- 定理需两处结构性修改：加假设 (H) η̂ ≥ 1（充分条件 K ≥ τ(1+2/ln η)）；η̂ 用 Φ(θ)=θ(1+δ(θ))
+  的不动点定义（δ 对 η 不再单调）。sympy 15/15：δ→0（首阶 2τ(1−1/η)/K）、L_K(η̂) → 1−e^{−1/η} 等。
+- 诚实边界：max 闭式一般 (K,τ,η) 仍 [CONJECTURE]，τ 只测 {1,2}（c ∈ {0,1}）；F 固定非最优
+  （N4 的最优 (F,G) 代入会更强但只测 τ=1，列为下一步）；有限 K 下本定理弱于 greedy 侧曲线，
+  内容是渐近的。主会话复跑两个脚本均退出码 0。
+
+### N2 中间 j 的可实现实例 [VERIFIED-SYMBOLIC 一般 K，模分支枚举] — PASS（R10 升级为精确最坏值）
+- 对每个 j（0 ≤ j ≤ K）构造显式 (f, f̃)：三类元素 C(j)+P(K−j)+O(K)，
+  f = 1 − q^x(1−y/K) + zδ_jχ(y)，f̃ = W(0) − q^xW(y) + zδ̃χ(y)（W(0)=k1/(Kη_u)，W(y)=(K−y)η_o/K，
+  δ_j=q^j/(Kη)）。机制：f̃ 把每步候选压成 O 真实增益/η_u，每步与 O 打平（tie 对抗承重）。
+- j=0 退化为 R2 modular 实例；j=K 与 R7/U_K 逐点相同；中间 j 全新。取 j*(η) 即 ρ_K ≤ min_j V_j。
+- 验证：480/480（主会话复跑退出码 0）：44 条一般 K 符号 + K=2..6 全格点 + K=2..8 精确 Fraction
+  + R5 表 25 点重现 + 与 K=2 witness 逐元素一致 + strict tie 变体极限。
+- **净结论：ρ_K(η) = min_j V_j(η) 两个方向都到证书级**（≤ 方向 N2 实例；≥ 方向 N1 对偶证书），
+  仅剩 R6 有效不等式那一步 [HAND-PROOF-UNREVIEWED]。
+- 最需人类判断（N2 caveat 3）：f̃ 单调但不 submodular（与 R7 同病）；若模型要求 f̃ 也 submodular，
+  ρ_K 可能变大，现有全部上界实例失效，这是建模层面的决定。
+
 ### N4 Hardness 的解析化 [VERIFIED-SYMBOLIC 一般 (K,η) + VERIFIED-LP 42 组精确有理] — PASS
 - **修正 T2 结论 3 的解读**：relaxF LP 值对 n 未收敛（T2 用的 n=8K 不够大）；n→∞ 极限
   逐点等于 y≤τ 定义下的值，而后者 = **ρ_K^LP = min_j V_j（R10 闭式），严格小于 U_K**。

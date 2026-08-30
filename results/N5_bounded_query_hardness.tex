@@ -1,0 +1,708 @@
+% N5: bounded-query (poly-query) hardness theorem -- DRAFT.
+% LaTeX fragment, not a standalone document.  Companion to
+%   results/N5_asymptotics.py     (sympy, output results/N5_asymptotics.txt, 15/15)
+%   results/N5_delta_at_etahat.py (LP oracle re-run, output
+%                                  results/N5_delta_at_etahat.txt, 40/0/2)
+% and it quotes, without re-deriving, the oracle facts of
+%   RESEARCH_STATE.md R9 / R11(a)  and  results/T2_summary.md (Conclusion 1 and 3),
+%   results/N4_hardness_construction.md (Section 3 and Section 6),
+%   RESEARCH_STATE.md R1 (the greedy guarantee L_K) and R7/T5 (the U_K family).
+%
+% Conventions (paper + CLAUDE.md):
+%   alpha in (0,1], larger is better;  d_e(S) = f(S cup {e}) - f(S);
+%   eta_u = max d/dtilde, eta_o = max dtilde/d, eta = eta_u eta_o;
+%   SINGLE-ELEMENT error model throughout this file (see vacuity check V7);
+%   L_K(eta) = 1 - (1 - 1/(eta K))^K,  U_K(eta) = 1 - (1 - 1/(eta(K-1)+1))^K.
+%
+% Status tags per CLAUDE.md.  Nothing in this file is claimed as "proved":
+% every deduction step is [HAND-PROOF-UNREVIEWED], every instance-level fact is
+% imported with the tag it carries in RESEARCH_STATE.md, the asymptotic and
+% monotonicity statements are [VERIFIED-SYMBOLIC] via results/N5_asymptotics.py,
+% and the error-inflation constant is [VERIFIED-LP] at 40 points via
+% results/N5_delta_at_etahat.py.
+%
+% NEW IN N5 (not a restatement of T2): Lemma N5.4 CORRECTS the closed form of
+% results/T2_summary.md Conclusion 1 / RESEARCH_STATE.md R11(a); the LP oracle
+% refutes the published form at 8 of 40 points.  See Lemma N5.4 and D1(b).
+%
+% SCOPE WORD (GLOSSARY.md, "any algorithm"): everything below lives in range
+% (ii) poly-query = hidden O + concentration.  Range (i) (unbounded queries) is
+% R2 and gives the DIFFERENT constant 1/eta; range (iii) (poly-time) is not
+% touched anywhere in this paper.
+
+
+% ===========================================================================
+% 0.  The instance family
+% ===========================================================================
+% Status: the family itself is the R9 candidate, restated verbatim from
+% RESEARCH_STATE.md R9 / results/T2_hardness_grid.py (function fixedF_min_delta).
+% [VERIFIED-LP, finite instances] for monotonicity, submodularity, OPT = F(O),
+% the ratio identity and the error band -- see Lemma N5.4 and the pointers there.
+%
+% Ground set N with |N| = n.  Hidden O subseteq N with |O| = K, B = N \ O.
+% For S subseteq N put  x = |S \ O|,  y = |S cap O|.
+% Design parameter theta >= 1 and a_theta = 1 - 1/(theta K).  Below, the
+% instantiation used by the theorem is written hateta and hata = a_hateta;
+% Lemmas N5.4 and N5.5 are stated for a general theta because the theorem has to
+% SOLVE for the right one.
+% Balancedness threshold tau with 1 <= tau < K.
+%
+%   f  = F_O(S)  = hateta^{-1/2} * ( 1 - hata^x (1 - y/K) )
+%   ftilde = G_O(S) = 1 - hata^{x+y}                      if y <= tau
+%                   = 1 - hata^{x+tau} (K - y)/(K - tau)  if y >= tau
+%   Ghat(s) = 1 - hata^s        (the balanced-region profile; G_O(S) = Ghat(|S|)
+%                                whenever y <= tau, since then x + y = |S|)
+%
+% The two branches agree at y = tau.  The error split is
+% hateta_u = hateta_o = sqrt(hateta); the prefactor hateta^{-1/2} on F only fixes
+% that split and cancels from every ratio below.
+% NOTE (used later): f(O) = F_O(O) = hateta^{-1/2}, and F_O(S) <= f(O) for all
+% |S| <= K, i.e. OPT = f(O) -- [VERIFIED-LP] by full enumeration, T2 step 3.
+
+
+% ===========================================================================
+% 1.  Concentration lemma
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED].  Elementary union bound + hypergeometric
+% ratio; no oracle was run for it.  No script dependency.
+\begin{lemma}[Balancedness of a fixed small query]\label{lem:n5-conc}
+Let $O$ be a uniformly random $K$-subset of a ground set $N$ with $|N|=n\ge K$,
+let $S\subseteq N$ be fixed with $|S|\le K$, and let $0\le\tau<K$ be an integer.
+Then
+\[
+  \Pr\bigl[\,|S\cap O|>\tau\,\bigr]\;\le\;\binom{K}{\tau+1}\Bigl(\frac{K}{n}\Bigr)^{\tau+1}
+  \;\le\;\frac{K^{2(\tau+1)}}{(\tau+1)!\;n^{\tau+1}} .
+\]
+\end{lemma}
+% Proof draft.  Write m = tau + 1.  The event {|S cap O| > tau} is the union,
+% over the C(|S|, m) subsets R subseteq S with |R| = m, of the events {R subseteq O}.
+% For a fixed such R,
+%       Pr[R subseteq O] = C(n-m, K-m)/C(n, K) = prod_{i=0}^{m-1} (K-i)/(n-i),
+% and (K-i)/(n-i) <= K/n for every 0 <= i < m whenever K <= n (cross-multiplying,
+% (K-i)n <= K(n-i)  <=>  iK <= in).  Hence Pr[R subseteq O] <= (K/n)^m.
+% A union bound over the C(|S|, m) <= C(K, m) <= K^m/m! choices of R gives the claim.
+% [此步需人工检查：C(|S|,m) <= C(K,m) 用了 |S| <= K；m <= K 保证二项式系数非零。]
+
+% ---------------------------------------------------------------------------
+% Status: [HAND-PROOF-UNREVIEWED] (arithmetic on Lemma N5.1 only).
+\begin{lemma}[Union bound over a transcript, and an explicit $n$]\label{lem:n5-union}
+Fix an integer $c\ge 0$, set $Q=n^{c}$ and $\tau=c+1$, and let $K\ge\tau+1$.  Let
+$S_1,\dots,S_Q$ and $T_0$ be fixed sets with $|S_i|\le K$ and $|T_0|\le K$, and
+let $O$ be a uniformly random $K$-subset of $N$.  Then
+\[
+  \Pr\Bigl[\,\exists i:\ |S_i\cap O|>\tau\ \ \text{ or }\ \ T_0\cap O\neq\emptyset\,\Bigr]
+  \;\le\;\frac{K^{2c+4}}{(c+2)!\;n^{2}}\;+\;\frac{K^{2}}{n}\;<\;\tfrac12
+\]
+whenever $n\ge 4K^{\,c+2}$ (and $K\ge 2$).
+\end{lemma}
+% Proof draft.  First term: Lemma N5.1 with tau + 1 = c + 2 gives, per query,
+% C(K, c+2)(K/n)^{c+2} <= K^{2c+4}/((c+2)! n^{c+2}); multiplying by Q = n^c gives
+% K^{2c+4}/((c+2)! n^2).  Second term: Pr[T_0 cap O != empty] <= E|T_0 cap O|
+% = |T_0| K/n <= K^2/n (Markov, or a union bound over the elements of T_0; the
+% hypergeometric mean E|T_0 cap O| = |T_0| K / n is exact).
+% Numerically, n >= 4 K^{c+2} gives n^2 >= 16 K^{2c+4}, so the first term is at
+% most 1/(16 (c+2)!) <= 1/32, and the second is at most K^2/(4K^{c+2}) =
+% 1/(4K^c) <= 1/4; the sum is at most 9/32 < 1/2.
+% [此步需人工检查：(c+2)! >= 2 用了 c >= 0；K^c >= 1 用了 K >= 1。]
+% REMARK (vacuity check V11 below): tau = c is already enough for the union
+% bound (it gives K^{2c+2}/((c+1)! n) instead of the 1/n^2 above), and tau enters
+% delta linearly, so tau = c would give a slightly STRONGER theorem.  tau = c+1
+% is kept because TASKS2.md fixes it and because tau = 0 is degenerate at c = 0.
+
+
+% ===========================================================================
+% 2.  Valuation lemma
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED] for the simulation/induction argument.
+% It CONSUMES four oracle facts about the family of Section 0, all from
+% RESEARCH_STATE.md R11(a) = results/T2_summary.md Conclusion 1 and step 3
+% ([VERIFIED-LP] on the finite test set listed in honest declaration D1,
+%  [CONJECTURE] for general (K, tau, eta)):
+%
+%  (F1) balanced answers depend only on |S|:  G_O(S) = Ghat(|S|) whenever
+%       |S cap O| <= tau.  (This is a definitional property of the candidate G
+%       of R9; in the LP it is the balanced-region equality constraint.)
+%  (F2) F_O is monotone submodular, and the pair (F_O, G_O) has single-element
+%       error exactly hateta(1 + delta(hateta)) with 1 + delta(theta) =
+%       max{a_theta^tau K/(K-tau), a_theta^{1-tau}}^2 -- Lemma N5.4 below.
+%  (F3) OPT = max_{|S| <= K} F_O(S) = F_O(O)  (full enumeration, T2 step 3;
+%       re-checked on the grid at the theorem's hateta values by
+%       results/N5_delta_at_etahat.py, column C).
+%  (F4) F_O(T)/F_O(O) = 1 - hata^{K} = L_K(hateta) for any K-set T with T cap O
+%       = emptyset (T2 step 3: the columns ratio_B and LK of results/T2_table.csv
+%       agree row by row; re-checked at the hateta values, column D).
+\begin{lemma}[Valuation on the balanced event]\label{lem:n5-val}
+Let $\mathcal A$ be a deterministic algorithm that makes at most $Q$ queries to
+$\tilde f$, each on a set of size at most $K$, and returns a set $T$ with
+$|T|\le K$.  Run $\mathcal A$ against the \emph{canonical} oracle that answers
+every query $S$ with $\hat G(|S|)$; let $S_1,\dots,S_Q$ be the resulting queries
+and $T_0$ the resulting output.  Both are fixed sets, independent of $O$.  If
+$O$ satisfies
+\[
+  |S_i\cap O|\le\tau\ \ (1\le i\le Q)\qquad\text{and}\qquad T_0\cap O=\emptyset,
+\]
+then $\mathcal A$, run on the instance $(F_O,G_O)$, outputs exactly $T_0$ and
+\[
+  \frac{F_O(T_0)}{F_O(O)}\;=\;1-\hat a^{\,|T_0|}\;\le\;1-\hat a^{K}
+  \;=\;1-\Bigl(1-\frac{1}{\hat\eta K}\Bigr)^{K}\;=\;L_K(\hat\eta).
+\]
+\end{lemma}
+% Proof draft.  Induction on i.  Suppose the first i-1 real answers agree with
+% the canonical ones; then the algorithm is deterministic and its state after
+% i-1 answers is the canonical state, so its i-th query is the canonical S_i.
+% By hypothesis |S_i cap O| <= tau, so by (F1) G_O(S_i) = Ghat(|S_i|), which is
+% the canonical answer.  Hence all Q answers agree and the output is T_0.
+% Since T_0 cap O = empty we have y = 0 and x = |T_0| <= K, so
+%   F_O(T_0) = hateta^{-1/2}(1 - hata^{|T_0|}) <= hateta^{-1/2}(1 - hata^{K}),
+% using hata in (0,1); and F_O(O) = hateta^{-1/2}, which is OPT by (F3).  The
+% last equality is (F4).
+% [此步需人工检查：(a) "算法是确定性的，故状态由应答序列唯一决定" 这一步排除了
+%  算法用随机串或用 O 的其他信息；(b) 询问集合大小 <= K 是 Lemma N5.1 的前提，
+%  这里必须与算法模型一致；(c) hata in (0,1) 需要 hateta K > 1。]
+%
+% VARIANT used by the randomized corollary (same proof, weaker conclusion):
+% if only the query condition |S_i cap O| <= tau holds (T_0 cap O may be
+% nonempty), then the output is still T_0 and, since F_O(x,y) is
+% hateta^{-1/2}(1 - hata^x + hata^x y/K) <= hateta^{-1/2}(1 - hata^{K}) +
+% hateta^{-1/2} y/K for x <= K,
+%     F_O(T_0)/F_O(O) <= L_K(hateta) + |T_0 cap O| / K .
+% Taking expectations over O and using E|T_0 cap O| = |T_0| K/n <= K^2/n gives
+% the additive term K/n of Corollary N5.7.
+% [此步需人工检查：hata^x <= 1 与 x <= K 处的单调性方向。]
+
+
+% ===========================================================================
+% 3.  The error-inflation constant delta
+% ===========================================================================
+% *** THIS SECTION CORRECTS results/T2_summary.md CONCLUSION 1. ***
+% Status of the corrected closed form (the max below): [VERIFIED-LP] at 40
+%   (K, eta, tau) points, results/N5_delta_at_etahat.py -> N5_delta_at_etahat.txt
+%   (40 PASS / 0 FAIL / 2 SKIP), on top of the T2 points; [CONJECTURE] in general.
+% Status of the derivation below (which band constraint binds):
+%   [HAND-PROOF-UNREVIEWED]; it reproduces the quantity delta_cc computed by
+%   results/T2_hardness_grid.py and now matches the LP minimum at 8 further
+%   points where the T2 formula does NOT.
+% Status of the first-order dominance condition theta >= 2 - 1/tau:
+%   [VERIFIED-SYMBOLIC], results/N5_asymptotics.py check (iii).
+\begin{lemma}[Error of the family]\label{lem:n5-delta}
+For the family of Section~0 with design parameter $\theta>1$ and
+$a_\theta=1-1/(\theta K)$, let $s\ge 1$ be the smallest number such that the
+inflated single-element band
+$\Delta F/(\sqrt\theta\, s)\le \Delta G\le \sqrt\theta\, s\,\Delta F$ holds on
+every adjacent pair of sets.  Then
+\[
+  1+\delta(\theta)\;=\;s^{2}\;=\;
+  \max\Bigl\{\ a_\theta^{\tau}\frac{K}{K-\tau}\ ,\ a_\theta^{\,1-\tau}\ \Bigr\}^{2},
+\]
+and the pair $(F_O,G_O)$ then has single-element error exactly
+$\theta\,(1+\delta(\theta))$.
+\end{lemma}
+% Proof draft of the lower bound (the four edge computations).  Both endpoints
+% balanced, eta_u = eta_o = sqrt(theta), 1 - a = 1/(theta K), write a = a_theta:
+%   x-edge (x,y) -> (x+1,y), y <= tau:
+%       Delta F = theta^{-1/2} a^x (1-a)(1 - y/K),  Delta G = a^{x+y}(1-a)
+%       Delta G/(eta_o Delta F) = a^{y} K/(K-y)          <- first candidate
+%       Delta F/(eta_u Delta G) = (K-y)/(theta K a^{y}) <= 1   (uses theta >= 1)
+%   y-edge (x,y) -> (x,y+1), y+1 <= tau:
+%       Delta F = theta^{-1/2} a^x / K,  Delta G = a^{x+y}(1-a)
+%       Delta G/(eta_o Delta F) = a^{y}/theta <= 1             (uses theta >= 1)
+%       Delta F/(eta_u Delta G) = a^{-y}                <- second candidate
+% The map y |-> a^{y} K/(K-y) is increasing on 0 <= y <= tau (the ratio of
+% consecutive terms is a (K-y)/(K-y-1) >= 1 iff a >= 1 - 1/(K-y), which holds
+% since a = 1 - 1/(theta K) and theta >= 1), so its max over the balanced strip
+% is at y = tau; a^{-y} is maximized at y = tau - 1, giving a^{1-tau}.  These
+% are "constant-constant" constraints: both endpoints lie in the balanced region
+% where G is pinned to Ghat, so no choice of the unbalanced part of G can relax
+% them.  Sufficiency (an extension of G to the unbalanced region exists at this
+% s, and the explicit G of Section 0 is one) is the LP part.
+% [此步需人工检查：四条边比值的代数；"y = tau 的 x-edge 存在" 需要 tau <= K-1
+%  且 x+1 <= n-K；两条 "<= 1" 的推导都用了 theta >= 1，见假设 (H)。]
+%
+% *** CORRECTION TO T2 (this is a new N5 finding, not a restatement). ***
+% results/T2_summary.md Conclusion 1 reports 1 + delta = (a^tau K/(K-tau))^2,
+% i.e. the FIRST term only.  To first order in 1/K the two candidates are
+% tau(1 - 1/theta)/K and (tau-1)/(theta K), so the first dominates iff
+% theta >= 2 - 1/tau [VERIFIED-SYMBOLIC, results/N5_asymptotics.py (iii)].
+% Every T2 test point satisfies that (T2 used tau <= 2 and theta in {3/2,2,3},
+% and 2 - 1/2 = 3/2), which is why the second term was never seen.  The theorem
+% below evaluates the family at a design parameter strictly SMALLER than eta,
+% which can drop below 2 - 1/tau -- and there the T2 formula is simply wrong.
+% [VERIFIED-LP] results/N5_delta_at_etahat.py: 40 points solved, the LP minimum
+% delta equals the max-form at all 40, and DIFFERS from the T2 formula at 8 of
+% them.  Largest discrepancy (K,eta,tau) = (4,3,2): LP and max-form 0.710334,
+% T2 formula 0.367408 (a factor 1.93 in 1 + delta).  Others: (6,1.5,2) 0.404077
+% vs 0.141302; (6,2,2) 0.328460 vs 0.274928; (8,1.5,2) 0.247292 vs 0.142723;
+% (12,1.5,2) 0.140573 vs 0.106920; (16,1.5,2) 0.098537 vs 0.082317;
+% (24,1.5,2) 0.061794 vs 0.055593; (32,1.5,2) 0.045045 vs 0.041807.
+% ACTION FOR THE PAPER: T2 Conclusion 1 and RESEARCH_STATE.md R11(a) should be
+% amended to the max-form.  (Not edited here: N5 may only write results/N5_*.)
+
+% ---------------------------------------------------------------------------
+% Status: [VERIFIED-SYMBOLIC], results/N5_asymptotics.py checks (iv), (vi).
+% This lemma REPLACES the naive "delta is increasing in the design parameter"
+% argument, which is FALSE for the corrected max-form of Lemma N5.4: the first
+% branch increases in theta but the second, a_theta^{1-tau}, DECREASES in it.
+\begin{lemma}[The admissibility map is invertible]\label{lem:n5-mono}
+Let $K\ge 2\tau$, $\tau\ge1$, and let
+$\Phi(\theta):=\theta\,\bigl(1+\delta(\theta)\bigr)$ be the single-element error
+of the family with design parameter $\theta$ (Lemma~\ref{lem:n5-delta}).  Then
+$\Phi$ is continuous and strictly increasing on $\theta\ge1$, so for every
+$\eta\ge\Phi(1)$ there is a unique $\theta^{\ast}=\Phi^{-1}(\eta)\le\eta$; the
+family with design parameter $\theta^{\ast}$ has single-element error exactly
+$\eta$.
+\end{lemma}
+% Proof draft.  Phi(theta) = max{ theta c1(theta)^2 , theta c2(theta)^2 } with
+% c1 = a^tau K/(K-tau) and c2 = a^{1-tau}, a = a_theta.  A max of increasing
+% functions is increasing, so it suffices that both branches increase:
+%   theta c1^2 = (K/(K-tau))^2 * theta a^{2 tau}, and
+%       d/dtheta [theta a^{2tau}] = a^{2tau} + 2 tau a^{2tau-1}/(theta K) > 0
+%       for a > 0                                [VERIFIED-SYMBOLIC, (vi.a)];
+%   theta c2^2 = theta a^{2-2tau}, and with u = theta K,
+%       d/dtheta [theta a^{2-2tau}] = (1/K)(u/(u-1))^{2tau-2}[1 - (2tau-2)/(u-1)],
+%       which is > 0 iff u > 2 tau - 1        [VERIFIED-SYMBOLIC, (vi.b)];
+%       theta >= 1 and K >= 2 tau give u >= 2 tau > 2 tau - 1.
+% Phi(theta) >= theta because delta >= 0, hence Phi^{-1}(eta) <= eta.
+% [此步需人工检查：delta >= 0 需要 max{c1, c2} >= 1，由 c1 >= 1 或 c2 >= 1 得到
+%  （tau = 1 时 c2 = 1）。K >= 2 tau 就是定理里的假设 (H2)。]
+%
+% WHY A FIXED POINT AND NOT AN EXPLICIT FORMULA (honest declaration D3).
+% TASKS2.md prescribes the explicit hateta = eta/(1 + delta(eta)).  That value
+% is admissible (family error <= eta) iff delta(hateta) <= delta(eta), which is
+% exactly the monotonicity that the corrected delta does NOT have in general.
+% Two ways out, both recorded:
+%   (a) use theta* = Phi^{-1}(eta): always admissible, error EXACTLY eta, and it
+%       gives the strongest bound of the family since theta* >= any admissible
+%       design parameter and L_K is decreasing (check (v));
+%   (b) keep the explicit hateta and CHECK delta(hateta) <= delta(eta).  This was
+%       checked at all 40 points of results/N5_delta_at_etahat.py (column E) and
+%       held everywhere, so at those points the TASKS2 form is valid -- but it is
+%       [VERIFIED-LP finite] there, not proved.
+% The theorem below is stated with theta* and records hateta as the explicit
+% (weaker, conditionally valid) instantiation.
+
+
+% ===========================================================================
+% 4.  The theorem (deterministic) and its randomized corollary
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED] for the assembly (Lemmas N5.1--N5.3, N5.5);
+%         [VERIFIED-LP, finite instances] for the facts (F1)--(F4) and for the
+%         delta formula; [CONJECTURE] for general (K, tau, theta);
+%         [VERIFIED-SYMBOLIC] for the K -> infinity statement in Corollary N5.8.
+\begin{theorem}[Bounded-query hardness, deterministic]\label{thm:n5-det}
+Fix an integer $c\ge0$, put $\tau=c+1$, and fix a cardinality bound
+$K\ge 2\tau$ and an error level $\eta>1$.  For $\theta\ge1$ write
+$a_\theta=1-1/(\theta K)$,
+\[
+  1+\delta(\theta)=\max\Bigl\{a_\theta^{\tau}\tfrac{K}{K-\tau},\,
+                              a_\theta^{\,1-\tau}\Bigr\}^{2},
+  \qquad \Phi(\theta)=\theta\bigl(1+\delta(\theta)\bigr),
+\]
+and assume
+\[
+  \textbf{(H)}\qquad \Phi(1)\le\eta,
+  \qquad\text{sufficient: } K\;\ge\;\tau\Bigl(1+\frac{2}{\ln\eta}\Bigr),
+\]
+so that $\hat\eta:=\Phi^{-1}(\eta)\in[1,\eta]$ is well defined
+(Lemma~\ref{lem:n5-mono}).  Let $n\ge 4K^{\,c+2}$ and let $\mathcal A$ be any
+deterministic algorithm that makes at most $Q=n^{c}$ queries to $\tilde f$,
+each on a set of size at most $K$, and outputs a set $T$ with $|T|\le K$.  Then
+there is a set $O\subseteq N$, $|O|=K$, such that the pair
+$(f,\tilde f)=(F_O,G_O)$ of Section~0 built with design parameter $\hat\eta$ is
+monotone submodular with single-element error exactly $\eta$, has
+$O^{\ast}=O$, and
+\[
+  f(T)\;\le\;\Bigl(1-\bigl(1-\tfrac{1}{\hat\eta K}\bigr)^{K}\Bigr)f(O^{\ast})
+  \;=\;L_K(\hat\eta)\,f(O^{\ast}).
+\]
+\end{theorem}
+% Proof draft.  Build the family with design parameter hateta = Phi^{-1}(eta);
+% by Lemma N5.5 its single-element error is Phi(hateta) = eta exactly, so every
+% member is admissible.  Let S_1, ..., S_Q, T_0 be the canonical transcript of
+% Lemma N5.3.  Draw O uniformly at random among K-subsets; by Lemma N5.2 the bad
+% event has probability < 1/2 < 1, so SOME O makes all queries balanced and
+% misses T_0.  Fix that O.  By Lemma N5.3 the algorithm outputs T_0 and
+% F_O(T_0) <= L_K(hateta) F_O(O) = L_K(hateta) OPT.  The probabilistic argument
+% is only used to prove existence; the conclusion is about one fixed instance.
+% [此步需人工检查：K >= 2 tau 保证 tau < K（否则 delta 无定义）并蕴含 K >= c+2；
+%  n >= 4K^{c+2} 同时蕴含 n >= 2K，故 B 至少有 K 个元素、
+%  "T_0 cap O = empty 的 K-集" 存在。]
+%
+% REMARK (recovering the statement prescribed by TASKS2.md).  If additionally
+% the first branch of the max attains delta at both eta and at
+% hateta_expl := eta/(1 + delta(eta)) -- equivalently a^{2 tau - 1} K >= K - tau
+% there, whose first-order form is theta >= 2 - 1/tau [VERIFIED-SYMBOLIC (iii)] --
+% then delta(hateta_expl) <= delta(eta), so hateta_expl <= hateta and, since L_K
+% is decreasing (check (v)),
+%      f(T) <= L_K(hateta) <= L_K(hateta_expl) f(O*)
+%           = ( 1 - (1 - 1/(hateta_expl K))^K ) f(O*),
+%      hateta_expl = eta/(1+delta),  1 + delta = (a^tau K/(K-tau))^2,  a = 1-1/(eta K),
+% which is verbatim the target statement of TASKS2.md N5.  It is a WEAKER
+% (larger) bound than the theorem's, and it is conditional on that branch
+% condition; the condition was verified at all 40 points of
+% results/N5_delta_at_etahat.py (column E).  [VERIFIED-LP finite / CONJECTURE].
+%
+% WHY HYPOTHESIS (H) IS NOT COSMETIC [HAND-PROOF-UNREVIEWED, found while
+% tabulating results/N5_asymptotics.txt and confirmed by
+% results/N5_delta_at_etahat.txt].  eta >= 1 always (eta = eta_u eta_o), so a
+% design parameter below 1 is meaningless; worse, the two "non-binding" edge
+% computations of Lemma N5.4 both use theta >= 1
+%   (Delta G/(eta_o Delta F) = a^y/theta <= 1 and
+%    Delta F/(eta_u Delta G) = (K-y)/(theta K a^y) <= 1),
+% so for theta < 1 further edges can bind and Lemma N5.4 itself fails.
+% Concretely: (K, eta, tau) = (4, 3/2, 2) and (4, 2, 2) give
+% eta/(1+delta(eta)) = 0.778 and 0.853 -- (H) fails and both are reported
+% SKIP(H) in results/N5_delta_at_etahat.txt.  Sufficiency of
+% K >= tau(1 + 2/ln eta) for Phi(1) <= eta:
+%   ln Phi(1) = ln(1 + delta(1)) <= 2 max{tau ln a + ln(K/(K-tau)), (1-tau) ln a}
+%             <= 2 tau/(K - tau) <= ln eta,
+% using ln a < 0, -ln(1-t) <= t/(1-t), and (1-tau) ln a <= tau/(K-tau) for
+% tau >= 1.
+% CONSEQUENCE: for fixed c the theorem is a LARGE-K statement in a second,
+% independent sense (V9 gave the first): K must exceed roughly (c+1)(1 + 2/ln eta),
+% which blows up as eta -> 1 (see V17).
+
+% ---------------------------------------------------------------------------
+% Status: [HAND-PROOF-UNREVIEWED].  Only the AVERAGING (easy) direction of Yao's
+% principle is used; no minimax theorem is invoked.  See vacuity check V1.
+\begin{corollary}[Bounded-query hardness, randomized]\label{cor:n5-rand}
+With the parameters of Theorem~\ref{thm:n5-det}, let $\mathcal R$ be any
+randomized algorithm with the same query budget and query-size restriction.
+Then
+\[
+  \min_{O}\ \frac{\mathbb E\bigl[f_O(T)\bigr]}{f_O(O^{\ast})}
+  \;\le\;L_K(\hat\eta)\;+\;\varepsilon_n,
+  \qquad
+  \varepsilon_n=\frac{K}{n}+\frac{K^{2c+4}}{(c+2)!\,n^{2}},
+\]
+the expectation being over $\mathcal R$'s random string, and the minimum over
+the family of Section~0.  In particular $\varepsilon_n\to0$ as $n\to\infty$
+with $K,\eta,c$ fixed.
+\end{corollary}
+% Proof draft.  Let D be the uniform distribution on K-subsets O.  For each
+% fixing r of the random string, R_r is deterministic; let T_0^{(r)} be its
+% canonical output and E_r the event that all its canonical queries are balanced.
+% Bound, pointwise in O, using the VARIANT of Lemma N5.3 and F_O <= F_O(O) (F3):
+%    f_O(T)/f_O(O*) <= L_K(hateta) + |T_0^{(r)} cap O|/K + 1{E_r^c}.
+% Take E_{O ~ D}: the middle term is at most K/n (E|T_0 cap O| = |T_0|K/n <= K^2/n)
+% and the last is at most Q C(K,tau+1)(K/n)^{tau+1} <= K^{2c+4}/((c+2)! n^2)
+% (Lemma N5.2, first term only).  Average over r, exchange the two expectations
+% (Fubini, finite sums), and use min_O <= E_{O ~ D}.
+% [此步需人工检查：1{E_r^c} 处用 f_O(T) <= f_O(O*) 把坏事件的贡献界成 1；
+%  以及"最坏实例的期望比 <= 分布平均"这一步的方向。]
+
+% ---------------------------------------------------------------------------
+% Status: [VERIFIED-SYMBOLIC], results/N5_asymptotics.py checks (i), (ii), (iii)
+% (output: results/N5_asymptotics.txt, 15/15 PASS, exit code 0).
+\begin{corollary}[Asymptotics in $K$]\label{cor:n5-asym}
+Fix $c$, $\tau=c+1$ and $\eta>1$.  Both branches of $\delta$ vanish as
+$K\to\infty$,
+\[
+  K\,\delta(\eta)\;\longrightarrow\;
+  \max\Bigl\{\,2\tau\bigl(1-\tfrac1\eta\bigr),\ \tfrac{2(\tau-1)}{\eta}\,\Bigr\},
+  \qquad\text{so}\qquad
+  L_K(\hat\eta)\;\longrightarrow\;1-e^{-1/\eta}.
+\]
+\end{corollary}
+% Sympy-verified for symbolic (K, eta, tau) in results/N5_asymptotics.py:
+% (i.a) branch-1 delta -> 0, (i.b)/(i.c) K delta -> 2 tau (1 - 1/eta),
+% (iii.a)/(iii.b) the two branch first-order constants, (iii.c) branch 1 wins iff
+% eta >= 2 - 1/tau, (ii.a) K log(1 - 1/(hateta K)) -> -1/eta, (ii.b) the value
+% itself -> 1 - e^{-1/eta}; plus a 30-digit numeric cross-check at K = 10^6.
+% Note the CONCLUSION is branch-independent (both branches -> 1, so hateta ->
+% eta); only the O(1/K) constant depends on which branch is active.
+% Combined with R1 (single-step predictive greedy achieves L_K(eta) ->
+% 1 - e^{-1/eta}), the poly-query optimum is pinned to 1 - e^{-1/eta} in the
+% limit -- CONDITIONAL on the delta formula, which is [VERIFIED-LP] only on the
+% finite set of D1 and [CONJECTURE] in general, and on hypothesis (H), which for
+% fixed tau holds for all large K.
+
+
+% ===========================================================================
+% 5.  Self-consistency check (does the theorem contradict R1?)
+% ===========================================================================
+% Status: [VERIFIED-SYMBOLIC] for the monotonicity of L_K
+% (results/N5_asymptotics.py check (v)); the rest is arithmetic.
+%
+% R1 says predictive greedy achieves >= L_K(eta) on every instance with error
+% <= eta (indeed with eta^path <= eta, a weaker hypothesis).  The theorem says no
+% bounded-query algorithm exceeds L_K(hateta).  Since hateta = Phi^{-1}(eta) <= eta
+% and L_K is strictly DECREASING in its argument (check (v)), we get
+%       L_K(hateta) >= L_K(eta),
+% so the two statements are compatible and the theorem is strictly weaker than a
+% matching bound.  The residual gap at fixed K is
+%       L_K(hateta) - L_K(eta) ~ delta * e^{-1/eta}/eta ~ 2(c+1)(1-1/eta) e^{-1/eta}/(eta K)
+% (using the first-branch asymptotics delta ~ 2 tau(1-1/eta)/K, check (i)),
+% i.e. Theta(c/K); it vanishes iff c = o(K).  The word "tight" is therefore NOT
+% used anywhere in this file (GLOSSARY.md: "tight" must name one of three
+% meanings; none of them applies here at finite K).
+% Sanity numbers (informational block of results/N5_asymptotics.txt), eta = 2,
+% tau = 1:
+%    K =  8:  L_K(eta) 0.403281   L_K(hateta) 0.448775   V_j 0.421599   U_K 0.424170
+%    K = 16:  L_K(eta) 0.398290   L_K(hateta) 0.418997   V_j 0.407614   U_K 0.408230
+%    K = 32:  L_K(eta) 0.395859   L_K(hateta) 0.405758   V_j 0.400560   U_K 0.400711
+% HONEST READING OF THIS TABLE.  At every tabulated (K, eta, tau) the constant
+% L_K(hateta) proved here is LARGER than U_K(eta) and than V_j(eta), i.e. at
+% finite K this theorem is weaker than both of the greedy-side reference curves
+% and weaker than the LP limit of the same technique (D2).  Its content is
+% therefore asymptotic: all four curves converge to 1 - e^{-1/eta} as K -> oo
+% (Corollary N5.8), and only in that limit does the hardness side meet R1.
+% The tau = 2 rows are worse still (K = 8, eta = 2: L_K(hateta) = 0.512), and
+% the K = 4, tau = 2 rows violate hypothesis (H) outright.
+
+
+% ===========================================================================
+% 6.  Vacuity check (CLAUDE.md, mandatory; one entry per qualifier)
+% ===========================================================================
+% Procedure: delete the qualifier, or replace it by its opposite, and re-read
+% the statement.  Unchanged content => delete the qualifier.  Changed => one
+% sentence saying what changed, recorded here and reflected in the text.
+%
+% V1  "deterministic".
+%     Opposite (randomized): the conclusion changes shape -- one cannot fix a
+%     single bad O, and the bound acquires the additive slack epsilon_n of
+%     Corollary N5.7.  KEEP; the flipped version is stated as that corollary.
+%     Note that only averaging over the random string is used, so writing
+%     "by Yao's principle" is decoration: the minimax direction is never needed.
+%     ACTION: say "averaging over the random string", not "by Yao's principle".
+%
+% V2  "adaptive".
+%     Deleting it changes nothing: "algorithm" already allows adaptivity, and
+%     the canonical-transcript device of Lemma N5.3 fixes the query sequence at
+%     zero cost.  ACTION: the word is DELETED from the theorem statement; the
+%     observation that adaptivity is free lives in this comment only.
+%
+% V3  "at most Q = n^c queries" (poly-query).
+%     Opposite (unbounded queries): the statement becomes FALSE, not merely
+%     unproven.  On this family G_O is maximized over K-sets uniquely at O
+%     (G_O(O) = 1, and every other K-set has G_O < 1), so exhaustive search over
+%     all C(n,K) K-subsets recovers O and achieves ratio 1.  KEEP; this is
+%     exactly why GLOSSARY.md forbids the bare phrase "any algorithm": range (i)
+%     of that entry gives 1/eta (R2), range (ii) gives this theorem.
+%
+% V4  "each query on a set of size at most K".
+%     Opposite (arbitrary query size): the argument breaks and the family is
+%     known to fail.  For |S| = m the hypergeometric mean of y is mK/n, so
+%     "y <= tau" stops being the high-probability event once m >> n/K; the
+%     correct event is then the concentration band |y - K|S|/n| <= tau, and T2
+%     Conclusion 2 exhibits a structural certificate showing THIS F is infeasible
+%     under that band for every delta and every n.  KEEP.
+%     Quantitatively the restriction can be relaxed to |S| <= M provided
+%     Q C(M,tau+1)(K/n)^{tau+1} + MK/n < 1/2, which holds for M up to about
+%     n^{2/(c+2)}/K; it cannot be relaxed to M = Theta(n).
+%
+% V5  "outputs a set T with |T| <= K".
+%     Deleting it changes the problem (the cardinality constraint IS the
+%     problem) and also breaks the quantitative step E|T_0 cap O| = |T_0|K/n
+%     <= K^2/n.  KEEP.
+%
+% V6  "monotone submodular".
+%     Truth value unchanged if replaced by "arbitrary set function" (a larger
+%     instance class only makes hardness easier), but the CONTENT changes: the
+%     point of the qualifier is that the hardness already holds inside the class
+%     where R1 guarantees L_K(eta), so the two constants are comparable.
+%     KEEP, with that sentence in the text.
+%
+% V7  "single-element error at most eta".
+%     Opposite (all-pairs error at most eta): NOT SUPPORTED.  The LP bands of
+%     T2 constrain adjacent pairs only, so the family's all-pairs error was
+%     never verified; since {all-pairs <= eta} is a strictly smaller class,
+%     hardness under all-pairs error would be a strictly stronger claim.
+%     KEEP the single-element wording and flag the all-pairs version as open
+%     (honest declaration D5).  Related: eta^path <= single-element eta, so R1
+%     applies to these instances, which is what makes the consistency check of
+%     Section 5 meaningful.
+%
+% V8  "n >= 4K^{c+2}".
+%     Deleting it makes the union bound of Lemma N5.2 false and the theorem
+%     unproven; small n is not a technicality here (N4 Section 3 shows the
+%     related LP value genuinely drops when the ground set is too small to hold
+%     the construction's chain).  KEEP; the threshold is sufficient, not
+%     necessary, and the CONSTANT L_K(hateta) does not depend on n.
+%
+% V9  "K >= 2 tau" (= 2c+2; it implies the weaker K >= c+2).
+%     Deleting it makes delta undefined at tau = K (K - tau = 0) and breaks the
+%     branch-(vi.b) monotonicity that Lemma N5.5 needs (theta K > 2 tau - 1).
+%     KEEP: for a fixed query exponent c the theorem says nothing about
+%     K < 2c+2, and it degrades smoothly as tau approaches K/2 (delta =
+%     Theta(tau/K) = Theta(1) there).
+%
+% V10 "there is a set O" (existential / worst case).
+%     Opposite ("for every O"): FALSE, since an algorithm may hard-code one O.
+%     KEEP.
+%
+% V11 "tau = c+1".
+%     Replacing it by tau = c leaves the union bound valid (margin 1/n instead
+%     of 1/n^2) and DECREASES delta, i.e. strengthens the conclusion.  So this
+%     qualifier is a choice, not a necessity; it is kept only because TASKS2.md
+%     fixes it and because tau = 0 is degenerate.  RECORDED as a known
+%     non-optimality (honest declaration D4).
+%
+% V12 "information-theoretic" (used in the surrounding prose, not in the
+%     statement).  Per GLOSSARY.md it means: the bound depends only on the
+%     number of queries and uses no complexity assumption.  Deleting it would
+%     leave readers free to read a poly-TIME claim into the theorem, which is
+%     false -- nothing here is a computational lower bound.  KEEP, with the
+%     GLOSSARY definition given at first use.
+%
+% V13 "at error eta" versus the eta-hat inside the bound.
+%     Not a deletable qualifier but the most error-prone phrase in the
+%     statement: the promise is "error at most eta", while the hardness constant
+%     is evaluated at the strictly smaller hateta = Phi^{-1}(eta).  The direction
+%     is forced (a hardness instance must lie INSIDE the promised class), and it
+%     is what makes the bound weaker than L_K(eta).  Flipping it -- reading the
+%     statement as "the family attains error eta and forces L_K(eta)" -- is the
+%     single most likely misreading, and it is FALSE.  See honest declaration D3.
+%
+% V14 "any algorithm" (contribution-sentence phrasing).
+%     Bare use is banned by GLOSSARY.md.  ACTION: always write "any
+%     deterministic algorithm that makes n^c queries on sets of size at most K".
+%
+% V15 "tight".
+%     Not used, and must not be added: at finite K the theorem leaves a
+%     Theta(c/K) gap (Section 5), and the K -> infinity matching statement is
+%     conditional on a [CONJECTURE].
+%
+% V16 hypothesis (H), "Phi(1) <= eta".
+%     Deleting it makes the theorem FALSE as stated, not merely unproven: the
+%     design parameter would fall below 1, and for theta < 1 Lemma N5.4 itself
+%     fails (its two "<= 1" edge bounds use theta >= 1), quite apart from the
+%     fact that an error level below 1 is not a legal value of eta = eta_u eta_o.
+%     KEEP.  This qualifier is MISSING from the target statement in TASKS2.md
+%     and was added here; results/N5_delta_at_etahat.txt marks the two points
+%     where it fails as SKIP(H).
+%
+% V17 "eta > 1".
+%     Opposite (eta = 1, perfect predictions): a = (K-1)/K, so the first branch
+%     ((K-1)/K)^tau K/(K-tau) equals 1 exactly at tau = 1 and is > 1 for every
+%     tau >= 2 (its log is (tau^2 - tau)/(2K^2) + O(1/K^3) > 0), while the second
+%     branch a^{1-tau} = (K/(K-1))^{tau-1} > 1 for tau >= 2.  So delta(1) = 0 and
+%     (H) holds with equality only when tau = 1; for tau >= 2 (H) FAILS at every
+%     K.  Since (H)'s sufficient form K >= tau(1 + 2/ln eta) blows up as eta -> 1,
+%     the theorem is vacuous in a neighbourhood of eta = 1 whenever c >= 1.
+%     KEEP eta > 1 and state that the consistency regime (LAA sense,
+%     GLOSSARY.md) is outside its reach.
+
+
+% ===========================================================================
+% 7.  Honest declarations
+% ===========================================================================
+% D1  Verification scope of the delta formula, and the correction to T2.
+%     (a) T2's own scope [VERIFIED-LP, finite instances]: full-lattice LP at
+%         (n,K) in {(8,3),(10,3),(10,4),(12,4)}; symmetrized grid at
+%         K in {3,4,6,8,12,16,24,32}, n = 4K; eta in {3/2, 2, 3}; tau in {1,2};
+%         error splits (sqrt eta, sqrt eta) and (eta, 1).
+%     (b) T2's REPORTED CLOSED FORM IS INCOMPLETE.  The correct expression is
+%         the max of Lemma N5.4; the T2 form is its first branch.  The two agree
+%         on every T2 test point (that is why the gap was invisible), but the
+%         theorem evaluates the family at a design parameter strictly below eta,
+%         and there they differ.  results/N5_delta_at_etahat.py solves 40 such
+%         points: LP = max-form at 40/40, LP != T2-form at 8/40 (listed in the
+%         Lemma N5.4 comment; worst case a factor 1.93 in 1 + delta).
+%         ACTION: amend results/T2_summary.md Conclusion 1 and
+%         RESEARCH_STATE.md R11(a).  Not done here (N5 writes results/N5_* only).
+%     (c) Remaining [CONJECTURE]: the max-form for general (K, tau, theta).
+%         Both scripts together cover tau in {1,2} only, i.e. c in {0,1}
+%         (Q = O(1) and Q = n).  For c >= 2 the theorem's constant rests on a
+%         [CONJECTURE], and the second branch a^{1-tau} grows with tau, so the
+%         untested regime is exactly the one where the correction matters most.
+%     (d) The extrapolation gap flagged in an earlier draft of this file (T2
+%         verified the formula only at theta in {3/2,2,3}, while the theorem
+%         needs it at theta = hateta) is CLOSED at 40 points by
+%         results/N5_delta_at_etahat.py, which runs the T2 LP oracle at exactly
+%         those hateta values.
+%
+% D2  The F of this theorem is FIXED and is not the best available.
+%     The theorem uses the R9 candidate F(x,y) = hateta^{-1/2}(1 - hata^x(1-y/K)),
+%     which is the R7/U_K shape.  N4 (results/N4_hardness_construction.md)
+%     shows that when F is allowed to vary, the same LP -- with delta = 0 and
+%     the same y <= tau balanced region -- has optimum equal to
+%     V_j(eta) + (tiny excess), where V_j is R10's closed form rho_K^{LP}, and
+%     it exhibits an explicit optimal (F, G) [EXACT rational feasibility at 42
+%     (K, eta) points, tau = 1 only].  Numerically V_j < L_K(hateta)
+%     (K = 8, eta = 2: 0.4216 vs 0.4488), so feeding N4's family into Lemmas
+%     N5.1--N5.3 would give a STRICTLY STRONGER theorem, and with hateta = eta
+%     (no inflation at all, since N4's construction is feasible at delta = 0).
+%     That is not done here because N4 tested only tau = 1 (i.e. c = 0), its
+%     general-K submodularity is 42-point exact-rational rather than symbolic,
+%     and its closed form is optimal only for eta <= K-1.  So: the bound of this
+%     theorem is NOT the strongest one this technique is known to support.
+%
+% D3  "error exactly eta" versus "error at most eta(1+delta)" -- getting the
+%     direction right.  A hardness instance must lie INSIDE the class the
+%     algorithm is promised, so what must be checked is
+%     (family error) <= eta, never the reverse.  The family with design
+%     parameter theta has single-element error exactly Phi(theta) =
+%     theta(1 + delta(theta)) (Lemma N5.4).  Therefore:
+%      (a) The theorem takes hateta = Phi^{-1}(eta), so the family's error is
+%          EXACTLY eta -- no slack is thrown away, and this is the strongest
+%          member of the family admissible at error eta (Phi increasing, L_K
+%          decreasing).  Phi^{-1} is a one-dimensional root find, not a formula.
+%      (b) TASKS2.md's explicit hateta = eta/(1 + delta(eta)) is a LOWER bound
+%          for Phi^{-1}(eta) only when delta(hateta) <= delta(eta).  With the
+%          corrected max-form delta is NOT monotone in theta (its first branch
+%          increases, its second decreases), so this must be checked rather than
+%          assumed; it held at all 40 points of results/N5_delta_at_etahat.py
+%          (column E) and the resulting bound L_K(eta/(1+delta(eta))) is weaker
+%          than the theorem's.  This is the one place where an earlier draft of
+%          this file used a monotonicity argument that the corrected delta does
+%          not support.
+%      (c) Either way the constant is L_K(hateta) > L_K(eta), so the theorem
+%          does NOT match R1 at finite K (Section 5); the mismatch is the price
+%          of the concentration argument, not an artefact of the bookkeeping.
+%
+% D4  Known non-optimalities of the statement itself.
+%     (i)  tau = c+1 is not optimal (V11): tau = c also suffices for the union
+%          bound and gives a smaller delta, hence a stronger bound.
+%     (ii) n >= 4K^{c+2} is a sufficient, not a necessary, threshold (V8).
+%     (iii) hypothesis (H) is stated with a crude sufficient form
+%          K >= tau(1 + 2/ln eta); the sharp condition is Phi(1) <= eta.
+%     (iv) The randomized corollary's epsilon_n is not optimized.
+%
+% D5  Model and method caveats.
+%     (i)  All LP evidence comes from the symmetrized (x,y)-grid LP;  T2
+%          cross-checked symmetrization against the full lattice only at
+%          (n,K) in {(8,3),(10,3),(10,4),(12,4)}.  The family here is explicit,
+%          so symmetrization is needed only for the MINIMALITY of delta, not for
+%          feasibility.
+%     (ii) All-pairs error unverified (V7).
+%     (iii) Monotonicity/submodularity of F: the (x,y) difference structure is
+%          the R7 family up to the parameter name, hence [VERIFIED-SYMBOLIC] for
+%          general K via results/T5_symbolic.py, and [VERIFIED-LP] on the full
+%          lattice for n <= 12 via T2.  There is no separate general-n symbolic
+%          check in this file.
+%     (iv) OPT = f(O) and the ratio identity (F3), (F4) are [VERIFIED-LP] by
+%          enumeration at the T2 test points and, at the theorem's own hateta
+%          values, by results/N5_delta_at_etahat.py (columns C and D).
+%     (v)  Queries are to ftilde only; f is inaccessible (paper's model).  The
+%          theorem counts ftilde-queries and nothing else.
+%     (vi) The randomized corollary bounds min over the FAMILY of Section 0, not
+%          over all monotone submodular instances with error <= eta; that is the
+%          usual (and sufficient) form of an averaging lower bound, but it should
+%          be phrased that way in the paper rather than as "no randomized
+%          algorithm can do better than L_K(hateta)".
+%
+% ===========================================================================
+% Dependency summary (script / file per step)
+% ===========================================================================
+%   Section 0 family .......... RESEARCH_STATE.md R9; results/T2_hardness_grid.py
+%   Lemma N5.1 (conc.) ........ none (hand)                [HAND-PROOF-UNREVIEWED]
+%   Lemma N5.2 (union) ........ none (hand)                [HAND-PROOF-UNREVIEWED]
+%   Lemma N5.3 (valuation) .... facts (F1)-(F4) from R11(a) / T2_summary.md
+%                               ([VERIFIED-LP finite]); argument [HAND-PROOF-UNREVIEWED]
+%   Lemma N5.4 (delta) ........ hand derivation [HAND-PROOF-UNREVIEWED] +
+%                               results/N5_delta_at_etahat.py (40 PASS / 0 FAIL,
+%                               8 points refuting the T2 form) [VERIFIED-LP finite];
+%                               supersedes results/T2_summary.md Conclusion 1 and
+%                               results/T2_hardness_grid.py:261
+%   Lemma N5.5 (Phi invertible) results/N5_asymptotics.py (iv),(vi) [VERIFIED-SYMBOLIC]
+%   Theorem N5.6 .............. assembly                    [HAND-PROOF-UNREVIEWED]
+%   Corollary N5.7 (random) ... assembly                    [HAND-PROOF-UNREVIEWED]
+%   Corollary N5.8 (asympt.) .. results/N5_asymptotics.py (i),(ii) [VERIFIED-SYMBOLIC]
+%   Section 5 consistency ..... results/N5_asymptotics.py (v)  [VERIFIED-SYMBOLIC]
+%   D2 comparison numbers ..... results/N5_asymptotics.txt informational block;
+%                               results/N4_hardness_construction.md Sections 3, 6
+%
+% Reproduce:
+%   python3 results/N5_asymptotics.py      -> results/N5_asymptotics.txt   (15/15, exit 0)
+%   python3 results/N5_delta_at_etahat.py  -> results/N5_delta_at_etahat.txt
+%                                             (40 PASS / 0 FAIL / 2 SKIP, exit 0)

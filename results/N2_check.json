@@ -1,0 +1,2882 @@
+[
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=2.5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.58113883008419, \"eta_o_single\": 1.5811388300841898, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.58113883008419, \"eta_o_pairs\": 1.5811388300841898, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3999999999999999, \"Vj\": 0.4, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=4",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.25, \"Vj\": 0.25, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498951, \"eta_o_single\": 1.118033988749895, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498951, \"eta_o_pairs\": 1.118033988749895, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7999999999999998, \"Vj\": 0.8, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=2.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.58113883008419, \"eta_o_single\": 1.5811388300841904, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.58113883008419, \"eta_o_pairs\": 1.5811388300841904, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3999999999999999, \"Vj\": 0.4, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=3  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7320508075688776, \"eta_o_single\": 1.7320508075688783, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7320508075688776, \"eta_o_pairs\": 1.7320508075688783, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.33333333333333337, \"Vj\": 0.33333333333333326, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498951, \"eta_o_single\": 1.1180339887498953, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498951, \"eta_o_pairs\": 1.1180339887498953, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6666666666666665, \"Vj\": 0.6666666666666667, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.322875655532296, \"eta_o_single\": 1.3228756555322958, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.322875655532296, \"eta_o_pairs\": 1.3228756555322958, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5454545454545454, \"Vj\": 0.5454545454545454, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498951, \"eta_o_single\": 1.1180339887498953, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498951, \"eta_o_pairs\": 1.1180339887498953, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6666666666666665, \"Vj\": 0.6666666666666667, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=3  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7320508075688779, \"eta_o_single\": 1.7320508075688785, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7320508075688779, \"eta_o_pairs\": 1.7320508075688785, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.375, \"Vj\": 0.375, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.224744871391589, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.224744871391589, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=3.5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869707, \"eta_o_single\": 1.8708286933869738, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869707, \"eta_o_pairs\": 1.8708286933869738, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2857142857142857, \"Vj\": 0.2857142857142857, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.236067977499787, \"eta_o_single\": 2.2360679774997916, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.236067977499787, \"eta_o_pairs\": 2.2360679774997916, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.19999999999999996, \"Vj\": 0.19999999999999996, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498956, \"eta_o_single\": 1.1180339887498956, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498956, \"eta_o_pairs\": 1.1180339887498956, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7999999999999998, \"Vj\": 0.8, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=3.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869707, \"eta_o_single\": 1.8708286933869738, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869707, \"eta_o_pairs\": 1.8708286933869738, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2857142857142857, \"Vj\": 0.2857142857142857, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=4  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.0000000000000027, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.0000000000000027, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.25, \"Vj\": 0.25, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.4999999999999996, \"eta_o_single\": 1.5000000000000009, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.4999999999999996, \"eta_o_pairs\": 1.5000000000000009, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4242424242424242, \"Vj\": 0.4242424242424242, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.6583123951777008, \"eta_o_single\": 1.658312395177702, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.6583123951777008, \"eta_o_pairs\": 1.658312395177702, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.358974358974359, \"Vj\": 0.35897435897435903, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498958, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498958, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6666666666666665, \"Vj\": 0.6666666666666666, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841949, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841949, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=4  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.000000000000003, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.000000000000003, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2592592592592593, \"Vj\": 0.2592592592592593, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498967, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498967, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6258503401360545, \"Vj\": 0.6258503401360545, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.322875655532296, \"eta_o_single\": 1.3228756555322965, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.322875655532296, \"eta_o_pairs\": 1.3228756555322965, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5102880658436212, \"Vj\": 0.5102880658436213, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498967, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498967, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6258503401360545, \"Vj\": 0.6258503401360545, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=4  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.000000000000006, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.000000000000006, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2757201646090535, \"Vj\": 0.2757201646090536, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.2247448713915894, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.2247448713915894, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=4.5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.121320343559648, \"eta_o_single\": 2.1213203435596486, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.121320343559648, \"eta_o_pairs\": 2.1213203435596486, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.22222222222222227, \"Vj\": 0.2222222222222222, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=6",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.4494897427831774, \"eta_o_single\": 2.449489742783181, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.4494897427831774, \"eta_o_pairs\": 2.449489742783181, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.16666666666666669, \"Vj\": 0.16666666666666663, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749894, \"eta_o_single\": 1.118033988749895, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749894, \"eta_o_pairs\": 1.118033988749895, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7999999999999998, \"Vj\": 0.8, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=4.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.121320343559648, \"eta_o_single\": 2.121320343559644, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.121320343559648, \"eta_o_pairs\": 2.121320343559644, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.22222222222222227, \"Vj\": 0.2222222222222222, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.2360679774997836, \"eta_o_single\": 2.2360679774997996, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.2360679774997836, \"eta_o_pairs\": 2.2360679774997996, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.19999999999999996, \"Vj\": 0.19999999999999996, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=3.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8027756377319968, \"eta_o_single\": 1.8027756377319988, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8027756377319968, \"eta_o_pairs\": 1.8027756377319988, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3023255813953489, \"Vj\": 0.30232558139534893, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=3.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9364916731037094, \"eta_o_single\": 1.9364916731037134, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9364916731037094, \"eta_o_pairs\": 1.9364916731037134, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.26530612244897955, \"Vj\": 0.26530612244897955, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498945, \"eta_o_single\": 1.118033988749897, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498945, \"eta_o_pairs\": 1.118033988749897, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6842105263157894, \"Vj\": 0.6842105263157894, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=3.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869718, \"eta_o_single\": 1.870828693386978, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869718, \"eta_o_pairs\": 1.870828693386978, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.28260869565217395, \"Vj\": 0.28260869565217395, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.236067977499784, \"eta_o_single\": 2.236067977499791, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.236067977499784, \"eta_o_pairs\": 2.236067977499791, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.20312499999999997, \"Vj\": 0.203125, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5000000000000007, \"eta_o_single\": 1.500000000000004, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5000000000000007, \"eta_o_pairs\": 1.500000000000004, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4099895941727367, \"Vj\": 0.4099895941727367, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.6583123951777006, \"eta_o_single\": 1.6583123951777026, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.6583123951777006, \"eta_o_pairs\": 1.6583123951777026, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3491599707815924, \"Vj\": 0.34915997078159244, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.118033988749897, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.118033988749897, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6260387811634348, \"Vj\": 0.6260387811634349, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841942, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841942, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.2360679774997836, \"eta_o_single\": 2.2360679774997947, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.2360679774997836, \"eta_o_pairs\": 2.2360679774997947, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.208984375, \"Vj\": 0.208984375, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498991, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498991, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6063566117509841, \"Vj\": 0.606356611750984, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.3228756555322945, \"eta_o_single\": 1.3228756555323016, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.3228756555322945, \"eta_o_pairs\": 1.3228756555323016, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.49196800000000007, \"Vj\": 0.49196800000000007, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498991, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498991, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6063566117509841, \"Vj\": 0.606356611750984, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.2360679774997845, \"eta_o_single\": 2.2360679774998022, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.2360679774997845, \"eta_o_pairs\": 2.2360679774998022, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.21722412109375, \"Vj\": 0.21722412109375, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.22474487139159, \"eta_o_single\": 1.224744871391591, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.22474487139159, \"eta_o_pairs\": 1.224744871391591, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=0 eta=5.5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.3452078799117206, \"eta_o_single\": 2.345207879911728, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.3452078799117206, \"eta_o_pairs\": 2.345207879911728, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.18181818181818182, \"Vj\": 0.18181818181818188, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=0 eta=7",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.645751311064593, \"eta_o_single\": 2.6457513110646054, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.645751311064593, \"eta_o_pairs\": 2.6457513110646054, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.14285714285714285, \"Vj\": 0.1428571428571428, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=0 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498951, \"eta_o_single\": 1.118033988749897, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498951, \"eta_o_pairs\": 1.118033988749897, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7999999999999998, \"Vj\": 0.8, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=0 eta=5.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.3452078799117206, \"eta_o_single\": 2.345207879911721, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.3452078799117206, \"eta_o_pairs\": 2.345207879911721, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.18181818181818182, \"Vj\": 0.18181818181818188, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=0 eta=6  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.449489742783185, \"eta_o_single\": 2.4494897427831863, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.449489742783185, \"eta_o_pairs\": 2.4494897427831863, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.16666666666666669, \"Vj\": 0.16666666666666663, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=1 eta=4.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.061552812808834, \"eta_o_single\": 2.0615528128088494, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.061552812808834, \"eta_o_pairs\": 2.0615528128088494, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.23333333333333336, \"Vj\": 0.2333333333333334, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=1 eta=4.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.1794494717703334, \"eta_o_single\": 2.1794494717703543, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.1794494717703334, \"eta_o_pairs\": 2.1794494717703543, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.21000000000000002, \"Vj\": 0.20999999999999996, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=1 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749895, \"eta_o_single\": 1.1180339887498976, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749895, \"eta_o_pairs\": 1.1180339887498976, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7, \"Vj\": 0.7, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=1 eta=4.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.121320343559643, \"eta_o_single\": 2.1213203435596495, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.121320343559643, \"eta_o_pairs\": 2.1213203435596495, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.22105263157894744, \"Vj\": 0.2210526315789474, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=1 eta=6  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.449489742783185, \"eta_o_single\": 2.449489742783193, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.449489742783185, \"eta_o_pairs\": 2.449489742783193, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.16800000000000004, \"Vj\": 0.16800000000000004, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=3.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8027756377319972, \"eta_o_single\": 1.8027756377320048, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8027756377319972, \"eta_o_pairs\": 1.8027756377320048, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2969387755102041, \"Vj\": 0.2969387755102041, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=3.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9364916731037094, \"eta_o_single\": 1.936491673103731, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9364916731037094, \"eta_o_pairs\": 1.936491673103731, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2617187499999998, \"Vj\": 0.26171875, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749896, \"eta_o_single\": 1.1180339887498965, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749896, \"eta_o_pairs\": 1.1180339887498965, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6388888888888888, \"Vj\": 0.6388888888888888, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=3.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869709, \"eta_o_single\": 1.8708286933869913, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869709, \"eta_o_pairs\": 1.8708286933869913, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.27822222222222215, \"Vj\": 0.27822222222222226, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=6  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.4494897427831894, \"eta_o_single\": 2.4494897427832183, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.4494897427831894, \"eta_o_pairs\": 2.4494897427832183, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.17056000000000004, \"Vj\": 0.17056000000000004, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.500000000000002, \"eta_o_single\": 1.5000000000000138, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.500000000000002, \"eta_o_pairs\": 1.5000000000000138, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.40059999999999996, \"Vj\": 0.40059999999999996, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.6583123951777001, \"eta_o_single\": 1.6583123951777095, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.6583123951777001, \"eta_o_pairs\": 1.6583123951777095, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3417824074074075, \"Vj\": 0.3417824074074075, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749896, \"eta_o_single\": 1.1180339887499025, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749896, \"eta_o_pairs\": 1.1180339887499025, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6064814814814814, \"Vj\": 0.6064814814814814, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841898, \"eta_o_single\": 1.5811388300841969, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841898, \"eta_o_pairs\": 1.5811388300841969, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.36889556724267475, \"Vj\": 0.3688955672426748, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=6  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.449489742783189, \"eta_o_single\": 2.4494897427832183, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.449489742783189, \"eta_o_pairs\": 2.4494897427832183, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.17424640000000013, \"Vj\": 0.17424640000000013, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=4 eta=1.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749897, \"eta_o_single\": 1.1180339887499025, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749897, \"eta_o_pairs\": 1.1180339887499025, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5949074074074073, \"Vj\": 0.5949074074074073, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=4 eta=1.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.322875655532298, \"eta_o_single\": 1.3228756555323022, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.322875655532298, \"eta_o_pairs\": 1.3228756555323022, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4808105468749997, \"Vj\": 0.480810546875, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=4 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.118033988749897, \"eta_o_single\": 1.1180339887499025, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.118033988749897, \"eta_o_pairs\": 1.1180339887499025, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5949074074074073, \"Vj\": 0.5949074074074073, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=4 eta=6  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.449489742783189, \"eta_o_single\": 2.4494897427832183, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.449489742783189, \"eta_o_pairs\": 2.4494897427832183, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.17896499200000013, \"Vj\": 0.17896499200000016, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=4 eta=1.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915898, \"eta_o_single\": 1.2247448713915932, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915898, \"eta_o_pairs\": 1.2247448713915932, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5321949187838402, \"Vj\": 0.5321949187838402, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=0 eta=6.5",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.5495097567964016, \"eta_o_single\": 2.5495097567964087, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.5495097567964016, \"eta_o_pairs\": 2.5495097567964087, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.15384615384615388, \"Vj\": 0.15384615384615385, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=0 eta=8",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.8284271247461823, \"eta_o_single\": 2.828427124746209, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.8284271247461823, \"eta_o_pairs\": 2.828427124746209, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.12499999999999997, \"Vj\": 0.125, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=0 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498958, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498958, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7999999999999998, \"Vj\": 0.8, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=0 eta=6.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.5495097567964016, \"eta_o_single\": 2.5495097567964087, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.5495097567964016, \"eta_o_pairs\": 2.5495097567964087, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.15384615384615388, \"Vj\": 0.15384615384615385, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=0 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.645751311064568, \"eta_o_single\": 2.6457513110646036, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.645751311064568, \"eta_o_pairs\": 2.6457513110646036, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.14285714285714282, \"Vj\": 0.1428571428571428, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=1 eta=5.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.2912878474779172, \"eta_o_single\": 2.29128784747795, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.2912878474779172, \"eta_o_pairs\": 2.29128784747795, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.18960244648318053, \"Vj\": 0.18960244648318048, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=1 eta=5.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.397915761656374, \"eta_o_single\": 2.397915761656372, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.397915761656374, \"eta_o_pairs\": 2.397915761656372, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.17366946778711487, \"Vj\": 0.17366946778711478, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=1 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498942, \"eta_o_single\": 1.118033988749909, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498942, \"eta_o_pairs\": 1.118033988749909, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7126436781609194, \"Vj\": 0.7126436781609196, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=1 eta=5.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.3452078799117304, \"eta_o_single\": 2.3452078799117517, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.3452078799117304, \"eta_o_pairs\": 2.3452078799117517, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.18128654970760233, \"Vj\": 0.18128654970760227, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=1 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.6457513110645694, \"eta_o_single\": 2.645751311064601, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.6457513110645694, \"eta_o_pairs\": 2.645751311064601, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.1435185185185185, \"Vj\": 0.1435185185185186, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=2 eta=4.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0615528128088254, \"eta_o_single\": 2.0615528128088876, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0615528128088254, \"eta_o_pairs\": 2.0615528128088876, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.23094727096747045, \"Vj\": 0.23094727096747047, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=2 eta=4.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.1794494717703454, \"eta_o_single\": 2.179449471770359, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.1794494717703454, \"eta_o_pairs\": 2.179449471770359, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2084141074040064, \"Vj\": 0.20841410740400645, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=2 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498951, \"eta_o_single\": 1.118033988749909, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498951, \"eta_o_pairs\": 1.118033988749909, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6531906460562821, \"Vj\": 0.6531906460562822, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=2 eta=4.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.12132034355965, \"eta_o_single\": 2.1213203435596677, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.12132034355965, \"eta_o_pairs\": 2.1213203435596677, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2191036668175646, \"Vj\": 0.21910366681756432, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=2 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.645751311064575, \"eta_o_single\": 2.645751311064632, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.645751311064575, \"eta_o_pairs\": 2.645751311064632, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.14480452674897126, \"Vj\": 0.14480452674897126, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=3 eta=3.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8027756377320037, \"eta_o_single\": 1.8027756377320154, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8027756377320037, \"eta_o_pairs\": 1.8027756377320154, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2926373402250777, \"Vj\": 0.2926373402250777, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=3 eta=3.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9364916731037027, \"eta_o_single\": 1.9364916731037376, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9364916731037027, \"eta_o_pairs\": 1.9364916731037376, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.258425804043899, \"Vj\": 0.25842580404389925, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=3 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498967, \"eta_o_single\": 1.118033988749909, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498967, \"eta_o_pairs\": 1.118033988749909, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6156053958751895, \"Vj\": 0.6156053958751897, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=3 eta=3.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869778, \"eta_o_single\": 1.870828693387001, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869778, \"eta_o_pairs\": 1.870828693387001, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.274475351904132, \"Vj\": 0.27447535190413197, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=3 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.6457513110645765, \"eta_o_single\": 2.645751311064632, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.6457513110645765, \"eta_o_pairs\": 2.645751311064632, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.14667995541838152, \"Vj\": 0.1466799554183814, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=4 eta=2.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.500000000000001, \"eta_o_single\": 1.5000000000000127, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.500000000000001, \"eta_o_pairs\": 1.5000000000000127, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.394059742912201, \"Vj\": 0.394059742912201, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=4 eta=2.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.6583123951776984, \"eta_o_single\": 1.6583123951777097, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.6583123951776984, \"eta_o_pairs\": 1.6583123951777097, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.33636884026700764, \"Vj\": 0.33636884026700764, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=4 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498953, \"eta_o_single\": 1.1180339887499051, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498953, \"eta_o_pairs\": 1.1180339887499051, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5949865282209851, \"Vj\": 0.5949865282209854, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=4 eta=2.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841935, \"eta_o_single\": 1.5811388300842075, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841935, \"eta_o_pairs\": 1.5811388300842075, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.362974127576407, \"Vj\": 0.362974127576407, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=4 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.645751311064575, \"eta_o_single\": 2.645751311064632, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.645751311064575, \"eta_o_pairs\": 2.645751311064632, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.14911106665650564, \"Vj\": 0.14911106665650564, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=5 eta=1.25",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498953, \"eta_o_single\": 1.1180339887499047, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498953, \"eta_o_pairs\": 1.1180339887499047, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5873687199743579, \"Vj\": 0.5873687199743581, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=5 eta=1.75",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.3228756555322942, \"eta_o_single\": 1.3228756555323105, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.3228756555322942, \"eta_o_pairs\": 1.3228756555323105, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4733143414588067, \"Vj\": 0.4733143414588067, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=5 eta=1.25  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498953, \"eta_o_single\": 1.1180339887499047, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498953, \"eta_o_pairs\": 1.1180339887499047, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5873687199743579, \"Vj\": 0.5873687199743581, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=5 eta=1.5  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.2247448713916034, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.2247448713916034, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5246000125364741, \"Vj\": 0.5246000125364738, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "full",
+  "name": "K=6 j=5 eta=7  [uncapped]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.645751311064575, \"eta_o_single\": 2.645751311064632, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.645751311064575, \"eta_o_pairs\": 2.645751311064632, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.15206554211950377, \"Vj\": 0.15206554211950396, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=0 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=0 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=0 eta=5.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=0 eta=5.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=1 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=1 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=1 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=1 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=2 j=1 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 2, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=0 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=0 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=0 eta=6.5025 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=0 eta=6.5025 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=1 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=1 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=1 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=1 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=2 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=2 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=2 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=2 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=3 j=2 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 3, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=0 eta=4.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=0 eta=4.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=0 eta=7.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=0 eta=7.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=0 eta=4 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=1 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=1 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=1 eta=3.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=1 eta=3.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=2 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=2 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=2 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=2 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=3 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=3 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=3 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=3 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=4 j=3 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 4, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=0 eta=5.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=0 eta=5.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=0 eta=8.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=0 eta=8.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=1 eta=4.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=1 eta=4.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=1 eta=4.84 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=1 eta=4.84 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=1 eta=4 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=2 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=2 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=2 eta=3.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=2 eta=3.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=3 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=3 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=3 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=3 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=4 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=4 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=4 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=4 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=5 j=4 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 5, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=0 eta=6.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=0 eta=6.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=0 eta=9.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=0 eta=9.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=1 eta=5.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=1 eta=5.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=1 eta=5.76 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=1 eta=5.76 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=2 eta=4.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=2 eta=4.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=2 eta=4.84 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=2 eta=4.84 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=2 eta=4 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=3 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=3 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=3 eta=3.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=3 eta=3.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=4 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=4 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=4 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=4 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=5 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=5 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=5 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=5 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=6 j=5 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 6, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=0 eta=7.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=0 eta=7.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=0 eta=10.5625 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=0 eta=10.5625 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=1 eta=6.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=1 eta=6.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=1 eta=6.76 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=1 eta=6.76 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=2 eta=5.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=2 eta=5.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=2 eta=5.76 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=2 eta=5.76 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=3 eta=4.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=3 eta=4.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=3 eta=4.84 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=3 eta=4.84 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=3 eta=4 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=4 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=4 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=4 eta=3.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=4 eta=3.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=5 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=5 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=5 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=5 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=6 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=6 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=6 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=6 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=7 j=6 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 7, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=0 eta=8.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=0 eta=8.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=0 eta=11.56 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=0 eta=11.56 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=1 eta=7.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=1 eta=7.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=1 eta=7.84 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=1 eta=7.84 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=2 eta=6.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=2 eta=6.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=2 eta=6.76 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=2 eta=6.76 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=3 eta=5.29 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=3 eta=5.29 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=3 eta=5.76 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=3 eta=5.76 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=4 eta=4.41 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=4 eta=4.41 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=4 eta=4.84 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=4 eta=4.84 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=4 eta=4 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=5 eta=3.24 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=5 eta=3.24 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=5 eta=3.61 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=5 eta=3.61 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=6 eta=2.25 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=6 eta=2.25 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=6 eta=2.89 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=6 eta=2.89 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=7 eta=1.21 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=7 eta=1.21 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=7 eta=1.69 (exact)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=7 eta=1.69 (exact,uncapped)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "count",
+  "name": "K=8 j=7 eta=1 (exact,left endpoint eta=K-j)",
+  "ok": true,
+  "info": "{\"f_empty\": true, \"monotone\": true, \"submodular\": true, \"band\": true, \"eta_o_exact\": true, \"eta_u_exact\": true, \"opt_is_O\": true, \"greedy\": true, \"greedy_ties\": 8, \"ratio_is_Vj\": true}"
+ },
+ {
+  "part": "sym",
+  "name": "(1-q) k1 = 1",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "W0 - (K-1)s/K = 1/(K s)",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "dtil = s delta",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "f(0,0,0) = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "ftilde(0,0,0) = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band C, 1<=y<=K-1:  D_C g = s D_C f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band C, y=0:  D_C g = (k1/(K s)) D_C f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band P:  D_P g = s D_P f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band O, y=0:  D_O f = s D_O g",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band O, 1<=y<=K-2:  D_O g = s D_O f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "band O, y=K-1:  D_O g = s D_O f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "k1/(K s) >= 1/s   (i.e. k1 - K >= 0)",
+  "ok": true,
+  "info": "expr=kk*v + v  coeffs=[1, 1]"
+ },
+ {
+  "part": "sym",
+  "name": "k1/(K s) <= s     (i.e. K S - k1 >= 0)",
+  "ok": true,
+  "info": "expr=v  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "mono C:  D_C f >= 0",
+  "ok": true,
+  "info": "expr=Q*R*y1  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "mono P:  D_P f >= 0",
+  "ok": true,
+  "info": "expr=Q  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "mono O (y<=K-2):  D_O f >= 0",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "mono O (y=K-1):  D_O f >= 0  [needs eta >= K-j]",
+  "ok": true,
+  "info": "expr=Q*r*w + Q*r*z + Q*r*zc + Q*w + Q*zc  coeffs=[1, 1, 1, 1, 1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub CC <= 0",
+  "ok": true,
+  "info": "expr=Q*R*y1  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub CP = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "sub CO <= 0 (y+1<=K-1)",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub CO <= 0 (y=K-1 -> y=K, D_C f becomes 0)",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub PC = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "sub PP = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "sub PO <= 0 (y=K-1 -> y=K, D_P f becomes 0)",
+  "ok": true,
+  "info": "expr=Q  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub OC <= 0 (y<=K-2)",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub OC <= 0 (y=K-1)",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub OP = 0 (y<=K-2)",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "sub OP <= 0 (y=K-1)",
+  "ok": true,
+  "info": "expr=Q  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "sub OO = 0 (y+1<=K-2)",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "sub OO <= 0 (y=K-2 -> y=K-1)",
+  "ok": true,
+  "info": "expr=Q*z  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "D_C f = 0 at y=K",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "D_C g = 0 at y=K",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "OPT: p S (K-y) - z Q >= 0  [uses z <= K-y, R>=1, S>=1]",
+  "ok": true,
+  "info": "expr=Q*r*v*y1 + Q*r*v*z + Q*r*y1 + Q*r*z + Q*v*y1 + Q*v*z + Q*y1  coeffs=[1, 1, 1, 1, 1, 1, 1]"
+ },
+ {
+  "part": "sym",
+  "name": "greedy tie at (t,0,0):  D_C g = D_O g",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "greedy at (t,0,0):  D_C g - D_P g >= 0  [R = q^{x-j} >= 1]",
+  "ok": true,
+  "info": "expr=Q*r  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "greedy tie at (j,z,0):  D_P g = D_O g",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "f(j, K-j, 0) = V_j",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped: W(K) = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped mono O: D_O f = p/K >= 0 (no condition on eta)",
+  "ok": true,
+  "info": "expr=Q*R  coeffs=[1]"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped sub OO = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped sub OP = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped sub PO = 0",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped band O at y=K-1: D_O g = s D_O f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "sym",
+  "name": "uncapped band P at y=K: D_P g = s D_P f",
+  "ok": true,
+  "info": "simplify -> 0"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1  [R5 0.750000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0, \"eta_o_single\": 1.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0, \"eta_o_pairs\": 1.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.75, \"Vj\": 0.75, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=1 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.750000000 R5=0.750000000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [R5 0.600000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.224744871391589, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.224744871391589, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=1.5 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.600000000 R5=0.600000000 diff=1.11e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=2  [R5 0.500000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.4142135623730947, \"eta_o_single\": 1.414213562373096, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.4142135623730947, \"eta_o_pairs\": 1.414213562373096, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4999999999999999, \"Vj\": 0.5, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=2 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.500000000 R5=0.500000000 diff=-1.11e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=2.5  [R5 0.400000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.58113883008419, \"eta_o_single\": 1.5811388300841898, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.58113883008419, \"eta_o_pairs\": 1.5811388300841898, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3999999999999999, \"Vj\": 0.4, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=2.5 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.400000000 R5=0.400000000 diff=-1.11e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=3  [R5 0.333333]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7320508075688776, \"eta_o_single\": 1.7320508075688783, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7320508075688776, \"eta_o_pairs\": 1.7320508075688783, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.33333333333333337, \"Vj\": 0.33333333333333326, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=3 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.333333333 R5=0.333333333 diff=5.55e-17"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=0 eta=4  [R5 0.250000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.25, \"Vj\": 0.25, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=2 eta=4 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.250000000 R5=0.250000000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1  [R5 0.703704]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0, \"eta_o_single\": 1.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0, \"eta_o_pairs\": 1.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.7037037037037037, \"Vj\": 0.7037037037037037, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=1 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.703703704 R5=0.703703704 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.1  [R5 0.670573]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.048808848170153, \"eta_o_single\": 1.0488088481701539, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.048808848170153, \"eta_o_pairs\": 1.0488088481701539, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6705729166666666, \"Vj\": 0.6705729166666666, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=1.1 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.670572917 R5=0.670573000 diff=-8.33e-08"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.25  [R5 0.625850]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1180339887498947, \"eta_o_single\": 1.1180339887498967, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1180339887498947, \"eta_o_pairs\": 1.1180339887498967, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6258503401360545, \"Vj\": 0.6258503401360545, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=1.25 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.625850340 R5=0.625850000 diff=3.40e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [R5 0.562500]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.2247448713915894, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.2247448713915894, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=1.5 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.562500000 R5=0.562500000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2  [R5 0.466667]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.414213562373096, \"eta_o_single\": 1.414213562373097, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.414213562373096, \"eta_o_pairs\": 1.414213562373097, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.46666666666666645, \"Vj\": 0.46666666666666656, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=2 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.466666667 R5=0.466666667 diff=-2.22e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [R5 0.388889]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841949, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841949, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=2.5 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.388888889 R5=0.388888889 diff=-5.55e-17"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.8  [R5 0.353535]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.6733200530681513, \"eta_o_single\": 1.673320053068156, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.6733200530681513, \"eta_o_pairs\": 1.673320053068156, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3535353535353535, \"Vj\": 0.3535353535353536, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=2.8 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.353535354 R5=0.353535000 diff=3.54e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.95  [R5 0.338164]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7175564037317688, \"eta_o_single\": 1.7175564037317697, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7175564037317688, \"eta_o_pairs\": 1.7175564037317697, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3381642512077296, \"Vj\": 0.3381642512077294, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=2.95 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.338164251 R5=0.338164000 diff=2.51e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=3  [R5 0.333333]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.732050807568879, \"eta_o_single\": 1.7320508075688787, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.732050807568879, \"eta_o_pairs\": 1.7320508075688787, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.33333333333333337, \"Vj\": 0.33333333333333326, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=3 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.333333333 R5=0.333333333 diff=5.55e-17"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=3.05  [R5 0.327869]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7464249196572998, \"eta_o_single\": 1.746424919657302, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7464249196572998, \"eta_o_pairs\": 1.746424919657302, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3278688524590164, \"Vj\": 0.3278688524590164, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=3.05 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.327868852 R5=0.327868852 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=0 eta=4  [R5 0.250000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.0000000000000027, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.0000000000000027, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.25, \"Vj\": 0.25, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=3 eta=4 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.250000000 R5=0.250000000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1  [R5 0.683594]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0, \"eta_o_single\": 1.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0, \"eta_o_pairs\": 1.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.68359375, \"Vj\": 0.68359375, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=1 j*=3",
+  "ok": true,
+  "info": "instance ratio=0.683593750 R5=0.683593750 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [R5 0.543576]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.22474487139159, \"eta_o_single\": 1.224744871391591, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.22474487139159, \"eta_o_pairs\": 1.224744871391591, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=1.5 j*=3",
+  "ok": true,
+  "info": "instance ratio=0.543576258 R5=0.543576000 diff=2.58e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2  [R5 0.448980]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.4142135623730943, \"eta_o_single\": 1.4142135623730971, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.4142135623730943, \"eta_o_pairs\": 1.4142135623730971, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.4489795918367345, \"Vj\": 0.44897959183673475, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=2 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.448979592 R5=0.448979592 diff=-1.67e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [R5 0.377163]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841942, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841942, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=2.5 j*=2",
+  "ok": true,
+  "info": "instance ratio=0.377162630 R5=0.377163000 diff=-3.70e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=3  [R5 0.325000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7320508075688787, \"eta_o_single\": 1.7320508075688918, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7320508075688787, \"eta_o_pairs\": 1.7320508075688918, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.325, \"Vj\": 0.32499999999999996, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=3 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.325000000 R5=0.325000000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=1 eta=3.8  [R5 0.262097]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9493588689617931, \"eta_o_single\": 1.949358868961797, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9493588689617931, \"eta_o_pairs\": 1.949358868961797, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.2620967741935485, \"Vj\": 0.2620967741935485, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=3.8 j*=1",
+  "ok": true,
+  "info": "instance ratio=0.262096774 R5=0.262097000 diff=-2.26e-07"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=4  [R5 0.250000]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.0, \"eta_o_single\": 2.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.0, \"eta_o_pairs\": 2.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.25, \"Vj\": 0.25, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=4 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.250000000 R5=0.250000000 diff=0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=0 eta=4.2  [R5 0.238095]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.049390153191915, \"eta_o_single\": 2.0493901531919243, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.049390153191915, \"eta_o_pairs\": 2.0493901531919243, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.23809523809523803, \"Vj\": 0.23809523809523814, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R5",
+  "name": "K=4 eta=4.2 j*=0",
+  "ok": true,
+  "info": "instance ratio=0.238095238 R5=0.238095238 diff=-5.55e-17"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.45  [strict, eta_build=1.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.224744871391589, \"eta_o_single\": 1.224744871391589, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.224744871391589, \"eta_o_pairs\": 1.224744871391589, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.6122448979591837, \"Vj\": 0.6122448979591837, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=2 j=1 eta=1.5 eta_build=1.45",
+  "ok": true,
+  "info": "ratio=0.612244898 = V_j(eta')=0.612244898; V_j(eta)=0.600000000 excess=1.224e-02 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.499  [strict, eta_build=1.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.224744871391589, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.224744871391589, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.6002400960384153, \"Vj\": 0.6002400960384153, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=2 j=1 eta=1.5 eta_build=1.499",
+  "ok": true,
+  "info": "ratio=0.600240096 = V_j(eta')=0.600240096; V_j(eta)=0.600000000 excess=2.401e-04 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.45  [strict, eta_build=2.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841913, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841913, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.3954802259887006, \"Vj\": 0.3954802259887006, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=3 j=1 eta=2.5 eta_build=2.45",
+  "ok": true,
+  "info": "ratio=0.395480226 = V_j(eta')=0.395480226; V_j(eta)=0.388888889 excess=6.591e-03 eta_u=1.581139 eta_o=1.581139"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.499  [strict, eta_build=2.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841902, \"eta_o_single\": 1.5811388300841926, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841902, \"eta_o_pairs\": 1.5811388300841926, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.38901856174280314, \"Vj\": 0.38901856174280314, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=3 j=1 eta=2.5 eta_build=2.499",
+  "ok": true,
+  "info": "ratio=0.389018562 = V_j(eta')=0.389018562; V_j(eta)=0.388888889 excess=1.297e-04 eta_u=1.581139 eta_o=1.581139"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.45  [strict, eta_build=1.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.2247448713915894, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.2247448713915894, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.574183651106728, \"Vj\": 0.574183651106728, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=3 j=2 eta=1.5 eta_build=1.45",
+  "ok": true,
+  "info": "ratio=0.574183651 = V_j(eta')=0.574183651; V_j(eta)=0.562500000 excess=1.168e-02 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.499  [strict, eta_build=1.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915887, \"eta_o_single\": 1.2247448713915905, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915887, \"eta_o_pairs\": 1.2247448713915905, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.5627292552395925, \"Vj\": 0.5627292552395925, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=3 j=2 eta=1.5 eta_build=1.499",
+  "ok": true,
+  "info": "ratio=0.562729255 = V_j(eta')=0.562729255; V_j(eta)=0.562500000 excess=2.293e-04 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.45  [strict, eta_build=2.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841895, \"eta_o_single\": 1.5811388300841922, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841895, \"eta_o_pairs\": 1.5811388300841922, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.38330524579583347, \"Vj\": 0.3833052457958336, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=4 j=2 eta=2.5 eta_build=2.45",
+  "ok": true,
+  "info": "ratio=0.383305246 = V_j(eta')=0.383305246; V_j(eta)=0.377162630 excess=6.143e-03 eta_u=1.581139 eta_o=1.581139"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.499  [strict, eta_build=2.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.581138830084188, \"eta_o_single\": 1.5811388300841918, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.581138830084188, \"eta_o_pairs\": 1.5811388300841918, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.37728357185622863, \"Vj\": 0.37728357185622863, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=4 j=2 eta=2.5 eta_build=2.499",
+  "ok": true,
+  "info": "ratio=0.377283572 = V_j(eta')=0.377283572; V_j(eta)=0.377162630 excess=1.209e-04 eta_u=1.581139 eta_o=1.581139"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.45  [strict, eta_build=1.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.22474487139159, \"eta_o_single\": 1.224744871391591, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.22474487139159, \"eta_o_pairs\": 1.224744871391591, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.5551437786265462, \"Vj\": 0.5551437786265462, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=4 j=3 eta=1.5 eta_build=1.45",
+  "ok": true,
+  "info": "ratio=0.555143779 = V_j(eta')=0.555143779; V_j(eta)=0.543576258 excess=1.157e-02 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.499  [strict, eta_build=1.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2247448713915905, \"eta_o_single\": 1.224744871391593, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2247448713915905, \"eta_o_pairs\": 1.224744871391593, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.5438031761058204, \"Vj\": 0.5438031761058204, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=4 j=3 eta=1.5 eta_build=1.499",
+  "ok": true,
+  "info": "ratio=0.543803176 = V_j(eta')=0.543803176; V_j(eta)=0.543576258 excess=2.269e-04 eta_u=1.224745 eta_o=1.224745"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=3.45  [strict, eta_build=3.45]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.870828693386972, \"eta_o_single\": 1.8708286933869855, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.870828693386972, \"eta_o_pairs\": 1.8708286933869855, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.2817750182615047, \"Vj\": 0.28177501826150475, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=5 j=2 eta=3.5 eta_build=3.45",
+  "ok": true,
+  "info": "ratio=0.281775018 = V_j(eta')=0.281775018; V_j(eta)=0.278222222 excess=3.553e-03 eta_u=1.870829 eta_o=1.870829"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=2 eta=3.499  [strict, eta_build=3.499]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.8708286933869747, \"eta_o_single\": 1.87082869338698, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.8708286933869747, \"eta_o_pairs\": 1.87082869338698, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"greedy_strict_cross_type\": true, \"ratio\": 0.2782924028251582, \"Vj\": 0.278292402825158, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "strict",
+  "name": "K=5 j=2 eta=3.5 eta_build=3.499",
+  "ok": true,
+  "info": "ratio=0.278292403 = V_j(eta')=0.278292403; V_j(eta)=0.278222222 excess=7.018e-05 eta_u=1.870829 eta_o=1.870829"
+ },
+ {
+  "part": "bounds",
+  "name": "L_K <= min_j V_j <= U_K on the grid",
+  "ok": true,
+  "info": ""
+ },
+ {
+  "part": "bounds",
+  "name": "U_K - V_{j*} > 0 for eta > 1 (R7 family cannot reach it)",
+  "ok": true,
+  "info": "[{\"K\": 2, \"eta\": 1.0, \"j\": 1, \"V\": 0.75, \"U\": 0.75, \"L\": 0.75, \"U_minus_V\": 0.0, \"V_minus_L\": 0.0}, {\"K\": 2, \"eta\": 1.5, \"j\": 1, \"V\": 0.6, \"U\": 0.64, \"L\": 0.5555555555555555, \"U_minus_V\": 0.040000000000000036, \"V_minus_L\": 0.04444444444444451}, {\"K\": 2, \"eta\": 2.0, \"j\": 0, \"V\": 0.5, \"U\": 0.5555555555555555, \"L\": 0.4375, \"U_minus_V\": 0.05555555555555547, \"V_minus_L\": 0.0625}, {\"K\": 2, \"eta\": 2.5, \"j\": 0, \"V\": 0.4, \"U\": 0.4897959183673469, \"L\": 0.3599999999999999, \"U_minus_V\": 0.0897959183673469, \"V_minus_L\": 0.04000000000000015}]"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [split eta_u=1, eta_o=1.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0000000000000004, \"eta_o_single\": 1.5000000000000007, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0000000000000004, \"eta_o_pairs\": 1.5000000000000007, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=2 j=1 eta=1.5 split=(1,1.5)",
+  "ok": true,
+  "info": "ratio=0.600000000 V_j=0.600000000 eta_u=1.000000 eta_o=1.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [split eta_u=1.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5, \"eta_o_single\": 1.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5, \"eta_o_pairs\": 1.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=2 j=1 eta=1.5 split=(1.5,1)",
+  "ok": true,
+  "info": "ratio=0.600000000 V_j=0.600000000 eta_u=1.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [split eta_u=1.10668, eta_o=1.3554]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1066819197003224, \"eta_o_single\": 1.3554030054147683, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1066819197003224, \"eta_o_pairs\": 1.3554030054147683, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=2 j=1 eta=1.5 split=(1.10668,1.3554)",
+  "ok": true,
+  "info": "ratio=0.600000000 V_j=0.600000000 eta_u=1.106682 eta_o=1.355403"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=1 eta=1.5  [split eta_u=1.3554, eta_o=1.10668]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.3554030054147674, \"eta_o_single\": 1.1066819197003226, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.3554030054147674, \"eta_o_pairs\": 1.1066819197003226, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.6000000000000001, \"Vj\": 0.6, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=2 j=1 eta=1.5 split=(1.3554,1.10668)",
+  "ok": true,
+  "info": "ratio=0.600000000 V_j=0.600000000 eta_u=1.355403 eta_o=1.106682"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [split eta_u=1, eta_o=2.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0000000000000004, \"eta_o_single\": 2.5000000000000058, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0000000000000004, \"eta_o_pairs\": 2.5000000000000058, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=1 eta=2.5 split=(1,2.5)",
+  "ok": true,
+  "info": "ratio=0.388888889 V_j=0.388888889 eta_u=1.000000 eta_o=2.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [split eta_u=2.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.499999999999999, \"eta_o_single\": 1.000000000000002, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.499999999999999, \"eta_o_pairs\": 1.000000000000002, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=1 eta=2.5 split=(2.5,1)",
+  "ok": true,
+  "info": "ratio=0.388888889 V_j=0.388888889 eta_u=2.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [split eta_u=1.25743, eta_o=1.98818]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2574334296829353, \"eta_o_single\": 1.9881768219176292, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2574334296829353, \"eta_o_pairs\": 1.9881768219176292, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=1 eta=2.5 split=(1.25743,1.98818)",
+  "ok": true,
+  "info": "ratio=0.388888889 V_j=0.388888889 eta_u=1.257433 eta_o=1.988177"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=1 eta=2.5  [split eta_u=1.98818, eta_o=1.25743]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9881768219176283, \"eta_o_single\": 1.2574334296829373, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9881768219176283, \"eta_o_pairs\": 1.2574334296829373, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.38888888888888884, \"Vj\": 0.38888888888888884, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=1 eta=2.5 split=(1.98818,1.25743)",
+  "ok": true,
+  "info": "ratio=0.388888889 V_j=0.388888889 eta_u=1.988177 eta_o=1.257433"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [split eta_u=1, eta_o=1.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0000000000000004, \"eta_o_single\": 1.5000000000000013, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0000000000000004, \"eta_o_pairs\": 1.5000000000000013, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=2 eta=1.5 split=(1,1.5)",
+  "ok": true,
+  "info": "ratio=0.562500000 V_j=0.562500000 eta_u=1.000000 eta_o=1.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [split eta_u=1.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5000000000000004, \"eta_o_single\": 1.0, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5000000000000004, \"eta_o_pairs\": 1.0, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=2 eta=1.5 split=(1.5,1)",
+  "ok": true,
+  "info": "ratio=0.562500000 V_j=0.562500000 eta_u=1.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [split eta_u=1.10668, eta_o=1.3554]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1066819197003221, \"eta_o_single\": 1.35540300541477, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1066819197003221, \"eta_o_pairs\": 1.35540300541477, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=2 eta=1.5 split=(1.10668,1.3554)",
+  "ok": true,
+  "info": "ratio=0.562500000 V_j=0.562500000 eta_u=1.106682 eta_o=1.355403"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=2 eta=1.5  [split eta_u=1.3554, eta_o=1.10668]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.355403005414768, \"eta_o_single\": 1.1066819197003235, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.355403005414768, \"eta_o_pairs\": 1.1066819197003235, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5625, \"Vj\": 0.5625, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=3 j=2 eta=1.5 split=(1.3554,1.10668)",
+  "ok": true,
+  "info": "ratio=0.562500000 V_j=0.562500000 eta_u=1.355403 eta_o=1.106682"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [split eta_u=1, eta_o=2.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0000000000000002, \"eta_o_single\": 2.5000000000000107, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0000000000000002, \"eta_o_pairs\": 2.5000000000000107, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=2 eta=2.5 split=(1,2.5)",
+  "ok": true,
+  "info": "ratio=0.377162630 V_j=0.377162630 eta_u=1.000000 eta_o=2.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [split eta_u=2.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.500000000000001, \"eta_o_single\": 1.0000000000000042, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.500000000000001, \"eta_o_pairs\": 1.0000000000000042, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=2 eta=2.5 split=(2.5,1)",
+  "ok": true,
+  "info": "ratio=0.377162630 V_j=0.377162630 eta_u=2.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [split eta_u=1.25743, eta_o=1.98818]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2574334296829368, \"eta_o_single\": 1.9881768219176306, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2574334296829368, \"eta_o_pairs\": 1.9881768219176306, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=2 eta=2.5 split=(1.25743,1.98818)",
+  "ok": true,
+  "info": "ratio=0.377162630 V_j=0.377162630 eta_u=1.257433 eta_o=1.988177"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=2 eta=2.5  [split eta_u=1.98818, eta_o=1.25743]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9881768219176295, \"eta_o_single\": 1.257433429682939, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9881768219176295, \"eta_o_pairs\": 1.257433429682939, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.3771626297577855, \"Vj\": 0.3771626297577855, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=2 eta=2.5 split=(1.98818,1.25743)",
+  "ok": true,
+  "info": "ratio=0.377162630 V_j=0.377162630 eta_u=1.988177 eta_o=1.257433"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [split eta_u=1, eta_o=1.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.0000000000000007, \"eta_o_single\": 1.5000000000000049, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.0000000000000007, \"eta_o_pairs\": 1.5000000000000049, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=3 eta=1.5 split=(1,1.5)",
+  "ok": true,
+  "info": "ratio=0.543576258 V_j=0.543576258 eta_u=1.000000 eta_o=1.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [split eta_u=1.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.500000000000001, \"eta_o_single\": 1.0000000000000024, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.500000000000001, \"eta_o_pairs\": 1.0000000000000024, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=3 eta=1.5 split=(1.5,1)",
+  "ok": true,
+  "info": "ratio=0.543576258 V_j=0.543576258 eta_u=1.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [split eta_u=1.10668, eta_o=1.3554]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.1066819197003228, \"eta_o_single\": 1.3554030054147719, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.1066819197003228, \"eta_o_pairs\": 1.3554030054147719, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=3 eta=1.5 split=(1.10668,1.3554)",
+  "ok": true,
+  "info": "ratio=0.543576258 V_j=0.543576258 eta_u=1.106682 eta_o=1.355403"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=3 eta=1.5  [split eta_u=1.3554, eta_o=1.10668]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.3554030054147672, \"eta_o_single\": 1.106681919700324, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.3554030054147672, \"eta_o_pairs\": 1.106681919700324, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5435762584522916, \"Vj\": 0.5435762584522914, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=4 j=3 eta=1.5 split=(1.3554,1.10668)",
+  "ok": true,
+  "info": "ratio=0.543576258 V_j=0.543576258 eta_u=1.355403 eta_o=1.106682"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.5  [split eta_u=1, eta_o=2.5]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 0.9999999999999997, \"eta_o_single\": 2.5000000000000124, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 0.9999999999999997, \"eta_o_pairs\": 2.5000000000000124, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.36889556724267475, \"Vj\": 0.3688955672426748, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=5 j=3 eta=2.5 split=(1,2.5)",
+  "ok": true,
+  "info": "ratio=0.368895567 V_j=0.368895567 eta_u=1.000000 eta_o=2.500000"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.5  [split eta_u=2.5, eta_o=1]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 2.500000000000004, \"eta_o_single\": 1.0000000000000122, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 2.500000000000004, \"eta_o_pairs\": 1.0000000000000122, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.36889556724267475, \"Vj\": 0.3688955672426748, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=5 j=3 eta=2.5 split=(2.5,1)",
+  "ok": true,
+  "info": "ratio=0.368895567 V_j=0.368895567 eta_u=2.500000 eta_o=1.000000"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.5  [split eta_u=1.25743, eta_o=1.98818]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.2574334296829348, \"eta_o_single\": 1.9881768219176459, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.2574334296829348, \"eta_o_pairs\": 1.9881768219176459, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.36889556724267475, \"Vj\": 0.3688955672426748, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=5 j=3 eta=2.5 split=(1.25743,1.98818)",
+  "ok": true,
+  "info": "ratio=0.368895567 V_j=0.368895567 eta_u=1.257433 eta_o=1.988177"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=3 eta=2.5  [split eta_u=1.98818, eta_o=1.25743]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.9881768219176281, \"eta_o_single\": 1.257433429682949, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.9881768219176281, \"eta_o_pairs\": 1.257433429682949, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.36889556724267475, \"Vj\": 0.3688955672426748, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "split",
+  "name": "K=5 j=3 eta=2.5 split=(1.98818,1.25743)",
+  "ok": true,
+  "info": "ratio=0.368895567 V_j=0.368895567 eta_u=1.988177 eta_o=1.257433"
+ },
+ {
+  "part": "R7",
+  "name": "K=2 eta=2.0: j=K instance has R7's f",
+  "ok": true,
+  "info": "max|f_ours - f_R7| = 0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=2 j=2 eta=2  [j=K, = R7]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.4142135623730954, \"eta_o_single\": 1.4142135623730956, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.4142135623730954, \"eta_o_pairs\": 1.4142135623730956, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5555555555555555, \"Vj\": 0.5555555555555556, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R7",
+  "name": "K=2 eta=2.0: ratio = U_K",
+  "ok": true,
+  "info": "ratio=0.555555556 U_K=0.555555556 V_(K-1)=0.500000000"
+ },
+ {
+  "part": "R7",
+  "name": "K=3 eta=2.5: j=K instance has R7's f",
+  "ok": true,
+  "info": "max|f_ours - f_R7| = 1.11e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=3 j=3 eta=2.5  [j=K, = R7]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.5811388300841884, \"eta_o_single\": 1.5811388300841929, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.5811388300841884, \"eta_o_pairs\": 1.5811388300841929, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.42129629629629617, \"Vj\": 0.42129629629629617, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R7",
+  "name": "K=3 eta=2.5: ratio = U_K",
+  "ok": true,
+  "info": "ratio=0.421296296 U_K=0.421296296 V_(K-1)=0.398148148"
+ },
+ {
+  "part": "R7",
+  "name": "K=4 eta=1.5: j=K instance has R7's f",
+  "ok": true,
+  "info": "max|f_ours - f_R7| = 0.00e+00"
+ },
+ {
+  "part": "full",
+  "name": "K=4 j=4 eta=1.5  [j=K, = R7]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.22474487139159, \"eta_o_single\": 1.22474487139159, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.22474487139159, \"eta_o_pairs\": 1.22474487139159, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.5518748719349773, \"Vj\": 0.5518748719349771, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R7",
+  "name": "K=4 eta=1.5: ratio = U_K",
+  "ok": true,
+  "info": "ratio=0.551874872 U_K=0.551874872 V_(K-1)=0.543576258"
+ },
+ {
+  "part": "R7",
+  "name": "K=5 eta=3.0: j=K instance has R7's f",
+  "ok": true,
+  "info": "max|f_ours - f_R7| = 3.33e-16"
+ },
+ {
+  "part": "full",
+  "name": "K=5 j=5 eta=3  [j=K, = R7]",
+  "ok": true,
+  "info": "{\"f_empty\": 1.0, \"monotone\": true, \"submodular\": true, \"eta_u_single\": 1.7320508075688792, \"eta_o_single\": 1.7320508075688852, \"exact_eta_single\": 1.0, \"eta_u_pairs\": 1.7320508075688792, \"eta_o_pairs\": 1.7320508075688852, \"exact_eta_pairs\": 1.0, \"band_ok\": true, \"opt_is_O\": 1.0, \"greedy\": true, \"ratio\": 0.32982307773106434, \"Vj\": 0.329823077731064, \"ratio_is_Vj\": 1.0}"
+ },
+ {
+  "part": "R7",
+  "name": "K=5 eta=3.0: ratio = U_K",
+  "ok": true,
+  "info": "ratio=0.329823078 U_K=0.329823078 V_(K-1)=0.322376667"
+ },
+ {
+  "part": "R7",
+  "name": "K=3 eta=3.5: uncapped j=0 = modular R2 instance",
+  "ok": true,
+  "info": "V_0 = 0.285714286, 1/eta = 0.285714286, capped = min(modular, 1): True"
+ },
+ {
+  "part": "R7",
+  "name": "K=4 eta=5.0: uncapped j=0 = modular R2 instance",
+  "ok": true,
+  "info": "V_0 = 0.200000000, 1/eta = 0.200000000, capped = min(modular, 1): True"
+ },
+ {
+  "part": "shape",
+  "name": "ftilde is monotone but not submodular (expected)",
+  "ok": true,
+  "info": "[{\"K\": 3, \"j\": 1, \"eta\": 2.5, \"ftilde_monotone\": true, \"ftilde_submodular\": false}, {\"K\": 3, \"j\": 2, \"eta\": 1.5, \"ftilde_monotone\": true, \"ftilde_submodular\": false}, {\"K\": 4, \"j\": 2, \"eta\": 2.5, \"ftilde_monotone\": true, \"ftilde_submodular\": false}, {\"K\": 5, \"j\": 3, \"eta\": 2.5, \"ftilde_monotone\": true, \"ftilde_submodular\": false}]"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.25: our f == LP witness f",
+  "ok": true,
+  "info": "max|diff| = 4.44e-07"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.25: ratio == witness ratio",
+  "ok": true,
+  "info": "V_1=0.666666667 witness=0.666666667"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.5: our f == LP witness f",
+  "ok": true,
+  "info": "max|diff| = 1.11e-16"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.5: ratio == witness ratio",
+  "ok": true,
+  "info": "V_1=0.600000000 witness=0.600000000"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.75: our f == LP witness f",
+  "ok": true,
+  "info": "max|diff| = 4.55e-07"
+ },
+ {
+  "part": "witness",
+  "name": "K=2 eta=1.75: ratio == witness ratio",
+  "ok": true,
+  "info": "V_1=0.545454545 witness=0.545454545"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=2 eta=1.25",
+  "ok": true,
+  "info": "LP=0.666666666667 min_j V_j=0.666666666667"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=2 eta=1.75",
+  "ok": true,
+  "info": "LP=0.545454545455 min_j V_j=0.545454545455"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=2 eta=2.5",
+  "ok": true,
+  "info": "LP=0.400000000000 min_j V_j=0.400000000000"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=3 eta=2.25",
+  "ok": true,
+  "info": "LP=0.424242424242 min_j V_j=0.424242424242"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=3 eta=2.75",
+  "ok": true,
+  "info": "LP=0.358974358974 min_j V_j=0.358974358974"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=3 eta=1.25",
+  "ok": true,
+  "info": "LP=0.625850340136 min_j V_j=0.625850340136"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=3 eta=1.75",
+  "ok": true,
+  "info": "LP=0.510288065844 min_j V_j=0.510288065844"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=3 eta=3.5",
+  "ok": true,
+  "info": "LP=0.285714285714 min_j V_j=0.285714285714"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=3.25",
+  "ok": true,
+  "info": "LP=0.302325581395 min_j V_j=0.302325581395"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=3.75",
+  "ok": true,
+  "info": "LP=0.265306122449 min_j V_j=0.265306122449"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=2.25",
+  "ok": true,
+  "info": "LP=0.409989594173 min_j V_j=0.409989594173"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=2.75",
+  "ok": true,
+  "info": "LP=0.349159970782 min_j V_j=0.349159970782"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=1.25",
+  "ok": true,
+  "info": "LP=0.606356611751 min_j V_j=0.606356611751"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=1.75",
+  "ok": true,
+  "info": "LP=0.491968000000 min_j V_j=0.491968000000"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=4 eta=4.5",
+  "ok": true,
+  "info": "LP=0.222222222222 min_j V_j=0.222222222222"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=4.25",
+  "ok": true,
+  "info": "LP=0.233333333333 min_j V_j=0.233333333333"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=4.75",
+  "ok": true,
+  "info": "LP=0.210000000000 min_j V_j=0.210000000000"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=3.25",
+  "ok": true,
+  "info": "LP=0.296938775510 min_j V_j=0.296938775510"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=3.75",
+  "ok": true,
+  "info": "LP=0.261718750000 min_j V_j=0.261718750000"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=2.25",
+  "ok": true,
+  "info": "LP=0.400600000000 min_j V_j=0.400600000000"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=2.75",
+  "ok": true,
+  "info": "LP=0.341782407407 min_j V_j=0.341782407407"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=1.25",
+  "ok": true,
+  "info": "LP=0.594907407407 min_j V_j=0.594907407407"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=1.75",
+  "ok": true,
+  "info": "LP=0.480810546875 min_j V_j=0.480810546875"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=5 eta=5.5",
+  "ok": true,
+  "info": "LP=0.181818181818 min_j V_j=0.181818181818"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=5.25",
+  "ok": true,
+  "info": "LP=0.189602446483 min_j V_j=0.189602446483"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=5.75",
+  "ok": true,
+  "info": "LP=0.173669467787 min_j V_j=0.173669467787"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=4.25",
+  "ok": true,
+  "info": "LP=0.230947270967 min_j V_j=0.230947270967"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=4.75",
+  "ok": true,
+  "info": "LP=0.208414107404 min_j V_j=0.208414107404"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=3.25",
+  "ok": true,
+  "info": "LP=0.292637340225 min_j V_j=0.292637340225"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=3.75",
+  "ok": true,
+  "info": "LP=0.258425804044 min_j V_j=0.258425804044"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=2.25",
+  "ok": true,
+  "info": "LP=0.394059742912 min_j V_j=0.394059742912"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=2.75",
+  "ok": true,
+  "info": "LP=0.336368840267 min_j V_j=0.336368840267"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=1.25",
+  "ok": true,
+  "info": "LP=0.587368719974 min_j V_j=0.587368719974"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=1.75",
+  "ok": true,
+  "info": "LP=0.473314341459 min_j V_j=0.473314341459"
+ },
+ {
+  "part": "lp",
+  "name": "reduced LP K=6 eta=6.5",
+  "ok": true,
+  "info": "LP=0.153846153846 min_j V_j=0.153846153846"
+ },
+ {
+  "part": "lp",
+  "name": "full-lattice LP K=2 n=4 eta=1.5",
+  "ok": true,
+  "info": "LP=0.600000000000 min_j V_j=0.600000000000 O=(2, 3)"
+ },
+ {
+  "part": "lp",
+  "name": "full-lattice LP K=2 n=4 eta=2.5",
+  "ok": true,
+  "info": "LP=0.400000000000 min_j V_j=0.400000000000 O=(2, 3)"
+ },
+ {
+  "part": "lp",
+  "name": "full-lattice LP K=3 n=6 eta=1.5",
+  "ok": true,
+  "info": "LP=0.562500000000 min_j V_j=0.562500000000 O=(3, 4, 5)"
+ },
+ {
+  "part": "lp",
+  "name": "full-lattice LP K=3 n=6 eta=2.5",
+  "ok": true,
+  "info": "LP=0.388888888889 min_j V_j=0.388888888889 O=(3, 4, 5)"
+ }
+]
