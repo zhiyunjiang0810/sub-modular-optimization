@@ -1,0 +1,32 @@
+== self-test: N3 builder vs code/worst_case_lp.py, n=6 K=3 eta=2 ==
+   worst_case_lp.worst_case -> 0.466666666667  argmin O=(3, 4, 5)  (0.3s)
+   builder row counts: {'monotone': 192, 'submodular': 480, 'error': 384, 'greedy': 12}  total=1068 vars=128
+   N3 builder (min over 20 O)-> 0.466666666667  argmin O=(3, 4, 5)  (0.3s)
+   disjoint-type O=(3,4,5) value = 0.466666666667  (equals overall min: True)
+   |diff| = 0.000e+00  -> PASS
+
+== full-lattice LP, n=10 K=5, single-element error, eta_u=eta_o=sqrt(eta) ==
+-- eta=1.5  (eta_u=eta_o=1.224745)
+   built A_ub: rows=38435 vars=2048 nnz=143430 detail={'monotone': 5120, 'submodular': 23040, 'error': 10240, 'greedy': 35}  (0.1s)
+      [linprog] status=0 (Optimization terminated successfully. (HiGHS Status 7: Optim) rows=38435 vars=2048 43.9s
+   m=0 (disjoint): lattice=0.532194918784  reduced=0.532194918784  minVj=0.532194918784 (j=4)  |diff|=1.110e-16  MATCH  (43.9s)
+   m=1  O=(0, 5, 6, 7, 8): LP=0.608779650102  >= disjoint? True  (gap +7.658e-02, 39.2s)
+   m=2  O=(0, 1, 5, 6, 7): LP=0.697115384615  >= disjoint? True  (gap +1.649e-01, 24.2s)
+   m=3  O=(0, 1, 2, 5, 6): LP=0.800000000000  >= disjoint? True  (gap +2.678e-01, 19.5s)
+   m=4  O=(0, 1, 2, 3, 5): LP=0.909090909091  >= disjoint? True  (gap +3.769e-01, 8.8s)
+   m=5  O=(0, 1, 2, 3, 4): LP=1.000000000000  >= disjoint? True  (gap +4.678e-01, 2.5s)
+   min over types solved [0, 1, 2, 3, 4, 5] = 0.532194918784; disjoint is argmin: True
+-- eta=2.0  (eta_u=eta_o=1.414214)
+   built A_ub: rows=38435 vars=2048 nnz=143430 detail={'monotone': 5120, 'submodular': 23040, 'error': 10240, 'greedy': 35}  (0.1s)
+      [linprog] status=0 (Optimization terminated successfully. (HiGHS Status 7: Optim) rows=38435 vars=2048 54.0s
+   m=0 (disjoint): lattice=0.438134430727  reduced=0.438134430727  minVj=0.438134430727 (j=3)  |diff|=5.551e-17  MATCH  (54.0s)
+   m=1  O=(0, 5, 6, 7, 8): LP=0.510204081633  >= disjoint? True  (gap +7.207e-02, 57.1s)
+   m=2  O=(0, 1, 5, 6, 7): LP=0.600000000000  >= disjoint? True  (gap +1.619e-01, 23.9s)
+   m=3  O=(0, 1, 2, 5, 6): LP=0.714285714286  >= disjoint? True  (gap +2.762e-01, 82.2s)
+   m=4  O=(0, 1, 2, 3, 5): LP=0.833333333333  >= disjoint? True  (gap +3.952e-01, 20.2s)
+   m=5  O=(0, 1, 2, 3, 4): LP=1.000000000000  >= disjoint? True  (gap +5.619e-01, 3.0s)
+   min over types solved [0, 1, 2, 3, 4, 5] = 0.438134430727; disjoint is argmin: True
+-- eta=3.0  (eta_u=eta_o=1.732051)
+   built A_ub: rows=38435 vars=2048 nnz=143430 detail={'monotone': 5120, 'submodular': 23040, 'error': 10240, 'greedy': 35}  (0.1s)
+      [linprog] status=0 (Optimization terminated successfully. (HiGHS Status 7: Optim) rows=38435 vars=2048 207.3s
+   m=0 (disjoint): lattice=0.318343195266  reduced=0.318343195266  minVj=0.318343195266 (j=2)  |diff|=1.110e-16  MATCH  (207.3s)
