@@ -30,3 +30,15 @@
    built A_ub: rows=38435 vars=2048 nnz=143430 detail={'monotone': 5120, 'submodular': 23040, 'error': 10240, 'greedy': 35}  (0.1s)
       [linprog] status=0 (Optimization terminated successfully. (HiGHS Status 7: Optim) rows=38435 vars=2048 207.3s
    m=0 (disjoint): lattice=0.318343195266  reduced=0.318343195266  minVj=0.318343195266 (j=2)  |diff|=1.110e-16  MATCH  (207.3s)
+   m=1  O=(0, 5, 6, 7, 8): LP=0.376923076923  >= disjoint? True  (gap +5.858e-02, 142.6s)
+   min over types solved [0, 1] = 0.318343195266; disjoint is argmin: True
+-- eta=4.5  (eta_u=eta_o=2.121320)
+   built A_ub: rows=38435 vars=2048 nnz=143430 detail={'monotone': 5120, 'submodular': 23040, 'error': 10240, 'greedy': 35}  (0.1s)
+      [linprog] status=0 (Optimization terminated successfully. (HiGHS Status 7: Optim) rows=38435 vars=2048 83.3s
+   m=0 (disjoint): lattice=0.221052631579  reduced=0.221052631579  minVj=0.221052631579 (j=1)  |diff|=1.665e-16  MATCH  (83.3s)
+   m=1  O=(0, 5, 6, 7, 8): LP=0.263157894737  >= disjoint? True  (gap +4.211e-02, 129.1s)
+   min over types solved [0, 1] = 0.221052631579; disjoint is argmin: True
+
+wrote /home/user/sub-modular-optimization/results/N3_K5_lattice_vs_reduced.csv
+ALL MATCH (1e-7) on disjoint type: True   max_diff = 1.665e-16
+disjoint type is argmin over O types everywhere tested: True

@@ -110,3 +110,12 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
 ## 更新（第二晚 N0）
 - R7 已由 T5 升级为一般 K [VERIFIED-SYMBOLIC]（p=a^x、Q=a^dx 参数化；results/T5_symbolic.py，105/105）。
 - R3 改称 coherence lemma（GLOSSARY.md）。
+
+## 更新（第二晚 N1/N3/N4）
+- R10 下界方向升级：一般 K 对偶证书 [VERIFIED-SYMBOLIC，模 t 分支有限枚举]，K=2..10 完全符号复核；
+  mono 乘子恒为 0（下界不需 monotonicity）；U_K − V_{K−1} > 0 符号证明，R7 族不足以证紧
+  （results/N1_dual_certificate.md）。
+- R6 的"上界 = reduced LP"由 K ≤ 4 扩到 K ≤ 5 [VERIFIED-LP]（results/N3_K5_lattice_vs_reduced.csv）。
+- **R11(c) 解读修正（N4）**：relaxF LP 的 n=8K 数值未收敛；n→∞ 极限 = min_j V_j（R10 闭式），
+  严格小于 U_K。最优 (F,G) 有完整显式公式（相位 1 = R7 实例取 a=q；相位 2 = coherence 取等尾巴），
+  一般 (K,η) 符号验证 + 42 组精确有理可行性（results/N4_hardness_construction.md）。

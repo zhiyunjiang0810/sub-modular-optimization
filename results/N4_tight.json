@@ -1,0 +1,4171 @@
+{
+ "true_K4_n32": {
+  "value": 0.4496379196840024,
+  "j": 3,
+  "T": 10,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5188863454658359,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 4,
+    "dir": "x",
+    "mult": 0.2661838929120034,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5188863454658359,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5952296714135605,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 4,
+    "dir": "x",
+    "mult": 0.13671274961597532,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5952296714135605,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.6995034824641115,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.6995034824641115,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.3649583386769277,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.36495833867692773,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.18247916933846384,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.18247916933846386,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.09123958466923192,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.09123958466923193,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.04561979233461596,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.022809896167307987,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.045619792334615966,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.02280989616730798,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.045619792334615966,
+    "family": "A"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5503620803159972,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.36690805354399814,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.18345402677199907,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.3669080535439981,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.2589422865920561,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.021505376344086093,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.12947114329602805,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4208909370199691,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.27342549923195064,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.03225806451612904,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.13671274961597532,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.4838709677419355,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.010752688172042946,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.03225806451612904,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.22580645161290325,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.03225806451612904,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.0967741935483871,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.03225806451612904,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.03225806451612903,
+    "family": "D"
+   }
+  ]
+ },
+ "true_K6_n48": {
+  "value": 0.43217718041816766,
+  "j": 5,
+  "T": 16,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.481813639486535,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.3186126165018012,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.4818136394865351,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5299950034351885,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.25047387815198136,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5299950034351886,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5829945037787073,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 2,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.17552126596717949,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5829945037787074,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5755942689754657,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 3,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.03382557284145708,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5755942689754658,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.6655122646461624,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 4,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.017200724241020666,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.6655122646461625,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.3327561323230812,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 5,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.017200724241020666,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.33275613232308127,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.16637806616154063,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.2053524556757598,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "y",
+    "mult": 0.00032751587827074954,
+    "family": "?"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 6,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.00011113389555134578,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.16637806616154063,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.04388712768828043,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.04159451654038514,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 7,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.00011113389555134578,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.24956709924231096,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.041922032418655886,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.020633500331057198,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 8,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.00011113389555134578,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 9,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.02096101620932795,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.01015299222639323,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 9,
+    "y": 6,
+    "dir": "x",
+    "mult": 8.082465131006965e-05,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.01048050810466398,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.004912738174061241,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 10,
+    "y": 6,
+    "dir": "x",
+    "mult": 8.082465131006965e-05,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 11,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.005240254052331991,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0022926111478952464,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 11,
+    "y": 6,
+    "dir": "x",
+    "mult": 8.082465131006965e-05,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 12,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.002620127026165996,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0009825476348122482,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00032751587827074954,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 13,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.0013100635130829977,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 13,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0003275158782707495,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 14,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.0006550317565414991,
+    "family": "L"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5678228195818323,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.4542582556654659,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.34069369174909936,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.2271291278327329,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.11356456391636645,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.34069369174909947,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.2725549533992796,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.20441621504945967,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.13627747669963977,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.06813873834981989,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.37476306092400935,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.2998104487392075,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.22485783655440558,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.1499052243696037,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.07495261218480186,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4122393670164103,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.4227048794399,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.008083312486222516,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.42508707937716717,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.14407789306298963,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.2833913862514448,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.1416956931257224,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4070066108046655,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.27984336182576103,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.16884673781930148,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.00831242430021821,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.01662484860043642,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.024937272900654634,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.4705882352941177,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.22986107154976193,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.09974909160261854,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.005545744340938196,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.04987454580130927,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.17647058823529416,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.001849580891592379,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.009241907790284012,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.0013942252350987016,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.01708959034546932,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.055581287633163515,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.001727626921752739,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0016086712857520404,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.0010608235484446643,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.026401111625752673,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.001367761679911702,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.0007274218617906269,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.012042612320518765,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.001126852074071363,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.00036371093089531347,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 4,
+    "dir": "yy",
+    "mult": 3.030924424127612e-05,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 5,
+    "dir": "xx",
+    "mult": 6.061848848255224e-05,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.005094951366373325,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0008859424682310249,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.00012123697696510448,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.001852709587772118,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0004631773969430297,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.00018185546544765673,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.0004631773969430296,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 3,
+    "dir": "yy",
+    "mult": 4.0412325655034825e-05,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 4,
+    "dir": "yy",
+    "mult": 8.082465131006965e-05,
+    "family": "?"
+   }
+  ]
+ },
+ "true_K8_n64": {
+  "value": 0.43089532994432295,
+  "j": 7,
+  "T": 22,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.4599060244586303,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 8,
+    "dir": "x",
+    "mult": 0.34959466279351226,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.4599060244586303,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.4927564547771039,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 8,
+    "dir": "x",
+    "mult": 0.3031371387073346,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.4927564547771039,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5279533444040398,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 2,
+    "y": 8,
+    "dir": "x",
+    "mult": 0.2533612200435728,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5279533444040398,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5648720210702256,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 3,
+    "y": 8,
+    "dir": "x",
+    "mult": 0.19958169934640493,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5648720210702256,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 2.119656562898027,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.705443000524932,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.35493987447795317,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 1.4142135623730951,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.35493987447795317,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.17746993723897658,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 9,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.17746993723897658,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.08873496861948829,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.08873496861948829,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.044367484309744146,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 11,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.044367484309744146,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.022183742154872073,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 12,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.022183742154872073,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.011091871077436036,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 13,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.011091871077436036,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 13,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.005545935538718018,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 13,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.00277296776935901,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 14,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.005545935538718018,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 14,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.002772967769359009,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 15,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.005545935538718019,
+    "family": "L"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5691046700556766,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.4878040029048657,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.4065033357540548,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.32520266860324387,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.24390200145243288,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 5,
+    "dir": "yy",
+    "mult": 0.1626013343016219,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 6,
+    "dir": "yy",
+    "mult": 0.08130066715081095,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.32520266860324365,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.278745144517066,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.23228762043088835,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.1858300963447107,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.139372572258533,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 5,
+    "dir": "yy",
+    "mult": 0.09291504817235532,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 6,
+    "dir": "yy",
+    "mult": 0.04645752408617766,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.3484314306463325,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.29865551198257073,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.24887959331880896,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.1991036746550472,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.14932775599128537,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 5,
+    "dir": "yy",
+    "mult": 0.09955183732752357,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 6,
+    "dir": "yy",
+    "mult": 0.049775918663761784,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.37331938997821335,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.32110849673202635,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.26889760348583935,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0015686274509808668,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.2151180827886715,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.1613385620915036,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 5,
+    "dir": "yy",
+    "mult": 0.10755904139433572,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 6,
+    "dir": "yy",
+    "mult": 0.05377952069716786,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.39942483660130684,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 1,
+    "dir": "yy",
+    "mult": 1.1982745098039207,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "xx",
+    "mult": 0.9992156862745097,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.9979084967320249,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0023529411764709046,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.7983267973856198,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.5987450980392148,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 5,
+    "dir": "yy",
+    "mult": 0.39916339869280987,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 6,
+    "dir": "yy",
+    "mult": 0.19958169934640493,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 2,
+    "dir": "xx",
+    "mult": 1.9984313725490195,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.0031372549019609425,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.4980392156862746,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.0007843137254900379,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.24705882352941183,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.12156862745098043,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.05882352941176468,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.027450980392156852,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.011764705882352938,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.00392156862745098,
+    "family": "?"
+   },
+   {
+    "type": "submod",
+    "x": 13,
+    "y": 1,
+    "dir": "xx",
+    "mult": 0.0039215686274509795,
+    "family": "?"
+   }
+  ]
+ },
+ "ysmall_K3": {
+  "value": 0.4685380116959063,
+  "j": 2,
+  "T": 7,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5637005638090653,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 3,
+    "dir": "x",
+    "mult": 0.1185964912280702,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5637005638090654,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.7046257047613317,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.7046257047613318,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.3721614637823937,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.39697222803455334,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.17367534976511706,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.19848611401727667,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.07443229275647874,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.09924305700863834,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.02481076425215958,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.04962152850431917,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.024810764252159584,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.024810764252159584,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 7,
+    "y": 2,
+    "dir": "y",
+    "mult": 0.017543859649122827,
+    "family": "G"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5314619883040936,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.2657309941520468,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.08421052631578954,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.3985964912280702,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.1992982456140351,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.08771929824561414,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.45614035087719296,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.04210526315789487,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.021052631578947434,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.07017543859649131,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.19298245614035103,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.05263157894736848,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.07017543859649128,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.035087719298245654,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.01754385964912282,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 3,
+    "dir": "xx",
+    "mult": 0.017543859649122827,
+    "family": "F"
+   }
+  ]
+ },
+ "ysmall_K4": {
+  "value": 0.44929828495886504,
+  "j": 3,
+  "T": 10,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5192065561555311,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 4,
+    "dir": "x",
+    "mult": 0.26573104661181995,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5192065561555311,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.605740982181453,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 4,
+    "dir": "x",
+    "mult": 0.11559117574155166,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.605740982181453,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.7066978125450285,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.7066978125450285,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.3607103418198582,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.36643590280112587,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.17749239041929532,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.18321795140056293,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.08588341471901387,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.09160897570028147,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.04007892686887314,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.04580448785014074,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.017176682943802774,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.02290224392507037,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.005725560981267592,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 9,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.011451121962535185,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.0057255609812675926,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.0057255609812675926,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 10,
+    "y": 2,
+    "dir": "y",
+    "mult": 0.004048582995951418,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 10,
+    "y": 3,
+    "dir": "y",
+    "mult": 0.004048582995951418,
+    "family": "G"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5507017150411351,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.36713447669409005,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.18356723834704503,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.36713447669409,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.24475631779606,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.12237815889803,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.027761711972238305,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.428323556143105,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.28554903742873666,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.14277451871436833,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.028340080971659937,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.4858299595141701,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.013880855986119156,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.009253903990746104,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.004626951995373052,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.024291497975708516,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.23076923076923078,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.020242914979757096,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.10526315789473685,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.016194331983805675,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.04453441295546559,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.012145748987854255,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.01619433198380567,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.008097165991902836,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.004048582995951418,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 4,
+    "dir": "xx",
+    "mult": 0.004048582995951418,
+    "family": "F"
+   }
+  ]
+ },
+ "ysmall_K5": {
+  "value": 0.43819605906630943,
+  "j": 4,
+  "T": 13,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.4965692204144238,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 5,
+    "dir": "x",
+    "mult": 0.29774507383288706,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.4965692204144242,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5586403729662268,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 5,
+    "dir": "x",
+    "mult": 0.2099632080619979,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5586403729662273,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.6284704195870052,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 2,
+    "y": 5,
+    "dir": "x",
+    "mult": 0.10243379279246337,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.6284704195870052,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.7070292220353809,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.7070292220353809,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.355996503855024,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.35739256857602414,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.17730021956701195,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.17869628428801207,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.08795207742300593,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.08934814214400603,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.043278006351002915,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.04467407107200302,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.02094097081500141,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 9,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.02233703553600151,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.009772453047000657,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.011168517768000754,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.004188194163000282,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 11,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.005584258884000377,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.0013960647210000939,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 12,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.002792129442000188,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 13,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.001396064721000094,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 13,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.001396064721000094,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 13,
+    "y": 2,
+    "dir": "y",
+    "mult": 0.000987166831194472,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 13,
+    "y": 3,
+    "dir": "y",
+    "mult": 0.000987166831194472,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 13,
+    "y": 4,
+    "dir": "y",
+    "mult": 0.000987166831194472,
+    "family": "G"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5618039409336903,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.4213529557002677,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.2809019704668451,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.14045098523342256,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.3511274630835567,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.2633455973126675,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.17556373154177832,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.08778186577088916,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.39501839596900135,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.296263796976751,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.19750919798450065,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.09875459899225032,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.0087748162772842,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4443956954651262,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.3332967715988446,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.22219784773256304,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.11109892386628152,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.008884501480750248,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.49555774925962487,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.004387408138642079,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.003290556103981559,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.0021937040693210392,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.0010968520346605196,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.007897334649555776,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.24383020730503457,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.006910167818361304,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.11846001974333664,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.005923000987166832,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.05626850937808491,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.00493583415597236,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.025666337611056276,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.003948667324777888,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.010858835143139194,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.002961500493583416,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.003948667324777888,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.001974333662388944,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.000987166831194472,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 5,
+    "dir": "xx",
+    "mult": 0.000987166831194472,
+    "family": "F"
+   }
+  ]
+ },
+ "ysmall_K6": {
+  "value": 0.4308347934273659,
+  "j": 5,
+  "T": 16,
+  "rows": [
+   {
+    "type": "band_up",
+    "x": 0,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.48295269261954205,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 0,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.3170017521128391,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 1,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.4829526926195421,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 1,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5312479618814963,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 1,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.24870192732412302,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 2,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5312479618814963,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 2,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.5843727580696458,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 2,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.17357212005653533,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 3,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.5843727580696458,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 3,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.6428100338766104,
+    "family": "B"
+   },
+   {
+    "type": "mono",
+    "x": 3,
+    "y": 6,
+    "dir": "x",
+    "mult": 0.08825749985325161,
+    "family": "E"
+   },
+   {
+    "type": "band_lo",
+    "x": 4,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.6428100338766104,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 4,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.7070910372642714,
+    "family": "B"
+   },
+   {
+    "type": "band_lo",
+    "x": 5,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.7070910372642714,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.35433271474594075,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_up",
+    "x": 5,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 6,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.35467908103601503,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.17699317422793326,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 6,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 7,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.17733954051800752,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.08832340396892951,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 7,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 8,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.08866977025900376,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.04398851883942764,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 8,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 9,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.04433488512950188,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.021821076274676703,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 9,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 10,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.02216744256475094,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.010737354992301235,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 10,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 11,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.01108372128237547,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.0051954943511135,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 11,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 12,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.005541860641187735,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.0024245640305196334,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 12,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 13,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.0027709303205938674,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 13,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.0010390988702227001,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 13,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 14,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.0013854651602969337,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 14,
+    "y": 1,
+    "dir": "x",
+    "mult": 0.0003463662900742334,
+    "family": "B"
+   },
+   {
+    "type": "band_up",
+    "x": 14,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 15,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.0006927325801484669,
+    "family": "A"
+   },
+   {
+    "type": "band_up",
+    "x": 15,
+    "y": 2,
+    "dir": "x",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "band_lo",
+    "x": 16,
+    "y": 0,
+    "dir": "y",
+    "mult": 0.00034636629007423343,
+    "family": "A"
+   },
+   {
+    "type": "band_lo",
+    "x": 16,
+    "y": 1,
+    "dir": "y",
+    "mult": 0.00034636629007423343,
+    "family": "L"
+   },
+   {
+    "type": "mono",
+    "x": 16,
+    "y": 2,
+    "dir": "y",
+    "mult": 0.0002449179524859172,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 16,
+    "y": 3,
+    "dir": "y",
+    "mult": 0.0002449179524859172,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 16,
+    "y": 4,
+    "dir": "y",
+    "mult": 0.0002449179524859172,
+    "family": "G"
+   },
+   {
+    "type": "mono",
+    "x": 16,
+    "y": 5,
+    "dir": "y",
+    "mult": 0.0002449179524859172,
+    "family": "G"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.5691652065726341,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.4553321652581073,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.34149912394358045,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.22766608262905363,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 0,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.11383304131452682,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.34149912394358045,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.27319929915486435,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.20489947436614822,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.13659964957743215,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 1,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.06829982478871607,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.3756490363379385,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.30051922907035084,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.22538942180276308,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.1502596145351754,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 2,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.0751298072675877,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4132139399717323,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.33057115197738585,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.24792836398303936,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.1652855759886929,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.08264278799434645,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 3,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0026718322089372857,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.4545353339689055,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.3636282671751244,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.2727212003813433,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.18181413358756218,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.09090706679378109,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 4,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0026940974773450874,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.4986529512613274,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 0,
+    "dir": "yy",
+    "mult": 0.001335916104468593,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 1,
+    "dir": "yy",
+    "mult": 0.0010687328835748745,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 2,
+    "dir": "yy",
+    "mult": 0.0008015496626811558,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 3,
+    "dir": "yy",
+    "mult": 0.0005343664417874371,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 4,
+    "dir": "yy",
+    "mult": 0.00026718322089371857,
+    "family": "C"
+   },
+   {
+    "type": "submod",
+    "x": 5,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0024491795248591706,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.24810188586823412,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 6,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0022042615723732537,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.12294881214793042,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 7,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.001959343619887337,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.06049473426402154,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 8,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0017144256674014198,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.029390154298310062,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 9,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0014695077149155028,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.013960323291697281,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 10,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0012245897624295857,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.006367866764633847,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 11,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0009796718099436687,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.002694097477345089,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 12,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0007347538574577516,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 13,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.0009796718099436689,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 13,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0004898359049718344,
+    "family": "F"
+   },
+   {
+    "type": "submod",
+    "x": 14,
+    "y": 0,
+    "dir": "xx",
+    "mult": 0.0002449179524859172,
+    "family": "D"
+   },
+   {
+    "type": "submod",
+    "x": 14,
+    "y": 6,
+    "dir": "xx",
+    "mult": 0.0002449179524859172,
+    "family": "F"
+   }
+  ]
+ }
+}
