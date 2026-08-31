@@ -5,7 +5,8 @@
 | 数据集 / 文件 | 规模 | 来源 | 进 git |
 |---|---|---|---|
 | `data/airline.csv` | 2.9 MB，25,977 行 | 用户上传（原仓库根目录，本次移入 data/） | 是 |
-| `data/bbc/`（BBC News Summary，含 News Articles + Summaries 各 5 类目：business/entertainment/politics/sport/tech，2,343 个 txt；另有 bbc.classes/.docs/.mtx/.terms 词项矩阵） | 14 MB，2,356 个文件 | 用户上传的 bbc.zip 解压 | 是 |
+| `data/bbc/`（BBC News Summary：News Articles 5 类目 business/entertainment/politics/sport/tech；**Summaries 只有 business 一类（118 个文件），原 zip 即如此**——此行早先误写为"各 5 类目"，E3 时发现并订正；另有 bbc.classes/.docs/.mtx/.terms 词项矩阵） | 14 MB，2,356 个文件 | 用户上传的 bbc.zip 解压 | 是 |
+| `data/raw/bbc-news-summary.csv`（sport/tech 参考摘要的回填源；business 上与本地文件 99/100 逐 token 一致验证） | 6.8 MB | HuggingFace gopalkalpande/bbc-news-summary（E3 fallback 下载，入库保证离线可复现） | 是 |
 | `data/raw/bbc.zip`（原始 zip） | 3.7 MB（< 20 MB，按规则保留） | 用户上传 | 是 |
 | `data/graphs/facebook_gemsec/artist_edges.csv` | 9.0 MB；n=50,515，m=819,306（无向） | SNAP GEMSEC Facebook page-page: https://snap.stanford.edu/data/gemsec-Facebook.html（原实验的 artist edges 即出自此处） | 是 |
 | `data/graphs/facebook_gemsec/politician_edges.csv` | 393 KB；n=5,908，m=41,729（无向） | 同上 | 是 |

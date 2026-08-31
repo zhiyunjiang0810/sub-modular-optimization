@@ -21,6 +21,21 @@
 
 ### ——— 实验之夜（TASKS_EXP.md）———
 
+### E3 Text summarization（启发式 surrogate）— PASS
+- 设定：BBC 三类各 100 篇，f = ROUGE-1 F（自实现，选择均记录），f̃ ∈ {coverage(α=0.25),
+  diversity(farthest-first 聚类), facility-location(tf 余弦)}，全部不看参考摘要；K=3..7；
+  无随机性，确定性两次运行 MD5 一致；11 秒全量。4,377 统一行 + 91,683 (d,d̃) 对落盘。
+- 数据问题（诚实处理）：本地 Summaries 只有 business 类（原 zip 即缺 sport/tech；INVENTORY
+  早先误写"各 5 类目"，已订正）。sport/tech 参考摘要由 HuggingFace 同源 CSV 精确回填，
+  business 上 99/100 篇逐 token 一致验证可信度；回填 CSV 已入库 data/raw/（离线可复现，
+  主会话改脚本优先读本地并复跑确认）。
+- 结果（K=5 中位数）：ratio coverage 0.712 / diversity 0.662 / facility 0.628；
+  η^sel 中位数 3.5 / 9.9 / 9.3（尾极重，须用分位数汇报）；最好 surrogate = coverage。
+- "模型边界外"实测而非断言：穷举 70,560 个三元组，ROUGE-1 F 的 submodular 违反 2.14%、
+  单调违反 7.12%（三个 f̃ 均 0 违反）；被选步 d ≤ 0 占 12-19%，方向违反 12-17%。
+  CELF 在非 submodular f 上 K=6/7 有 ~1% 文章略差（≤0.026），如实记录未修正。
+- 复现：python3 results/E3_run.py（主会话复跑退出码 0）；详见 results/E3_notes.md、E3_summary.json。
+
 ### E4 最坏实例的数值实现 — PASS（管线 oracle 建立）
 - N2 的 V_j 实例（K∈{3,5,8}×每段一个 η，16 个）与 U_K 实例（â=2，3 个）全部通过实验管线
   （CachedSetFunction + CELF lazy greedy，不是符号验证）：realized ratio 与理论差 ≤1.1e-16。
