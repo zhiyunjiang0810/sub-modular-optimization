@@ -1,0 +1,7 @@
+email_eu_core p=0.3 seed=0: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+email_eu_core p=0.3 seed=1: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+email_eu_core p=0.5 seed=0: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+email_eu_core p=0.5 seed=1: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+email_eu_core p=0.8 seed=0: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+email_eu_core p=0.8 seed=1: max|lazy_dmax - full_scan_dmax|=0, max|incr_coverage - Graph.coverage|=0, max|incr_gain - cached_gain|=0, greedy trajectories identical=True
+facebook_politician p=0.5 seed=0 (first 8 steps): max|lazy_dmax - full_scan_dmax|=0
