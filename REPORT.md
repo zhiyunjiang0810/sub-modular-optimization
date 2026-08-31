@@ -19,6 +19,27 @@
 
 ## 任务日志（倒序追加在此行之下）
 
+### ——— 实验之夜（TASKS_EXP.md）———
+
+### E4 最坏实例的数值实现 — PASS（管线 oracle 建立）
+- N2 的 V_j 实例（K∈{3,5,8}×每段一个 η，16 个）与 U_K 实例（â=2，3 个）全部通过实验管线
+  （CachedSetFunction + CELF lazy greedy，不是符号验证）：realized ratio 与理论差 ≤1.1e-16。
+- 发现并修复一个真实管线问题：最坏实例每步预测增益是精确 tie，浮点噪声 ~1e-16 会翻转
+  对抗 tie 方向。给 lazy_greedy 加可选 quantize 参数（增益四舍五入到 1e-10 后比较，
+  tie_key 决定方向），仅 E4 启用，真实数据任务不启用（已在代码注释与脚本头注明）。
+- 三把尺子在最坏实例上的读数：V_j 实例 η^sel = η 精确成立，η^path(1e-9) = η；U_K 实例两者 = â。
+  viol_sign_pct 全 0。
+- 复现：python3 results/E4_worst_instances.py（约 1 分钟，退出码 0）；
+  数据 results/E4_worst_case.csv、E4_rows.csv（统一行格式）。
+
+### E0 环境盘点与共享管线 — PASS
+- src/im_graph.py（图类 + 有向/无向边表加载 + 观测图边抽样 + 一跳覆盖 + CELF lazy greedy +
+  真值最大增益扫描）、src/statistics.py（η^sel、η^path(ε)、ratio、统一行格式、L_K）。
+  SubModular.ipynb 缺失（INVENTORY 已记录），模块从头实现；按规定不含 R-step 与 error-oracle 代码。
+- 冒烟测试：lazy greedy 与朴素 greedy 逐步一致；观测图抽样种子确定性。
+- 数据盘点更新进 data/INVENTORY.md（E0 期望清单逐项状态；原 Twitter/reddit/Facebook 图缺失，
+  E2 使用替代图；下载 fallback 未触发）。
+
 ### ——— 第二晚（TASKS2.md）———
 
 ### N6 加性修正的误差模型 — PASS（理论紧 + 实证半正半负，全部诚实落盘）

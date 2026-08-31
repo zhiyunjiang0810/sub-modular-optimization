@@ -109,7 +109,7 @@ class CachedSetFunction:
         return self(base | {e}) - self(base)
 
 
-def lazy_greedy(F, ground, K, tie_key=None, record=None):
+def lazy_greedy(F, ground, K, tie_key=None, record=None, quantize=None):
     """CELF lazy greedy on cached set function F over `ground`, budget K.
 
     Returns list of picked elements (trajectory order).  Correctness of laziness
@@ -121,13 +121,18 @@ def lazy_greedy(F, ground, K, tie_key=None, record=None):
     record: optional callback record(t, S_before, chosen, gain_chosen) invoked
     per step, for trajectory statistics.
     tie_key: secondary sort key for equal gains (default: element order).
+    quantize: if set (int d), gains are rounded to d decimals BEFORE heap
+    comparison, so exact mathematical ties are not flipped by ~1e-16 float
+    noise and tie_key decides them (needed for the adversarial-tie worst-case
+    instances of E4; leave None for real-data tasks).
     """
+    q_ = (lambda g: round(g, quantize)) if quantize is not None else (lambda g: g)
     S = []
     Sset = set()
     pq = []
     for e in ground:
         g = F.gain(Sset, e)
-        pq.append((-g, tie_key(e) if tie_key else e, e))
+        pq.append((-q_(g), tie_key(e) if tie_key else e, e))
     heapq.heapify(pq)
     stale = {e: 0 for e in ground}
     rnd = 1
@@ -144,7 +149,7 @@ def lazy_greedy(F, ground, K, tie_key=None, record=None):
         else:
             g = F.gain(Sset, e)
             stale[e] = rnd
-            heapq.heappush(pq, (-g, tk, e))
+            heapq.heappush(pq, (-q_(g), tk, e))
     return S
 
 
