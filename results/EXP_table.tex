@@ -1,0 +1,30 @@
+% Experiments-section summary table (draft).  Numbers reproduced by
+% results/E{1,2,3}_run.py -> E{1,2,3}_rows.csv; aggregation as in EXP_SUMMARY.md.
+% ratio = f(S^{\tilde f}_{greedy}) / f(S^{f}_{greedy}); the denominator is the
+% true-value greedy (an OPT proxy, so ratios slightly overstate the guarantee).
+% Sign-violation % is over trimmed candidate pairs; for influence maximization
+% it is structurally zero (both objectives are coverage functions) and is
+% reported as "--" rather than as an empirical finding.
+\begin{table}[t]
+\centering
+\caption{Predictive greedy across three surrogate families. Medians over all
+runs at the stated $K$ (IQR in brackets). $L_K(\eta^{sel})$ is the certified
+lower bound of Theorem~\ref{thm:trajectory} evaluated at the measured
+$\eta^{sel}$.}
+\label{tab:experiments}
+\begin{tabular}{llccccc}
+\toprule
+Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\eta^{sel}$ & $L_K(\eta^{sel})$ & sign-viol.\ \% \\
+\midrule
+Feature selection (7) & 5-fold CV accuracy & 0.971 & [0.943, 0.998] & 2.0 & 0.405 & 22.7 \\
+Influence max.\ (30) & partially observed graph & 0.963 & [0.936, 0.989] & 4.3 & 0.207 & -- \\
+Summarization (5) & coverage / diversity / FL & 0.670 & [0.576, 0.757] & 7.2 & 0.132 & 10.0 \\
+\midrule
+Worst-case $V_j$ (5) & constructed & 0.278\textsuperscript{a} & exact & $\eta$ & $=\rho_K$ & 0 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+{\footnotesize \textsuperscript{a} representative point $j=2$, $\eta=3.5$;
+every constructed instance realizes its theoretical value to $10^{-10}$
+(results/E4\_worst\_case.csv).}
+\end{table}

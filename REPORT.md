@@ -1,5 +1,13 @@
 # REPORT.md
 
+## Summary（实验之夜）
+
+- 全部 PASS：E0 管线；E4 最坏实例 oracle（19/19 差 ≤1e-10）；E1 feature selection；E2 IM（240 轨迹无降规模）；E3 摘要；E5 主图；E6 汇总。无任务级 FAIL，无人工扰动 oracle。
+- 主图故事成立（figures/money_plot）：三个真实任务的 (η^sel, ratio) 散点整体悬在 ρ_K/L_K 曲线上方，E4 构造实例精确贴线；E2 的 p-η 单调曲线是"何时重要"的展品（η 升 87× 时 ratio 只掉到 0.88）。
+- 关键方法结论（E1）：η^path 的认证下界在真实数据上几乎无信息量（0.02-0.10），**论文主用 η^sel**（下界 0.2-0.5 有信息量且实测 ratio 更高）。
+- 诚实记录：E1 发现 held-out acc 非 submodular 使纯 CELF 轨迹偏离精确 argmax（已改逐步精确并留反面证据）；E2 的 viol=0 是结构性的；E3 本地缺 sport/tech 参考摘要，HF 回填经 99/100 逐 token 验证并入库。
+- 最需人类判断：论文实验节的三任务谱系措辞（学出的 surrogate ≈完美 / 观测残缺 单调可控 / 启发式+边界外 掉到 0.6-0.7），表格草稿 results/EXP_table.tex，差异清单在 results/EXP_SUMMARY.md。
+
 ## Summary（第二晚）
 
 - 全部 PASS：N0 术语表/规则；N1 一般 K 对偶证书；N2 显式 V_j 实例；N3 K=5 验证；N4 hardness 解析化；N5 有界查询定理草稿；N6 加性误差模型。无任务级 FAIL。
@@ -20,6 +28,17 @@
 ## 任务日志（倒序追加在此行之下）
 
 ### ——— 实验之夜（TASKS_EXP.md）———
+
+### E6 汇总与写作物料 — PASS
+- results/EXP_SUMMARY.md（每任务一段 + 与原稿实验的差异清单：删扰动 oracle、全量 airline、
+  GBC→决策树、图数据替代、删 R-step、统一三量）；results/EXP_table.tex（booktabs 表格草稿，
+  含 E4 贴线行与 OPT 代理注记）。
+
+### E5 主图与辅助图 — PASS
+- figures/money_plot.png/.pdf（K=5/K=30 双列，log-η 轴到 500，超界点数标注）；
+  aux_eta_sel_by_K（三任务箱线）、aux_p_vs_eta（IM 的 p-η 单调曲线，log-y）、
+  aux_d_dtilde_scatter（(d,d̃) 散点带 η=2 带，违例集中近零增益）。
+- 复现：python3 results/E5_money_plot.py（读 E1-E4 的统一行 CSV，缺失文件显式跳过）。
 
 ### E1 Feature selection（学出来的 surrogate）— PASS
 - 设定：airline 全量 25,375 行（不再 sample 1000；n_test=5,075，ε=1.97e-4）+ breast_cancer/wine/
