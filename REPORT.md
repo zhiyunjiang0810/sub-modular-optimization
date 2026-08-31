@@ -21,6 +21,24 @@
 
 ### ——— 实验之夜（TASKS_EXP.md）———
 
+### E1 Feature selection（学出来的 surrogate）— PASS
+- 设定：airline 全量 25,375 行（不再 sample 1000；n_test=5,075，ε=1.97e-4）+ breast_cancer/wine/
+  digits20；f = 决策树 held-out acc（修正旧脚本的 GBC 不一致），f̃ = train 上 5-fold CV；
+  K=1..7 × 30 seeds；840 统一行 + 15,330 (d,d̃) 对，无 NaN（主会话复核）。
+- **信息隔离是结构性的**：f̃ 构造自只接收 (X_train,y_train) 的工厂，__slots__ 无法挂 test 属性，
+  闭包断言 + 内存共享断言 + 行为探针（打乱 y_test 后 f̃ 逐位不变而 f 大跌）四层全过。
+  旧 oracle 的信息泄露与人工扰动从结构上排除。
+- 结果（K=7 中位数）：ratio 0.999(airline)/0.955/0.944/0.959；η^sel 1.55/2.0/1.38/2.9；
+  认证下界 L_7(η^sel) 0.49/0.40/0.54/0.30——有信息量；而 η^path 10-52，L_7(η^path) 仅
+  0.02-0.10 几乎无信息量。**论文应主用 η^sel，这是本任务最重要的一条方法结论。**
+- 基线（论文 Fig.1 替代）：airline 上 greedy-on-f̃ 每个 K 都不劣于 SelectKBest/RFE/MI/ExtraTrees
+  的最好者（K=7: 0.9458 vs 0.9367），距 greedy-on-f 仅 0.002；breast_cancer 上互有胜负（如实报告）。
+- 重要管线发现：held-out accuracy 非 submodular，纯 CELF 轨迹与精确 argmax 每 7 步只有 2-3 步
+  一致——真值 greedy 已改为逐步精确 argmax 并断言，CELF 轨迹的 ratio 存 E1_diagnostics.csv
+  作反面证据。OPT 代理的高估幅度用小例暴力枚举量化（wine K=7: f(greedy^f)/OPT 中位 0.972）。
+- GBC seed0 稳健性核对：结论不变且略好；digits20 的 GBC 因单轨迹 >20 分钟按原则 5 跳过并注明。
+- 复现：python3 results/E1_run.py（约 32 分钟分块）；详见 results/E1_notes.md。
+
 ### E2 Influence maximization（部分观测图 surrogate）— PASS（无降规模、无截断、全 240 轨迹）
 - 设定：一跳覆盖；f̃ = 观测图（每边保留概率 p ∈ {0.3,0.5,0.8} × 20 种子）上同公式；
   K=1..30；替代图 facebook_{artist(50,515 全图), politician, government} + email_eu_core

@@ -419,3 +419,423 @@ breast_cancer,9,7,extra_trees,0.938596,worst perimeter|worst radius|worst concav
 breast_cancer,9,7,rfe,0.929825,mean texture|area error|worst radius|worst texture|worst area|worst concavity|worst concave points
 breast_cancer,9,7,greedy_ftilde,0.921053,worst perimeter|worst smoothness|mean area|worst fractal dimension|mean radius|mean texture|mean smoothness
 breast_cancer,9,7,greedy_f,0.973684,mean concave points|worst concavity|mean radius|mean perimeter|mean texture|texture error|mean symmetry
+airline,0,1,selectkbest,0.782069,Online boarding
+airline,0,1,mutual_info,0.782069,Online boarding
+airline,0,1,extra_trees,0.676059,Type of Travel
+airline,0,1,rfe,0.782069,Online boarding
+airline,0,1,greedy_ftilde,0.782069,Online boarding
+airline,0,1,greedy_f,0.782069,Online boarding
+airline,0,2,selectkbest,0.847291,Online boarding|Type of Travel
+airline,0,2,mutual_info,0.812414,Online boarding|Inflight wifi service
+airline,0,2,extra_trees,0.772611,Type of Travel|Inflight wifi service
+airline,0,2,rfe,0.748177,Flight Distance|Online boarding
+airline,0,2,greedy_ftilde,0.847291,Online boarding|Type of Travel
+airline,0,2,greedy_f,0.847291,Online boarding|Type of Travel
+airline,0,3,selectkbest,0.847291,Online boarding|Type of Travel|Class
+airline,0,3,mutual_info,0.883350,Online boarding|Inflight wifi service|Class
+airline,0,3,extra_trees,0.889852,Type of Travel|Inflight wifi service|Online boarding
+airline,0,3,rfe,0.799803,Flight Distance|Inflight wifi service|Online boarding
+airline,0,3,greedy_ftilde,0.889852,Online boarding|Type of Travel|Inflight wifi service
+airline,0,3,greedy_f,0.889852,Online boarding|Type of Travel|Inflight wifi service
+airline,0,4,selectkbest,0.863842,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,0,4,mutual_info,0.898916,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,0,4,extra_trees,0.898916,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,0,4,rfe,0.853399,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,0,4,greedy_ftilde,0.920788,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,0,4,greedy_f,0.920788,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,0,5,selectkbest,0.885320,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,0,5,mutual_info,0.924532,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,0,5,extra_trees,0.924532,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,0,5,rfe,0.856552,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,0,5,greedy_ftilde,0.929261,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,0,5,greedy_f,0.929261,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,0,6,selectkbest,0.887094,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,0,6,mutual_info,0.930640,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,0,6,extra_trees,0.934384,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,0,6,rfe,0.892217,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,0,6,greedy_ftilde,0.940296,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,0,6,greedy_f,0.940296,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,0,7,selectkbest,0.895764,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,0,7,mutual_info,0.930443,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|Leg room service
+airline,0,7,extra_trees,0.937340,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,0,7,rfe,0.895172,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,0,7,greedy_ftilde,0.946404,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,0,7,greedy_f,0.948571,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Leg room service
+airline,1,1,selectkbest,0.784828,Online boarding
+airline,1,1,mutual_info,0.784828,Online boarding
+airline,1,1,extra_trees,0.689458,Type of Travel
+airline,1,1,rfe,0.784828,Online boarding
+airline,1,1,greedy_ftilde,0.784828,Online boarding
+airline,1,1,greedy_f,0.784828,Online boarding
+airline,1,2,selectkbest,0.844335,Online boarding|Type of Travel
+airline,1,2,mutual_info,0.818522,Online boarding|Inflight wifi service
+airline,1,2,extra_trees,0.765911,Type of Travel|Inflight wifi service
+airline,1,2,rfe,0.747783,Flight Distance|Online boarding
+airline,1,2,greedy_ftilde,0.844335,Online boarding|Type of Travel
+airline,1,2,greedy_f,0.844335,Online boarding|Type of Travel
+airline,1,3,selectkbest,0.844335,Online boarding|Type of Travel|Class
+airline,1,3,mutual_info,0.877438,Online boarding|Inflight wifi service|Class
+airline,1,3,extra_trees,0.887882,Type of Travel|Inflight wifi service|Online boarding
+airline,1,3,rfe,0.792512,Flight Distance|Inflight wifi service|Online boarding
+airline,1,3,greedy_ftilde,0.887882,Online boarding|Type of Travel|Inflight wifi service
+airline,1,3,greedy_f,0.887882,Online boarding|Type of Travel|Inflight wifi service
+airline,1,4,selectkbest,0.864236,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,1,4,mutual_info,0.896158,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,1,4,extra_trees,0.896158,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,1,4,rfe,0.844926,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,1,4,greedy_ftilde,0.919409,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,1,4,greedy_f,0.919409,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,1,5,selectkbest,0.875271,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,1,5,mutual_info,0.917833,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,1,5,extra_trees,0.917833,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,1,5,rfe,0.848473,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,1,5,greedy_ftilde,0.923941,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,1,5,greedy_f,0.923941,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,1,6,selectkbest,0.887291,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,1,6,mutual_info,0.924532,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,1,6,extra_trees,0.928670,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,1,6,rfe,0.889064,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,1,6,greedy_ftilde,0.934778,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,1,6,greedy_f,0.936749,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling
+airline,1,7,selectkbest,0.893793,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,1,7,mutual_info,0.928473,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|On-board service
+airline,1,7,extra_trees,0.934384,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,1,7,rfe,0.892611,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,1,7,greedy_ftilde,0.941675,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,1,7,greedy_f,0.945419,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling|Class
+airline,2,1,selectkbest,0.782857,Online boarding
+airline,2,1,mutual_info,0.782857,Online boarding
+airline,2,1,extra_trees,0.681379,Type of Travel
+airline,2,1,rfe,0.782857,Online boarding
+airline,2,1,greedy_ftilde,0.782857,Online boarding
+airline,2,1,greedy_f,0.782857,Online boarding
+airline,2,2,selectkbest,0.853990,Online boarding|Type of Travel
+airline,2,2,mutual_info,0.817143,Online boarding|Inflight wifi service
+airline,2,2,extra_trees,0.770443,Type of Travel|Inflight wifi service
+airline,2,2,rfe,0.740690,Flight Distance|Online boarding
+airline,2,2,greedy_ftilde,0.853990,Online boarding|Type of Travel
+airline,2,2,greedy_f,0.853990,Online boarding|Type of Travel
+airline,2,3,selectkbest,0.853990,Online boarding|Type of Travel|Class
+airline,2,3,mutual_info,0.878818,Online boarding|Inflight wifi service|Class
+airline,2,3,extra_trees,0.893990,Type of Travel|Inflight wifi service|Online boarding
+airline,2,3,rfe,0.791921,Flight Distance|Inflight wifi service|Online boarding
+airline,2,3,greedy_ftilde,0.893990,Online boarding|Type of Travel|Inflight wifi service
+airline,2,3,greedy_f,0.893990,Online boarding|Type of Travel|Inflight wifi service
+airline,2,4,selectkbest,0.870936,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,2,4,mutual_info,0.896946,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,2,4,extra_trees,0.896946,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,2,4,rfe,0.845517,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,2,4,greedy_ftilde,0.921970,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,2,4,greedy_f,0.921970,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,2,5,selectkbest,0.884138,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,2,5,mutual_info,0.927685,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,2,5,extra_trees,0.927685,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,2,5,rfe,0.847488,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,2,5,greedy_ftilde,0.930837,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment
+airline,2,5,greedy_f,0.931626,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,2,6,selectkbest,0.887882,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,2,6,mutual_info,0.931232,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,2,6,extra_trees,0.935764,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,2,6,rfe,0.894778,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,2,6,greedy_ftilde,0.941675,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment|Class
+airline,2,6,greedy_f,0.943054,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Inflight entertainment
+airline,2,7,selectkbest,0.898325,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,2,7,mutual_info,0.904631,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|Flight Distance
+airline,2,7,extra_trees,0.940099,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Ease of Online booking
+airline,2,7,rfe,0.912512,Age|Type of Travel|Flight Distance|Inflight wifi service|Gate location|Online boarding|Inflight entertainment
+airline,2,7,greedy_ftilde,0.946995,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment|Class|Customer Type
+airline,2,7,greedy_f,0.946995,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Inflight entertainment|Class
+airline,3,1,selectkbest,0.788571,Online boarding
+airline,3,1,mutual_info,0.788571,Online boarding
+airline,3,1,extra_trees,0.749754,Inflight wifi service
+airline,3,1,rfe,0.788571,Online boarding
+airline,3,1,greedy_ftilde,0.788571,Online boarding
+airline,3,1,greedy_f,0.788571,Online boarding
+airline,3,2,selectkbest,0.854581,Online boarding|Type of Travel
+airline,3,2,mutual_info,0.818522,Online boarding|Inflight wifi service
+airline,3,2,extra_trees,0.771429,Inflight wifi service|Type of Travel
+airline,3,2,rfe,0.751724,Flight Distance|Online boarding
+airline,3,2,greedy_ftilde,0.854581,Online boarding|Type of Travel
+airline,3,2,greedy_f,0.854581,Online boarding|Type of Travel
+airline,3,3,selectkbest,0.854581,Online boarding|Type of Travel|Class
+airline,3,3,mutual_info,0.884138,Online boarding|Inflight wifi service|Class
+airline,3,3,extra_trees,0.895172,Inflight wifi service|Type of Travel|Online boarding
+airline,3,3,rfe,0.800591,Flight Distance|Inflight wifi service|Online boarding
+airline,3,3,greedy_ftilde,0.895172,Online boarding|Type of Travel|Inflight wifi service
+airline,3,3,greedy_f,0.895172,Online boarding|Type of Travel|Inflight wifi service
+airline,3,4,selectkbest,0.867586,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,3,4,mutual_info,0.903448,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,3,4,extra_trees,0.903448,Inflight wifi service|Type of Travel|Online boarding|Class
+airline,3,4,rfe,0.852808,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,3,4,greedy_ftilde,0.924335,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,3,4,greedy_f,0.924335,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,3,5,selectkbest,0.881182,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,3,5,mutual_info,0.923547,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,3,5,extra_trees,0.923547,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment
+airline,3,5,rfe,0.856946,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,3,5,greedy_ftilde,0.930837,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,3,5,greedy_f,0.930837,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,3,6,selectkbest,0.886305,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,3,6,mutual_info,0.926700,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,3,6,extra_trees,0.934384,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment|Customer Type
+airline,3,6,rfe,0.893005,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,3,6,greedy_ftilde,0.943054,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,3,6,greedy_f,0.943054,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,3,7,selectkbest,0.891823,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,3,7,mutual_info,0.927488,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|On-board service
+airline,3,7,extra_trees,0.935567,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,3,7,rfe,0.895567,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,3,7,greedy_ftilde,0.944828,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Baggage handling
+airline,3,7,greedy_f,0.950345,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,4,1,selectkbest,0.786010,Online boarding
+airline,4,1,mutual_info,0.786010,Online boarding
+airline,4,1,extra_trees,0.684532,Type of Travel
+airline,4,1,rfe,0.786010,Online boarding
+airline,4,1,greedy_ftilde,0.786010,Online boarding
+airline,4,1,greedy_f,0.786010,Online boarding
+airline,4,2,selectkbest,0.847685,Online boarding|Type of Travel
+airline,4,2,mutual_info,0.816355,Online boarding|Inflight wifi service
+airline,4,2,extra_trees,0.775369,Type of Travel|Inflight wifi service
+airline,4,2,rfe,0.744236,Flight Distance|Online boarding
+airline,4,2,greedy_ftilde,0.847685,Online boarding|Type of Travel
+airline,4,2,greedy_f,0.847685,Online boarding|Type of Travel
+airline,4,3,selectkbest,0.847685,Online boarding|Type of Travel|Class
+airline,4,3,mutual_info,0.877241,Online boarding|Inflight wifi service|Class
+airline,4,3,extra_trees,0.889655,Type of Travel|Inflight wifi service|Online boarding
+airline,4,3,rfe,0.793300,Flight Distance|Inflight wifi service|Online boarding
+airline,4,3,greedy_ftilde,0.889655,Online boarding|Type of Travel|Inflight wifi service
+airline,4,3,greedy_f,0.889655,Online boarding|Type of Travel|Inflight wifi service
+airline,4,4,selectkbest,0.866601,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,4,4,mutual_info,0.899310,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,4,4,extra_trees,0.899310,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,4,4,rfe,0.847291,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,4,4,greedy_ftilde,0.923350,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,4,4,greedy_f,0.923350,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,4,5,selectkbest,0.879803,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,4,5,mutual_info,0.923941,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,4,5,extra_trees,0.923941,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,4,5,rfe,0.850640,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,4,5,greedy_ftilde,0.928670,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,4,5,greedy_f,0.928867,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service
+airline,4,6,selectkbest,0.888473,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,4,6,mutual_info,0.925911,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,4,6,extra_trees,0.930640,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,4,6,rfe,0.886897,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,4,6,greedy_ftilde,0.936158,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,4,6,greedy_f,0.937340,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service|Customer Type
+airline,4,7,selectkbest,0.897340,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,4,7,mutual_info,0.902266,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|Flight Distance
+airline,4,7,extra_trees,0.931823,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,4,7,rfe,0.897340,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,4,7,greedy_ftilde,0.944039,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Baggage handling
+airline,4,7,greedy_f,0.942857,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service|Customer Type|Class
+airline,5,1,selectkbest,0.784236,Online boarding
+airline,5,1,mutual_info,0.784236,Online boarding
+airline,5,1,extra_trees,0.677833,Type of Travel
+airline,5,1,rfe,0.784236,Online boarding
+airline,5,1,greedy_ftilde,0.784236,Online boarding
+airline,5,1,greedy_f,0.784236,Online boarding
+airline,5,2,selectkbest,0.852217,Online boarding|Type of Travel
+airline,5,2,mutual_info,0.810443,Online boarding|Inflight wifi service
+airline,5,2,extra_trees,0.763744,Type of Travel|Inflight wifi service
+airline,5,2,rfe,0.749360,Flight Distance|Online boarding
+airline,5,2,greedy_ftilde,0.852217,Online boarding|Type of Travel
+airline,5,2,greedy_f,0.852217,Online boarding|Type of Travel
+airline,5,3,selectkbest,0.852217,Online boarding|Type of Travel|Class
+airline,5,3,mutual_info,0.880000,Online boarding|Inflight wifi service|Class
+airline,5,3,extra_trees,0.895764,Type of Travel|Inflight wifi service|Online boarding
+airline,5,3,rfe,0.790739,Flight Distance|Inflight wifi service|Online boarding
+airline,5,3,greedy_ftilde,0.895764,Online boarding|Type of Travel|Inflight wifi service
+airline,5,3,greedy_f,0.895764,Online boarding|Type of Travel|Inflight wifi service
+airline,5,4,selectkbest,0.866995,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,5,4,mutual_info,0.901478,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,5,4,extra_trees,0.901478,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,5,4,rfe,0.848670,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,5,4,greedy_ftilde,0.922956,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,5,4,greedy_f,0.922956,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,5,5,selectkbest,0.883153,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,5,5,mutual_info,0.926700,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,5,5,extra_trees,0.926700,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,5,5,rfe,0.854581,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,5,5,greedy_ftilde,0.924532,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service
+airline,5,5,greedy_f,0.931429,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,5,6,selectkbest,0.888473,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,5,6,mutual_info,0.929458,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,5,6,extra_trees,0.935172,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,5,6,rfe,0.891823,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,5,6,greedy_ftilde,0.936749,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service|Customer Type
+airline,5,6,greedy_f,0.939704,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling
+airline,5,7,selectkbest,0.894778,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,5,7,mutual_info,0.927882,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|On-board service
+airline,5,7,extra_trees,0.936158,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,5,7,rfe,0.899310,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,5,7,greedy_ftilde,0.944828,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight service|Customer Type|Class
+airline,5,7,greedy_f,0.947586,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling|Class
+airline,6,1,selectkbest,0.782463,Online boarding
+airline,6,1,mutual_info,0.782463,Online boarding
+airline,6,1,extra_trees,0.682956,Type of Travel
+airline,6,1,rfe,0.782463,Online boarding
+airline,6,1,greedy_ftilde,0.782463,Online boarding
+airline,6,1,greedy_f,0.782463,Online boarding
+airline,6,2,selectkbest,0.850640,Online boarding|Type of Travel
+airline,6,2,mutual_info,0.812217,Online boarding|Inflight wifi service
+airline,6,2,extra_trees,0.767094,Type of Travel|Inflight wifi service
+airline,6,2,rfe,0.743842,Flight Distance|Online boarding
+airline,6,2,greedy_ftilde,0.850640,Online boarding|Type of Travel
+airline,6,2,greedy_f,0.850640,Online boarding|Type of Travel
+airline,6,3,selectkbest,0.850640,Online boarding|Type of Travel|Class
+airline,6,3,mutual_info,0.880788,Online boarding|Inflight wifi service|Class
+airline,6,3,extra_trees,0.890837,Type of Travel|Inflight wifi service|Online boarding
+airline,6,3,rfe,0.788966,Flight Distance|Inflight wifi service|Online boarding
+airline,6,3,greedy_ftilde,0.890837,Online boarding|Type of Travel|Inflight wifi service
+airline,6,3,greedy_f,0.890837,Online boarding|Type of Travel|Inflight wifi service
+airline,6,4,selectkbest,0.864828,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,6,4,mutual_info,0.898325,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,6,4,extra_trees,0.898325,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,6,4,rfe,0.849458,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,6,4,greedy_ftilde,0.922759,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,6,4,greedy_f,0.922759,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,6,5,selectkbest,0.877833,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,6,5,mutual_info,0.925123,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,6,5,extra_trees,0.925123,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,6,5,rfe,0.853399,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,6,5,greedy_ftilde,0.926108,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling
+airline,6,5,greedy_f,0.930837,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,6,6,selectkbest,0.884335,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,6,6,mutual_info,0.924335,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,6,6,extra_trees,0.933793,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,6,6,rfe,0.892611,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,6,6,greedy_ftilde,0.934975,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type
+airline,6,6,greedy_f,0.940099,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,6,7,selectkbest,0.888867,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,6,7,mutual_info,0.927291,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|Leg room service
+airline,6,7,extra_trees,0.935961,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,6,7,rfe,0.898916,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,6,7,greedy_ftilde,0.946010,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type|Class
+airline,6,7,greedy_f,0.947980,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,7,1,selectkbest,0.786010,Online boarding
+airline,7,1,mutual_info,0.786010,Online boarding
+airline,7,1,extra_trees,0.688867,Type of Travel
+airline,7,1,rfe,0.786010,Online boarding
+airline,7,1,greedy_ftilde,0.786010,Online boarding
+airline,7,1,greedy_f,0.786010,Online boarding
+airline,7,2,selectkbest,0.856158,Online boarding|Type of Travel
+airline,7,2,mutual_info,0.817537,Online boarding|Inflight wifi service
+airline,7,2,extra_trees,0.773990,Type of Travel|Inflight wifi service
+airline,7,2,rfe,0.752118,Flight Distance|Online boarding
+airline,7,2,greedy_ftilde,0.856158,Online boarding|Type of Travel
+airline,7,2,greedy_f,0.856158,Online boarding|Type of Travel
+airline,7,3,selectkbest,0.856158,Online boarding|Type of Travel|Class
+airline,7,3,mutual_info,0.889064,Online boarding|Inflight wifi service|Class
+airline,7,3,extra_trees,0.898916,Type of Travel|Inflight wifi service|Online boarding
+airline,7,3,rfe,0.806700,Flight Distance|Inflight wifi service|Online boarding
+airline,7,3,greedy_ftilde,0.898916,Online boarding|Type of Travel|Inflight wifi service
+airline,7,3,greedy_f,0.898916,Online boarding|Type of Travel|Inflight wifi service
+airline,7,4,selectkbest,0.874286,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,7,4,mutual_info,0.907783,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,7,4,extra_trees,0.907783,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,7,4,rfe,0.855369,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,7,4,greedy_ftilde,0.926897,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,7,4,greedy_f,0.926897,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,7,5,selectkbest,0.884729,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,7,5,mutual_info,0.925911,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,7,5,extra_trees,0.925911,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment
+airline,7,5,rfe,0.855764,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,7,5,greedy_ftilde,0.934581,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,7,5,greedy_f,0.934581,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,7,6,selectkbest,0.889655,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,7,6,mutual_info,0.926700,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,7,6,extra_trees,0.935172,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type
+airline,7,6,rfe,0.890246,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,7,6,greedy_ftilde,0.940690,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,7,6,greedy_f,0.941478,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling
+airline,7,7,selectkbest,0.897143,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,7,7,mutual_info,0.903251,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|Flight Distance
+airline,7,7,extra_trees,0.937734,Type of Travel|Inflight wifi service|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,7,7,rfe,0.896946,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,7,7,greedy_ftilde,0.946207,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,7,7,greedy_f,0.947389,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Baggage handling|Class
+airline,8,1,selectkbest,0.791724,Online boarding
+airline,8,1,mutual_info,0.791724,Online boarding
+airline,8,1,extra_trees,0.753103,Inflight wifi service
+airline,8,1,rfe,0.791724,Online boarding
+airline,8,1,greedy_ftilde,0.791724,Online boarding
+airline,8,1,greedy_f,0.791724,Online boarding
+airline,8,2,selectkbest,0.851429,Online boarding|Type of Travel
+airline,8,2,mutual_info,0.818719,Online boarding|Inflight wifi service
+airline,8,2,extra_trees,0.775764,Inflight wifi service|Type of Travel
+airline,8,2,rfe,0.758227,Flight Distance|Online boarding
+airline,8,2,greedy_ftilde,0.851429,Online boarding|Type of Travel
+airline,8,2,greedy_f,0.851429,Online boarding|Type of Travel
+airline,8,3,selectkbest,0.851429,Online boarding|Type of Travel|Class
+airline,8,3,mutual_info,0.880591,Online boarding|Inflight wifi service|Class
+airline,8,3,extra_trees,0.891429,Inflight wifi service|Type of Travel|Online boarding
+airline,8,3,rfe,0.796453,Flight Distance|Inflight wifi service|Online boarding
+airline,8,3,greedy_ftilde,0.891429,Online boarding|Type of Travel|Inflight wifi service
+airline,8,3,greedy_f,0.891429,Online boarding|Type of Travel|Inflight wifi service
+airline,8,4,selectkbest,0.871133,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,8,4,mutual_info,0.901084,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,8,4,extra_trees,0.901084,Inflight wifi service|Type of Travel|Online boarding|Class
+airline,8,4,rfe,0.847488,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,8,4,greedy_ftilde,0.921970,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,8,4,greedy_f,0.921970,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,8,5,selectkbest,0.886108,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,8,5,mutual_info,0.924729,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,8,5,extra_trees,0.924729,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment
+airline,8,5,rfe,0.861872,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,8,5,greedy_ftilde,0.928276,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type
+airline,8,5,greedy_f,0.930049,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling
+airline,8,6,selectkbest,0.892217,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,8,6,mutual_info,0.931429,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,8,6,extra_trees,0.935369,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment|Customer Type
+airline,8,6,rfe,0.894975,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,8,6,greedy_ftilde,0.940887,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class
+airline,8,6,greedy_f,0.941478,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type
+airline,8,7,selectkbest,0.898719,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,8,7,mutual_info,0.933990,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|On-board service
+airline,8,7,extra_trees,0.939310,Inflight wifi service|Type of Travel|Online boarding|Class|Inflight entertainment|Customer Type|Seat comfort
+airline,8,7,rfe,0.900887,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,8,7,greedy_ftilde,0.948768,Online boarding|Type of Travel|Inflight wifi service|Gate location|Customer Type|Class|Inflight service
+airline,8,7,greedy_f,0.950739,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type|Class
+airline,9,1,selectkbest,0.782069,Online boarding
+airline,9,1,mutual_info,0.782069,Online boarding
+airline,9,1,extra_trees,0.682759,Type of Travel
+airline,9,1,rfe,0.782069,Online boarding
+airline,9,1,greedy_ftilde,0.782069,Online boarding
+airline,9,1,greedy_f,0.782069,Online boarding
+airline,9,2,selectkbest,0.850049,Online boarding|Type of Travel
+airline,9,2,mutual_info,0.813202,Online boarding|Inflight wifi service
+airline,9,2,extra_trees,0.778128,Type of Travel|Inflight wifi service
+airline,9,2,rfe,0.749557,Flight Distance|Online boarding
+airline,9,2,greedy_ftilde,0.850049,Online boarding|Type of Travel
+airline,9,2,greedy_f,0.850049,Online boarding|Type of Travel
+airline,9,3,selectkbest,0.850049,Online boarding|Type of Travel|Class
+airline,9,3,mutual_info,0.878818,Online boarding|Inflight wifi service|Class
+airline,9,3,extra_trees,0.890443,Type of Travel|Inflight wifi service|Online boarding
+airline,9,3,rfe,0.792906,Flight Distance|Inflight wifi service|Online boarding
+airline,9,3,greedy_ftilde,0.890443,Online boarding|Type of Travel|Inflight wifi service
+airline,9,3,greedy_f,0.890443,Online boarding|Type of Travel|Inflight wifi service
+airline,9,4,selectkbest,0.872512,Online boarding|Type of Travel|Class|Inflight entertainment
+airline,9,4,mutual_info,0.898916,Online boarding|Inflight wifi service|Class|Type of Travel
+airline,9,4,extra_trees,0.898916,Type of Travel|Inflight wifi service|Online boarding|Class
+airline,9,4,rfe,0.856552,Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,9,4,greedy_ftilde,0.924532,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,9,4,greedy_f,0.924532,Online boarding|Type of Travel|Inflight wifi service|Gate location
+airline,9,5,selectkbest,0.885714,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort
+airline,9,5,mutual_info,0.927094,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment
+airline,9,5,extra_trees,0.903842,Type of Travel|Inflight wifi service|Online boarding|Class|Customer Type
+airline,9,5,rfe,0.853793,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding
+airline,9,5,greedy_ftilde,0.926305,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling
+airline,9,5,greedy_f,0.930640,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment
+airline,9,6,selectkbest,0.892020,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service
+airline,9,6,mutual_info,0.933990,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort
+airline,9,6,extra_trees,0.934975,Type of Travel|Inflight wifi service|Online boarding|Class|Customer Type|Inflight entertainment
+airline,9,6,rfe,0.893202,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment
+airline,9,6,greedy_ftilde,0.935567,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type
+airline,9,6,greedy_f,0.940296,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment|Class
+airline,9,7,selectkbest,0.897734,Online boarding|Type of Travel|Class|Inflight entertainment|Seat comfort|On-board service|Cleanliness
+airline,9,7,mutual_info,0.932217,Online boarding|Inflight wifi service|Class|Type of Travel|Inflight entertainment|Seat comfort|On-board service
+airline,9,7,extra_trees,0.939901,Type of Travel|Inflight wifi service|Online boarding|Class|Customer Type|Inflight entertainment|Seat comfort
+airline,9,7,rfe,0.896749,Age|Type of Travel|Flight Distance|Inflight wifi service|Online boarding|Inflight entertainment|Checkin service
+airline,9,7,greedy_ftilde,0.945616,Online boarding|Type of Travel|Inflight wifi service|Gate location|Baggage handling|Customer Type|Class
+airline,9,7,greedy_f,0.944433,Online boarding|Type of Travel|Inflight wifi service|Gate location|Inflight entertainment|Class|Customer Type

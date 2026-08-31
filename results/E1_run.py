@@ -490,6 +490,36 @@ def baseline_figure():
     print('wrote figures/E1_baselines.png/.pdf')
 
 
+def opt_check(spec=(('wine', 7, 10), ('airline', 3, 5))):
+    """How much does the greedy-on-f denominator OVERSTATE the ratio?
+    Brute-force OPT_K = max_{|S|=K} f(S) where the enumeration is affordable,
+    and report f(greedy^f)/OPT and f(greedy^f~)/OPT.  Printed only (the number
+    goes into E1_notes.md); no CSV, this is a sanity bound on the proxy."""
+    from itertools import combinations
+    import numpy as _np
+    for name, Kmax, nseeds in spec:
+        X, y, _ = load_dataset(name)
+        gf, gt = [], []
+        for seed in range(nseeds):
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=seed)
+            ground = list(range(X.shape[1]))
+            sur = make_surrogate(X_train, y_train, make_tree)
+            Ftil = CachedSetFunction(sur)
+            Ftrue = CachedSetFunction(make_true_eval(X_train, y_train, X_test,
+                                                     y_test, make_tree))
+            pt = greedy_exact(Ftil, ground, Kmax)
+            pf = greedy_exact(Ftrue, ground, Kmax)
+            opt = max(Ftrue(set(c)) for c in combinations(ground, Kmax))
+            gf.append(Ftrue(set(pf)) / opt)
+            gt.append(Ftrue(set(pt)) / opt)
+        print(f'[OPT check] {name} K={Kmax} seeds=0..{nseeds - 1}: '
+              f'median f(greedy^f)/OPT = {_np.median(gf):.4f} '
+              f'(min {min(gf):.4f}), '
+              f'median f(greedy^ftilde)/OPT = {_np.median(gt):.4f} '
+              f'(min {min(gt):.4f})', flush=True)
+
+
 def summary_part():
     """Median tables printed to stdout; transcribed into E1_notes.md."""
     import pandas as pd
@@ -565,7 +595,8 @@ if __name__ == '__main__':
     ap.add_argument('--datasets', default=','.join(DATASETS))
     ap.add_argument('--seeds', default='0:30')
     ap.add_argument('--part', default='all',
-                    choices=['all', 'main', 'gbc', 'baselines_fig', 'summary'])
+                    choices=['all', 'main', 'gbc', 'baselines_fig', 'summary',
+                             'opt_check'])
     ap.add_argument('--append', action='store_true')
     a = ap.parse_args()
     ds = [d for d in a.datasets.split(',') if d]
@@ -577,6 +608,8 @@ if __name__ == '__main__':
         gbc_part([d for d in ds if d in GBC_DATASETS])
     if a.part in ('all', 'baselines_fig'):
         baseline_figure()
+    if a.part == 'opt_check':
+        opt_check()
     if a.part in ('all', 'summary'):
         summary_part()
     print(f'total {time.time() - t0:.0f}s')
