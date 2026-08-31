@@ -23,6 +23,18 @@ curl -sSL -O https://snap.stanford.edu/data/email-Eu-core-department-labels.txt.
 ```
 （注意：SNAP 页面上曾出现过的 `facebook_clean_data.zip` 文件名现已 404，tar.gz 是当前有效链接。）
 
+## E0 盘点（实验之夜，对照 TASKS_EXP.md 期望清单）
+
+| 期望文件 | 状态 |
+|---|---|
+| Facebook_1、Facebook_2、Twitter、facebook directed.txt、reddit directed.txt | **缺失**（原始图丢失，见下节）；E2 改用替代图：facebook_gemsec/{artist,politician,government}_edges.csv 与 email_eu_core/email-Eu-core.txt |
+| artist edges.txt | 以 `data/graphs/facebook_gemsec/artist_edges.csv` 在册（同源 GEMSEC artist） |
+| BBC 新闻三类文本 | 在册（data/bbc/，实际 5 类目 + 参考摘要 Summaries/，E3 取 business/sport/tech 三类各 100 篇） |
+| airline satisfaction CSV | 在册（data/airline.csv，25,977 行） |
+| SubModular.ipynb（E0 要求抽取可复用部分） | **缺失**（见下节）；src/im_graph.py 从头实现（图类、coverage f、CELF lazy greedy），且按规定不含 R-step 与 error-oracle 代码 |
+
+下载 fallback 未触发（所需替代数据上一轮已入库）。
+
 ## 缺失与替代记录
 
 - **旧的 Twitter / reddit 社交网络图原始文件已丢失，无法恢复。** 论文实验将改用上述公开替代图：
