@@ -540,13 +540,13 @@ def cmd_trunccheck(args):
                 r = dict(dataset=name, p=p, seed=seed, K=K_MAX,
                          eta_path_full=f'{full:.6g}', eta_path_top50=f'{top:.6g}',
                          ratio_top50_over_full=f'{top / full:.4f}',
-                         eta_sel=rows[-1]['eta_sel'], n_pairs_full=rows[-1]['K'])
+                         eta_sel=rows[-1]['eta_sel'])
                 out.append(r)
                 print(f'{name} p={p} seed={seed}: eta_path full={full:.3f} '
                       f'top50={top:.3f} ({top / full:.3f}x) [{time.time() - t0:.1f}s]',
                       flush=True)
     fields = ['dataset', 'p', 'seed', 'K', 'eta_path_full', 'eta_path_top50',
-              'ratio_top50_over_full', 'eta_sel', 'n_pairs_full']
+              'ratio_top50_over_full', 'eta_sel']
     path = os.path.join(HERE, 'E2_truncation_check.csv')
     append_csv(path, fields, out)          # append: chunks accumulate
     print('wrote', path)

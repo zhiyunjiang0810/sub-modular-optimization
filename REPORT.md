@@ -21,6 +21,23 @@
 
 ### ——— 实验之夜（TASKS_EXP.md）———
 
+### E2 Influence maximization（部分观测图 surrogate）— PASS（无降规模、无截断、全 240 轨迹）
+- 设定：一跳覆盖；f̃ = 观测图（每边保留概率 p ∈ {0.3,0.5,0.8} × 20 种子）上同公式；
+  K=1..30；替代图 facebook_{artist(50,515 全图), politician, government} + email_eu_core
+  （原 Twitter/reddit 丢失，INVENTORY 有记录）。artist 单 run 实测 3.4 秒，无需节点截断。
+- 主结果：p-η 单调关系干净（"何时重要"展品）——p 0.8→0.3 时 η^sel 中位数升 3.2×(artist)
+  到 87×(government)，但 ratio 只从 ~0.99 掉到 0.88-0.96；认证下界 L_30(η^sel) 从 0.573
+  掉到 0.008，真实实例比 worst-case 界乐观约两个数量级。η^sel 增长集中在前 5 步；尾重
+  （artist p=0.3 max 456），须用分位数。对照：degree(观测图度数) 0.66-0.89、random 0.06-0.54，
+  均逊于预测式 greedy。
+- 方法学两点如实记录：viol=0 是结构性的（两个覆盖函数增益恒非负，这把尺子在 E2 无信息量）；
+  facebook 三图 (d,d̃) 只落盘每步 top-50 候选，η^path 因此系统性下估（截断偏差已单独量化
+  E2_truncation_check.csv；E5 用 η^sel 作横轴不受影响）。ratio>1 占 1.3%（OPT 代理上估所致）。
+- 验证：真图 lazy CELF vs 全扫描逐步差 0；增量覆盖 vs Graph.coverage 差 0；轨迹逐元素相同
+  （E2_validation.txt；主会话核对行数 7200 与中位数表一致）。
+- 复现：python3 results/E2_run.py（支持 --dataset --p 分块）；数据 E2_rows.csv、E2_baselines.csv、
+  E2_p_eta.csv；详见 results/E2_notes.md。
+
 ### E3 Text summarization（启发式 surrogate）— PASS
 - 设定：BBC 三类各 100 篇，f = ROUGE-1 F（自实现，选择均记录），f̃ ∈ {coverage(α=0.25),
   diversity(farthest-first 聚类), facility-location(tf 余弦)}，全部不看参考摘要；K=3..7；
