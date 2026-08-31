@@ -61,7 +61,7 @@ def save(fig, name):
 def money_plot(rows):
     fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.0), sharey=False)
     for ax, K in zip(axes, (5, 30)):
-        etas = np.logspace(0, np.log10(40), 300)
+        etas = np.logspace(0, np.log10(500), 400)
         ax.plot(etas, [L_K(e, K) for e in etas], '--', color='0.45', lw=1.4)
         ax.plot(etas, [rho_K(e, K) for e in etas], '-', color='0.15', lw=1.6)
         sub = rows[rows.K == K]
@@ -76,17 +76,23 @@ def money_plot(rows):
             ax.scatter(s4.eta_sel, s4.ratio, s=46, marker='X', color='#000000',
                        label='worst-case instances (E4)', zorder=5)
         ax.set_xscale('log')
-        ax.set_xticks([1, 2, 5, 10, 20, 40])
-        ax.set_xticklabels(['1', '2', '5', '10', '20', '40'])
+        ax.set_xticks([1, 2, 5, 10, 30, 100, 500])
+        ax.set_xticklabels(['1', '2', '5', '10', '30', '100', '500'])
         ax.xaxis.set_minor_locator(NullLocator())
         ax.set_xlabel(r'measured $\eta^{sel}$ (log)')
         ax.set_title(f'K = {K}', fontsize=11)
         ax.set_ylim(0, 1.05)
+        n_beyond = int((sub.eta_sel > 500).sum())
+        if n_beyond:
+            ax.annotate(f'{n_beyond} pts beyond', xy=(430, 0.06), fontsize=7.5,
+                        color='0.4', ha='right')
         if K == 5:
             ax.set_ylabel(r'ratio  $f(S^{\tilde f}_{greedy})\,/\,f(S^{f}_{greedy})$')
-            ax.legend(frameon=False, fontsize=8, loc='lower left')
-            ax.text(28, rho_K(28, 5) + 0.03, r'$\rho_K$', color='0.15', fontsize=10)
-            ax.text(28, L_K(28, 5) - 0.07, r'$L_K$', color='0.45', fontsize=10)
+            ax.text(30, 0.10, r'$\rho_K$ (solid),  $L_K$ (dashed)',
+                    color='0.25', fontsize=9)
+        else:
+            handles, labels = axes[0].get_legend_handles_labels()
+            ax.legend(handles, labels, frameon=False, fontsize=8, loc='lower left')
     fig.suptitle('Real tasks sit far above the worst-case curves; '
                  'the constructed instances sit on them', fontsize=11)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
@@ -111,7 +117,9 @@ def aux_eta_box(rows):
         ax.set_title(TASK_LABEL[task], fontsize=10)
         ax.set_xlabel('K')
         if len(Ks) > 10:
-            ax.set_xticks(ax.get_xticks()[::5])
+            keep = list(range(0, len(Ks), 5))
+            ax.set_xticks([i + 1 for i in keep])
+            ax.set_xticklabels([str(Ks[i]) for i in keep])
     axes[0].set_ylabel(r'$\eta^{sel}$ (log)')
     fig.tight_layout()
     save(fig, 'aux_eta_sel_by_K')
@@ -126,7 +134,8 @@ def aux_p_eta():
     for i, (ds, s) in enumerate(df.groupby('dataset')):
         s = s.sort_values('p')
         col = ['#0072B2', '#D55E00', '#009E73', '#E69F00'][i % 4]
-        ax.plot(s.p, s.iloc[:, 2], 'o-', lw=2, ms=5, color=col, label=ds)
+        ax.plot(s.p, s.eta_sel_K30_median, 'o-', lw=2, ms=5, color=col, label=ds)
+    ax.set_yscale('log')
     ax.set_xlabel('edge observation probability p')
     ax.set_ylabel(r'median $\eta^{sel}$ at K=30')
     ax.legend(frameon=False, fontsize=8)
