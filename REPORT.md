@@ -27,6 +27,45 @@
 
 ## 任务日志（倒序追加在此行之下）
 
+### ——— 第四晚（TASKS4.md）———
+
+### F6 引用核验与 .bib — PASS（23/23 入库，0 未过）
+- paper/references.bib：23 条全部过四步核验（9 条定位到定理/章节号，14 条 PASS*——存在性/
+  字段/版本全验、陈述定位到摘要级，audit 里逐条注明）；模板 .bst 下编译 0 警告。
+- 三个重要发现：(i) **Goundan-Schulz 2007 是 MIT working paper（无会议/期刊版）**，其 Theorem 1
+  逐字就是本文 L_K 界，且 α 约定为 α = η^sel（**GLOSSARY 此前写反为 1/η^sel，已修**；
+  论文 Theorem 6 措辞降为 "in the terminology of GS"，不得写 we prove——需人类确认）；
+  (ii) Bhawalkar et al. 2025 存在但主题是 noisy oracle 非 LAA，不能放 LAA 段；
+  (iii) SNAP email-Eu-core 官方规定引用是两条（Yin KDD'17 + Leskovec TKDD'07），均入库；
+  GEMSEC 出处是 ASONAM 2019。Horel-Singer vs Hassidim-Singer 已确认为两篇（原稿错引成立），
+  另有第三篇 Singer-Hassidim NeurIPS 2018 需防混淆。
+- results.tex 的引用键已对齐（goundan2007revisiting），paper 重编译 0 未定义引用。
+- 详见 results/F6_citation_audit.md。
+
+### F5 写作物料 — PASS（6 页，模板下编译干净）
+- paper/sections/results.tex（理论九节正式陈述，每条带状态标签注释与验证脚本指针，
+  逐词过空洞性检验：无 robust、无裸 tight、全称句带限定）；appendix_proofs.tex（证明骨架，
+  sympy 验证处逐一注明 verified symbolically）；notation_table.tex；statements.tex
+  （AI use + reproducibility 如实草稿）；figures/captions.tex（主图+三辅图）。
+- paper/main.tex 组装编译：pdflatex+bibtex+pdflatex×2 全过，0 LaTeX 错误、0 未定义引用/交叉引用，
+  日志 results/F5_paper_compile.log。GS 归属修正已进正文。
+
+### F2 理论卫生 — PASS（两个悬案落地）
+- **(5,4) 判定为真实差异**：N4 闭式隐含多加了 F(x,K)≡1；LP 只要求 |S|≤K 处 F≤1，最优解用
+  F(x,K)=1+xε（ε=1.755e-4）。精确二进有理可行点证明 LP ≤ 0.2474903831 < 闭式 0.2474906885；
+  加回该约束后 LP 精确回到闭式（≤5.6e-17）。触发条件（为何仅 K=5）仍开放，已如实记录。
+  [VERIFIED-LP 精确有理]，results/F2_54_exact.py（主会话复跑退出码 0）。
+- R6 有效不等式手证 results/F2_R6_validity.tex [HAND-PROOF-UNREVIEWED]，含 b_t ∈ O 情形；
+  模板下编译通过（results/F2_compile.log）。重要 remark：cons 约束用到离轨状态的 band，
+  故 reduced LP 精确值只对全局 η 成立，而 L_K（只用 sum+pred）可对 η^sel 陈述——
+  这解释了三把尺子的层级，正文已按此写。
+- η^sel 紧性：U_K 实例 K=2..8×â∈{1.5,2} 上 η^sel=η^path=â 全 PASS（量化口径差异已注明），
+  R7 已追加一行。[VERIFIED-LP]，results/F2_etasel_tight.py（主会话复跑退出码 0）。
+
+### F0 状态同步与记号定稿 — PASS
+- RESEARCH_STATE 追加 R14（实验之夜四段，含 OPT 代理注记）；L_K ≤ min_j V_j 升级 [PROVED]
+  （约束包含关系一行论证）；GLOSSARY 加记号定稿/η^sel 出处/引用四步核验三条；paper/macros.tex。
+
 ### ——— 实验之夜（TASKS_EXP.md）———
 
 ### E6 汇总与写作物料 — PASS

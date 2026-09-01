@@ -64,8 +64,10 @@ and returns $S^{K}$. Ties in \eqref{eq:greedy} are broken adversarially. We
 refer to \eqref{eq:greedy} as the \emph{greedy choice}.
 
 Fix an optimal set $O$ with $|O| \le K$ and $f(O) = \max_{|T| \le K} f(T)$.
-Enumerate $O = \{o_{1}, \dots, o_{K}\}$, padding with elements of zero marginal
-gain everywhere if $|O| < K$, and normalise $f(O) = 1$.
+Enumerate $O = \{o_{1}, \dots, o_{K}\}$ and normalise $f(O) = 1$. If $|O| < K$,
+set $g_{t,i} = 0$ for the $K - |O|$ unused indices $i$; every lemma below then
+holds for those columns for the same reason as in its case (a), so no padding of
+the ground set is needed.
 
 \begin{definition}[the trajectory vector, including the case $b_{t} \in O$]
 \label{def:vars}
@@ -159,8 +161,8 @@ uses nothing beyond the definition of a set function. Substituting
 \eqref{eq:coh-i} in the form
 $- d_{e}(S \cup \{e'\}) \le - d_{e'}(S \cup \{e\})/\eta$ gives
 $d_{e'}(S) - d_{e}(S) \le (1 - 1/\eta)\, d_{e'}(S \cup \{e\})$, which is
-\eqref{eq:coh-ii}. This step uses \eqref{eq:coh-i}, that is R3(ii) reduces to
-R3(i), and $\eta \ge 1$ so that the factor $1 - 1/\eta$ is nonnegative.
+\eqref{eq:coh-ii}. This step uses \eqref{eq:coh-i} together with $\eta \ge 1$,
+so that the factor $1 - 1/\eta$ is nonnegative.
 \end{proof}
 
 \subsection{The four families are valid}
@@ -319,9 +321,21 @@ that every feasible point of \eqref{eq:redlp} is realised by some instance, is
 not claimed here; it has been checked against the full-lattice LP for
 $K \le 5$ and at nineteen $(K, \eta)$ test points. The status of the material in
 this section is [HAND-PROOF-UNREVIEWED]: no oracle certifies these derivations.
-The bands are used only through single-element gains at the greedy states, so
-the same proofs go through verbatim with $\eta$ replaced by the trajectory error
-$\etatr$, and, in Lemma~\ref{lem:pred} alone, by the selection error $\etasel$.
+\end{remark}
+
+\begin{remark}[which rulers the four families tolerate]
+\label{rem:rulers}
+Families $\mathrm{sum}(t)$ and $\mathrm{mono}(t,i)$ use no error notion at all.
+Family $\mathrm{pred}(t,i)$ uses the band only at the greedy state $S^{t}$, so
+it stays valid when $\eta$ is replaced by the trajectory error $\etatr$, and,
+directly from its definition as a ratio of true gains at greedy states, when it
+is replaced by the selection error $\etasel$. Family $\mathrm{cons}(t,i)$
+invokes Lemma~\ref{lem:coherence}, whose proof also uses the band at the state
+$S^{t} \cup \{o_{i}\}$, which is not on the greedy trajectory; so
+$\mathrm{cons}$ is not covered by either restricted ruler without a further
+assumption. This is the reason the $L_{K}$ bound, whose proof uses only
+$\mathrm{sum}$ and $\mathrm{pred}$, is stated for $\etasel$, while the exact
+reduced-LP value is stated for the global $\eta$.
 \end{remark}
 
 \begin{remark}[which hypothesis each family consumes]
