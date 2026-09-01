@@ -145,3 +145,19 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
 ## 更新（第四晚 F0）
 - R10 补：L_K(η) ≤ min_j V_j(η) 由 [CONJECTURE] 改为 [PROVED]。一行理由：reduced LP 的约束集
   包含 Theorem 6 分析所用 LP 的全部约束；约束更多可行域更小，最小值不减，故 reduced LP 值 ≥ L_K。
+
+## 更新（第四晚 F1-F4）
+- F1：E2 的 η^path 去截断全量重算（K=30 合并中位数 71.7→284；ratio/η^sel/viol 逐行不变）；
+  ROUGE 自实现与 rouge-score 精确 0 差（90 篇负控制验证）；统一行新增 n/frac_steps_nonpos 列；
+  breast_cancer 暴力 OPT 到 K=4：f(greedy^f)/OPT 中位 0.9823。
+- F2：(5,4) 判定为真实差异（N4 闭式隐含 F(x,K)≡1，LP 不要求；加回后精确复原）[VERIFIED-LP 精确有理]；
+  R6 四族有效不等式手证成文（results/F2_R6_validity.tex）；关键 remark：cons 约束用离轨 band，
+  故精确值只对全局 η 成立、L_K 可对 η^sel 陈述。U_K 实例上 η^sel=η^path=â [VERIFIED-LP K=2..8]。
+- F3：真带 τ=1 下 N4 构造 δ=0 可行 iff n > K(T+1)（12/12 [CONJECTURE]）；τ≥2 对任意 n/δ 不可行
+  （2 约束 IIS，240/240）。意外正面：G 在 x>T 自动 O-无关 ⇒ 任意大小查询的 hardness 定理草稿，
+  预算 Q=O(n²/((2+η)²K⁴))，指数 2 是该族内在上限（results/F3_hardness_full.tex）。
+- **F4（重要建模结论）**：要求 f̃ 也 submodular 时最坏值在 η < K−1 区严格变大
+  （K=3,η=1.5: 9/16→19/33；K=4,η=2: 22/49→23/50）[VERIFIED-LP + 实例验证器确认可达]；
+  新闭式猜想 ρ_K^sub = min_m W_m，W_m=(K−m r^m)/(K(1+(η−1)r^m))，r=1−1/K，76/76 点吻合
+  [CONJECTURE]；渐近极限比 1−e^{−1/η} 高约 10%；U_K 在新模型失效为上界。
+  若论文采用 submodular surrogate 模型，R7/U_K 陈述需重写（results/F4_submodular_ftilde.md）。

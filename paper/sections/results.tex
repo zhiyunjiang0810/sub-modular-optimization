@@ -197,9 +197,19 @@ $V_{K-1}$ for every $\eta>1$.
 % [VERIFIED-SYMBOLIC]: U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k_1) > 0,
 % results/N1_dual_certificate.py part G.
 The predictor $\tilde f$ of the attaining instances is monotone but not
-submodular; whether requiring a submodular $\tilde f$ changes $\rho_K$ is
-addressed in the remark of Section~\ref{sec:exact} of the appendix.
-% F4 investigates this; the sentence will be finalized from F4's output.
+submodular.  If the model additionally requires $\tilde f$ to be submodular,
+the worst case changes: for $\eta<K-1$ the exact value strictly increases
+(for example from $9/16$ to $19/33$ at $K=3$, $\eta=1.5$), the family above
+becomes inadmissible, and $U_K$ is no longer an upper bound; LP evidence
+supports the closed form $\min_m W_m$ with
+$W_m=\tfrac{K-mr^{m}}{K(1+(\eta-1)r^{m})}$, $r=1-\tfrac1K$, whose limit in
+$K$ exceeds $1-e^{-1/\eta}$ by roughly ten percent at $\eta=2$.
+% Status: exact values [VERIFIED-LP] with instance-validated attainment at
+% K <= 4 (K = 5 disjoint-O upper bounds, attained); the min_m W_m closed
+% form and its limit are [CONJECTURE], 76/76 LP points
+% (results/F4_submodular_ftilde.md).  This changes the adversary's power,
+% not the algorithm's behavior on a fixed instance; do not phrase as
+% robustness.
 \end{remark}
 
 % ---------------------------------------------------------------- block 7 --

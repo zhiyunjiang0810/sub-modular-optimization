@@ -1,5 +1,13 @@
 # REPORT.md
 
+## Summary（第四晚：修补、收尾、写作物料）
+
+- 全部 PASS：F0 记号定稿；F1 实验修补（6/6）；F2 理论卫生（两悬案落地）；F5 写作物料（6 页模板编译干净）；F6 引用（23/23 四步核验入库）；F3 hardness 再攻（交付齐全，原目标如实 FAILED 但得到任意大小查询、Q=O(n²) 的定理草稿）；F4 submodular f̃（建模悬案有了答案）。
+- 三个改变认知的结果：F4 证实要求 f̃ submodular 时最坏值在 η<K−1 严格变大（9/16→19/33，新闭式 min_m W_m [CONJECTURE]，U_K 失效）；F3 发现真带是过强形式化（大查询自动 O-无关），但查询预算指数内在卡在 2；F2 判定 (5,4) 为真实差异（N4 闭式隐含 F(x,K)≡1）。
+- 两处修正：GS 2007 的 α 方向（=η^sel 非 1/η^sel，GLOSSARY+正文已改，Theorem 6 措辞降为 "in the terminology of GS"）；E2 的 η^path 中位数 71.7→284（去截断）。
+- 最需人类拍板：论文采用哪个 surrogate 模型（f̃ 是否要求 submodular——决定 ρ_K 一整章怎么写）；以及 Theorem 6 归属措辞的最终口径。
+- 硬规则全守：23 条引用全过四步核验才入 .bib；所有 .tex 在 ICLR 2027 模板下编译通过（日志在 results/F*_compile.log、F5_paper_compile.log）。
+
 ## Summary（实验之夜）
 
 - 全部 PASS：E0 管线；E4 最坏实例 oracle（19/19 差 ≤1e-10）；E1 feature selection；E2 IM（240 轨迹无降规模）；E3 摘要；E5 主图；E6 汇总。无任务级 FAIL，无人工扰动 oracle。
@@ -28,6 +36,26 @@
 ## 任务日志（倒序追加在此行之下）
 
 ### ——— 第四晚（TASKS4.md）———
+
+### F7 收尾 — PASS
+- REPORT 顶部换为第四晚 summary；RESEARCH_STATE 追加"第四晚 F1-F4"更新块；
+  results.tex 的 F4 占位 remark 已按结果定稿并重编译；文件清单 results/F7_file_inventory.md；
+  全部推送 + experiment 镜像同步。
+
+### F4 submodular f̃ 约束下的最坏值 — PASS（回答了第二晚的建模悬案）
+- **要求 f̃ submodular 会改变最坏值**：η < K−1 区严格变大（K=3,η=1.5: 9/16→19/33；
+  K=4,η=1.5: 1447/2662→23/41；K=4,η=2: 22/49→23/50），η ≥ K−1 区不变。9 主点 + K=5 三点
+  的 LP 最优解全部经独立验证器确认为真实例（f 单调 submodular、f̃ submodular、误差恰达、
+  greedy 轨迹、比值=LP 值）——变大是可达的，不是松弛 [VERIFIED-LP]。
+  主会话在分歧点 (3,1.5) 复跑精确吻合。
+- 新闭式猜想 ρ_K^sub = min_m W_m（W_m=(K−m r^m)/(K(1+(η−1)r^m))，r=1−1/K；与 V_j 同构，
+  衰减率 q→r），76/76 LP 点偏差 ≤4.4e-16 [CONJECTURE]；渐近极限比 1−e^{−1/η} 高 ~10%。
+- U_K 在新模型**失效**为上界 [VERIFIED-LP]（R7 的 f̃ 也不 submodular）；L_K 仍是下界但更松。
+  N2 族 0/72 submodular（违反量 O(1)）。若论文采用 submodular surrogate 模型，
+  R7/U_K 全部陈述需重写——这是最需人类拍板的建模决定，remark 素材已备
+  （results/F4_submodular_ftilde.md，明确禁写 "more robust"）。
+- 诚实边界：闭式无对偶证书无一般 K；K=5 只解不相交 O（上界，但实例可达）；n=2K 充分性
+  K≥4 为 [CONJECTURE]；只测 √η 拆分。复现 results/F4_submodular_ftilde.py（约 12 分钟）。
 
 ### F1 实验修补 — PASS（6/6，主会话核对新列与行数）
 - ROUGE 核对：自实现与 rouge-score 在 90 篇 × 1,624 个候选上**逐项精确 0 差**（原因：这批文本

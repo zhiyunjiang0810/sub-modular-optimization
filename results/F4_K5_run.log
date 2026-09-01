@@ -1,0 +1,19 @@
+  K=5 eta=1.5 base: 0.532194919 O=(5, 6, 7, 8, 9) (75.0s, 38435 rows)
+  K=5 eta=1.5 sub: 0.551592357 O=(5, 6, 7, 8, 9) (433.6s, 61475 rows)
+  K=5 eta=2.0 base: 0.438134431 O=(5, 6, 7, 8, 9) (84.4s, 38435 rows)
+  K=5 eta=2.0 sub: 0.453658537 O=(5, 6, 7, 8, 9) (988.2s, 61475 rows)
+  K=5 eta=3.0 base: 0.318343195 O=(5, 6, 7, 8, 9) (252.6s, 38435 rows)
+  K=5 eta=3.0 sub: 0.323076923 O=(5, 6, 7, 8, 9) (403.8s, 61475 rows)
+
+LP sweep done in 2237.8s
+
+N2 family ftilde-submodularity diagnostics ...
+  0/36 of the N2 instances have submodular ftilde
+
+=== F4 table ===
+ K   eta      LP base    LP sub-ft    min_j V_j    sub-base    sub-minV        U_K
+ 5   1.5  0.532194919  0.551592357  0.532194919    1.94e-02    1.94e-02   0.537336
+ 5   2.0  0.438134431  0.453658537  0.438134431    1.55e-02    1.55e-02   0.445071
+ 5   3.0  0.318343195  0.323076923  0.318343195    4.73e-03    4.73e-03   0.329823
+
+files: results/F4_table_K5.csv, results/F4_details_K5.json

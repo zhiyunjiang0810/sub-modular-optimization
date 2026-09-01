@@ -1,0 +1,161 @@
+# F7 文件清单（第四晚收尾自动生成：ls -l 大小按字节）
+
+## results/
+- E1_baselines.csv (83239 B)
+- E1_diagnostics.csv (12362 B)
+- E1_gbc_seed0.csv (1317 B)
+- E1_notes.md (23575 B)
+- E1_opt_breast_cancer.csv (2648 B)
+- E1_pairs.csv.gz (86540 B)
+- E1_rows.csv (61524 B)
+- E1_run.py (36586 B)
+- E2_baselines.csv (359748 B)
+- E2_notes.md (17614 B)
+- E2_p_eta.csv (1375 B)
+- E2_pairs_sample.csv.gz (2343187 B)
+- E2_rows.csv (606332 B)
+- E2_run.py (30593 B)
+- E2_truncation_check.csv (1148 B)
+- E2_validation.txt (1098 B)
+- E3_notes.md (15309 B)
+- E3_pairs.csv.gz (960757 B)
+- E3_rows.csv (367660 B)
+- E3_run.py (28025 B)
+- E3_summary.json (50764 B)
+- E4_rows.csv (1381 B)
+- E4_worst_case.csv (2043 B)
+- E4_worst_instances.py (4929 B)
+- E5_money_plot.py (7565 B)
+- EXP_SUMMARY.md (5020 B)
+- EXP_table.tex (2368 B)
+- EXP_table_build.py (6571 B)
+- F1_fixes.md (15753 B)
+- F1_rouge_check.json (21271 B)
+- F1_rouge_check.md (5017 B)
+- F1_rouge_check.py (6330 B)
+- F2_54_exact.json (10916 B)
+- F2_54_exact.md (10414 B)
+- F2_54_exact.py (15594 B)
+- F2_R6_validity.tex (15341 B)
+- F2_compile.log (19367 B)
+- F2_etasel_tight.py (7164 B)
+- F2_etasel_tight.txt (4994 B)
+- F3_check.json (107762 B)
+- F3_check.py (33324 B)
+- F3_compile.log (17203 B)
+- F3_delta_table.csv (19244 B)
+- F3_hardness_full.tex (17961 B)
+- F3_summary.md (21879 B)
+- F4_K5_run.log (955 B)
+- F4_details.json (151578 B)
+- F4_details_K5.json (175472 B)
+- F4_eta_sweep.csv (6500 B)
+- F4_eta_sweeprecheck.csv (3440 B)
+- F4_n_sweep.csv (1527 B)
+- F4_n_sweeprecheck.csv (289 B)
+- F4_run.log (3884 B)
+- F4_submodular_ftilde.md (22958 B)
+- F4_submodular_ftilde.py (24170 B)
+- F4_table.csv (2776 B)
+- F4_table_K5.csv (1052 B)
+- F5_paper_compile.log (21812 B)
+- F5_template_compile.log (18936 B)
+- F6_citation_audit.md (27020 B)
+- F7_file_inventory.md (88 B)
+- N1_dual_certificate.json (86687 B)
+- N1_dual_certificate.md (18179 B)
+- N1_dual_certificate.py (33077 B)
+- N2_bounds.json (6416 B)
+- N2_check.json (149675 B)
+- N2_check.py (36747 B)
+- N2_examples.json (11140 B)
+- N2_instances.md (17202 B)
+- N3_K5_lattice.log (3750 B)
+- N3_K5_lattice.py (12621 B)
+- N3_K5_lattice_vs_reduced.csv (1426 B)
+- N4_check.json (16477 B)
+- N4_check.py (13607 B)
+- N4_duals.py (5541 B)
+- N4_figures.py (6193 B)
+- N4_grids.csv (55843 B)
+- N4_hardness_construction.md (23903 B)
+- N4_relaxF_solve.py (5771 B)
+- N4_solutions.json (43094 B)
+- N4_symbolic.py (6780 B)
+- N4_tight.json (65149 B)
+- N5_asymptotics.py (11629 B)
+- N5_asymptotics.txt (4341 B)
+- N5_bounded_query_hardness.tex (43529 B)
+- N5_delta_at_etahat.py (5563 B)
+- N5_delta_at_etahat.txt (5744 B)
+- N6_additive_lp.json (13341 B)
+- N6_additive_lp.py (12118 B)
+- N6_additive_model.md (27679 B)
+- N6_eta_trimmed.csv (579503 B)
+- N6_eta_trimmed.py (23073 B)
+- T1_baseline.py (1959 B)
+- T1_baseline.txt (2727 B)
+- T2_figures.py (4057 B)
+- T2_full_sweep.log (24963 B)
+- T2_grid_fixedF.csv (5341 B)
+- T2_grid_relaxF.csv (10819 B)
+- T2_hardness_grid.py (13071 B)
+- T2_hardness_lp.py (12001 B)
+- T2_relaxF_lattice_check.py (4261 B)
+- T2_relaxF_solution_example.json (7692 B)
+- T2_summary.md (6921 B)
+- T2_table.csv (8010 B)
+- T3_K3_closed_form.json (15773 B)
+- T3_K3_closed_form.md (7115 B)
+- T3_K3_closed_form.py (18137 B)
+- T3_duals.json (25488 B)
+- T3_duals.py (4527 B)
+- T4_full_run.log (813 B)
+- T4_n9_run.log (561 B)
+- T4_pair_greedy_lp.py (12357 B)
+- T4_pair_vs_single.csv (477 B)
+- T4_pair_vs_single.json (9771 B)
+- T4_symmetry_check.py (1631 B)
+- T5_symbolic.json (13591 B)
+- T5_symbolic.py (22424 B)
+- T5_symbolic.txt (8586 B)
+- T6_argmax_diagnostic.json (41766 B)
+- T6_argmax_diagnostic.py (5326 B)
+- T6_eta_path.csv (103012 B)
+- T6_eta_path.py (15155 B)
+- T6_summary.md (6413 B)
+- T7_theorems.tex (8888 B)
+- __pycache__ (4096 B)
+- k2_witness_instances.json (2233 B)
+
+## paper/
+- paper/fancyhdr.sty
+- paper/figures/captions.tex
+- paper/iclr2027_conference.bbl
+- paper/iclr2027_conference.bib
+- paper/iclr2027_conference.bst
+- paper/iclr2027_conference.log
+- paper/iclr2027_conference.pdf
+- paper/iclr2027_conference.sty
+- paper/iclr2027_conference.tex
+- paper/macros.tex
+- paper/main.bbl
+- paper/main.log
+- paper/main.pdf
+- paper/main.tex
+- paper/math_commands.tex
+- paper/natbib.sty
+- paper/raw/iclr-2027-style-files.zip
+- paper/references.bib
+- paper/sections/appendix_proofs.tex
+- paper/sections/notation_table.tex
+- paper/sections/results.tex
+- paper/sections/statements.tex
+- paper/test_F2.bbl
+- paper/test_F2.log
+- paper/test_F2.pdf
+- paper/test_F2.tex
+- paper/test_F3.bbl
+- paper/test_F3.log
+- paper/test_F3.pdf
+- paper/test_F3.tex

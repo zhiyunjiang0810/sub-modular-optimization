@@ -20,9 +20,18 @@ Usage
     python3 results/F4_submodular_ftilde.py --timing    # single-LP timing probe
     python3 results/F4_submodular_ftilde.py --k 2 3     # subset of K
 
-Outputs
-    results/F4_table.csv       one row per (K, eta): both LP values + min_j V_j
-    results/F4_details.json    optima, structure readout, N2 diagnostics
+Outputs (a --tag SUFFIX is inserted before the extension when given)
+    results/F4_table.csv       one row per (K, eta): both LP values,
+                               min_j V_j (R10) and min_m W_m (the F4 conjecture)
+    results/F4_eta_sweep.csv   fine eta grid for K <= 3
+    results/F4_n_sweep.csv     n = 2K, 2K+1, 2K+2 sensitivity for K = 2, 3
+    results/F4_details.json    optima, gain tables, tight rows, verification,
+                               per-O values, N2 instance-family diagnostics
+
+The K = 5 numbers in the write-up came from
+    python3 results/F4_submodular_ftilde.py --k 5 --disjoint-only --tag _K5
+(one LP per variant, disjoint O only; ~30 min).  See F4_submodular_ftilde.md
+section 6 for why that shortcut is used and what it costs.
 """
 import argparse
 import itertools

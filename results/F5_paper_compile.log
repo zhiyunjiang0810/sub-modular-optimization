@@ -64,10 +64,6 @@ For additional information on amsmath, use the `?' option.
 (./sections/results.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/
 usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
-LaTeX Warning: Reference `sec:experiments' on page 2 undefined on input line 11
-2.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 117.
 
@@ -77,21 +73,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 206.
+(hyperref)                removing `\eta' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 [2]) (./sections/notation_table.tex
 Overfull \hbox (93.26038pt too wide) in paragraph at lines 8--43
  [][] 
-) (./sections/statements.tex [3]) (./figures/captions.tex)
-(./sections/appendix_proofs.tex [4]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/statements.tex) (./figures/captions.tex [3])
+(./sections/appendix_proofs.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 46.
@@ -110,23 +110,10 @@ T1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^U \OML/cmm/m/it/10 j\OT1/c
 mr/m/n/10 )\OML/cmm/m/it/10 ;  y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m
 /n/10 ) = \OMS/cmsy/m/n/10 ^^@[] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OMS/cmsy/
 m/n/10 ^^U \OML/cmm/m/it/10 j\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
-[5]
-
-LaTeX Warning: Reference `sec:experiments' on page 6 undefined on input line 17
-9.
-
-) (./main.bbl (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd))
+[5]) (./main.bbl (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd))
 [6] (./main.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
 
  )
 (see the transcript file for additional information)</usr/share/texlive/texmf-d
@@ -144,7 +131,7 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (6 pages, 216097 bytes).
+Output written on main.pdf (6 pages, 217611 bytes).
 Transcript written on main.log.
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 The top-level auxiliary file: main.aux
@@ -225,21 +212,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 206.
+(hyperref)                removing `\eta' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 [2]) (./sections/notation_table.tex
 Overfull \hbox (93.26038pt too wide) in paragraph at lines 8--43
  [][] 
-) (./sections/statements.tex [3]) (./figures/captions.tex)
-(./sections/appendix_proofs.tex [4]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/statements.tex) (./figures/captions.tex [3])
+(./sections/appendix_proofs.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 46.
@@ -275,7 +266,7 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (6 pages, 215875 bytes).
+Output written on main.pdf (6 pages, 217611 bytes).
 Transcript written on main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -352,21 +343,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 206.
+(hyperref)                removing `\eta' on input line 216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 206.
+(hyperref)                removing `math shift' on input line 216.
 
 [2]) (./sections/notation_table.tex
 Overfull \hbox (93.26038pt too wide) in paragraph at lines 8--43
  [][] 
-) (./sections/statements.tex [3]) (./figures/captions.tex)
-(./sections/appendix_proofs.tex [4]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/statements.tex) (./figures/captions.tex [3])
+(./sections/appendix_proofs.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 46.
@@ -402,5 +397,5 @@ e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (6 pages, 215875 bytes).
+Output written on main.pdf (6 pages, 217611 bytes).
 Transcript written on main.log.
