@@ -1,0 +1,36 @@
+% Compile test wrapper for the F2 fragment (task F2 of TASKS4.md).
+% KEEP: it is the only thing that certifies that results/F2_R6_validity.tex
+% compiles under the ICLR 2027 template.  It is a test harness, not a paper:
+% the preamble is copied from iclr2027_conference.tex, the body is nothing but
+% \input of the fragment, and the single citation exists only so that bibtex
+% has something to do.
+% Build (from paper/):
+%   pdflatex test_F2 && bibtex test_F2 && pdflatex test_F2 && pdflatex test_F2
+% Log: results/F2_compile.log
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+\input{math_commands.tex}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{url}
+\input{macros.tex}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{remark}[lemma]{Remark}
+
+\title{Compile test for the F2 fragment}
+\author{compile test}
+
+\begin{document}
+\maketitle
+
+This wrapper exists only to compile \texttt{results/F2\_R6\_validity.tex} under
+the conference template. The citation \citep{Hinton06} exercises bibtex.
+
+\input{../results/F2_R6_validity.tex}
+
+\bibliography{iclr2027_conference}
+\bibliographystyle{iclr2027_conference}
+
+\end{document}

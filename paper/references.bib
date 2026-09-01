@@ -1,1 +1,277 @@
-% Populated by the F6 citation audit; entries only after four-step verification.
+% references.bib -- submodular maximization with predictions (ICLR 2027 submission)
+%
+% Every entry below passed the four-step check of TASKS4.md F6:
+%   (1) existence on an official page (DBLP / publisher / arXiv / SNAP),
+%   (2) localisation of the statement it is cited for,
+%   (3) field-by-field check of author / venue / year / volume / pages,
+%   (4) an explicit reason for the chosen version.
+% The audit trail is results/F6_citation_audit.md. Entries that failed any
+% step are NOT in this file; they appear only as [CITATION-NEEDS-VERIFICATION]
+% in that audit.
+%
+% Style: natbib + iclr2027_conference.bst. The template does not load inputenc,
+% so all accents use 7-bit LaTeX commands. Braces protect capitalisation.
+
+
+% ---------------------------------------------------------------------------
+% 1. Classical greedy analysis and oracle lower bounds
+% ---------------------------------------------------------------------------
+
+@article{nemhauser1978analysis,
+  author  = {Nemhauser, George L. and Wolsey, Laurence A. and Fisher, Marshall L.},
+  title   = {An analysis of approximations for maximizing submodular set functions---{I}},
+  journal = {Mathematical Programming},
+  volume  = {14},
+  number  = {1},
+  pages   = {265--294},
+  year    = {1978},
+  doi     = {10.1007/BF01588971}
+}
+
+@article{nemhauser1978best,
+  author  = {Nemhauser, George L. and Wolsey, Laurence A.},
+  title   = {Best algorithms for approximating the maximum of a submodular set function},
+  journal = {Mathematics of Operations Research},
+  volume  = {3},
+  number  = {3},
+  pages   = {177--188},
+  year    = {1978},
+  doi     = {10.1287/moor.3.3.177}
+}
+
+@article{feige1998threshold,
+  author  = {Feige, Uriel},
+  title   = {A threshold of $\ln n$ for approximating set cover},
+  journal = {Journal of the {ACM}},
+  volume  = {45},
+  number  = {4},
+  pages   = {634--652},
+  year    = {1998},
+  doi     = {10.1145/285055.285059}
+}
+
+@techreport{goundan2007revisiting,
+  author      = {Goundan, Pranava R. and Schulz, Andreas S.},
+  title       = {Revisiting the greedy approach to submodular set function maximization},
+  institution = {Massachusetts Institute of Technology},
+  year        = {2007},
+  type        = {Working paper},
+  note        = {Optimization Online preprint 1740},
+  url         = {https://optimization-online.org/2007/08/1740/}
+}
+
+
+% ---------------------------------------------------------------------------
+% 2. Approximate / noisy submodularity
+% ---------------------------------------------------------------------------
+
+@inproceedings{horel2016maximization,
+  author    = {Horel, Thibaut and Singer, Yaron},
+  title     = {Maximization of approximately submodular functions},
+  booktitle = {Advances in Neural Information Processing Systems 29 ({NIPS} 2016)},
+  pages     = {3045--3053},
+  year      = {2016},
+  url       = {https://proceedings.neurips.cc/paper/2016/hash/81c8727c62e800be708dbf37c4695dff-Abstract.html}
+}
+
+@inproceedings{hassidim2017submodular,
+  author    = {Hassidim, Avinatan and Singer, Yaron},
+  title     = {Submodular optimization under noise},
+  booktitle = {Proceedings of the 2017 Conference on Learning Theory ({COLT})},
+  editor    = {Kale, Satyen and Shamir, Ohad},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {65},
+  pages     = {1069--1122},
+  publisher = {{PMLR}},
+  year      = {2017},
+  url       = {https://proceedings.mlr.press/v65/hassidim17a.html}
+}
+
+@inproceedings{bhawalkar2025unified,
+  author    = {Bhawalkar, Kshipra and Cai, Yang and Feng, Zhe and Liaw, Christopher and Lin, Tao},
+  title     = {A unified approach to submodular maximization under noise},
+  booktitle = {Advances in Neural Information Processing Systems 38 ({NeurIPS} 2025)},
+  year      = {2025},
+  url       = {http://papers.nips.cc/paper_files/paper/2025/hash/f3064f7a0ca2328ecb41a3aef6177d68-Abstract-Conference.html}
+}
+
+
+% ---------------------------------------------------------------------------
+% 3. Weak submodularity and the submodularity ratio
+% ---------------------------------------------------------------------------
+
+@inproceedings{das2011submodular,
+  author    = {Das, Abhimanyu and Kempe, David},
+  title     = {Submodular meets spectral: greedy algorithms for subset selection, sparse approximation and dictionary selection},
+  booktitle = {Proceedings of the 28th International Conference on Machine Learning ({ICML} 2011)},
+  pages     = {1057--1064},
+  year      = {2011},
+  url       = {https://icml.cc/2011/papers/542_icmlpaper.pdf}
+}
+
+@article{elenberg2018restricted,
+  author  = {Elenberg, Ethan R. and Khanna, Rajiv and Dimakis, Alexandros G. and Negahban, Sahand},
+  title   = {Restricted strong convexity implies weak submodularity},
+  journal = {The Annals of Statistics},
+  volume  = {46},
+  number  = {6B},
+  pages   = {3539--3568},
+  year    = {2018},
+  doi     = {10.1214/17-AOS1679}
+}
+
+
+% ---------------------------------------------------------------------------
+% 4. Learning surrogates and optimizing them
+% ---------------------------------------------------------------------------
+
+@article{balcan2018submodular,
+  author  = {Balcan, Maria-Florina and Harvey, Nicholas J. A.},
+  title   = {Submodular functions: learnability, structure, and optimization},
+  journal = {{SIAM} Journal on Computing},
+  volume  = {47},
+  number  = {3},
+  pages   = {703--754},
+  year    = {2018},
+  doi     = {10.1137/120888909}
+}
+
+@inproceedings{balkanski2016power,
+  author    = {Balkanski, Eric and Rubinstein, Aviad and Singer, Yaron},
+  title     = {The power of optimization from samples},
+  booktitle = {Advances in Neural Information Processing Systems 29 ({NIPS} 2016)},
+  pages     = {4017--4025},
+  year      = {2016},
+  url       = {https://proceedings.neurips.cc/paper/2016/hash/c8758b517083196f05ac29810b924aca-Abstract.html}
+}
+
+@inproceedings{balkanski2017limitations,
+  author    = {Balkanski, Eric and Rubinstein, Aviad and Singer, Yaron},
+  title     = {The limitations of optimization from samples},
+  booktitle = {Proceedings of the 49th Annual {ACM} {SIGACT} Symposium on Theory of Computing ({STOC} 2017)},
+  pages     = {1016--1027},
+  year      = {2017},
+  doi       = {10.1145/3055399.3055406}
+}
+
+@inproceedings{rosenfeld2018learning,
+  author    = {Rosenfeld, Nir and Balkanski, Eric and Globerson, Amir and Singer, Yaron},
+  title     = {Learning to optimize combinatorial functions},
+  booktitle = {Proceedings of the 35th International Conference on Machine Learning ({ICML} 2018)},
+  editor    = {Dy, Jennifer and Krause, Andreas},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {80},
+  pages     = {4374--4383},
+  publisher = {{PMLR}},
+  year      = {2018},
+  url       = {https://proceedings.mlr.press/v80/rosenfeld18a.html}
+}
+
+
+% ---------------------------------------------------------------------------
+% 5. Learning-augmented algorithms (algorithms with predictions)
+% ---------------------------------------------------------------------------
+
+@inproceedings{purohit2018improving,
+  author    = {Purohit, Manish and Svitkina, Zoya and Kumar, Ravi},
+  title     = {Improving online algorithms via {ML} predictions},
+  booktitle = {Advances in Neural Information Processing Systems 31 ({NeurIPS} 2018)},
+  pages     = {9684--9693},
+  year      = {2018},
+  url       = {https://proceedings.neurips.cc/paper/2018/hash/73a427badebe0e32caa2e1fc7530b7f3-Abstract.html}
+}
+
+@article{lykouris2021competitive,
+  author  = {Lykouris, Thodoris and Vassilvitskii, Sergei},
+  title   = {Competitive caching with machine learned advice},
+  journal = {Journal of the {ACM}},
+  volume  = {68},
+  number  = {4},
+  pages   = {24:1--24:25},
+  year    = {2021},
+  doi     = {10.1145/3447579}
+}
+
+@inproceedings{agarwal2024learning,
+  author    = {Agarwal, Arpit and Balkanski, Eric},
+  title     = {Learning-augmented dynamic submodular maximization},
+  booktitle = {Advances in Neural Information Processing Systems 37 ({NeurIPS} 2024)},
+  year      = {2024},
+  url       = {http://papers.nips.cc/paper_files/paper/2024/hash/19cdab1dee61d55158cf106244ceab08-Abstract-Conference.html}
+}
+
+@inproceedings{cohenaddad2024learning,
+  author    = {Cohen-Addad, Vincent and d'Orsi, Tommaso and Gupta, Anupam and Lee, Euiwoong and Panigrahi, Debmalya},
+  title     = {Learning-augmented approximation algorithms for maximum cut and related problems},
+  booktitle = {Advances in Neural Information Processing Systems 37 ({NeurIPS} 2024)},
+  year      = {2024},
+  url       = {http://papers.nips.cc/paper_files/paper/2024/hash/2db08b94565c0d582cc53de6cee5fd47-Abstract-Conference.html}
+}
+
+
+% ---------------------------------------------------------------------------
+% 6. Applications used in the experiments
+% ---------------------------------------------------------------------------
+
+@inproceedings{kempe2003maximizing,
+  author    = {Kempe, David and Kleinberg, Jon and Tardos, {\'E}va},
+  title     = {Maximizing the spread of influence through a social network},
+  booktitle = {Proceedings of the 9th {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data Mining ({KDD} 2003)},
+  pages     = {137--146},
+  year      = {2003},
+  doi       = {10.1145/956750.956769}
+}
+
+@inproceedings{lin2011class,
+  author    = {Lin, Hui and Bilmes, Jeff},
+  title     = {A class of submodular functions for document summarization},
+  booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies},
+  pages     = {510--520},
+  publisher = {Association for Computational Linguistics},
+  address   = {Portland, Oregon, USA},
+  year      = {2011},
+  url       = {https://aclanthology.org/P11-1052/}
+}
+
+@inproceedings{mirzasoleiman2015lazier,
+  author    = {Mirzasoleiman, Baharan and Badanidiyuru, Ashwinkumar and Karbasi, Amin and Vondr{\'a}k, Jan and Krause, Andreas},
+  title     = {Lazier than lazy greedy},
+  booktitle = {Proceedings of the 29th {AAAI} Conference on Artificial Intelligence ({AAAI} 2015)},
+  pages     = {1812--1818},
+  year      = {2015},
+  doi       = {10.1609/aaai.v29i1.9486}
+}
+
+
+% ---------------------------------------------------------------------------
+% 7. Data sources
+% ---------------------------------------------------------------------------
+
+@inproceedings{rozemberczki2019gemsec,
+  author    = {Rozemberczki, Benedek and Davies, Ryan and Sarkar, Rik and Sutton, Charles},
+  title     = {{GEMSEC}: graph embedding with self clustering},
+  booktitle = {Proceedings of the 2019 {IEEE}/{ACM} International Conference on Advances in Social Networks Analysis and Mining ({ASONAM} 2019)},
+  pages     = {65--72},
+  year      = {2019},
+  doi       = {10.1145/3341161.3342890}
+}
+
+@article{leskovec2007graph,
+  author  = {Leskovec, Jure and Kleinberg, Jon and Faloutsos, Christos},
+  title   = {Graph evolution: densification and shrinking diameters},
+  journal = {{ACM} Transactions on Knowledge Discovery from Data},
+  volume  = {1},
+  number  = {1},
+  pages   = {2},
+  year    = {2007},
+  doi     = {10.1145/1217299.1217301}
+}
+
+@inproceedings{yin2017local,
+  author    = {Yin, Hao and Benson, Austin R. and Leskovec, Jure and Gleich, David F.},
+  title     = {Local higher-order graph clustering},
+  booktitle = {Proceedings of the 23rd {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data Mining ({KDD} 2017)},
+  pages     = {555--564},
+  year      = {2017},
+  doi       = {10.1145/3097983.3098069}
+}

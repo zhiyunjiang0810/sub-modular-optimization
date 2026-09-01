@@ -17,5 +17,5 @@
 | ρ_K(η) | single-step predictive greedy 在 tie 对抗打破下的精确最坏比 | 与 R10 的 ρ_K^LP（reduced LP 值）区分：两者相等目前只在 K ≤ 4 的有限点 [VERIFIED-LP] |
 | balanced（查询/集合） | 隐藏 O 的 hardness 论证里 y = \|S∩O\| 落在 hypergeometric 集中带内的集合；两种形式化：y ≤ τ 与 \|y − K\|S\|/n\| ≤ τ（R11 表明两者结论截然不同） | 使用时必须写明取哪种定义 |
 | 记号定稿（第四晚） | 全局误差 $\eta$；选择误差 $\eta^{\mathrm{sel}}$（正文使用）；轨迹误差只在一处 remark 以文字出现，需记号时用 $\eta^{\mathrm{tr}}$；η_u、η_o 仍为下标分量 | LaTeX 宏 \etasel、\etatr 定义在 paper/macros.tex，全文统一使用 |
-| η^sel 的出处 | Goundan & Schulz 2007 的 α-approximate incremental oracle 的参数 α = 1/η^sel；记号是我们的 | 论文措辞 "in the terminology of Goundan and Schulz, ..."；引用经 F6 核验后方可入 .bib |
+| η^sel 的出处 | Goundan & Schulz 2007（MIT working paper，无会议/期刊版）Theorem 1 的 α-approximate incremental oracle，其约定 α ≥ 1 且 α·ρ_{e_i} ≥ max_e ρ_e，故 **α = η^sel**（F6 修正：此前误写 α = 1/η^sel，方向反了）；记号 η^sel 是我们的 | 本文 Theorem 6 是 GS Theorem 1 的实例化，措辞必须用 "in the terminology of Goundan and Schulz"，不得写 "we prove"；bib key goundan2007revisiting |
 | 引用四步核验（F6） | 每条引用：(1) 存在性（DBLP/出版方/arXiv 官方页）；(2) 支持陈述定位（页码/定理号）；(3) bib 字段逐项核对；(4) 版本选择理由 | 未过四步的只能以 [CITATION-NEEDS-VERIFICATION] 出现在注释，不得进 .bib |

@@ -52,6 +52,7 @@ greedy（tie 向 B）选满 B，比值 1 − a^K；**path error = â**。
 - L_K ≤ ρ_K ≤ U_K，两侧 → 1 − e^{−1/η}。数值：U_K − ρ_K ≈ O(1/K²)。
 代码：`code/check_explicit_instance.py`。
 已知缺陷：这个实例对 pair 查询泄露 O（G(0,2) ≠ G(2,0)），所以它**不是** poly-query hardness 的实例。
+η^sel 度量下 L_K 同样逐 K 紧：U_K 实例上 η^sel = η^path = â，realized ratio = L_K(â)（差 ≤ 1e−12）[VERIFIED-LP K=2..8×â∈{1.5,2}，results/F2_etasel_tight.py]
 
 ## R8 [VERIFIED-LP，Richardson 外推 5 位小数] lim_{K→∞} ρ_K(η) = 1 − e^{−1/η}
 η=1.5,2,3 均吻合。也可由 R1 + R7 解析推出。

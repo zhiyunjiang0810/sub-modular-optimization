@@ -54,9 +54,14 @@ $S^{0},\dots,S^{K-1}$ and picks $e_{0},\dots,e_{K-1}$, the selection error is
 the largest factor by which a step of the run fell short of the best true
 gain, over the steps with positive chosen gain.  In the terminology of
 Goundan and Schulz, a run with selection error $\etasel$ is an execution of
-greedy with a $(1/\etasel)$-approximate incremental oracle
-\citep{goundan2007}.
-% Status of the attribution: F6 audit item 4.  The notation \etasel is ours.
+greedy with an $\alpha$-approximate incremental oracle with
+$\alpha=\etasel$ \citep{goundan2007revisiting}.
+% Status of the attribution: F6 audit item 4 (their alpha >= 1 satisfies
+% alpha rho_{e_t} >= max_e rho_e, so alpha = etasel; the earlier 1/etasel
+% reading was reversed and is corrected here).  The notation \etasel is ours.
+% Their Theorem 1 (p. 7) is verbatim the L_K bound; Theorem
+% \ref{thm:guarantee} below is that theorem instantiated and is attributed
+% accordingly, not claimed as new.
 \end{definition}
 The trajectory error restricts Definition~\ref{def:eta} to the states of the
 run; it is used in a single remark below and written $\etatr$ when a symbol is
