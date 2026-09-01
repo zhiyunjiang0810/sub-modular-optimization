@@ -29,6 +29,22 @@
 
 ### ——— 第四晚（TASKS4.md）———
 
+### F1 实验修补 — PASS（6/6，主会话核对新列与行数）
+- ROUGE 核对：自实现与 rouge-score 在 90 篇 × 1,624 个候选上**逐项精确 0 差**（原因：这批文本
+  无下划线/重音字符，两个 tokenizer 逐 token 相同；café/Zürich 负控制证明装置灵敏 0.05-0.13）。
+  未改 f、未因 ROUGE 重跑 E3。venv 安装（系统 pip 因 Debian setuptools 补丁失败，非网络）。
+- E2 η^path 去截断：4 图 240 轨迹全量重算（artist 31.5 分钟 < 40 上限，无图 n/a）。
+  K=30 合并中位数 71.7→284（artist 200→1407）；断言 ratio/η^sel/viol 7,200 行逐行不变、
+  pairs 文件逐字节相同。顺带更正 E2_notes 旧错："d≤0 出现 0 次"实为 16/240 条 run 各 1 步
+  （用旧文件复核确认非本次改动引入）。
+- statistics.py 写死非正步策略 + 新列 n_steps_nonpos/frac_steps_nonpos；E1-E4 全部重生成，
+  旧列 0 处不同（E1 完整重跑 905 秒；rebuild-from-pairs 因 10 位舍入无法逐位重建，脚本改为
+  拒绝写盘并如实记录）。
+- OPT 代理：breast_cancer 暴力枚举到 K=4（K=5 估 74 分钟超预算，诚实降级）：
+  f(greedy^f)/OPT 中位 0.9823（min 0.9554），greedy^f̃/OPT 0.9464。airline K=7 仍未测。
+- EXP_table.tex 重生成（含新列与固定两句表注；旧表本超宽 465pt，新表 393.7pt 无 Overfull）；
+  E5 全部图重出。详见 results/F1_fixes.md。
+
 ### F3 Hardness 全版本再攻 — PASS（交付齐全；原目标"任意多项式次查询"如实 FAILED）
 - flatness 判定：N4 的 F(x,K)≡1 确实平坦且 x>T 整片饱和，但 R11(b) 证书不适用（Ĝ 同时饱和）。
   τ=1 真带下 **δ 恰为 0 iff n > K(T+1)**（门槛闭式 12/12 命中 [CONJECTURE]；任务指定的 n=8K

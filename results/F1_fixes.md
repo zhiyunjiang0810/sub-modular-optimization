@@ -225,6 +225,7 @@ K=1..4 是 31,930 次/seed，实测每 seed 75–109 s，10 个 seed 共 **13.6 
 - `results/E3_rows.csv`、`E3_pairs.csv.gz`、`E3_summary.json`
 - `results/E4_rows.csv`、`E4_worst_case.csv`
 - `results/E1_opt_breast_cancer.csv`（新）、`results/F1_rouge_check.json`（新）
+- `results/E2_validation.txt`（改完后又跑了一遍 `--mode validate` 冒烟，读数仍全为 0）
 - `results/EXP_table.tex`
 - `figures/money_plot.*`、`aux_eta_sel_by_K.*`、`aux_p_vs_eta.*`、`aux_d_dtilde_scatter.*`、
   `E2_p_eta.*`、`E3_overview.*`
