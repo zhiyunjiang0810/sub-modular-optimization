@@ -7,8 +7,12 @@ Principles (TASKS_EXP.md, header-mandated):
 2. Every f evaluation is cached (src.im_graph.CachedSetFunction, key=frozenset);
    greedy is lazy/CELF (src.im_graph.lazy_greedy, quantize=None on real data).
 3. Reproducible: observed-graph seeds 0..19 fixed, results to CSV, figures PNG+PDF.
-4. Honest reporting: sign-violation %, zero-gain steps, trimming eps, the top-50
-   candidate truncation and any node truncation are all written to E2_notes.md.
+4. Honest reporting: sign-violation %, zero-gain steps, trimming eps and any
+   node truncation are all written to E2_notes.md.  Since TASKS4 F1.2 there is
+   NO candidate truncation in any statistic: eta^path and the sign-violation %
+   are computed over every remaining candidate at every trajectory state.  The
+   top-50 restriction that produced the earlier (underestimated) eta^path
+   numbers survives only as the sampling rule of E2_pairs_sample.csv.gz.
 5. CPU only, single process; long runs are chunked by (dataset, p) and appended
    incrementally so a timeout never loses finished work.
 
@@ -58,7 +62,8 @@ from statistics import TrajectoryStats, unified_row, ROW_FIELDS, L_K  # noqa: E4
 EPS = 1.0                 # eta^path trimming: 1 coverage count
 K_MAX = 30
 P_LIST = [0.3, 0.5, 0.8]
-TOP_M = 50                # (d, d~) pairs kept per step on the large graphs
+TOP_M = 50                # (d, d~) pairs SAMPLED to the pairs file per step
+                          # (statistics always use every candidate: TASKS4 F1.2)
 N_RANDOM = 10             # random-baseline repetitions
 PAIRS_FULL_SEEDS = 3      # email: dump ALL candidate pairs only for seeds < 3
 
@@ -74,16 +79,16 @@ BASE_FIELDS = ['dataset', 'method', 'p', 'seed', 'K', 'f_value']
 DATASETS = {
     'email_eu_core': dict(
         path='data/graphs/email_eu_core/email-Eu-core.txt',
-        directed=True, sep=None, skip_header=False, full_pairs=True),
+        directed=True, sep=None, skip_header=False, dump_all_pairs=True),
     'facebook_politician': dict(
         path='data/graphs/facebook_gemsec/politician_edges.csv',
-        directed=False, sep=',', skip_header=True, full_pairs=False),
+        directed=False, sep=',', skip_header=True, dump_all_pairs=False),
     'facebook_government': dict(
         path='data/graphs/facebook_gemsec/government_edges.csv',
-        directed=False, sep=',', skip_header=True, full_pairs=False),
+        directed=False, sep=',', skip_header=True, dump_all_pairs=False),
     'facebook_artist': dict(
         path='data/graphs/facebook_gemsec/artist_edges.csv',
-        directed=False, sep=',', skip_header=True, full_pairs=False),
+        directed=False, sep=',', skip_header=True, dump_all_pairs=False),
 }
 
 
@@ -232,15 +237,21 @@ def greedy_prefix_values(graph, K):
     return picks, vals
 
 
-def run_one(dataset_label, gtrue, gobs, p, seed, K, full_pairs, den_vals,
-            dump_full_pairs):
-    """One greedy-on-f~ trajectory; returns (rows, pair_rows, diag)."""
+def run_one(dataset_label, gtrue, gobs, p, seed, K, den_vals, dump_all_pairs):
+    """One greedy-on-f~ trajectory; returns (rows, pair_rows, diag).
+
+    TASKS4 F1.2: the (d, d~) statistics (eta^path, sign-violation %) are ALWAYS
+    computed over EVERY remaining candidate at every trajectory state.  The
+    former top-50-by-d~ restriction on the three facebook graphs made eta^path
+    a systematic underestimate (E2_notes.md section 4) and has been removed.
+    `dump_all_pairs` now only controls how much of the candidate list is written
+    to E2_pairs_sample.csv.gz (a sample file: all candidates for email seeds
+    0..2, top-50 by d~ otherwise); it does not affect any statistic."""
     n = gtrue.n
     ground = list(range(n))
     true_state = CoverageState(gtrue.out, n)
     obs_state = CoverageState(gobs.out, n)
     true_top = LazyTop(true_state, ground)
-    obs_top = None if full_pairs else LazyTop(obs_state, ground)
     F_obs = CachedSetFunction(fast_value_fn(gobs, obs_state))
     stats = TrajectoryStats(EPS)
     num_vals = []
@@ -257,10 +268,7 @@ def run_one(dataset_label, gtrue, gobs, p, seed, K, full_pairs, den_vals,
         dmax = top1[0][1] if top1 else None
         if abs(obs_state.gain(chosen) - gain_tilde) > 1e-9:
             diag['gain_mismatch'] += 1
-        if full_pairs:
-            cands = [(e, obs_state.gain(e)) for e in ground if e not in Sbefore]
-        else:
-            cands = obs_top.top(TOP_M)
+        cands = [(e, obs_state.gain(e)) for e in ground if e not in Sbefore]
         pairs = []
         has_chosen = False
         for e, dt in cands:
@@ -271,9 +279,9 @@ def run_one(dataset_label, gtrue, gobs, p, seed, K, full_pairs, den_vals,
         if not has_chosen:                       # always keep the chosen pair
             pairs.append((float(d_chosen), float(gain_tilde)))
             cands = list(cands) + [(chosen, gain_tilde)]
-        if dump_full_pairs or not full_pairs:
+        if dump_all_pairs:                       # email seeds < 3: every pair
             dumped = list(zip(cands, pairs))
-        else:                                    # email seeds >= 3: top-50 only
+        else:                    # sample file only: top-50 by d~ (stats unaffected)
             dumped = sorted(zip(cands, pairs), key=lambda z: -z[0][1])[:TOP_M]
         for (e, dt), (d, dt2) in dumped:
             pair_rows.append((dataset_label, p, seed, t + 1, e, int(d), int(dt)))
@@ -282,7 +290,6 @@ def run_one(dataset_label, gtrue, gobs, p, seed, K, full_pairs, den_vals,
         true_state.add(chosen)
         true_top.advance()
         obs_state.add(chosen)
-        obs_top and obs_top.advance()
         num_vals.append(true_state.n_covered)
 
     picks = lazy_greedy(F_obs, ground, K, record=record, quantize=None)
@@ -386,10 +393,9 @@ def cmd_run(args):
                 ts = time.time()
                 gobs = gtrue.edge_subsample(p, seed)
                 rows, pair_rows, diag = run_one(
-                    label, gtrue, gobs, p, seed, K_MAX,
-                    DATASETS[name]['full_pairs'], den_vals,
-                    dump_full_pairs=(DATASETS[name]['full_pairs']
-                                     and seed < PAIRS_FULL_SEEDS))
+                    label, gtrue, gobs, p, seed, K_MAX, den_vals,
+                    dump_all_pairs=(DATASETS[name]['dump_all_pairs']
+                                    and seed < PAIRS_FULL_SEEDS))
                 append_csv(ROWS_CSV, ROW_FIELDS_E2, rows)
                 append_pairs(pair_rows)
                 # degree baseline on the OBSERVED graph (fair no-prediction
@@ -426,7 +432,7 @@ def cmd_probe(args):
     t_sub = time.time() - t0
     t0 = time.time()
     rows, pair_rows, diag = run_one(name, gtrue, gobs, p, seeds[0], K_MAX,
-                                    DATASETS[name]['full_pairs'], den_vals, False)
+                                    den_vals, dump_all_pairs=False)
     t_run = time.time() - t0
     print(f'PROBE {name} n={gtrue.n} m={gtrue.m_input} p={p} seed={seeds[0]}')
     print(f'  load={t_load:.1f}s greedy_true={t_gt:.1f}s subsample={t_sub:.1f}s '
@@ -529,7 +535,7 @@ def cmd_trunccheck(args):
                 t0 = time.time()
                 gobs = gtrue.edge_subsample(p, seed)
                 rows, pair_rows, _ = run_one(name, gtrue, gobs, p, seed, K_MAX,
-                                             True, den_vals, dump_full_pairs=False)
+                                             den_vals, dump_all_pairs=False)
                 full = float(rows[-1]['eta_path_trimmed'])
                 mu = mo = None
                 for _, _, _, _, _, d, dt in pair_rows:   # the top-50 subset

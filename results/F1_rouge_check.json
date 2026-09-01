@@ -1,0 +1,1163 @@
+{
+ "n_articles": 90,
+ "n_comparisons": 1624,
+ "max_absdiff": 0.0,
+ "mean_absdiff": 0.0,
+ "median_absdiff": 0.0,
+ "n_comparisons_gt_1e_6": 0,
+ "frac_comparisons_gt_1e_6": 0.0,
+ "n_articles_with_any_gt_1e_6": 0,
+ "ref_token_mismatch_articles": 0,
+ "ref_tokens_ours_total": 14029,
+ "ref_tokens_theirs_total": 14029,
+ "worst": [
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    0
+   ],
+   "ours": 0.05031446540880503,
+   "theirs": 0.05031446540880503,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    1
+   ],
+   "ours": 0.26136363636363635,
+   "theirs": 0.26136363636363635,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    2
+   ],
+   "ours": 0.14689265536723164,
+   "theirs": 0.14689265536723164,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    3
+   ],
+   "ours": 0.1566265060240964,
+   "theirs": 0.1566265060240964,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    4
+   ],
+   "ours": 0.24137931034482762,
+   "theirs": 0.24137931034482762,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    5
+   ],
+   "ours": 0.08383233532934133,
+   "theirs": 0.08383233532934133,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    6
+   ],
+   "ours": 0.03680981595092025,
+   "theirs": 0.03680981595092025,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    7
+   ],
+   "ours": 0.21052631578947367,
+   "theirs": 0.21052631578947367,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    8
+   ],
+   "ours": 0.24137931034482762,
+   "theirs": 0.24137931034482762,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    9
+   ],
+   "ours": 0.15384615384615385,
+   "theirs": 0.15384615384615385,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    13
+   ],
+   "ours": 0.28089887640449435,
+   "theirs": 0.28089887640449435,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    0,
+    1
+   ],
+   "ours": 0.29670329670329676,
+   "theirs": 0.29670329670329676,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    1,
+    13
+   ],
+   "ours": 0.47761194029850745,
+   "theirs": 0.47761194029850745,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    0,
+    1,
+    2
+   ],
+   "ours": 0.3786407766990291,
+   "theirs": 0.3786407766990291,
+   "absdiff": 0.0
+  },
+  {
+   "cat": "business",
+   "article": 1,
+   "S": [
+    1,
+    4,
+    13
+   ],
+   "ours": 0.6216216216216216,
+   "theirs": 0.6216216216216216,
+   "absdiff": 0.0
+  }
+ ],
+ "per_article": [
+  {
+   "cat": "business",
+   "article": 1,
+   "n_sent": 21,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 153,
+   "ref_tokens_theirs": 153
+  },
+  {
+   "cat": "business",
+   "article": 2,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 170,
+   "ref_tokens_theirs": 170
+  },
+  {
+   "cat": "business",
+   "article": 3,
+   "n_sent": 12,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 130,
+   "ref_tokens_theirs": 130
+  },
+  {
+   "cat": "business",
+   "article": 4,
+   "n_sent": 19,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 207,
+   "ref_tokens_theirs": 207
+  },
+  {
+   "cat": "business",
+   "article": 5,
+   "n_sent": 13,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 117,
+   "ref_tokens_theirs": 117
+  },
+  {
+   "cat": "business",
+   "article": 6,
+   "n_sent": 11,
+   "ref_src": "local",
+   "n_subsets": 17,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 74,
+   "ref_tokens_theirs": 74
+  },
+  {
+   "cat": "business",
+   "article": 7,
+   "n_sent": 14,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 141,
+   "ref_tokens_theirs": 141
+  },
+  {
+   "cat": "business",
+   "article": 8,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 167,
+   "ref_tokens_theirs": 167
+  },
+  {
+   "cat": "business",
+   "article": 9,
+   "n_sent": 13,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 104,
+   "ref_tokens_theirs": 104
+  },
+  {
+   "cat": "business",
+   "article": 10,
+   "n_sent": 11,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 95,
+   "ref_tokens_theirs": 95
+  },
+  {
+   "cat": "business",
+   "article": 11,
+   "n_sent": 12,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 84,
+   "ref_tokens_theirs": 84
+  },
+  {
+   "cat": "business",
+   "article": 12,
+   "n_sent": 14,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 136,
+   "ref_tokens_theirs": 136
+  },
+  {
+   "cat": "business",
+   "article": 13,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 126,
+   "ref_tokens_theirs": 126
+  },
+  {
+   "cat": "business",
+   "article": 14,
+   "n_sent": 22,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 174,
+   "ref_tokens_theirs": 174
+  },
+  {
+   "cat": "business",
+   "article": 15,
+   "n_sent": 27,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 286,
+   "ref_tokens_theirs": 286
+  },
+  {
+   "cat": "business",
+   "article": 16,
+   "n_sent": 12,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 116,
+   "ref_tokens_theirs": 116
+  },
+  {
+   "cat": "business",
+   "article": 17,
+   "n_sent": 12,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 92,
+   "ref_tokens_theirs": 92
+  },
+  {
+   "cat": "business",
+   "article": 18,
+   "n_sent": 9,
+   "ref_src": "local",
+   "n_subsets": 17,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 64,
+   "ref_tokens_theirs": 64
+  },
+  {
+   "cat": "business",
+   "article": 19,
+   "n_sent": 13,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 96,
+   "ref_tokens_theirs": 96
+  },
+  {
+   "cat": "business",
+   "article": 20,
+   "n_sent": 30,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 270,
+   "ref_tokens_theirs": 270
+  },
+  {
+   "cat": "business",
+   "article": 21,
+   "n_sent": 16,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 154,
+   "ref_tokens_theirs": 154
+  },
+  {
+   "cat": "business",
+   "article": 22,
+   "n_sent": 16,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 106,
+   "ref_tokens_theirs": 106
+  },
+  {
+   "cat": "business",
+   "article": 23,
+   "n_sent": 12,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 86,
+   "ref_tokens_theirs": 86
+  },
+  {
+   "cat": "business",
+   "article": 24,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 165,
+   "ref_tokens_theirs": 165
+  },
+  {
+   "cat": "business",
+   "article": 25,
+   "n_sent": 23,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 223,
+   "ref_tokens_theirs": 223
+  },
+  {
+   "cat": "business",
+   "article": 26,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 145,
+   "ref_tokens_theirs": 145
+  },
+  {
+   "cat": "business",
+   "article": 27,
+   "n_sent": 15,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 113,
+   "ref_tokens_theirs": 113
+  },
+  {
+   "cat": "business",
+   "article": 28,
+   "n_sent": 10,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 80,
+   "ref_tokens_theirs": 80
+  },
+  {
+   "cat": "business",
+   "article": 29,
+   "n_sent": 19,
+   "ref_src": "local",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 160,
+   "ref_tokens_theirs": 160
+  },
+  {
+   "cat": "business",
+   "article": 30,
+   "n_sent": 16,
+   "ref_src": "local",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 200,
+   "ref_tokens_theirs": 200
+  },
+  {
+   "cat": "sport",
+   "article": 1,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 96,
+   "ref_tokens_theirs": 96
+  },
+  {
+   "cat": "sport",
+   "article": 2,
+   "n_sent": 8,
+   "ref_src": "csv",
+   "n_subsets": 16,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 54,
+   "ref_tokens_theirs": 54
+  },
+  {
+   "cat": "sport",
+   "article": 3,
+   "n_sent": 22,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 195,
+   "ref_tokens_theirs": 195
+  },
+  {
+   "cat": "sport",
+   "article": 4,
+   "n_sent": 8,
+   "ref_src": "csv",
+   "n_subsets": 16,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 101,
+   "ref_tokens_theirs": 101
+  },
+  {
+   "cat": "sport",
+   "article": 5,
+   "n_sent": 10,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 89,
+   "ref_tokens_theirs": 89
+  },
+  {
+   "cat": "sport",
+   "article": 6,
+   "n_sent": 8,
+   "ref_src": "csv",
+   "n_subsets": 16,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 69,
+   "ref_tokens_theirs": 69
+  },
+  {
+   "cat": "sport",
+   "article": 7,
+   "n_sent": 7,
+   "ref_src": "csv",
+   "n_subsets": 15,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 57,
+   "ref_tokens_theirs": 57
+  },
+  {
+   "cat": "sport",
+   "article": 8,
+   "n_sent": 8,
+   "ref_src": "csv",
+   "n_subsets": 16,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 124,
+   "ref_tokens_theirs": 124
+  },
+  {
+   "cat": "sport",
+   "article": 9,
+   "n_sent": 21,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 185,
+   "ref_tokens_theirs": 185
+  },
+  {
+   "cat": "sport",
+   "article": 10,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 107,
+   "ref_tokens_theirs": 107
+  },
+  {
+   "cat": "sport",
+   "article": 11,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 92,
+   "ref_tokens_theirs": 92
+  },
+  {
+   "cat": "sport",
+   "article": 12,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 98,
+   "ref_tokens_theirs": 98
+  },
+  {
+   "cat": "sport",
+   "article": 13,
+   "n_sent": 16,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 139,
+   "ref_tokens_theirs": 139
+  },
+  {
+   "cat": "sport",
+   "article": 14,
+   "n_sent": 20,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 193,
+   "ref_tokens_theirs": 193
+  },
+  {
+   "cat": "sport",
+   "article": 15,
+   "n_sent": 6,
+   "ref_src": "csv",
+   "n_subsets": 13,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 75,
+   "ref_tokens_theirs": 75
+  },
+  {
+   "cat": "sport",
+   "article": 16,
+   "n_sent": 12,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 110,
+   "ref_tokens_theirs": 110
+  },
+  {
+   "cat": "sport",
+   "article": 17,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 109,
+   "ref_tokens_theirs": 109
+  },
+  {
+   "cat": "sport",
+   "article": 18,
+   "n_sent": 12,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 129,
+   "ref_tokens_theirs": 129
+  },
+  {
+   "cat": "sport",
+   "article": 19,
+   "n_sent": 7,
+   "ref_src": "csv",
+   "n_subsets": 15,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 67,
+   "ref_tokens_theirs": 67
+  },
+  {
+   "cat": "sport",
+   "article": 20,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 98,
+   "ref_tokens_theirs": 98
+  },
+  {
+   "cat": "sport",
+   "article": 21,
+   "n_sent": 12,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 137,
+   "ref_tokens_theirs": 137
+  },
+  {
+   "cat": "sport",
+   "article": 22,
+   "n_sent": 14,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 110,
+   "ref_tokens_theirs": 110
+  },
+  {
+   "cat": "sport",
+   "article": 23,
+   "n_sent": 21,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 204,
+   "ref_tokens_theirs": 204
+  },
+  {
+   "cat": "sport",
+   "article": 24,
+   "n_sent": 7,
+   "ref_src": "csv",
+   "n_subsets": 15,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 77,
+   "ref_tokens_theirs": 77
+  },
+  {
+   "cat": "sport",
+   "article": 25,
+   "n_sent": 13,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 146,
+   "ref_tokens_theirs": 146
+  },
+  {
+   "cat": "sport",
+   "article": 26,
+   "n_sent": 9,
+   "ref_src": "csv",
+   "n_subsets": 17,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 92,
+   "ref_tokens_theirs": 92
+  },
+  {
+   "cat": "sport",
+   "article": 27,
+   "n_sent": 9,
+   "ref_src": "csv",
+   "n_subsets": 17,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 93,
+   "ref_tokens_theirs": 93
+  },
+  {
+   "cat": "sport",
+   "article": 28,
+   "n_sent": 16,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 134,
+   "ref_tokens_theirs": 134
+  },
+  {
+   "cat": "sport",
+   "article": 29,
+   "n_sent": 8,
+   "ref_src": "csv",
+   "n_subsets": 16,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 77,
+   "ref_tokens_theirs": 77
+  },
+  {
+   "cat": "sport",
+   "article": 30,
+   "n_sent": 29,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 342,
+   "ref_tokens_theirs": 342
+  },
+  {
+   "cat": "tech",
+   "article": 1,
+   "n_sent": 32,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 297,
+   "ref_tokens_theirs": 297
+  },
+  {
+   "cat": "tech",
+   "article": 2,
+   "n_sent": 20,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 155,
+   "ref_tokens_theirs": 155
+  },
+  {
+   "cat": "tech",
+   "article": 3,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 78,
+   "ref_tokens_theirs": 78
+  },
+  {
+   "cat": "tech",
+   "article": 4,
+   "n_sent": 16,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 214,
+   "ref_tokens_theirs": 214
+  },
+  {
+   "cat": "tech",
+   "article": 5,
+   "n_sent": 36,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 339,
+   "ref_tokens_theirs": 339
+  },
+  {
+   "cat": "tech",
+   "article": 6,
+   "n_sent": 27,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 290,
+   "ref_tokens_theirs": 290
+  },
+  {
+   "cat": "tech",
+   "article": 7,
+   "n_sent": 16,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 100,
+   "ref_tokens_theirs": 100
+  },
+  {
+   "cat": "tech",
+   "article": 8,
+   "n_sent": 14,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 130,
+   "ref_tokens_theirs": 130
+  },
+  {
+   "cat": "tech",
+   "article": 9,
+   "n_sent": 97,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 664,
+   "ref_tokens_theirs": 664
+  },
+  {
+   "cat": "tech",
+   "article": 10,
+   "n_sent": 21,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 235,
+   "ref_tokens_theirs": 235
+  },
+  {
+   "cat": "tech",
+   "article": 11,
+   "n_sent": 29,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 271,
+   "ref_tokens_theirs": 271
+  },
+  {
+   "cat": "tech",
+   "article": 12,
+   "n_sent": 13,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 106,
+   "ref_tokens_theirs": 106
+  },
+  {
+   "cat": "tech",
+   "article": 13,
+   "n_sent": 23,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 254,
+   "ref_tokens_theirs": 254
+  },
+  {
+   "cat": "tech",
+   "article": 14,
+   "n_sent": 14,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 134,
+   "ref_tokens_theirs": 134
+  },
+  {
+   "cat": "tech",
+   "article": 15,
+   "n_sent": 14,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 120,
+   "ref_tokens_theirs": 120
+  },
+  {
+   "cat": "tech",
+   "article": 16,
+   "n_sent": 33,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 361,
+   "ref_tokens_theirs": 361
+  },
+  {
+   "cat": "tech",
+   "article": 17,
+   "n_sent": 22,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 213,
+   "ref_tokens_theirs": 213
+  },
+  {
+   "cat": "tech",
+   "article": 18,
+   "n_sent": 19,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 158,
+   "ref_tokens_theirs": 158
+  },
+  {
+   "cat": "tech",
+   "article": 19,
+   "n_sent": 21,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 226,
+   "ref_tokens_theirs": 226
+  },
+  {
+   "cat": "tech",
+   "article": 20,
+   "n_sent": 24,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 220,
+   "ref_tokens_theirs": 220
+  },
+  {
+   "cat": "tech",
+   "article": 21,
+   "n_sent": 18,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 175,
+   "ref_tokens_theirs": 175
+  },
+  {
+   "cat": "tech",
+   "article": 22,
+   "n_sent": 15,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 109,
+   "ref_tokens_theirs": 109
+  },
+  {
+   "cat": "tech",
+   "article": 23,
+   "n_sent": 24,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 206,
+   "ref_tokens_theirs": 206
+  },
+  {
+   "cat": "tech",
+   "article": 24,
+   "n_sent": 13,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 104,
+   "ref_tokens_theirs": 104
+  },
+  {
+   "cat": "tech",
+   "article": 25,
+   "n_sent": 11,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 85,
+   "ref_tokens_theirs": 85
+  },
+  {
+   "cat": "tech",
+   "article": 26,
+   "n_sent": 21,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 204,
+   "ref_tokens_theirs": 204
+  },
+  {
+   "cat": "tech",
+   "article": 27,
+   "n_sent": 25,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 233,
+   "ref_tokens_theirs": 233
+  },
+  {
+   "cat": "tech",
+   "article": 28,
+   "n_sent": 22,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 203,
+   "ref_tokens_theirs": 203
+  },
+  {
+   "cat": "tech",
+   "article": 29,
+   "n_sent": 16,
+   "ref_src": "csv",
+   "n_subsets": 19,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 179,
+   "ref_tokens_theirs": 179
+  },
+  {
+   "cat": "tech",
+   "article": 30,
+   "n_sent": 15,
+   "ref_src": "csv",
+   "n_subsets": 18,
+   "max_absdiff": 0.0,
+   "mean_absdiff": 0.0,
+   "ref_tokens_ours": 133,
+   "ref_tokens_theirs": 133
+  }
+ ]
+}
