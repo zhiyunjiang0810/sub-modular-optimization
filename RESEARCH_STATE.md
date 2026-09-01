@@ -121,3 +121,26 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
 - **R11(c) 解读修正（N4）**：relaxF LP 的 n=8K 数值未收敛；n→∞ 极限 = min_j V_j（R10 闭式），
   严格小于 U_K。最优 (F,G) 有完整显式公式（相位 1 = R7 实例取 a=q；相位 2 = coherence 取等尾巴），
   一般 (K,η) 符号验证 + 42 组精确有理可行性（results/N4_hardness_construction.md）。
+
+## R14 [实验之夜 E0-E6] 实验结果（全部无人工扰动 oracle；ratio 分母是 greedy-on-f，即 OPT 上估代理）
+- E4 最坏实例数值实现：N2 的 V_j 实例（K∈{3,5,8}）与 U_K 实例经实验管线（CELF + 缓存）
+  realized ratio 与理论差 ≤1.1e-16；V_j 实例上 η^sel = η、η^path = η 精确。
+  worst case 在真实 greedy 代码上逐点发生（主图叉点）。results/E4_*。
+- E1 feature selection：f = 决策树 held-out acc，f̃ = train 5-fold CV（结构性隔离测试集，
+  四层断言+行为探针）；airline 全量 25,375 行。K=7 中位数：ratio 0.971（airline 0.999），
+  η^sel 2.0，L_7(η^sel) 0.405 有信息量；η^path 10-52，其下界 0.02-0.10 几乎无信息量
+  → 论文主用 η^sel。基线：airline 上每个 K 不劣于 SelectKBest/RFE/MI/ExtraTrees 最好者。
+  发现：held-out acc 非 submodular，纯 CELF 轨迹偏离精确 argmax（真值 greedy 已改逐步精确）。
+  results/E1_*。
+- E2 influence maximization：一跳覆盖，f̃ = 边保留概率 p 的观测图；4 个替代图全量 240 轨迹
+  （artist 50,515 节点全图）。K=30 中位数：ratio 0.963，η^sel 4.3。p-η 单调：p 0.8→0.3 时
+  η^sel 升 3.2-87×，ratio 仅 0.99→0.88-0.96。viol=0 是结构性的（两覆盖函数）。results/E2_*。
+- E3 summarization（模型边界外）：f = ROUGE-1 F 自实现，f̃ ∈ {coverage, diversity, facility}；
+  BBC 三类各 100 篇（sport/tech 参考摘要 HF 回填，99/100 逐 token 验证，源 CSV 入库）。
+  K=5 中位数：ratio 0.670，η^sel 7.2；ROUGE-1 F 实测 submodular 违反 2.14%、单调违反 7.12%。
+  results/E3_*。
+- 主图 figures/money_plot：真实任务散点悬在 ρ_K/L_K 上方，E4 构造实例贴线。
+
+## 更新（第四晚 F0）
+- R10 补：L_K(η) ≤ min_j V_j(η) 由 [CONJECTURE] 改为 [PROVED]。一行理由：reduced LP 的约束集
+  包含 Theorem 6 分析所用 LP 的全部约束；约束更多可行域更小，最小值不减，故 reduced LP 值 ≥ L_K。
