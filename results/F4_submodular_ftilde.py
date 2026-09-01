@@ -77,10 +77,12 @@ def build_rows(n, K, eta_u, eta_o, err_model="single", g_submod=True,
 
     rows_ub, b_ub = [], []
     counts = {}
+    tags = []
 
-    def add_ub(coefs, tag, rhs=0.0):
+    def add_ub(coefs, tag, rhs=0.0, meta=None):
         rows_ub.append(coefs)
         b_ub.append(rhs)
+        tags.append((tag, meta))
         counts[tag] = counts.get(tag, 0) + 1
 
     # (1) f monotone:  f[S] - f[S|e] <= 0                       [copied]
@@ -118,7 +120,7 @@ def build_rows(n, K, eta_u, eta_o, err_model="single", g_submod=True,
                     for k, v in ((G(T | 1 << e), 1), (G(T), -1),
                                  (G(S | 1 << e), -1), (G(S), 1)):
                         c[k] = c.get(k, 0) + v
-                    add_ub(c, "submod_g")
+                    add_ub(c, "submod_g", meta=(S, e, e2))
 
     # (2c) optional: ftilde monotone (implied by the band + f monotone for
     # single-element increments, kept only as a diagnostic switch)
@@ -168,7 +170,7 @@ def build_rows(n, K, eta_u, eta_o, err_model="single", g_submod=True,
     for i, c in enumerate(rows_ub):
         for k, v in c.items():
             A_ub[i, k] = v
-    return A_ub.tocsr(), np.array(b_ub), counts
+    return A_ub.tocsr(), np.array(b_ub), counts, tags
 
 
 def solve_for_O(A_ub, b_ub, n, K, O, nv=None, obj=None, polish=None):
@@ -204,9 +206,38 @@ def solve_for_O(A_ub, b_ub, n, K, O, nv=None, obj=None, polish=None):
     return res
 
 
+def tight_report(A_ub, b_ub, tags, x, n, K, O, tol=1e-8):
+    """Which constraint families are tight at the optimum, and which of the
+    NEW ftilde-submodularity rows are tight (reported in B / O element types)."""
+    slack = b_ub - A_ub.dot(x)
+    tight = slack < tol
+    per_tag = {}
+    for i, (tag, meta) in enumerate(tags):
+        d = per_tag.setdefault(tag, [0, 0])
+        d[1] += 1
+        if tight[i]:
+            d[0] += 1
+    Oset = set(O)
+
+    def lab(e):
+        return ('o' if e in Oset else 'b') + str(e)
+    examples = []
+    for i, (tag, meta) in enumerate(tags):
+        if tag != "submod_g" or not tight[i] or meta is None:
+            continue
+        S, e, e2 = meta
+        examples.append("dt_%s(S u %s) = dt_%s(S), S={%s}" %
+                        (lab(e), lab(e2), lab(e),
+                         ",".join(lab(u) for u in range(n) if S >> u & 1)))
+    return {'per_tag_tight': {k: v for k, v in per_tag.items()},
+            'n_tight_submod_g': per_tag.get('submod_g', [0, 0])[0],
+            'submod_g_tight_examples': examples[:40]}
+
+
 def worst_case(n, K, eta_u, eta_o, err_model="single", g_submod=True,
                Olist=None, polish=False, verbose=False):
-    A_ub, b_ub, counts = build_rows(n, K, eta_u, eta_o, err_model, g_submod)
+    A_ub, b_ub, counts, tags = build_rows(n, K, eta_u, eta_o, err_model,
+                                          g_submod)
     N = 1 << n
     nv = 2 * N
     obj = np.zeros(nv)
@@ -226,12 +257,14 @@ def worst_case(n, K, eta_u, eta_o, err_model="single", g_submod=True,
         per_O[str(O)] = float(res.fun)
         if res.fun < best[0] - 1e-13:
             best = (float(res.fun), O, res.x)
+    tight = None
     if polish and best[1] is not None:
         # re-solve only the winning O, second stage picks a cleaner extreme pt
         res = solve_for_O(A_ub, b_ub, n, K, best[1], nv, obj, pol)
         if res.status == 0:
             best = (best[0], best[1], res.x)
-    return best, per_O, counts
+        tight = tight_report(A_ub, b_ub, tags, best[2], n, K, best[1])
+    return best, per_O, counts, tight
 
 
 # ---------------------------------------------------------------------------
@@ -294,6 +327,11 @@ def verify_instance(n, K, f, g, eta_u, eta_o, tol=1e-7):
         S |= 1 << t
     out['greedy_picks_0..K-1'] = greedy_ok
     out['ratio'] = float(f[(1 << K) - 1])
+    # OPT: is the normalising set really a maximiser over all K-subsets?
+    best = max(f[S] for S in range(N) if bin(S).count('1') <= K)
+    out['opt_value'] = float(best)
+    out['opt_is_one'] = abs(best - 1.0) < 1e-6
+    out['ratio_over_opt'] = float(f[(1 << K) - 1] / best) if best > 0 else None
     return out
 
 
@@ -359,8 +397,8 @@ def main():
         for (n, K) in [(4, 2), (6, 3), (8, 4)]:
             for gs in (False, True):
                 t0 = time.time()
-                A_ub, b_ub, counts = build_rows(n, K, 2.0 ** 0.5, 2.0 ** 0.5,
-                                                "single", gs)
+                A_ub, b_ub, counts, _tg = build_rows(n, K, 2.0 ** 0.5,
+                                                     2.0 ** 0.5, "single", gs)
                 t1 = time.time()
                 O = tuple(range(K, 2 * K)) if n >= 2 * K else tuple(range(K))
                 res = solve_for_O(A_ub, b_ub, n, K, O)
@@ -382,9 +420,9 @@ def main():
             row = {'K': K, 'n': n, 'eta': eta}
             for tag, gs in (('base', False), ('sub', True)):
                 t0 = time.time()
-                best, per_O, counts = worst_case(n, K, eu, eo, "single",
-                                                 g_submod=gs, Olist=Olist,
-                                                 polish=(tag == 'sub'))
+                best, per_O, counts, tight = worst_case(
+                    n, K, eu, eo, "single", g_submod=gs, Olist=Olist,
+                    polish=(tag == 'sub'))
                 dt = time.time() - t0
                 row[f'lp_{tag}'] = best[0]
                 row[f'O_{tag}'] = str(best[1])
@@ -398,10 +436,19 @@ def main():
                     N = 1 << n
                     f = np.array(best[2][:N])
                     g = np.array(best[2][N:])
-                    details[key]['verify'] = verify_instance(n, K, f, g, eu, eo)
+                    ver = verify_instance(n, K, f, g, eu, eo)
+                    details[key]['verify'] = ver
                     details[key]['gains'] = gain_tables(n, K, best[1], f, g)
+                    details[key]['tight'] = tight
                     details[key]['f'] = [float(v) for v in f]
                     details[key]['ftilde'] = [float(v) for v in g]
+                    row['inst_ok'] = bool(
+                        ver['monotone_f'] and ver['submodular_f'] and
+                        ver['submodular_ftilde'] and ver['band_ok'] and
+                        ver['greedy_picks_0..K-1'] and ver['opt_is_one'])
+                    row['inst_ratio'] = ver['ratio']
+                    row['inst_eta_realised'] = ver['eta_u_realised'] * \
+                        ver['eta_o_realised']
                 print(f"  K={K} eta={eta} {tag}: {best[0]:.9f} O={best[1]} "
                       f"({dt:.1f}s, {sum(counts.values())} rows)")
                 sys.stdout.flush()
@@ -418,6 +465,24 @@ def main():
 
     print(f"\nLP sweep done in {time.time()-t_start:.1f}s")
 
+    # fine eta grid for the cheap K (maps out where the constraint bites)
+    sweep = []
+    for K in [k for k in args.k if k <= 3]:
+        n = 2 * K
+        for eta in [1.0 + 0.1 * i for i in range(0, 21)] + [2.5, 4.0]:
+            eu = eo = eta ** 0.5
+            b0, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=False)
+            b1, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=True)
+            v, j = min_V(K, eta)
+            sweep.append({'K': K, 'eta': round(eta, 4), 'lp_base': b0[0],
+                          'lp_sub': b1[0], 'min_j_Vj': v, 'argmin_j': j,
+                          'U_K': UK(K, eta),
+                          'diff': b1[0] - b0[0],
+                          'sub_le_UK': bool(b1[0] <= UK(K, eta) + 1e-9)})
+        print(f"  fine sweep K={K} done ({time.time()-t_start:.0f}s)")
+        sys.stdout.flush()
+    details['fine_sweep'] = sweep
+
     # N2 family diagnostics
     print("\nN2 family ftilde-submodularity diagnostics ...")
     diag = n2_family_diagnostics(args.k, args.eta)
@@ -430,12 +495,18 @@ def main():
     cols = ['K', 'n', 'eta', 'lp_base', 'lp_sub', 'min_j_Vj', 'argmin_j',
             'diff_sub_minus_minV', 'diff_base_minus_minV',
             'diff_sub_minus_base', 'U_K', 'L_K', 'sub_le_UK',
+            'inst_ok', 'inst_ratio', 'inst_eta_realised',
             'O_base', 'O_sub', 'rows_base', 'rows_sub', 'sec_base', 'sec_sub']
     with open(os.path.join(HERE, 'F4_table.csv'), 'w', newline='') as fh:
         w = csv.DictWriter(fh, fieldnames=cols)
         w.writeheader()
         for r in table:
             w.writerow({c: r.get(c) for c in cols})
+    if sweep:
+        with open(os.path.join(HERE, 'F4_eta_sweep.csv'), 'w', newline='') as fh:
+            w = csv.DictWriter(fh, fieldnames=list(sweep[0].keys()))
+            w.writeheader()
+            w.writerows(sweep)
     with open(os.path.join(HERE, 'F4_details.json'), 'w') as fh:
         json.dump({'table': table, 'details': details}, fh, indent=1,
                   default=float)

@@ -487,6 +487,85 @@ def main(quick=False):
                                          note=('ratio=%.9f' % r['ratio']
                                                if r['ratio'] is not None else '')))
 
+    print()
+    print('=' * 108)
+    print('E.  smallest n for which the frozen-F construction survives the true band '
+          '(exact cycle oracle), vs the prediction n >= K(T+1)/tau')
+    print('=' * 108)
+    print('  prediction: the construction survives iff tau = 1 and n > K(T+1); '
+          'for tau >= 2 no n works (y = 2 enters the band at every level).')
+    print(f"{'K':>2} {'eta':>4} {'tau':>3} {'T':>4} {'n_min(found)':>13} "
+          f"{'K(T+1)+1':>11} {'match':>6} {'delta at n_min':>15}")
+    for K in Ks:
+        for eta in etas:
+            for tau in taus:
+                I0 = n4_instance(4 * K, K, eta)
+                T = I0['P']['T']
+                pred = (K * (T + 1) + 1) if tau == 1 else None
+                if tau == 1:
+                    cand = range(max(2 * K, K * (T + 1) - 5), K * (T + 1) + 9)
+                else:                       # sparse probe: is ANY n admissible?
+                    cand = [m * K for m in (2, 4, 8, 16, 32, 64)]
+                nmin = None
+                for n in cand:
+                    I = n4_instance(n, K, eta)
+                    if flat_cycle_certificate(I['Fexact'],
+                                              bal_mask(n, K, tau, 'true'),
+                                              I['X'], K) is None:
+                        nmin = n
+                        break
+                dd = None
+                if nmin is not None:
+                    dd = mode_B(nmin, K, eta, tau, 'true')['min_delta']
+                blob.setdefault('E', []).append(
+                    dict(K=K, eta=eta, tau=tau, T=T, n_min=nmin, pred=pred,
+                         delta_at_nmin=dd))
+                print(f"{K:2d} {eta:4.1f} {tau:3d} {T:4d} {str(nmin):>13} "
+                      f"{str(pred):>11} {'YES' if nmin == pred else 'no':>6} "
+                      f"{('%.6g' % dd) if dd is not None else '-':>15}", flush=True)
+                rows.append(dict(n=(nmin if nmin else ''), K=K, tau=tau, eta=eta,
+                                 defn='true', mode='E_nthreshold',
+                                 status=('NMIN=%s' % nmin),
+                                 min_delta=('' if dd is None else '%.9g' % dd),
+                                 note='T=%d pred=%s' % (T, pred)))
+
+    print()
+    print('=' * 108)
+    print('F.  how the best constant the technique can prove degrades with tau '
+          '(relaxF, true band, n = 16K)')
+    print('=' * 108)
+    print(f"{'K':>2} {'eta':>4} " + ' '.join(f"{'tau='+str(t):>12}" for t in
+                                             [1, 2, 3, 4, 6])
+          + f" {'V_j (R10)':>11} {'U_K':>9} {'1-e^-1/eta':>11}")
+    for K in ([6] if quick else [6, 8, 12]):
+        for eta in ([2.0] if quick else [1.5, 2.0, 3.0]):
+            n = 16 * K
+            vals = []
+            for t in [1, 2, 3, 4, 6]:
+                if t >= K:
+                    vals.append(None); continue
+                try:
+                    vals.append(relaxF_min_ratio(n, K, eta, t, 'true')['ratio'])
+                except Exception:
+                    vals.append(None)
+            P = N4.params(K, Fr(eta))
+            UK = 1 - (1 - 1 / (eta * (K - 1) + 1)) ** K
+            lim = 1 - math.exp(-1 / eta)
+            blob.setdefault('F', []).append(
+                dict(K=K, eta=eta, n=n, taus=[1, 2, 3, 4, 6], values=vals,
+                     Vj=float(P['Vj']), UK=UK, limit=lim))
+            print(f"{K:2d} {eta:4.1f} " +
+                  ' '.join(f"{v:12.9f}" if v is not None else f"{'-':>12}"
+                           for v in vals)
+                  + f" {float(P['Vj']):11.9f} {UK:9.6f} {lim:11.6f}", flush=True)
+            for t, v in zip([1, 2, 3, 4, 6], vals):
+                rows.append(dict(n=n, K=K, tau=t, eta=eta, defn='true',
+                                 mode='F_tau_sweep',
+                                 status=('OK' if v is not None else 'SKIP'),
+                                 min_delta='0',
+                                 note=('relaxF_ratio=%.9f' % v if v is not None
+                                       else '')))
+
     csv = os.path.join(HERE, 'F3_delta_table.csv')
     with open(csv, 'w') as fh:
         fh.write('n,K,tau,eta,defn,mode,status,min_delta,note\n')
