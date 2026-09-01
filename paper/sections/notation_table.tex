@@ -1,0 +1,43 @@
+% notation_table.tex -- one-page notation table (TASKS4 F5.3).
+\section{Notation}\label{sec:notation}
+
+\begin{table}[h]
+\centering
+\caption{Notation used throughout the paper.}
+\label{tab:notation}
+\begin{tabular}{ll}
+\toprule
+$N$, $n$ & ground set and its size \\
+$K$ & cardinality budget \\
+$f$ & monotone submodular objective, $f(\emptyset)=0$; not queryable \\
+$\tilde f$ & predictor of $f$; the only queryable object \\
+$d_e(S)$, $\tilde d_e(S)$ & true and predicted marginal gain of $e$ at $S$ \\
+$\eta_u$, $\eta_o$ & under- and over-prediction factors
+  ($d/\eta_u\le\tilde d\le\eta_o d$ on single-element gains) \\
+$\eta=\eta_u\eta_o$ & scalar (global) prediction error \\
+$\etasel$ & selection error of a run (Definition~\ref{def:etasel});
+  main text uses this \\
+$\etatr$ & trajectory error (error bound restricted to the run's states);
+  one remark only \\
+$O^{\ast}$, $F^{\mathrm{OPT}}$ & an optimal $K$-set and its value \\
+$\alpha\in(0,1]$ & approximation ratio convention
+  $F^{\mathrm{ALG}}\ge\alpha F^{\mathrm{OPT}}$ \\
+$\rho_K(\eta)$ & exact worst-case ratio of predictive greedy,
+  adversarial ties \\
+$L_K(x)=1-(1-\tfrac1{xK})^{K}$ & guarantee curve
+  (Theorem~\ref{thm:guarantee}) \\
+$k_1=(K-1)\eta+1$, $q=(K-1)\eta/k_1$ & segment parameters of the exact
+  worst case \\
+$V_j(\eta)=1-q^{j}(1-\tfrac{K-j}{K\eta})$ & segment values;
+  $\rho_K=\min_jV_j$ (Theorem~\ref{thm:exact}) \\
+$U_K(\eta)=1-(1-\tfrac1{\eta(K-1)+1})^{K}$ & value of the per-$K$ tightness
+  family at global error $\eta$ \\
+$a_\theta$, $\delta(\theta)$, $\Phi$, $\hat\eta$ & hardness-family
+  parameters (Section~\ref{sec:hardness}) \\
+$\tau=c+1$, $Q=n^{c}$ & balancedness margin and query budget of the
+  hardness theorem \\
+ratio (experiments) & $f(S^{\tilde f}_{\mathrm{greedy}})/
+  f(S^{f}_{\mathrm{greedy}})$; the denominator is an OPT proxy \\
+\bottomrule
+\end{tabular}
+\end{table}

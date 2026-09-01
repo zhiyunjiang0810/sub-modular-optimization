@@ -1,0 +1,183 @@
+% ===========================================================================
+% appendix_proofs.tex -- proof skeletons (TASKS4 F5.2).
+% Every identity that was verified symbolically is marked "verified
+% symbolically" with the script named in a comment; hand steps carry
+% [HAND-PROOF-UNREVIEWED] comments.  No em dash; "simple" is used where
+% applicable, never "trivial" or "elementary".
+% ===========================================================================
+
+\section{Proofs}\label{app:proofs}
+
+\subsection{Necessity of an error bound (Proposition~\ref{prop:necessity})}
+\label{app:necessity}
+Take $\tilde f(S)=c|S|$, which carries no information about $f$.  For any
+deterministic algorithm the transcript and hence the output $T$ are fixed.
+Choose $O\subseteq N\setminus T$ with $|O|=K$ and let $f$ be the rank
+function of the matroid-like sum $f(S)=|S\cap O|+\gamma|S\setminus O|$ with
+$\gamma\to0$: then $f(T)\le\gamma K$ while $f(O)=K$.  The pair has finite but
+unbounded error as $\gamma\to0$, which proves the claim for deterministic
+algorithms; randomization loses at most the additive $K/n$ by averaging over
+a uniformly random $O$.
+% [HAND-PROOF-UNREVIEWED; simple.  The ratio K/(n-K) in the statement comes
+% from the greedy-visible variant; this sketch gives the cleaner gamma -> 0
+% form.  此步需人工检查：statement 与 sketch 的常数对齐，定稿时二选一。]
+
+\subsection{The guarantee (Theorem~\ref{thm:guarantee})}\label{app:guarantee}
+Let $t$ be a step with $d_{e_t}(S^{t})>0$ and let $O^{\ast}$ be an optimal
+set.  By definition of $\etasel$,
+$d_{e_t}(S^{t})\ge\max_{e}d_{e}(S^{t})/\etasel
+\ge\frac{1}{\etasel K}\sum_{o\in O^{\ast}\setminus S^{t}}d_{o}(S^{t})
+\ge\frac{1}{\etasel K}\bigl(f(O^{\ast})-f(S^{t})\bigr)$,
+using submodularity and monotonicity for the last two inequalities.  Hence
+the residual $r_t=f(O^{\ast})-f(S^{t})$ contracts by the factor
+$1-\tfrac{1}{\etasel K}$ at every positive step.  Steps with
+$d_{e_t}(S^{t})\le0$ cannot occur when $\tilde f$ has finite error
+(predicted gains are then nonnegative and the maximum predicted gain bounds a
+positive true gain whenever $f(S^{t})<f(O^{\ast})$); in measured runs on
+real objectives such steps are excluded from $\etasel$ and reported
+separately.  Unrolling over $K$ steps gives
+$f(S^{K})\ge(1-(1-\tfrac{1}{\etasel K})^{K})f(O^{\ast})=L_K(\etasel)$.
+% [HAND-PROOF-UNREVIEWED: the averaging step over |O* \ S^t| <= K elements
+% and the claim about nonpositive steps under finite error.
+% 此步需人工检查：K 个元素的 averaging 计数与残差递推的初值。]
+The orderings $L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$ follow from
+$\etasel\le\etatr\le\eta$ and monotonicity of $L_K$ in its argument.
+
+\subsection{Per-$K$ tightness (Theorem~\ref{thm:tightness})}\label{app:tightness}
+The family has ground set $B\cup O$, $|B|=|O|=K$, $a=1-\tfrac{1}{\hat aK}$,
+$x=|S\cap B|$, $y=|S\cap O|$:
+\[
+  f=1-a^{x}\bigl(1-\tfrac yK\bigr),\qquad
+  \tilde f=1-a^{x}\ \text{at } y=0,\qquad
+  \tilde f=1-a^{x}+a^{x}\bigl[(1-a)+\tfrac{(y-1)a}{K-1}\bigr]\ \text{at }
+  y\ge1 .
+\]
+Four gain-ratio identities determine all errors: the predicted-to-true ratio
+of a $B$-step is $1$ at $y=0$ and $\tfrac{aK}{K-1}$ at $y\ge1$; of an
+$O$-step it is $\tfrac1{\hat a}$ at $y=0$ and $\tfrac{aK}{K-1}$ at $y\ge1$.
+These identities, monotonicity and submodularity of $f$, the boundary
+condition $\tilde f(x,K)=1$, the tie identity on the greedy path, and the
+reparametrizations $\eta=\tfrac{\hat aK-1}{K-1}$ and value $=1-a^{K}$ are
+verified symbolically for general $K$.
+% Script: results/T5_symbolic.py (105/105); the only hand steps are a
+% one-line induction that greedy stays at y=0 (its per-step tie identity is
+% verified) and the faithfulness of the p=a^x parametrization.
+The adversarial-tie run picks all of $B$, its selection and trajectory
+errors both equal $\hat a$
+% [VERIFIED-LP: results/F2_etasel_tight.py, K=2..8]
+and its value is $1-a^{K}=L_K(\hat a)$.
+
+\subsection{Coherence (Lemma~\ref{lem:coherence})}\label{app:coherence}
+Expanding $\tilde f(S\cup\{e,e'\})-\tilde f(S)$ in both orders gives
+$\tilde d_{e}(S)+\tilde d_{e'}(S\cup\{e\})
+=\tilde d_{e'}(S)+\tilde d_{e}(S\cup\{e'\})$; with the hypothesis this
+yields $\tilde d_{e}(S\cup\{e'\})\ge\tilde d_{e'}(S\cup\{e\})$, and applying
+the error band on both sides gives (i).  Applying the same exchange identity
+to $f$ and then (i) gives (ii).
+% [HAND-PROOF-UNREVIEWED; two lines, single-element bounds only.]
+
+\subsection{The exact worst case (Theorem~\ref{thm:exact})}\label{app:exact}
+
+\paragraph{Lower bound (the value is a guarantee).}
+Every execution of predictive greedy induces the quantities $d_t$ (true gain
+of the pick at step $t$) and $g_{t,i}$ (true gain of the $i$th unpicked
+optimal element at state $S^{t}$), which satisfy the four constraint
+families of the reduced LP: the covering constraint
+$\sum_i g_{t,i}\ge f(O^{\ast})-\sum_{s<t}d_s$ (submodularity plus
+monotonicity), the prediction constraint $d_t\ge g_{t,i}/\eta$ (greedy
+choice plus both error bounds), the monotone constraint
+$g_{t+1,i}\le g_{t,i}$ (submodularity), and the coherence constraint
+$(1-\tfrac1\eta)g_{t+1,i}\ge g_{t,i}-d_t$ (Lemma~\ref{lem:coherence}(ii)).
+The validity of all four families, including the case in which greedy picks
+an optimal element (where the corresponding $g_{t+1,i}$ is set to $0$), is
+derived in Appendix~\ref{app:validity}.
+% results/F2_R6_validity.tex, [HAND-PROOF-UNREVIEWED].
+Minimizing $\sum_t d_t$ subject to these constraints can only decrease the
+value, and for that LP explicit dual multipliers are available for every $K$
+and every segment $j$: with $M=K\eta-(K-j)$ the nonzero multipliers are
+\[
+  y_{\mathrm{sum}}(0)=-\tfrac{q^{j-1}M}{Kk_1},\quad
+  y_{\mathrm{sum}}(t)=-\tfrac{q^{j-1-t}M}{k_1^{2}}\ (1\le t\le j-1),\quad
+  y_{\mathrm{sum}}(j)=\tfrac{\eta-(K-j+1)}{k_1},
+\]
+\[
+  y_{\mathrm{cons}}(t)=-\tfrac{q^{j-1-t}M}{Kk_1}\ (t\le j-1),\quad
+  y_{\mathrm{cons}}(t)=-\tfrac{K-1-t}{K(\eta-1)}\ (t\ge j),\quad
+  y_{\mathrm{pred}}(t)=-\tfrac{\eta-(K-t)}{K(\eta-1)}\ (t\ge j),
+\]
+with all monotone-constraint multipliers equal to zero (the lower bound does
+not use monotonicity of $f$).  Dual feasibility, sign conditions on each
+segment, and the value identity $b^{\top}y=V_j$ are identities that can be
+checked by direct expansion; a script is provided.
+% verified symbolically for general (K, j, t, i) modulo a finite branch
+% enumeration, and by brute force for K = 2..10:
+% results/N1_dual_certificate.py, 320/320.
+
+\paragraph{Upper bound (the value is attained).}
+For each $j$ take three blocks $C$ ($j$ elements), $P$ ($K-j$ elements),
+$O$ ($K$ elements), $x=|S\cap C|$, $z=|S\cap P|$, $y=|S\cap O|$, and with
+$\delta_j=q^{j}/(K\eta)$, $W(0)=k_1/(K\eta_u)$, $W(y)=(K-y)\eta_o/K$ for
+$y\ge1$:
+\[
+  f=1-q^{x}\bigl(1-\tfrac yK\bigr)+z\,\delta_j,\qquad
+  \tilde f=W(0)-q^{x}W(y)+z\,\eta_o\delta_j .
+\]
+The run picks $C$ in the first $j$ steps with true gains $q^{t}/k_1$ and $P$
+afterwards with constant true gains $\delta_j$; every step is tied with an
+optimal element, so adversarial tie breaking is load bearing, and the value
+is exactly $V_j(\eta)f(O^{\ast})$.
+% verified symbolically for general K and exhaustively on the full lattice
+% for K <= 6: results/N2_check.py, 480/480.  ftilde is monotone but not
+% submodular; see the remark in the main text and F4.
+
+\subsection{The ceiling (Theorem~\ref{thm:ceiling})}\label{app:ceiling}
+With $\tilde f(S)=c|S|$ the transcript is independent of $O$.  Pick
+$O\subseteq N\setminus T$ and set
+$f(S)=c\bigl(|S\cap B|/\eta_o+\eta_u|S\cap O|\bigr)$ with $B=N\setminus O$:
+the pair has all-pairs error exactly $(\eta_u,\eta_o)$ and
+$f(T)/f(O)=1/\eta$.  For the matching bound, exhaustive search returns
+$\hat S$ maximizing $\tilde f$ over $K$-sets, and
+$f(\hat S)\ge\tilde f(\hat S)/\eta_o\ge\tilde f(O^{\ast})/\eta_o
+\ge f(O^{\ast})/\eta$.
+% [HAND-PROOF-UNREVIEWED; monotonicity/submodularity of the construction and
+% exactness of the attained error are checked in R2's derivation.
+% 此步需人工检查：随机化情形的 (1-K/n)/eta + K/n。]
+
+\subsection{Asymptotics (Corollary~\ref{cor:limit})}\label{app:asymptotics}
+$L_K(\eta)\to1-e^{-1/\eta}$ is the standard limit.  For
+$\rho_K=\min_jV_j$: on the segment of a fixed $\eta$ the index is
+$j=K+1-\lceil\eta\rceil$, and $q^{j}\to e^{-1/\eta}$ while the second factor
+tends to $1$, which gives the limit by direct expansion.
+% [HAND-PROOF-UNREVIEWED one line; numerically confirmed by Richardson
+% extrapolation (R8).]
+
+\subsection{Bounded-query hardness (Theorem~\ref{thm:hardness})}
+\label{app:hardness}
+The four-step structure follows results/N5\_bounded\_query\_hardness.tex,
+where each lemma carries its own status tag: (1) a concentration lemma (for
+a fixed query of size at most $K$ and a uniformly random $K$-subset $O$,
+$\Pr[|S\cap O|>\tau]\le\binom{K}{\tau+1}(K/n)^{\tau+1}$, union bounded over
+a canonical transcript of $n^{c}$ queries with $n\ge4K^{c+2}$); (2) the
+construction, the $y\le\tau$ family of R9 with design parameter
+$\hat\eta=\Phi^{-1}(\eta)$, whose single-element error is exactly $\eta$;
+(3) a valuation lemma on the balanced event, where every answer depends only
+on $|S|$, the transcript is independent of $O$, and the output value is at
+most $L_K(\hat\eta)f(O^{\ast})$; (4) averaging over the random string for
+randomized algorithms (only the averaging direction of Yao's principle is
+used).  The invertibility of $\Phi$ and the limits are verified
+symbolically.
+% results/N5_asymptotics.py (15/15) and results/N5_delta_at_etahat.py
+% (40 PASS / 2 SKIP(H)); assembly [HAND-PROOF-UNREVIEWED].
+
+\subsection{Validity of the reduced constraints}\label{app:validity}
+See the derivation in results/F2\_R6\_validity.tex, reproduced here in the
+final version.
+% Placeholder: F2 produces the four-family validity derivation; it will be
+% \input here once finalized.  [HAND-PROOF-UNREVIEWED]
+
+\subsection{Instances used in the experiments}\label{app:instances}
+The worst-case instances run in Section~\ref{sec:experiments} are exactly
+the families of Appendices \ref{app:tightness} and \ref{app:exact}; the
+experiment pipeline realizes their values to $10^{-10}$
+% results/E4_worst_instances.py
+and measures $\etasel=\eta$ on every $V_j$ instance.

@@ -1,0 +1,32 @@
+% statements.tex -- AI use and reproducibility statement drafts (TASKS4 F5.4).
+% Honest by construction; the factual claims below mirror REPORT.md.
+
+\section*{Use of generative AI}
+Generative AI tools were used as research assistants throughout this
+project: to write and run the LP and symbolic verification scripts that back
+the status annotations of the theorems, to implement and execute the
+experiment pipelines, to draft theorem statements and proof skeletons, and
+to organize data and references.  All verification scripts are included in
+the supplementary material; the authors re-ran every script and checked
+every proof line by line before submission.  Statements whose proofs have
+not been so checked are explicitly marked in the source with their
+verification status, and no claim in this paper rests solely on an
+unverified AI-generated argument.
+% Draft: adjust the re-running claim to what the authors actually did before
+% submission.  The status tags in the .tex sources are the ground truth.
+
+\section*{Reproducibility statement}
+All numerical claims are backed by one-command scripts in the anonymous code
+repository accompanying this submission: the factor-revealing and reduced
+LPs, the symbolic verifications (sympy, exact arithmetic), the worst-case
+instance realizations, and the three experiment pipelines with fixed seed
+lists.  The appendix states, for each theorem, which parts are verified by
+which script.  Data handling is documented in the repository inventory:
+the airline table and the BBC corpus ship with the repository; the reference
+summaries missing for two BBC categories are backfilled from a public CSV of
+the same dataset, with a token-level cross-validation of the backfill on the
+category present locally; the social graphs are public SNAP datasets used as
+replacements for graphs no longer available, as documented in the
+inventory.  Experiment tables state that ratio denominators use the
+true-value greedy as an OPT proxy, and every reported lower bound states the
+error measure it is evaluated at.

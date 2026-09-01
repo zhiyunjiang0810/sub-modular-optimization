@@ -1,0 +1,41 @@
+% captions.tex -- caption drafts for the main and auxiliary figures
+% (TASKS4 F5.5).  Figure files: figures/money_plot.pdf and figures/aux_*.pdf
+% at the repository root; they are not \includegraphics'd in this draft.
+
+\section*{Figure captions (drafts)}
+
+\paragraph{Figure 1 (main; money\_plot).}
+Measured ratio $f(S^{\tilde f}_{\mathrm{greedy}})/f(S^{f}_{\mathrm{greedy}})$
+against measured selection error $\etasel$ (log scale), at $K=5$ and $K=30$.
+Solid: the exact worst case $\rho_K$ (Theorem~\ref{thm:exact}); dashed: the
+guarantee $L_K$ (Theorem~\ref{thm:guarantee}).  Colored points are runs of
+the three experiment families (feature selection with cross-validation
+surrogates; influence maximization with partially observed graphs; extractive
+summarization with heuristic surrogates); black crosses are the constructed
+worst-case instances of Theorem~\ref{thm:exact} executed by the same
+pipeline, which realize their theoretical values to $10^{-10}$.  Real tasks
+sit far above the worst-case curves; the constructed instances sit on them.
+The number of points beyond the axis range is annotated.  Ratio denominators
+are the true-value greedy (an OPT proxy).
+
+\paragraph{Figure 2 (auxiliary; aux\_eta\_sel\_by\_K).}
+Distribution of measured $\etasel$ by budget $K$ for each experiment family
+(boxes: quartiles over runs; log scale; fliers suppressed).  Selection error
+stabilizes within the first few steps in influence maximization and stays in
+the single digits for learned surrogates.
+
+\paragraph{Figure 3 (auxiliary; aux\_p\_vs\_eta).}
+Median $\etasel$ at $K=30$ against the edge observation probability $p$ of
+the partially observed graph, per network (log scale).  Less observed graphs
+produce larger selection error on all four networks; over the same range the
+realized ratio falls only from about $0.99$ to $0.88$, while the certified
+bound $L_{30}(\etasel)$ falls by two orders of magnitude.  This quantifies
+when prediction error matters for this application.
+
+\paragraph{Figure 4 (auxiliary; aux\_d\_dtilde\_scatter).}
+True gain $d$ against predicted gain $\tilde d$ over all candidate
+evaluations of one feature-selection dataset, with the multiplicative band
+of $\eta=2$ shaded.  Sign disagreements concentrate near zero gain, where
+the accuracy quantization of the objective dominates; large gains are
+predicted with the correct order.  This motivates evaluating guarantees at
+$\etasel$ rather than at the band error of every candidate pair.

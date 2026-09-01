@@ -1,0 +1,51 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2027_conference,times}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+
+\input{macros}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Submodular Maximization with Predictions:\\ Draft Assembly of Formal Results}
+
+\author{Anonymous}
+
+\iclrfinalcopy % compile in camera-ready mode so the draft shows a header
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document assembles the formal results, notation, appendix proof
+skeletons, statements, and figure captions produced during the overnight
+research sessions.  It is a working draft compiled with the ICLR 2027
+template; it is not the paper itself.
+\end{abstract}
+
+\input{sections/results}
+
+\input{sections/notation_table}
+
+\input{sections/statements}
+
+\input{figures/captions}
+
+\appendix
+\input{sections/appendix_proofs}
+
+\bibliography{references}
+\bibliographystyle{iclr2027_conference}
+
+\end{document}

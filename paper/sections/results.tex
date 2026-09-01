@@ -1,0 +1,269 @@
+% ===========================================================================
+% results.tex -- formal statements in the order fixed by TASKS4 F5
+% ("theory in nine blocks").  Every theorem carries a status tag and the
+% verification script in a comment.  Proofs are deferred to the appendix.
+% Writing rules: no em dash; universally quantified sentences carry their
+% qualifiers; the words "robust" and bare "tight" do not appear; "we show" /
+% "we prove" is used only for statements whose proofs are in the appendix with
+% their verification status stated there.
+% Citation keys refer to paper/references.bib produced by the F6 audit; any
+% reference that did not pass the audit appears only in comments as
+% [CITATION-NEEDS-VERIFICATION].
+% ===========================================================================
+
+\section{Setting and results}\label{sec:results}
+
+% ---------------------------------------------------------------- block 1 --
+\subsection{Model and notation}\label{sec:model}
+
+A ground set $N$ with $|N|=n$, a monotone submodular $f:2^{N}\to\mathbb
+R_{\ge0}$ with $f(\emptyset)=0$, and a cardinality budget $K$ are fixed.  The
+algorithm cannot evaluate $f$; it can only query a predictor
+$\tilde f:2^{N}\to\mathbb R$ with $\tilde f(\emptyset)=0$.  Marginal gains are
+written $d_e(S)=f(S\cup\{e\})-f(S)$ and
+$\tilde d_e(S)=\tilde f(S\cup\{e\})-\tilde f(S)$.
+
+\begin{definition}[Prediction error]\label{def:eta}
+For $\eta_u,\eta_o\ge1$ the predictor $\tilde f$ has (single-element,
+multiplicative) error at most $(\eta_u,\eta_o)$ if for every $S\subseteq N$
+and $e\notin S$,
+\[
+  d_e(S)/\eta_u\;\le\;\tilde d_e(S)\;\le\;\eta_o\,d_e(S).
+\]
+In particular $d_e(S)=0$ forces $\tilde d_e(S)=0$, and all predicted gains are
+nonnegative.  The scalar error is $\eta=\eta_u\eta_o$.
+\end{definition}
+
+Approximation ratios are stated as $\alpha\in(0,1]$ with
+$F^{\mathrm{ALG}}\ge\alpha\,F^{\mathrm{OPT}}$; larger is better.
+% Erratum guard: the submitted draft stated the ratio in the opposite
+% direction in Section 1.1; fixed here (RESEARCH_STATE, known errors).
+
+Predictive greedy is the single-step greedy run on $\tilde f$: for
+$t=0,\dots,K-1$ it adds an element maximizing $\tilde d_e(S^{t})$, with ties
+broken adversarially in all worst-case statements.  Its exact worst-case ratio
+at error level $\eta$ is written $\rho_K(\eta)$.  Two run-dependent error
+measures refine $\eta$:
+\begin{definition}[Selection error]\label{def:etasel}
+For an execution of predictive greedy with states
+$S^{0},\dots,S^{K-1}$ and picks $e_{0},\dots,e_{K-1}$, the selection error is
+\[
+  \etasel\;=\;\max\Bigl\{\,\max_{e\notin S^{t}} d_{e}(S^{t})\,/\,d_{e_t}(S^{t})
+  \;:\;t<K,\ d_{e_t}(S^{t})>0\Bigr\}\;\ge\;1 ,
+\]
+the largest factor by which a step of the run fell short of the best true
+gain, over the steps with positive chosen gain.  In the terminology of
+Goundan and Schulz, a run with selection error $\etasel$ is an execution of
+greedy with a $(1/\etasel)$-approximate incremental oracle
+\citep{goundan2007}.
+% Status of the attribution: F6 audit item 4.  The notation \etasel is ours.
+\end{definition}
+The trajectory error restricts Definition~\ref{def:eta} to the states of the
+run; it is used in a single remark below and written $\etatr$ when a symbol is
+needed.  The chain $\etasel\le\etatr\le\eta$ holds for every run.
+% [HAND-PROOF-UNREVIEWED, two lines: max_e d_e <= eta_u max_e dtilde_e <=
+%  eta_u dtilde_{e_t} <= eta_u eta_o d_{e_t} at every state of the run.]
+
+% ---------------------------------------------------------------- block 2 --
+\subsection{An error bound is necessary}\label{sec:necessity}
+
+\begin{proposition}[No bound, no guarantee]\label{prop:necessity}
+If no upper bound on $\eta$ is assumed, then for every algorithm with
+arbitrary query access to $\tilde f$ and every $n\ge2K$ there are pairs
+$(f,\tilde f)$ on which the output $T$ satisfies
+$f(T)\le\tfrac{K}{n-K}\,f(O^{\ast})$.  Consequently no constant worst-case
+ratio is achievable without an error assumption.
+\end{proposition}
+% Status: [HAND-PROOF-UNREVIEWED]; the construction is the symmetric
+% predictor of the 1/eta ceiling (Theorem \ref{thm:ceiling}) with the error
+% parameter sent to infinity; proof sketch in Appendix \ref{app:necessity}.
+
+% ---------------------------------------------------------------- block 3 --
+\subsection{The guarantee, stated for the selection error}\label{sec:guarantee}
+
+\begin{theorem}[Guarantee of predictive greedy]\label{thm:guarantee}
+Let $f$ be monotone submodular with $f(\emptyset)=0$ and let $T=S^{K}$ be the
+output of a run of predictive greedy whose selection error is $\etasel$.
+Then, with $L_K(x)=1-(1-\tfrac1{xK})^{K}$,
+\[
+  f(T)\;\ge\;L_K(\etasel)\,f(O^{\ast})
+  \;\ge\;\bigl(1-e^{-1/\etasel}\bigr)f(O^{\ast}).
+\]
+The same bound therefore holds with $\etasel$ replaced by $\etatr$ or by
+$\eta$, and the three bounds are ordered
+$L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$.
+\end{theorem}
+% Status: [HAND-PROOF-UNREVIEWED]; classical approximate-greedy analysis
+% (Goundan--Schulz; the submitted draft's Theorem 6 is the eta form).
+% Proof: Appendix \ref{app:guarantee}.  Steps with nonpositive chosen gain do
+% not enter \etasel; the appendix states why the analysis only needs the
+% positive steps.  Experiment columns n_steps_nonpos / frac_steps_nonpos
+% report how often such steps occur in practice (F1).
+
+\begin{remark}\label{rem:etasel-measurable}
+$\etasel$ is computable from the run when $f$ becomes observable in
+hindsight, which makes Theorem~\ref{thm:guarantee} a certificate: the
+measured $\etasel$ of a finished run certifies the printed bound for that
+run.  The experiments of Section~\ref{sec:experiments} report measured
+$\etasel$ and the resulting certified bounds.
+\end{remark}
+
+% ---------------------------------------------------------------- block 4 --
+\subsection{Per-$K$ tightness}\label{sec:tightness}
+
+\begin{theorem}[Tightness for every $K$]\label{thm:tightness}
+For every $K\ge2$ and $\hat a>1$ there is an instance $(f,\tilde f)$ on
+$2K$ elements with $\etasel=\etatr=\hat a$ on the adversarial-tie run of
+predictive greedy, whose output value is exactly $L_K(\hat a)\,f(O^{\ast})$.
+Hence Theorem~\ref{thm:guarantee} is an equality on this family for every
+$K$, not only in the limit.
+\end{theorem}
+% Status: instance family verified symbolically for general K
+% (results/T5_symbolic.py, 105/105; full-lattice numeric check K <= 6 in
+% code/check_explicit_instance.py); the equality etasel = ahat is
+% [VERIFIED-LP K=2..8, ahat in {1.5,2}] via results/F2_etasel_tight.py.
+% Definition of the family and the verified identities: Appendix
+% \ref{app:tightness}.
+
+% ---------------------------------------------------------------- block 5 --
+\subsection{The coherence lemma}\label{sec:coherence}
+
+\begin{lemma}[Coherence]\label{lem:coherence}
+Let $f$ be monotone, $S\subseteq N$, $e,e'\notin S$, and suppose
+$\tilde d_{e}(S)\ge\tilde d_{e'}(S)$.  Then
+\[
+  \text{(i)}\;\; d_{e}(S\cup\{e'\})\ge\tfrac1\eta\,d_{e'}(S\cup\{e\}),
+  \qquad
+  \text{(ii)}\;\;\bigl(1-\tfrac1\eta\bigr)\,d_{e'}(S\cup\{e\})
+  \ge d_{e'}(S)-d_{e}(S).
+\]
+\end{lemma}
+% Status: [HAND-PROOF-UNREVIEWED]; proof by expanding
+% ftilde(S u {e,e'}) - ftilde(S) in two orders, Appendix \ref{app:coherence}.
+% Renamed from "consistency lemma": consistency retains its
+% learning-augmented-algorithms meaning throughout (GLOSSARY).
+
+% ---------------------------------------------------------------- block 6 --
+\subsection{The exact worst case}\label{sec:exact}
+
+For $K\ge2$, $\eta\ge1$, let $k_1=(K-1)\eta+1$, $q=(K-1)\eta/k_1$, and for
+$0\le j\le K-1$
+\[
+  V_j(\eta)\;=\;1-q^{\,j}\Bigl(1-\frac{K-j}{K\eta}\Bigr).
+\]
+
+\begin{theorem}[Exact worst-case ratio of predictive greedy]\label{thm:exact}
+For every $K\ge2$ and $\eta\ge1$, under adversarial tie breaking,
+\[
+  \rho_K(\eta)\;=\;\min_{0\le j\le K-1}V_j(\eta),
+\]
+and the minimum is attained by $V_j$ on the segment
+$\eta\in[K-j,K-j+1]$ (with $V_0=1/\eta$ on $[K,\infty)$), so the breakpoints
+are the integers $2,\dots,K$.  In particular
+$\rho_K(\eta)=1/\eta$ exactly when $\eta\ge K$, and for $K\in\{2,3,4\}$ the
+closed forms are
+$\rho_2=\min\{\tfrac1\eta,\tfrac{3}{2(\eta+1)}\}$,
+$\rho_3=\tfrac{16\eta+3}{3(2\eta+1)^2}$, $\tfrac{7}{3(2\eta+1)}$,
+$\tfrac1\eta$ on $[1,2],[2,3],[3,\infty)$, and
+$\rho_4=\tfrac{135\eta^2+36\eta+4}{4(3\eta+1)^3}$,
+$\tfrac{21\eta+2}{2(3\eta+1)^2}$, $\tfrac{13}{4(3\eta+1)}$, $\tfrac1\eta$ on
+$[1,2],[2,3],[3,4],[4,\infty)$.
+\end{theorem}
+% Status decomposition (per CLAUDE.md tags):
+%  >= direction ("greedy is never worse"): explicit dual certificates for the
+%    reduced LP, general K [VERIFIED-SYMBOLIC modulo a finite branch
+%    enumeration], results/N1_dual_certificate.py (320/320); the reduction
+%    from arbitrary instances to the reduced LP is the validity argument of
+%    Appendix \ref{app:validity} [HAND-PROOF-UNREVIEWED].
+%  <= direction ("the value is attained"): explicit three-block instances for
+%    every j, general K [VERIFIED-SYMBOLIC modulo the same enumeration
+%    convention], results/N2_check.py (480/480); their per-step gains are in
+%    Appendix \ref{app:instances}.
+%  L_K <= min_j V_j: the reduced LP has all constraints of the Theorem
+%    \ref{thm:guarantee} analysis and more, so its value dominates (F0).
+% The instances use adversarial ties; under strict preference the value is an
+% infimum (strict variant checked in results/N2_check.py).
+
+\begin{remark}\label{rem:exact-gap}
+$L_K$ and $\rho_K$ differ by $O(1/K)$ for fixed $\eta$, and the previously
+used explicit family attains only
+$U_K(\eta)=1-(1-\tfrac{1}{\eta(K-1)+1})^{K}$, which is strictly above
+$V_{K-1}$ for every $\eta>1$.
+% [VERIFIED-SYMBOLIC]: U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k_1) > 0,
+% results/N1_dual_certificate.py part G.
+The predictor $\tilde f$ of the attaining instances is monotone but not
+submodular; whether requiring a submodular $\tilde f$ changes $\rho_K$ is
+addressed in the remark of Section~\ref{sec:exact} of the appendix.
+% F4 investigates this; the sentence will be finalized from F4's output.
+\end{remark}
+
+% ---------------------------------------------------------------- block 7 --
+\subsection{The $1/\eta$ ceiling}\label{sec:ceiling}
+
+\begin{theorem}[Ceiling at $1/\eta$]\label{thm:ceiling}
+For every deterministic algorithm with arbitrary query access to $\tilde f$,
+every $\eta_u,\eta_o\ge1$, and every $n\ge2K$, there is a pair
+$(f,\tilde f)$ with error exactly $(\eta_u,\eta_o)$ on which the output
+$T$ satisfies $f(T)\le f(O^{\ast})/\eta$.  For randomized algorithms the
+bound becomes $(1-\tfrac Kn)\tfrac1\eta+\tfrac Kn$ in expectation.
+Conversely, exhaustive search over all $K$-subsets of predicted values
+achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
+\end{theorem}
+% Status: [HAND-PROOF-UNREVIEWED], construction in Appendix
+% \ref{app:ceiling}.  The exhaustive-search matching bound is the only
+% surviving content of the removed R-step section.
+
+% ---------------------------------------------------------------- block 8 --
+\subsection{Asymptotics}\label{sec:asymptotics}
+
+\begin{corollary}[Limit in $K$]\label{cor:limit}
+For fixed $\eta\ge1$, both $L_K(\eta)$ and $\rho_K(\eta)$ converge to
+$1-e^{-1/\eta}$ as $K\to\infty$, monotonically within each segment.
+\end{corollary}
+% Status: for L_K elementary; for rho_K = min_j V_j it follows from the
+% closed form [VERIFIED-SYMBOLIC identities in results/T3_K3_closed_form.py]
+% plus Richardson-extrapolated numerics (R8).  One-line proof in Appendix
+% \ref{app:asymptotics}.
+
+% ---------------------------------------------------------------- block 9 --
+\subsection{Hardness for bounded-query algorithms}\label{sec:hardness}
+
+The ceiling of Theorem~\ref{thm:ceiling} does not restrict the query budget.
+The final result shows that with polynomially many small queries no algorithm
+can beat the greedy guarantee by more than a vanishing margin.  For
+$\theta\ge1$ let $a_\theta=1-\tfrac1{\theta K}$,
+$1+\delta(\theta)=\max\{a_\theta^{\tau}\tfrac{K}{K-\tau},
+a_\theta^{1-\tau}\}^{2}$ and $\Phi(\theta)=\theta(1+\delta(\theta))$.
+
+\begin{theorem}[Bounded-query hardness, deterministic]\label{thm:hardness}
+Fix $c\ge0$, put $\tau=c+1$, and let $K\ge2\tau$ and $\eta>1$ satisfy
+$\Phi(1)\le\eta$ (sufficient: $K\ge\tau(1+\tfrac{2}{\ln\eta})$), so that
+$\hat\eta=\Phi^{-1}(\eta)\in[1,\eta]$ is well defined.  Let $n\ge4K^{c+2}$.
+For every deterministic algorithm making at most $n^{c}$ queries to
+$\tilde f$, each on a set of size at most $K$, there is an instance
+$(f,\tilde f)$ with monotone submodular $f$ and single-element error exactly
+$\eta$ on which the output $T$ (of size at most $K$) satisfies
+\[
+  f(T)\;\le\;L_K(\hat\eta)\,f(O^{\ast}).
+\]
+For randomized algorithms the same bound holds up to an additive
+$\varepsilon_n=\tfrac Kn+\tfrac{K^{2c+4}}{(c+2)!\,n^{2}}$ in expectation.
+Moreover $K\delta(\eta)\to\max\{2\tau(1-\tfrac1\eta),\tfrac{2(\tau-1)}\eta\}$
+and $L_K(\hat\eta)\to1-e^{-1/\eta}$ as $K\to\infty$.
+\end{theorem}
+% Status: assembly [HAND-PROOF-UNREVIEWED] (concentration + valuation +
+% averaging; full four-step write-up in results/N5_bounded_query_hardness.tex
+% and Appendix \ref{app:hardness}); the delta closed form [VERIFIED-LP at 40
+% finite points, general (K,tau,eta) CONJECTURE]; the asymptotics
+% [VERIFIED-SYMBOLIC, results/N5_asymptotics.py 15/15].  The word
+% "information-theoretic" is used only in the appendix with its meaning
+% stated (no complexity assumption; the bound counts queries).
+
+\begin{remark}\label{rem:hardness-pins}
+Combined with Theorem~\ref{thm:guarantee}, the bounded-query optimum at error
+level $\eta$ is pinned to $1-e^{-1/\eta}$ asymptotically in $K$: predictive
+greedy achieves $L_K(\eta)\to1-e^{-1/\eta}$ with $K$ evaluations of
+$\tilde f$ per step, and no algorithm within the stated query budget exceeds
+$L_K(\hat\eta)\to1-e^{-1/\eta}$.  At finite $K$ a gap of order $c/K$ between
+the two curves remains open.
+\end{remark}
