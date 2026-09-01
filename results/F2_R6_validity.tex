@@ -1,0 +1,337 @@
+% F2.2 -- Hand proof that every constraint of the reduced O(K^2) LP
+% (code/reduced_lp.py, RESEARCH_STATE R6) is a valid inequality for every
+% instance (f, ftilde) and the predictive-greedy trajectory on it.
+%
+% STATUS: [HAND-PROOF-UNREVIEWED].  No oracle certifies the derivations below.
+% What IS oracle-checked (see RESEARCH_STATE R6, R10 and results/N1, N3):
+%   - the reduced LP value agrees with the full-lattice LP at 19 test points
+%     and for K <= 5  [VERIFIED-LP];
+%   - the closed form min_j V_j of the reduced LP has a symbolic dual
+%     certificate for general K  [VERIFIED-SYMBOLIC].
+% The present file supplies the missing direction: that the LP is a RELAXATION,
+% which is what makes its optimum a lower bound on the true worst case for
+% every K.  In particular the case b_t in O, which the earlier note flagged as
+% the gap in the argument, is treated explicitly in every one of the four
+% families (Lemmas 3 to 6, case (c) of each).
+%
+% This file is an \input fragment.  Host document must load amsmath and amsthm
+% and must define the environments `lemma`, `definition`, `remark` and `proof`.
+% Compile test: paper/test_F2.tex under the ICLR 2027 template, log in
+% results/F2_compile.log.
+
+\section{Validity of the reduced LP inequalities}
+\label{sec:reduced-lp-validity}
+
+This section verifies that each of the four constraint families of the reduced
+$O(K^2)$ linear program is a valid inequality: for every instance and every run
+of predictive greedy on it, the quantities read off the run satisfy the
+constraint. Consequently the LP is a relaxation of the set of realisable runs,
+its optimum is a lower bound on the worst-case ratio for every $K$, and the
+closed form of that optimum inherits the same status.
+
+\subsection{Setting and notation}
+
+Let $N$ be a finite ground set and let $f \colon 2^{N} \to \mathbb{R}$ be
+monotone and submodular with $f(\emptyset) = 0$. Write
+$d_{e}(S) = f(S \cup \{e\}) - f(S)$ for the marginal gain of $e \notin S$.
+The predictor $\tilde f \colon 2^{N} \to \mathbb{R}$ is an arbitrary set
+function with $\tilde f(\emptyset) = 0$; it is not assumed monotone or
+submodular. Its gains are written $\tilde d_{e}(S)$.
+
+\begin{definition}[error band]
+\label{def:band}
+For $\etau, \etao \ge 1$ we say that $\tilde f$ is $(\etau, \etao)$-accurate if
+for every $S \subseteq N$ and every $e \notin S$
+\begin{equation}
+\label{eq:band}
+\frac{1}{\etau}\, d_{e}(S) \;\le\; \tilde d_{e}(S) \;\le\; \etao\, d_{e}(S) .
+\end{equation}
+We call the right inequality of \eqref{eq:band} the \emph{upper band} and the
+left inequality the \emph{lower band}, following the constraint names
+\texttt{band\_up} and \texttt{band\_lo} in the LP builders. The global error is
+$\eta = \etau \etao \ge 1$. Gains are assumed strictly positive on the states
+that occur below, which is the regime in which \eqref{eq:band} has content.
+\end{definition}
+
+\emph{Predictive greedy} starts from $S^{0} = \emptyset$ and for
+$t = 0, \dots, K-1$ picks
+\begin{equation}
+\label{eq:greedy}
+b_{t} \in \arg\max_{e \notin S^{t}} \tilde d_{e}(S^{t}),
+\qquad S^{t+1} = S^{t} \cup \{b_{t}\},
+\end{equation}
+and returns $S^{K}$. Ties in \eqref{eq:greedy} are broken adversarially. We
+refer to \eqref{eq:greedy} as the \emph{greedy choice}.
+
+Fix an optimal set $O$ with $|O| \le K$ and $f(O) = \max_{|T| \le K} f(T)$.
+Enumerate $O = \{o_{1}, \dots, o_{K}\}$, padding with elements of zero marginal
+gain everywhere if $|O| < K$, and normalise $f(O) = 1$.
+
+\begin{definition}[the trajectory vector, including the case $b_{t} \in O$]
+\label{def:vars}
+For $t = 0, \dots, K-1$ put $d_{t} = d_{b_{t}}(S^{t})$, and for
+$t = 0, \dots, K$ and $i = 1, \dots, K$ put
+\begin{equation}
+\label{eq:gdef}
+g_{t,i} \;=\;
+\begin{cases}
+d_{o_{i}}(S^{t}), & o_{i} \notin S^{t},\\[2pt]
+0, & o_{i} \in S^{t}.
+\end{cases}
+\end{equation}
+\end{definition}
+
+The second line of \eqref{eq:gdef} is the \emph{zeroing convention}. It is the
+device that handles the case in which greedy selects an element of $O$: as soon
+as $b_{t} = o_{i}$, the variable $g_{t+1,i}$ and all later ones are set to zero
+rather than left undefined. Every lemma below is stated and proved with this
+convention in force, and in each proof the case $b_{t} = o_{i}$ appears as a
+separate case (c). Note that the convention is consistent with reading
+$g_{t,i}$ as a marginal gain, because an element already in $S^{t}$ contributes
+no further gain to it.
+
+Also set $r_{t} = 1 - \sum_{s<t} d_{s}$, the residual after $t$ steps. Because
+$\sum_{s<t} d_{s}$ telescopes to $f(S^{t}) - f(\emptyset) = f(S^{t})$, we have
+\begin{equation}
+\label{eq:residual}
+r_{t} \;=\; f(O) - f(S^{t}).
+\end{equation}
+
+The reduced LP of \texttt{code/reduced\_lp.py} is, in these variables,
+\begin{equation}
+\label{eq:redlp}
+\begin{aligned}
+\min \quad & \textstyle\sum_{t=0}^{K-1} d_{t}\\
+\text{s.t.} \quad
+& \textstyle\sum_{i=1}^{K} g_{t,i} \ \ge\ r_{t}
+&& (\mathrm{sum}(t)), \quad t = 0,\dots,K-1,\\
+& d_{t} \ \ge\ g_{t,i}/\eta
+&& (\mathrm{pred}(t,i)),\\
+& g_{t+1,i} \ \le\ g_{t,i}
+&& (\mathrm{mono}(t,i)),\\
+& (1 - 1/\eta)\, g_{t+1,i} \ \ge\ g_{t,i} - d_{t}
+&& (\mathrm{cons}(t,i)),\\
+& d_{t} \ \ge\ 0, \quad g_{t,i} \ \ge\ 0 .
+\end{aligned}
+\end{equation}
+
+\subsection{The coherence lemma}
+
+The fourth family rests on the coherence lemma (RESEARCH\_STATE R3, called the
+consistency lemma in earlier drafts). We restate it and give its proof, so that
+the present section is self contained.
+
+\begin{lemma}[coherence, R3]
+\label{lem:coherence}
+Let $S \subseteq N$ and let $e, e' \notin S$ with $e \ne e'$ satisfy
+$\tilde d_{e}(S) \ge \tilde d_{e'}(S)$. Then
+\begin{align}
+d_{e}(S \cup \{e'\}) &\ \ge\ d_{e'}(S \cup \{e\}) / \eta,
+\label{eq:coh-i}\\
+(1 - 1/\eta)\, d_{e'}(S \cup \{e\}) &\ \ge\ d_{e'}(S) - d_{e}(S).
+\label{eq:coh-ii}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Expanding $\tilde f(S \cup \{e,e'\}) - \tilde f(S)$ in the two possible orders
+gives the identity
+$\tilde d_{e}(S) + \tilde d_{e'}(S \cup \{e\})
+ = \tilde d_{e'}(S) + \tilde d_{e}(S \cup \{e'\})$.
+This step uses nothing beyond the definition of a set function.
+
+Subtracting and using $\tilde d_{e}(S) \ge \tilde d_{e'}(S)$ yields
+$\tilde d_{e'}(S \cup \{e\}) \le \tilde d_{e}(S \cup \{e'\})$.
+This step uses the greedy choice, in the form of the hypothesis on $S$.
+
+Now $d_{e'}(S \cup \{e\}) \le \etau\, \tilde d_{e'}(S \cup \{e\})$; this step
+uses the lower band. Then
+$\etau\, \tilde d_{e'}(S \cup \{e\}) \le \etau\, \tilde d_{e}(S \cup \{e'\})$
+by the previous display, and
+$\etau\, \tilde d_{e}(S \cup \{e'\}) \le \etau \etao\, d_{e}(S \cup \{e'\})
+ = \eta\, d_{e}(S \cup \{e'\})$; this step uses the upper band. Chaining the
+three gives \eqref{eq:coh-i}.
+
+For \eqref{eq:coh-ii}, the same two-order expansion applied to $f$ gives
+$d_{e}(S) + d_{e'}(S \cup \{e\}) = d_{e'}(S) + d_{e}(S \cup \{e'\})$, hence
+$d_{e'}(S) - d_{e}(S) = d_{e'}(S \cup \{e\}) - d_{e}(S \cup \{e'\})$. This step
+uses nothing beyond the definition of a set function. Substituting
+\eqref{eq:coh-i} in the form
+$- d_{e}(S \cup \{e'\}) \le - d_{e'}(S \cup \{e\})/\eta$ gives
+$d_{e'}(S) - d_{e}(S) \le (1 - 1/\eta)\, d_{e'}(S \cup \{e\})$, which is
+\eqref{eq:coh-ii}. This step uses \eqref{eq:coh-i}, that is R3(ii) reduces to
+R3(i), and $\eta \ge 1$ so that the factor $1 - 1/\eta$ is nonnegative.
+\end{proof}
+
+\subsection{The four families are valid}
+
+Throughout, $t \in \{0, \dots, K-1\}$ and $i \in \{1, \dots, K\}$, and the three
+cases are
+(a) $o_{i} \in S^{t}$;
+(b) $o_{i} \notin S^{t}$ and $o_{i} \ne b_{t}$;
+(c) $o_{i} = b_{t}$, which is the case $b_{t} \in O$.
+
+\begin{lemma}[sign constraints]
+\label{lem:sign}
+$d_{t} \ge 0$ and $g_{t,i} \ge 0$ for all $t, i$.
+\end{lemma}
+
+\begin{proof}
+Each of these numbers is either a marginal gain of $f$ or, under the zeroing
+convention, equal to $0$. This step uses monotonicity of $f$.
+\end{proof}
+
+\begin{lemma}[$\mathrm{sum}(t)$: coverage]
+\label{lem:sum}
+For every $t$, $\ \sum_{i=1}^{K} g_{t,i} \ \ge\ r_{t}$.
+\end{lemma}
+
+\begin{proof}
+Let $I_{t} = \{ i : o_{i} \notin S^{t} \}$, so that by the zeroing convention
+$\sum_{i=1}^{K} g_{t,i} = \sum_{i \in I_{t}} d_{o_{i}}(S^{t})$. This step uses
+Definition~\ref{def:vars}, and it is exactly where the case $b_{s} \in O$ for
+some $s < t$ is absorbed: the indices of the elements of $O$ already picked
+drop out of the sum, and they drop out on both sides of the argument below.
+
+Order $I_{t} = \{ i_{1}, \dots, i_{m} \}$ and telescope
+\begin{equation*}
+f(S^{t} \cup O) - f(S^{t})
+= \sum_{j=1}^{m} \Big[ f\big(S^{t} \cup \{o_{i_{1}}, \dots, o_{i_{j}}\}\big)
+ - f\big(S^{t} \cup \{o_{i_{1}}, \dots, o_{i_{j-1}}\}\big) \Big]
+\le \sum_{j=1}^{m} d_{o_{i_{j}}}(S^{t}).
+\end{equation*}
+This step uses submodularity, applied once per term: the gain of $o_{i_{j}}$ at
+the larger set $S^{t} \cup \{o_{i_{1}}, \dots, o_{i_{j-1}}\}$ is at most its
+gain at $S^{t}$.
+
+Next, $f(S^{t} \cup O) \ge f(O)$. This step uses monotonicity.
+
+Combining the two displays with \eqref{eq:residual},
+\begin{equation*}
+\sum_{i=1}^{K} g_{t,i} \ \ge\ f(S^{t} \cup O) - f(S^{t})
+\ \ge\ f(O) - f(S^{t}) \ =\ r_{t}.
+\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{lemma}[$\mathrm{pred}(t,i)$: greedy choice inside the band]
+\label{lem:pred}
+For every $t, i$, $\ d_{t} \ \ge\ g_{t,i} / \eta$.
+\end{lemma}
+
+\begin{proof}
+Case (a): $g_{t,i} = 0$ and $d_{t} \ge 0$, so the inequality holds. This step
+uses monotonicity (through Lemma~\ref{lem:sign}).
+
+Case (b): chain
+\begin{equation*}
+d_{t} \;=\; d_{b_{t}}(S^{t})
+\ \ge\ \frac{\tilde d_{b_{t}}(S^{t})}{\etao}
+\ \ge\ \frac{\tilde d_{o_{i}}(S^{t})}{\etao}
+\ \ge\ \frac{d_{o_{i}}(S^{t})}{\etau \etao}
+\;=\; \frac{g_{t,i}}{\eta}.
+\end{equation*}
+The first inequality uses the upper band at $(S^{t}, b_{t})$, rearranged as
+$d \ge \tilde d / \etao$. The second inequality uses the greedy choice, since
+$o_{i} \notin S^{t}$ makes $o_{i}$ an eligible candidate at step $t$. The third
+inequality uses the lower band at $(S^{t}, o_{i})$, rearranged as
+$\tilde d \ge d / \etau$.
+
+Case (c): here $g_{t,i} = d_{o_{i}}(S^{t}) = d_{b_{t}}(S^{t}) = d_{t}$, and the
+claim reads $d_{t} \ge d_{t}/\eta$, which holds because $d_{t} \ge 0$ and
+$\eta \ge 1$. This step uses monotonicity and $\eta \ge 1$. Note that no band
+inequality is needed in this case, so the constraint does not degrade when
+greedy happens to pick an optimal element.
+\end{proof}
+
+\begin{lemma}[$\mathrm{mono}(t,i)$: single-element submodularity]
+\label{lem:mono}
+For every $t, i$, $\ g_{t+1,i} \ \le\ g_{t,i}$.
+\end{lemma}
+
+\begin{proof}
+Case (a): $o_{i} \in S^{t} \subseteq S^{t+1}$, so both sides are $0$. This step
+uses the zeroing convention only.
+
+Case (b): $o_{i} \notin S^{t+1}$ as well, so
+$g_{t+1,i} = d_{o_{i}}(S^{t+1}) \le d_{o_{i}}(S^{t}) = g_{t,i}$ because
+$S^{t} \subseteq S^{t+1}$. This step uses submodularity, in its
+diminishing-returns form for a single element.
+
+Case (c): $o_{i} = b_{t} \in S^{t+1}$, so $g_{t+1,i} = 0$ while
+$g_{t,i} = d_{t} \ge 0$. This step uses monotonicity. This is the only place in
+the four families where the case $b_{t} \in O$ replaces a submodularity argument
+by a monotonicity argument.
+\end{proof}
+
+\begin{lemma}[$\mathrm{cons}(t,i)$: coherence]
+\label{lem:cons}
+For every $t, i$, $\ (1 - 1/\eta)\, g_{t+1,i} \ \ge\ g_{t,i} - d_{t}$.
+\end{lemma}
+
+\begin{proof}
+Case (a): the left side is $0$ and the right side is $0 - d_{t} \le 0$. This
+step uses monotonicity.
+
+Case (b): apply Lemma~\ref{lem:coherence} with $S = S^{t}$, $e = b_{t}$ and
+$e' = o_{i}$. The hypothesis $\tilde d_{b_{t}}(S^{t}) \ge \tilde d_{o_{i}}(S^{t})$
+of that lemma holds because $o_{i}$ is eligible at step $t$; this step uses the
+greedy choice. Inequality \eqref{eq:coh-ii} then reads
+\begin{equation*}
+(1 - 1/\eta)\, d_{o_{i}}(S^{t} \cup \{b_{t}\})
+\ \ge\ d_{o_{i}}(S^{t}) - d_{b_{t}}(S^{t}),
+\end{equation*}
+which is the claim, since $S^{t+1} = S^{t} \cup \{b_{t}\}$ and $o_{i} \notin
+S^{t+1}$ give $d_{o_{i}}(S^{t+1}) = g_{t+1,i}$. This step uses R3(ii).
+
+Case (c): $g_{t+1,i} = 0$ by the zeroing convention and
+$g_{t,i} - d_{t} = d_{b_{t}}(S^{t}) - d_{b_{t}}(S^{t}) = 0$, so the constraint
+holds with equality. This step uses Definition~\ref{def:vars} only. In
+particular Lemma~\ref{lem:coherence}, which requires $e \ne e'$, is never
+invoked in this case, which is what closes the gap flagged in R6.
+\end{proof}
+
+\subsection{Consequence}
+
+\begin{lemma}[relaxation]
+\label{lem:relaxation}
+For every instance $(f, \tilde f)$ satisfying Definition~\ref{def:band} with
+$\eta = \etau \etao$, every optimal set $O$ and every run of predictive greedy,
+the vector $(d_{t}, g_{t,i})$ of Definition~\ref{def:vars} is feasible for
+\eqref{eq:redlp} and its objective value equals $f(S^{K}) / f(O)$. Hence the
+optimum of \eqref{eq:redlp} is a lower bound on the worst-case ratio of
+predictive greedy at budget $K$ and error $\eta$.
+\end{lemma}
+
+\begin{proof}
+Feasibility is Lemmas~\ref{lem:sign} to \ref{lem:cons}. The objective is
+$\sum_{t<K} d_{t} = f(S^{K})$ by telescoping, and $f(O) = 1$ by the
+normalisation, so the objective equals the ratio. This step uses the definition
+of $d_{t}$ and the normalisation. Since every realisable run gives a feasible
+point, the minimum over the feasible set is at most the minimum over realisable
+runs, that is, at most the worst-case ratio.
+\end{proof}
+
+\begin{remark}[what is and is not claimed]
+\label{rem:status}
+Lemma~\ref{lem:relaxation} gives one direction only. The reverse direction,
+that every feasible point of \eqref{eq:redlp} is realised by some instance, is
+not claimed here; it has been checked against the full-lattice LP for
+$K \le 5$ and at nineteen $(K, \eta)$ test points. The status of the material in
+this section is [HAND-PROOF-UNREVIEWED]: no oracle certifies these derivations.
+The bands are used only through single-element gains at the greedy states, so
+the same proofs go through verbatim with $\eta$ replaced by the trajectory error
+$\etatr$, and, in Lemma~\ref{lem:pred} alone, by the selection error $\etasel$.
+\end{remark}
+
+\begin{remark}[which hypothesis each family consumes]
+\label{rem:census}
+Family $\mathrm{sum}(t)$ uses submodularity and monotonicity of $f$ and no
+property of $\tilde f$. Family $\mathrm{pred}(t,i)$ uses the greedy choice and
+both bands, and no property of $f$ beyond monotonicity. Family
+$\mathrm{mono}(t,i)$ uses submodularity, and monotonicity in case (c). Family
+$\mathrm{cons}(t,i)$ uses the greedy choice and both bands through
+Lemma~\ref{lem:coherence}, and monotonicity in cases (a) and (c). No family
+uses submodularity of $\tilde f$, which is consistent with the predictor being
+an arbitrary set function.
+\end{remark}

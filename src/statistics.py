@@ -56,8 +56,11 @@ class TrajectoryStats:
     quantities for every prefix K.
 
     Per step t call add_step(d_chosen, dmax_true, pairs) where pairs is an
-    iterable of (d, dtilde) over the candidates evaluated at state S^t
-    (at minimum the chosen one; ideally all candidates)."""
+    iterable of (d, dtilde) over the candidates evaluated at state S^t.
+    `pairs` must contain EVERY remaining candidate: a truncated list makes
+    eta_path an underestimate and changes the denominator of viol_sign_pct
+    (TASKS4 F1.2).  d_chosen <= 0 is allowed and is handled as described in
+    the module docstring."""
 
     def __init__(self, eps):
         self.eps = eps

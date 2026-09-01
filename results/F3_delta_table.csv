@@ -1,0 +1,253 @@
+n,K,tau,eta,defn,mode,status,min_delta,note
+32,4,1,1.5,true,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=2
+32,4,1,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,7.54951657e-15,leak_levels=0
+32,4,1,1.5,ysmall,B_fixedF,FEASIBLE,6.66133815e-16,delta_cc=6.66134e-16
+32,4,2,1.5,true,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=9
+32,4,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,2,1.5,ysmall,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=8
+32,4,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,2.0,true,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=4
+32,4,1,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,1.77635684e-15,leak_levels=0
+32,4,1,2.0,ysmall,B_fixedF,FEASIBLE,4.4408921e-16,delta_cc=4.44089e-16
+32,4,2,2.0,true,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=11
+32,4,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,2,2.0,ysmall,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=10
+32,4,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,3.0,true,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=7
+32,4,1,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,3.24185123e-14,leak_levels=0
+32,4,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+32,4,2,3.0,true,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=14
+32,4,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,2,3.0,ysmall,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=13
+32,4,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,1,1.5,true,A_fixedFG,FEASIBLE-BAND,7.54951657e-15,leak_levels=0
+64,4,1,1.5,true,B_fixedF,FEASIBLE,6.66133815e-16,delta_cc=6.66134e-16
+64,4,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,7.54951657e-15,leak_levels=0
+64,4,1,1.5,ysmall,B_fixedF,FEASIBLE,6.66133815e-16,delta_cc=6.66134e-16
+64,4,2,1.5,true,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=8
+64,4,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,2,1.5,ysmall,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=8
+64,4,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,1,2.0,true,A_fixedFG,FEASIBLE-BAND,1.77635684e-15,leak_levels=0
+64,4,1,2.0,true,B_fixedF,FEASIBLE,4.4408921e-16,delta_cc=4.44089e-16
+64,4,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,1.77635684e-15,leak_levels=0
+64,4,1,2.0,ysmall,B_fixedF,FEASIBLE,4.4408921e-16,delta_cc=4.44089e-16
+64,4,2,2.0,true,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=10
+64,4,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,2,2.0,ysmall,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=10
+64,4,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,1,3.0,true,A_fixedFG,FEASIBLE-BAND,3.24185123e-14,leak_levels=0
+64,4,1,3.0,true,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+64,4,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,3.24185123e-14,leak_levels=0
+64,4,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+64,4,2,3.0,true,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=13
+64,4,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+64,4,2,3.0,ysmall,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=13
+64,4,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,1,1.5,true,A_fixedFG,FEASIBLE-BAND,7.54951657e-15,leak_levels=0
+128,4,1,1.5,true,B_fixedF,FEASIBLE,6.66133815e-16,delta_cc=6.66134e-16
+128,4,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,7.54951657e-15,leak_levels=0
+128,4,1,1.5,ysmall,B_fixedF,FEASIBLE,6.66133815e-16,delta_cc=6.66134e-16
+128,4,2,1.5,true,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=8
+128,4,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,2,1.5,ysmall,A_fixedFG,LEAKS,7.54951657e-15,leak_levels=8
+128,4,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,1,2.0,true,A_fixedFG,FEASIBLE-BAND,1.77635684e-15,leak_levels=0
+128,4,1,2.0,true,B_fixedF,FEASIBLE,4.4408921e-16,delta_cc=4.44089e-16
+128,4,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,1.77635684e-15,leak_levels=0
+128,4,1,2.0,ysmall,B_fixedF,FEASIBLE,4.4408921e-16,delta_cc=4.44089e-16
+128,4,2,2.0,true,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=10
+128,4,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,2,2.0,ysmall,A_fixedFG,LEAKS,1.77635684e-15,leak_levels=10
+128,4,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,1,3.0,true,A_fixedFG,FEASIBLE-BAND,3.24185123e-14,leak_levels=0
+128,4,1,3.0,true,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+128,4,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,3.24185123e-14,leak_levels=0
+128,4,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+128,4,2,3.0,true,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=13
+128,4,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+128,4,2,3.0,ysmall,A_fixedFG,LEAKS,3.24185123e-14,leak_levels=13
+128,4,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,1.5,true,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=7
+48,6,1,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,1.42108547e-14,leak_levels=0
+48,6,1,1.5,ysmall,B_fixedF,FEASIBLE,1.33226763e-15,delta_cc=1.33227e-15
+48,6,2,1.5,true,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=15
+48,6,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,2,1.5,ysmall,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=13
+48,6,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,2.0,true,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=11
+48,6,1,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,2.22044605e-14,leak_levels=0
+48,6,1,2.0,ysmall,B_fixedF,FEASIBLE,1.11022302e-15,delta_cc=1.11022e-15
+48,6,2,2.0,true,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=18
+48,6,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,2,2.0,ysmall,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=16
+48,6,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,3.0,true,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=17
+48,6,1,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,5.24025268e-14,leak_levels=0
+48,6,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+48,6,2,3.0,true,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=24
+48,6,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+48,6,2,3.0,ysmall,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=21
+48,6,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,1,1.5,true,A_fixedFG,FEASIBLE-BAND,1.42108547e-14,leak_levels=0
+96,6,1,1.5,true,B_fixedF,FEASIBLE,1.33226763e-15,delta_cc=1.33227e-15
+96,6,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,1.42108547e-14,leak_levels=0
+96,6,1,1.5,ysmall,B_fixedF,FEASIBLE,1.33226763e-15,delta_cc=1.33227e-15
+96,6,2,1.5,true,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=13
+96,6,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,2,1.5,ysmall,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=13
+96,6,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,1,2.0,true,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=2
+96,6,1,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,2.22044605e-14,leak_levels=0
+96,6,1,2.0,ysmall,B_fixedF,FEASIBLE,1.11022302e-15,delta_cc=1.11022e-15
+96,6,2,2.0,true,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=17
+96,6,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,2,2.0,ysmall,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=16
+96,6,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,1,3.0,true,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=7
+96,6,1,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,5.24025268e-14,leak_levels=0
+96,6,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+96,6,2,3.0,true,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=22
+96,6,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+96,6,2,3.0,ysmall,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=21
+96,6,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,1,1.5,true,A_fixedFG,FEASIBLE-BAND,1.42108547e-14,leak_levels=0
+192,6,1,1.5,true,B_fixedF,FEASIBLE,1.33226763e-15,delta_cc=1.33227e-15
+192,6,1,1.5,ysmall,A_fixedFG,FEASIBLE-BAND,1.42108547e-14,leak_levels=0
+192,6,1,1.5,ysmall,B_fixedF,FEASIBLE,1.33226763e-15,delta_cc=1.33227e-15
+192,6,2,1.5,true,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=13
+192,6,2,1.5,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,2,1.5,ysmall,A_fixedFG,LEAKS,1.42108547e-14,leak_levels=13
+192,6,2,1.5,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,1,2.0,true,A_fixedFG,FEASIBLE-BAND,2.22044605e-14,leak_levels=0
+192,6,1,2.0,true,B_fixedF,FEASIBLE,1.11022302e-15,delta_cc=1.11022e-15
+192,6,1,2.0,ysmall,A_fixedFG,FEASIBLE-BAND,2.22044605e-14,leak_levels=0
+192,6,1,2.0,ysmall,B_fixedF,FEASIBLE,1.11022302e-15,delta_cc=1.11022e-15
+192,6,2,2.0,true,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=16
+192,6,2,2.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,2,2.0,ysmall,A_fixedFG,LEAKS,2.22044605e-14,leak_levels=16
+192,6,2,2.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,1,3.0,true,A_fixedFG,FEASIBLE-BAND,5.24025268e-14,leak_levels=0
+192,6,1,3.0,true,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+192,6,1,3.0,ysmall,A_fixedFG,FEASIBLE-BAND,5.24025268e-14,leak_levels=0
+192,6,1,3.0,ysmall,B_fixedF,FEASIBLE,1.77635684e-15,delta_cc=1.77636e-15
+192,6,2,3.0,true,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=21
+192,6,2,3.0,true,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+192,6,2,3.0,ysmall,A_fixedFG,LEAKS,5.24025268e-14,leak_levels=21
+192,6,2,3.0,ysmall,B_fixedF,INFEASIBLE-ANY-DELTA,,cert_level=self-loop(len 1)
+32,4,1,1.5,true,D_cap,SMAX=8,0.789025145,T=8 first_bad_smax=9
+32,4,2,1.5,true,D_cap,SMAX=8,0.789025145,T=8 first_bad_smax=9
+32,4,1,2.0,true,D_cap,SMAX=10,0.533328517,T=10 first_bad_smax=11
+32,4,2,2.0,true,D_cap,SMAX=10,1.7,T=10 first_bad_smax=11
+32,4,1,3.0,true,D_cap,SMAX=13,0.450966977,T=13 first_bad_smax=14
+32,4,2,3.0,true,D_cap,SMAX=13,1.84004246,T=13 first_bad_smax=14
+64,4,1,1.5,true,D_cap,SMAX=36,6.66133815e-16,T=8 first_bad_smax=None
+64,4,2,1.5,true,D_cap,SMAX=8,0.789025145,T=8 first_bad_smax=9
+64,4,1,2.0,true,D_cap,SMAX=42,4.4408921e-16,T=10 first_bad_smax=None
+64,4,2,2.0,true,D_cap,SMAX=10,0.815789474,T=10 first_bad_smax=11
+64,4,1,3.0,true,D_cap,SMAX=51,1.77635684e-15,T=13 first_bad_smax=None
+64,4,2,3.0,true,D_cap,SMAX=13,0.918549759,T=13 first_bad_smax=14
+128,4,1,1.5,true,D_cap,SMAX=36,6.66133815e-16,T=8 first_bad_smax=None
+128,4,2,1.5,true,D_cap,SMAX=8,0.789025145,T=8 first_bad_smax=9
+128,4,1,2.0,true,D_cap,SMAX=42,4.4408921e-16,T=10 first_bad_smax=None
+128,4,2,2.0,true,D_cap,SMAX=10,0.815789474,T=10 first_bad_smax=11
+128,4,1,3.0,true,D_cap,SMAX=51,1.77635684e-15,T=13 first_bad_smax=None
+128,4,2,3.0,true,D_cap,SMAX=13,0.918549759,T=13 first_bad_smax=14
+48,6,1,1.5,true,D_cap,SMAX=13,2.55676071,T=13 first_bad_smax=14
+48,6,2,1.5,true,D_cap,SMAX=13,2.55676071,T=13 first_bad_smax=14
+48,6,1,2.0,true,D_cap,SMAX=17,2.00589391,T=16 first_bad_smax=18
+48,6,2,2.0,true,D_cap,SMAX=16,2.00587715,T=16 first_bad_smax=17
+48,6,1,3.0,true,D_cap,SMAX=22,0.679057614,T=21 first_bad_smax=23
+48,6,2,3.0,true,D_cap,SMAX=21,1.34042946,T=21 first_bad_smax=22
+96,6,1,1.5,true,D_cap,SMAX=57,1.33226763e-15,T=13 first_bad_smax=None
+96,6,2,1.5,true,D_cap,SMAX=13,2.55676071,T=13 first_bad_smax=14
+96,6,1,2.0,true,D_cap,SMAX=16,2.00587715,T=16 first_bad_smax=17
+96,6,2,2.0,true,D_cap,SMAX=16,2.00587715,T=16 first_bad_smax=17
+96,6,1,3.0,true,D_cap,SMAX=21,1.2387462,T=21 first_bad_smax=22
+96,6,2,3.0,true,D_cap,SMAX=21,2.13368269,T=21 first_bad_smax=22
+192,6,1,1.5,true,D_cap,SMAX=57,1.33226763e-15,T=13 first_bad_smax=None
+192,6,2,1.5,true,D_cap,SMAX=13,2.55676071,T=13 first_bad_smax=14
+192,6,1,2.0,true,D_cap,SMAX=66,1.11022302e-15,T=16 first_bad_smax=None
+192,6,2,2.0,true,D_cap,SMAX=16,2.00587715,T=16 first_bad_smax=17
+192,6,1,3.0,true,D_cap,SMAX=81,1.77635684e-15,T=21 first_bad_smax=None
+192,6,2,3.0,true,D_cap,SMAX=21,2.13368269,T=21 first_bad_smax=22
+32,4,1,1.5,true,C_relaxF,OK,0,ratio=0.543969727
+32,4,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.543703751
+32,4,2,1.5,true,C_relaxF,OK,0,ratio=0.633634868
+32,4,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.633634868
+32,4,1,2.0,true,C_relaxF,OK,0,ratio=0.449637920
+32,4,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.449298285
+32,4,2,2.0,true,C_relaxF,OK,0,ratio=0.500000000
+32,4,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.500000000
+32,4,1,3.0,true,C_relaxF,OK,0,ratio=0.328791469
+32,4,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.326099829
+32,4,2,3.0,true,C_relaxF,OK,0,ratio=0.333333333
+32,4,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333333
+64,4,1,1.5,true,C_relaxF,OK,0,ratio=0.543703751
+64,4,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.543703751
+64,4,2,1.5,true,C_relaxF,OK,0,ratio=0.633634868
+64,4,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.633634868
+64,4,1,2.0,true,C_relaxF,OK,0,ratio=0.449298285
+64,4,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.449298285
+64,4,2,2.0,true,C_relaxF,OK,0,ratio=0.500000007
+64,4,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.500000010
+64,4,1,3.0,true,C_relaxF,OK,0,ratio=0.326099829
+64,4,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.326099829
+64,4,2,3.0,true,C_relaxF,OK,0,ratio=0.333333333
+64,4,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333333
+128,4,1,1.5,true,C_relaxF,OK,0,ratio=0.543703751
+128,4,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.543703751
+128,4,2,1.5,true,C_relaxF,OK,0,ratio=0.633634868
+128,4,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.633634868
+128,4,1,2.0,true,C_relaxF,OK,0,ratio=0.449298285
+128,4,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.449298285
+128,4,2,2.0,true,C_relaxF,OK,0,ratio=0.500000030
+128,4,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.500000008
+128,4,1,3.0,true,C_relaxF,OK,0,ratio=0.326099829
+128,4,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.326099829
+128,4,2,3.0,true,C_relaxF,OK,0,ratio=0.333333353
+128,4,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333341
+48,6,1,1.5,true,C_relaxF,OK,0,ratio=0.525057128
+48,6,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.524603035
+48,6,2,1.5,true,C_relaxF,OK,0,ratio=0.583576288
+48,6,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.581046657
+48,6,1,2.0,true,C_relaxF,OK,0,ratio=0.432177180
+48,6,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.430834793
+48,6,2,2.0,true,C_relaxF,OK,0,ratio=0.482504727
+48,6,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.476267919
+48,6,1,3.0,true,C_relaxF,OK,0,ratio=0.318168048
+48,6,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.313412964
+48,6,2,3.0,true,C_relaxF,OK,0,ratio=0.333333333
+48,6,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333333
+96,6,1,1.5,true,C_relaxF,OK,0,ratio=0.524603035
+96,6,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.524603035
+96,6,2,1.5,true,C_relaxF,OK,0,ratio=0.581046657
+96,6,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.581046657
+96,6,1,2.0,true,C_relaxF,OK,0,ratio=0.430836628
+96,6,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.430834793
+96,6,2,2.0,true,C_relaxF,OK,0,ratio=0.476267919
+96,6,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.476267919
+96,6,1,3.0,true,C_relaxF,OK,0,ratio=0.313461159
+96,6,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.313412964
+96,6,2,3.0,true,C_relaxF,OK,0,ratio=0.333333347
+96,6,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333344
+192,6,1,1.5,true,C_relaxF,OK,0,ratio=0.524603035
+192,6,1,1.5,ysmall,C_relaxF,OK,0,ratio=0.524603035
+192,6,2,1.5,true,C_relaxF,OK,0,ratio=0.581046657
+192,6,2,1.5,ysmall,C_relaxF,OK,0,ratio=0.581046657
+192,6,1,2.0,true,C_relaxF,OK,0,ratio=0.430834793
+192,6,1,2.0,ysmall,C_relaxF,OK,0,ratio=0.430834793
+192,6,2,2.0,true,C_relaxF,OK,0,ratio=0.476267919
+192,6,2,2.0,ysmall,C_relaxF,OK,0,ratio=0.476267919
+192,6,1,3.0,true,C_relaxF,OK,0,ratio=0.313412964
+192,6,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.313412964
+192,6,2,3.0,true,C_relaxF,OK,0,ratio=0.333333346
+192,6,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333344

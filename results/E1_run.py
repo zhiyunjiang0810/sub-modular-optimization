@@ -54,10 +54,13 @@ Usage
   python results/E1_run.py --datasets airline --seeds 10:30 --append # chunk 2
   python results/E1_run.py --part gbc
   python results/E1_run.py --part baselines_fig
+  python results/E1_run.py --part rebuild_rows   # F1.3 check only, see docstring
+  python results/E1_run.py --part opt_bc --opt-k 5      # TASKS4 F1.4
 """
 import argparse
 import csv
 import gzip
+import math
 import os
 import sys
 import time
@@ -520,6 +523,137 @@ def opt_check(spec=(('wine', 7, 10), ('airline', 3, 5))):
               f'(min {min(gt):.4f})', flush=True)
 
 
+def opt_bruteforce(name, Kmax, nseeds, out_csv=None):
+    """TASKS4 F1.4: brute-force OPT_K = max_{|S|=K} f(S) on `name` for K <= Kmax.
+
+    f is the SAME held-out decision-tree accuracy used everywhere else, wrapped
+    in the same frozenset cache, so a subset evaluated at K is reused at larger
+    K.  Reports f(greedy^f)/OPT (how much the OPT proxy of the ratio's
+    denominator overstates) and f(greedy^f~)/OPT for every K = 1..Kmax.
+    Prints an estimate from the first seed before the full loop."""
+    from itertools import combinations
+    import numpy as _np
+    X, y, _ = load_dataset(name)
+    ground = list(range(X.shape[1]))
+    print(f'[OPT brute force] {name}: n_features={len(ground)}, '
+          f'C({len(ground)},{Kmax})='
+          f'{math.comb(len(ground), Kmax)} subsets at K={Kmax}', flush=True)
+    per_K = {K: dict(gf=[], gt=[], opt=[]) for K in range(1, Kmax + 1)}
+    rows = []
+    for seed in range(nseeds):
+        t0 = time.time()
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=seed)
+        Ftil = CachedSetFunction(make_surrogate(X_train, y_train, make_tree))
+        Ftrue = CachedSetFunction(make_true_eval(X_train, y_train, X_test,
+                                                 y_test, make_tree))
+        pt = greedy_exact(Ftil, ground, Kmax)
+        pf = greedy_exact(Ftrue, ground, Kmax)
+        for K in range(1, Kmax + 1):
+            opt = max(Ftrue(set(c)) for c in combinations(ground, K))
+            gf = Ftrue(set(pf[:K])) / opt
+            gt = Ftrue(set(pt[:K])) / opt
+            per_K[K]['gf'].append(gf)
+            per_K[K]['gt'].append(gt)
+            per_K[K]['opt'].append(opt)
+            rows.append(dict(dataset=name, seed=seed, K=K, opt=f'{opt:.6f}',
+                             f_greedy_f=f'{Ftrue(set(pf[:K])):.6f}',
+                             f_greedy_ftilde=f'{Ftrue(set(pt[:K])):.6f}',
+                             greedy_f_over_opt=f'{gf:.6f}',
+                             greedy_ftilde_over_opt=f'{gt:.6f}'))
+        print(f'  seed={seed} done in {time.time() - t0:.1f}s '
+              f'(K={Kmax}: greedy^f/OPT={per_K[Kmax]["gf"][-1]:.4f}, '
+              f'greedy^f~/OPT={per_K[Kmax]["gt"][-1]:.4f}, '
+              f'{Ftrue.evals} f-evals cached)', flush=True)
+    for K in range(1, Kmax + 1):
+        d = per_K[K]
+        print(f'[OPT brute force] {name} K={K} seeds=0..{nseeds - 1}: '
+              f'median f(greedy^f)/OPT = {_np.median(d["gf"]):.4f} '
+              f'(min {min(d["gf"]):.4f}), '
+              f'median f(greedy^f~)/OPT = {_np.median(d["gt"]):.4f} '
+              f'(min {min(d["gt"]):.4f})', flush=True)
+    if out_csv:
+        with open(out_csv, 'w', newline='') as fh:
+            w = csv.DictWriter(fh, fieldnames=[
+                'dataset', 'seed', 'K', 'opt', 'f_greedy_f', 'f_greedy_ftilde',
+                'greedy_f_over_opt', 'greedy_ftilde_over_opt'])
+            w.writeheader()
+            w.writerows(rows)
+        print('wrote', out_csv)
+    return per_K
+
+
+def rebuild_rows():
+    """TASKS4 F1.3: regenerate E1_rows.csv with the new statistics columns
+    WITHOUT re-running the 32-minute pipeline.
+
+    E1_pairs.csv.gz already stores (d, d~) for EVERY candidate at every
+    trajectory state, with the chosen candidate flagged, so the whole content of
+    TrajectoryStats is recoverable: d_chosen is the flagged pair and
+    max_e d_e(S^t) is the maximum d over the same step (identical to the
+    true_max_gain full scan used at run time, which also ranges over all
+    e not in S^t).  eps comes from E1_diagnostics.csv (1/|test|) and the ratio
+    column is carried over from the previous E1_rows.csv (it is a function of f
+    alone and is untouched by this change).
+
+    LIMITATION, measured (2026-09-01): this reconstruction does NOT reproduce
+    eta_path_trimmed / viol_sign_pct bit-for-bit, because the pairs file stores
+    d and d~ rounded to 10 significant digits while the eps-trimming test
+    (|d| >= eps with eps = 1/|held-out|) is decided at the boundary: held-out
+    accuracy gains are integer multiples of 1/|held-out| and float subtraction
+    puts many of them one ulp BELOW eps, whereas the 10-digit decimal is just
+    above it.  On wine seed 29 the live run and the previous CSV agree exactly
+    while the reconstruction differs, so the rounded file is the one at fault.
+    The function therefore only WRITES E1_rows.csv when it reproduces every old
+    column exactly; otherwise it refuses and the caller must re-run --part main.
+    eta_sel and ratio are unaffected by the boundary (eta_sel uses no eps)."""
+    import collections
+    # eps must be reconstructed EXACTLY as at run time (1.0 / |held-out|); the
+    # `eps` column of the diagnostics is rounded to 8 significant digits and the
+    # accuracy gains are integer multiples of 1/|held-out|, so the rounded value
+    # sits on the wrong side of the >= eps trimming test for the smallest gains.
+    eps_of = {}
+    for r in csv.DictReader(open(DIAG_CSV)):
+        if r['model'] == 'make_tree':
+            eps_of[(r['dataset'], int(r['seed']))] = 1.0 / int(r['n_test'])
+    steps = collections.defaultdict(lambda: collections.defaultdict(list))
+    with gzip.open(PAIRS_CSV, 'rt') as fh:
+        for r in csv.DictReader(fh):
+            steps[(r['dataset'], int(r['seed']))][int(r['step'])].append(
+                (float(r['d']), float(r['dtilde']), r['chosen'] == '1'))
+    old = {}
+    for r in csv.DictReader(open(ROWS_CSV)):
+        old[(r['dataset'], int(r['seed']), int(r['K']))] = r
+    out, mism = [], 0
+    for (ds, seed), by_step in sorted(steps.items()):
+        st = TrajectoryStats(eps_of[(ds, seed)])
+        for t in sorted(by_step):
+            pl = by_step[t]
+            chosen = [d for d, _, c in pl if c]
+            assert len(chosen) == 1, (ds, seed, t, len(chosen))
+            st.add_step(chosen[0], max(d for d, _, _ in pl),
+                        [(d, dt) for d, dt, _ in pl])
+        for K in range(1, KMAX + 1):
+            o = old[(ds, seed, K)]
+            row = unified_row('E1', ds, K, seed, float(o['ratio']), st.upto(K))
+            for c in ('eta_sel', 'eta_path_trimmed', 'viol_sign_pct',
+                      'LK_eta_sel', 'LK_eta_path'):
+                if str(row[c]) != o[c]:
+                    mism += 1
+                    print(f'  MISMATCH {ds} seed={seed} K={K} {c}: '
+                          f'{o[c]} -> {row[c]}', flush=True)
+            out.append(row)
+    if mism == 0:
+        dump(ROWS_CSV, ROW_FIELDS, out, append=False)
+        print(f'rebuild_rows: {len(out)} rows, 0 mismatches, new columns '
+              f'n_steps_nonpos / frac_steps_nonpos added -> {ROWS_CSV}')
+    else:
+        print(f'rebuild_rows: {mism} mismatches against the old columns; '
+              f'E1_rows.csv NOT written (see the docstring: the pairs file is '
+              f'rounded at the eps boundary).  Re-run --part main instead.')
+    return mism
+
+
 def summary_part():
     """Median tables printed to stdout; transcribed into E1_notes.md."""
     import pandas as pd
@@ -596,8 +730,10 @@ if __name__ == '__main__':
     ap.add_argument('--seeds', default='0:30')
     ap.add_argument('--part', default='all',
                     choices=['all', 'main', 'gbc', 'baselines_fig', 'summary',
-                             'opt_check'])
+                             'opt_check', 'opt_bc', 'rebuild_rows'])
     ap.add_argument('--append', action='store_true')
+    ap.add_argument('--opt-k', type=int, default=5,
+                    help='budget for --part opt_bc brute-force OPT (F1.4)')
     a = ap.parse_args()
     ds = [d for d in a.datasets.split(',') if d]
     lo, hi = (int(v) for v in a.seeds.split(':'))
@@ -610,6 +746,11 @@ if __name__ == '__main__':
         baseline_figure()
     if a.part == 'opt_check':
         opt_check()
+    if a.part == 'opt_bc':                      # TASKS4 F1.4
+        opt_bruteforce('breast_cancer', a.opt_k, 10,
+                       out_csv=os.path.join(HERE, 'E1_opt_breast_cancer.csv'))
+    if a.part == 'rebuild_rows':                # TASKS4 F1.3
+        sys.exit(1 if rebuild_rows() else 0)
     if a.part in ('all', 'summary'):
         summary_part()
     print(f'total {time.time() - t0:.0f}s')

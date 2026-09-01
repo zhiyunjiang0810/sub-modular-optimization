@@ -1,30 +1,38 @@
-% Experiments-section summary table (draft).  Numbers reproduced by
-% results/E{1,2,3}_run.py -> E{1,2,3}_rows.csv; aggregation as in EXP_SUMMARY.md.
-% ratio = f(S^{\tilde f}_{greedy}) / f(S^{f}_{greedy}); the denominator is the
-% true-value greedy (an OPT proxy, so ratios slightly overstate the guarantee).
-% Sign-violation % is over trimmed candidate pairs; for influence maximization
-% it is structurally zero (both objectives are coverage functions) and is
-% reported as "--" rather than as an empirical finding.
+% Experiments-section summary table.  REGENERATED, do not hand-edit:
+%   python3 results/EXP_table_build.py
+% Every number is recomputed from results/E{1,2,3}_rows.csv (medians / IQR over
+% all runs at the stated K) and results/E4_worst_case.csv.
 \begin{table}[t]
 \centering
 \caption{Predictive greedy across three surrogate families. Medians over all
 runs at the stated $K$ (IQR in brackets). $L_K(\eta^{sel})$ is the certified
-lower bound of Theorem~\ref{thm:trajectory} evaluated at the measured
+lower bound of Theorem~\ref{thm:trajectory} evaluated at the median measured
 $\eta^{sel}$.}
 \label{tab:experiments}
-\begin{tabular}{llccccc}
+\begin{tabular}{llccccrr}
 \toprule
-Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\eta^{sel}$ & $L_K(\eta^{sel})$ & sign-viol.\ \% \\
+Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\eta^{sel}$ & $L_K(\eta^{sel})$ & sign-viol.\ \% & non-pos.\ steps \% \\
 \midrule
-Feature selection (7) & 5-fold CV accuracy & 0.971 & [0.943, 0.998] & 2.0 & 0.405 & 22.7 \\
-Influence max.\ (30) & partially observed graph & 0.963 & [0.936, 0.989] & 4.3 & 0.207 & -- \\
-Summarization (5) & coverage / diversity / FL & 0.670 & [0.576, 0.757] & 7.2 & 0.132 & 10.0 \\
+Feature selection (7) & 5-fold CV accuracy & 0.971 & [0.943, 0.998] & 2.0 & 0.405 & 22.7 & nan \\
+Influence max.\ (30) & partially observed graph & 0.953 & [0.930, 0.987] & 6.5 & 0.143 & -- & 0.0 \\
+Summarization (5) & coverage / diversity / FL & 0.670 & [0.576, 0.757] & 7.2 & 0.132 & 10.0 & 20.0 \\
 \midrule
-Worst-case $V_j$ (5) & constructed & 0.278\textsuperscript{a} & exact & $\eta$ & $=\rho_K$ & 0 \\
+Worst-case $V_j$ (5) & constructed & 0.278\textsuperscript{a} & exact & 3.5 & $=\rho_K$ & 0 & 0.0 \\
 \bottomrule
 \end{tabular}
 \vspace{2pt}
 {\footnotesize \textsuperscript{a} representative point $j=2$, $\eta=3.5$;
 every constructed instance realizes its theoretical value to $10^{-10}$
-(results/E4\_worst\_case.csv).}
+(results/E4\_worst\_case.csv).\\
+\emph{Note (i)}: the ratio's denominator is greedy-on-$f$, an upper-estimate
+proxy for OPT, so every ratio in this table is an upper estimate of
+$f(S^{\tilde f})/f(\mathrm{OPT})$.\\
+\emph{Note (ii)}: $\eta^{sel}$ is defined on the steps with positive true gain,
+so the certified lower bound in the $L_K$ column is a statement about those
+steps; the last column reports the share of trajectory steps with
+$d_t \le 0$ (column \texttt{frac\_steps\_nonpos} of the row CSVs), which are
+outside that scope.\\
+\emph{Note (iii)}: for influence maximization $f$ and $\tilde f$ are coverage
+functions on nested edge sets, so opposite-sign $(d,\tilde d)$ pairs cannot
+occur; the entry is "--" rather than a measured zero.}
 \end{table}
