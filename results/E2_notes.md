@@ -1,6 +1,8 @@
 # E2 notes — Influence maximization，部分观测图作 surrogate
 
-脚本：`results/E2_run.py`（全部结果由该脚本实际运行产生，2026-08-31）。
+脚本：`results/E2_run.py`（全部结果由该脚本实际运行产生，2026-08-31 首跑；
+**2026-09-01 按 TASKS4 F1.2 删除 η^path 的 top-50 候选截断后 240 条轨迹全量重跑**，
+并按 F1.3 给统一行格式加了 `n_steps_nonpos` / `frac_steps_nonpos` 两列，见第 4、5 节与第 8 节第 4、5 条）。
 共享管线：`src/im_graph.py`（Graph / coverage / CachedSetFunction / lazy_greedy / true_max_gain）
 与 `src/statistics.py`（TrajectoryStats / unified_row / L_K）。未修改 `src/`、`data/` 或其他任务文件。
 
@@ -35,8 +37,7 @@
 `facebook_artist`（脚本保留 `--top-nodes` 与 `induced_top_degree`，若日后需要可用
 `--top-nodes 20000 --label facebook_artist_top20k`；本次未使用）。
 seeds 也未降规模：每个 (dataset, p) 都跑满 20 个观测图种子，合计 4 × 3 × 20 = **240 条轨迹，7,200 行**。
-总运行时间约 6 分钟（email 约 30 s，politician + government 约 30 s，artist 约 3.5 min），
-另加验证与截断校验约 3 分钟。
+首跑（top-50 截断版）总运行时间约 6 分钟；2026-09-01 的全候选重跑约 37 分钟，逐图耗时见第 4 节。
 
 能不截断的原因是把每次边际增益做成了 O(deg)（下节），而不是降低了任何定义的精度。
 
@@ -56,39 +57,62 @@ seeds 也未降规模：每个 (dataset, p) 都跑满 20 个观测图种子，�
 另在 `facebook_politician`（p=0.5, seed=0）前 8 步再做一次堆 vs 全扫描对比，差值同样为 0。
 结论：加速结构与共享管线的朴素实现给出的是同一批数字，加速只影响耗时。
 
-## 4 (d, d̃) 落盘的截断，以及它对 η^path 的影响（重要）
+## 4 η^path 的候选截断已删除（TASKS4 F1.2，2026-09-01 全量重算）
 
-- 大图（三个 facebook 图）：每步只保留 **top-50 d̃ 候选**的 (d, d̃)；`statistics.TrajectoryStats`
-  的 η^path 与 viol% 也**只在这 50 对上**计算。`email_eu_core` 用**全部候选**（每步约 1,000 对）。
-- 落盘文件 `E2_pairs_sample.csv.gz`：三个 facebook 图全部 60 条轨迹各步 top-50；`email_eu_core`
-  的 seed 0/1/2 落全部候选，seed ≥ 3 只落 top-50（统计仍用全候选）。共 613,935 行。
+**现状：`E2_rows.csv` 的 `eta_path_trimmed` 与 `viol_sign_pct` 对四个图全部用"该步的每一个剩余候选"
+计算，没有任何截断。**旧版对三个 facebook 图每步只用 top-50 d̃ 候选，那是系统性下估，已作废。
 
-截断会**系统性低估 η^path**，这一点用 `--mode trunccheck` 直接量了出来
-（`results/E2_truncation_check.csv`：对若干 run 用全候选重算 K=30 的 η^path，再与 top-50 限制值对比）：
+改动（`results/E2_run.py`）：`run_one` 里统计用的候选一律是
+`[(e, obs_state.gain(e)) for e in ground if e not in Sbefore]`；原来的 `full_pairs` 开关改名为
+`dump_all_pairs`，**只**控制往 `E2_pairs_sample.csv.gz` 里写多少行（email seed 0..2 全落，
+其余按 d̃ 取 top-50），不再影响任何统计量。`E2_pairs_sample.csv.gz` 因此与旧文件
+**逐字节相同**（613,935 行，gzip 内容 SHA-256 一致），可作为"轨迹没变"的独立佐证。
 
-| dataset | top50 / full 的比值范围（K=30） |
-|---|---|
-| `email_eu_core` (6 runs) | 0.27 – 0.40 |
-| `facebook_politician` (6 runs) | 0.043 – 0.272 |
-| `facebook_government` (6 runs) | 0.098 – 0.365 |
-| `facebook_artist` (3 runs) | 0.002 – 0.163 |
+重算规模与耗时（240 条轨迹全量重跑，机器上另有 3 个 CPU 密集任务并行）：
 
-例：`facebook_artist` p=0.8 seed=0 的全候选 η^path = 678，top-50 限制值只有 1.62（0.002 倍）。
-所以：**`E2_rows.csv` 中三个 facebook 图的 `eta_path_trimmed` 是下估，只能当作"轨迹上高 d̃ 候选之间的
-误差尺度"读，不能当作全候选 η^path。`email_eu_core` 的 `eta_path_trimmed` 是全候选值，未被截断。**
-E5 若要用 η^path 作横轴，建议只用 email 的列，或用 `E2_truncation_check.csv` 的全候选值。
-η^sel 不受此截断影响（它只用真值的 max，来自真图上的完整堆）。
+| dataset | runs | 总耗时 | 单 run 平均 / 最大 |
+|---|---|---|---|
+| `email_eu_core` | 60 | 0.4 min | 0.4 s / 0.5 s |
+| `facebook_politician` | 60 | 2.3 min | 2.3 s / 2.8 s |
+| `facebook_government` | 60 | 3.2 min | 3.2 s / 3.7 s |
+| `facebook_artist` | 60 | **31.5 min** | 31.5 s / 41.4 s |
 
-校验：`email_eu_core` 的 6 个 trunccheck 全候选 η^path 与 `E2_rows.csv` 里对应行完全相等；
-21 行 trunccheck 的 η^sel 与 `E2_rows.csv` 对应 run 完全相等（0 处不一致）。
+四个图都在 TASKS4 给的 40 分钟/图上限内完成，**没有任何图需要标 "n/a"**。
+（全候选扫描是 O(m)/步：artist 的一次全扫描实测 obs 0.08 s + true 0.13 s，30 步约 6 s，
+其余是边采样与真图 greedy 的开销。）
+
+η^path 的变化（K=30，每个 dataset 60 条 run 的中位数）：
+
+| dataset | 旧值（top-50） | 新值（全候选） | 新/旧（中位数） | 逐 run 新/旧 min–median–max |
+|---|---|---|---|---|
+| `email_eu_core` | 78.5 | 78.5 | 1.00 | 1.00 – 1.00 – 1.00（本来就没截断） |
+| `facebook_politician` | 41.99 | 200 | 4.76 | 3.12 – 5.52 – 23.4 |
+| `facebook_government` | 86.15 | 493 | 5.72 | 2.74 – 4.74 – 91.6 |
+| `facebook_artist` | 200.1 | 1407 | 7.03 | 5.10 – 8.04 – 575 |
+
+四个图合起来，K=30 的 η^path 中位数从 71.74 升到 **284.0**（3.96 倍）。
+方向与旧的 `--mode trunccheck` 抽样结论一致（截断低估），量级由那次的少数 run 扩到了全部 240 条。
+
+**不变量断言（已跑，0 处不一致）**：新旧 `E2_rows.csv` 的 7,200 行按 (dataset, p, seed, K) 对齐后，
+`ratio`、`eta_sel`、`viol_sign_pct` 三列**逐行完全相同**。这是应该的：轨迹由 f̃ 决定、
+η^sel 只用真值 max（来自真图上的完整惰性堆）、viol% 在 E2 上结构性为 0，都与候选集合的取舍无关。
+若这三列变了就说明改动引入了 bug。
+
+`results/E2_truncation_check.csv` 保留为**历史记录**（旧 top-50 偏差的抽样量化），
+它对应的 `--mode trunccheck` 现在两边都用全候选，只是把落盘的 top-50 子集单独再算一遍，
+留作对照；不要再用它的 `eta_path_top50` 列作任何结论。
 
 ## 5 统一行格式与新增的 p 列
 
-`E2_rows.csv` 的前 10 列就是 `src/statistics.py` 的 `ROW_FIELDS`
-（task, dataset, K, seed, ratio, eta_sel, eta_path_trimmed, viol_sign_pct, LK_eta_sel, LK_eta_path），
-由 `unified_row` 生成；`seed` = 观测图种子。因为共享格式里没有 p，而 E2 必须区分 p，
+`E2_rows.csv` 的前 12 列就是 `src/statistics.py` 的 `ROW_FIELDS`
+（task, dataset, K, seed, ratio, eta_sel, eta_path_trimmed, viol_sign_pct, LK_eta_sel,
+LK_eta_path, **n_steps_nonpos, frac_steps_nonpos**），由 `unified_row` 生成；`seed` = 观测图种子。
+最后两列是 TASKS4 F1.3 新增的：前 K 步里被选中真实增益 d_t ≤ 0 的步数与占比；
+η^sel 与 `LK_eta_sel` 只在 d_t > 0 的步上定义，所以 `LK_eta_sel` 给的保证是"对正增益步成立"，
+其余步的比例就是 `frac_steps_nonpos`（E2 上 224/240 条 run 为 0，另 16 条在 K=30 时是 0.033333，
+见第 8 节第 4 条）。因为共享格式里没有 p，而 E2 必须区分 p，
 在**末尾追加了一列 `p`**（dataset 列保持真实数据集名，未把 p 编进名字）。
-用 `csv.DictReader` 或 pandas 读取时，前 10 列与其他任务完全对齐，多出的 `p` 列对其他任务为空。
+用 `csv.DictReader` 或 pandas 读取时，前 12 列与其他任务完全对齐，多出的 `p` 列对其他任务为空。
 
 ## 6 对照基线（`E2_baselines.csv`：dataset, method, p, seed, K, f_value；f_value 一律是真图上的 f）
 
@@ -154,9 +178,19 @@ K=30 的对照结果（f 归一到 `greedy_f`，中位数）：
 3. **viol_sign_pct 在全部 7,200 行都是 0.00，这是结构性的，不是"零违反"的实验发现。**
    f 与 f̃ 都是覆盖函数，边际增益恒 ≥ 0，观测图是真图的子图，所以 (d, d̃) 不可能异号。
    方向一致性违反这条尺子在 E2 上没有信息量，要看它请用 E1/E3。
-4. **d ≤ 0 的步：240 条轨迹、7,200 步里出现 0 次**（每一步被选中节点的真实边际至少是 1，即它自己）。
-   因此 `TrajectoryStats` 的非正增益剔除逻辑在 E2 上没有实际启用。
-5. **三个 facebook 图的 η^path 被 top-50 截断低估**，量化见第 4 节；email 的 η^path 未截断。
+4. **d ≤ 0 的步：更正**（TASKS4 F1.3 新列查出来的）。本节旧版写"240 条轨迹、7,200 步里出现 0 次，
+   因为每一步被选中节点的真实边际至少是 1，即它自己"——**这个推理是错的**：如果被选中的节点在真图上
+   已经是先前某个被选节点的邻居，它自己也已被覆盖，真实边际可以是 0。
+   新列 `n_steps_nonpos` 的实测：**240 条轨迹里 16 条各有 1 步 d_t ≤ 0**（`max n_steps_nonpos = 1`，
+   K=30 时 16/240 条 run 非零；按 (dataset, p) 分布：facebook_government p=0.5 十条、
+   email_eu_core p=0.5 三条、email_eu_core p=0.3 两条、facebook_politician p=0.3 一条）。
+   这不是本次改动引入的：用**旧的、逐字节相同的** `E2_pairs_sample.csv.gz` 取每步 d̃ 最大的候选
+   （即 CELF 会选的那个）重数，同样得到 16 步、同样这 16 条 run，说明旧数据里就有，只是旧笔记漏记了。
+   对应地，`frac_steps_nonpos` 在这 16 条 run 的 K=30 行上是 1/30 = 0.033333，其余 224 条为 0；
+   E2 的 `LK_eta_sel` 因此覆盖了绝大多数但不是全部步。
+5. **η^path 已无截断**（TASKS4 F1.2，2026-09-01）：四个图的 `eta_path_trimmed` 都是全候选值。
+   旧版三个 facebook 图的 top-50 下估已作废，量化与新旧对照见第 4 节
+   （K=30 合并中位数 71.74 → 284.0）。
 6. η^sel 用真值 max，来自真图上的完整惰性堆，未做任何候选截断，且与全扫描逐点相等（第 3 节）。
 7. 无人工扰动 oracle；f 与 f̃ 均缓存；greedy 为 CELF lazy 且 `quantize=None`；观测图种子固定为 0..19；
    随机基线种子固定为 10000..10009；图同时存 PNG 与 PDF。
@@ -175,7 +209,7 @@ K=30 的对照结果（f 归一到 `greedy_f`，中位数）：
 - `results/E2_pairs_sample.csv.gz`（613,935 行：dataset, p, seed, step, element, d, d_tilde）
 - `results/E2_baselines.csv`（8,520 行：greedy_f / degree_obs / random）
 - `results/E2_p_eta.csv`（12 行：dataset × p 的 η^sel 中位数、四分位、IQR、ratio、L_30）
-- `results/E2_truncation_check.csv`（21 行：top-50 截断对 η^path 的偏差）
+- `results/E2_truncation_check.csv`（21 行，**历史记录**：旧 top-50 截断对 η^path 的偏差抽样）
 - `results/E2_validation.txt`（两法一致性验证输出）
 - `results/E2_notes.md`（本文件）
 - `figures/E2_p_eta.png` / `figures/E2_p_eta.pdf`
@@ -196,4 +230,7 @@ python3 results/E2_run.py --mode figures                                    # fi
 ```
 
 （`--mode run` 会自动跳过 `E2_rows.csv` 中已有的 run；要重跑请先移走该文件，
-`E2_pairs_sample.csv.gz`、`E2_baselines.csv`、`E2_truncation_check.csv` 同为追加写。）
+`E2_pairs_sample.csv.gz`、`E2_baselines.csv`、`E2_truncation_check.csv` 同为追加写。
+2026-09-01 的全量重算就是这么做的：删掉 `E2_rows.csv` 与 `E2_pairs_sample.csv.gz`、
+保留 `E2_baselines.csv`（基线与候选集合无关，因此被跳过、保持不变），再按上面四条 `--mode run`
+依次跑完，然后 `--mode aggregate` + `--mode figures`。）

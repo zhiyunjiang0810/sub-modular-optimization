@@ -65,6 +65,32 @@ def LK(K, eta):
 
 
 # ---------------------------------------------------------------------------
+# [CONJECTURE] closed form for the ftilde-submodular worst case, read off the
+# LP optima (see F4_submodular_ftilde.md section "structure").
+#
+#   r = 1 - 1/K,  W_m(K, eta) = (K - m r^m) / (K (1 + (eta-1) r^m)),
+#   rho_K^{sub}(eta) = min_{0 <= m <= K-1} W_m(K, eta).
+#
+# Reading: m = number of "coherence" steps.  Along the greedy path the optimum
+# has d_t = d_0 r^t for t < m and d_t = d_m for t >= m, with d_0 = 1/(K mu_0)
+# and mu_0 = 1 + (eta-1) r^m; the ratio mu_t = d_O(S_t)/d_t grows geometrically
+# by K/(K-1) per step until it hits the band value eta exactly at t = m.
+# Note W_m uses r = 1 - 1/K (the eta = 1 value of q), whereas V_j uses
+# q = (K-1)eta/((K-1)eta+1); W_m = V_m at eta = 1 and W_0 = V_0 = 1/eta.
+# ---------------------------------------------------------------------------
+def Wm(K, m, eta):
+    r = 1 - 1.0 / K
+    rm = r ** m
+    return (K - m * rm) / (K * (1 + (eta - 1) * rm))
+
+
+def min_W(K, eta):
+    vals = [(Wm(K, m, eta), m) for m in range(K)]
+    v, m = min(vals)
+    return v, m
+
+
+# ---------------------------------------------------------------------------
 # LP rows.  Block 1-4 are copied from code/worst_case_lp.py (unchanged);
 # block 3b is the new ftilde-submodularity block.
 # ---------------------------------------------------------------------------
@@ -391,7 +417,10 @@ def main():
     ap.add_argument('--eta', type=float, nargs='*', default=[1.5, 2.0, 3.0])
     ap.add_argument('--disjoint-only', action='store_true',
                     help='only O = {K..2K-1} (fallback if enumeration is slow)')
+    ap.add_argument('--tag', default='',
+                    help='suffix for the output filenames (e.g. --tag _K5)')
     args = ap.parse_args()
+    TAG = args.tag
 
     if args.timing:
         for (n, K) in [(4, 2), (6, 3), (8, 4)]:
@@ -453,8 +482,12 @@ def main():
                       f"({dt:.1f}s, {sum(counts.values())} rows)")
                 sys.stdout.flush()
             v, j = min_V(K, eta)
+            w, m = min_W(K, eta)
             row['min_j_Vj'] = v
             row['argmin_j'] = j
+            row['min_m_Wm'] = w
+            row['argmin_m'] = m
+            row['sub_minus_minW'] = row['lp_sub'] - w
             row['U_K'] = UK(K, eta)
             row['L_K'] = LK(K, eta)
             row['diff_sub_minus_minV'] = row['lp_sub'] - v
@@ -474,14 +507,39 @@ def main():
             b0, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=False)
             b1, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=True)
             v, j = min_V(K, eta)
+            w, m = min_W(K, eta)
             sweep.append({'K': K, 'eta': round(eta, 4), 'lp_base': b0[0],
                           'lp_sub': b1[0], 'min_j_Vj': v, 'argmin_j': j,
+                          'min_m_Wm': w, 'argmin_m': m,
+                          'sub_minus_minW': b1[0] - w,
                           'U_K': UK(K, eta),
                           'diff': b1[0] - b0[0],
                           'sub_le_UK': bool(b1[0] <= UK(K, eta) + 1e-9)})
         print(f"  fine sweep K={K} done ({time.time()-t_start:.0f}s)")
         sys.stdout.flush()
     details['fine_sweep'] = sweep
+
+    # ground-set sensitivity: the LP is solved on n = 2K, but with the extra
+    # ftilde rows there is no analogue of R6 ("reduced LP is valid for every n")
+    # to certify that n = 2K is the worst ground set.  Check n = 2K+1, 2K+2.
+    nsweep = []
+    for K, ns in [(2, [4, 5, 6]), (3, [6, 7, 8])]:
+        if K not in args.k:
+            continue
+        for eta in args.eta:
+            eu = eo = eta ** 0.5
+            for n in ns:
+                b1, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=True)
+                b0, _, _, _ = worst_case(n, K, eu, eo, "single", g_submod=False)
+                w, m = min_W(K, eta)
+                nsweep.append({'K': K, 'n': n, 'eta': eta,
+                               'lp_base': b0[0], 'lp_sub': b1[0],
+                               'min_m_Wm': w, 'min_j_Vj': min_V(K, eta)[0],
+                               'O_sub': str(b1[1])})
+                print(f"  n-sweep K={K} n={n} eta={eta}: base={b0[0]:.9f} "
+                      f"sub={b1[0]:.9f} (W={w:.9f})")
+                sys.stdout.flush()
+    details['n_sweep'] = nsweep
 
     # N2 family diagnostics
     print("\nN2 family ftilde-submodularity diagnostics ...")
@@ -494,33 +552,44 @@ def main():
     import csv
     cols = ['K', 'n', 'eta', 'lp_base', 'lp_sub', 'min_j_Vj', 'argmin_j',
             'diff_sub_minus_minV', 'diff_base_minus_minV',
-            'diff_sub_minus_base', 'U_K', 'L_K', 'sub_le_UK',
+            'diff_sub_minus_base', 'min_m_Wm', 'argmin_m', 'sub_minus_minW',
+            'U_K', 'L_K', 'sub_le_UK',
             'inst_ok', 'inst_ratio', 'inst_eta_realised',
             'O_base', 'O_sub', 'rows_base', 'rows_sub', 'sec_base', 'sec_sub']
-    with open(os.path.join(HERE, 'F4_table.csv'), 'w', newline='') as fh:
+    with open(os.path.join(HERE, f'F4_table{TAG}.csv'), 'w', newline='') as fh:
         w = csv.DictWriter(fh, fieldnames=cols)
         w.writeheader()
         for r in table:
             w.writerow({c: r.get(c) for c in cols})
     if sweep:
-        with open(os.path.join(HERE, 'F4_eta_sweep.csv'), 'w', newline='') as fh:
+        with open(os.path.join(HERE, f'F4_eta_sweep{TAG}.csv'), 'w', newline='') as fh:
             w = csv.DictWriter(fh, fieldnames=list(sweep[0].keys()))
             w.writeheader()
             w.writerows(sweep)
-    with open(os.path.join(HERE, 'F4_details.json'), 'w') as fh:
+    if nsweep:
+        with open(os.path.join(HERE, f'F4_n_sweep{TAG}.csv'), 'w',
+                  newline='') as fh:
+            w = csv.DictWriter(fh, fieldnames=list(nsweep[0].keys()))
+            w.writeheader()
+            w.writerows(nsweep)
+    with open(os.path.join(HERE, f'F4_details{TAG}.json'), 'w') as fh:
         json.dump({'table': table, 'details': details}, fh, indent=1,
                   default=float)
 
     print("\n=== F4 table ===")
     hdr = f"{'K':>2} {'eta':>5} {'LP base':>12} {'LP sub-ft':>12} " \
-          f"{'min_j V_j':>12} {'sub-base':>11} {'sub-minV':>11} {'U_K':>10}"
+          f"{'min_j V_j':>12} {'min_m W_m':>12} {'sub-base':>11} " \
+          f"{'sub-minV':>11} {'sub-minW':>11} {'U_K':>10} {'<=U_K':>6}"
     print(hdr)
     for r in table:
         print(f"{r['K']:>2} {r['eta']:>5} {r['lp_base']:>12.9f} "
               f"{r['lp_sub']:>12.9f} {r['min_j_Vj']:>12.9f} "
+              f"{r['min_m_Wm']:>12.9f} "
               f"{r['diff_sub_minus_base']:>11.2e} "
-              f"{r['diff_sub_minus_minV']:>11.2e} {r['U_K']:>10.6f}")
-    print("\nfiles: results/F4_table.csv, results/F4_details.json")
+              f"{r['diff_sub_minus_minV']:>11.2e} "
+              f"{r['sub_minus_minW']:>11.2e} {r['U_K']:>10.6f} "
+              f"{str(r['sub_le_UK']):>6}")
+    print(f"\nfiles: results/F4_table{TAG}.csv, results/F4_details{TAG}.json")
 
 
 if __name__ == "__main__":

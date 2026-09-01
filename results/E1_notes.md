@@ -164,6 +164,26 @@ K=7 时 ratio 中位数 0.9990。
    airline K=3、seeds 0..4：两者都是 0.9819（min 0.9764），即两条轨迹选到同一个集合。
    所以"用 greedy-on-f 当 OPT 代理"在这些任务上把 ratio 抬高了约 2%–3%。
    airline K=7 的 OPT 需要枚举 C(22,7)=170544 个子集，没做，标注为未测。
+
+   **附注（TASKS4 F1.4，2026-09-01 补测）：breast_cancer 的暴力 OPT。**
+   脚本 `results/E1_run.py --part opt_bc --opt-k 4`，输出 `results/E1_opt_breast_cancer.csv`
+   （10 seeds × K=1..4 每行一条，含 OPT、两条 greedy 的 f 值与两个比值）。
+   f 与正文完全同一个：80/20 划分上的决策树 held-out accuracy，过同一个 frozenset 缓存。
+
+   | K | 枚举子集数 | median f(greedy^f)/OPT | min | median f(greedy^f̃)/OPT | min |
+   |---|---|---|---|---|---|
+   | 1 | 30 | 1.0000 | 1.0000 | 0.9659 | 0.9065 |
+   | 2 | 435 | 1.0000 | 0.9727 | 0.9726 | 0.9364 |
+   | 3 | 4,060 | 0.9820 | 0.9640 | 0.9591 | 0.9273 |
+   | **4** | **27,405** | **0.9823** | 0.9554 | 0.9464 | 0.9115 |
+
+   即 breast_cancer 上"greedy-on-f 当 OPT 代理"把 ratio 抬高约 1.8%（K=4 中位数 0.9823），
+   与 wine K=7 的 0.9722 同量级，方向一致：分母偏小、报出的 ratio 是上估。
+
+   **为什么是 K=4 而不是 K≤5**：先估时（同一台机器、与 E2/E1 主跑并行占核）得到约 394 次
+   f 评估/秒，K=1..5 共需 C(30,1..5) = 174,436 次/seed，10 个 seed 约 74 分钟，超过 TASKS4
+   给的 30 分钟上限；降到 K=4（31,930 次/seed）实测每 seed 75–109 秒、10 个 seed 共
+   约 13.6 分钟。**K=5 的 OPT 没有测，任何地方都不要报 K=5 的 OPT 比值。**
 3. **d ≤ 0 的步**（chosen 的真实增益非正，按 statistics.py 从 η^sel 的 max 中剔除并计数）：
    K=7 的 210 步里，airline 0 步、digits20 17 步、breast_cancer 98 步、wine 109 步。
    小数据集上"加一个特征反而掉 accuracy"是常态，这一点必须写进论文，不能只报 η。
@@ -324,3 +344,14 @@ f̃ 约 71–195 次/seed（都算缓存后的实际评估数）。
 
 `results/E1_rows.csv`：统一行格式，task='E1'，
 dataset ∈ {airline, breast_cancer, wine, digits20}，K=1..7 × seed=0..29 每组一行。
+2026-09-01（TASKS4 F1.3）起末尾多两列 `n_steps_nonpos` 与 `frac_steps_nonpos`
+（前 K 步里被选中真实增益 d_t ≤ 0 的步数与占比；η^sel 与 `LK_eta_sel` 只在 d_t > 0 的步上定义，
+所以 `LK_eta_sel` 报的保证是"对正增益步成立"，其余步的比例就是这一列）。
+K=7 的 `frac_steps_nonpos` 中位数：airline 0.000、digits20 0.000、breast_cancer 0.4286、
+wine 0.5714。该次重跑（`--part main`，全部 4 dataset × 30 seed）与旧文件的
+ratio / eta_sel / eta_path_trimmed / viol_sign_pct / LK 两列**逐行完全一致**（840 行 0 处不同），
+新增的只有这两列。
+
+`results/E1_opt_breast_cancer.csv`（TASKS4 F1.4）：列
+`dataset, seed, K, opt, f_greedy_f, f_greedy_ftilde, greedy_f_over_opt, greedy_ftilde_over_opt`，
+40 行 = 10 seed × K=1..4，OPT 为暴力枚举。

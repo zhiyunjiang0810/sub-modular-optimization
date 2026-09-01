@@ -94,23 +94,29 @@ def main():
     tex = r"""% Experiments-section summary table.  REGENERATED, do not hand-edit:
 %   python3 results/EXP_table_build.py
 % Every number is recomputed from results/E{1,2,3}_rows.csv (medians / IQR over
-% all runs at the stated K) and results/E4_worst_case.csv.
+% all runs at the stated K) and results/E4_worst_case.csv / E4_rows.csv.
+% Width: \small + \tabcolsep 4pt measures 393.7pt against the 397.5pt ICLR
+% textwidth (checked with pdflatex + iclr2027_conference.sty), so it fits the
+% one-column page.  Shortening any header will only add slack.
 \begin{table}[t]
 \centering
 \caption{Predictive greedy across three surrogate families. Medians over all
-runs at the stated $K$ (IQR in brackets). $L_K(\eta^{sel})$ is the certified
-lower bound of Theorem~\ref{thm:trajectory} evaluated at the median measured
-$\eta^{sel}$.}
+runs at the stated $K$ (IQR in brackets). $L_K$ is the certified lower bound
+$L_K(\eta^{sel})$ of Theorem~\ref{thm:trajectory} evaluated at the median
+measured $\eta^{sel}$; $d_t \le 0$ \% is the share of trajectory steps whose
+chosen true gain is non-positive.}
 \label{tab:experiments}
+\small
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{llccccrr}
 \toprule
-Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\eta^{sel}$ & $L_K(\eta^{sel})$ & sign-viol.\ \% & non-pos.\ steps \% \\
+Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\eta^{sel}$ & $L_K$ & sign-viol.\ \% & $d_t\!\le\!0$ \% \\
 \midrule
 __E1__
 __E2__
 __E3__
 \midrule
-Worst-case $V_j$ (5) & constructed & __E4RATIO__\textsuperscript{a} & exact & __E4ETA__ & $=\rho_K$ & __E4VIOL__ & __E4NONPOS__ \\
+Worst-case $V_j$ (5) & constructed & __E4RATIO__\textsuperscript{a} & exact & __E4ETA__ & $\rho_K$ & __E4VIOL__ & __E4NONPOS__ \\
 \bottomrule
 \end{tabular}
 \vspace{2pt}
@@ -121,22 +127,21 @@ every constructed instance realizes its theoretical value to $10^{-10}$
 proxy for OPT, so every ratio in this table is an upper estimate of
 $f(S^{\tilde f})/f(\mathrm{OPT})$.\\
 \emph{Note (ii)}: $\eta^{sel}$ is defined on the steps with positive true gain,
-so the certified lower bound in the $L_K$ column is a statement about those
-steps; the last column reports the share of trajectory steps with
-$d_t \le 0$ (column \texttt{frac\_steps\_nonpos} of the row CSVs), which are
-outside that scope.\\
+so the certified bound in the $L_K$ column is a statement about those steps;
+the last column reports the share of steps with $d_t \le 0$ (column
+\texttt{frac\_steps\_nonpos} of the row CSVs), which are outside that scope.\\
 \emph{Note (iii)}: for influence maximization $f$ and $\tilde f$ are coverage
 functions on nested edge sets, so opposite-sign $(d,\tilde d)$ pairs cannot
-occur; the entry is "--" rather than a measured zero.}
+occur; the entry is ``--'' rather than a measured zero.}
 \end{table}
 """
-    tex = tex.replace('__E1__', line('Feature selection', '5-fold CV accuracy',
+    tex = tex.replace('__E1__', line('Feature sel.\\', '5-fold CV acc.',
                                      s['E1']))
     assert s['E2']['viol_all_zero'], 'E2 sign-violation column is not all zero'
-    tex = tex.replace('__E2__', line('Influence max.\\', 'partially observed graph',
+    tex = tex.replace('__E2__', line('Influence max.\\', 'observed graph',
                                      s['E2'], viol_txt='--'))
     tex = tex.replace('__E3__', line('Summarization',
-                                     'coverage / diversity / FL', s['E3']))
+                                     'cover./div./FL', s['E3']))
     tex = tex.replace('__E4RATIO__', f"{float(e4['realized']):.3f}")
     tex = tex.replace('__E4ETA__', f"{float(e4['eta']):.1f}")
     tex = tex.replace('__E4VIOL__', f"{float(e4['viol']):.0f}")

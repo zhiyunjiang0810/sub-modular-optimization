@@ -5,6 +5,17 @@
 `results/E3_summary.json`（脚本产出的全部聚合量，本文件的所有数字均由它转写）、
 `figures/E3_overview.png` / `.pdf`。
 
+2026-09-01（TASKS4 F1）两点更新，**本文件的全部数字不变**：
+1. **ROUGE 核对通过。** 自实现的 `Rouge1F` 与 `rouge-score` 0.1.2 的 `rouge1.fmeasure` 在
+   business/sport/tech 各 30 篇、共 1,624 个候选摘要上**最大绝对差 0.0**，因此没有改 f，
+   也没有因 ROUGE 重跑（详见 `results/F1_rouge_check.md` / `.json` / `.py`）。
+2. **统一行格式新增两列**（TASKS4 F1.3）：`n_steps_nonpos` 与 `frac_steps_nonpos`，
+   即前 K 步里被选中真实增益 d_t ≤ 0 的步数与占比。η^sel 与 `LK_eta_sel` 只在 d_t > 0 的步上
+   定义，所以 `LK_eta_sel` 报的保证是"对正增益步成立"，其余步的比例就是这一列。
+   K=5 的中位数：coverage 0.200、diversity 0.000、facility 0.200（合并 0.200）。
+   为此按上面的命令全量重跑了一次，`E3_rows.csv` 的 ratio / eta_sel / eta_path_trimmed /
+   viol_sign_pct / LK 两列与旧文件**逐行完全一致**（4,377 行 0 处不同），新增的只有这两列。
+
 本任务在论文中的定位：**模型边界外的行为**。ROUGE-1 F 既不单调也不 submodular（下文有实测），
 所以这里得到的 ratio 与 η 不是对定理条件的确认，而是"当假设不成立时管线读数长什么样"的记录。
 
