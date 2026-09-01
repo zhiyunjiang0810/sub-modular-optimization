@@ -16,7 +16,7 @@ SATURATES, so Delta Ghat = 0 there too), but YES for a new reason, see below.
 
 WHAT IS COMPUTED
 ----------------
-Four modes, all on the (x, y) grid, x = |S \\ O| in 0..n-K, y = |S cap O| in 0..K.
+Eight sections, all on the (x, y) grid, x = |S \\ O| in 0..n-K, y = |S cap O| in 0..K.
 Everything is in the SCALED predictor  Gs := sqrt(eta) * G  of results/N4_check.py,
 so with an inflation factor c = sqrt(1 + delta) the single-element band
     Delta F/(eta_u c) <= Delta G <= eta_o c Delta F      (eta_u = eta_o = sqrt(eta))
@@ -38,11 +38,23 @@ becomes
   D  cap     : mode B with the balanced-equality constraint imposed only on
                levels s <= smax (i.e. against algorithms whose queries have
                size at most smax).  Reports the largest feasible smax.
+  E  nthresh : smallest n at which mode B becomes feasible (tau = 1), against
+               the prediction n > K(T+1).
+  F  tau     : how the best constant the relaxed-F LP can prove degrades as the
+               band widens; it hits the trivial 1/eta ceiling of R2 at
+               tau ~ ceil(K/eta).
+  G  cert    : the universal 2-constraint certificate, exact rational arithmetic
+               (subcommand "cert").
+  H  window  : G is O-oblivious on all of {x > T} by itself, so only queries
+               with |S| <= T+K can leak (subcommand "cert").
 
-Run:  python3 results/F3_check.py            (full grid, writes the CSV + JSON)
-      python3 results/F3_check.py quick      (K = 4 only, n = 8K)
+Run:  python3 results/F3_check.py            (sections A-F; CSV + JSON, ~25 min,
+                                              of which sections A-E take ~4 min)
+      python3 results/F3_check.py quick      (K = 4 only, n = 8K, ~5 s)
+      python3 results/F3_check.py cert       (sections G and H, ~40 s)
 
-Outputs: results/F3_delta_table.csv, results/F3_check.json
+Outputs: results/F3_delta_table.csv, results/F3_check.json (flushed after every
+section, so a slow late LP cannot lose the table).
 """
 import json
 import math
@@ -376,6 +388,110 @@ def cert_str(c, fallback=None):
                                       e[1][0], e[1][1], e[2]))
 
 
+def certificate_check():
+    """G.  The universal 2-constraint certificate, in exact rational arithmetic.
+
+    Claim [HAND-PROOF-UNREVIEWED, oracle-matched below].  Let T be the tail
+    length of the N4 closed form (r_x = g_x = 0 for x > T, and r_T = g_T > 0, so
+    F(T,y) = 1 for every y >= 1).  Let K >= 3 and n - K >= T.  For an integer
+    m with 1 <= m <= K-2 the three points
+        P1 = (T, m)    and    P2 = (T-1, m+1)   (both on level T+m),
+        P3 = (T, m+1)                           (on level T+m+1)
+    carry the two edges
+        flat  edge  P1 -> P3 :  Delta F = 1 - 1 = 0,
+        live  edge  P2 -> P3 :  Delta F = 1 - F(T-1,m+1)
+                              = (r_{T-1} - g_{T-1})(K-1-m)/(K-1) > 0.
+    If P1, P2, P3 are all balanced, the no-leakage constraint pins their
+    predictor values to Ghat_{T+m}, Ghat_{T+m}, Ghat_{T+m+1}, and
+        band_up on the flat edge  =>  Ghat_{T+m+1} - Ghat_{T+m} <= 0,
+        band_lo on the live edge  =>  Ghat_{T+m+1} - Ghat_{T+m} > 0,
+    an irreducible infeasible subset of size 2, for EVERY delta and for every
+    choice of G off the balanced region.
+    For m = 1 the balancedness condition reads
+      definition y <= tau  :  tau >= 2                        (any n),
+      true band            :  K(T+1)/n >= 2 - tau, i.e. for tau = 1
+                              n <= K(T+1)   and for tau >= 2 always.
+    Larger m covers the small-n regime where the band centre K|S|/n has already
+    climbed above y = 2 by level T.
+    """
+    print('G.  universal 2-constraint certificate (exact rational arithmetic)')
+    print(f"{'K':>3} {'eta':>5} {'tau':>4} {'n':>6} {'T':>4} {'defn':>7} "
+          f"{'flat==0':>9} {'dF(live,1)':>11} {'m fires':>11} "
+          f"{'oracle: infeasible':>19} {'witness':>10}")
+    npass = nfail = 0
+    for K in [3, 4, 5, 6, 8]:
+        for eta in [Fr(3, 2), Fr(2), Fr(5, 2), Fr(3)]:
+            for tau in [1, 2]:
+                for mult in [8, 16, 32]:
+                    for defn in ['true', 'ysmall']:
+                        n = mult * K
+                        I = n4_instance(n, K, float(eta))
+                        T, X, Fe = I['P']['T'], I['X'], I['Fexact']
+                        if T + 1 > X or K < 3:
+                            continue
+                        bal = bal_mask(n, K, tau, defn)
+                        flat_ok, live_ok, mfire = True, True, None
+                        for m in range(1, K - 1):
+                            if Fe[T][m + 1] - Fe[T][m] != 0:
+                                flat_ok = False
+                            if Fe[T][m + 1] - Fe[T - 1][m + 1] <= 0:
+                                live_ok = False
+                            if (mfire is None and bal[T, m] and bal[T - 1, m + 1]
+                                    and bal[T, m + 1]):
+                                mfire = m
+                        live = float(Fe[T][2] - Fe[T - 1][2])
+                        cyc = flat_cycle_certificate(Fe, bal, X, K)
+                        got = (cyc is not None)
+                        pe = ([[T - 1, mfire + 1], [T, mfire + 1]]
+                              if mfire is not None else None)
+                        same = (got and pe is not None
+                                and any(c[0] == pe[0] and c[1] == pe[1]
+                                        for c in cyc['cycle']))
+                        ok = (flat_ok and live_ok
+                              and ((mfire is not None) == got))
+                        npass += ok; nfail += (not ok)
+                        print(f"{K:3d} {str(eta):>5} {tau:4d} {n:6d} {T:4d} "
+                              f"{defn:>7} {str(int(flat_ok)):>9} {live:11.3e} "
+                              f"{str(mfire):>11} {str(got):>19} "
+                              f"{('m=%d hit' % mfire if same else ('-' if not got else 'other')):>10}"
+                              f"{'' if ok else '   <-- FAIL'}")
+    print(f"\n  {npass} PASS / {nfail} FAIL.  Checked: Delta F on the flat edge is "
+          f"exactly 0 and on the live edge is > 0 (exact rationals), and the "
+          f"delta-free\n  cycle oracle reports infeasibility EXACTLY when "
+          f"P1, P2, P3 are balanced.")
+
+    print()
+    print('H.  the far field answers O-independently by itself: is G(x,y) = Ghat_{x+y} '
+          'on ALL of {x > T}?')
+    print('  (if yes, only queries with |S \\ O| <= T can leak, so the union bound '
+          'runs over sets of size <= T+K)')
+    print(f"{'K':>3} {'eta':>5} {'n':>6} {'T':>4} {'#points x>T':>12} "
+          f"{'max |G - Ghat_{x+y}|':>22} {'largest leaking |S|':>20}")
+    h_pass = h_fail = 0
+    for K in [3, 4, 6, 8]:
+        for eta in [Fr(3, 2), Fr(2), Fr(3)]:
+            n = 16 * K
+            I = n4_instance(n, K, float(eta))
+            T, X, Fe, Ge, Gh = (I['P']['T'], I['X'], I['Fexact'], I['Gexact'],
+                                N4.solution(K, Fr(eta), I['X'], n)[2])
+            worst, cnt, big = Fr(0), 0, 0
+            for x in range(X + 1):
+                for y in range(K + 1):
+                    dev = abs(Ge[x][y] - Gh[x + y])
+                    if x > T:
+                        cnt += 1
+                        worst = max(worst, dev)
+                    if dev != 0:
+                        big = max(big, x + y)
+            ok = (worst == 0) and (big <= T + K)
+            h_pass += ok; h_fail += (not ok)
+            print(f"{K:3d} {str(eta):>5} {n:6d} {T:4d} {cnt:12d} "
+                  f"{str(worst):>22} {big:20d}{'' if ok else '   <-- FAIL'}")
+    print(f"\n  {h_pass} PASS / {h_fail} FAIL.  G is exactly level-constant on "
+          f"{{x > T}} and every leaking set has |S| <= T + K.")
+    return 0 if (nfail == 0 and h_fail == 0) else 1
+
+
 def main(quick=False):
     Ks = [4] if quick else [4, 6]
     mults = [8] if quick else [8, 16, 32]
@@ -384,6 +500,19 @@ def main(quick=False):
     defns = ['true', 'ysmall']
 
     rows, blob = [], {'A': [], 'B': [], 'C': [], 'D': []}
+
+    csv = os.path.join(HERE, 'F3_delta_table.csv')
+
+    def dump():
+        """Flush after every section so a slow late LP cannot lose the table."""
+        with open(csv, 'w') as fh:
+            fh.write('n,K,tau,eta,defn,mode,status,min_delta,note\n')
+            for r in rows:
+                fh.write('%(n)s,%(K)s,%(tau)s,%(eta)s,%(defn)s,%(mode)s,%(status)s,'
+                         '%(min_delta)s,%(note)s\n' % r)
+        with open(os.path.join(HERE, 'F3_check.json'), 'w') as fh:
+            json.dump(blob, fh, indent=1, default=str)
+
     print('=' * 108)
     print('A/B.  N4 explicit (F,G) under the TRUE balanced band |y - K|S|/n| <= tau')
     print('=' * 108)
@@ -425,6 +554,8 @@ def main(quick=False):
                                             if certlvl != '' else
                                             'delta_cc=%.6g' % d['delta_cc']))))
 
+    dump()
+
     print()
     print('=' * 108)
     print('D.  largest query-size cap smax for which the frozen-F LP stays feasible '
@@ -452,6 +583,8 @@ def main(quick=False):
                                                 else '%.9g' % D['delta_at_smax']),
                                      note='T=%d first_bad_smax=%s' % (D['T'],
                                                                      D['first_bad_smax'])))
+
+    dump()
 
     print()
     print('=' * 108)
@@ -486,6 +619,8 @@ def main(quick=False):
                                          min_delta='0',
                                          note=('ratio=%.9f' % r['ratio']
                                                if r['ratio'] is not None else '')))
+
+    dump()
 
     print()
     print('=' * 108)
@@ -529,6 +664,8 @@ def main(quick=False):
                                  min_delta=('' if dd is None else '%.9g' % dd),
                                  note='T=%d pred=%s' % (T, pred)))
 
+    dump()
+
     print()
     print('=' * 108)
     print('F.  how the best constant the technique can prove degrades with tau '
@@ -542,7 +679,10 @@ def main(quick=False):
             n = 16 * K
             vals = []
             for t in [1, 2, 3, 4, 6]:
-                if t >= K:
+                # (K, eta) = (12, 3) makes HiGHS crawl on this LP (> 20 min per
+                # solve) and adds nothing to the trend; skipped deliberately and
+                # reported as '-'.  Same for K = 12 with tau >= 6 at eta = 3.
+                if t >= K or (K >= 12 and eta >= 3.0):
                     vals.append(None); continue
                 try:
                     vals.append(relaxF_min_ratio(n, K, eta, t, 'true')['ratio'])
@@ -566,17 +706,12 @@ def main(quick=False):
                                  note=('relaxF_ratio=%.9f' % v if v is not None
                                        else '')))
 
-    csv = os.path.join(HERE, 'F3_delta_table.csv')
-    with open(csv, 'w') as fh:
-        fh.write('n,K,tau,eta,defn,mode,status,min_delta,note\n')
-        for r in rows:
-            fh.write('%(n)s,%(K)s,%(tau)s,%(eta)s,%(defn)s,%(mode)s,%(status)s,'
-                     '%(min_delta)s,%(note)s\n' % r)
-    with open(os.path.join(HERE, 'F3_check.json'), 'w') as fh:
-        json.dump(blob, fh, indent=1, default=str)
+    dump()
     print('\nwrote results/F3_delta_table.csv and results/F3_check.json')
     return 0
 
 
 if __name__ == '__main__':
+    if 'cert' in sys.argv:
+        sys.exit(certificate_check())
     sys.exit(main(quick=('quick' in sys.argv)))

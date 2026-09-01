@@ -251,3 +251,60 @@ n,K,tau,eta,defn,mode,status,min_delta,note
 192,6,1,3.0,ysmall,C_relaxF,OK,0,ratio=0.313412964
 192,6,2,3.0,true,C_relaxF,OK,0,ratio=0.333333346
 192,6,2,3.0,ysmall,C_relaxF,OK,0,ratio=0.333333344
+37,4,1,1.5,true,E_nthreshold,NMIN=37,6.66133815e-16,T=8 pred=37
+,4,2,1.5,true,E_nthreshold,NMIN=None,,T=8 pred=None
+45,4,1,2.0,true,E_nthreshold,NMIN=45,4.4408921e-16,T=10 pred=45
+,4,2,2.0,true,E_nthreshold,NMIN=None,,T=10 pred=None
+57,4,1,3.0,true,E_nthreshold,NMIN=57,1.77635684e-15,T=13 pred=57
+,4,2,3.0,true,E_nthreshold,NMIN=None,,T=13 pred=None
+85,6,1,1.5,true,E_nthreshold,NMIN=85,1.33226763e-15,T=13 pred=85
+,6,2,1.5,true,E_nthreshold,NMIN=None,,T=13 pred=None
+103,6,1,2.0,true,E_nthreshold,NMIN=103,1.11022302e-15,T=16 pred=103
+,6,2,2.0,true,E_nthreshold,NMIN=None,,T=16 pred=None
+133,6,1,3.0,true,E_nthreshold,NMIN=133,1.77635684e-15,T=21 pred=133
+,6,2,3.0,true,E_nthreshold,NMIN=None,,T=21 pred=None
+96,6,1,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.524603035
+96,6,2,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.581046657
+96,6,3,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.641684322
+96,6,4,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.666666680
+96,6,6,1.5,true,F_tau_sweep,SKIP,0,
+96,6,1,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.430836628
+96,6,2,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.476267919
+96,6,3,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.500000016
+96,6,4,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.500000000
+96,6,6,2.0,true,F_tau_sweep,SKIP,0,
+96,6,1,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.313461159
+96,6,2,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333347
+96,6,3,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333333
+96,6,4,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333333
+96,6,6,3.0,true,F_tau_sweep,SKIP,0,
+128,8,1,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.515102838
+128,8,2,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.557271568
+128,8,3,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.598916633
+128,8,4,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.644840048
+128,8,6,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.666666676
+128,8,1,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.421607129
+128,8,2,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.455995919
+128,8,3,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.489315552
+128,8,4,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.500000008
+128,8,6,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.500000000
+128,8,1,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.306713236
+128,8,2,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.329045064
+128,8,3,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333333
+128,8,4,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333333
+128,8,6,3.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.333333333
+192,12,1,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.505607732
+192,12,2,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.533963294
+192,12,3,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.561824433
+192,12,4,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.589468915
+192,12,6,1.5,true,F_tau_sweep,OK,0,relaxF_ratio=0.648827288
+192,12,1,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.412346548
+192,12,2,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.436546598
+192,12,3,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.459588758
+192,12,4,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.482249414
+192,12,6,2.0,true,F_tau_sweep,OK,0,relaxF_ratio=0.500000000
+192,12,1,3.0,true,F_tau_sweep,SKIP,0,
+192,12,2,3.0,true,F_tau_sweep,SKIP,0,
+192,12,3,3.0,true,F_tau_sweep,SKIP,0,
+192,12,4,3.0,true,F_tau_sweep,SKIP,0,
+192,12,6,3.0,true,F_tau_sweep,SKIP,0,

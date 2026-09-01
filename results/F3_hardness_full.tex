@@ -1,0 +1,306 @@
+% F3: bounded-query hardness for queries of UNRESTRICTED SIZE -- DRAFT.
+% LaTeX fragment, not a standalone document.  Compiled inside the ICLR 2027
+% template through paper/test_F3.tex; log in results/F3_compile.log.
+%
+% Companion scripts (all actually run):
+%   results/F3_check.py            sections A-F (grid), G (certificate), H (far field)
+%   results/N4_check.py            the exact-rational feasibility of the family
+%   results/T2_hardness_grid.py    the relaxed-F control LP
+% Imported without re-derivation:
+%   results/N4_hardness_construction.md  (sections 3, 4, 6)
+%   RESEARCH_STATE.md R1 (L_K), R2 (the 1/eta ceiling), R10 (V_j), R11(b),(c)
+%   results/N5_bounded_query_hardness.tex  (the transcript/Yao skeleton, reused)
+%
+% WHAT IS NEW HERE relative to results/N5_bounded_query_hardness.tex.
+%   N5 proves hardness against algorithms whose queries all have size at most K,
+%   using the R9 family and the balanced region {y <= tau}.  R11(b) records that
+%   the R9 family dies once "balanced" is the true concentration band.  This file
+%   uses the N4 family instead and removes the query-size restriction, at the
+%   price of a query budget capped near n^2.  The mechanism that makes this
+%   possible is Lemma F3.2: the N4 predictor is ALREADY O-independent on every
+%   set with |S \ O| > T, so large queries need no concentration argument at all.
+%
+% STATUS SUMMARY (per CLAUDE.md; nothing here is claimed as "proved"):
+%   Step 1 (concentration)      [HAND-PROOF-UNREVIEWED]  union bound, no oracle
+%   Step 2 (construction)       [EXACT] 42 (K,eta) points, results/N4_check.py A
+%                               + [EXACT] 12 points, results/F3_check.py H
+%   Step 3 (valuation/value)    [HAND-PROOF-UNREVIEWED] + [VERIFIED-SYMBOLIC] for
+%                               the closed form of the value
+%   Step 4 (Yao averaging)      [HAND-PROOF-UNREVIEWED], averaging direction only
+%   The theorem as a whole      [HAND-PROOF-UNREVIEWED]; see the honest
+%                               declaration at the end for what is NOT covered.
+
+% ===========================================================================
+% 0.  Setting and notation
+% ===========================================================================
+% Ground set N, |N| = n.  Hidden O subseteq N with |O| = K, B = N \ O.
+% For S subseteq N put x = |S \ O| and y = |S cap O|, so |S| = x + y.
+% Error model: SINGLE-ELEMENT, eta_u = eta_o = sqrt(eta), eta = eta_u eta_o.
+% Approximation ratio alpha in (0,1], larger is better.
+% L_K(eta) = 1 - (1 - 1/(eta K))^K,  V_j(eta) = R10's reduced-LP closed form.
+
+\paragraph{Design constants.}
+For an integer $K\ge3$ and a real $\eta>1$ put
+\[
+  k_1=\eta(K-1)+1,\qquad q=1-\tfrac1{k_1},\qquad \nu=\tfrac{\eta}{\eta-1},
+\]
+\[
+  j=\bigl[K+1-\lceil\eta\rceil\bigr]_0^K,\qquad m^{\ast}=\lceil\eta K\rceil-1,
+  \qquad T=j+m^{\ast},
+\]
+\[
+  D=\max\Bigl\{\tfrac{q^{j}}{K\eta},\
+      \tfrac{q^{j}\left(\nu^{m^{\ast}}/K-1\right)}
+            {\eta\left(\nu^{m^{\ast}}-1\right)-m^{\ast}}\Bigr\},
+  \qquad
+  W_K(\eta)\;=\;1-q^{j}+(K-j)\,D .
+\]
+% Status of j and m* as closed forms: [CONJECTURE], 264 points, N4_check.py C.
+% Status of W_K = V_j + (K-j)(D - q^j/(K eta)) and of W_K < U_K:
+% [VERIFIED-SYMBOLIC] (results/N4_symbolic.py, 19/19) and [VERIFIED-LP].
+
+% ===========================================================================
+% 1.  Step 1: concentration for queries of ARBITRARY size
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED].  Elementary exchangeability + union bound.
+% No oracle was run for this lemma.
+\begin{lemma}[Hypergeometric upper tail, explicit, any query size]
+\label{lem:f3-conc}
+Let $O$ be a uniformly random $K$-subset of $N$, $|N|=n$, let $S\subseteq N$ be
+fixed with $|S|=s\le n$, and let $1\le m\le K$.  Then
+\[
+  \Pr\bigl[\,|S\cap O|\ge m\,\bigr]\;\le\;\binom{K}{m}\prod_{i=0}^{m-1}\frac{s-i}{n-i}
+  \;\le\;\binom{K}{m}\Bigl(\frac{s}{n}\Bigr)^{m}
+  \;\le\;\frac{1}{m!}\Bigl(\frac{Ks}{n}\Bigr)^{m}.
+\]
+In particular $\Pr[\,|S\cap O|\ge2\,]\le K^{2}s^{2}/(2n^{2})$.
+\end{lemma}
+% Proof draft.  |S cap O| is hypergeometric and its law is unchanged if instead O
+% is fixed and S is a uniformly random s-subset (both equal
+% C(K,i)C(n-K,s-i)/C(n,s)).  Use the second view: the event {|S cap O| >= m} is
+% the union over the C(K,m) m-subsets R of O of {R subseteq S}, and
+% Pr[R subseteq S] = C(n-m, s-m)/C(n, s) = prod_{i<m} (s-i)/(n-i) <= (s/n)^m
+% because (s-i)/(n-i) <= s/n for s <= n.  A union bound finishes it.
+% [此步需人工检查：(a) 两种视角下 |S cap O| 同分布这一步；(b) C(K,m) <= K^m/m!。]
+%
+% REMARK (why not Chvatal/Hoeffding).  Chvatal's hypergeometric tail
+% Pr[|S cap O| >= sK/n + lambda] <= exp(-2 lambda^2 / s) is the standard explicit
+% form, and it is what one would use if the deviation lambda were allowed to grow
+% with s.  Here the whole argument needs the SECOND moment only, lambda ~ 2 with
+% s = O(K) (Lemma F3.2 removes every larger query), and exp(-8/s) is then
+% vacuous.  The union-bound form above is the sharp tool in this regime.  Both
+% are recorded because the paper text should say which one is used and why.
+% [此步需人工检查：exp(-2 lambda^2/s) 在 s = O(K)、lambda = 2 时确实 >= e^{-8/s}
+%  接近 1，所以是"更弱"，方向不要写反。]
+
+% ===========================================================================
+% 2.  Step 2: the construction, and why large queries are free
+% ===========================================================================
+\paragraph{The family.}
+With the constants above define, for $0\le x\le n-K$ and $0\le y\le K$,
+\[
+  r_x=\begin{cases}q^{x}, & x\le j\\ q^{j}-(x-j)D, & j<x\le T\\ 0,& x>T\end{cases}
+  \qquad
+  g_x=\begin{cases}q^{x}/K, & x\le j\\
+      \nu^{x-j}q^{j}/K-\eta D(\nu^{x-j}-1), & j<x\le T\\ 0,& x>T,\end{cases}
+\]
+\[
+  F_O(S)=1-r_x+\mathbf 1\{y\ge1\}\,g_x+\max(y-1,0)\frac{r_x-g_x}{K-1},
+  \qquad
+  \hat G_s=\frac1{\sqrt\eta}\sum_{x<s}g_x,
+\]
+\[
+  G_O(S)=\begin{cases}\hat G_{x+y}, & y\le 1\\[2pt]
+    \hat G_{x+1}+\sqrt\eta\,\bigl(F_O(S)-F_O(S_{x,1})\bigr), & y\ge2,\end{cases}
+\]
+where $S_{x,1}$ is any set with the same $x$ and $y=1$.  Set $f=F_O$ and
+$\tilde f=G_O$.
+
+% Status: [EXACT], results/N4_check.py section A, exact rational arithmetic,
+% 42 (K, eta) points (K = 3..8, eta in {5/4,3/2,7/4,2,9/4,5/2,3}), zero violations.
+\begin{lemma}[The family is admissible]\label{lem:f3-family}
+$F_O$ is monotone and submodular, $F_O(\emptyset)=0$, $F_O(O)=1$ and
+$F_O(S)\le1$ for every $|S|\le K$, so $\mathrm{OPT}=F_O(O)=1$.  The pair
+$(F_O,G_O)$ has single-element error exactly $\eta$ (that is, $\delta=0$: no
+error inflation is needed).  Moreover $F_O(S)=1-r_{|S|}$ whenever
+$S\cap O=\emptyset$, and $F_O(T)\le 1-r_K=W_K(\eta)$ for every $T$ with
+$|T|\le K$ and $T\cap O=\emptyset$.
+\end{lemma}
+% The first three sentences are exactly the [EXACT] check of results/N4_check.py
+% (which verifies the two band inequalities, i.e. error AT MOST eta with delta = 0).
+% "Exactly eta" additionally uses that both directions are attained: families A
+% (band_lo, y direction) and B (band_up, x direction) of the tight-constraint list
+% in results/N4_hardness_construction.md section 4.1 have nonzero dual multipliers,
+% hence are equalities at the optimum.  [VERIFIED-LP, K = 3..6]
+% The last: r is nonincreasing (r_x - r_{x+1} = d_x >= 0, part of the same check),
+% and K <= T because T - K = ceil(eta K) - ceil(eta) >= 0 for eta >= 1, K >= 1,
+% so r_K = q^j - (K-j)D and 1 - r_K = W_K(eta).
+% [此步需人工检查：K <= T 的不等式；r 的单调性在相位 2 也成立（d_x = D > 0）。]
+
+% Status: [EXACT], results/F3_check.py section H, 12 (K, eta) points,
+% max |G - Ghat| = 0 exactly on {x > T}; every leaking set has |S| <= T + K.
+% THIS IS THE LEMMA THAT REMOVES THE QUERY-SIZE RESTRICTION OF N5.
+\begin{lemma}[The predictor is $O$-oblivious off a bounded window]
+\label{lem:f3-window}
+$G_O(S)=\hat G_{|S|}$ holds whenever $|S\cap O|\le1$, and also whenever
+$|S\setminus O|>T$.  Consequently $G_O(S)\neq\hat G_{|S|}$ forces both
+$|S\cap O|\ge2$ and $|S|\le T+K$.
+\end{lemma}
+% Proof draft.  The case y <= 1 is the definition of G_O.  If x > T then
+% r_x = g_x = 0, so F_O(S) = 1 for every y, hence for y >= 2 the second branch
+% reads G_O(S) = Ghat_{x+1} + sqrt(eta)(1 - 1) = Ghat_{x+1}; and Ghat is constant
+% from index T+1 on (its increments are g_x/sqrt(eta) = 0 for x > T), so
+% Ghat_{x+1} = Ghat_{x+y}.  For the consequence: a leaking S has y >= 2 and
+% x <= T, hence |S| = x + y <= T + K.
+% [此步需人工检查：Ghat 的饱和索引；x > T 蕴含 x+1 >= T+1 与 x+y >= T+1。]
+%
+% CONTRAST WITH R11(b).  The R9 candidate has Ghat(s) = 1 - a^s, which never
+% saturates, so its flat top row y = K collides with a strictly increasing Ghat
+% and the candidate dies for every delta.  The N4 family makes F and Ghat go flat
+% TOGETHER, which is exactly what Lemma F3.2 exploits.  The price is recorded in
+% the honest declaration D2 below: with the balanced region taken to be the full
+% two-sided band and tau >= 2, the N4 family dies too, by a different
+% 2-constraint certificate (results/F3_summary.md section 2.1).
+
+% ===========================================================================
+% 3.  Step 3: valuation, and the deterministic theorem
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED] (the simulation induction; the same argument as
+% Lemma N5.3, restated for the window of Lemma F3.2).
+\begin{lemma}[Valuation on the good event]\label{lem:f3-val}
+Let $\mathcal A$ be deterministic, make at most $Q$ queries to $\tilde f$ of
+\emph{arbitrary} size, and output $T$ with $|T|\le K$.  Run $\mathcal A$ against
+the canonical oracle $S\mapsto\hat G_{|S|}$ and let $S_1,\dots,S_Q,T_0$ be the
+resulting (fixed, $O$-free) transcript and output.  If
+\[
+  \text{for every }i:\quad |S_i\cap O|\le1\ \ \text{or}\ \ |S_i\setminus O|>T,
+  \qquad\text{and}\qquad T_0\cap O=\emptyset ,
+\]
+then $\mathcal A$ run on $(F_O,G_O)$ outputs $T_0$ and
+$F_O(T_0)/F_O(O)\le W_K(\eta)$.
+\end{lemma}
+% Proof draft.  Induction on i: if the first i-1 answers agree with the canonical
+% ones, determinism makes the i-th query equal to S_i, and the hypothesis plus
+% Lemma F3.2 make the i-th answer Ghat_{|S_i|}, the canonical one.  So the output
+% is T_0.  Then T_0 cap O = empty and |T_0| <= K give
+% F_O(T_0) = 1 - r_{|T_0|} <= 1 - r_K = W_K(eta) by Lemma F3.1, and F_O(O) = 1.
+% [此步需人工检查：(a) 确定性算法的状态由应答序列唯一决定，排除了算法另有 O 的
+%  信息源；(b) 查询大小不再受限，所以归纳里不能引用任何 |S| <= K 的假设。]
+
+% Status: [HAND-PROOF-UNREVIEWED] for the assembly.
+\begin{theorem}[Bounded-query hardness, unrestricted query size]\label{thm:f3}
+Let $K\ge3$, $\eta>1$, and let $n\ge4K(T+K)$ (which implies $n\ge8K^{2}$).  Let $\mathcal A$ be any
+deterministic algorithm that makes at most
+\[
+  Q\;\le\;\frac{n^{2}}{2K^{2}(T+K)^{2}}
+  \qquad\Bigl(\text{and } T+K\le(2+\eta)K+1,\ \text{so } Q=\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)\Bigr)
+\]
+queries to $\tilde f$, of \emph{arbitrary} size, and outputs a set of size at
+most $K$.  Then there is a $K$-set $O\subseteq N$ for which the instance
+$(f,\tilde f)=(F_O,G_O)$ is monotone submodular with single-element error
+exactly $\eta$, has $O^{\ast}=O$, and
+\[
+  \frac{f(\mathcal A)}{f(O^{\ast})}\;\le\;W_K(\eta)
+  \;=\;V_j(\eta)+(K-j)\Bigl(D-\frac{q^{j}}{K\eta}\Bigr).
+\]
+\end{theorem}
+% Proof draft.  Draw O uniformly among K-subsets.  By Lemma F3.2 a query S can
+% break the simulation only if |S cap O| >= 2 and |S| <= T + K; by Lemma F3.1
+% (concentration) each such query fails with probability at most
+% K^2 (T+K)^2 / (2 n^2), so a union bound over the Q canonical queries costs at
+% most Q K^2 (T+K)^2/(2n^2) <= 1/4.  Also
+% Pr[T_0 cap O != empty] <= E|T_0 cap O| = |T_0| K/n <= K^2/n <= 1/8, because
+% T >= K gives T + K >= 2K and therefore n >= 4K(T+K) >= 8K^2.  The bad event has
+% probability at most 3/8 < 1, so some O satisfies both conditions; fix it and
+% apply Lemma F3.3.  Admissibility of the instance is Lemma F3.1.
+% The same hypothesis keeps the budget nonvacuous: n >= 4K(T+K) makes
+% n^2/(2K^2(T+K)^2) >= 8, so at least one query is allowed.
+% [此步需人工检查：(a) 只对 canonical transcript 做 union bound 是合法的，因为
+%  S_1..S_Q 不依赖 O；(b) 大小 > T+K 的查询贡献 0 概率，这一步用的是 Lemma F3.2
+%  的确定性结论而不是概率；(c) 1/4 + 1/8 < 1；(d) T >= K 见 Lemma F3.1 的注。]
+
+% Status: [VERIFIED-SYMBOLIC] for the identity and the two comparisons;
+% [VERIFIED-LP] for the numbers.  results/N4_symbolic.py, results/N4_check.py.
+\begin{remark}[What the constant is]\label{rem:f3-constant}
+$W_K(\eta)=V_j(\eta)+(K-j)\bigl(D-q^{j}/(K\eta)\bigr)$, where $V_j$ is the
+closed form of the reduced (predictive-greedy) LP of R10, and the excess term is
+positive but decays very fast in $K$: at $\eta=2$ it is
+$3.2\cdot10^{-4},5.9\cdot10^{-7},4.5\cdot10^{-12},5.2\cdot10^{-22}$ for
+$K=4,8,16,32$.  Also $L_K(\eta)\le V_j(\eta)\le W_K(\eta)<U_K(\eta)$ and
+$W_K(\eta)\to1-e^{-1/\eta}$ as $K\to\infty$.
+\end{remark}
+% READING (vacuity check, CLAUDE.md).  Removing "deterministic" changes the
+% statement: see Corollary F3.5.  Removing "of arbitrary size" does NOT change
+% the constant, only the query budget (with |S| <= K, results/N5_*.tex reaches
+% Q = n^c for any constant c, at a WEAKER constant L_K(hateta)); this is the one
+% real gain of the present file and it must be stated that way.  Removing
+% "single-element" is not tested anywhere.  "Poly-query" here means
+% Q = O(n^2/K^4) and NOT "any polynomial": see D1.
+
+% ===========================================================================
+% 4.  Step 4: Yao averaging (randomized algorithms)
+% ===========================================================================
+% Status: [HAND-PROOF-UNREVIEWED].  Only the averaging (easy) direction of Yao's
+% principle; no minimax theorem is used.
+\begin{corollary}[Randomized version]\label{cor:f3-rand}
+With the parameters of Theorem~\ref{thm:f3}, let $\mathcal R$ be any randomized
+algorithm with the same query budget and no query-size restriction.  Then
+\[
+  \min_{O}\ \frac{\mathbb E\bigl[f_O(\mathcal R)\bigr]}{f_O(O^{\ast})}
+  \;\le\;W_K(\eta)+\varepsilon_n,
+  \qquad
+  \varepsilon_n\;=\;\frac{K}{n}+\frac{Q\,K^{2}(T+K)^{2}}{2n^{2}},
+\]
+and $\varepsilon_n\to0$ as $n\to\infty$ with $K,\eta$ fixed and
+$Q=o(n^{2}/K^{2}(T+K)^{2})$.
+\end{corollary}
+% Proof draft.  Fix the random string r; R_r is deterministic with canonical
+% transcript and output T_0^{(r)}.  Pointwise in O,
+%   f_O(R)/f_O(O*) <= W_K(eta) + |T_0^{(r)} cap O|/K + 1{bad event for r},
+% using F_O(x,y) <= 1 - r_x + y/K <= W_K + y/K for x <= K (monotonicity of r and
+% the definition of F_O) and f_O <= f_O(O*) = 1 on the bad event.  Take the
+% expectation over O uniform: the middle term is at most K/n and the last is the
+% union bound of Theorem F3.4.  Average over r, exchange the two finite
+% expectations, and use min_O <= E_O.
+% [此步需人工检查：(a) F_O(x,y) <= W_K + y/K 这一步的代数（相位 2 里
+%  (r_x - g_x)/(K-1) <= 1/K 需要单独核对，本晚没有 oracle 跑过）；
+%  (b) "最坏实例 <= 分布平均" 的方向。]
+
+% ===========================================================================
+% 5.  Honest declarations
+% ===========================================================================
+% D1 (SCOPE OF "BOUNDED-QUERY").  The budget is Q = O(n^2 / ((2+eta)^2 K^4)),
+%    i.e. n^{2 - o(1)} and NOT "every polynomial".  The exponent 2 is intrinsic
+%    to this family, not an artefact of the analysis: it comes from the exponent
+%    in Pr[|S cap O| >= 2] <= (Ks/n)^2/2, and raising it would require the
+%    O-oblivious window of Lemma F3.2 to tolerate |S cap O| <= tau with tau >= 2.
+%    results/F3_check.py (sections A, B, G) shows that with tau >= 2 the family
+%    is infeasible for EVERY delta, with an explicit 2-constraint certificate,
+%    at all 48 tested configurations.  So "for every constant c, Q = n^c" is
+%    NOT available from this family.  [VERIFIED-LP + EXACT]
+%
+% D2 (WHAT THE TRUE BAND DOES).  If one insists, as RESEARCH_STATE.md R11(b)
+%    does, that the predictor be a function of |S| on the whole two-sided band
+%    |y - K|S|/n| <= tau, then the family is feasible (with delta = 0 and no
+%    leakage) iff tau = 1 and n > K(T+1), and infeasible for every delta
+%    otherwise.  [VERIFIED-LP, 144 configurations; EXACT for the flat/live signs;
+%    the threshold n = K(T+1)+1 matched at 12/12 points]  The theorem above does
+%    not need that stronger requirement, because Lemma F3.2 shows the large
+%    queries are answered O-obliviously anyway.  Which of the two formalizations
+%    a referee will accept is the main open judgement call here.
+%
+% D3 (WHAT IS NOT PROVED).  j and m* as closed forms are [CONJECTURE] (264
+%    points).  Monotonicity, submodularity and the OPT normalisation of the
+%    family are [EXACT] at 42 (K, eta) points but have no general-K symbolic
+%    proof.  Lemmas F3.1, F3.3, Theorem F3.4 and Corollary F3.5 are
+%    [HAND-PROOF-UNREVIEWED]: no oracle was run on the simulation induction, the
+%    union bound, or the averaging.  Corollary F3.5 additionally uses an
+%    inequality (F_O <= W_K + y/K) that no script has checked.
+%
+% D4 (RELATION TO THE ALGORITHMIC SIDE).  Predictive greedy attains
+%    rho_K(eta) >= L_K(eta) (R1, R10), and rho_K^LP = V_j.  Theorem F3.4 caps
+%    every algorithm in this query model at V_j + excess.  So the two sides meet
+%    up to the excess term of Remark F3.6, which is below 1e-11 already at
+%    K = 16.  Calling this "predictive greedy is optimal" would still be an
+%    overstatement: the equality rho_K = rho_K^LP is [VERIFIED-LP] only for
+%    K <= 5 (R6/N3), and the query budget is capped at n^{2-o(1)} (D1).

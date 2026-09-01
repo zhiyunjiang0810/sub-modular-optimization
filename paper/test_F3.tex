@@ -1,0 +1,39 @@
+% Compile test for results/F3_hardness_full.tex inside the ICLR 2027 template.
+% Build:  cd paper && pdflatex test_F3 && bibtex test_F3 && pdflatex test_F3 && pdflatex test_F3
+% Log kept at results/F3_compile.log.
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+
+\input{macros}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{F3: Bounded-Query Hardness with Unrestricted Query Size\\ (compile test)}
+\author{Anonymous}
+\iclrfinalcopy
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Compile test for \texttt{results/F3\_hardness\_full.tex}.  Not a paper section.
+\end{abstract}
+
+\input{../results/F3_hardness_full}
+
+\bibliography{references}
+\bibliographystyle{iclr2027_conference}
+
+\end{document}
