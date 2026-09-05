@@ -59,9 +59,9 @@ $\alpha=\etasel$ \citep{goundan2007revisiting}.
 % Status of the attribution: F6 audit item 4 (their alpha >= 1 satisfies
 % alpha rho_{e_t} >= max_e rho_e, so alpha = etasel; the earlier 1/etasel
 % reading was reversed and is corrected here).  The notation \etasel is ours.
-% Their Theorem 1 (p. 7) is verbatim the L_K bound; Theorem
-% \ref{thm:guarantee} below is that theorem instantiated and is attributed
-% accordingly, not claimed as new.
+% Their Theorem 1 (p. 7) is verbatim the L_K bound; Proposition
+% \ref{prop:guarantee} below is that theorem instantiated and is attributed
+% accordingly, not claimed as new (decision D2).
 \end{definition}
 The trajectory error restricts Definition~\ref{def:eta} to the states of the
 run; it is used in a single remark below and written $\etatr$ when a symbol is
@@ -86,7 +86,7 @@ ratio is achievable without an error assumption.
 % ---------------------------------------------------------------- block 3 --
 \subsection{The guarantee, stated for the selection error}\label{sec:guarantee}
 
-\begin{theorem}[Guarantee of predictive greedy]\label{thm:guarantee}
+\begin{proposition}[Guarantee of predictive greedy]\label{prop:guarantee}
 Let $f$ be monotone submodular with $f(\emptyset)=0$ and let $T=S^{K}$ be the
 output of a run of predictive greedy whose selection error is $\etasel$.
 Then, with $L_K(x)=1-(1-\tfrac1{xK})^{K}$,
@@ -97,17 +97,20 @@ Then, with $L_K(x)=1-(1-\tfrac1{xK})^{K}$,
 The same bound therefore holds with $\etasel$ replaced by $\etatr$ or by
 $\eta$, and the three bounds are ordered
 $L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$.
-\end{theorem}
-% Status: [HAND-PROOF-UNREVIEWED]; classical approximate-greedy analysis
-% (Goundan--Schulz; the submitted draft's Theorem 6 is the eta form).
-% Proof: Appendix \ref{app:guarantee}.  Steps with nonpositive chosen gain do
-% not enter \etasel; the appendix states why the analysis only needs the
-% positive steps.  Experiment columns n_steps_nonpos / frac_steps_nonpos
-% report how often such steps occur in practice (F1).
+\end{proposition}
+Proposition~\ref{prop:guarantee} is restated in the prediction-error model of
+Section~\ref{sec:model}; it is essentially due to Goundan and Schulz
+\citep[Theorem~1]{goundan2007revisiting}.  A proof is included in
+Appendix~\ref{app:guarantee} for completeness.
+% Status: [HAND-PROOF-UNREVIEWED]; decision D2 (TASKS5): stated as a
+% Proposition, attributed, never claimed as new.  Steps with nonpositive
+% chosen gain do not enter \etasel; the appendix states why the analysis only
+% needs the positive steps.  Experiment columns n_steps_nonpos /
+% frac_steps_nonpos report how often such steps occur in practice (F1).
 
 \begin{remark}\label{rem:etasel-measurable}
 $\etasel$ is computable from the run when $f$ becomes observable in
-hindsight, which makes Theorem~\ref{thm:guarantee} a certificate: the
+hindsight, which makes Proposition~\ref{prop:guarantee} a certificate: the
 measured $\etasel$ of a finished run certifies the printed bound for that
 run.  The experiments of Section~\ref{sec:experiments} report measured
 $\etasel$ and the resulting certified bounds.
@@ -120,7 +123,7 @@ $\etasel$ and the resulting certified bounds.
 For every $K\ge2$ and $\hat a>1$ there is an instance $(f,\tilde f)$ on
 $2K$ elements with $\etasel=\etatr=\hat a$ on the adversarial-tie run of
 predictive greedy, whose output value is exactly $L_K(\hat a)\,f(O^{\ast})$.
-Hence Theorem~\ref{thm:guarantee} is an equality on this family for every
+Hence Proposition~\ref{prop:guarantee} is an equality on this family for every
 $K$, not only in the limit.
 \end{theorem}
 % Status: instance family verified symbolically for general K
@@ -185,7 +188,7 @@ $[1,2],[2,3],[3,4],[4,\infty)$.
 %    convention], results/N2_check.py (480/480); their per-step gains are in
 %    Appendix \ref{app:instances}.
 %  L_K <= min_j V_j: the reduced LP has all constraints of the Theorem
-%    \ref{thm:guarantee} analysis and more, so its value dominates (F0).
+%    \ref{prop:guarantee} analysis and more, so its value dominates (F0).
 % The instances use adversarial ties; under strict preference the value is an
 % infimum (strict variant checked in results/N2_check.py).
 
@@ -197,19 +200,19 @@ $V_{K-1}$ for every $\eta>1$.
 % [VERIFIED-SYMBOLIC]: U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k_1) > 0,
 % results/N1_dual_certificate.py part G.
 The predictor $\tilde f$ of the attaining instances is monotone but not
-submodular.  If the model additionally requires $\tilde f$ to be submodular,
-the worst case changes: for $\eta<K-1$ the exact value strictly increases
-(for example from $9/16$ to $19/33$ at $K=3$, $\eta=1.5$), the family above
-becomes inadmissible, and $U_K$ is no longer an upper bound; LP evidence
-supports the closed form $\min_m W_m$ with
-$W_m=\tfrac{K-mr^{m}}{K(1+(\eta-1)r^{m})}$, $r=1-\tfrac1K$, whose limit in
-$K$ exceeds $1-e^{-1/\eta}$ by roughly ten percent at $\eta=2$.
-% Status: exact values [VERIFIED-LP] with instance-validated attainment at
-% K <= 4 (K = 5 disjoint-O upper bounds, attained); the min_m W_m closed
-% form and its limit are [CONJECTURE], 76/76 LP points
-% (results/F4_submodular_ftilde.md).  This changes the adversary's power,
-% not the algorithm's behavior on a fixed instance; do not phrase as
-% robustness.
+submodular.  If the surrogate is itself submodular, the exact worst case
+strictly improves for $\eta<K-1$: at $K=3$, $\eta=1.5$ the value rises from
+$9/16$ to $19/33$
+% [VERIFIED-LP with instance-validated attainment,
+%  results/F4_submodular_ftilde.md]
+and the family above becomes inadmissible, so $U_K$ is no longer an upper
+bound in that model.  A general characterization is left open.
+% Decision D1 (TASKS5): the main model leaves ftilde unrestricted; this
+% remark is the only place the submodular-surrogate variant appears.  LP
+% evidence for a min_m W_m closed form is recorded in
+% results/F4_submodular_ftilde.md [CONJECTURE]; kept out of the main text.
+% "improves" = the worst-case RATIO increases (adversary loses instances);
+% never phrase as robustness ("more robust" is banned, GLOSSARY).
 \end{remark}
 
 % ---------------------------------------------------------------- block 7 --
@@ -275,7 +278,7 @@ and $L_K(\hat\eta)\to1-e^{-1/\eta}$ as $K\to\infty$.
 % stated (no complexity assumption; the bound counts queries).
 
 \begin{remark}\label{rem:hardness-pins}
-Combined with Theorem~\ref{thm:guarantee}, the bounded-query optimum at error
+Combined with Proposition~\ref{prop:guarantee}, the bounded-query optimum at error
 level $\eta$ is pinned to $1-e^{-1/\eta}$ asymptotically in $K$: predictive
 greedy achieves $L_K(\eta)\to1-e^{-1/\eta}$ with $K$ evaluations of
 $\tilde f$ per step, and no algorithm within the stated query budget exceeds

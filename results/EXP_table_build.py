@@ -102,7 +102,7 @@ def main():
 \centering
 \caption{Predictive greedy across three surrogate families. Medians over all
 runs at the stated $K$ (IQR in brackets). $L_K$ is the certified lower bound
-$L_K(\eta^{sel})$ of Theorem~\ref{thm:trajectory} evaluated at the median
+$L_K(\eta^{sel})$ of Proposition~\ref{prop:guarantee} evaluated at the median
 measured $\eta^{sel}$; $d_t \le 0$ \% is the share of trajectory steps whose
 chosen true gain is non-positive.}
 \label{tab:experiments}

@@ -161,3 +161,16 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
   新闭式猜想 ρ_K^sub = min_m W_m，W_m=(K−m r^m)/(K(1+(η−1)r^m))，r=1−1/K，76/76 点吻合
   [CONJECTURE]；渐近极限比 1−e^{−1/η} 高约 10%；U_K 在新模型失效为上界。
   若论文采用 submodular surrogate 模型，R7/U_K 陈述需重写（results/F4_submodular_ftilde.md）。
+
+## 更新（第五晚 G0：建模决定定案，2026-09-05）
+- **D1（主模型不限制 f̃）**：主模型对 surrogate f̃ 不作 submodular 假设；"f̃ 也 submodular" 的变体只以
+  一条 Remark 出现（正文措辞：if the surrogate is itself submodular, the exact worst case strictly
+  improves for η < K−1，引 F4 的 LP 验证点 K=3, η=1.5: 9/16 → 19/33，general characterization
+  left open）。W_m 闭式猜想不进正文（留在 results/F4_submodular_ftilde.md）。"more robust" 措辞禁用
+  （见 GLOSSARY robust 行）。理由：F4 结论目前仅 [VERIFIED-LP 有限点] + [CONJECTURE]，不足以支撑
+  重写 R7/U_K 全线陈述。
+- **D2（Theorem 6 降为 Proposition）**：原 Theorem 6（L_K 保证）改为 Proposition，正文措辞固定为
+  "restated in the prediction-error model of Section 2; essentially due to Goundan & Schulz (2007,
+  Theorem 1)"；证明移入附录并注明 included for completeness。全文不得对该结果写 "we prove/show"。
+  对应 label 由 thm:guarantee 改为 prop:guarantee（results.tex、notation_table.tex、
+  appendix_proofs.tex、captions.tex、EXP_table 已同步）。

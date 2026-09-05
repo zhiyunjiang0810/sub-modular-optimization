@@ -19,3 +19,5 @@
 | 记号定稿（第四晚） | 全局误差 $\eta$；选择误差 $\eta^{\mathrm{sel}}$（正文使用）；轨迹误差只在一处 remark 以文字出现，需记号时用 $\eta^{\mathrm{tr}}$；η_u、η_o 仍为下标分量 | LaTeX 宏 \etasel、\etatr 定义在 paper/macros.tex，全文统一使用 |
 | η^sel 的出处 | Goundan & Schulz 2007（MIT working paper，无会议/期刊版）Theorem 1 的 α-approximate incremental oracle，其约定 α ≥ 1 且 α·ρ_{e_i} ≥ max_e ρ_e，故 **α = η^sel**（F6 修正：此前误写 α = 1/η^sel，方向反了）；记号 η^sel 是我们的 | 本文 Theorem 6 是 GS Theorem 1 的实例化，措辞必须用 "in the terminology of Goundan and Schulz"，不得写 "we prove"；bib key goundan2007revisiting |
 | 引用四步核验（F6） | 每条引用：(1) 存在性（DBLP/出版方/arXiv 官方页）；(2) 支持陈述定位（页码/定理号）；(3) bib 字段逐项核对；(4) 版本选择理由 | 未过四步的只能以 [CITATION-NEEDS-VERIFICATION] 出现在注释，不得进 .bib |
+| D1（第五晚定案，2026-09-05） | 主模型 f̃ 无任何结构限制；submodular f̃ 只作一条 Remark（K=3, η=1.5: 9/16→19/33，[VERIFIED-LP]），general characterization left open | 不得在正文写 W_m 闭式（仅 [CONJECTURE]）；不得用 "more robust" 描述该变体 |
+| D2（第五晚定案，2026-09-05） | 原 Theorem 6 降为 Proposition~prop:guarantee，措辞 "restated in the prediction-error model of Section 2; essentially due to Goundan & Schulz (2007, Theorem 1)"，证明入附录标 included for completeness | 对该结果禁写 "we prove/show"；引用一律 Proposition + \ref{prop:guarantee} |
