@@ -1,0 +1,47 @@
+% GENERATED, do not hand-edit.  Copied from results/EXP_table.tex
+% by results/G3_gen_numbers.py, with $\eta^{sel}$ rewritten to
+% the \etasel macro of paper/macros.tex.  Regenerate the source
+% with results/EXP_table_build.py, then rerun G3_gen_numbers.py.
+% Experiments-section summary table.  REGENERATED, do not hand-edit:
+%   python3 results/EXP_table_build.py
+% Every number is recomputed from results/E{1,2,3}_rows.csv (medians / IQR over
+% all runs at the stated K) and results/E4_worst_case.csv / E4_rows.csv.
+% Width: \small + \tabcolsep 4pt measures 393.7pt against the 397.5pt ICLR
+% textwidth (checked with pdflatex + iclr2027_conference.sty), so it fits the
+% one-column page.  Shortening any header will only add slack.
+\begin{table}[t]
+\centering
+\caption{Predictive greedy across three surrogate families. Medians over all
+runs at the stated $K$ (IQR in brackets). $L_K$ is the certified lower bound
+$L_K(\etasel)$ of Proposition~\ref{prop:guarantee} evaluated at the median
+measured $\etasel$; $d_t \le 0$ \% is the share of trajectory steps whose
+chosen true gain is non-positive.}
+\label{tab:experiments}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccccrr}
+\toprule
+Task ($K$) & Surrogate $\tilde f$ & ratio & IQR & $\etasel$ & $L_K$ & sign-viol.\ \% & $d_t\!\le\!0$ \% \\
+\midrule
+Feature sel.\ (7) & 5-fold CV acc. & 0.971 & [0.943, 0.998] & 2.0 & 0.405 & 22.7 & 21.4 \\
+Influence max.\ (30) & observed graph & 0.963 & [0.936, 0.989] & 4.3 & 0.207 & -- & 0.0 \\
+Summarization (5) & cover./div./FL & 0.670 & [0.576, 0.757] & 7.2 & 0.132 & 10.0 & 20.0 \\
+\midrule
+Worst-case $V_j$ (5) & constructed & 0.278\textsuperscript{a} & exact & 3.5 & $\rho_K$ & 0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+{\footnotesize \textsuperscript{a} representative point $j=2$, $\eta=3.5$;
+every constructed instance realizes its theoretical value to $10^{-10}$
+(results/E4\_worst\_case.csv).\\
+\emph{Note (i)}: the ratio's denominator is greedy-on-$f$, an upper-estimate
+proxy for OPT, so every ratio in this table is an upper estimate of
+$f(S^{\tilde f})/f(\mathrm{OPT})$.\\
+\emph{Note (ii)}: $\etasel$ is defined on the steps with positive true gain,
+so the certified bound in the $L_K$ column is a statement about those steps;
+the last column reports the share of steps with $d_t \le 0$ (column
+\texttt{frac\_steps\_nonpos} of the row CSVs), which are outside that scope.\\
+\emph{Note (iii)}: for influence maximization $f$ and $\tilde f$ are coverage
+functions on nested edge sets, so opposite-sign $(d,\tilde d)$ pairs cannot
+occur; the entry is ``--'' rather than a measured zero.}
+\end{table}

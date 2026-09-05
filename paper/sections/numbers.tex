@@ -1,0 +1,293 @@
+% =========================================================================
+% numbers.tex -- GENERATED, do not hand-edit.
+%   python3 results/G3_gen_numbers.py
+% Every experiment number printed by sections/experiments.tex is defined
+% here, so the section text contains no hand-typed numeric literals
+% (audited by results/G3_number_audit.py).  Rounding is decided in the
+% generator, which is the single source of truth.
+% Macro names spell digits out because LaTeX names cannot contain them.
+% =========================================================================
+
+% distinct E1 datasets
+\newcommand{\EOneNumDatasets}{4}
+
+% train/test splits per dataset
+\newcommand{\EOneNumSeeds}{30}
+
+% smallest budget run in E1
+\newcommand{\EOneKMin}{1}
+
+% budget the E1 headline numbers are quoted at
+\newcommand{\EOneKMain}{7}
+
+% runs pooled at the headline budget
+\newcommand{\EOneNumRunsKMain}{120}
+
+% median ratio, all E1 datasets pooled
+\newcommand{\EOneKMainRatioMedian}{0.971}
+
+% first quartile of that ratio
+\newcommand{\EOneKMainRatioLoQ}{0.943}
+
+% third quartile of that ratio
+\newcommand{\EOneKMainRatioHiQ}{0.998}
+
+% median measured selection error
+\newcommand{\EOneKMainEtaSelMedian}{2.0}
+
+% L_K at the median selection error
+\newcommand{\EOneKMainBound}{0.405}
+
+% exact worst case rho_K at the same selection error
+\newcommand{\EOneKMainExactWorst}{0.426}
+
+% median measured trajectory error
+\newcommand{\EOneKMainEtaTrMedian}{19.4}
+
+% L_K at the median trajectory error (near-vacuous; the reason the paper states the guarantee at etasel)
+\newcommand{\EOneKMainEtaTrBound}{0.050}
+
+% median share of candidate pairs whose predicted and true gains disagree in sign
+\newcommand{\EOneSignViolPctKMain}{22.7}
+
+% median share of trajectory steps with nonpositive chosen true gain
+\newcommand{\EOneNonposPctKMain}{21.4}
+
+% median ratio on the largest E1 dataset
+\newcommand{\EOneAirlineRatioMedian}{0.999}
+
+% median selection error there
+\newcommand{\EOneAirlineEtaSelMedian}{1.55}
+
+% L_K at that selection error
+\newcommand{\EOneAirlineBound}{0.492}
+
+% rows of the cleaned airline table (E1_notes.md section 2/3)
+\newcommand{\EOneAirlineRows}{25{,}375}
+
+% folds of the cross-validation surrogate
+\newcommand{\EOneCVFolds}{5}
+
+% classical feature selectors compared against extra_trees/mutual_info/rfe/selectkbest
+\newcommand{\EOneNumBaselines}{4}
+
+% budgets (out of 7) where the median accuracy of greedy on ftilde is at least the best of the 4 selectors on airline
+\newcommand{\EOneAirlineBaselineWins}{7}
+
+% budgets swept in E1
+\newcommand{\EOneNumBudgets}{7}
+
+% splits used for the baseline panel (fewer than the main sweep, to bound running time; results/E1_notes.md section 9)
+\newcommand{\EOneBaselineSeeds}{10}
+
+% largest budget where OPT was enumerated exactly (F1)
+\newcommand{\EOneBreastOptK}{4}
+
+% splits in that enumeration
+\newcommand{\EOneBreastOptSeeds}{10}
+
+% median f(greedy on f) / f(OPT) at that budget
+\newcommand{\EOneBreastOptGreedyF}{0.982}
+
+% median f(greedy on ftilde) / f(OPT) at that budget
+\newcommand{\EOneBreastOptGreedyFtilde}{0.946}
+
+% percent by which using greedy-on-f as the OPT proxy inflates a ratio
+\newcommand{\EOneBreastOptInflationPct}{1.8}
+
+% networks in E2
+\newcommand{\ETwoNumGraphs}{4}
+
+% observed graphs per (network, p)
+\newcommand{\ETwoNumSeedsPerP}{20}
+
+% greedy trajectories in E2 (one per network, p and observation seed)
+\newcommand{\ETwoNumTrajectories}{240}
+
+% budget the E2 headline numbers are quoted at
+\newcommand{\ETwoKMain}{30}
+
+% edge observation probabilities
+\newcommand{\ETwoPSet}{0.3, 0.5, 0.8}
+
+% least observed setting
+\newcommand{\ETwoPLow}{0.3}
+
+% most observed setting
+\newcommand{\ETwoPHigh}{0.8}
+
+% median ratio at the headline budget
+\newcommand{\ETwoKMainRatioMedian}{0.963}
+
+% first quartile
+\newcommand{\ETwoKMainRatioLoQ}{0.936}
+
+% third quartile
+\newcommand{\ETwoKMainRatioHiQ}{0.989}
+
+% median measured selection error
+\newcommand{\ETwoKMainEtaSelMedian}{4.3}
+
+% L_K at that selection error
+\newcommand{\ETwoKMainBound}{0.207}
+
+% rho_K at that selection error
+\newcommand{\ETwoKMainExactWorst}{0.211}
+
+% median share of steps with nonpositive chosen true gain (structurally zero: both objectives are coverage functions)
+\newcommand{\ETwoNonposPctKMain}{0.0}
+
+% nodes of the largest E2 network, facebook_artist (E2_notes.md sec. 2)
+\newcommand{\ETwoLargestNodes}{50{,}515}
+
+% input edges of that network (E2_notes.md sec. 2)
+\newcommand{\ETwoLargestEdges}{819{,}306}
+
+% networks on which the median selection error is strictly decreasing in p
+\newcommand{\ETwoNumGraphsEtaMonotone}{4}
+
+% networks on which the median ratio is strictly increasing in p
+\newcommand{\ETwoNumGraphsRatioMonotone}{4}
+
+% smallest factor by which the median selection error grows from the most to the least observed setting
+\newcommand{\ETwoEtaRiseMin}{3.2}
+
+% largest such factor
+\newcommand{\ETwoEtaRiseMax}{88}
+
+% worst median ratio at the most observed setting
+\newcommand{\ETwoRatioPHighMin}{0.988}
+
+% worst median ratio at the least observed setting
+\newcommand{\ETwoRatioPLowMin}{0.882}
+
+% best median ratio at the least observed setting
+\newcommand{\ETwoRatioPLowMax}{0.963}
+
+% smallest certified bound at the most observed setting
+\newcommand{\ETwoBoundPHighMin}{0.361}
+
+% largest such bound
+\newcommand{\ETwoBoundPHighMax}{0.573}
+
+% smallest certified bound at the least observed setting
+\newcommand{\ETwoBoundPLowMin}{0.008}
+
+% largest such bound
+\newcommand{\ETwoBoundPLowMax}{0.230}
+
+% largest factor by which the certified bound falls over the same range
+\newcommand{\ETwoBoundDropFactorMax}{64}
+
+% BBC news categories
+\newcommand{\EThreeNumCategories}{3}
+
+% heuristic surrogates: coverage, diversity, facility
+\newcommand{\EThreeNumSurrogates}{3}
+
+% distinct articles
+\newcommand{\EThreeNumDocs}{299}
+
+% smallest budget
+\newcommand{\EThreeKMin}{3}
+
+% largest budget
+\newcommand{\EThreeKMax}{7}
+
+% budget the E3 headline numbers are quoted at
+\newcommand{\EThreeKMain}{5}
+
+% runs at that budget (articles with fewer than K sentences drop out)
+\newcommand{\EThreeNumRunsKMain}{879}
+
+% median ratio at the headline budget
+\newcommand{\EThreeKMainRatioMedian}{0.670}
+
+% first quartile
+\newcommand{\EThreeKMainRatioLoQ}{0.576}
+
+% third quartile
+\newcommand{\EThreeKMainRatioHiQ}{0.757}
+
+% median measured selection error
+\newcommand{\EThreeKMainEtaSelMedian}{7.2}
+
+% L_K at that selection error
+\newcommand{\EThreeKMainBound}{0.132}
+
+% rho_K at the same error
+\newcommand{\EThreeKMainExactWorst}{0.140}
+
+% median share of candidate pairs disagreeing in sign
+\newcommand{\EThreeSignViolPctKMain}{10.0}
+
+% median share of steps with nonpositive chosen true gain
+\newcommand{\EThreeNonposPctKMain}{20.0}
+
+% median ratio of the best single surrogate (coverage)
+\newcommand{\EThreeBestSurrogateRatio}{0.712}
+
+% which surrogate that is (derived, not hand-typed, so the sentence cannot go stale if the ordering changes)
+\newcommand{\EThreeBestSurrogateName}{coverage}
+
+% set/element triples on which submodularity and monotonicity of the true objective were checked
+\newcommand{\EThreeStructTriples}{70{,}560}
+
+% share of those triples violating submodularity of ROUGE-1 F
+\newcommand{\EThreeSubmodViolPct}{2.14}
+
+% share violating monotonicity of ROUGE-1 F
+\newcommand{\EThreeMonoViolPct}{7.12}
+
+% largest submodularity violation, in units of the objective
+\newcommand{\EThreeMaxSubmodViol}{0.020}
+
+% largest |A| in the submodularity / monotonicity sweep (E3_notes.md section 7)
+\newcommand{\EThreeStructMaxSetSize}{3}
+
+% violations by the three surrogates on the same triples (asserted zero by this script)
+\newcommand{\EThreeSurrogateViolCount}{0}
+
+% constructed instances run through the experiment pipeline
+\newcommand{\EFourNumInstances}{19}
+
+% instances of the V_j family
+\newcommand{\EFourNumVjInstances}{16}
+
+% instances of the U_K family
+\newcommand{\EFourNumUKInstances}{3}
+
+% budgets covered
+\newcommand{\EFourKList}{3, 5, 8}
+
+% largest absolute deviation of a realized ratio from its theoretical value (math mode)
+\newcommand{\EFourMaxDeviation}{1.1\times 10^{-16}}
+
+% largest deviation of the measured selection error from the design error on the V_j instances (math mode)
+\newcommand{\EFourEtaSelDeviation}{5.3\times 10^{-15}}
+
+% largest deviation of the measured selection error from ahat on the U_K instances (math mode)
+\newcommand{\EFourUKEtaSelDeviation}{1.8\times 10^{-15}}
+
+% realized ratio of the representative instance quoted in the table
+\newcommand{\EFourRepRatio}{0.278}
+
+% its error level
+\newcommand{\EFourRepEta}{3.5}
+
+% its budget
+\newcommand{\EFourRepK}{5}
+
+% the segment index j of that instance
+\newcommand{\EFourRepJ}{2}
+
+% largest sign-violation percentage over the constructed instances
+\newcommand{\EFourViolMax}{0}
+
+% left panel budget of the main figure
+\newcommand{\MoneyKLeft}{5}
+
+% right panel budget of the main figure
+\newcommand{\MoneyKRight}{30}
+
+% 94 macros.

@@ -5,3 +5,4 @@ paper/*.log
 paper/*.out
 paper/*.blg
 paper/*.bbl
+paper/main_g*.pdf

@@ -1,10 +1,117 @@
 % ===========================================================================
-% related.tex -- Section 3: related work.  G1 stub; G3 replaces this file
-% with four groups (approximate oracle / approximate submodularity / noise /
-% learn-then-optimize) plus two adjacent lines (predicted solutions,
-% predicted dynamics), three sentences per group, citing only the 23
-% audited keys of references.bib (Bhawalkar in the noise group).
+% related.tex -- Section 3: related work (G3).  Budget 0.75 page
+% (results/G1_pagebudget.md), so each group is held to three sentences:
+% what the error model is, what the answer is, how this paper differs.
+%
+% Sourcing rule for this file: every sentence about a cited paper is checkable
+% against results/F6_citation_audit.md (what that paper actually claims, with
+% pages / theorem numbers).  Where the audit only reached abstract level, the
+% sentence here is written at abstract level too.  Only the 23 audited keys of
+% paper/references.bib are cited.
+%
+% Placement decisions:
+%  * bhawalkar2025unified goes in the NOISE group, not the learning-augmented
+%    group: audit finding C says the paper is about a persistent noisy value
+%    oracle and is not learning-augmented.
+%  * agarwal2024learning's error parameter is renamed eta_AB with a footnote:
+%    audit finding D confirms theirs is a COUNT of mispredicted insertion and
+%    deletion times, ours is a multiplicative marginal-gain error (GLOSSARY
+%    row 13 requires this).
+%  * The application anchors (kempe2003maximizing, lin2011class,
+%    mirzasoleiman2015lazier) and the dataset sources (rozemberczki2019gemsec,
+%    leskovec2007graph, yin2017local) are cited at first use in
+%    Section \ref{sec:experiments} and its appendix, not duplicated here; a
+%    second adjacent-line paragraph for them would spend page budget on
+%    citations without a claim, so it is omitted (TASKS5 G3 allows "only if
+%    needed").
+%
+% Writing rules: no em dash; "robust" and bare "tight" do not appear;
+% "consistency" appears only in its learning-augmented sense.
 % ===========================================================================
 
 \section{Related work}\label{sec:related}
-% [G1 stub -- content written by G3.]
+
+\paragraph{Approximate incremental oracles.}
+The closest error model replaces the exact greedy step by an oracle returning
+an element whose true marginal gain is within a factor of the best available
+one, the $\alpha$-approximate incremental oracle of
+\citet{goundan2007revisiting}, whose $\alpha\ge1$ is exactly the selection
+error $\etasel$ of Definition~\ref{def:etasel}.  Their Theorem~1 gives
+$1-(1-1/(\alpha k))^{k}\ge1-e^{-1/\alpha}$ under such an oracle, which at
+$\alpha=1$ is the classical cardinality-constrained bound of
+\citet{nemhauser1978analysis}, unimprovable by polynomially many value
+queries \citep{nemhauser1978best}; for the related set cover problem no
+polynomial-time algorithm approximates within $(1-\varepsilon)\ln n$ unless
+$\mathrm{NP}\subseteq\mathrm{DTIME}(n^{O(\log\log n)})$
+\citep{feige1998threshold}.  We differ in the question, not the bound:
+Proposition~\ref{prop:guarantee} is their theorem restated in the model of
+Section~\ref{sec:model} and attributed as such, while what is new is the
+exact worst-case ratio at every error level (Theorem~\ref{thm:exact}), a
+per-$K$ attaining family at error $\etasel$ (Theorem~\ref{thm:tightness}),
+and a matching bounded-query obstruction (Theorem~\ref{thm:hardness}).
+
+\paragraph{Approximate submodularity.}
+A second line weakens the objective instead of the access, measuring distance
+from submodularity by the submodularity ratio $\gamma$ of
+\citet[Definition~2.3]{das2011submodular}.  Greedy then still returns a
+$(1-e^{-\gamma})$ fraction of the optimum \citep[Theorem~3.2]{das2011submodular},
+and \citet{elenberg2018restricted} derive weak submodularity from restricted
+strong convexity, extending constant-factor greedy guarantees beyond
+submodular objectives.  There the oracle is exact and the structure
+approximate, here the structure is assumed and the access is not; the third
+experiment family of Section~\ref{sec:experiments} lies in the intersection,
+its true objective being measurably neither monotone nor submodular.
+
+\paragraph{Noise and inexact oracles.}
+A third line perturbs the value oracle itself, by random noise or by allowing
+the queried function to be only approximately submodular.
+\citet{hassidim2017submodular} recover a ratio arbitrarily close to $1-1/e$
+under independent noise once the budget is large enough, and state that
+adversarial noise admits no non-trivial guarantee;
+\citet[Theorem~3]{horel2016maximization} show that for
+$\varepsilon$-approximately submodular functions with $\varepsilon$ above
+roughly $n^{-1/2}$ no algorithm with polynomially many queries beats
+$O(n^{-\delta})$; and \citet{bhawalkar2025unified} treat a persistent noisy
+value oracle, where repeated queries to a set return one value, obtaining
+$1-1/e$ for monotone objectives under a matroid constraint, $1/e$ in the
+non-monotone matroid case and $1/2$ unconstrained.  Our error is a
+deterministic multiplicative band on marginal gains, adversarial inside the
+band, so the answer is a finite ratio at every error level rather than either
+full recovery or vacuity, and the selection error we state it at is a
+property of the finished run.
+
+\paragraph{Learning-augmented algorithms and learn-then-optimize.}
+This framework asks for algorithms that improve with better predictions but
+do not degrade much when the predictions are poor
+\citep{purohit2018improving}, the first property being consistency in its
+learning-augmented sense; \citet{lykouris2021competitive} realize it for
+caching with a competitive ratio that decreases as the oracle's error
+decreases and is capped at $O(\log k)$.  Learning a submodular objective is
+itself hard, since PMAC-learning monotone submodular functions under
+arbitrary distributions forces approximation factor $\tilde\Omega(n^{1/3})$
+\citep{balcan2018submodular}, and against a background of negative results in
+which optimizing a learned surrogate lands arbitrarily far from the true
+optimum, \citet{rosenfeld2018learning} characterize which surrogates can be
+optimized at all.  Predicting other objects does help: a
+$1/2-\varepsilon$ expected ratio for dynamic monotone submodular
+maximization under predicted insertion and deletion times, with amortized
+update time degrading in the prediction error $\eta_{\mathrm{AB}}$
+\citep{agarwal2024learning},\footnote{Their $\eta_{\mathrm{AB}}$ counts
+elements whose actual insertion or deletion time is far from the predicted
+one; it is unrelated to the multiplicative marginal-gain error $\eta$ of
+Definition~\ref{def:eta} and is renamed here to keep the two apart.} and
+noisy predictions of the optimal solution bypassing classical hardness for
+problems such as max-cut \citep{cohenaddad2024learning}.  What is predicted
+there is the solution, the schedule, or a function learned once and then
+optimized; here the prediction is the objective, queried adaptively during
+the run, and the guarantee is stated in an error measure the run reports.
+
+\paragraph{Optimization from samples and query models.}
+When only sampled sets and values are available, bounded curvature still
+permits a positive result \citep{balkanski2016power}, while in general no
+constant-factor approximation follows from polynomially many samples even for
+coverage functions learnable to arbitrary accuracy
+\citep{balkanski2017limitations}.  We keep adaptive query access and move the
+difficulty into the accuracy of the answers, so Theorem~\ref{thm:hardness}
+concerns what a bounded number of small queries extracts from an inaccurate
+predictor, not what a fixed sample reveals.
