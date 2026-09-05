@@ -1,5 +1,24 @@
 # REPORT.md
 
+## Summary（第五晚：装配全文骨架）
+
+- 全部完成，无 FAILED：G0 落实 D1/D2；G1 全文骨架；G2 附录逐行证明（约 14 页）；G3 experiments/related 正文 + 94 个数字宏（审计 0 手打数字）；G4 breast_cancer K=5 穷举 OPT（median 0.982）+ airline 保守 OPT 下估（≤0.33% 改进）；G5 对抗审稿；G6 投稿卫生（双盲干净、statements 按模板、图字号 ≥7pt）。
+- **明早先看三个文件**：`paper/main.pdf`（25 页，0 错误 0 未定义引用，abstract/intro 留待人写，注释里有一句话故事、四个承重位与 A/B hook 草稿）；`results/G1_pagebudget.md`（逐节页数 vs 9 页预算 + 压缩点）；`results/G5_review.md`（严重 6 / 中等 16 / 轻微 10，附"明早先修三条"）。
+- **最需人类拍板（G5 第 1 条，严重）**：prop:guarantee 对含非正步的 run 失效（12,057 行里 63 行 ratio < L_K(η^sel)，其中 38 行 η^sel=1.0；证据在 G5 报告）。修法三选一：给命题补 Definition 1 的全局前提 / 重定义 η^sel 把非正步计入 / 证书叙事只对全正步 run 声明并在表格用 n_steps_nonpos 列过滤。
+- 其余严重项：Theorem 8 的 ≥ 方向压在 app:validity 手证步上（无 oracle）；Theorem 12 陈述内嵌 δ 闭式 [CONJECTURE]；状态标签只在源码注释、PDF 不可见，与 statements 的措辞冲突；D2 之后 novelty 要靠 intro 的四个承重位立住。
+- 硬规则守住：每个 .tex 改动后全文在 ICLR 2027 模板编译通过、日志入 results/（G0/G1/G2/G3/G23/G4/G6_compile.log）；实验数字全部走 numbers.tex 宏；G5 子代理只读；每任务单独 commit 并已全部 push。
+
+## 第五晚任务明细（G0-G7）
+
+- G0：results.tex 的 Theorem 6 → Proposition + GS 归属句；D1 remark 定稿措辞（9/16→19/33，characterization left open，W_m 只留注释）；RESEARCH_STATE/GLOSSARY 追加 D1、D2 与日期。
+- G1：main.tex 重构为完整骨架（model 拆出为 sections/model.tex，notation 表移附录 A，related/experiments/conclusion 挂 stub 后由 G3/人类填）；results/G1_pagebudget.md 落盘。
+- G2（Opus 代理）：appendix_proofs.tex 186 行 → 1351 行；对偶乘子显式公式与消项逐步写出、三块实例逐步增益表、R6 validity（F2）整合；每个证明尾注 machine-checked 指针（如实，无脚本的写明无）；诚实缺口以注释保留（cor:limit 的 ρ_K 单调子句已保守删除，只对 L_K 保留）。
+- G3（Opus 代理）：experiments.tex（三族谱系 + p-η 段 + E3 边界外段 + E4 贴线段）、related.tex（四组各三句 + 邻线，23 条核验引用全用上，η_AB 脚注）、G3_gen_numbers.py → numbers.tex（94 宏，字节级确定性）、G3_number_audit 0 违规。
+- G4（Opus 代理）：K=5 穷举 1,744,360 次评估 18.5 分钟，K≤4 与 F1 逐位一致 [VERIFIED-EXHAUSTIVE]；airline 下估按方向如实写入附录（sanity check only）；宏与附录已由主代理集成。
+- G5（只读 Opus 代理）：results/G5_review.md（749 行）；数字指控均附 CSV 复算证据，29 个头条宏全部对上；PROJECT_INSTRUCTIONS 不存在已记录，用 RESEARCH_STATE 替代。
+- G6：双盲扫描零命中；statements 改 \subsection* 并加 link-withheld 占位；四图 paper 版重出（results/G6_paper_figs.py），缩放后最小 7.1-8.4pt；checklist 与明早 TODO 在 results/G6_submission_checklist.md（删 \iclrfinalcopy、Anonymous GitHub、notation 表 overfull）。
+- G7：本 summary；全部 commit 已 push；experiment 镜像已同步。
+
 ## Summary（第四晚：修补、收尾、写作物料）
 
 - 全部 PASS：F0 记号定稿；F1 实验修补（6/6）；F2 理论卫生（两悬案落地）；F5 写作物料（6 页模板编译干净）；F6 引用（23/23 四步核验入库）；F3 hardness 再攻（交付齐全，原目标如实 FAILED 但得到任意大小查询、Q=O(n²) 的定理草稿）；F4 submodular f̃（建模悬案有了答案）。
