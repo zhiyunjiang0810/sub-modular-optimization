@@ -42,3 +42,46 @@
   G3 的数字审计范围相应为 experiments.tex + results.tex + model.tex。
 
 ## 附录页数（G2 完成后由 G2 追加）
+
+测量方法与 G1 一致：`paper/main_g2.aux` 中各 `app:` label 的起始页码（独立
+jobname `main_g2`，pdflatex → bibtex → pdflatex ×3，**0 错误、0 未定义引用**，
+日志 `results/G2_compile.log`）。粒度是**整页**（label 只记录起始页），所以
+"长度"列 = 下一小节起始页 − 本小节起始页，误差 ±1 页；`0` 表示与下一小节同页。
+测量时刻的 main_g2.pdf 共 25 页（正文 1-6，statements/references 7-8，
+附录 A notation 9，附录 B proofs 9-23，附录 C experiments 23-25）。
+注意：正文部分此时已被并行任务填入 experiments 图表，intro/related 仍是占位，
+所以附录起始页会随人类写完正文而后移；下表的**长度**列不受影响。
+
+### 附录 B（proofs）逐小节页数
+
+| 小节 | label | 起始页 | 长度（页） | 内容与来源 |
+|---|---|---|---|---|
+| B 开头 | `app:proofs` | 9 | 0（与 B.1 同页） | 三条全局约定 + counting-function 引理 |
+| B.1 | `app:necessity` | 9 | 1 | γ = K²/(n(n−K)) 构造，deterministic + randomized 两支 |
+| B.2 | `app:guarantee` | 10 | 1 | L_K 的四步（覆盖、非正步、展开、三把尺子），D2 措辞 |
+| B.3 | `app:tightness` | 11 | 2 | U_K 族八步：闭式、四条 ratio、单调 submodular、误差、OPT、greedy 归纳、η^sel=η^tr=â、η 重参数化 |
+| B.4 | `app:coherence` | 13 | 1 | 两序展开 + 两条误差带链 |
+| B.5 | `app:exact` | 14 | 4 | 下界 p.14-16（对偶乘子、非负性、三族系数恒等式、argmin_j），上界 p.16-18（三块实例、逐步增益表、greedy 归纳、tie 的必要性） |
+| B.6 | `app:ceiling` | 18 | 1 | modular 构造 + 随机化平均 + exhaustive search 反向界 |
+| B.7 | `app:asymptotics` | 19 | 0（与 B.8 同页） | 两个极限；单调性缺口见下 |
+| B.8 | `app:hardness` | 19 | 2 | concentration / valuation / δ 的四条边 / Φ 可逆与装配 / 平均化 / K→∞ |
+| B.9 | `app:validity` | 21 | 2 | 四族有效不等式逐条（含 e_t ∈ O* 的 case (c)）+ 三条 remark |
+| B.10 | `app:instances` | 23 | 0（与附录 C 同页） | 实验用实例指回 B.3 / B.5 |
+| **附录 B 合计** | | **9** | **约 14** | G1 预计 7-9 页，实际偏高 5 页 |
+
+### 与 G1 预算的偏差、原因与可压缩点
+
+- **偏差**：G1 行"附录 B proofs 预计 ~7-9 页"，实测约 14 页。原因是 G2 的任务
+  要求把"verified symbolically"换成逐行论证：TASKS5 G2 给 app:tightness 定的
+  就是 2-3 页、ρ_K 上下界各约 2 页、app:validity 约 2 页，四项合计已 8.5 页，
+  其余七个小节 5.5 页。**附录不计入正文 9 页预算**（G1 的预算表只统计正文
+  1-6 节），所以这不占用正文余量。
+- 若人类仍想压缩附录，按"删掉后读者最不受损"排序的三个可压缩点：
+  1. **B.5 下界的系数恒等式 (a)（约 0.8 页）**：四个分支的展开可压成两个分支
+     加一句"其余两支同法"，代价是 referee 需自己补 t = j 那支的配平。
+  2. **B.9 的三条 remark（约 0.4 页）**：`rem:app-rulers` 必须留（它解释为什么
+     L_K 用 η^sel 而精确值用全局 η），`rem:app-census` 可删。
+  3. **B.3 Step 8 与 B.4（各约 0.3 页）**：Step 8 的 U_K 重参数化可并入
+     `rem:exact-gap` 的一句话；coherence 的两序展开可缩到三行。
+- 反向提示：**不要**压缩 B.5 上界的逐步增益表与 B.9 的 case (c)。前者是唯一
+  能让读者自行复算 V_j 的地方，后者正是 R6 当初被标记的缺口所在。

@@ -1,186 +1,1351 @@
 % ===========================================================================
-% appendix_proofs.tex -- proof skeletons (TASKS4 F5.2).
-% Every identity that was verified symbolically is marked "verified
-% symbolically" with the script named in a comment; hand steps carry
-% [HAND-PROOF-UNREVIEWED] comments.  No em dash; "simple" is used where
-% applicable, never "trivial" or "elementary".
+% appendix_proofs.tex -- the proofs, rewritten line by line (night 5, task G2).
+%
+% WHAT CHANGED IN G2 AND WHY.  The night-4 skeleton replaced several arguments
+% by the phrase "verified symbolically".  A referee cannot check a script, so
+% every proof below is now a hand argument that can be read on its own; the
+% scripts appear only as an independent second opinion, in a closing line of
+% each subsection and in the status comments.  No statement in
+% sections/results.tex or sections/model.tex was changed by this task.
+%
+% STATUS TAGS (CLAUDE.md).  Each subsection carries a comment with the tag of
+% the material it contains: [VERIFIED-LP], [VERIFIED-SYMBOLIC],
+% [HAND-PROOF-UNREVIEWED], [CONJECTURE].  The visible text never asserts a
+% verification status; it states the argument, and the closing line names the
+% script that re-checks the identities (or says that no script does).
+% The phrases "we prove", "we show" and "it follows" are avoided throughout,
+% per CLAUDE.md; so are em dashes, the word "robust", and bare "tight"
+% (GLOSSARY.md: "tight" is replaced by "attained with equality" or by a named
+% meaning).
+%
+% ORDERING (conservative choice, G2).  The subsection order of the night-4
+% skeleton is preserved verbatim, together with every label
+% (app:proofs, app:necessity, app:guarantee, app:tightness, app:coherence,
+% app:exact, app:ceiling, app:asymptotics, app:hardness, app:validity,
+% app:instances), so that all existing \ref targets keep resolving.  A more
+% linear reading order would put app:validity immediately before app:exact,
+% since app:exact consumes it; that reordering was NOT made, because it would
+% change section numbers that the main text and the night-4 comments refer to.
+% Instead app:exact points forward to app:validity explicitly.
+%
+% Sources reused (with their own status, unchanged):
+%   app:tightness .. results/T5_symbolic.py, results/F2_etasel_tight.py
+%   app:exact  .... results/N1_dual_certificate.md (dual multipliers),
+%                   results/N2_instances.md (attaining instances)
+%   app:validity .. results/F2_R6_validity.tex (adapted to the paper notation)
+%   app:hardness .. results/N5_bounded_query_hardness.tex
 % ===========================================================================
 
 \section{Proofs}\label{app:proofs}
 
+Three conventions are in force throughout this appendix.  First, $f$ is
+monotone submodular with $f(\emptyset)=0$ and $\tilde f(\emptyset)=0$, and
+submodularity is used in its diminishing-returns form: $d_e(T)\le d_e(S)$ for
+$S\subseteq T$ and $e\notin T$.  Second, an optimal set is written $O^{\ast}$,
+$|O^{\ast}|\le K$, and instances are normalized so that $f(O^{\ast})=1$
+whenever a ratio is computed.  Third, the tie-breaking rule of a greedy run is
+part of the instance: "adversarial ties" means that when several elements
+maximize the predicted gain, the one named by the construction is taken.
+
+Two of the constructions below are counting functions, so the following
+observation is recorded once and used twice.
+
+\begin{lemma}[counting functions]\label{lem:app-count}
+Let $N=N_1\cup\dots\cup N_r$ be a partition and let
+$h(S)=H(|S\cap N_1|,\dots,|S\cap N_r|)$ for a function $H$ on the box
+$\prod_{i}\{0,1,\dots,|N_i|\}$.  Write $\Delta_i H(v)=H(v+u_i)-H(v)$ for the
+forward difference in coordinate $i$ ($u_i$ the $i$th unit vector), defined
+when $v_i<|N_i|$.  If $\Delta_iH\ge0$ for every $i$ and every $v$, and
+$\Delta_\ell\Delta_iH\le0$ for every pair $(i,\ell)$, including $i=\ell$, and
+every $v$ at which both differences are defined, then $h$ is monotone and
+submodular.
+\end{lemma}
+
+\noindent
+\emph{Argument.}  Let $v(S)$ denote the count vector of $S$.  For $e\in N_i$
+with $e\notin S$ one has $d_e(S)=\Delta_iH(v(S))$, which is nonnegative by
+hypothesis, so $h$ is monotone.  For $S\subseteq T$ and $e\in N_i\setminus T$,
+the vectors satisfy $v(S)\le v(T)$ coordinatewise and $v(T)_i<|N_i|$.  Walk
+from $v(S)$ to $v(T)$ by single unit steps, raising coordinate $i$ last: at
+each step the quantity $\Delta_iH$ changes by one second difference
+$\Delta_\ell\Delta_iH\le0$, and every intermediate vector has $i$th coordinate
+at most $v(T)_i<|N_i|$, so $\Delta_iH$ is defined all along.  Hence
+$d_e(T)=\Delta_iH(v(T))\le\Delta_iH(v(S))=d_e(S)$, which is the
+diminishing-returns form of submodularity.
+% [HAND-PROOF-UNREVIEWED; three lines, no oracle needed.  The lemma is the
+% bookkeeping device that turns the (x,y) and (x,z,y) difference tables of
+% results/T5_symbolic.py and results/N2_check.py into set-function statements.]
+
+% ---------------------------------------------------------------------------
 \subsection{Necessity of an error bound (Proposition~\ref{prop:necessity})}
 \label{app:necessity}
-Take $\tilde f(S)=c|S|$, which carries no information about $f$.  For any
-deterministic algorithm the transcript and hence the output $T$ are fixed.
-Choose $O\subseteq N\setminus T$ with $|O|=K$ and let $f$ be the rank
-function of the matroid-like sum $f(S)=|S\cap O|+\gamma|S\setminus O|$ with
-$\gamma\to0$: then $f(T)\le\gamma K$ while $f(O)=K$.  The pair has finite but
-unbounded error as $\gamma\to0$, which proves the claim for deterministic
-algorithms; randomization loses at most the additive $K/n$ by averaging over
-a uniformly random $O$.
-% [HAND-PROOF-UNREVIEWED; simple.  The ratio K/(n-K) in the statement comes
-% from the greedy-visible variant; this sketch gives the cleaner gamma -> 0
-% form.  此步需人工检查：statement 与 sketch 的常数对齐，定稿时二选一。]
 
+Fix $K\ge1$ and $n\ge2K$, and let $\mathcal A$ be an algorithm with arbitrary
+query access to $\tilde f$.  Put
+\[
+  \gamma=\frac{K^{2}}{n(n-K)}\in(0,1],\qquad
+  \tilde f(S)=|S| ,
+\]
+where $\gamma\le1$ because $n\ge2K$ gives $n(n-K)\ge 2K\cdot K>K^{2}$.  For a
+$K$-set $O\subseteq N$ define
+\[
+  f_O(S)=|S\cap O|+\gamma\,|S\setminus O| .
+\]
+
+\paragraph{The pair is admissible and has finite error.}
+$f_O$ is modular with coefficients in $\{1,\gamma\}\subseteq(0,1]$, so it is
+monotone and submodular with $f_O(\emptyset)=0$, and $\tilde f(\emptyset)=0$.
+Every single-element gain is $\tilde d_e(S)=1$ and $d_e(S)\in\{1,\gamma\}$, so
+$\eta_u=\max_{S,e}d/\tilde d=1$ and $\eta_o=\max_{S,e}\tilde d/d=1/\gamma$: the
+error is exactly $\eta=1/\gamma=n(n-K)/K^{2}$, which is finite for every $n$
+and grows without bound as $n\to\infty$.  Also
+$\max_{|S|\le K}f_O(S)=f_O(O)=K$, because $\gamma\le1$ makes the $K$ largest
+modular coefficients exactly those of $O$.
+
+\paragraph{Deterministic algorithms.}
+$\tilde f$ does not depend on $O$, so the whole query transcript of
+$\mathcal A$, and therefore its output $T$ with $|T|\le K$, are the same for
+every $O$.  Since $n\ge2K$ and $|T|\le K$, a $K$-set $O\subseteq N\setminus T$
+exists.  For that $O$, $T\cap O=\emptyset$ gives
+\[
+  \frac{f_O(T)}{f_O(O^{\ast})}\;=\;\frac{\gamma|T|}{K}\;\le\;\gamma
+  \;=\;\frac{K^{2}}{n(n-K)}\;\le\;\frac{K}{n-K} .
+\]
+
+\paragraph{Randomized algorithms.}
+Let $O$ be a uniformly random $K$-subset, independent of the random string of
+$\mathcal A$.  The transcript still does not depend on $O$, so the output $T$
+is independent of $O$, and the hypergeometric mean gives
+$\mathbb E\bigl[|T\cap O|\bigr]=\mathbb E|T|\cdot K/n\le K^{2}/n$.  Bounding
+$f_O(T)\le|T\cap O|+\gamma K$ and dividing by $f_O(O^{\ast})=K$,
+\[
+  \mathbb E\Bigl[\frac{f_O(T)}{f_O(O^{\ast})}\Bigr]
+  \;\le\;\frac{K}{n}+\gamma
+  \;=\;\frac{K}{n}+\frac{K^{2}}{n(n-K)}
+  \;=\;\frac{K(n-K)+K^{2}}{n(n-K)}
+  \;=\;\frac{K}{n-K} ,
+\]
+and $\min_{O}\le\mathbb E_{O}$ produces a single $O$ attaining the bound in
+expectation over the random string.  Letting $n\to\infty$ with $K$ fixed drives
+the right side to $0$, so no constant worst-case ratio survives when $\eta$ is
+unconstrained.
+% [HAND-PROOF-UNREVIEWED.]  The night-4 draft used a gamma -> 0 sketch and left
+% a note that the constant K/(n-K) of the statement did not match it.  That
+% alignment is now settled: the choice gamma = K^2/(n(n-K)) makes the
+% RANDOMIZED bound exactly K/(n-K) (the deterministic case is stronger by the
+% additive K/n that averaging costs), and n >= 2K is exactly what makes
+% gamma <= 1, which is what keeps O optimal.  So the constant in
+% Proposition \ref{prop:necessity} is the price of covering randomized
+% algorithms, and no statement had to be changed.
+
+No script checks the computations of this proof.
+
+% ---------------------------------------------------------------------------
 \subsection{The guarantee (Proposition~\ref{prop:guarantee})}\label{app:guarantee}
 This proof is included for completeness; the statement is essentially
 Theorem~1 of \citet{goundan2007revisiting}, restated in the prediction-error
 model of Section~\ref{sec:model}.
-Let $t$ be a step with $d_{e_t}(S^{t})>0$ and let $O^{\ast}$ be an optimal
-set.  By definition of $\etasel$,
-$d_{e_t}(S^{t})\ge\max_{e}d_{e}(S^{t})/\etasel
-\ge\frac{1}{\etasel K}\sum_{o\in O^{\ast}\setminus S^{t}}d_{o}(S^{t})
-\ge\frac{1}{\etasel K}\bigl(f(O^{\ast})-f(S^{t})\bigr)$,
-using submodularity and monotonicity for the last two inequalities.  Hence
-the residual $r_t=f(O^{\ast})-f(S^{t})$ contracts by the factor
-$1-\tfrac{1}{\etasel K}$ at every positive step.  Steps with
-$d_{e_t}(S^{t})\le0$ cannot occur when $\tilde f$ has finite error
-(predicted gains are then nonnegative and the maximum predicted gain bounds a
-positive true gain whenever $f(S^{t})<f(O^{\ast})$); in measured runs on
-real objectives such steps are excluded from $\etasel$ and reported
-separately.  Unrolling over $K$ steps gives
-$f(S^{K})\ge(1-(1-\tfrac{1}{\etasel K})^{K})f(O^{\ast})=L_K(\etasel)$.
-% [HAND-PROOF-UNREVIEWED: the averaging step over |O* \ S^t| <= K elements
-% and the claim about nonpositive steps under finite error.
-% 此步需人工检查：K 个元素的 averaging 计数与残差递推的初值。]
-The orderings $L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$ follow from
-$\etasel\le\etatr\le\eta$ and monotonicity of $L_K$ in its argument.
+% Decision D2 (TASKS5): attributed, never claimed as new; the words "we prove"
+% and "we show" do not appear in this subsection.  [HAND-PROOF-UNREVIEWED.]
 
-\subsection{Per-$K$ tightness (Theorem~\ref{thm:tightness})}\label{app:tightness}
-The family has ground set $B\cup O$, $|B|=|O|=K$, $a=1-\tfrac{1}{\hat aK}$,
-$x=|S\cap B|$, $y=|S\cap O|$:
+Let $S^{0}=\emptyset,S^{1},\dots,S^{K}$ be the states of a run of predictive
+greedy with picks $e_{0},\dots,e_{K-1}$ and selection error $\etasel$, and put
+$r_t=f(O^{\ast})-f(S^{t})$.
+
+\paragraph{Step 1: one greedy step covers a $1/(\etasel K)$ share of the
+residual.}
+Let $t<K$ be a step with $d_{e_t}(S^{t})>0$.  Enumerate
+$O^{\ast}\setminus S^{t}=\{o_1,\dots,o_m\}$, $m\le|O^{\ast}|\le K$, and
+telescope:
 \[
-  f=1-a^{x}\bigl(1-\tfrac yK\bigr),\qquad
-  \tilde f=1-a^{x}\ \text{at } y=0,\qquad
-  \tilde f=1-a^{x}+a^{x}\bigl[(1-a)+\tfrac{(y-1)a}{K-1}\bigr]\ \text{at }
-  y\ge1 .
+  f(O^{\ast}\cup S^{t})-f(S^{t})
+  =\sum_{i=1}^{m}\Bigl[f\bigl(S^{t}\cup\{o_1,\dots,o_i\}\bigr)
+   -f\bigl(S^{t}\cup\{o_1,\dots,o_{i-1}\}\bigr)\Bigr]
+  \;\le\;\sum_{i=1}^{m}d_{o_i}(S^{t}),
 \]
-Four gain-ratio identities determine all errors: the predicted-to-true ratio
-of a $B$-step is $1$ at $y=0$ and $\tfrac{aK}{K-1}$ at $y\ge1$; of an
-$O$-step it is $\tfrac1{\hat a}$ at $y=0$ and $\tfrac{aK}{K-1}$ at $y\ge1$.
-These identities, monotonicity and submodularity of $f$, the boundary
-condition $\tilde f(x,K)=1$, the tie identity on the greedy path, and the
-reparametrizations $\eta=\tfrac{\hat aK-1}{K-1}$ and value $=1-a^{K}$ are
-verified symbolically for general $K$.
-% Script: results/T5_symbolic.py (105/105); the only hand steps are a
-% one-line induction that greedy stays at y=0 (its per-step tie identity is
-% verified) and the faithfulness of the p=a^x parametrization.
-The adversarial-tie run picks all of $B$, its selection and trajectory
-errors both equal $\hat a$
-% [VERIFIED-LP: results/F2_etasel_tight.py, K=2..8]
-and its value is $1-a^{K}=L_K(\hat a)$.
+one application of submodularity per term.  Monotonicity gives
+$f(O^{\ast}\cup S^{t})\ge f(O^{\ast})$, so
+$r_t\le\sum_{i=1}^{m}d_{o_i}(S^{t})\le m\max_{e\notin S^{t}}d_e(S^{t})
+\le K\max_{e\notin S^{t}}d_e(S^{t})$.  This is the only place where the count
+$m\le K$ enters.  Definition~\ref{def:etasel} applied at this step reads
+$\max_{e\notin S^{t}}d_e(S^{t})\le\etasel\,d_{e_t}(S^{t})$, hence
+\[
+  d_{e_t}(S^{t})\;\ge\;\frac{1}{\etasel K}\,r_t,
+  \qquad\text{and so}\qquad
+  r_{t+1}=r_t-d_{e_t}(S^{t})\;\le\;\Bigl(1-\frac{1}{\etasel K}\Bigr)r_t .
+\]
 
+\paragraph{Step 2: why only the steps with positive chosen gain matter.}
+Monotonicity of $f$ makes $d_{e_t}(S^{t})\ge0$ always, so the excluded steps
+are exactly those with $d_{e_t}(S^{t})=0$.  Suppose $t$ is the first such step.
+By Definition~\ref{def:eta}, $\tilde d_{e_t}(S^{t})\le\eta_o d_{e_t}(S^{t})=0$,
+and $e_t$ maximizes the predicted gain, so $\tilde d_e(S^{t})=0$ for every
+$e\notin S^{t}$; the lower band $d_e(S^{t})\le\eta_u\tilde d_e(S^{t})$ then
+forces $d_e(S^{t})=0$ for every $e\notin S^{t}$.  The covering inequality
+$r_t\le K\max_{e\notin S^{t}}d_e(S^{t})$ of Step 1, whose derivation does not
+use positivity of the chosen gain, then reads $r_t\le K\cdot0=0$, that is,
+$f(S^{t})\ge f(O^{\ast})$: the run has
+already reached the optimal value and $r_s=0$ for every $s\ge t$.  Therefore
+the contraction of Step 1 may be applied at every step, treating the residual
+as $0$ from the first nonpositive step onwards.
+% [HAND-PROOF-UNREVIEWED.]  This is the step the night-4 draft asserted in one
+% clause; it is written out here because it is what licenses restricting
+% Definition \ref{def:etasel} to the positive steps.  In measured runs on real
+% objectives the excluded steps are reported separately (columns n_steps_nonpos
+% and frac_steps_nonpos of the F1 pipeline), since there the error is finite
+% only on the trajectory.
+
+\paragraph{Step 3: unrolling.}
+With $r_0=f(O^{\ast})$, iterating $K$ times gives
+$r_K\le(1-\tfrac{1}{\etasel K})^{K}f(O^{\ast})$ and hence
+\[
+  f(S^{K})=f(O^{\ast})-r_K
+  \;\ge\;\Bigl(1-\bigl(1-\tfrac{1}{\etasel K}\bigr)^{K}\Bigr)f(O^{\ast})
+  \;=\;L_K(\etasel)\,f(O^{\ast}).
+\]
+Since $\etasel\ge1$ and $K\ge1$, the quantity $u=1/(\etasel K)$ lies in
+$(0,1]$, and $1-u\le e^{-u}$ gives
+$L_K(\etasel)\ge1-e^{-1/\etasel}$.
+
+\paragraph{Step 4: the three error measures.}
+At every state $S^{t}$ of the run,
+\[
+  \max_{e\notin S^{t}}d_{e}(S^{t})
+  \;\le\;\eta_u\max_{e\notin S^{t}}\tilde d_{e}(S^{t})
+  \;=\;\eta_u\,\tilde d_{e_t}(S^{t})
+  \;\le\;\eta_u\eta_o\,d_{e_t}(S^{t}),
+\]
+the first step by the lower band applied to the maximizing element, the middle
+equality by the greedy choice, the last by the upper band at $(S^{t},e_t)$.
+Reading the two ends as a step ratio of Definition~\ref{def:etasel} gives
+$\etasel\le\eta_u\eta_o$ when the band is the global one, and
+$\etasel\le\etatr$ when it is restricted to the states of the run;
+$\etatr\le\eta$ holds because the states of the run are a subset of all sets.
+The map
+$x\mapsto1-\tfrac{1}{xK}$ is increasing on $x\ge1$ with values in $[0,1)$, so
+$x\mapsto(1-\tfrac1{xK})^{K}$ is increasing and $L_K$ is decreasing.  Hence
+$L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$, and the bound of Step 3 holds a
+fortiori with $\etatr$ or $\eta$ in place of $\etasel$.
+
+No script certifies the steps of this argument.  That the bound is met with
+equality, and that the three rulers read $\etasel=\etatr=\hat a<\eta$ on the
+family of Appendix~\ref{app:tightness}, is machine-checked by
+\texttt{results/F2\_etasel\_tight.py}.
+
+% ---------------------------------------------------------------------------
+\subsection{Per-$K$ tightness (Theorem~\ref{thm:tightness})}\label{app:tightness}
+% Status: [HAND-PROOF-UNREVIEWED] for the write-up below; every identity in it
+% is re-checked symbolically for general K by results/T5_symbolic.py (105/105
+% PASS: GEN tier with symbolic K, CONC tier by exhaustive lattice enumeration
+% for K = 2..8 in exact arithmetic), and the two run-dependent errors are
+% [VERIFIED-LP, K = 2..8, ahat in {1.5, 2}] by results/F2_etasel_tight.py.
+% The instance builder used by the experiments is code/check_explicit_instance.py.
+
+Fix $K\ge2$ and $\hat a>1$, and put
+\[
+  a=1-\frac{1}{\hat aK}\in(0,1),\qquad N=B\cup O,\quad |B|=|O|=K,\quad n=2K .
+\]
+For $S\subseteq N$ write $x=|S\cap B|$ and $y=|S\cap O|$, and define the pair
+$(f,\tilde f)$ by
+\begin{equation}\label{eq:uk-family}
+\begin{aligned}
+  f(S)&=F(x,y)=1-a^{x}\Bigl(1-\frac yK\Bigr),\\[2pt]
+  \tilde f(S)&=G(x,y)=
+  \begin{cases}
+    1-a^{x}, & y=0,\\[2pt]
+    1-a^{x}+a^{x}\Bigl[(1-a)+\dfrac{(y-1)a}{K-1}\Bigr], & 1\le y\le K .
+  \end{cases}
+\end{aligned}
+\end{equation}
+Both are counting functions of $(x,y)$, so Lemma~\ref{lem:app-count} applies
+with $r=2$, $N_1=B$, $N_2=O$.  Note $F(0,0)=0$ and $G(0,0)=0$.
+
+\paragraph{Step 1: a closed form for the second branch of $G$.}
+For $1\le y\le K$,
+\begin{align*}
+  1-a^{x}+a^{x}(1-a)+\frac{(y-1)a^{x+1}}{K-1}
+  &=1-a^{x+1}+\frac{(y-1)a^{x+1}}{K-1}\\
+  &=1-a^{x+1}\,\frac{(K-1)-(y-1)}{K-1}
+   \;=\;1-a^{x+1}\,\frac{K-y}{K-1}.
+\end{align*}
+In particular $G(x,K)=1$ for every $x$, and the two branches agree at $y=1$:
+the second branch gives $1-a^{x+1}$, which is $G(x,0)+a^{x}(1-a)$.
+
+\paragraph{Step 2: the four gain identities.}
+Writing $\Delta_x$ and $\Delta_y$ for the forward differences in $x$ and $y$,
+the four cases are computed directly from \eqref{eq:uk-family} and Step 1:
+\begin{align}
+  \Delta_xF(x,y)&=a^{x}(1-a)\,\frac{K-y}{K}, &
+  \Delta_yF(x,y)&=\frac{a^{x}}{K},
+  \label{eq:uk-F-diffs}\\
+  \Delta_xG(x,0)&=a^{x}(1-a), &
+  \Delta_yG(x,0)&=a^{x}(1-a),
+  \label{eq:uk-G-diffs0}\\
+  \Delta_xG(x,y)&=a^{x+1}(1-a)\,\frac{K-y}{K-1}, &
+  \Delta_yG(x,y)&=\frac{a^{x+1}}{K-1},
+  \label{eq:uk-G-diffs1}
+\end{align}
+the last row for $1\le y\le K$ in the $x$ direction and for
+$1\le y\le K-1$ in the $y$ direction.  The two entries of
+\eqref{eq:uk-G-diffs0} are the same number because both read
+$(1-a^{x+1})-(1-a^{x})$: the first crosses no branch, and the second crosses
+from $G(x,0)$ to $G(x,1)=1-a^{x+1}$ by Step 1.  Dividing
+\eqref{eq:uk-G-diffs0} and \eqref{eq:uk-G-diffs1} by the corresponding entries
+of \eqref{eq:uk-F-diffs} gives the four ratios, with $R:=aK/(K-1)$:
+\[
+  \frac{\Delta_xG(x,0)}{\Delta_xF(x,0)}=1,
+  \qquad
+  \frac{\Delta_yG(x,0)}{\Delta_yF(x,0)}
+   =\frac{a^{x}(1-a)}{a^{x}/K}=K(1-a)=\frac1{\hat a},
+\]
+and, in the range $1\le y\le K-1$ where both are defined,
+\[
+  \frac{\Delta_xG(x,y)}{\Delta_xF(x,y)}
+   =\frac{a^{x+1}(1-a)(K-y)/(K-1)}{a^{x}(1-a)(K-y)/K}=R,
+  \qquad
+  \frac{\Delta_yG(x,y)}{\Delta_yF(x,y)}
+   =\frac{a^{x+1}/(K-1)}{a^{x}/K}=R,
+\]
+where $K(1-a)=1/\hat a$ is the definition of $a$.  At $y=K$ the only remaining
+direction is $x$, and both gains vanish: $\Delta_xF(x,K)=0$ by
+\eqref{eq:uk-F-diffs} and $\Delta_xG(x,K)=0$ by Step 1.  So a zero true gain
+always comes with a zero predicted gain, as Definition~\ref{def:eta} demands.
+
+\paragraph{Step 3: monotonicity and submodularity of $f$, case by case.}
+The two first differences in \eqref{eq:uk-F-diffs} are nonnegative for
+$0\le y\le K$ and $x\ge0$, since $a\in(0,1)$.  The four second differences are
+\[
+  \Delta_x\Delta_xF=-a^{x}(1-a)^{2}\frac{K-y}{K}\le0,\qquad
+  \Delta_y\Delta_xF=-\frac{a^{x}(1-a)}{K}\le0,
+\]
+\[
+  \Delta_x\Delta_yF=\frac{a^{x+1}-a^{x}}{K}=-\frac{a^{x}(1-a)}{K}\le0,\qquad
+  \Delta_y\Delta_yF=\frac{a^{x}}{K}-\frac{a^{x}}{K}=0\le0 .
+\]
+The two mixed differences coincide, as they must.  Lemma~\ref{lem:app-count}
+now gives that $f$ is monotone and submodular on the whole of $2^{N}$.  (No
+claim is made about $\tilde f$; it is monotone but not submodular, which the
+model of Section~\ref{sec:model} permits.)
+
+\paragraph{Step 4: the global error of the pair.}
+By Step 2 the set of single-element ratios $\tilde d_e(S)/d_e(S)$, over all
+$S$ and all $e\notin S$ with $d_e(S)>0$, is exactly $\{1,\ R,\ 1/\hat a\}$.
+Two sign computations order it:
+\[
+  R-1=\frac{aK-(K-1)}{K-1}=\frac{K-\tfrac1{\hat a}-K+1}{K-1}
+     =\frac{1-1/\hat a}{K-1}>0,\qquad
+  1-\frac1{\hat a}=\frac{\hat a-1}{\hat a}>0 ,
+\]
+both strict because $\hat a>1$.  Hence
+$\eta_o=\max\{1,R,1/\hat a\}=R$ and $\eta_u=\max\{1,1/R,\hat a\}=\hat a$, both
+attained, and
+\begin{equation}\label{eq:uk-eta}
+  \eta=\eta_u\eta_o=\hat a\,\frac{aK}{K-1}
+   =\frac{K(\hat a-\tfrac1K)}{K-1}=\frac{K\hat a-1}{K-1},
+\end{equation}
+using $\hat aa=\hat a-1/K$.
+
+\paragraph{Step 5: the optimum.}
+$1-F(x,y)=a^{x}(K-y)/K\ge0$, so $F\le1$ everywhere, and $F(0,K)=1$.  Since
+$|O|=K$, the value $f(O^{\ast})=1$ is attained at $O$, and $O^{\ast}=O$ may be
+taken.
+
+\paragraph{Step 6: the greedy induction under adversarial ties.}
+Claim: for $0\le t\le K$ the state after $t$ steps satisfies $S^{t}\subseteq B$
+and $|S^{t}|=t$, that is $(x,y)=(t,0)$.  For $t=0$ this is $S^{0}=\emptyset$.
+Assume it at $t<K$.  At the state $(t,0)$ every candidate is either a
+remaining element of $B$, whose predicted gain is $\Delta_xG(t,0)=a^{t}(1-a)$,
+or an element of $O$, whose predicted gain is $\Delta_yG(t,0)=a^{t}(1-a)$;
+these are equal by \eqref{eq:uk-G-diffs0}, so every candidate is a maximizer
+and the step is a tie among all $2K-t$ of them.  Adversarial tie breaking
+selects an element of $B$ (which is possible because $t<K=|B|$), so
+$S^{t+1}$ has $(x,y)=(t+1,0)$.  After $K$ steps $S^{K}=B$ and
+\[
+  f(S^{K})=F(K,0)=1-a^{K}
+  =1-\Bigl(1-\frac{1}{\hat aK}\Bigr)^{K}=L_K(\hat a),
+\]
+which is $L_K(\hat a)f(O^{\ast})$ by Step 5.
+% [HAND-PROOF-UNREVIEWED: the induction itself.  Its per-step content is the
+% tie identity (item 4 of results/T5_symbolic.py, verified for symbolic K), and
+% the full simulation with symbolic tie comparison is re-run for K = 2..8 in
+% the CONC tier of the same script.]
+
+\paragraph{Step 7: the two run-dependent errors equal $\hat a$.}
+At the state $S^{t}=(t,0)$ the true gains are $a^{t}(1-a)=a^{t}/(\hat aK)$ for
+an element of $B$ and $a^{t}/K$ for an element of $O$, by
+\eqref{eq:uk-F-diffs}.  Since $\hat a>1$, the largest true gain at that state
+is $a^{t}/K$ while the chosen element has gain $a^{t}/(\hat aK)>0$, so the
+step ratio of Definition~\ref{def:etasel} is
+\[
+  \frac{\max_{e\notin S^{t}}d_e(S^{t})}{d_{e_t}(S^{t})}
+  =\frac{a^{t}/K}{a^{t}/(\hat aK)}=\hat a
+\]
+at every one of the $K$ steps, so $\etasel=\hat a$.  For $\etatr$, only the
+states of the run matter, and at those states $y=0$, so by Step 2 the only two
+ratios that occur are $1$ (direction $x$) and $1/\hat a$ (direction $y$);
+therefore the trajectory-restricted factors are
+$\eta_o^{\mathrm{tr}}=\max\{1,1/\hat a\}=1$ and
+$\eta_u^{\mathrm{tr}}=\max\{1,\hat a\}=\hat a$, so $\etatr=\hat a$ as well.
+Comparing with \eqref{eq:uk-eta},
+$\eta-\hat a=\frac{K\hat a-1-(K-1)\hat a}{K-1}=\frac{\hat a-1}{K-1}>0$, so on
+this family the selection and trajectory rulers agree and are strictly smaller
+than the global one.
+
+\paragraph{Step 8: the same family read at fixed global error.}
+Solving \eqref{eq:uk-eta} for $\hat a$ gives $\hat a=(\eta(K-1)+1)/K$, hence
+$a=1-\frac{1}{\hat aK}=1-\frac{1}{\eta(K-1)+1}$ and
+\[
+  f(S^{K})=1-a^{K}
+  =1-\Bigl(1-\frac{1}{\eta(K-1)+1}\Bigr)^{K}=U_K(\eta).
+\]
+So the same instances that make Proposition~\ref{prop:guarantee} an equality at
+$\etasel=\hat a$ realize only $U_K$ when charged the global error $\eta$, which
+is the comparison recorded in Remark~\ref{rem:exact-gap}.
+% Together with Appendix \ref{app:exact} this is where U_K and min_j V_j part
+% company: U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k_1) > 0 for eta > 1
+% [VERIFIED-SYMBOLIC, results/N1_dual_certificate.py part D].
+
+Steps 1 to 8 give Theorem~\ref{thm:tightness}: for every $K\ge2$ and every
+$\hat a>1$ the pair \eqref{eq:uk-family} on $2K$ elements has monotone
+submodular $f$, finite error, an adversarial-tie greedy run with
+$\etasel=\etatr=\hat a$, and output value exactly $L_K(\hat a)f(O^{\ast})$.
+
+The identities of this proof are machine-checked by
+\texttt{results/T5\_symbolic.py} and \texttt{results/F2\_etasel\_tight.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{Coherence (Lemma~\ref{lem:coherence})}\label{app:coherence}
-Expanding $\tilde f(S\cup\{e,e'\})-\tilde f(S)$ in both orders gives
-$\tilde d_{e}(S)+\tilde d_{e'}(S\cup\{e\})
-=\tilde d_{e'}(S)+\tilde d_{e}(S\cup\{e'\})$; with the hypothesis this
-yields $\tilde d_{e}(S\cup\{e'\})\ge\tilde d_{e'}(S\cup\{e\})$, and applying
-the error band on both sides gives (i).  Applying the same exchange identity
-to $f$ and then (i) gives (ii).
-% [HAND-PROOF-UNREVIEWED; two lines, single-element bounds only.]
+% Status: [HAND-PROOF-UNREVIEWED]; four lines, single-element bounds only.
+% Renamed from "consistency lemma": consistency keeps its
+% learning-augmented-algorithms meaning throughout (GLOSSARY.md).
 
+Let $S\subseteq N$ and $e,e'\notin S$ with $e\ne e'$, and assume
+$\tilde d_{e}(S)\ge\tilde d_{e'}(S)$.
+
+\paragraph{The exchange identity.}
+Expanding the same quantity $\tilde f(S\cup\{e,e'\})-\tilde f(S)$ in the two
+possible orders, first $e$ then $e'$, and first $e'$ then $e$:
+\[
+  \tilde d_{e}(S)+\tilde d_{e'}(S\cup\{e\})
+  \;=\;\tilde f(S\cup\{e,e'\})-\tilde f(S)
+  \;=\;\tilde d_{e'}(S)+\tilde d_{e}(S\cup\{e'\}) .
+\]
+This uses nothing but the definition of a set function.  Subtracting and
+applying the hypothesis $\tilde d_{e}(S)-\tilde d_{e'}(S)\ge0$,
+\begin{equation}\label{eq:coh-pred}
+  \tilde d_{e'}(S\cup\{e\})-\tilde d_{e}(S\cup\{e'\})
+  =\tilde d_{e'}(S)-\tilde d_{e}(S)\;\le\;0 .
+\end{equation}
+
+\paragraph{Part (i).}
+Chain the two bands of Definition~\ref{def:eta} around
+\eqref{eq:coh-pred}:
+\[
+  d_{e'}(S\cup\{e\})\;\le\;\eta_u\,\tilde d_{e'}(S\cup\{e\})
+  \;\le\;\eta_u\,\tilde d_{e}(S\cup\{e'\})
+  \;\le\;\eta_u\eta_o\,d_{e}(S\cup\{e'\})
+  \;=\;\eta\,d_{e}(S\cup\{e'\}),
+\]
+the first inequality by the lower band at $(S\cup\{e\},e')$, the second by
+\eqref{eq:coh-pred}, the third by the upper band at $(S\cup\{e'\},e)$.
+Dividing by $\eta$ gives (i).
+
+\paragraph{Part (ii).}
+The same two-order expansion applied to $f$ reads
+$d_{e}(S)+d_{e'}(S\cup\{e\})=d_{e'}(S)+d_{e}(S\cup\{e'\})$, that is
+\[
+  d_{e'}(S)-d_{e}(S)\;=\;d_{e'}(S\cup\{e\})-d_{e}(S\cup\{e'\}) .
+\]
+Substituting part (i) in the form
+$-d_{e}(S\cup\{e'\})\le-\tfrac1\eta d_{e'}(S\cup\{e\})$,
+\[
+  d_{e'}(S)-d_{e}(S)\;\le\;d_{e'}(S\cup\{e\})
+   -\frac1\eta\,d_{e'}(S\cup\{e\})
+  \;=\;\Bigl(1-\frac1\eta\Bigr)d_{e'}(S\cup\{e\}),
+\]
+which is (ii).  Only $\eta\ge1$ is used beyond the bands, and only to keep the
+factor $1-\tfrac1\eta$ nonnegative when the inequality is applied later.
+
+No script checks the computations of this proof.  The two inequalities are
+used as constraint families in Appendix~\ref{app:validity}, and the linear
+program they define is compared against the full-lattice program by
+\texttt{results/N3\_K5\_lattice.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{The exact worst case (Theorem~\ref{thm:exact})}\label{app:exact}
 
-\paragraph{Lower bound (the value is a guarantee).}
-Every execution of predictive greedy induces the quantities $d_t$ (true gain
-of the pick at step $t$) and $g_{t,i}$ (true gain of the $i$th unpicked
-optimal element at state $S^{t}$), which satisfy the four constraint
-families of the reduced LP: the covering constraint
-$\sum_i g_{t,i}\ge f(O^{\ast})-\sum_{s<t}d_s$ (submodularity plus
-monotonicity), the prediction constraint $d_t\ge g_{t,i}/\eta$ (greedy
-choice plus both error bounds), the monotone constraint
-$g_{t+1,i}\le g_{t,i}$ (submodularity), and the coherence constraint
-$(1-\tfrac1\eta)g_{t+1,i}\ge g_{t,i}-d_t$ (Lemma~\ref{lem:coherence}(ii)).
-The validity of all four families, including the case in which greedy picks
-an optimal element (where the corresponding $g_{t+1,i}$ is set to $0$), is
-derived in Appendix~\ref{app:validity}.
-% results/F2_R6_validity.tex, [HAND-PROOF-UNREVIEWED].
-Minimizing $\sum_t d_t$ subject to these constraints can only decrease the
-value, and for that LP explicit dual multipliers are available for every $K$
-and every segment $j$: with $M=K\eta-(K-j)$ the nonzero multipliers are
+Throughout this subsection $K\ge2$, $\eta\ge1$, $f(O^{\ast})=1$, and
 \[
-  y_{\mathrm{sum}}(0)=-\tfrac{q^{j-1}M}{Kk_1},\quad
-  y_{\mathrm{sum}}(t)=-\tfrac{q^{j-1-t}M}{k_1^{2}}\ (1\le t\le j-1),\quad
-  y_{\mathrm{sum}}(j)=\tfrac{\eta-(K-j+1)}{k_1},
+  k_1=(K-1)\eta+1,\qquad q=\frac{(K-1)\eta}{k_1}=1-\frac1{k_1},\qquad
+  V_j(\eta)=1-q^{\,j}\Bigl(1-\frac{K-j}{K\eta}\Bigr).
 \]
-\[
-  y_{\mathrm{cons}}(t)=-\tfrac{q^{j-1-t}M}{Kk_1}\ (t\le j-1),\quad
-  y_{\mathrm{cons}}(t)=-\tfrac{K-1-t}{K(\eta-1)}\ (t\ge j),\quad
-  y_{\mathrm{pred}}(t)=-\tfrac{\eta-(K-t)}{K(\eta-1)}\ (t\ge j),
-\]
-with all monotone-constraint multipliers equal to zero (the lower bound does
-not use monotonicity of $f$).  Dual feasibility, sign conditions on each
-segment, and the value identity $b^{\top}y=V_j$ are identities that can be
-checked by direct expansion; a script is provided.
-% verified symbolically for general (K, j, t, i) modulo a finite branch
-% enumeration, and by brute force for K = 2..10:
-% results/N1_dual_certificate.py, 320/320.
+Note $k_1\ge K\ge2$, so $q\in(0,1)$, and $(1-q)k_1=1$.
 
-\paragraph{Upper bound (the value is attained).}
-For each $j$ take three blocks $C$ ($j$ elements), $P$ ($K-j$ elements),
-$O$ ($K$ elements), $x=|S\cap C|$, $z=|S\cap P|$, $y=|S\cap O|$, and with
-$\delta_j=q^{j}/(K\eta)$, $W(0)=k_1/(K\eta_u)$, $W(y)=(K-y)\eta_o/K$ for
-$y\ge1$:
+\paragraph{The reduced linear program.}
+Every execution of predictive greedy induces $d_t=d_{e_t}(S^{t})$ for
+$t=0,\dots,K-1$ and, after enumerating $O^{\ast}=\{o_1,\dots,o_K\}$,
 \[
-  f=1-q^{x}\bigl(1-\tfrac yK\bigr)+z\,\delta_j,\qquad
-  \tilde f=W(0)-q^{x}W(y)+z\,\eta_o\delta_j .
+  g_{t,i}=\begin{cases} d_{o_i}(S^{t}), & o_i\notin S^{t},\\ 0,& o_i\in S^{t},
+  \end{cases}\qquad 0\le t\le K,\ 1\le i\le K .
 \]
-The run picks $C$ in the first $j$ steps with true gains $q^{t}/k_1$ and $P$
-afterwards with constant true gains $\delta_j$; every step is tied with an
-optimal element, so adversarial tie breaking is load bearing, and the value
-is exactly $V_j(\eta)f(O^{\ast})$.
-% verified symbolically for general K and exhaustively on the full lattice
-% for K <= 6: results/N2_check.py, 480/480.  ftilde is monotone but not
-% submodular; see the remark in the main text and F4.
+Appendix~\ref{app:validity} derives, one family at a time and with the case
+$e_t\in O^{\ast}$ treated explicitly, that this vector satisfies
+\begin{equation}\label{eq:redlp}
+\begin{aligned}
+  \textstyle\sum_{i}g_{t,i}+\sum_{s<t}d_s&\ \ge\ 1 && (\mathrm{sum}(t)),\\
+  d_t-g_{t,i}/\eta&\ \ge\ 0 && (\mathrm{pred}(t,i)),\\
+  g_{t,i}-g_{t+1,i}&\ \ge\ 0 && (\mathrm{mono}(t,i)),\\
+  \bigl(1-\tfrac1\eta\bigr)g_{t+1,i}-g_{t,i}+d_t&\ \ge\ 0
+      && (\mathrm{cons}(t,i)),
+\end{aligned}
+\end{equation}
+together with $d_t\ge0$, $g_{t,i}\ge0$, and that $\sum_{t<K}d_t=f(S^{K})$ by
+telescoping.  Consequently the minimum of $\sum_{t<K}d_t$ over the polyhedron
+\eqref{eq:redlp} is at most the worst-case ratio $\rho_K(\eta)$: the
+polyhedron contains every realizable run and possibly more.
 
+\paragraph{Lower bound: greedy is never worse than $\min_jV_j$.}
+Fix a segment index $j$ with $0\le j\le K-1$ and let $\eta$ lie in
+$[K-j,K-j+1]$ (in $[K,\infty)$ when $j=0$).  Write $M=K\eta-(K-j)$ and define
+nonnegative numbers $\lambda_S(t)$, $\lambda_P(t)$, $\lambda_C(t)$ (one per
+constraint family, the same for every index $i$ by the symmetry of
+\eqref{eq:redlp} in $i$) as follows.  For $j\ge1$,
+\begin{equation}\label{eq:duals-jpos}
+\begin{aligned}
+  \lambda_S(0)&=\frac{q^{\,j-1}M}{Kk_1}, &
+  \lambda_S(t)&=\frac{q^{\,j-1-t}M}{k_1^{2}}\quad(1\le t\le j-1),\\
+  \lambda_S(j)&=\frac{K-j+1-\eta}{k_1}, &
+  \lambda_C(t)&=\frac{q^{\,j-1-t}M}{Kk_1}\quad(t\le j-1),\\
+  \lambda_C(t)&=\frac{K-1-t}{K(\eta-1)}\quad(t\ge j), &
+  \lambda_P(t)&=\frac{\eta-(K-t)}{K(\eta-1)}\quad(t\ge j),
+\end{aligned}
+\end{equation}
+with $\lambda_S(t)=0$ for $t>j$ and $\lambda_P(t)=0$ for $t<j$; for $j=0$,
+\begin{equation}\label{eq:duals-jzero}
+\begin{aligned}
+  \lambda_S(0)&=\frac1\eta,\qquad \lambda_S(t)=0\quad(t\ge1),\\
+  \lambda_C(t)&=\frac{K-1-t}{K(\eta-1)},\qquad
+  \lambda_P(t)=\frac{\eta-(K-t)}{K(\eta-1)}\qquad(0\le t\le K-1).
+\end{aligned}
+\end{equation}
+All multipliers of the family $\mathrm{mono}$ are $0$: the lower bound does not
+use that the optimal gains decrease along the run.
+% [VERIFIED-SYMBOLIC, general symbolic (K, j, t, i) modulo one finite branch
+% enumeration, plus independent brute force for K = 2..10:
+% results/N1_dual_certificate.py, 320/320 PASS.  Corollary A there: deleting
+% the mono rows does not change the LP value.]
+
+\emph{Nonnegativity.}  On the segment, $\eta\ge K-j\ge1$ and $K\eta>K-j$, so
+$M>0$; since also $q\in(0,1)$ and $k_1>0$, the three multipliers built from
+powers of $q$, namely $\lambda_S(0)$, $\lambda_S(t)$ for $1\le t\le j-1$ and
+$\lambda_C(t)$ for $t\le j-1$, are positive.  For
+$\lambda_S(j)$, the segment condition $\eta\le K-j+1$ is exactly
+$K-j+1-\eta\ge0$, and equality holds at the right endpoint of the segment.
+For $\lambda_C(t)$ with $t\ge j$, $K-1-t\ge0$ because $t\le K-1$.  For
+$\lambda_P(t)$ with $t\ge j$, $\eta-(K-t)\ge\eta-(K-j)\ge0$ by the segment
+condition, with equality at $t=j$ at the left endpoint.  The denominator
+$\eta-1$ is positive whenever $j\le K-2$, since then $\eta\ge K-j\ge2$.  The
+one remaining case is $j=K-1$, whose segment is $[1,2]$: there the range
+$t\ge j$ contains only $t=K-1$, where the numerator $K-1-t$ vanishes
+identically and $\lambda_C(K-1)$ is defined to be $0$, while
+$\lambda_P(K-1)=(\eta-1)/(K(\eta-1))$ is defined by cancellation to be $1/K$.
+So \eqref{eq:duals-jpos} has no singularity on any segment.
+
+\emph{The weighted-sum identity.}  For an arbitrary vector $(d_t,g_{t,i})$,
+not necessarily feasible, consider
+\begin{equation}\label{eq:combination}
+\begin{aligned}
+  \Sigma\;:=\;&\sum_{t=0}^{j}\lambda_S(t)
+      \Bigl[\sum_ig_{t,i}+\sum_{s<t}d_s-1\Bigr]
+   \;+\;\sum_{t=j}^{K-1}\sum_i\lambda_P(t)
+      \Bigl[d_t-\frac{g_{t,i}}{\eta}\Bigr]\\
+  &+\sum_{t=0}^{K-1}\sum_i\lambda_C(t)
+     \Bigl[\bigl(1-\tfrac1\eta\bigr)g_{t+1,i}-g_{t,i}+d_t\Bigr].
+\end{aligned}
+\end{equation}
+The last summand of the third group is void, because $\lambda_C(K-1)=0$ by its
+own formula in \eqref{eq:duals-jpos} and \eqref{eq:duals-jzero}.
+Collecting coefficients in $\Sigma$ gives three families of scalar identities.
+The coefficient of $g_{t,i}$, for $0\le t\le K$, is
+$\lambda_S(t)-\lambda_P(t)/\eta-\lambda_C(t)+(1-\tfrac1\eta)\lambda_C(t-1)$,
+with the conventions $\lambda_C(-1)=0$, $\lambda_C(K)=0$ and
+$\lambda_S(t)=\lambda_P(t)=0$ outside the ranges listed above; the coefficient
+of $d_t$ is $\sum_{s>t}\lambda_S(s)+K\bigl(\lambda_P(t)+\lambda_C(t)\bigr)$;
+the constant is $-\sum_{t\le j}\lambda_S(t)$.  The claim is that these equal
+$0$, $1$ and $-V_j$ respectively, so that
+$\Sigma=\sum_{t<K}d_t-V_j$ identically.  Each is checked below; nothing is
+left to "direct expansion".
+
+\emph{(a) The coefficient of $g_{t,i}$ vanishes.}  Take $j\ge1$ first.
+For $t=0$ one has $\lambda_C(-1)=0$ and $\lambda_P(0)=0$ (as $0<j$), so the
+coefficient is $\lambda_S(0)-\lambda_C(0)=0$, the two entries of
+\eqref{eq:duals-jpos} being literally the same number.  For $1\le t\le j-1$,
+again $\lambda_P(t)=0$, and dividing the coefficient by the positive quantity
+$q^{\,j-1-t}M/(Kk_1)$ turns it into
+\[
+  \frac{K}{k_1}-1+\Bigl(1-\frac1\eta\Bigr)q
+  =\frac{K-k_1}{k_1}+\frac{\eta-1}{\eta}\cdot\frac{(K-1)\eta}{k_1}
+  =\frac{(K-1)(1-\eta)+(\eta-1)(K-1)}{k_1}=0,
+\]
+using $K-k_1=K-(K-1)\eta-1=(K-1)(1-\eta)$.  For $t=j$, write $u=K-j$, so that
+$\eta\in[u,u+1]$ and $M=K\eta-u$, and multiply the coefficient by
+$K\eta k_1(\eta-1)>0$:
+\[
+  \underbrace{K\eta(\eta-1)(u+1-\eta)}_{\text{from }\lambda_S(j)}
+  \underbrace{-\,k_1(\eta-u)}_{\text{from }\lambda_P(j)/\eta}
+  \underbrace{-\,(u-1)\eta k_1}_{\text{from }\lambda_C(j)}
+  \underbrace{+\,(\eta-1)^{2}(K\eta-u)}_{\text{from }(1-1/\eta)\lambda_C(j-1)} .
+\]
+The two middle terms combine as
+$-k_1\bigl[(\eta-u)+(u-1)\eta\bigr]=-k_1u(\eta-1)$, so with $A=\eta-1$ the
+whole expression is $A\bigl[K\eta(u+1-\eta)+A(K\eta-u)-k_1u\bigr]$, and the
+bracket expands to
+\[
+  K\eta u+K\eta-K\eta^{2}+K\eta^{2}-K\eta-\eta u+u-k_1u
+  =u\bigl[K\eta-\eta+1-k_1\bigr]=u\,[\,k_1-k_1\,]=0 .
+\]
+For $j+1\le t\le K-1$ one has $\lambda_S(t)=0$, and multiplying by
+$K\eta(\eta-1)$ the coefficient becomes
+\[
+  -(\eta-K+t)-\eta(K-1-t)+(\eta-1)(K-t)
+  =-\eta+K-t-\eta K+\eta+\eta t+\eta K-\eta t-K+t=0 .
+\]
+For $t=K$ only the last term survives and $\lambda_C(K-1)=0$.  The
+multiplication by $\eta-1$ in the last two computations is legitimate on every
+segment with $j\le K-2$, where $\eta\ge2$; on the segment $j=K-1$, which is
+$[1,2]$, both sides of each identity are rational functions of $\eta$ that are
+continuous at $\eta=1$ after the cancellation recorded above, so the identity
+at $\eta=1$ is the limit of the identity on $(1,2]$.  For $j=0$ the
+first computation is replaced by the single case $t=0$: multiplying by
+$K\eta(\eta-1)$,
+$K(\eta-1)-(\eta-K)-\eta(K-1)=K\eta-K-\eta+K-\eta K+\eta=0$, and the cases
+$1\le t\le K-1$ and $t=K$ are the ones just done.
+
+\emph{(b) The coefficient of $d_t$ equals $1$.}  For $t\ge j$ the sum
+$\sum_{s>t}\lambda_S(s)$ is empty, and
+\[
+  K\bigl(\lambda_P(t)+\lambda_C(t)\bigr)
+  =K\cdot\frac{(\eta-K+t)+(K-1-t)}{K(\eta-1)}=\frac{\eta-1}{\eta-1}=1 ,
+\]
+which at $j=K-1$, $\eta=1$ reads $K(\tfrac1K+0)=1$ with the cancelled values.
+For $t=j-1$ (so $j\ge1$), $\lambda_P(j-1)=0$ and the only surviving
+$\lambda_S$ is $\lambda_S(j)$, so the coefficient is
+\[
+  \frac{K-j+1-\eta}{k_1}+K\cdot\frac{M}{Kk_1}
+  =\frac{(K-j+1-\eta)+(K\eta-K+j)}{k_1}=\frac{(K-1)\eta+1}{k_1}=1 .
+\]
+For $t\le j-2$ the value is unchanged from $t+1$ to $t$: subtracting the two
+coefficients and using $\lambda_P(t)=\lambda_P(t+1)=0$,
+\begin{align*}
+  \lambda_S(t+1)+K\bigl[\lambda_C(t)-\lambda_C(t+1)\bigr]
+  &=\frac{q^{\,j-2-t}M}{k_1^{2}}
+   +K\cdot\frac{M q^{\,j-2-t}}{Kk_1}\,(q-1)\\
+  &=\frac{q^{\,j-2-t}M}{k_1^{2}}-\frac{Mq^{\,j-2-t}}{k_1^{2}}=0,
+\end{align*}
+because $q-1=-1/k_1$.  Downward induction from $t=j-1$ therefore gives the
+value $1$ for every $t\le j-1$ as well.
+
+\emph{(c) The constant equals $-V_j$.}  For $j\ge1$, the middle multipliers
+form a geometric sum with ratio $q$, which is summed with $1-q=1/k_1$:
+\[
+  \sum_{t=1}^{j-1}\lambda_S(t)=\frac{M}{k_1^{2}}\sum_{m=0}^{j-2}q^{m}
+  =\frac{M}{k_1^{2}}\cdot\frac{1-q^{\,j-1}}{1-q}
+  =\frac{M\bigl(1-q^{\,j-1}\bigr)}{k_1},
+\]
+so that, using $M+(K-j)=K\eta$ and hence $M+(K-j+1-\eta)=K\eta-\eta+1=k_1$,
+\[
+  \sum_{t=0}^{j}\lambda_S(t)
+  =\frac{1}{k_1}\Bigl[\frac{Mq^{\,j-1}}{K}+M-Mq^{\,j-1}+(K-j+1-\eta)\Bigr]
+  =\frac{1}{k_1}\Bigl[k_1-Mq^{\,j-1}\frac{K-1}{K}\Bigr].
+\]
+The definition of $q$ gives $\frac{K-1}{K}=\frac{qk_1}{K\eta}$, so
+$Mq^{\,j-1}\frac{K-1}{K}=\frac{Mq^{\,j}k_1}{K\eta}$ and
+\[
+  \sum_{t=0}^{j}\lambda_S(t)=1-\frac{Mq^{\,j}}{K\eta}
+  =1-q^{\,j}\,\frac{K\eta-(K-j)}{K\eta}
+  =1-q^{\,j}\Bigl(1-\frac{K-j}{K\eta}\Bigr)=V_j .
+\]
+For $j=0$ the sum is the single term $\lambda_S(0)=1/\eta$, and
+$V_0=1-(1-\tfrac{K}{K\eta})=1/\eta$.
+
+\emph{Conclusion of the lower bound.}  By (a), (b), (c), identity
+\eqref{eq:combination} reads $\sum_{t<K}d_t-V_j=\Sigma$ for every vector
+$(d_t,g_{t,i})$.  At a point feasible for \eqref{eq:redlp} every bracket in
+$\Sigma$ is nonnegative and every multiplier is nonnegative, so $\Sigma\ge0$
+and $\sum_{t<K}d_t\ge V_j$.  Since every run of predictive greedy at error
+$\eta$ gives such a feasible point with objective $f(S^{K})/f(O^{\ast})$,
+\[
+  \rho_K(\eta)\;\ge\;V_j(\eta)\qquad\text{on the segment of $j$.}
+\]
+
+\emph{Which $V_j$ is smallest.}  For $0\le i\le K-1$,
+\begin{align*}
+  V_i-V_{i+1}
+  &=q^{i}\Bigl[q-\frac{q(K-i-1)}{K\eta}-1+\frac{K-i}{K\eta}\Bigr]\\
+  &=q^{i}\Bigl[-\frac1{k_1}+\frac{1}{K\eta}
+    \Bigl(1+\frac{K-i-1}{k_1}\Bigr)\Bigr]
+  \;=\;\frac{q^{i}\,(K-i-\eta)}{K\eta k_1},
+\end{align*}
+where the middle step uses $q-1=-1/k_1$ and
+$(K-i)-q(K-i-1)=1+\frac{K-i-1}{k_1}$, and the last step uses
+$k_1-K\eta=1-\eta$.  On the segment $\eta\in[K-j,K-j+1]$ the sign of
+$K-i-\eta$ is nonnegative for $i\le j-1$ and nonpositive for $i\ge j$, so the
+sequence $V_0,\dots,V_{K-1}$ decreases up to index $j$ and increases after it:
+$\min_iV_i=V_j$ there, and neighbouring segments agree at the integer
+endpoints.  The breakpoints are therefore the integers $2,\dots,K$, and
+$\rho_K(\eta)\ge\min_iV_i(\eta)$ for every $\eta\ge1$.  At $\eta\ge K$ the
+active index is $j=0$ and $\min_iV_i=V_0=1/\eta$.
+The closed forms displayed in Theorem~\ref{thm:exact} for $K\in\{2,3,4\}$ are
+the specializations of $\min_jV_j$; for instance at $K=3$ and $j=2$,
+$V_2=1-\frac{4\eta^{2}}{(2\eta+1)^{2}}\cdot\frac{3\eta-1}{3\eta}
+=\frac{16\eta+3}{3(2\eta+1)^{2}}$.
+
+The identities of this proof are machine-checked by
+\texttt{results/N1\_dual\_certificate.py}, and the $K\in\{2,3,4\}$ closed forms
+by \texttt{results/T3\_K3\_closed\_form.py}.
+
+\paragraph{Upper bound: the value $V_j$ is attained.}
+Fix $K\ge2$, $0\le j\le K-1$, and $\eta$ with $\eta\ge K-j$, and fix any split
+$\eta_u\eta_o=\eta$ with $\eta_u,\eta_o\ge1$ (the scripts use
+$\eta_u=\eta_o=\sqrt\eta$).  Partition a ground set of $n=2K$ elements into
+\[
+  C\ (|C|=j),\qquad P\ (|P|=K-j),\qquad O\ (|O|=K),
+\]
+write $x=|S\cap C|$, $z=|S\cap P|$, $y=|S\cap O|$, and put
+\[
+  \delta_j=\frac{q^{\,j}}{K\eta},\qquad
+  \tilde\delta_j=\eta_o\delta_j=\frac{q^{\,j}}{K\eta_u},\qquad
+  W(0)=\frac{k_1}{K\eta_u},\qquad
+  W(y)=\frac{(K-y)\eta_o}{K}\ \ (1\le y\le K),
+\]
+and $\chi(y)=\mathbf 1[y<K]$.  The instance is
+\begin{equation}\label{eq:vj-family}
+  f(S)=1-q^{x}\Bigl(1-\frac yK\Bigr)+z\,\delta_j\,\chi(y),
+  \qquad
+  \tilde f(S)=W(0)-q^{x}W(y)+z\,\eta_o\delta_j\,\chi(y).
+\end{equation}
+Both are counting functions of $(x,z,y)$, so Lemma~\ref{lem:app-count} applies
+with $r=3$.  Two normalizations are immediate: $f(\emptyset)=1-1=0$ and
+$\tilde f(\emptyset)=W(0)-W(0)=0$.
+% Instance family of results/N2_instances.md section 1 (capped variant, the
+% script default).  The uncapped variant chi == 1 is monotone submodular for
+% every eta >= 1 but is not needed here: the greedy run never leaves y = 0.
+
+\emph{Marginal gains.}  Directly from \eqref{eq:vj-family}, for $y<K$,
+\[
+  \Delta_Cf=q^{x}(1-q)\frac{K-y}{K},\qquad
+  \Delta_Pf=\delta_j,\qquad
+  \Delta_Of=\begin{cases}q^{x}/K,& y\le K-2,\\
+                        q^{x}/K-z\delta_j,& y=K-1,\end{cases}
+\]
+and at $y=K$ all three gains are $0$.  On the predictor side, $\Delta_C\tilde f=q^{x}(1-q)W(y)$ and
+$\Delta_P\tilde f=\eta_o\delta_j$, while
+\[
+  \Delta_O\tilde f=\begin{cases}
+    q^{x}\bigl(W(0)-\tfrac{(K-1)\eta_o}{K}\bigr), & y=0,\\
+    q^{x}\eta_o/K, & 1\le y\le K-2,\\
+    q^{x}\eta_o/K-z\eta_o\delta_j, & y=K-1 .
+  \end{cases}
+\]
+Two identities are used repeatedly: $(1-q)k_1=1$ and
+\begin{equation}\label{eq:W0-identity}
+  W(0)-\frac{(K-1)\eta_o}{K}
+  =\frac{(K-1)\eta+1}{K\eta_u}-\frac{(K-1)\eta_u\eta_o}{K\eta_u}
+  =\frac{1}{K\eta_u}.
+\end{equation}
+
+\emph{Monotonicity and submodularity of $f$.}  The three first differences are
+nonnegative: $\Delta_Cf\ge0$ and $\Delta_Pf>0$ are immediate from
+$q\in(0,1)$, and at $y=K-1$
+\[
+  \Delta_Of=\frac{q^{x}}{K}-z\,\frac{q^{\,j}}{K\eta}\ \ge\ 0
+  \iff \eta\,q^{\,x-j}\ \ge\ z ,
+\]
+which holds because $x\le j$ makes $q^{\,x-j}\ge1$ and $z\le K-j\le\eta$ by the
+standing assumption $\eta\ge K-j$.  This is the only place where the segment
+condition is consumed, and it is where the breakpoints come from.  The nine
+second differences are:
+$\Delta_C\Delta_Cf=-q^{x}(1-q)^{2}\frac{K-y}{K}\le0$;
+$\Delta_O\Delta_Cf=-q^{x}(1-q)/K\le0$ for every $y\le K-1$ (at $y=K-1$ the
+gain drops from $q^{x}(1-q)/K$ to $0$, the same decrement);
+$\Delta_C\Delta_Of=-q^{x}(1-q)/K\le0$;
+$\Delta_P\Delta_Cf=\Delta_C\Delta_Pf=\Delta_P\Delta_Pf=0$;
+$\Delta_O\Delta_Pf=0$ for $y\le K-2$ and $-\delta_j\le0$ at $y=K-1$;
+$\Delta_P\Delta_Of=0$ for $y\le K-2$ and $-\delta_j\le0$ at $y=K-1$;
+$\Delta_O\Delta_Of=0$ for $y\le K-3$ and $-z\delta_j\le0$ at $y=K-2$.
+Lemma~\ref{lem:app-count} then gives that $f$ is monotone and submodular.
+% The full list of nine second differences with symbolic K is checked in Part C
+% of results/N2_check.py (44 symbolic items), and the whole 2^{2K} lattice is
+% enumerated for K = 2..6 in Part A.  ftilde is monotone but not submodular
+% (Part G): the model of Section \ref{sec:model} does not require it to be.
+
+\emph{The error is exactly $(\eta_u,\eta_o)$.}  Divide each predicted gain by
+the corresponding true gain, using \eqref{eq:W0-identity} in the case $y=0$ of
+direction $O$.  Every single-element ratio $\tilde d/d$ takes one of three
+values:
+\[
+  \frac{\Delta_C\tilde f}{\Delta_Cf}\Big|_{y=0}=W(0)=\frac{k_1}{K\eta_u},
+  \qquad
+  \frac{\Delta_O\tilde f}{\Delta_Of}\Big|_{y=0}=\frac1{\eta_u},
+  \qquad
+  \eta_o\ \ \text{in all remaining cases},
+\]
+the remaining cases being direction $C$ with $y\ge1$, direction $P$, and
+direction $O$ with $y\ge1$.  The three are ordered by $k_1-K=(K-1)(\eta-1)\ge0$ and
+$K\eta-k_1=\eta-1\ge0$, that is
+\[
+  \frac1{\eta_u}\ \le\ \frac{k_1}{K\eta_u}\ \le\ \frac{K\eta}{K\eta_u}=\eta_o .
+\]
+The outer two are attained, so $\max\tilde d/d=\eta_o$ and
+$\max d/\tilde d=\eta_u$: the pair sits exactly on the band of
+Definition~\ref{def:eta}, and its error is not merely bounded by $\eta$.
+
+\emph{The optimum.}  $f(O)=f(0,0,K)=1$, and for every $S$ with $|S|\le K$ one
+has $f(S)\le1$: at $y=K$ the value is exactly $1$, and at $y\le K-1$,
+$f(S)=1-q^{x}\frac{K-y}{K}+z\delta_j\le1$ because
+$z\delta_j\le(K-j)\frac{q^{j}}{K\eta}\le\frac{q^{x}}{K}\le q^{x}\frac{K-y}{K}$
+whenever $y\le K-1$, using $z\le K-j\le\eta$ and $q^{j}\le q^{x}$.  So
+$f(O^{\ast})=1$ with $O^{\ast}=O$.
+
+\emph{The per-step gain table.}  The run is the following; the table lists, at
+each state, the true and predicted gains of the three kinds of candidate.
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+step $t$ & state $(x,z,y)$ & candidate & true gain & predicted gain & picked \\
+\midrule
+$t<j$ & $(t,0,0)$ & $e\in C$ & $q^{t}/k_1$ & $q^{t}/(K\eta_u)$ & yes \\
+      &           & $e\in P$ & $q^{\,j}/(K\eta)$ & $q^{\,j}/(K\eta_u)$ & no \\
+      &           & $e\in O$ & $q^{t}/K$ & $q^{t}/(K\eta_u)$ & no (tie) \\
+\midrule
+$t\ge j$ & $(j,t-j,0)$ & $e\in P$ & $q^{\,j}/(K\eta)$ &
+  $q^{\,j}/(K\eta_u)$ & yes \\
+      &            & $e\in O$ & $q^{\,j}/K$ & $q^{\,j}/(K\eta_u)$ & no (tie)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The entries follow from the gain formulas above: at $y=0$ a $C$-step has true
+gain $q^{t}(1-q)=q^{t}/k_1$ and predicted gain
+$q^{t}(1-q)W(0)=q^{t}W(0)/k_1=q^{t}/(K\eta_u)$; a $P$-step has predicted gain
+$\eta_o\delta_j=q^{\,j}/(K\eta_u)$; an $O$-step at $y=0$ has predicted gain
+$q^{x}/(K\eta_u)$ by \eqref{eq:W0-identity}.
+
+\emph{The greedy induction.}  Claim: for $0\le t\le K$ the state after $t$
+steps is $(x,z,y)=(\min(t,j),\ \max(t-j,0),\ 0)$.  It holds at $t=0$.  Assume
+it at $t<j$.  By the table the maximum predicted gain at that state is
+$q^{t}/(K\eta_u)$, attained by every remaining element of $C$ and every
+element of $O$, while every element of $P$ scores $q^{\,j}/(K\eta_u)$, which is
+strictly smaller because $q\in(0,1)$ and $j>t$.  Adversarial tie breaking picks
+an element of $C$, so the state becomes $(t+1,0,0)$.  Now assume the claim at
+$t$ with $j\le t<K$.  The state is $(j,t-j,0)$, $C$ is exhausted, and the
+predicted gains of the remaining $P$ elements and of the $O$ elements are both
+$q^{\,j}/(K\eta_u)$: the step is a tie and the adversary picks an element of
+$P$, which is available because $t-j<K-j=|P|$.  After $K$ steps
+$S^{K}=C\cup P$ and
+\[
+  f(S^{K})=1-q^{\,j}+(K-j)\,\delta_j
+  =1-q^{\,j}+\frac{(K-j)q^{\,j}}{K\eta}
+  =1-q^{\,j}\Bigl(1-\frac{K-j}{K\eta}\Bigr)=V_j(\eta),
+\]
+which is $V_j(\eta)f(O^{\ast})$ because $f(O^{\ast})=1$.
+Choosing $j$ with $\eta\in[K-j,K-j+1]$ (that is $j$ the minimizing index of the
+previous paragraph) gives $\rho_K(\eta)\le\min_iV_i(\eta)$, which together with
+the lower bound is Theorem~\ref{thm:exact}.
+% [HAND-PROOF-UNREVIEWED write-up; the identities are VERIFIED-SYMBOLIC for
+% general K modulo one branch enumeration and VERIFIED-LP on the full lattice
+% for K <= 6, results/N2_check.py 480/480.]
+
+\emph{The role of the ties.}  Every one of the $K$ steps above is a tie with an
+element of $O$, so adversarial tie breaking is load bearing.  On the steps
+$t\ge j$ the tie is forced by the band: the prediction constraint of
+\eqref{eq:redlp} holds with equality at the optimum, so
+$\eta_o\,d_P=d_O/\eta_u$, and the largest value the band allows a $P$ element
+and the smallest it allows an $O$ element coincide.  Under strict preference
+the same value is an infimum rather than a maximum: replacing $\eta$ by
+$\eta'<\eta$ inside $f$ while declaring the band at $\eta$ makes all
+preferences strict and gives ratio $V_j(\eta')\to V_j(\eta)$ as
+$\eta'\uparrow\eta$.
+% The strict variant is checked at 6 (K, j, eta) triples and 2 values of
+% epsilon in Part E of results/N2_check.py.
+
+The identities of this proof are machine-checked by
+\texttt{results/N2\_check.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{The ceiling (Theorem~\ref{thm:ceiling})}\label{app:ceiling}
-With $\tilde f(S)=c|S|$ the transcript is independent of $O$.  Pick
-$O\subseteq N\setminus T$ and set
-$f(S)=c\bigl(|S\cap B|/\eta_o+\eta_u|S\cap O|\bigr)$ with $B=N\setminus O$:
-the pair has all-pairs error exactly $(\eta_u,\eta_o)$ and
-$f(T)/f(O)=1/\eta$.  For the matching bound, exhaustive search returns
-$\hat S$ maximizing $\tilde f$ over $K$-sets, and
-$f(\hat S)\ge\tilde f(\hat S)/\eta_o\ge\tilde f(O^{\ast})/\eta_o
-\ge f(O^{\ast})/\eta$.
-% [HAND-PROOF-UNREVIEWED; monotonicity/submodularity of the construction and
-% exactness of the attained error are checked in R2's derivation.
-% 此步需人工检查：随机化情形的 (1-K/n)/eta + K/n。]
+% Status: [HAND-PROOF-UNREVIEWED].  The night-4 draft flagged the randomized
+% constant (1-K/n)/eta + K/n as needing a check; the averaging is written out
+% below and the constant now comes out of the computation rather than being
+% quoted.
 
+Fix $\eta_u,\eta_o\ge1$, $K\ge1$, $n\ge2K$, and a constant $c>0$.
+
+\paragraph{The construction.}
+Let $\tilde f(S)=c|S|$, which does not depend on the hidden optimum, and for a
+$K$-set $O$ with $B=N\setminus O$ let
+\[
+  f_O(S)=c\Bigl(\frac{|S\cap B|}{\eta_o}+\eta_u|S\cap O|\Bigr).
+\]
+$f_O$ is modular with positive coefficients, hence monotone and submodular
+with $f_O(\emptyset)=0$.  Its single-element gains are $c/\eta_o$ on $B$ and
+$c\eta_u$ on $O$, against the constant predicted gain $c$, so the ratios
+$\tilde d/d$ take the two values $\eta_o$ (on $B$) and $1/\eta_u$ (on $O$), and
+the error is exactly $(\eta_u,\eta_o)$ with both factors attained.  Because
+both functions are modular, the gain of any pair $(A,B')$ is the sum of
+single-element gains along any chain from $A$ to $A\cup B'$, so every
+all-pairs ratio is a weighted average of the two single-element values and the
+all-pairs error is exactly $(\eta_u,\eta_o)$ as well.  Since
+$\eta_u\ge1\ge1/\eta_o$, the $K$ largest coefficients are those of $O$ and
+$f_O(O^{\ast})=f_O(O)=c\eta_uK$.
+
+\paragraph{Deterministic algorithms.}
+The transcript of a deterministic algorithm querying $\tilde f$ is the same for
+every $O$, so its output $T$, $|T|\le K$, is fixed before $O$ is chosen.  With
+$n\ge2K$ there is a $K$-set $O\subseteq N\setminus T$, and for it
+\[
+  \frac{f_O(T)}{f_O(O^{\ast})}=\frac{c|T|/\eta_o}{c\eta_uK}
+  \le\frac{cK/\eta_o}{c\eta_uK}=\frac{1}{\eta_u\eta_o}=\frac1\eta .
+\]
+
+\paragraph{Randomized algorithms.}
+Let $O$ be uniform among $K$-subsets, independent of the random string.  The
+output $T$ is again independent of $O$, and writing $m=|T|\le K$,
+$\mathbb E|T\cap O|=mK/n$ and $\mathbb E|T\cap B|=m(1-K/n)$, so
+\[
+  \mathbb E\Bigl[\frac{f_O(T)}{f_O(O^{\ast})}\Bigr]
+  =\frac{m(1-\tfrac Kn)/\eta_o+\eta_u mK/n}{\eta_uK}
+  =\frac mK\Bigl[\frac{1-\tfrac Kn}{\eta_u\eta_o}+\frac Kn\Bigr]
+  \le\Bigl(1-\frac Kn\Bigr)\frac1\eta+\frac Kn ,
+\]
+and $\min_O\le\mathbb E_O$ turns this into a statement about one instance.
+
+\paragraph{The matching upper bound by exhaustive search.}
+For any $S$, enumerate $S=\{s_1,\dots,s_m\}$ and telescope both functions
+along the same chain $S_0=\emptyset\subset S_1\subset\dots\subset S_m=S$.  The
+upper band applied to each of the $m$ terms gives
+$\tilde f(S)=\sum_i\tilde d_{s_i}(S_{i-1})\le\eta_o\sum_id_{s_i}(S_{i-1})
+=\eta_of(S)$, and the lower band gives $\tilde f(S)\ge f(S)/\eta_u$.  Let
+$\hat S$ maximize $\tilde f$ over all sets of size at most $K$.  Then
+\[
+  f(\hat S)\ \ge\ \frac{\tilde f(\hat S)}{\eta_o}
+  \ \ge\ \frac{\tilde f(O^{\ast})}{\eta_o}
+  \ \ge\ \frac{f(O^{\ast})}{\eta_u\eta_o}=\frac{f(O^{\ast})}{\eta},
+\]
+the middle inequality by the choice of $\hat S$.  So the constant $1/\eta$ is
+reached by an algorithm that is unrestricted in queries but makes no use of
+structure, which is the sense in which the ceiling is met.
+% GLOSSARY.md, "any algorithm": this whole subsection lives in range (i),
+% unbounded queries.  The poly-query range (ii) is Theorem \ref{thm:hardness},
+% whose constant is different; the two must not be quoted interchangeably.
+
+No script checks the computations of this proof.
+
+% ---------------------------------------------------------------------------
 \subsection{Asymptotics (Corollary~\ref{cor:limit})}\label{app:asymptotics}
-$L_K(\eta)\to1-e^{-1/\eta}$ is the standard limit.  For
-$\rho_K=\min_jV_j$: on the segment of a fixed $\eta$ the index is
-$j=K+1-\lceil\eta\rceil$, and $q^{j}\to e^{-1/\eta}$ while the second factor
-tends to $1$, which gives the limit by direct expansion.
-% [HAND-PROOF-UNREVIEWED one line; numerically confirmed by Richardson
-% extrapolation (R8).]
 
+Fix $\eta\ge1$.  For $L_K$, the substitution $u=1/(\eta K)\in(0,1]$ and the
+expansion $\ln(1-u)=-u-u^{2}/2-\dots$ give
+$K\ln\bigl(1-\tfrac{1}{\eta K}\bigr)=-\tfrac1\eta+O(1/K)$, so
+$L_K(\eta)\to1-e^{-1/\eta}$; moreover $(1-\tfrac{x}{K})^{K}$ increases in $K$
+for $x\in(0,1]$, so the convergence of $L_K(\eta)$ is monotone from above.  For
+$\rho_K=\min_jV_j$, fix $\eta$ and let $K$ grow.  The minimizing index is the
+unique $j$ with $\eta\in[K-j,K-j+1]$, that is $j=K-\lfloor\eta\rfloor$ for
+noninteger $\eta$ and either endpoint value at an integer $\eta$, so
+$K-j$ stays bounded while $j\to\infty$.  With $k_1=(K-1)\eta+1$,
+\[
+  \ln q^{\,j}=j\ln\Bigl(1-\frac1{k_1}\Bigr)=-\frac{j}{k_1}+O\Bigl(\frac{j}{k_1^{2}}\Bigr),
+  \qquad \frac{j}{k_1}=\frac{K-\lfloor\eta\rfloor}{(K-1)\eta+1}\longrightarrow\frac1\eta,
+  \qquad \frac{j}{k_1^{2}}\longrightarrow0,
+\]
+so $q^{\,j}\to e^{-1/\eta}$, while the second factor of $V_j$ satisfies
+$1-\frac{K-j}{K\eta}=1-\frac{\lfloor\eta\rfloor}{K\eta}\to1$.  Hence
+$\rho_K(\eta)=V_j(\eta)\to1-e^{-1/\eta}$, the same limit as $L_K$, and by
+Remark~\ref{rem:exact-gap} the two curves differ by $O(1/K)$ at fixed $\eta$.
+% [HAND-PROOF-UNREVIEWED for the two limits above; the corresponding limit
+% inside the hardness theorem, L_K(etahat) -> 1 - e^{-1/eta}, is
+% [VERIFIED-SYMBOLIC] in results/N5_asymptotics.py checks (ii.a), (ii.b), with
+% a 30-digit numeric cross-check at K = 10^6.]
+% GAP LEFT OPEN AND MARKED: the clause "monotonically within each segment" of
+% Corollary \ref{cor:limit} is derived above for L_K only (the standard
+% monotonicity of (1-x/K)^K).  For rho_K the minimizing index j = K - floor(eta)
+% moves with K, and no monotonicity argument in K is given here; the claim rests
+% on the Richardson-extrapolated numerics of R8 and is [CONJECTURE] at that
+% level of generality.  A human should either weaken the clause in
+% sections/results.tex or supply the missing monotonicity step.
+
+The limit identities of this proof are machine-checked, in the form used by
+Theorem~\ref{thm:hardness}, by \texttt{results/N5\_asymptotics.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{Bounded-query hardness (Theorem~\ref{thm:hardness})}
 \label{app:hardness}
-The four-step structure follows results/N5\_bounded\_query\_hardness.tex,
-where each lemma carries its own status tag: (1) a concentration lemma (for
-a fixed query of size at most $K$ and a uniformly random $K$-subset $O$,
-$\Pr[|S\cap O|>\tau]\le\binom{K}{\tau+1}(K/n)^{\tau+1}$, union bounded over
-a canonical transcript of $n^{c}$ queries with $n\ge4K^{c+2}$); (2) the
-construction, the $y\le\tau$ family of R9 with design parameter
-$\hat\eta=\Phi^{-1}(\eta)$, whose single-element error is exactly $\eta$;
-(3) a valuation lemma on the balanced event, where every answer depends only
-on $|S|$, the transcript is independent of $O$, and the output value is at
-most $L_K(\hat\eta)f(O^{\ast})$; (4) averaging over the random string for
-randomized algorithms (only the averaging direction of Yao's principle is
-used).  The invertibility of $\Phi$ and the limits are verified
-symbolically.
-% results/N5_asymptotics.py (15/15) and results/N5_delta_at_etahat.py
-% (40 PASS / 2 SKIP(H)); assembly [HAND-PROOF-UNREVIEWED].
+% Status decomposition, unchanged from results/N5_bounded_query_hardness.tex:
+%  - the concentration and union lemmas: [HAND-PROOF-UNREVIEWED], elementary;
+%  - the valuation lemma: [HAND-PROOF-UNREVIEWED] for the simulation argument,
+%    and it CONSUMES four facts about the family, (F1) to (F4) below, which are
+%    [VERIFIED-LP] on the finite test set of N5 declaration D1 and [CONJECTURE]
+%    for general (K, tau, eta);
+%  - the closed form of delta: derived below by four edge computations
+%    [HAND-PROOF-UNREVIEWED], matched by the LP oracle at 40 points
+%    [VERIFIED-LP], and [CONJECTURE] at general (K, tau, eta).  N5 records that
+%    this max-form CORRECTS the single-branch form of T2 Conclusion 1, which
+%    the oracle refutes at 8 of those 40 points;
+%  - invertibility of Phi and the K -> infinity limits: [VERIFIED-SYMBOLIC],
+%    results/N5_asymptotics.py (iv), (vi) and (i), (ii).
+% The tau = c+1 choice is not optimal (tau = c also suffices and gives a
+% smaller delta); it is kept because the statement fixes it.
 
+In this subsection "information-theoretic" is used with the following meaning,
+stated here at its first use: the bound depends only on the number and the
+size of the queries that the algorithm makes and uses no computational
+assumption, so nothing below is a statement about running time.
+
+\paragraph{The family.}
+Fix a design parameter $\theta\ge1$ and put $a_\theta=1-\tfrac{1}{\theta K}$.
+For a hidden $K$-set $O$ and $S\subseteq N$ write $x=|S\setminus O|$,
+$y=|S\cap O|$, and define
+\[
+  F_O(S)=\theta^{-1/2}\Bigl(1-a_\theta^{x}\bigl(1-\tfrac yK\bigr)\Bigr),
+  \qquad
+  G_O(S)=\begin{cases}
+    1-a_\theta^{\,x+y}, & y\le\tau,\\[2pt]
+    1-a_\theta^{\,x+\tau}\dfrac{K-y}{K-\tau}, & y\ge\tau,
+  \end{cases}
+\]
+together with the balanced-region profile $\hat G(s)=1-a_\theta^{\,s}$.
+The two branches of $G_O$ agree at $y=\tau$.  The prefactor $\theta^{-1/2}$ only fixes
+the split $\eta_u=\eta_o=\sqrt\theta$ and cancels from every ratio.  The facts
+used below are: (F1) $G_O(S)=\hat G(|S|)$ whenever $|S\cap O|\le\tau$, which is
+immediate from the first branch since then $x+y=|S|$; (F2) $F_O$ is monotone
+submodular and the pair has single-element error exactly
+$\Phi(\theta)=\theta(1+\delta(\theta))$; (F3)
+$\max_{|S|\le K}F_O(S)=F_O(O)=\theta^{-1/2}$; (F4) $F_O(T)/F_O(O)=1-a_\theta^{K}$
+for every $K$-set $T$ disjoint from $O$.  Facts (F2) to (F4) carry the status
+recorded in the comment above.
+
+\paragraph{Step 1: concentration.}
+For a fixed $S$ with $|S|\le K$, a uniformly random $K$-subset $O$ of an
+$n$-element ground set and an integer $0\le\tau<K$, put $m=\tau+1$.  The event
+$\{|S\cap O|>\tau\}$ is the union, over the $\binom{|S|}{m}$ subsets
+$R\subseteq S$ with $|R|=m$, of the events $\{R\subseteq O\}$, and
+\[
+  \Pr[R\subseteq O]=\frac{\binom{n-m}{K-m}}{\binom nK}
+  =\prod_{i=0}^{m-1}\frac{K-i}{n-i}\ \le\ \Bigl(\frac Kn\Bigr)^{m},
+\]
+because $(K-i)n\le K(n-i)$ reduces to $iK\le in$, valid for $K\le n$.  A union
+bound over $\binom{|S|}{m}\le\binom Km\le K^{m}/m!$ choices gives
+\[
+  \Pr\bigl[|S\cap O|>\tau\bigr]\le\binom{K}{\tau+1}\Bigl(\frac Kn\Bigr)^{\tau+1}
+  \le\frac{K^{2(\tau+1)}}{(\tau+1)!\,n^{\tau+1}} .
+\]
+With $Q=n^{c}$ queries, $\tau=c+1$ and a further output set $T_0$ of size at
+most $K$, summing the per-query bound and adding
+$\Pr[T_0\cap O\ne\emptyset]\le\mathbb E|T_0\cap O|=|T_0|K/n\le K^{2}/n$ gives
+\[
+  \Pr\bigl[\exists i:|S_i\cap O|>\tau\ \text{ or }\ T_0\cap O\ne\emptyset\bigr]
+  \ \le\ \frac{K^{2c+4}}{(c+2)!\,n^{2}}+\frac{K^{2}}{n}\ <\ \frac12 ,
+\]
+where the last step uses $n\ge4K^{c+2}$: then $n^{2}\ge16K^{2c+4}$ bounds the
+first term by $1/(16\cdot(c+2)!)\le1/32$, and $K^{2}/n\le1/(4K^{c})\le1/4$, so
+the sum is at most $9/32$.
+
+\paragraph{Step 2: valuation on the balanced event.}
+Let $\mathcal A$ be deterministic, make at most $Q$ queries of size at most
+$K$, and output $T$ with $|T|\le K$.  Run it against the canonical oracle that
+answers every query $S$ with $\hat G(|S|)$, and let $S_1,\dots,S_Q$ and $T_0$
+be the resulting queries and output; they are fixed sets, independent of $O$.
+Suppose $|S_i\cap O|\le\tau$ for every $i$ and $T_0\cap O=\emptyset$.  By
+induction on $i$: if the first $i-1$ answers of the real oracle $G_O$ agree
+with the canonical ones, then determinism makes the $i$th query equal to
+$S_i$, and (F1) with $|S_i\cap O|\le\tau$ makes the real answer
+$G_O(S_i)=\hat G(|S_i|)$, the canonical one.  So all $Q$ answers agree and the
+output is $T_0$.  Since $T_0\cap O=\emptyset$, the counts of $T_0$ are
+$y=0$ and $x=|T_0|\le K$, hence by (F3) and (F4)
+\[
+  \frac{F_O(T_0)}{F_O(O^{\ast})}=1-a_\theta^{\,|T_0|}\le1-a_\theta^{K}
+  =1-\Bigl(1-\frac{1}{\theta K}\Bigr)^{K}=L_K(\theta),
+\]
+using $a_\theta\in(0,1)$, which needs $\theta K>1$.
+
+\paragraph{Step 3: which band constraint binds.}
+With $\eta_u=\eta_o=\sqrt\theta\,s$ for an inflation factor $s\ge1$, the band
+of Definition~\ref{def:eta} holds on a given edge exactly when $s$ is at least
+both of the two ratios $\Delta G/(\sqrt\theta\,\Delta F)$ and
+$\Delta F/(\sqrt\theta\,\Delta G)$ of that edge.  Writing $a=a_\theta$, the
+edges with both endpoints in the balanced strip give
+\[
+  \text{$x$-edge, } y\le\tau:\quad
+  \Delta F=\theta^{-1/2}a^{x}(1-a)\frac{K-y}{K},\quad
+  \Delta G=a^{x+y}(1-a),\quad
+  \frac{\Delta G}{\sqrt\theta\,\Delta F}=a^{y}\frac{K}{K-y},
+\]
+\[
+  \frac{\Delta F}{\sqrt\theta\,\Delta G}=\frac{K-y}{\theta Ka^{y}}\le1,
+  \qquad
+  \text{$y$-edge, } y+1\le\tau:\quad
+  \Delta F=\frac{\theta^{-1/2}a^{x}}{K},\quad \Delta G=\frac{a^{x+y}}{\theta K},
+\]
+\[
+  \frac{\Delta G}{\sqrt\theta\,\Delta F}=\frac{a^{y}}{\theta}\le1,
+  \qquad
+  \frac{\Delta F}{\sqrt\theta\,\Delta G}=a^{-y}.
+\]
+The two bounds marked $\le1$ use $\theta\ge1$: the second is immediate, and
+the first follows from $a^{y}\ge1-\tfrac{y}{\theta K}$, which gives
+$\theta Ka^{y}\ge\theta K-y\ge K-y$.  The first candidate $a^{y}K/(K-y)$
+increases in $y$, since the ratio of consecutive terms is
+$a\frac{K-y}{K-y-1}\ge1$ exactly when $a\ge1-\frac{1}{K-y}$, which holds
+because $a=1-\frac{1}{\theta K}$ and $\theta K\ge K\ge K-y$; its maximum over
+the strip is at $y=\tau$.  The second candidate $a^{-y}$ is maximized at
+$y=\tau-1$.  Hence the smallest admissible $s$ is
+$s=\max\bigl\{a_\theta^{\tau}\tfrac{K}{K-\tau},\,a_\theta^{\,1-\tau}\bigr\}$,
+that is $1+\delta(\theta)=s^{2}$ and $\Phi(\theta)=\theta(1+\delta(\theta))$.
+That no other pair of sets binds harder is the part supplied by the linear
+program rather than by hand.
+
+\paragraph{Step 4: the design parameter, and assembly.}
+$\Phi$ is continuous and strictly increasing on $\theta\ge1$ when $K\ge2\tau$
+and $\tau\ge1$: the maximum of two increasing functions is increasing, and
+$\theta a_\theta^{2\tau}$ has derivative
+$a^{2\tau}+2\tau a^{2\tau-1}/(\theta K)>0$ while
+$\theta a_\theta^{2-2\tau}$ has derivative, with $u=\theta K$,
+$\frac1K\bigl(\tfrac{u}{u-1}\bigr)^{2\tau-2}
+\bigl[1-\tfrac{2\tau-2}{u-1}\bigr]$, positive because $u\ge K\ge2\tau>2\tau-1$.
+Also $\Phi(\theta)\ge\theta$, so $\hat\eta=\Phi^{-1}(\eta)\le\eta$ whenever
+hypothesis (H), $\Phi(1)\le\eta$, holds.  Hypothesis (H) is implied by
+$K\ge\tau\bigl(1+\tfrac{2}{\ln\eta}\bigr)$: with $a=a_1=1-1/K$ and $\ln a<0$,
+\[
+  \ln\Phi(1)\le2\max\Bigl\{\tau\ln a+\ln\tfrac{K}{K-\tau},\,(1-\tau)\ln a\Bigr\}
+  \le\frac{2\tau}{K-\tau}\le\ln\eta ,
+\]
+using $-\ln(1-t)\le t/(1-t)$ for the first branch and
+$(\tau-1)\ln\tfrac{K}{K-1}\le\tfrac{\tau-1}{K-1}\le\tfrac{\tau}{K-\tau}$ for
+the second.  Now build the family with $\theta=\hat\eta$, so that its
+single-element error is exactly $\eta$ and it is admissible at that error
+level.  Let $S_1,\dots,S_Q,T_0$ be the canonical transcript of Step 2.  By
+Step 1 the bad event has probability below $1/2$, so at least one $K$-set $O$
+makes every canonical query balanced and misses $T_0$; fix such an $O$.  Step 2
+then gives $f(T)=F_O(T_0)\le L_K(\hat\eta)f(O^{\ast})$ for that one instance.
+The random choice of $O$ is used only to establish existence.
+
+\paragraph{Step 5: randomized algorithms, by averaging.}
+For each fixing $r$ of the random string, the algorithm $\mathcal R_r$ is
+deterministic with canonical output $T_0^{(r)}$; let $E_r$ be the event that
+all its canonical queries are balanced.  Pointwise in $O$, the variant of
+Step 2 that drops the requirement $T_0\cap O=\emptyset$ (the transcript
+argument is unchanged, only the value bound weakens) together with
+$F_O\le F_O(O^{\ast})$ gives
+\[
+  \frac{f_O(T)}{f_O(O^{\ast})}\le L_K(\hat\eta)
+   +\frac{|T_0^{(r)}\cap O|}{K}+\mathbf 1[E_r^{c}] .
+\]
+Averaging over a uniform $O$ bounds the middle term by $K/n$ and, by Step 1,
+the last by $K^{2c+4}/((c+2)!\,n^{2})$; averaging over $r$ and exchanging the
+two finite expectations, then using $\min_O\le\mathbb E_O$, gives the
+additive $\varepsilon_n$ of Theorem~\ref{thm:hardness}.  Only the averaging
+direction of the minimax principle is used; no minimax theorem is invoked.
+
+\paragraph{Step 6: what happens as $K$ grows.}
+Both branches of $\delta$ tend to $0$, with
+$K\delta(\eta)\to\max\{2\tau(1-\tfrac1\eta),\tfrac{2(\tau-1)}\eta\}$, so
+$\hat\eta\to\eta$ and $L_K(\hat\eta)\to1-e^{-1/\eta}$.  At finite $K$ the
+constant $L_K(\hat\eta)$ is larger than $L_K(\eta)$, since $\hat\eta\le\eta$
+and $L_K$ is decreasing, so the theorem and Proposition~\ref{prop:guarantee}
+are consistent and leave a gap of order $c/K$ between them, which closes only
+in the limit.
+% This is why the word "tight" does not appear here (GLOSSARY.md): at finite K
+% none of its three admissible meanings applies, and the K -> infinity matching
+% statement is conditional on the [CONJECTURE] status of the delta closed form
+% at general (K, tau, eta).
+
+The identities of this proof are machine-checked by
+\texttt{results/N5\_asymptotics.py} and \texttt{results/N5\_delta\_at\_etahat.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{Validity of the reduced constraints}\label{app:validity}
-See the derivation in results/F2\_R6\_validity.tex, reproduced here in the
-final version.
-% Placeholder: F2 produces the four-family validity derivation; it will be
-% \input here once finalized.  [HAND-PROOF-UNREVIEWED]
+% Source: results/F2_R6_validity.tex, adapted to the paper notation (b_t -> e_t,
+% O -> O*, the LP written as in \eqref{eq:redlp}).  STATUS: unchanged,
+% [HAND-PROOF-UNREVIEWED]: no oracle certifies these derivations.  What IS
+% oracle-checked is stated in Remark \ref{rem:app-status} below.
+% This is the one remaining hand step of the reduction from arbitrary instances
+% to the reduced LP, so it is written out one family at a time, with the case
+% e_t in O* (the gap flagged in R6) treated as a separate case in each.
 
+This subsection supplies the step consumed by Appendix~\ref{app:exact}: every
+constraint of \eqref{eq:redlp} is a valid inequality, so the linear program is
+a relaxation of the set of realizable runs and its optimum is a lower bound on
+the worst-case ratio for every $K$.
+
+Let $f$ be monotone submodular with $f(\emptyset)=0$, let $\tilde f$ be an
+arbitrary set function with $\tilde f(\emptyset)=0$ obeying the band of
+Definition~\ref{def:eta}, and let $e_0,\dots,e_{K-1}$ and
+$S^{0}=\emptyset,\dots,S^{K}$ be the picks and states of a run of predictive
+greedy, so that $e_t\in\arg\max_{e\notin S^{t}}\tilde d_e(S^{t})$.  Fix an
+optimal set $O^{\ast}=\{o_1,\dots,o_K\}$ with $f(O^{\ast})=1$ (if
+$|O^{\ast}|<K$, set $g_{t,i}=0$ for the unused indices; every case (a) below
+covers them).  Put $d_t=d_{e_t}(S^{t})$ and
+\[
+  g_{t,i}=\begin{cases} d_{o_i}(S^{t}), & o_i\notin S^{t},\\
+                        0, & o_i\in S^{t}, \end{cases}
+\]
+the second line being the \emph{zeroing convention}, which is the device that
+handles a step at which greedy selects an element of $O^{\ast}$: from that step
+on the corresponding variable is $0$ rather than undefined.  It is consistent
+with reading $g_{t,i}$ as a marginal gain, since an element already in $S^{t}$
+contributes nothing further.  Finally $r_t=1-\sum_{s<t}d_s$, which telescopes
+to $r_t=f(O^{\ast})-f(S^{t})$.
+
+Throughout, $t\in\{0,\dots,K-1\}$, $i\in\{1,\dots,K\}$, and the three cases are
+(a) $o_i\in S^{t}$; (b) $o_i\notin S^{t}$ and $o_i\ne e_t$; (c) $o_i=e_t$,
+which is the case $e_t\in O^{\ast}$.
+
+\begin{lemma}[signs]\label{lem:app-sign}
+$d_t\ge0$ and $g_{t,i}\ge0$ for all $t,i$.
+\end{lemma}
+\begin{proof}
+Each of these numbers is a marginal gain of $f$ or, under the zeroing
+convention, equal to $0$.  This step uses monotonicity of $f$.
+\end{proof}
+
+\begin{lemma}[coverage, $\mathrm{sum}(t)$]\label{lem:app-sum}
+$\sum_{i=1}^{K}g_{t,i}\ge r_t$ for every $t$.
+\end{lemma}
+\begin{proof}
+Let $I_t=\{i:o_i\notin S^{t}\}$, so that
+$\sum_ig_{t,i}=\sum_{i\in I_t}d_{o_i}(S^{t})$ by the zeroing convention; this
+is exactly where a step with $e_s\in O^{\ast}$ for some $s<t$ is absorbed, the
+indices of the already picked optimal elements dropping out of the sum.  Order
+$I_t=\{i_1,\dots,i_m\}$ and telescope
+\[
+  f(S^{t}\cup O^{\ast})-f(S^{t})
+  =\sum_{\ell=1}^{m}\Bigl[f\bigl(S^{t}\cup\{o_{i_1},\dots,o_{i_\ell}\}\bigr)
+   -f\bigl(S^{t}\cup\{o_{i_1},\dots,o_{i_{\ell-1}}\}\bigr)\Bigr]
+  \le\sum_{\ell=1}^{m}d_{o_{i_\ell}}(S^{t}),
+\]
+one application of submodularity per term.  Monotonicity gives
+$f(S^{t}\cup O^{\ast})\ge f(O^{\ast})$, so
+$\sum_ig_{t,i}\ge f(O^{\ast})-f(S^{t})=r_t$.
+\end{proof}
+
+\begin{lemma}[greedy choice inside the band, $\mathrm{pred}(t,i)$]
+\label{lem:app-pred}
+$d_t\ge g_{t,i}/\eta$ for every $t,i$.
+\end{lemma}
+\begin{proof}
+Case (a): $g_{t,i}=0$ and $d_t\ge0$ by Lemma~\ref{lem:app-sign}.
+Case (b): chain
+\[
+  d_t=d_{e_t}(S^{t})\ \ge\ \frac{\tilde d_{e_t}(S^{t})}{\eta_o}
+  \ \ge\ \frac{\tilde d_{o_i}(S^{t})}{\eta_o}
+  \ \ge\ \frac{d_{o_i}(S^{t})}{\eta_u\eta_o}=\frac{g_{t,i}}{\eta},
+\]
+the first inequality by the upper band at $(S^{t},e_t)$, the second by the
+greedy choice ($o_i\notin S^{t}$ makes $o_i$ eligible at step $t$), the third
+by the lower band at $(S^{t},o_i)$.
+Case (c): here $g_{t,i}=d_{o_i}(S^{t})=d_{e_t}(S^{t})=d_t$ and the claim reads
+$d_t\ge d_t/\eta$, which holds because $d_t\ge0$ and $\eta\ge1$.  No band
+inequality is needed in this case, so the constraint does not degrade when
+greedy happens to pick an optimal element.
+\end{proof}
+
+\begin{lemma}[single-element submodularity, $\mathrm{mono}(t,i)$]
+\label{lem:app-mono}
+$g_{t+1,i}\le g_{t,i}$ for every $t,i$.
+\end{lemma}
+\begin{proof}
+Case (a): $o_i\in S^{t}\subseteq S^{t+1}$, so both sides are $0$.
+Case (b): $o_i\notin S^{t+1}$ as well, so
+$g_{t+1,i}=d_{o_i}(S^{t+1})\le d_{o_i}(S^{t})=g_{t,i}$ by submodularity in its
+diminishing-returns form.
+Case (c): $o_i=e_t\in S^{t+1}$, so $g_{t+1,i}=0$ while $g_{t,i}=d_t\ge0$ by
+monotonicity.  This is the only place among the four families where the case
+$e_t\in O^{\ast}$ replaces a submodularity argument by a monotonicity argument.
+\end{proof}
+
+\begin{lemma}[coherence, $\mathrm{cons}(t,i)$]\label{lem:app-cons}
+$(1-\tfrac1\eta)g_{t+1,i}\ge g_{t,i}-d_t$ for every $t,i$.
+\end{lemma}
+\begin{proof}
+Case (a): the left side is $0$ and the right side is $-d_t\le0$.
+Case (b): apply Lemma~\ref{lem:coherence} with $S=S^{t}$, $e=e_t$ and
+$e'=o_i$; its hypothesis $\tilde d_{e_t}(S^{t})\ge\tilde d_{o_i}(S^{t})$ holds
+because $o_i$ is eligible at step $t$, and $e\ne e'$ holds by the case
+assumption.  Part (ii) of that lemma reads
+$(1-\tfrac1\eta)d_{o_i}(S^{t}\cup\{e_t\})\ge d_{o_i}(S^{t})-d_{e_t}(S^{t})$,
+which is the claim, since $S^{t+1}=S^{t}\cup\{e_t\}$ and $o_i\notin S^{t+1}$
+give $d_{o_i}(S^{t+1})=g_{t+1,i}$.
+Case (c): $g_{t+1,i}=0$ by the zeroing convention and
+$g_{t,i}-d_t=d_{e_t}(S^{t})-d_{e_t}(S^{t})=0$, so the constraint holds with
+equality.  Lemma~\ref{lem:coherence}, which requires $e\ne e'$, is not invoked
+in this case, which is what closes the gap this subsection exists to close.
+\end{proof}
+
+\begin{lemma}[relaxation]\label{lem:app-relaxation}
+For every instance $(f,\tilde f)$ satisfying Definition~\ref{def:eta} with
+$\eta=\eta_u\eta_o$, every optimal set $O^{\ast}$ and every run of predictive
+greedy, the vector $(d_t,g_{t,i})$ is feasible for \eqref{eq:redlp} and its
+objective value equals $f(S^{K})/f(O^{\ast})$.  Hence the optimum of
+\eqref{eq:redlp} is a lower bound on the worst-case ratio of predictive greedy
+at budget $K$ and error $\eta$.
+\end{lemma}
+\begin{proof}
+Feasibility is Lemmas~\ref{lem:app-sign} to \ref{lem:app-cons}.  The objective
+is $\sum_{t<K}d_t=f(S^{K})$ by telescoping, and $f(O^{\ast})=1$ by the
+normalization.  Every realizable run gives a feasible point, so the minimum
+over the feasible set is at most the minimum over realizable runs.
+\end{proof}
+
+\begin{remark}[what is and is not claimed]\label{rem:app-status}
+Lemma~\ref{lem:app-relaxation} gives one direction only.  The reverse
+direction, that every feasible point of \eqref{eq:redlp} is realized by some
+instance, is not claimed here; the attaining instances of
+Appendix~\ref{app:exact} supply what the theorem needs instead, and the
+agreement of \eqref{eq:redlp} with the full-lattice program has been checked
+for $K\le5$ and at nineteen $(K,\eta)$ test points.
+\end{remark}
+
+\begin{remark}[which error measure each family tolerates]\label{rem:app-rulers}
+The families $\mathrm{sum}(t)$ and $\mathrm{mono}(t,i)$ use no error notion at
+all.  The family $\mathrm{pred}(t,i)$ uses the band only at the greedy state
+$S^{t}$, so it stays valid with $\eta$ replaced by $\etatr$, and, read
+directly as a ratio of true gains at greedy states, with $\eta$ replaced by
+$\etasel$.  The family $\mathrm{cons}(t,i)$ invokes
+Lemma~\ref{lem:coherence}, whose proof uses the band at the state
+$S^{t}\cup\{o_i\}$, which is off the greedy trajectory; so $\mathrm{cons}$ is
+not covered by either restricted measure without a further assumption.  This
+is the reason the $L_K$ bound, whose proof uses only $\mathrm{sum}$ and
+$\mathrm{pred}$, is stated for $\etasel$ in
+Proposition~\ref{prop:guarantee}, while the exact value of
+Theorem~\ref{thm:exact} is stated for the global $\eta$.
+\end{remark}
+
+\begin{remark}[which hypothesis each family consumes]\label{rem:app-census}
+$\mathrm{sum}(t)$ uses submodularity and monotonicity of $f$ and no property of
+$\tilde f$.  $\mathrm{pred}(t,i)$ uses the greedy choice and both bands, and no
+property of $f$ beyond monotonicity.  $\mathrm{mono}(t,i)$ uses submodularity,
+and monotonicity in case (c).  $\mathrm{cons}(t,i)$ uses the greedy choice and
+both bands through Lemma~\ref{lem:coherence}, and monotonicity in cases (a) and
+(c).  No family uses submodularity of $\tilde f$, which is consistent with the
+predictor being an arbitrary set function.
+\end{remark}
+
+No script checks the derivations of this subsection; the linear program they
+justify is compared against the full-lattice program by
+\texttt{results/N3\_K5\_lattice.py}.
+
+% ---------------------------------------------------------------------------
 \subsection{Instances used in the experiments}\label{app:instances}
-The worst-case instances run in Section~\ref{sec:experiments} are exactly
-the families of Appendices \ref{app:tightness} and \ref{app:exact}; the
-experiment pipeline realizes their values to $10^{-10}$
-% results/E4_worst_instances.py
-and measures $\etasel=\eta$ on every $V_j$ instance.
+The worst-case instances run in Section~\ref{sec:experiments} are exactly the
+families of Appendices~\ref{app:tightness} and \ref{app:exact}: the family
+\eqref{eq:uk-family} at $\hat a=2$, and the family \eqref{eq:vj-family} for
+$K\in\{3,5,8\}$ with one $\eta$ per segment $j$.  The experiment pipeline runs
+them through the same lazy-greedy code as the real objectives, with the element
+order implementing the adversarial tie direction ($B$ before $O$, and $C$ then
+$P$ before $O$), and reproduces the values $L_K(\hat a)$ and $V_j(\eta)$ of the
+two previous subsections to $10^{-10}$; on every $V_j$ instance it measures
+$\etasel=\eta$, and on every member of \eqref{eq:uk-family} it measures
+$\etasel=\etatr=\hat a<\eta$.
+
+The computations of this subsection are machine-checked by
+\texttt{results/E4\_worst\_instances.py} and
+\texttt{results/F2\_etasel\_tight.py}.
