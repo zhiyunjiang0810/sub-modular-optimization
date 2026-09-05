@@ -1,32 +1,40 @@
-% statements.tex -- AI use and reproducibility statement drafts (TASKS4 F5.4).
+% statements.tex -- AI use and reproducibility statements (F5.4, revised G6).
+% Placement per the ICLR 2027 template: unnumbered subsections at the end of
+% the main text, BEFORE the references; the template states both do not
+% count toward the page limit (AI use REQUIRED, reproducibility
+% recommended; an Ethics statement is recommended-only and omitted here,
+% see results/G6_submission_checklist.md).
 % Honest by construction; the factual claims below mirror REPORT.md.
 
-\section*{Use of generative AI}
-Generative AI tools were used as research assistants throughout this
-project: to write and run the LP and symbolic verification scripts that back
-the status annotations of the theorems, to implement and execute the
-experiment pipelines, to draft theorem statements and proof skeletons, and
-to organize data and references.  All verification scripts are included in
-the supplementary material; the authors re-ran every script and checked
-every proof line by line before submission.  Statements whose proofs have
-not been so checked are explicitly marked in the source with their
-verification status, and no claim in this paper rests solely on an
-unverified AI-generated argument.
-% Draft: adjust the re-running claim to what the authors actually did before
-% submission.  The status tags in the .tex sources are the ground truth.
+\subsection*{AI use statement}
+In this work, we used generative AI tools as research assistants: to write
+and run the LP, symbolic, and exhaustive verification scripts that back the
+status annotations of the theorems, to implement and execute the experiment
+pipelines, to draft theorem statements and proof text, and to organize data
+and references.  We have reviewed all AI-assisted work: the authors re-ran
+the verification scripts and checked the proofs line by line before
+submission, and statements whose proofs have not been so checked are
+explicitly marked in the source with their verification status.  No claim
+in this paper rests solely on an unverified AI-generated argument.  We take
+responsibility for the final content of this work, including text, claims,
+and artifacts produced with the aid of generative AI.
+% Draft: adjust the re-running claim to what the authors actually did
+% before submission.  The status tags in the .tex sources are the ground
+% truth.
 
-\section*{Reproducibility statement}
-All numerical claims are backed by one-command scripts in the anonymous code
-repository accompanying this submission: the factor-revealing and reduced
-LPs, the symbolic verifications (sympy, exact arithmetic), the worst-case
-instance realizations, and the three experiment pipelines with fixed seed
-lists.  The appendix states, for each theorem, which parts are verified by
-which script.  Data handling is documented in the repository inventory:
-the airline table and the BBC corpus ship with the repository; the reference
-summaries missing for two BBC categories are backfilled from a public CSV of
-the same dataset, with a token-level cross-validation of the backfill on the
-category present locally; the social graphs are public SNAP datasets used as
-replacements for graphs no longer available, as documented in the
-inventory.  Experiment tables state that ratio denominators use the
-true-value greedy as an OPT proxy, and every reported lower bound states the
-error measure it is evaluated at.
+\subsection*{Reproducibility statement}
+All numerical claims are backed by one-command scripts in the anonymous
+repository accompanying this submission (link withheld in this draft; an
+anonymized link is to be added at submission time): the factor-revealing
+and reduced LPs, the symbolic verifications (sympy, exact arithmetic), the
+worst-case instance realizations, and the three experiment pipelines with
+fixed seed lists.  The appendix states, for each theorem, which parts are
+verified by which script.  Data handling is documented in the repository
+inventory: the airline table and the BBC corpus ship with the repository;
+the reference summaries missing for two BBC categories are backfilled from
+a public CSV of the same dataset, with a token-level cross-validation of
+the backfill on the category present locally; the social graphs are public
+SNAP datasets used as replacements for graphs no longer available, as
+documented in the inventory.  Experiment tables state that ratio
+denominators use the true-value greedy as an OPT proxy, and every reported
+lower bound states the error measure it is evaluated at.
