@@ -1,0 +1,41 @@
+[G4.1] breast_cancer: n_features=30, seeds=0..9, Kmax=5
+       C(30,1) = 30
+       C(30,2) = 435
+       C(30,3) = 4060
+       C(30,4) = 27405
+       C(30,5) = 142506
+       distinct subsets per seed = 174436, x10 seeds = 1744360
+  seed=1 done in 370.0s (174437 f-evals, 141 ftilde-evals)
+  seed=2 done in 377.3s (174437 f-evals, 141 ftilde-evals)
+  seed=3 done in 387.6s (174437 f-evals, 141 ftilde-evals)
+  seed=0 done in 395.5s (174437 f-evals, 141 ftilde-evals)
+  seed=5 done in 350.6s (174437 f-evals, 141 ftilde-evals)
+  seed=4 done in 358.5s (174437 f-evals, 141 ftilde-evals)
+  seed=6 done in 362.4s (174437 f-evals, 141 ftilde-evals)
+  seed=7 done in 357.9s (174437 f-evals, 141 ftilde-evals)
+  seed=9 done in 371.1s (174437 f-evals, 141 ftilde-evals)
+  seed=8 done in 379.5s (174437 f-evals, 141 ftilde-evals)
+[G4.1] wall time 1107.6s with 4 workers
+[G4.1] night-4 consistency: PASS (40 rows identical to E1_opt_breast_cancer.csv)
+wrote /home/user/sub-modular-optimization/results/G4_bc_opt_K5.csv
+
+| K | subsets C(30,K) | median f(greedy^f)/OPT | min | median f(greedy^ft)/OPT | min |
+|---|---|---|---|---|---|
+| 1 | 30 | 1.0000 | 1.0000 | 0.9659 | 0.9065 |
+| 2 | 435 | 1.0000 | 0.9727 | 0.9726 | 0.9364 |
+| 3 | 4060 | 0.9820 | 0.9640 | 0.9591 | 0.9273 |
+| 4 | 27405 | 0.9823 | 0.9554 | 0.9464 | 0.9115 |
+| 5 | 142506 | 0.9821 | 0.9643 | 0.9423 | 0.9196 |
+
+[G4.1] K=5 f(greedy^f)/OPT per seed: 0.9911 0.9643 0.9820 0.9821 0.9821 0.9823 0.9643 0.9825 0.9737 0.9735
+[G4.1] K=5 mean=0.9778 median=0.9821 min=0.9643 max=0.9911
+  seed=0 OPT_5 argmax features=[0, 7, 17, 22, 29] greedy^f=[3, 5, 10, 20, 29] greedy^ftilde=[2, 4, 5, 22, 27]
+  seed=1 OPT_5 argmax features=[7, 10, 21, 22, 28] greedy^f=[8, 14, 17, 21, 22] greedy^ftilde=[2, 5, 12, 23, 27]
+  seed=2 OPT_5 argmax features=[1, 2, 9, 16, 23] greedy^f=[8, 11, 16, 17, 27] greedy^ftilde=[4, 13, 22, 26, 29]
+  seed=3 OPT_5 argmax features=[1, 4, 7, 20, 21] greedy^f=[6, 7, 8, 21, 23] greedy^ftilde=[0, 2, 21, 22, 24]
+  seed=4 OPT_5 argmax features=[1, 7, 10, 15, 21] greedy^f=[0, 1, 2, 17, 27] greedy^ftilde=[0, 21, 22, 23, 24]
+  seed=5 OPT_5 argmax features=[0, 2, 6, 21, 23] greedy^f=[2, 11, 18, 20, 24] greedy^ftilde=[2, 5, 7, 20, 27]
+  seed=6 OPT_5 argmax features=[0, 4, 14, 23, 26] greedy^f=[1, 6, 7, 19, 24] greedy^ftilde=[0, 8, 20, 22, 24]
+  seed=7 OPT_5 argmax features=[7, 11, 20, 21, 24] greedy^f=[7, 17, 21, 22, 24] greedy^ftilde=[2, 17, 18, 22, 24]
+  seed=8 OPT_5 argmax features=[1, 2, 15, 23, 27] greedy^f=[3, 11, 17, 21, 23] greedy^ftilde=[11, 19, 21, 22, 24]
+  seed=9 OPT_5 argmax features=[1, 3, 6, 26, 27] greedy^f=[0, 1, 2, 7, 26] greedy^ftilde=[0, 3, 22, 24, 29]

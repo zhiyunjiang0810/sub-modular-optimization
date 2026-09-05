@@ -1,0 +1,12 @@
+[G4.2] airline K=7 seeds=0..9
+       full enumeration would be C(22,7) = 170544 subsets per seed: NOT run
+       candidate pool = top-200 by ftilde over the C(12,7)=792 subsets of the surrogate core, u 2000 random subsets (MASTER_SEED=20260905), u the 2 greedy sets
+  seed=1 226.4s  opt_hat=0.945419 (ftilde_top)  f(greedy^f)=0.945419  greedy_f/opt_hat=1.0000
+  seed=0 227.9s  opt_hat=0.948571 (greedy_f)  f(greedy^f)=0.948571  greedy_f/opt_hat=1.0000
+  seed=2 231.9s  opt_hat=0.949163 (ftilde_top)  f(greedy^f)=0.946995  greedy_f/opt_hat=0.9977
+  seed=3 165.2s  opt_hat=0.950345 (greedy_f)  f(greedy^f)=0.950345  greedy_f/opt_hat=1.0000
+  seed=5 162.5s  opt_hat=0.947586 (ftilde_top)  f(greedy^f)=0.947586  greedy_f/opt_hat=1.0000
+  seed=4 168.1s  opt_hat=0.945813 (ftilde_top)  f(greedy^f)=0.942857  greedy_f/opt_hat=0.9969
+  seed=6 167.6s  opt_hat=0.947980 (ftilde_top)  f(greedy^f)=0.947980  greedy_f/opt_hat=1.0000
+  seed=8 163.4s  opt_hat=0.950739 (ftilde_top)  f(greedy^f)=0.950739  greedy_f/opt_hat=1.0000
+  seed=7 167.4s  opt_hat=0.947389 (ftilde_top)  f(greedy^f)=0.947389  greedy_f/opt_hat=1.0000
