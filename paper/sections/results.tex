@@ -11,63 +11,9 @@
 % [CITATION-NEEDS-VERIFICATION].
 % ===========================================================================
 
-\section{Setting and results}\label{sec:results}
-
-% ---------------------------------------------------------------- block 1 --
-\subsection{Model and notation}\label{sec:model}
-
-A ground set $N$ with $|N|=n$, a monotone submodular $f:2^{N}\to\mathbb
-R_{\ge0}$ with $f(\emptyset)=0$, and a cardinality budget $K$ are fixed.  The
-algorithm cannot evaluate $f$; it can only query a predictor
-$\tilde f:2^{N}\to\mathbb R$ with $\tilde f(\emptyset)=0$.  Marginal gains are
-written $d_e(S)=f(S\cup\{e\})-f(S)$ and
-$\tilde d_e(S)=\tilde f(S\cup\{e\})-\tilde f(S)$.
-
-\begin{definition}[Prediction error]\label{def:eta}
-For $\eta_u,\eta_o\ge1$ the predictor $\tilde f$ has (single-element,
-multiplicative) error at most $(\eta_u,\eta_o)$ if for every $S\subseteq N$
-and $e\notin S$,
-\[
-  d_e(S)/\eta_u\;\le\;\tilde d_e(S)\;\le\;\eta_o\,d_e(S).
-\]
-In particular $d_e(S)=0$ forces $\tilde d_e(S)=0$, and all predicted gains are
-nonnegative.  The scalar error is $\eta=\eta_u\eta_o$.
-\end{definition}
-
-Approximation ratios are stated as $\alpha\in(0,1]$ with
-$F^{\mathrm{ALG}}\ge\alpha\,F^{\mathrm{OPT}}$; larger is better.
-% Erratum guard: the submitted draft stated the ratio in the opposite
-% direction in Section 1.1; fixed here (RESEARCH_STATE, known errors).
-
-Predictive greedy is the single-step greedy run on $\tilde f$: for
-$t=0,\dots,K-1$ it adds an element maximizing $\tilde d_e(S^{t})$, with ties
-broken adversarially in all worst-case statements.  Its exact worst-case ratio
-at error level $\eta$ is written $\rho_K(\eta)$.  Two run-dependent error
-measures refine $\eta$:
-\begin{definition}[Selection error]\label{def:etasel}
-For an execution of predictive greedy with states
-$S^{0},\dots,S^{K-1}$ and picks $e_{0},\dots,e_{K-1}$, the selection error is
-\[
-  \etasel\;=\;\max\Bigl\{\,\max_{e\notin S^{t}} d_{e}(S^{t})\,/\,d_{e_t}(S^{t})
-  \;:\;t<K,\ d_{e_t}(S^{t})>0\Bigr\}\;\ge\;1 ,
-\]
-the largest factor by which a step of the run fell short of the best true
-gain, over the steps with positive chosen gain.  In the terminology of
-Goundan and Schulz, a run with selection error $\etasel$ is an execution of
-greedy with an $\alpha$-approximate incremental oracle with
-$\alpha=\etasel$ \citep{goundan2007revisiting}.
-% Status of the attribution: F6 audit item 4 (their alpha >= 1 satisfies
-% alpha rho_{e_t} >= max_e rho_e, so alpha = etasel; the earlier 1/etasel
-% reading was reversed and is corrected here).  The notation \etasel is ours.
-% Their Theorem 1 (p. 7) is verbatim the L_K bound; Proposition
-% \ref{prop:guarantee} below is that theorem instantiated and is attributed
-% accordingly, not claimed as new (decision D2).
-\end{definition}
-The trajectory error restricts Definition~\ref{def:eta} to the states of the
-run; it is used in a single remark below and written $\etatr$ when a symbol is
-needed.  The chain $\etasel\le\etatr\le\eta$ holds for every run.
-% [HAND-PROOF-UNREVIEWED, two lines: max_e d_e <= eta_u max_e dtilde_e <=
-%  eta_u dtilde_{e_t} <= eta_u eta_o d_{e_t} at every state of the run.]
+\section{Theoretical results}\label{sec:results}
+% Block 1 (model and notation) moved to sections/model.tex (Section
+% \ref{sec:model}) during the G1 assembly; blocks 2-9 remain here.
 
 % ---------------------------------------------------------------- block 2 --
 \subsection{An error bound is necessary}\label{sec:necessity}

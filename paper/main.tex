@@ -8,6 +8,7 @@
 \usepackage{url}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{graphicx}
 
 \input{macros}
 
@@ -18,39 +19,84 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
 
-\title{Submodular Maximization with Predictions:\\ Draft Assembly of Formal Results}
+% Draft title (G1); the human finalizes it together with abstract and intro.
+\title{Submodular Maximization with Predictions:\\
+Exact Worst Cases, Query Hardness, and Per-Run Certificates}
 
 \author{Anonymous}
 
-\iclrfinalcopy % compile in camera-ready mode so the draft shows a header
+\iclrfinalcopy % draft mode with header; REMOVE for double-blind submission
+               % (G6 checklist item; without it the submission is anonymous).
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This document assembles the formal results, notation, appendix proof
-skeletons, statements, and figure captions produced during the overnight
-research sessions.  It is a working draft compiled with the ICLR 2027
-template; it is not the paper itself.
+% [Placeholder -- the human writes the abstract.  One-sentence story
+% (English draft, G1): When a monotone submodular objective can only be
+% accessed through an inaccurate predictor, greedy on the predicted gains
+% is essentially the best possible algorithm: its exact worst-case ratio is
+% determined at every error level, no algorithm with polynomially many
+% bounded-size queries can do asymptotically better, and its guarantee
+% doubles as a per-run certificate at a measurable error that on real tasks
+% certifies far more than the worst case suggests.]
 \end{abstract}
+
+\section{Introduction}\label{sec:intro}
+% [Placeholder -- the human writes the introduction.  Assembly notes (G1):
+%
+% Four load-bearing positions the introduction must carry (draft list,
+% inferred from RESEARCH_STATE; the human may reorder or reword):
+%  1. Model position: the objective f is monotone submodular but cannot be
+%     queried; only a surrogate ftilde can.  Error is multiplicative on
+%     single-element marginal gains, (eta_u, eta_o), eta = eta_u * eta_o;
+%     the surrogate itself is unrestricted (decision D1).  Some error bound
+%     is necessary: with no bound, no algorithm retains any constant ratio
+%     (Proposition~\ref{prop:necessity}).
+%  2. Guarantee-as-certificate position: the classical greedy guarantee
+%     L_K, essentially due to Goundan and Schulz (decision D2: stated as
+%     Proposition~\ref{prop:guarantee}, attributed, not claimed as new),
+%     holds at the per-run selection error etasel <= etatr <= eta, which is
+%     measurable in hindsight; the experiments read it as a certificate.
+%  3. Exact worst case: rho_K(eta) = min_j V_j(eta) for predictive greedy
+%     under adversarial ties (Theorem~\ref{thm:exact}), with explicit dual
+%     certificates and attaining instances; strictly below the previously
+%     used explicit family U_K.
+%  4. Hardness position: no deterministic algorithm with n^c queries of
+%     size at most K beats L_K(etahat) (Theorem~\ref{thm:hardness}); with
+%     Proposition~\ref{prop:guarantee} this pins the bounded-query optimum
+%     at error eta to 1 - e^{-1/eta} asymptotically in K.
+%
+% Hook (A/B surrogate example, draft): two surrogates for the same
+% objective.  Surrogate A is pointwise accurate everywhere (eta close to 1
+% would seem to certify it) except that it reverses the ranking of the top
+% two candidates at the states greedy actually visits; surrogate B is off
+% by a large factor on almost every set, yet ranks candidates correctly at
+% every visited state.  Greedy on B returns the optimum; greedy on A loses
+% a constant factor.  The lesson the paper builds on: what a guarantee
+% should charge is the error where selection happens (etasel), not the
+% global band (eta) -- and etasel is measurable after the run.]
+
+\input{sections/model}
+
+\input{sections/related}
 
 \input{sections/results}
 
-\section{Experiments (placeholder)}\label{sec:experiments}
-The experiments section is assembled from results/EXP\_SUMMARY.md and the
-regenerated table results/EXP\_table.tex; this stub carries the label so the
-cross references of Section~\ref{sec:results} resolve in this draft.
+\input{sections/experiments}
 
-\input{sections/notation_table}
+\input{sections/conclusion}
 
+% Statements are unnumbered sections; per the ICLR template they are placed
+% before the references and do not count toward the page limit (G6 confirms).
 \input{sections/statements}
-
-\input{figures/captions}
-
-\appendix
-\input{sections/appendix_proofs}
 
 \bibliography{references}
 \bibliographystyle{iclr2027_conference}
+
+\appendix
+\input{sections/notation_table}
+\input{sections/appendix_proofs}
+\input{sections/appendix_experiments}
 
 \end{document}
