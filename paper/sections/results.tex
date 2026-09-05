@@ -182,12 +182,16 @@ achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
 
 \begin{corollary}[Limit in $K$]\label{cor:limit}
 For fixed $\eta\ge1$, both $L_K(\eta)$ and $\rho_K(\eta)$ converge to
-$1-e^{-1/\eta}$ as $K\to\infty$, monotonically within each segment.
+$1-e^{-1/\eta}$ as $K\to\infty$; for $L_K$ the convergence is monotone
+in $K$.
 \end{corollary}
 % Status: for L_K elementary; for rho_K = min_j V_j it follows from the
-% closed form [VERIFIED-SYMBOLIC identities in results/T3_K3_closed_form.py]
-% plus Richardson-extrapolated numerics (R8).  One-line proof in Appendix
-% \ref{app:asymptotics}.
+% closed form [VERIFIED-SYMBOLIC identities in results/T3_K3_closed_form.py].
+% Proof in Appendix \ref{app:asymptotics}.  Statement weakened during G2/G1
+% integration: the former clause "monotonically within each segment" is
+% derived only for L_K; for rho_K the minimizing index moves with K and
+% monotonicity has numeric support only (R8) [CONJECTURE], so the visible
+% claim was dropped for rho_K (conservative option, recorded per CLAUDE.md).
 
 % ---------------------------------------------------------------- block 9 --
 \subsection{Hardness for bounded-query algorithms}\label{sec:hardness}
