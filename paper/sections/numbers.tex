@@ -80,8 +80,8 @@
 % splits used for the baseline panel (fewer than the main sweep, to bound running time; results/E1_notes.md section 9)
 \newcommand{\EOneBaselineSeeds}{10}
 
-% largest budget where OPT was enumerated exactly (F1)
-\newcommand{\EOneBreastOptK}{4}
+% largest budget where OPT was enumerated exactly (G4 (results/G4_bc_opt_K5.py))
+\newcommand{\EOneBreastOptK}{5}
 
 % splits in that enumeration
 \newcommand{\EOneBreastOptSeeds}{10}
@@ -90,10 +90,22 @@
 \newcommand{\EOneBreastOptGreedyF}{0.982}
 
 % median f(greedy on ftilde) / f(OPT) at that budget
-\newcommand{\EOneBreastOptGreedyFtilde}{0.946}
+\newcommand{\EOneBreastOptGreedyFtilde}{0.942}
 
 % percent by which using greedy-on-f as the OPT proxy inflates a ratio
 \newcommand{\EOneBreastOptInflationPct}{1.8}
+
+% seeds in the airline partial-enumeration check (G4)
+\newcommand{\EOneAirlineOptHatSeeds}{10}
+
+% candidate K-subsets scored per seed (ftilde top + random)
+\newcommand{\EOneAirlineOptHatCands}{2200}
+
+% largest relative improvement of OPT_hat over greedy-on-f, percent
+\newcommand{\EOneAirlineOptHatMaxImpPct}{0.33}
+
+% seeds where the pool beat greedy-on-f at all
+\newcommand{\EOneAirlineOptHatBetterSeeds}{3}
 
 % networks in E2
 \newcommand{\ETwoNumGraphs}{4}
@@ -290,4 +302,4 @@
 % right panel budget of the main figure
 \newcommand{\MoneyKRight}{30}
 
-% 94 macros.
+% 98 macros.

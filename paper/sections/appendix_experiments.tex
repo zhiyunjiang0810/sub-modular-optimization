@@ -53,9 +53,21 @@ budgets up to $K=\EOneBreastOptK$ over \EOneBreastOptSeeds\ splits.  At that
 budget the median of $f(S^{f})/f(O^{\ast})$ is \EOneBreastOptGreedyF, so
 using the proxy inflates a reported ratio by \EOneBreastOptInflationPct\,\%\
 in the median; the median of $f(S^{\tilde f})/f(O^{\ast})$, that is the
-quantity the theory bounds, is \EOneBreastOptGreedyFtilde.  Enumeration was
-not attempted at larger budgets or on the larger datasets, so no ratio
-against a true optimum is claimed anywhere else.
+quantity the theory bounds, is \EOneBreastOptGreedyFtilde.  Exhaustive
+enumeration was not attempted at larger budgets or on the larger datasets,
+so no ratio against a true optimum is claimed anywhere else.
+% G4 airline sanity check (results/G4_airline_optproxy.py); the direction
+% caveat below is deliberate: OPT_hat <= OPT, so the improvement found is a
+% lower bound on the true gap, never an estimate of it.
+On the largest dataset a conservative under-estimate $\hat O$ of the
+optimum was computed as the best true value over
+\EOneAirlineOptHatCands\ candidate subsets per split (the surrogate's
+top-ranked subsets together with uniformly random ones), over
+\EOneAirlineOptHatSeeds\ splits: the pool improved on greedy on $f$ in
+\EOneAirlineOptHatBetterSeeds\ splits, never by more than
+\EOneAirlineOptHatMaxImpPct\,\%.  Since $f(\hat O)\le f(O^{\ast})$, this
+bounds how much better the sampled pool is, not the gap to the true
+optimum, and the table keeps greedy on $f$ as the denominator.
 
 \subsection{Baseline comparison}\label{app:exp-baselines}
 

@@ -229,14 +229,21 @@ def do_e1():
       'splits used for the baseline panel (fewer than the main sweep, to '
       'bound running time; results/E1_notes.md section 9)')
 
-    # F1 brute-force OPT on breast_cancer (the honest check on the OPT proxy).
-    opt = read('E1_opt_breast_cancer.csv')
+    # Brute-force OPT on breast_cancer (the honest check on the OPT proxy).
+    # G4 extended F1's enumeration from K<=4 to K<=5 and reproduces the
+    # K<=4 rows bit-for-bit; prefer the G4 file when present.
+    if os.path.exists(os.path.join(HERE, 'G4_bc_opt_K5.csv')):
+        opt = read('G4_bc_opt_K5.csv')
+        opt_src = 'G4 (results/G4_bc_opt_K5.py)'
+    else:
+        opt = read('E1_opt_breast_cancer.csv')
+        opt_src = 'F1'
     Kopt = max(int(r['K']) for r in opt)
     o = [r for r in opt if int(r['K']) == Kopt]
     r_go = median(col(o, 'greedy_f_over_opt'))
     r_gt = median(col(o, 'greedy_ftilde_over_opt'))
     M('EOneBreastOptK', str(Kopt),
-      'largest budget where OPT was enumerated exactly (F1)')
+      'largest budget where OPT was enumerated exactly (%s)' % opt_src)
     M('EOneBreastOptSeeds', str(len({r['seed'] for r in o})),
       'splits in that enumeration')
     M('EOneBreastOptGreedyF', f3(r_go),
@@ -245,6 +252,22 @@ def do_e1():
       'median f(greedy on ftilde) / f(OPT) at that budget')
     M('EOneBreastOptInflationPct', f1(100 * (1 / r_go - 1)),
       'percent by which using greedy-on-f as the OPT proxy inflates a ratio')
+
+    # G4 airline conservative OPT under-estimate (sanity check only; the
+    # table keeps greedy-on-f as denominator).  OPT_hat <= OPT, so the
+    # improvement over greedy-on-f is a lower bound on the true OPT gap.
+    if os.path.exists(os.path.join(HERE, 'G4_airline_optproxy.csv')):
+        ap = read('G4_airline_optproxy.csv')
+        imp = [1 / float(r['greedy_f_over_opt_hat']) - 1 for r in ap]
+        M('EOneAirlineOptHatSeeds', str(len(ap)),
+          'seeds in the airline partial-enumeration check (G4)')
+        M('EOneAirlineOptHatCands', str(max(int(r['n_cand_total']) for r in ap)),
+          'candidate K-subsets scored per seed (ftilde top + random)')
+        M('EOneAirlineOptHatMaxImpPct', f2(100 * max(imp)),
+          'largest relative improvement of OPT_hat over greedy-on-f, percent')
+        M('EOneAirlineOptHatBetterSeeds',
+          str(sum(1 for r in ap if float(r['greedy_f_over_opt_hat']) < 1.0)),
+          'seeds where the pool beat greedy-on-f at all')
 
 
 # ==========================================================================
