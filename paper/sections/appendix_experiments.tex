@@ -75,7 +75,15 @@ The baseline panel uses \EOneBaselineSeeds\ splits rather than the
 \EOneNumSeeds\ of the main sweep, to bound running time.  On the largest
 feature-selection dataset the median held-out accuracy of greedy on
 $\tilde f$ is at least that of the best of \EOneNumBaselines\ classical
-selectors at \EOneAirlineBaselineWins\ of the \EOneNumBudgets\ budgets, all
+selectors (a mutual-information ranking in the max-relevance tradition
+\citep{peng2005feature}, a univariate-statistic ranking, recursive feature
+elimination, and the feature importances of extremely randomized trees
+\citep{geurts2006extremely})
+% H1: method citations recovered from the TPAMI submission's bib and
+% re-verified (results/H1_bib_crosscheck.md); the univariate ranking and
+% RFE are used as implemented in scikit-learn and carry no dedicated
+% scholarly source in either bib (recorded as a leftover in the H1 report).
+at \EOneAirlineBaselineWins\ of the \EOneNumBudgets\ budgets, all
 of them scored by the same $f$ so that the comparison is between selected
 subsets and not between downstream models.  On the smallest dataset the
 outcome is mixed: greedy on $\tilde f$

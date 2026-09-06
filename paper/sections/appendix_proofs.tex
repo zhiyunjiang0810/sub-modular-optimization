@@ -141,6 +141,77 @@ unconstrained.
 No script checks the computations of this proof.
 
 % ---------------------------------------------------------------------------
+\subsection{Value accuracy versus gain accuracy
+(Proposition~\ref{prop:valueacc})}\label{app:valueacc}
+% H1 restoration.  Parts (i) and (iii) are Lemmas 2 and 3 of the TPAMI
+% submission (legacy/tpami_submission/appendix.tex), rewritten in the
+% notation of Section \ref{sec:model}; part (ii) is a scaling observation
+% added in H1.  [HAND-PROOF-UNREVIEWED.]
+
+\paragraph{Part (i).}
+Fix $\varepsilon\in(0,1)$ and take $N=\{a,b\}$ with
+\[
+  f(\emptyset)=0,\quad f(\{a\})=1,\quad
+  f(\{b\})=\tfrac{2\varepsilon}{1-\varepsilon},\quad
+  f(\{a,b\})=\tfrac{1+\varepsilon}{1-\varepsilon},
+\]
+\[
+  \tilde f(\emptyset)=0,\quad \tilde f(\{a\})=1+\varepsilon,\quad
+  \tilde f(\{b\})=\tfrac{2\varepsilon}{1-\varepsilon},\quad
+  \tilde f(\{a,b\})=1+\varepsilon .
+\]
+The function $f$ is nonnegative, monotone, and modular (hence submodular):
+$f(\{a,b\})=f(\{a\})+f(\{b\})$ holds because
+$1+\tfrac{2\varepsilon}{1-\varepsilon}=\tfrac{1+\varepsilon}{1-\varepsilon}$.
+Value accuracy at level $\varepsilon$ is checked set by set: on $\{a\}$,
+$\tilde f=(1+\varepsilon)f$; on $\{b\}$, $\tilde f=f$; on $\{a,b\}$,
+$\tilde f(\{a,b\})=1+\varepsilon=(1-\varepsilon)\,
+\tfrac{1+\varepsilon}{1-\varepsilon}=(1-\varepsilon)f(\{a,b\})$, the lower
+end of the band.  At the pair $(S,e)=(\{a\},b)$ the true gain is
+$d_b(\{a\})=f(\{a,b\})-f(\{a\})=\tfrac{2\varepsilon}{1-\varepsilon}>0$
+while the predicted gain is
+$\tilde d_b(\{a\})=\tilde f(\{a,b\})-\tilde f(\{a\})=0$.  A zero predicted
+gain at a positive true gain violates
+$\tilde d_e(S)\ge d_e(S)/\eta_u$ for every finite $\eta_u$, so no
+$(\eta_u,\eta_o)$ of Definition~\ref{def:eta} is finite for this
+$\tilde f$, and every bound of the form $L_K(\eta)$ is vacuous for it.
+
+\paragraph{Part (ii).}
+Let $f$ be monotone submodular, not identically zero, and
+$\tilde f=(1+M)f$ for $M>0$.  Every set $S$ with $f(S)>0$ witnesses
+$|\tilde f(S)-f(S)|/f(S)=M>\varepsilon$ for every $\varepsilon<M$, so
+$\tilde f$ is not value-accurate at any level below $M$.  Predicted gains
+are $\tilde d_e(S)=(1+M)\,d_e(S)$, a positive multiple of the true gains,
+so at every state the maximizers of $\tilde d_e(S)$ and of $d_e(S)$ are
+the same set of elements, and whichever of them tie breaking picks, the
+picked element has maximum true gain.  Every step with positive chosen
+gain therefore contributes the factor
+$\max_{e\notin S^t}d_e(S^t)/d_{e_t}(S^t)=1$ to
+Definition~\ref{def:etasel}, giving $\etasel=1$, and
+Proposition~\ref{prop:guarantee} certifies the run at $L_K(1)$.
+(Gains are nonnegative by monotonicity, so no step has negative chosen
+gain.)
+
+\paragraph{Part (iii).}
+Fix $S\subseteq N$ and apply Definition~\ref{def:eta} to the pair
+$(\emptyset,S)$ read through single elements: summing the telescoping of
+$f$ and $\tilde f$ along any fixed enumeration of $S$, each increment of
+$\tilde f$ lies between $1/\eta_u$ and $\eta_o$ times the corresponding
+increment of $f$, and increments of a monotone $f$ are nonnegative, so
+\[
+  f(S)/\eta_u\;\le\;\tilde f(S)\;\le\;\eta_o\,f(S).
+\]
+Subtracting $f(S)$ and dividing by $f(S)>0$ (the case $f(S)=0$ forces
+$\tilde f(S)=0$ and contributes nothing) gives
+$\tfrac1{\eta_u}-1\le\tfrac{\tilde f(S)-f(S)}{f(S)}\le\eta_o-1$, hence
+$|\tilde f(S)-f(S)|/f(S)\le\max\{1-1/\eta_u,\ \eta_o-1\}$.
+% The TPAMI original stated this via d_emptyset(S), i.e. the all-pairs
+% form of the error; the single-element form suffices by telescoping, which
+% is why the restated part (iii) needs no all-pairs assumption.
+
+No script checks the computations of this proof.
+
+% ---------------------------------------------------------------------------
 \subsection{The guarantee (Proposition~\ref{prop:guarantee})}\label{app:guarantee}
 This proof is included for completeness; the statement is essentially
 Theorem~1 of \citet{goundan2007revisiting}, restated in the prediction-error

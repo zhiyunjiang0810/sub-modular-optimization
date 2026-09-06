@@ -29,6 +29,39 @@ ratio is achievable without an error assumption.
 % predictor of the 1/eta ceiling (Theorem \ref{thm:ceiling}) with the error
 % parameter sent to infinity; proof sketch in Appendix \ref{app:necessity}.
 
+Proposition~\ref{prop:necessity} says that some error bound is needed; the
+next statement says the bound has to be on marginal gains rather than on
+values.  Following Hassidim and Singer, call $\tilde f$ value-accurate at
+level $\varepsilon\in(0,1)$ if
+$(1-\varepsilon)f(S)\le\tilde f(S)\le(1+\varepsilon)f(S)$ for every
+$S\subseteq N$ \citep{hassidim2017submodular}.
+
+\begin{proposition}[Value accuracy is neither sufficient nor necessary]
+\label{prop:valueacc}\mbox{}
+\begin{itemize}
+\item[(i)] For every $\varepsilon\in(0,1)$ there are a monotone submodular
+$f$ and a predictor $\tilde f$, value-accurate at level $\varepsilon$, with
+$\tilde d_e(S)=0$ at a pair where $d_e(S)>0$; hence no
+$(\eta_u,\eta_o)$ of Definition~\ref{def:eta} is finite for $\tilde f$, and
+no bound of the form $L_K(\eta)$ follows from value accuracy alone.
+\item[(ii)] For every $M>0$ and every monotone submodular $f$ not
+identically zero, the predictor $\tilde f=(1+M)f$ fails value accuracy at
+every level $\varepsilon<M$, yet predictive greedy on $\tilde f$ picks at
+every state an element of maximum true gain, so $\etasel=1$ and the full
+guarantee of Proposition~\ref{prop:guarantee} applies to the run.
+\item[(iii)] Conversely, every predictor with error at most
+$(\eta_u,\eta_o)$ for a nonnegative $f$ is value-accurate at level
+$\max\{1-1/\eta_u,\ \eta_o-1\}$.
+\end{itemize}
+\end{proposition}
+% Status: [HAND-PROOF-UNREVIEWED]; proof in Appendix \ref{app:valueacc}.
+% H1 restoration: (i) and (iii) are Lemmas 2 and 3 of the TPAMI submission
+% (legacy/tpami_submission/error-metric.tex + appendix.tex), restated in the
+% notation of Section \ref{sec:model} and merged into one proposition per
+% the H1 instruction; (ii) is a two-line scaling observation added so the
+% proposition supports both halves of its name ("nor necessary").  No
+% script checks these computations.
+
 % ---------------------------------------------------------------- block 3 --
 \subsection{The guarantee, stated for the selection error}\label{sec:guarantee}
 

@@ -1,0 +1,345 @@
+\documentclass[journal,compsoc]{IEEEtran}
+
+\usepackage{cite}
+%\usepackage{natbib}
+\usepackage[font=footnotesize, labelfont=bf, skip=0pt]{caption}
+\captionsetup{compatibility=false} % Prevents the warning
+% Adjust the spacing
+\captionsetup[figure]{skip=0pt}    % Adjust the value as needed
+\captionsetup[table]{skip=0pt}    % Adjust the value as needed
+
+\usepackage{comment}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{enumitem}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\allowdisplaybreaks[3]
+
+
+\usepackage{amsthm} % allows example and proof environment to be defined/used
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{conj}[theorem]{Conjecture}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{prop}[theorem]{Property}
+\newtheorem{IP}[theorem]{Integer Linear Program}
+\newtheorem{LP}[theorem]{Linear Program}
+\newtheorem{proced}[theorem]{Procedure}
+\newtheorem{algo}[theorem]{Algorithm}
+\newtheorem{assum}[theorem]{Assumption}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{remark}[theorem]{Remark}
+%%% END Article customizations
+
+%%% Document Parameters 
+\setlength{\tabcolsep}{5pt}
+
+\begin{document}
+
+
+\title{Submodular Optimization with Predictions}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+\author{Tianming~Zhao,~\IEEEmembership{Member,~IEEE,}
+        Zhiyun~Jiang, 
+        Chunqiu~Xia,
+        Xinwei~Ji,
+        Wei~Li,~\IEEEmembership{Senior Member,~IEEE,}
+        and~Albert~Y.~Zomaya,~\IEEEmembership{Fellow,~IEEE}% <-this % stops a space
+%\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
+%of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+%GA, 30332.\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+%E-mail: see http://www.michaelshell.org/contact.html
+%\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops an unwanted space
+%\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}
+
+\thanks{T. Zhao, Z. Jiang, C. Xia, X. Ji, W. Li, and A. Y. Zomaya are with School of Computer Science, The University of Sydney, NSW 2006, Australia (e-mails: tzha2101@uni.sydney.edu.au, zjia5638@uni.sydney.edu.au, chunqiu.xia@sydney.edu.au, xiji3593@uni.sydney.edu.au, weiwilson.li@sydney.edu.au, and albert.zomaya@sydney.edu.au).}
+
+}
+
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{IEEE Transactions on Pattern Analysis and Machine Intelligence}%
+{}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2015 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+Submodular optimization is fundamental to artificial intelligence, underpinning tasks in data-driven decision-making and information summarization. In practice, however, the submodular objective often remains unknown or partially known due to limited data access or inherent complexities in its measurement. To address this, we consider the novel problem of maximizing an unknown submodular function under the cardinality constraint within a learning-augmented framework. We introduce a new and effective prediction error metric defined in the marginal gain space to address the limitations of existing metrics that operate in the raw function space. We show that the R-step predictive greedy algorithm achieves an approximation ratio $1 - (1 - \frac{1}{\eta {\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil}$, where $K$ is the cardinality constraint and $\eta$ is the proposed error metric. This ratio is bounded by $1 - e^{-1/\eta}$, ensuring optimal consistency. The effectiveness of our approach is evaluated across three applications: machine learning feature selection, influence maximization, and text summarization, using real-world datasets. Experimental results highlight the robustness of the R-step predictive greedy algorithm to prediction quality, maintaining near-optimal performance even with significant errors. 
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Learning-augmented algorithms, submodular functions, optimization, predictions
+\end{IEEEkeywords}
+}
+
+
+% make the title area
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc or transmag under a non-conference mode.
+
+\IEEEpeerreviewmaketitle
+
+
+\input{introduction}
+
+
+\input{error-metric}
+
+\input{optimization}
+
+\input{experiments}
+
+\input{limitations}
+
+\input{conclusions}
+
+%\section*{Acknowledgments}
+
+
+
+
+
+
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+\begin{comment}
+\appendices
+\section{Proof of the First Zonklar Equation}
+Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+\section{}
+Appendix two text goes here.
+\end{comment}
+
+
+\begin{comment}
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+The authors would like to thank...
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+\end{comment}
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+\bibliographystyle{ieeetr}
+\bibliography{submodular}
+
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+%\begin{IEEEbiography}{Michael Shell}
+%Biography text here.
+%\end{IEEEbiography}
+
+% if you will not have a photo at all:
+%\begin{IEEEbiographynophoto}{John Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+%\begin{IEEEbiographynophoto}{Jane Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+%%%%%%%%%%%%     Biosketches     %%%%%%%%%%%%     
+\vspace{-20pt}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/Tianming_Zhao.png}}]
+{Tianming Zhao} received his Ph.D. from the School of Computer Science, The University of Sydney in 2023. He is currently a postdoctoral researcher at the Center for Distributed and High Performance Computing, School of Computer Science, The University of Sydney. His research interests include algorithms with predictions, scheduling, and quantitative research. He was awarded the University Medal for his B.S. degree with Honors in computer science from The University of Sydney. He received the IEEE TCSC Outstanding Ph.D. Dissertation Award (2024). 
+\end{IEEEbiography}
+
+\vspace{-30pt}
+
+
+
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/Zhiyun1.jpg}}]
+{Zhiyun Jiang} received her Bachelor Degree with Honours in Civil Engineering from The University of Sydney (2022). She further received her Master Degree of Data Science from the University of Sydney (2023) and is a currently enrolled HDR student in the School of Computer Science supervised by Professor Albert Y. Zomaya. Her research interests are in scheduling with predictions, online algorithms, and meta-scheduling. 
+\end{IEEEbiography}
+
+\vspace{-30pt}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/Chunqiu_xia.jpg}}]
+{Chunqiu Xia} received the M.Phil. degree in 2019 and the Ph.D. degree in 2024, both from the School of Computer Science, The University of Sydney, Australia. He is currently a postdoctoral researcher at the Center for Distributed and High Performance Computing, School of Computer Science, The University of Sydney. His research interests include edge computing, the energy internet, and scheduling.
+\end{IEEEbiography}
+
+\vspace{-30pt}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/xinweiji.jpg}}]
+{Xinwei Ji} received his Ph.D. degree in 2024 from the Center for Distributed and High-Performance Computing at the University of Sydney, Australia. He is currently a postdoctoral researcher at Shenzhen University, China. His research interests include artificial intelligence in healthcare, model compression and acceleration of vision-language models, and computation resources scheduling with prediction.
+\end{IEEEbiography}
+
+
+
+\vspace{-30pt}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/Wei_Li.jpg}}]
+{Wei Li} received his PhD degree from the School of Information Technologies at The University of Sydney. He is currently an ARC DECRA fellow at the Centre for Distributed and High-Performance Computing, School of Computer Science, The University of Sydney. His research interests include edge computing, sustainable computing, task scheduling, energy efficiency, and the Internet of Things. He is the recipient of five IEEE or ACM conference best paper awards. He received the IEEE TCSC Award for Excellence in Scalable Computing for Early Career Researchers (2018) and the IEEE Outstanding Leadership Award (2018). He is a senior member of the IEEE Computer Society and the IEEE, and a member of the ACM. He is currently an Associate Editor of IEEE TRANSACTIONS ON SUSTAINABLE COMPUTING.
+\end{IEEEbiography}
+
+\vspace{-20pt}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{images/Albert_Zomaya.jpg}}]
+{Albert Y. Zomaya} is Peter Nicol Russell Chair Professor of Computer Science and Director of the Centre for Distributed and High-Performance Computing at the University of Sydney. He is the past Editor in Chief of the IEEE Transactions on Computers (2010-2014), the IEEE Transactions on Sustainable Computing (2016-2020), and the ACM Computing Surveys (2019-2024). Professor Zomaya is a decorated scholar with numerous accolades, including Fellowship of the IEEE, the American Association for the Advancement of Science, and the Institution of Engineering and Technology (UK). Also, he is an Elected Fellow of the Australian Academy of Science, the Royal Society of New South Wales, an Elected Foreign Member of Academia Europaea, and a Member of the European Academy of Science and Arts. His research interests span several areas in parallel and distributed computing and complex systems.
+\end{IEEEbiography}
+
+
+% that's all folks
+\end{document}
+
+

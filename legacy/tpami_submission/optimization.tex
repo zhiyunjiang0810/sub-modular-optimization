@@ -1,0 +1,334 @@
+\section{Optimization with predictions} \label{sec:optimization-with-predictions}
+
+
+A natural extension of the classic greedy algorithms is to start from an empty set and iteratively add elements: at each step, the chosen set of elements $I$ (which could have more than one element) maximize $\tilde{d}_{I}(S)$ constrained by the size of $I$, where $S$ is the set obtained in the previous step. We name this procedure \textit{R-step predictive greedy heuristic}, if we constrain $|I| \leq R$. If $R$ is set to one, the algorithm simplifies to \textit{single-step predictive greedy}. We will first analyze the performance of the single-step greedy and then generalize the analysis to the $R$-step greedy. 
+
+\subsection{The single-step predictive greedy heuristic}
+
+\begin{algorithm} [tb]
+\caption{Single-step Predictive Greedy} \label{algo:single-step-greedy}
+\begin{algorithmic}[1]
+\State \textbf{Input:} finite set $N$, marginal gain predictions $\tilde{d}$, and the cardinality constraint $K$
+\State \textbf{Output:} set $S$ with $|S| \leq K$
+\State initialize $S^0 \gets \emptyset$, $t \gets 0$
+
+\While{$|S^{t}| < K$}
+    \State $e_t \gets \argmax_{e \in {N - S^t}}{\tilde{d}_{\{e\}}(S^{t})}$
+    %\State let $e_t \in N - S^t$ such that $\tilde{d}_{\{e_t\}}(S^{t}) = \max_{e \in {N - S^t}}{\tilde{d}_{\{e\}}(S^{t})}$, with ties break arbitrarily
+    \State $\tilde{d}_{t} \gets \tilde{d}_{\{e_t\}}(S^{t})$%, ${d}_{t} \gets {d}_{\{e_t\}}(S^{t})$
+    \If{$\tilde{d}_{t} > 0$}
+        \State $S^{t+1} \gets S^{t} \cup \{ e_t \}$, $t \gets t + 1$ \Comment{add $e_t$ to set $S^{t}$}
+    \Else 
+        \State \textbf{break} \Comment{stop with set $S^{t}$}
+    \EndIf 
+\EndWhile
+\State $K^* \gets |S^{t}|$ \Comment{$K^*$ is the size of the output set}
+\State \textbf{return} \( S^{t} \)
+\end{algorithmic}
+\end{algorithm}
+
+The single-step greedy, at iteration $t$, chooses one element $e_t$ that maximizes $\tilde{d}_{\{e_t\}}(S^{t})$, where $S^t$ is the set obtained in the previous step. Algorithm \ref{algo:single-step-greedy} gives the pseudo-code. Let $F^{\textsf{OPT}}$ be the value of an optimal solution to problem (\ref{problem}) and $F^{\textsf{PG}}$ the value of a particular solution constructed by Algorithm \ref{algo:single-step-greedy}. We assume $K^* \geq 1$ to exclude trivial problems where $F^{\textsf{OPT}} = 0$ and $\tilde{d}_{0} \leq 0 \Rightarrow d_{\{e\}}(\emptyset) \leq 0, \forall e \in N$ and $F^{\textsf{PG}} = f(\emptyset) = 0$ due to directional consistency of the errors. We begin with the following property for general submodular set functions.
+
+\begin{lemma} [\cite{greedySubmodularFunctions}] \label{lem:bound-property}
+If $f$ is a submodular set function on $N$ with $\theta(f) = - \min_{S \subseteq N, e \in N - S}{d_{\{e\}}{(S)}}$, then:
+\[ f(T) \leq f(S) + \sum_{e \in T - S}{d_{\{e\}}(S)} + |S-T| \theta(f), ~~~ \forall S, T \subseteq N \]
+\end{lemma}
+
+We introduce the $\theta$ function, where $-\theta(f)$ denotes the minimum value of any single element's marginal gain, i.e.,  
+$\theta(f) = - \min_{S \subseteq N, e \in N - S}{d_{\{e\}}{(S)}}$.
+The function $f$ is non-decreasing if and only if $\theta(f) \leq 0$. The bound on $F^{\textsf{PG}}$ is a function in the value $\theta(f)$. In the following analysis, we use $d_t$ to denote the actual marginal gain of adding $e_t$ at the $t$-th iteration, i.e., $d_t = {d}_{\{e_t\}}(S^{t})$. 
+
+
+\begin{lemma} \label{lem:bounds on f(S^t)}
+$F^{\textsf{OPT}} \leq f(S^t) + K \cdot \eta \cdot d_{t} + t \cdot \max \{ 0, \theta(f) \}, ~~~ t = 0, ..., K^*-1 ~(\textit{including } K^* \textit{ if } K^* < K)$.
+\end{lemma}
+\begin{proof}
+Fix any $t = 0, ..., K^* - 1 ~(\textit{including } K^* \textit{ if } K^* < K)$. 
+For any $e \in N - S^t$, we have $\tilde{d}_{\{e\}}(S^{t}) \leq \tilde{d}_{\{e_t\}}(S^{t})$, by the selection of $e_t$. Therefore, it holds that:
+\[ d_{\{e\}}(S^t) \leq \eta_u \cdot \tilde{d}_{\{e\}}(S^{t}) \leq \eta_u \cdot \tilde{d}_{\{e_t\}}(S^{t}) \leq \eta_u \cdot \eta_o \cdot {d}_{\{e_t\}}(S^{t}) \]
+which means $d_{\{e\}}(S^t) \leq \eta \cdot d_t$. 
+Let $T$ be the optimal set to problem (\ref{problem}). We have $\tilde{d}_t > 0 \Rightarrow d_t > 0$ and $\sum_{e \in T - S^t}{d_{\{e\}}(S^t)} \leq \sum_{e \in T - S^t}{\eta \cdot d_t} \leq |T - S^t| \cdot \eta \cdot d_t \leq K \cdot \eta \cdot d_t$.
+We have $|S^t-T| \theta(f) \leq |S^t-T| \cdot \max \{ 0, \theta(f) \} \leq t \cdot \max \{ 0, \theta(f) \}$. 
+By Lemma \ref{lem:bound-property}, we have:
+\begin{align*}
+    F^{\textsf{OPT}} &\leq f(S^t) + \sum_{e \in T - S^t}{d_{\{e\}}(S^t)} + |S^t-T| \theta(f) \\
+    &\leq f(S^t) + K \cdot \eta \cdot d_{t} + t \cdot \max \{ 0, \theta(f) \} \qedhere
+\end{align*}
+\end{proof}
+
+\begin{theorem} [Bounds on Single-step Predictive Greedy] \label{thm:bounds-on-SPG}
+If the single-step predictive greedy is applied and stops after $K^* \leq K$ steps, we have:
+\begin{align*}
+& \frac{F^{\textsf{PG}} + K^* \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1,           & K^* < K\\
+& \frac{F^{\textsf{PG}} + K \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1 - (1 - \frac{1}{\eta K})^K,  & K^* = K
+\end{align*}
+\end{theorem}
+\begin{proof}
+\textbf{Case 1 ($K^* < K$).} Let $T$ be the optimal set to problem (\ref{problem}). We have $\tilde{d}_{K^*} \leq 0 \Rightarrow {d}_{K^*} \leq 0$. By Lemma \ref{lem:bounds on f(S^t)}, $F^{\textsf{OPT}} \leq f(S^{K^*}) + K \cdot \eta \cdot d_{K^*} + K^* \cdot \max \{ 0, \theta(f) \} \leq F^{\textsf{PG}} + K^* \cdot \max \{ 0, \theta(f) \}$.
+
+\textbf{Case 2 ($K^* = K$).} Let $\alpha = 1 - \frac{1}{\eta K}$. By Lemma \ref{lem:bounds on f(S^t)}:
+\[ F^{\textsf{OPT}} \leq f(S^t) + K \cdot \eta \cdot d_{t} + t \cdot \max \{ 0, \theta(f) \}, ~~~ t = 0, ..., K-1 \]
+Substituting $\alpha = 1 - \frac{1}{\eta K}$ and $d_t = f(S^{t+1}) - f(S^t)$, multiplying by $\alpha^{K-t-1}$ for the $t$-th inequality, and re-arranging gives:
+\begin{align*}
+\alpha^{K-t-1} f(S^{t+1}) &\geq - {\max \{ 0, \theta(f) \}} \cdot (1 - \alpha) \cdot \alpha^{K-t-1} \cdot t  \\ &~~~~~~ + \alpha^{K-t} f(S^t) + {F^{\textsf{OPT}}} \cdot (1 - \alpha) \alpha^{K-t-1}
+\end{align*}
+for $t = 0, ..., K-1$. Summing all the inequalities (with $f(S^0) = f(\emptyset) = 0$), we have:
+\begin{align*}
+    &F^{\textsf{PG}} = f(S^K) \\
+    \geq& - {\max \{ 0, \theta(f) \}} \cdot (1 - \alpha) \cdot \sum_{t=0}^{K-1}{\alpha^{K-t-1} \cdot t}  \\ 
+    &~~~~~~+ {F^{\textsf{OPT}}} \cdot (1 - \alpha) \cdot \sum_{t=0}^{K-1}{\alpha^{K-t-1}} \\
+    =& - {\max \{ 0, \theta(f) \}} \cdot (-\sum_{t=0}^{K-1}{\alpha^t} + K) + F^{\textsf{OPT}} \cdot (1 - \alpha^K) \\
+    \geq& - {\max \{ 0, \theta(f) \}} \cdot K + F^{\textsf{OPT}} \cdot (1 - \alpha^K) \qedhere
+\end{align*}
+\end{proof}
+
+
+Theorem \ref{thm:bounds-on-SPG} implies that, for any non-decreasing $f$, $F^{\textsf{PG}} = F^{\textsf{OPT}}$, meaning the single-step predictive greedy gives an optimal solution when the output has cardinality less than $K$. 
+If the predictions are perfect, i.e., $\eta = 1$, the approximation ratio matches that of the single-step greedy heuristic with perfect information \cite{greedySubmodularFunctions}. Therefore, the single-step predictive greedy achieves optimal consistency. Observe that $1 - (1 - \frac{1}{\eta K})^K > 1 - \lim_{K \rightarrow \infty}{(1 - \frac{1}{\eta K})^K} \geq 1 - e^{-1/\eta}$. Therefore, Theorem \ref{thm:bounds-on-SPG} shows that, for any non-decreasing $f$: 
+\[ \frac{F^{\textsf{PG}}}{F^{\textsf{OPT}}} \geq 1 - (1 - \frac{1}{\eta K})^K > 1 - e^{-1/\eta} \]
+The analysis hold if we re-define the prediction error to be the maximum multiplicative gap between any single-element's marginal gain and its prediction, i.e., Theorem \ref{thm:bounds-on-SPG} holds if we let $\eta_u = \max_{A \subseteq N, e \in N}{\frac{d_{\{e\}}(A)}{\tilde{d}_{\{e\}}(A)}}, \eta_o = \max_{A \subseteq N, e \in N}{\frac{\tilde{d}_{\{ e \}}(A)}{d_{\{e\}}(A)}}$, and $\eta = \eta_u \cdot \eta_o$.
+
+\subsection{The R-step predictive greedy heuristic}
+
+\begin{algorithm}[tb]
+\caption{R-step Predictive Greedy}
+\label{alg:R-step-greedy}
+\textbf{Input:} finite set \( N \), marginal gain predictions \( \tilde{d} \), step \( R \), and the cardinality constraint \( K \)\\
+\textbf{Output:} set \( S \) with \( |S| \leq K \)
+\begin{algorithmic}[1]  %[1] enables line numbers
+\State Initialize \( S^0 \gets \emptyset \), \( t \gets 0 \), \( q \gets \lceil \frac{K}{R} \rceil \), \( r \gets qR - K \)
+\While{\( |S^t| < K \)}
+    \State $I^t \gets \argmax_{I \subseteq N - S^t, |I| \leq \min \{ R, K - |S^t| \}} {\tilde{d}_{I}(S^{t})}$
+    %\State let $I^t \subseteq N - S^t$ s.t. $\tilde{d}_{I^t}(S^{t}) = \max_{I \subseteq N - S^t, |I| \leq \min \{ R, K - |S^t| \}}{\tilde{d}_{I}(S^{t})}$, ties break arbitrarily
+    \State \( \tilde{d}_t \gets \tilde{d}_{I^t}(S^t) \) %, \( d_t \gets d_{I^t}(S^t) \)
+    \If{\( \tilde{d}_t > 0 \)}
+        \State \( S^{t+1} \gets S^t \cup I^t \), \( t \gets t + 1 \) \Comment{add \( I^t \) to set \( S^t \)}
+    \Else
+        \State \textbf{break} \Comment{stop with set \( S^t \)}
+    \EndIf
+\EndWhile
+\State \( K^* \gets |S^t| \) \Comment{\( K^* \) is the size of the output set}
+\State \textbf{return} \( S^t \)
+\end{algorithmic}
+\end{algorithm}
+
+Suppose $K = q R - r$, where $q$ is a positive integer and $0 \leq r < R$. Then, at iteration $t$, the R-step greedy chooses at most $R$ elements (without violating the cardinality constraint) $I^t$ that maximize $\tilde{d}_{I^t}(S^t)$ constrained by $|I^t| \leq R$, where $S^t$ is the set obtained in the previous step. Algorithm \ref{alg:R-step-greedy} gives the pseudo-code. 
+Let $F^{\textsf{RPG}}$ be the value of a particular solution constructed by the R-step predictive greedy. 
+
+
+\begin{lemma} \label{lem:general-bound-property}
+For any $S, T \subseteq N$, if $\{ J_1, ..., J_p \}$ is a partition of $T - S$, we have 
+%If $f$ is a submodular set function on $N$ with $\theta(f) = - \min_{S \subseteq N, e \in N - S}{d_{\{e\}}{(S)}}$ and $\{ J_1, ..., J_p \}$ is a partition of $T - S$, then
+$f(T) \leq f(S) + \sum_{i = 1}^{p}{d_{J_i}(S)} + |S-T| \theta(f)$.
+\end{lemma}
+\begin{proof}
+Let $J_0 = \emptyset$ for the convention. We have:
+\begin{align*}
+&f(T) - f(S) \leq f(T \cup S) + |S-T| \theta(f) - f(S) \quad \textit{(\cite{greedySubmodularFunctions})} \\
+&= \sum_{i=1}^{p}{f(S \cup \bigcup_{j=0}^{i}{J_j}) - f(S \cup \bigcup_{j=0}^{i-1}{J_j})} + |S-T| \theta(f) \\
+%&=\sum_{i=1}^{p}{d_{J_i}{(S \cup \bigcup_{j=0}^{i-1}{J_j})}} + |S-T| \theta(f) 
+&\leq \sum_{i = 1}^{p}{d_{J_i}(S)} + |S-T| \theta(f) \qedhere
+\end{align*}
+\end{proof}
+
+
+
+\begin{comment}
+\begin{lemma} \label{lem:d_t is bounded in R-step}
+\[ d_{I}(S^t) \leq \eta \cdot d_t, ~~~ \forall I \in N - S^t, |I| \leq \min \{ R, K - |S^t| \}, t = 0, ..., \lceil \frac{K^*}{R} \rceil - 1 \]
+\end{lemma}
+\begin{proof}
+Fix any $t = 0, ...,  \lceil \frac{K^*}{R} \rceil - 1$ and $I \in N - S^t, |I| \leq \min \{ R, K - |S^t| \}$. 
+We have: $\tilde{d}_{I}(S^{t}) \leq \tilde{d}_{I^t}(S^{t})$, by the selection of $I^t$. Therefore, it holds that:
+\[ d_{I}(S^t) \leq \eta_u \cdot \tilde{d}_{I}(S^{t}) \leq \eta_u \cdot \tilde{d}_{I^t}(S^{t}) \leq \eta_u \cdot \eta_o \cdot {d}_{I^t}(S^{t}) = \eta \cdot d_t \qedhere \]
+\end{proof}
+\end{comment}
+
+We use $d_t$ to denote the actual marginal gain of adding $I^t$ at the $t$-th iteration, i.e., $d_t = {d}_{\{I^t\}}(S^{t})$. 
+
+
+\begin{lemma} \label{lem:bounds on f(S^t) in R-step}
+$F^{\textsf{OPT}} \leq f(S^t) + q \cdot \eta \cdot d_{t} + R \cdot t \cdot \max \{ 0, \theta(f) \}, ~~~ t = 0, ..., {\lceil \frac{K^*}{R} \rceil} - 1$.
+\end{lemma}
+\begin{proof}
+Fix any $t = 0, ...,  \lceil \frac{K^*}{R} \rceil - 1$. For any $I \in N - S^t, |I| \leq \min \{ R, K - |S^t| \}$, we have $\tilde{d}_{I}(S^{t}) \leq \tilde{d}_{I^t}(S^{t})$, by the selection of $I^t$. Therefore, it holds that:
+\[ d_{I}(S^t) \leq \eta_u \cdot \tilde{d}_{I}(S^{t}) \leq \eta_u \cdot \tilde{d}_{I^t}(S^{t}) \leq \eta_u \cdot \eta_o \cdot {d}_{I^t}(S^{t}) = \eta \cdot d_t \]
+Let $T$ be the optimal set. Let $\{ J_1, ..., J_p \}$ be a partition of $T - S^t$ with $|J_j| = R$ for $1 \leq j \leq p-1$ and $1 \leq |J_p| = |T| - (p-1) \cdot R \leq R$. Clearly, $|T| \leq K$ and $p \leq q$. 
+We have $\tilde{d}_t > 0 \Rightarrow d_t > 0$ and $\sum_{I \in \{ J_1, ..., J_p \}}{d_{I}(S^t)} \leq \sum_{I \in \{ J_1, ..., J_p \}}{\eta \cdot d_t} \leq p \cdot \eta \cdot d_t \leq q \cdot \eta \cdot d_t$. By Lemma \ref{lem:general-bound-property}, we have:
+\begin{align*}
+    F^{\textsf{OPT}} &\leq f(S^t) + \sum_{I \in \{ J_1, \ldots, J_p \}}{d_{I}(S^t)} + |S^t-T| \theta(f) \\
+    &\leq f(S^t) + q \cdot \eta \cdot d_{t} + R \cdot t \cdot \max \{ 0, \theta(f) \} \qedhere
+\end{align*}
+\end{proof}
+
+\begin{comment}
+\begin{lemma} \label{lem:early stop in R-step} 
+If the R-step predictive greedy is applied and stops with $K^* < K$, we have: 
+\[ \frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1 \]
+\end{lemma}
+\begin{proof}
+Let $T$ be the optimal set to problem (\ref{problem}). Let $S^{q^*}$ be the set outputted by Algorithm \ref{R-step-greedy-algo} ($q^* \leq q$). By Lemma \ref{lem:bound-property}, we have:
+\begin{align*}
+F^{\textsf{OPT}} 
+&= f(T) \leq f(S^{q^*}) + \sum_{e \in T - S^{q^*}}{d_{\{e\}}(S^{q^*})} + |S^{q^*} - T|\theta(f) \\
+&\leq F^{\textsf{RPG}} + \sum_{e \in T - S^{q^*}}{d_{\{e\}}(S^{q^*})} + K^* \cdot \max \{ 0, \theta(f) \}
+\end{align*}
+We show that ${d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$. It follows $\tilde{d}_{q^*} \leq 0 \Rightarrow {d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$ if $q^* < q$. Thus, we only need to consider the case $q^* = q$.
+Suppose, for the proof by contradiction, that there exists an element $e' \in N - S^{q^*}$ with ${d}_{\{e'\}}(S^{q^*}) > 0$. We must have $\tilde{d}_{\{e'\}}(S^{q^*}) > 0$ by directional consistency of the errors. Then, with $S^{q^*} = S^{q^*-1} \cup I^{q^*-1}$, we have:
+\[ \tilde{d}_{I^{q^*-1} \cup \{ e' \}}(S^{q^*-1}) = \tilde{d}_{I^{q^*-1}}(S^{q^*-1}) + \tilde{d}_{\{e'\}}(S^{q^*}) > \tilde{d}_{I^{q^*-1}}(S^{q^*-1}) \]
+Observe that $K* < K$ and $q^* = q$ implies $|I^{q^*-1}| < R - r = \min \{ R, K - |S^{q^*-1}| \}$ and $|I^{q^*-1} \cup \{ e' \}| \leq \{ R, K - |S^{q^*-1}| \}$. However, $\tilde{d}_{I^{q^*-1} \cup \{ e' \}}(S^{q^*-1}) > \tilde{d}_{I^{q^*-1}}(S^{q^*-1})$ contradicts $\tilde{d}_{I^{q^*-1}}(S^{q^*-1}) = \max_{I \subseteq N-S^{q^*-1}, |I| \leq R - r} {\tilde{d}_I(S^{q^*-1})}$. Thus, ${d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$, and: 
+\[ F^{\textsf{OPT}} \leq F^{\textsf{RPG}} + \sum_{e \in T - S^{q^*}}{d_{\{e\}}(S^{q^*})} + K^* \cdot \max \{ 0, \theta(f) \} \leq F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \theta(f) \} \qedhere \]
+\end{proof}
+
+%Lemma \ref{lem:early stop in R-step} implies that the R-step predictive greedy gives an optimal solution when the output has cardinality less than $K$, for any non-decreasing $f$. %Now, we consider the most general case. %Let $\alpha = 1 - \frac{1}{\eta q}$.
+
+
+\begin{lemma} \label{lem:bond after K steps in R-step} 
+If the R-step predictive greedy is applied and stops with $K^* = K$, we have:
+\[ \frac{F^{\textsf{RPG}} + K \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1 - (1 - \frac{1}{\eta {\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil} \]
+\end{lemma}
+\begin{proof}
+Let $\alpha = 1 - \frac{1}{\eta q}$. By Lemma \ref{lem:bounds on f(S^t) in R-step}, we have:
+\[ F^{\textsf{OPT}} \leq f(S^t) + q \cdot \eta \cdot d_{t} + R \cdot t \cdot \max \{ 0, \theta(f) \}, ~~~ t = 0, ..., q - 1 \]
+Multiplying by $\alpha^{q-t-1}$ for the $t$-th inequality, and organizing gives: 
+\[ \alpha^{q-t-1} f(S^{t+1}) \geq \alpha^{q-t} \cdot f(S^t) - {\max \{ 0, \theta(f) \}} \cdot (1 - \alpha) \cdot \alpha^{q-t-1} \cdot R \cdot t + {F^{\textsf{OPT}}} \cdot (1 - \alpha) \cdot \alpha^{q-t-1} \]
+for $t = 0, ..., q - 1$. Summing all the inequalities (with $f(S^0) = f(\emptyset) = 0$), we have:
+\begin{align*}
+    F^{\textsf{RPG}} = f(S^{q}) &\geq - {\max \{ 0, \theta(f) \}} \cdot R \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1}{\alpha^{q-t-1} \cdot t} + {F^{\textsf{OPT}}} \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1}{\alpha^{q-t-1}} \\
+    &= - {\max \{ 0, \theta(f) \}} \cdot R \cdot (-\sum_{t=1}^{q-1}{\alpha^t} + q - 1) + F^{\textsf{OPT}} \cdot (1 - \alpha^q) \\
+    &\geq - {\max \{ 0, \theta(f) \}} \cdot K + F^{\textsf{OPT}} \cdot (1 - \alpha^q) ~~~  \textit{(by $K = qR - r, 0 \leq r < R$)}\qedhere
+\end{align*}
+\end{proof}
+\end{comment}
+
+
+We derive the approximation ratio of the R-step predictive greedy. The ratio is a function in $K^*$, $K$, $R$, and $\eta$, showing the algorithm's smoothness to the prediction error. 
+
+\begin{theorem} [Bounds on R-step Predictive Greedy] \label{thm:bounds-on-RPG}
+If the R-step predictive greedy returns a set of cardinality $K^* \leq K$.
+%\begin{align*}
+%& \frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1,           & K^* < K\\
+%& \frac{F^{\textsf{RPG}} + K \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1 - (1 - \frac{1}{\eta {\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil},  & K^* = K
+%\end{align*}
+For $K^* < K$, we have:
+\[
+\frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1,
+\]
+and for $K^* = K$, we have: 
+\[
+\frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \theta(f) \}}{F^{\textsf{OPT}}} \geq 1 - \left(1 - \frac{1}{\eta \lceil \frac{K}{R} \rceil}\right)^{\lceil \frac{K}{R} \rceil}.
+\]
+\end{theorem}
+\begin{proof}
+\textbf{Case 1 ($K^* < K$).} Let $T$ be the optimal set and $S^{q^*}$ the output of Algorithm \ref{alg:R-step-greedy} ($q^* \leq q$).
+\begin{equation*}
+\begin{aligned}
+    F^{\textsf{OPT}} &= f(T)   \\
+    &\leq f(S^{q^*}) + \sum_{e \in T - S^{q^*}}{d_{\{e\}}(S^{q^*})}  + |S^{q^*} - T|\theta(f) \\ 
+    &\leq F^{\textsf{RPG}} + \sum_{e \in T - S^{q^*}}{d_{\{e\}}(S^{q^*})} + K^* \cdot \max \{ 0, \theta(f) \}
+\end{aligned}
+\end{equation*}
+where the first inequality is due to Lemma \ref{lem:general-bound-property}. We show that ${d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$. It follows $\tilde{d}_{q^*} \leq 0 \Rightarrow {d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$ if $q^* < q$. Thus, we only need to consider the case $q^* = q$.
+Suppose, for the proof by contradiction, that there exists an element $e' \in N - S^{q^*}$ with ${d}_{\{e'\}}(S^{q^*}) > 0$. We must have $\tilde{d}_{\{e'\}}(S^{q^*}) > 0$ by directional consistency of the errors. Then, with $S^{q^*} = S^{q^*-1} \cup I^{q^*-1}$:
+\begin{align*}
+\tilde{d}_{I^{q^*-1} \cup \{ e' \}}(S^{q^*-1}) &= \tilde{d}_{I^{q^*-1}}(S^{q^*-1}) + \tilde{d}_{\{e'\}}(S^{q^*}) \\
+&> \tilde{d}_{I^{q^*-1}}(S^{q^*-1})
+\end{align*}
+Observe that $K^* < K$ and $q^* = q$ implies $|I^{q^*-1}| < R - r = \min \{ R, K - |S^{q^*-1}| \}$ and $|I^{q^*-1} \cup \{ e' \}| \leq \{ R, K - |S^{q^*-1}| \}$. However, $\tilde{d}_{I^{q^*-1} \cup \{ e' \}}(S^{q^*-1}) > \tilde{d}_{I^{q^*-1}}(S^{q^*-1})$ contradicts $\tilde{d}_{I^{q^*-1}}(S^{q^*-1}) = \max_{I \subseteq N-S^{q^*-1}, |I| \leq R - r} {\tilde{d}_I(S^{q^*-1})}$. Thus, ${d}_{\{e\}}(S^{q^*}) \leq 0, \forall e \in N - S^{q^*}$, and: 
+\begin{align*}
+F^{\textsf{OPT}} &\leq F^{\textsf{RPG}} + \sum_{e \in T - S^{q^*}} d_{\{e\}}(S^{q^*}) + K^* \cdot \max \{0, \theta(f)\} \\
+&\leq F^{\textsf{RPG}} + K^* \cdot \max \{0, \theta(f)\}
+\end{align*}
+\textbf{Case 2 ($K^* = K$).} Let $\alpha = 1 - \frac{1}{\eta q}$. By Lemma \ref{lem:bounds on f(S^t) in R-step}, we have:
+\[ F^{\textsf{OPT}} \leq f(S^t) + q  \eta  d_{t} + R \cdot t \cdot \max \{ 0, \theta(f) \}, ~~~ t = 0, ..., q - 1 \]
+Multiplying by $\alpha^{q-t-1}$ for the $t$-th inequality and organizing gives: 
+\begin{align*}
+&\quad \alpha^{q-t-1} f(S^{t+1}) \geq \alpha^{q-t} \cdot f(S^t) - \max \{ 0, \theta(f) \} \\
+&\quad \cdot (1 - \alpha) \cdot \alpha^{q-t-1} \cdot R \cdot t + F^{\textsf{OPT}} \cdot (1 - \alpha) \cdot \alpha^{q-t-1}
+\end{align*}
+Summing all the inequalities (with \( f(S^0) = 0 \)), we have:
+% \begin{align*}
+% F^{\textsf{RPG}} = f(S^{q}) \\
+% &\geq - \max \{ 0, \theta(f) \} \cdot R \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1} \alpha^{q-t-1} \cdot t \\
+% &\quad + F^{\textsf{OPT}} \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1} \alpha^{q-t-1} \\
+% &= - \max \{ 0, \theta(f) \} \cdot R \cdot \left(-\sum_{t=1}^{q-1} \alpha^t + q - 1\right) \\
+% &\quad + F^{\textsf{OPT}} \cdot (1 - \alpha^q) \\
+% &\geq - \max \{ 0, \theta(f) \} \cdot K \\
+% &+ F^{\textsf{OPT}} \cdot (1 - \alpha^q) \\
+% &\quad \textit{(by \( K = qR - r, 0 \leq r < R \))}\qedhere
+% \end{align*}
+\begin{align*}
+&F^{\textsf{RPG}} = f(S^{q}) \\
+\geq& - \max \{ 0, \theta(f) \} \cdot R \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1} \alpha^{q-t-1} \cdot t \\
+&\quad + F^{\textsf{OPT}} \cdot (1 - \alpha) \cdot \sum_{t=0}^{q-1} \alpha^{q-t-1} \\
+=& - \max \{ 0, \theta(f) \}  R \left(-\sum_{t=1}^{q-1} \alpha^t + q - 1\right) + F^{\textsf{OPT}} (1 - \alpha^q) \\
+\geq& - \max \{ 0, \theta(f) \} \cdot K  + F^{\textsf{OPT}} \cdot (1 - \alpha^q)
+%&\quad \textit{(by \( K = qR - r, 0 \leq r < R \))} ~\qedhere 
+\end{align*}
+where the last inequity is due to $K = qR - r, 0 \leq r < R$. 
+\end{proof}
+
+Theorem \ref{thm:bounds-on-RPG} implies that the R-step predictive greedy gives an optimal solution when $K^* < K$, for any non-decreasing $f$ and any $R$. If the predictions are perfect, the approximation ratio matches that of the R-step greedy heuristic with perfect information for any non-decreasing function when $r = 0$ \cite{greedySubmodularFunctions}, meaning optimal consistency. Theorem \ref{thm:bounds-on-RPG} also indicates that, for any non-decreasing $f$:
+
+\begin{align*}
+\frac{F^{\textsf{RPG}}}{F^{\textsf{OPT}}} &\geq 1 - \left(1 - \frac{1}{\eta \lceil \frac{K}{R} \rceil}\right)^{\lceil \frac{K}{R} \rceil} \\
+&> 1 - \lim_{{\lceil \frac{K}{R} \rceil} \rightarrow \infty} \left(1 - \frac{1}{\eta \lceil \frac{K}{R} \rceil}\right)^{\lceil \frac{K}{R} \rceil} \geq 1 - e^{-1/\eta}
+\end{align*}
+
+The analysis holds if we re-define the prediction error to be the maximum multiplicative gap between the marginal gain $d_B(A)$ and its prediction $\tilde{d}_B(A)$ for any $|B| \leq R$. 
+%, i.e., Theorem \ref{thm:bounds-on-RPG} holds if we let $\eta_u = \max_{A, B \subseteq N, |B| \leq R}{\frac{d_{B}(A)}{\tilde{d}_{B}(A)}}, \eta_o = \max_{A, B \subseteq N, |B| \leq R}{\frac{\tilde{d}_{B}(A)}{d_{B}(A)}}$, and $\eta = \eta_u \cdot \eta_o$.
+
+
+\subsection{The case of submodular predictors}
+Bounds can be derived as a function in the prediction error defined in the raw function space if predictor $\tilde{f}$ is submodular. Let $\lambda_u = \max_{A \subseteq N}{\frac{f(A)}{\tilde{f}(A)}}$, $\lambda_o = \max_{A \subseteq N}{\frac{\tilde{f}(A)}{f(A)}}$ as the maximum underestimation/overestimation factor, and $\lambda = \lambda_u \cdot \lambda_o$. For any set $A \subseteq N$, we have: 
+\[ \frac{f(A)}{\lambda_u} \leq \tilde{f}(A) \leq \lambda_o \cdot f(A) \]
+We assume that the error $\lambda$ is \textit{finite} and \textit{directionally consistent}. It holds that $\lambda \leq \eta$, if $\eta$ denotes the prediction error defined in the marginal gain space. This is because $f(A) = d_{A}(\emptyset), \forall A \subseteq N \Rightarrow \lambda_u \leq \eta_u, \lambda_o \leq \eta_o$. 
+
+\begin{theorem} [Bounds on Predictive Greedy with Submodular Predictors] \label{thm:bounds-on-RPG-submodular-predictors}
+If the R-step predictive greedy is applied with a submodular predictor $\tilde{f}$ and returns a set of cardinality $K^* \leq K$: 
+%\begin{align*}
+%& \frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{F^{\textsf{OPT}}} \geq \frac{1}{\lambda},           & K^* < K\\
+%& \frac{F^{\textsf{RPG}} + K \cdot \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{F^{\textsf{OPT}}} \geq \frac{1}{\lambda} \cdot ( 1 - (1 - \frac{1}{{\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil}),  & K^* = K
+%\end{align*}
+% \begin{equation*}
+% \frac{F^{\textsf{RPG}} + K^* \cdot \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{F^{\textsf{OPT}}} \geq 
+% \begin{cases}
+% \frac{1}{\lambda}, & \text{if}~ K^* < K, \\
+% ( 1 - (1 - \frac{1}{{\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil}), & \text{if}~ K^* = K
+% \end{cases}
+% \end{equation*}
+\begin{align*}
+& \frac{F^{\textsf{RPG}} + K^* \cdot \max \left\{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \right\}}{F^{\textsf{OPT}}} \\
+\geq&
+\begin{cases}
+\frac{1}{\lambda}, & \text{if}~ K^* < K, \\
+1 - \left( 1 - \frac{1}{\left\lceil \frac{K}{R} \right\rceil} \right)^{\left\lceil \frac{K}{R} \right\rceil}, & \text{if}~ K^* = K
+\end{cases}
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $S$, $T$, and $\tilde{T}$ denote the sets returned by the R-step greedy, the optimal set to maximize $f$, and the optimal set to maximize $\tilde{f}$. Let ${{\tilde{F}}^{\textsf{RPG}}} = \tilde{f}(S)$ and ${\tilde{F}^{\textsf{OPT}}} = \tilde{f}(\tilde{T})$. We have:
+\begin{align*}
+&F^{\textsf{RPG}} = f(S) \geq \lambda_o \cdot \tilde{f}(S) = \lambda_o \cdot {\tilde{F}}^{\textsf{RPG}}, ~\text{and}~ \\ &F^{\textsf{OPT}} = f(T) \leq \frac{1}{\lambda_u} \cdot \tilde{f}(T) \leq \frac{1}{\lambda_u} \cdot \tilde{f}(\tilde{T}) = \frac{1}{\lambda_u} \cdot {\tilde{F}^{\textsf{OPT}}}
+\end{align*}
+Since $\tilde{f}$ is accessible, Theorem \ref{thm:bounds-on-RPG} with $\eta = 1$ implies: 
+\begin{align*}
+& \frac{F^{\textsf{RPG}} + K^* \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{F^{\textsf{OPT}}} \geq \frac{\lambda_o {\tilde{F}}^{\textsf{RPG}} + K^* \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{\frac{1}{\lambda_u} \cdot {\tilde{F}^{\textsf{OPT}}}}  \\
+=&~ \frac{1}{\lambda} \cdot \frac{{\tilde{F}}^{\textsf{RPG}} + K^* \max \{ 0, {\theta(\tilde{f})} \}}{{\tilde{F}^{\textsf{OPT}}}} \geq \frac{1}{\lambda}, ~~~~~~ (K^* < K), ~\text{and}~ \\
+&\frac{F^{\textsf{RPG}} + K \cdot \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{F^{\textsf{OPT}}} \geq \frac{\lambda_o {\tilde{F}}^{\textsf{RPG}} + K \cdot \max \{ 0, \frac{\theta(\tilde{f})}{\lambda_o} \}}{\frac{1}{\lambda_u} \cdot {\tilde{F}^{\textsf{OPT}}}} \\
+\geq&~ \frac{1}{\lambda} \cdot ( 1 - (1 - \frac{1}{{\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil}), ~~~~~~ (K^* = K) ~~~~~~~~~~~~~~~~~~~~~~ \mbox{\qedhere}
+\end{align*}
+\end{proof}
+The following bounds hold for any non-decreasing $\tilde{f}$:
+%, regardless of the monotonicity of $f$: 
+% \[ \frac{F^{\textsf{RPG}}}{F^{\textsf{OPT}}} \geq \frac{1}{\lambda}, ~\text{if $K^* < K$, and}~ \frac{F^{\textsf{RPG}}}{F^{\textsf{OPT}}} \geq \frac{1}{\lambda} \cdot (1 - (1 - \frac{1}{K})^K) > \frac{1}{\lambda} \cdot (1 - e^{-1}), ~\text{if $K^* = K$} \] 
+\begin{equation*}
+\begin{aligned}
+\frac{F^{\textsf{RPG}}}{F^{\textsf{OPT}}} &\geq \frac{1}{\lambda}, \quad \text{if } K^* < K, \\
+\frac{F^{\textsf{RPG}}}{F^{\textsf{OPT}}} &\geq \frac{1}{\lambda} \left(1 - \left(1 - \frac{1}{K}\right)^K\right) > \frac{1}{\lambda}  (1 - e^{-1}), \quad \text{if } K^* = K
+\end{aligned}
+\end{equation*}
+For non-decreasing $f$, an algorithm that outputs a $\beta$-approximation $\tilde{f}$ exists, i.e., $\frac{f(S)}{\beta} \leq \tilde{f}(S) \leq f(S), \forall S \subseteq N$, where $\beta = O(\sqrt{|N|}\log|N|)$ \cite{approxSubmodularFunctions}. The algorithm requires $\text{ploy}(|N|)$ queries of $f$ and outputs a submodular and non-decreasing $\tilde{f}$. One may construct a predictor $\tilde{f}$ first and optimize with $\tilde{f}$ if querying $f$ is available. 
+This approach is preferable when querying $f$ is expensive, given the R-step greedy requires $\Omega(|N|^R)$ queries to the marginal gains per iteration. The approximation ratio of the R-step greedy with such a predictor $\tilde{f}$ is $\Omega(\frac{1}{\sqrt{|N|}\log|N|}) \cdot ( 1 - (1 - \frac{1}{{\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil})$. 
+
+

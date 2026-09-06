@@ -18,6 +18,11 @@ results/G6_compile.log）。
   supplementary zip）匿名化，替换 statements.tex 里的占位句。
   注意仓库内 REPORT/RESEARCH_STATE 等中文工作文件不应进 supplementary；
   建议只打包 code/、src/、results/ 的脚本与 CSV、data/INVENTORY.md。
+- [ ] **硬规则（H1 追加，2026-09-06）：任何匿名化产物必须排除 legacy/ 目录**。
+  legacy/tpami_submission/ 是 TPAMI 版原稿全文，legacy/Submodular_ICLR.zip 是
+  其原始包，内含作者姓名、作者照片（images/*.jpg/png）、IEEE 传记与可识别
+  仓库信息；任何一件进入 Anonymous GitHub 或 supplementary zip 即当场破盲。
+  同理 REPORT.md、RESEARCH_STATE.md、GLOSSARY.md、TASKS*.md 也不入包。
 
 ## 2. Statements 位置与计页（模板要求核对）
 

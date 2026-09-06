@@ -1,0 +1,42 @@
+\section{Prediction error metric} \label{sec:prediction error metric}
+
+Let $\tilde{d}_B(A) = \tilde{f}(A \cup B) - \tilde{f}(A)$ denote the marginal gain prediction. Define:
+\[\eta_u = \max_{A,B \subseteq N}{\frac{d_B(A)}{\tilde{d}_B(A)}}, \eta_o = \max_{A,B \subseteq N}{\frac{\tilde{d}_B(A)}{d_B(A)}}\] 
+as the maximum underestimation/overestimation factors. Therefore, for any two sets $A, B \subseteq N$, we have:
+\[ \frac{d_B(A)}{\eta_u} \leq \tilde{d}_B(A) \leq \eta_o \cdot d_B(A), ~\forall A, B \subseteq N \]
+Define the total prediction error $\eta = \eta_u \cdot \eta_o$. 
+With the complete set of predictions and exact values, one may compute the prediction error $\eta$ of the predictor $\tilde{f}$ with respect to a problem instance. Ideally, the algorithm does not require $\eta$ a priori (a property our algorithm achieves); we desire the algorithm's performance tied to $\eta$. Note that the error measurement uses the maximum multiplicative gap to capture the notion of distance, but this is not binding. As long as the error is in the marginal gain space, other forms like $L_1$ distance also work, which may result in the approximation ratio having a different dependency on the error. In line with the error metrics defined for other recent leaning-augmented algorithms \cite{SchedulingViaWeights, FlowTimeScheduling, RealTimeSchedulingwithPredictions}, we focus on the maximum multiplicative gap in this work.
+
+
+We first show that, for any deterministic algorithm to achieve an approximation ratio, the prediction error must be \textit{finite}, meaning that the marginal gain prediction is zero if and only if the actual gain is zero, and \textit{directionally consistent}, meaning that the marginal gain prediction and the actual gain have the same sign. 
+\begin{lemma} [Necessity of finite and directionally consistent error] \label{lem:necessity-of-error-properties}
+A deterministic $c$-approximation ($c > 0$) algorithm exists for problem (\ref{problem}), only if (1) the prediction error is finite, i.e., $\tilde{d}_B(A) = 0 \iff {d}_B(A) = 0, \forall A, B \subseteq N$ and (2) the error is directional consistent, i.e., $\tilde{d}_B(A) \cdot {d}_B(A) \geq 0, \forall A, B \subseteq N$.
+\end{lemma} 
+\begin{proof}
+We first show that the error must be finite. Construct two simple instances of problem (\ref{problem}) denoted by $I_1$ and $I_2$ as follows. Both instances have $N = \{ a, b \}$ and $K = 1$. Instance $I_1$ has $f(\{a\}) = 1, f(\{b\}) = 0$; instance $I_2$ has $f(\{ a \}) = 0$, $f(\{ b \}) = 1$. The optimal value for both instances is $1$. Suppose the algorithm can access a predictor $\tilde{f}$ with $\tilde{f}(\emptyset) = 0, \tilde{f}(\{a\}) = 1, \tilde{f}(\{b\}) = 1$. Any deterministic algorithm returns either set $\{ a \}$ or $\{ b \}$ or $\emptyset$, which produces a value of $0$ for $I_2$ if returning set $\{ a \}$ or $0$ for $I_1$ if returning set $\{ b \}$ or $0$ for both. This is, at best, a $0$-approximate algorithm. The argument also holds with $\tilde{f}(\emptyset) = \tilde{f}(\{a\}) = \tilde{f}(\{b\}) = 0$. Therefore, we must have $\tilde{d}_B(A) = 0 \iff {d}_B(A) = 0, \forall A, B \subseteq N$ to have $c$-approximation ($c > 0$). 
+
+We then show that the error must be directionally consistent using a similar construction. This time, instance $I_1$ has $f(\{a\}) = 1, f(\{b\}) = -1$; instance $I_2$ has $f(\{ a \}) = -1$, $f(\{ b \}) = 1$. The optimal value for both instances is still $1$. Suppose that $\tilde{f}(\emptyset) = 0, \tilde{f}(\{a\}) = 1, \tilde{f}(\{b\}) = 1$. Any deterministic algorithm returns either set $\{ a \}$ or $\{ b \}$ or $\emptyset$, which produces a value of $-1$ for $I_2$ if returning set $\{ a \}$ or $-1$ for $I_1$ if returning set $\{ b \}$ or $0$ for both. Again, this is, at best, $0$-approximation. 
+\end{proof}
+
+
+%\subsection*{Difference with the previous error metrics}
+Lemma \ref{lem:necessity-of-error-properties} indicates that no algorithm is robust to prediction errors, i.e., no $c$-approximation algorithm exists with $c$ independent of $\eta$. This is intuitive, as the worst predictions provide no information for $f(S), \forall S \subseteq N$, so any algorithm can do no better than randomly selecting a subset. 
+
+The proposed error metric $\eta$ is new and fundamentally different from the existing one: $\epsilon \coloneqq \max_{S \subseteq N}{\frac{|\tilde{f}(S) - f(S)|}{f(S)}}$, or predictor $\tilde{f}$ is $\epsilon$-erroneous if $(1 - \epsilon) f(S) \leq \tilde{f}(S) \leq (1 + \epsilon) f(S), \forall S \subseteq N$ \cite{submodularOptNoise}. Note that $\epsilon$-error is defined for non-negative functions, but $\eta$-error has no such limit. For any non-negative function $f$, the $\eta$-error is more restrictive than $\epsilon$-error: any $\epsilon$-erroneous predictor, even with an arbitrarily small $0 < \epsilon < 1$, may have an infinite $\eta$-error, while any predictor with an $\eta$-error has an $\epsilon$-error bounded by $\max \{ 1 - \frac{1}{\eta_u}, \eta_o - 1 \}$.
+
+\begin{lemma} \label{lem:any-epsilon-error-can-be-infite-eta}
+For any fixed $0 < \epsilon < 1$, there exists a $\epsilon$-erroneous predictor $\tilde{f}$ with an infinite $\eta$. 
+\end{lemma}
+\begin{proof}
+Let $N = \{a, b\}, f(\emptyset) = 0, f(\{a\}) = 1, f(\{ b \}) = \frac{2\epsilon}{1 - \epsilon}, f(\{ a, b \}) = \frac{1 + \epsilon}{1 - \epsilon}, \tilde{f}(\emptyset) = 0, \tilde{f}(\{ a \}) = 1 + \epsilon, \tilde{f}(\{ b \}) = \frac{2 \epsilon}{1 - \epsilon}, \tilde{f}(\{ a, b \}) = 1 + \epsilon$. This yields a $\epsilon$-erroneous predictor $\tilde{f}$ with an infinite $\eta$, as $d_{\{ b \}}(\{ a \}) = \frac{2 \epsilon}{1 - \epsilon}$ and $\tilde{d}_{\{ b \}}(\{ a \}) = 0$. 
+\end{proof}
+
+\begin{lemma} \label{lem:any-eta-error-has-bounded-epsilon-error}
+Any predictor $\tilde{f}$ for a non-negative function $f$ with error $\eta = \eta_u \cdot \eta_o$ is $\epsilon$-erroneous with $\epsilon \leq \max \{ 1 - \frac{1}{\eta_u}, \eta_o - 1 \}$. 
+\end{lemma}
+\begin{proof}
+For any $S \subseteq N$, we have $\frac{d_{\emptyset}(S)}{\eta_u} \leq \tilde{d}_{\emptyset}(S) \leq \eta_o \cdot d_{\emptyset}(S) \Rightarrow \frac{f(S)}{\eta_u} \leq \tilde{f}(S) \leq \eta_o \cdot f(S) \Rightarrow \frac{1}{\eta_u} - 1 \leq \frac{\tilde{f}(S) - f(S)}{f(S)} \leq \eta_o - 1 \Rightarrow \frac{|\tilde{f}(S) - f(S)|}{f(S)} \leq \max \{ 1 - \frac{1}{\eta_u}, \eta_o - 1 \}$.  
+\end{proof}
+
+In the following section, we will assume that the prediction errors are finite and directionally consistent. Under such conditions, we show that algorithms with quality scaled smoothly with prediction errors exist. 
+

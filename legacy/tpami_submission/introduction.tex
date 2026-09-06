@@ -1,0 +1,89 @@
+\section{Introduction}
+
+Submodular optimization has pervasive applications in machine learning and pattern recognition. The diminishing returns property of submodular functions naturally captures the redundancy and diversity trade-offs common in real-world optimization scenarios, such as image summarization~\cite{submodularOptNoisetoImageCollection}, influence maximization~\cite{mossel2010submodularity}, and feature selection~\cite{feature-selection}. Advancing algorithmic solutions for submodular optimization can significantly impact a broad range of problems~\cite{Krause_Golovin_2014}. 
+
+A critical yet frequently overlooked issue in practical submodular optimization is the inaccessibility or inherent uncertainty of the target submodular function. Unlike theoretical settings where the objective function is assumed to be known and directly queryable, real-world applications involve scenarios where the function cannot be directly evaluated. The causes include unseen out-of-sample data, expensive query of the function, and no universally agreed functional form of the objective. Hence, the design and analysis of algorithms capable of handling submodular optimization for uncertain or unknown functions are needed. 
+
+In this work, we address this practical challenge by introducing a learning-augmented framework where predictions, rather than the exact values, of the submodular function guide the optimization process. The study of submodular optimization for uncertain functions is not new. See, for example,~\cite{submodularOptNoisetoImageCollection,submodularOptNoise,horel2016maximization}. However, our work departs from previous pessimistic findings by proposing an intuitive, effective error metric defined in the marginal gain space. This novel metric enables theoretical guarantees of simple algorithms that smoothly degrade with prediction errors, leading to a practical and effective optimization validated through extensive experiments. 
+
+
+%The study of submodular optimization is an interesting subject from both a theoretical and a practical point of view. Applications in artificial intelligence include active learning \cite{golovin2011adaptive}, text summarization \cite{lin2011class}, and information diffusion in networks \cite{kempe2003maximizing}. 
+
+To formalize our problem, we consider the task of maximizing an \textit{unknown} submodular function within a learning-augmented framework. A real-valued function $f: 2^N \rightarrow \mathbb{R}$ defined over subsets of a finite ground set $N$ is submodular if it satisfies the following inequality for all $S, T \subseteq N$:
+\[ f(S) + f(T) \geq f(S \cup T) + f(S \cap T) \]
+
+It is equivalent to defining submodularity via a diminishing gains property. Let $d_B(A) = f(A \cup B) - f(A)$ denote the \textit{marginal gain} of set $B$ to $A$, for any $A, B \subseteq N$. Then, function $f$ is submodular if for all $A \subseteq B \subseteq N, C \subseteq N \backslash B$: 
+\[ d_{C}(A) \geq d_{C}(B) \]
+
+We consider the problem of maximizing a submodular function $f$ under a \textit{cardinality constraint}: 
+\begin{equation} \label{problem}
+\max_{S \subseteq N}\{ f(S): |S| \leq K, f ~\text{submodular} \}
+\end{equation}
+
+For simplicity, we assume a \textit{normalized} submodular function, i.e., $f(\emptyset) = 0$. 
+A classic assumption is that $f$ is accessible via a \textit{value oracle}, which may require a representation exponential in $|N|$. However, $f$ is often inaccessible due to (1) lack of data or (2) an unknown functional form. Consider the ML feature selection task that aims to find a set of features from some feature space $N$ to train a model to optimize out-of-sample performance $f$. Out-of-sample performance $f$ cannot be measured as the data are unknown. Consider the text summarization task that aims to find a set of tokens from the text $N$ to maximize the summarization quality. Summarization quality cannot be measured as the functional form to measure the quality is unknown. Therefore, we assume that the function $f$ is \textit{unknown} to the algorithm. However, a \textit{predictor} $\tilde{f}$ for $f$ is visible, which returns $\tilde{f}(S)$ for any set $S$ but may introduce errors. Specifically, we are not allowed to query the target submodular function $f$ to get values $f(S)$ for any set $S$. Instead, we could query a learned oracle that gives us predicted values $\tilde{f}(S)$ for $f(S)$. 
+This setting overcomes the issue with the exponential representation of $f$, as the Machine Learning (ML) model can learn functions with compact representation, often with just $O(\text{poly}(N))$ space. Recent works have further shown the learnability of submodular functions \cite{approxSubmodularFunctions,learnValueFunctions,representationApproxLearnSubmodularFunctions,submodularFunctionsLearn}, which supports the practicality of our framework.
+
+
+
+Submodular optimization under an unknown submodular function has been studied by~\cite{submodularOptNoisetoImageCollection,submodularOptNoise,horel2016maximization}. The predictor $\tilde{f}$ may be imperfect and comes with errors. The existing work defines the prediction error as $\max_{S \subseteq N}{\frac{|\tilde{f}(S) - f(S)|}{f(S)}}$, which penalizes the absolute percentage gap between predictions and exact values \cite{submodularOptNoise}. A pessimistic result has been shown: the celebrated greedy algorithm \cite{greedySubmodularFunctions} fails to obtain an approximation strictly better than $O(\frac{1}{K})$ for any constant error, and no algorithm is robust to a small error. We argue that this pessimism is because the error metric penalizes the predictions in the raw submodular function space rather than the marginal gain space. Take the greedy algorithm as an example. The algorithm starts with an empty set and iteratively adds the element from $N$ with the maximum positive marginal gain until the set reaches size $K$. Decisions are purely based on marginal gains, not the raw function values. This motivates an alternative, perhaps a more proper error metric that penalizes the errors in the marginal gain space. It is natural to consider the following question:
+\begin{center}
+\textit{What is a proper error metric for predictions in submodular optimization, and what is the performance of the greedy algorithm under this error metric in theory and practice?}
+\end{center}
+
+
+\subsection{Performance metrics}
+
+% Define approximation ratio
+%We analyze the performance of an algorithm by its approximation ratio. 
+An \textit{$\alpha$-approximation algorithm} $A$ for a maximization problem is an algorithm with $\text{OPT}(I) \leq \alpha \cdot A (I)$, for any problem instance $I$, where $\text{OPT}(I)$ and $A(I)$ are the optimal value and the value obtained by algorithm $A$ on $I$. The ratio $\alpha$, which is allowed to be a function in the problem input and the prediction error, is called the approximation ratio. %\textcolor{purple}{We obtained the predicted optimal submodular values demonstrated visually instead of the sole optimal values in the experimental part. Indeed, the predicted values, satisfying the proposed approximation ratio, are compared with empirical baselines.}
+
+% Consistency, Smoothness, Robustness
+The literature on algorithms with predictions analyzes performance by \textit{consistency}, \textit{smoothness}, and \textit{robustness}. Consistency is defined to be the approximation ratio under perfect predictions, smoothness under any prediction, and robustness under worst-case predictions with large errors. If the error is $\eta$, an algorithm is said to have consistency $\tau$ (or be $\tau$-consistent) if it is $\tau$-approximation when the predictions coincide the exact values, have smoothness $\rho$ ($\rho$-smooth) if it is $\rho$-approximation where $\rho$ is a function in $\eta$, and have robustness $\upsilon$ ($\upsilon$-robust) if it is $\upsilon$-approximation under any $\eta$ where $\upsilon$ is independent of $\eta$. 
+
+
+\subsection{Related work}
+
+% Submodular Optimization dimension
+\noindent \textbf{Submodular optimization.} Maximizing submodular functions has been extensively studied. The work \cite{greedySubmodularFunctions} shows the greedy heuristic is a $(1 - e^{-1})$-approximation for monotone submodular functions under the cardinality constraint and $\frac{1}{2}$ under the matroid constraint. No polynomial-time algorithm can obtain an approximation ratio better than $1 - e^{-1}$ under the cardinality constraint unless $\text{P}=\text{NP}$, representing a theoretical upper bound \cite{setCoverisHard}. For non-monotone submodular optimization, \cite{maximizingNonMonotoneSubmodularFunctions} gives a deterministic local search $\frac{1}{3}$-approximation and a randomized $\frac{2}{5}$-approximation for non-negative functions. For unconstrained maximization, \cite{linearTimeApproximationForUnconstrainedSubmodular} gives a randomized linear time $\frac{1}{2}$-approximation. 
+
+
+% Learning Submodular Functions dimension
+\noindent \textbf{Learning submodular functions.} Learnability is crucial for optimization with predictions. Prior works have shown that submodular functions are learnable from a few observations. %, enabling optimization with predictions for the applications where accessing the function is costly or impossible. 
+There exists an algorithm that requires $\text{poly}(|N|)$ oracle queries to output a submodular function $\tilde{f}$ approximating the exact function within a factor $O(\sqrt{|N|}\log |N|)$ for monotone submodular functions \cite{approxSubmodularFunctions}. 
+%\cite{approxSubmodularFunctions} gives a deterministic algorithm that makes $\text{poly}(|N|)$ oracle queries and derives a submodular function $\tilde{f}$ approximating the ground truth function within a factor $O(\sqrt{|N|}\log |N|)$ for general monotone submodular functions. 
+The work \cite{representationApproxLearnSubmodularFunctions} shows that a low-rank decision tree can approximate every submodular function, enabling an efficient learning scheme. 
+Furthermore, the work \cite{submodularFunctionsLearn} considers the learnability of submodular functions in a distributional PAC-style setting. 
+
+
+% Learning-augmented Algorithms dimension
+\noindent \textbf{Optimization with predictions.} Recent works have shown the potential of using predictions to improve optimization with proven guarantees. Applications span the fields of scheduling, caching, secretary, matching, and graphs \cite{ImproveOnlineAlgorithmsViaML,cachingWithPredictions,secretaryWithPredictions,matchingWithPredictions,errorMetricsForGraphs}. To our knowledge, no prior work on submodular optimization with predictions under errors designed for the worst-case performance analysis exists. A relevant work is by \cite{learningAugmentedSubmodularUpdates} on dynamic submodular maximization, where predictions are used to reduce the dynamic update time. %In contrast to their focus on predictions aiding in pre-processing, our work is on using predictions for approximation ratio.
+
+Prior works on submodular optimization under noise assume the queries to the submodular function have small additive errors independently drawn from an identical distribution (i.i.d). Then, efficient algorithms exist with an approximation ratio arbitrarily close to $1 - e^{-1}$ \cite{submodularOptNoise}. 
+Other related works include maximizing approximately submodular functions \cite{maximizingApproximatelySubmodularFunctions}, minimizing submodular functions under noise \cite{minimizingSubmodularFunctionsUnderNoise}, and the application to image summarization \cite{submodularOptNoisetoImageCollection}.
+
+\subsection{Our results}
+
+\noindent \textbf{Prediction error metric in the marginal gain space.} 
+We propose a simple prediction error metric $\eta$ in the marginal gain space. It penalizes the multiplicative gap between the marginal gain prediction and the true value, i.e., $\tilde{f}(A \cup B) - \tilde{f}(A)$ versus ${f}(A \cup B) - {f}(A)$, for $A, B \subseteq N$. We discuss the key differences between this metric and the existing one. %Subsequently, we show that with this error metric, the celebrated greedy algorithms achieve an optimal consistency and a smoothness as a function of $\eta$. 
+%We show that with this error metric, the celebrated greedy algorithms achieve optimal consistency and smoothness as a function of $\eta$. 
+
+\noindent \textbf{Performance analysis for the greedy algorithms.}
+We analyze the performance of the single-step and $R$-step predictive greedy algorithms. The former is a straightforward application of the greedy algorithm \cite{greedySubmodularFunctions}; the latter is an extension of it. The results we obtain include: (1) the single-step predictive greedy achieves, for any non-decreasing $f$, an approximation ratio of $1 - (1 - \frac{1}{\eta K})^K$, bounded by $1 - e^{-1/{\eta}}$ degrading smoothly with $\eta$, (2) the $R$-step predictive greedy achieves, for any non-decreasing $f$, an approximation ratio of $1 - (1 - \frac{1}{\eta {\lceil \frac{K}{R} \rceil}})^{\lceil \frac{K}{R} \rceil}$, also bounded by $1 - e^{-1/{\eta}}$, and (3) the algorithm achieves an approximation ratio of $\frac{1}{\lambda} \cdot (1 - (1 - \frac{1}{K})^K)$ if the predictor $\tilde{f}$ is submodular and non-decreasing, where $\lambda$ is the prediction error defined in the raw function space. 
+%The results apply to general submodular function $f$.%, not limited to non-decreasing ones. 
+%The results are more general than those mentioned above, which 
+
+
+\noindent \textbf{Experimental evaluations for the greedy algorithms.}
+We consider three applications of submodular optimization with predictions: ML feature selection, influence maximization, and text summarization. We evaluate the greedy algorithms on these applications with real-world data and compare them against the existing baselines. The predictive greedy is robust to prediction errors, observing a near-optimal performance on many tasks even under large errors. 
+
+
+ 
+
+\subsection{Technical contributions}
+
+The prediction error metric $\eta$ proposed by this paper is new in submodular optimization, which accounts for predictions that are under or over-estimating the exact values. It applies to non-monotone, non-positive functions. Defining the error as the product of under- and over-estimation factors follows the spirit of \cite{FlowTimeScheduling} with the same construct for the prediction error in scheduling with predictions.
+
+The algorithm considered in this paper is an extension of work by \cite{greedySubmodularFunctions}. The previous analysis results are for monotone functions. We give a simple and direct proof for any function and establish a unified bound for the single-step and R-step greedy. Setting $R = 1$ or restricting to monotone functions, our results match the existing bounds, showing the tightness of the analysis. If the predictor is submodular, we show that the bounds can be derived as a function in the error metric defined in the raw function space. This will leverage works of \cite{approxSubmodularFunctions} that produce submodular predictors. 
+
+The submodular optimization framework with predictions is practical, as demonstrated through three applications: ML feature selection, influence maximization, and text summarization. We observe that the predictive greedy algorithm performs well on many tasks, even if the prediction errors are unreasonably large. These promising results show the framework's practicality and demonstrate its reliability in complex real-world tasks.

@@ -26,6 +26,14 @@ and $e\notin S$,
 In particular $d_e(S)=0$ forces $\tilde d_e(S)=0$, and all predicted gains are
 nonnegative.  The scalar error is $\eta=\eta_u\eta_o$.
 \end{definition}
+The multiplicative form of Definition~\ref{def:eta} follows the error
+conventions of learning-augmented scheduling, where predicted weights or
+processing times are accurate up to multiplicative factors and guarantees
+degrade with that factor
+\citep{lattanzi2020online,azar2021flow,zhao2022real}.
+% H1: spirit-of citations restored from the TPAMI submission's error-metric
+% section (it cited exactly these three at this point); all three re-passed
+% the F6 four-step check (results/H1_bib_crosscheck.md).
 
 Approximation ratios are stated as $\alpha\in(0,1]$ with
 $F^{\mathrm{ALG}}\ge\alpha\,F^{\mathrm{OPT}}$; larger is better.

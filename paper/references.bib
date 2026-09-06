@@ -275,3 +275,87 @@
   year      = {2017},
   doi       = {10.1145/3097983.3098069}
 }
+
+% ---------------------------------------------------------------------------
+% H1 additions (2026-09-06): entries recovered from the TPAMI submission's
+% bib (legacy/tpami_submission/submodular.bib), re-verified through the F6
+% four steps (existence on DBLP/publisher page; statement support; field
+% check; version rationale).  Details: results/H1_bib_crosscheck.md.
+% ---------------------------------------------------------------------------
+
+% H1 4-step: DBLP conf/soda/LattanziLMV20; supports "multiplicative
+% prediction error in learning-augmented scheduling" (predicted machine
+% weights, guarantee degrades with prediction error).  SODA version (only).
+@inproceedings{lattanzi2020online,
+  author    = {Lattanzi, Silvio and Lavastida, Thomas and Moseley, Benjamin and Vassilvitskii, Sergei},
+  title     = {Online scheduling via learned weights},
+  booktitle = {Proceedings of the 31st Annual {ACM}-{SIAM} Symposium on Discrete Algorithms ({SODA} 2020)},
+  pages     = {1859--1877},
+  year      = {2020},
+  doi       = {10.1137/1.9781611975994.114}
+}
+
+% H1 4-step: ACM DL 10.1145/3406325.3451023 (STOC 2021); abstract defines a
+% constant-factor DISTORTION between predicted and true processing times
+% (multiplicative), which is the convention Definition 1 follows.  STOC
+% version over arXiv:2103.05604 (published record).
+@inproceedings{azar2021flow,
+  author    = {Azar, Yossi and Leonardi, Stefano and Touitou, Noam},
+  title     = {Flow time scheduling with uncertain processing time},
+  booktitle = {Proceedings of the 53rd Annual {ACM} {SIGACT} Symposium on Theory of Computing ({STOC} 2021)},
+  pages     = {1070--1080},
+  year      = {2021},
+  doi       = {10.1145/3406325.3451023}
+}
+
+% H1 4-step: DBLP conf/rtss/0002LZ22, RTSS 2022; real-time scheduling with
+% multiplicatively erroneous processing-time predictions (competitive ratio
+% a function of the error eta).  This is the third spirit-of citation the
+% TPAMI submission's error-metric section used; double blind requires
+% third-person citation (it is a prior paper of the authors).
+@inproceedings{zhao2022real,
+  author    = {Zhao, Tianming and Li, Wei and Zomaya, Albert Y.},
+  title     = {Real-time scheduling with predictions},
+  booktitle = {Proceedings of the 43rd {IEEE} Real-Time Systems Symposium ({RTSS} 2022)},
+  pages     = {331--343},
+  year      = {2022},
+  doi       = {10.1109/RTSS55097.2022.00036}
+}
+
+% H1 4-step: Springer 10.1007/s10994-006-6226-1, Machine Learning 63(1):3-42;
+% source of the extremely-randomized-trees selector in the E1 baseline panel.
+@article{geurts2006extremely,
+  author  = {Geurts, Pierre and Ernst, Damien and Wehenkel, Louis},
+  title   = {Extremely randomized trees},
+  journal = {Machine Learning},
+  volume  = {63},
+  number  = {1},
+  pages   = {3--42},
+  year    = {2006},
+  doi     = {10.1007/s10994-006-6226-1}
+}
+
+% H1 4-step: IEEE 10.1109/TPAMI.2005.159, TPAMI 27(8):1226-1238; the
+% mutual-information (max-relevance) selection criterion of the E1 baseline
+% panel's mutual-information ranking.
+@article{peng2005feature,
+  author  = {Peng, Hanchuan and Long, Fuhui and Ding, Chris},
+  title   = {Feature selection based on mutual information: criteria of max-dependency, max-relevance, and min-redundancy},
+  journal = {{IEEE} Transactions on Pattern Analysis and Machine Intelligence},
+  volume  = {27},
+  number  = {8},
+  pages   = {1226--1238},
+  year    = {2005},
+  doi     = {10.1109/TPAMI.2005.159}
+}
+
+% H1 4-step: ACM DL 10.1145/1143844.1143892 (ICML 2006, pp. 377-384); the
+% paper that introduced the BBC news corpus used in E3 (data provenance).
+@inproceedings{greene2006practical,
+  author    = {Greene, Derek and Cunningham, P{\'a}draig},
+  title     = {Practical solutions to the problem of diagonal dominance in kernel document clustering},
+  booktitle = {Proceedings of the 23rd International Conference on Machine Learning ({ICML} 2006)},
+  pages     = {377--384},
+  year      = {2006},
+  doi       = {10.1145/1143844.1143892}
+}
