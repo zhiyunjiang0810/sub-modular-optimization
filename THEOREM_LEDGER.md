@@ -36,7 +36,9 @@
 
 ## T4 thm:tight — 逐 K 紧（选择误差）
 - 陈述：∀K ≥ 2, â>1，存在 2K 元素实例 U_K（f=1−a^x(1−y/K)，a=1−1/(âK)，f̃ 显式），adversarial-tie run 上 η^sel=η^tr=â，输出恰 L_K(â) f(O*)。
-- 状态：[VERIFIED-SYMBOLIC 一般 K]（T5 脚本 105/105，含 all-pairs 误差 η_u=â、η_o=aK/(K−1)）。K1 后需数值确认新定义下 η^sel 不变。
+- 状态：[VERIFIED-SYMBOLIC 一般 K]（T5 脚本 105/105，含 all-pairs 误差 η_u=â、η_o=aK/(K−1)）。
+  K1 数值确认已完成：新逐步定义下 η^sel=η^tr=â 逐位不变、全程无零步，14/14
+  （results/K1_etasel_newdef_check.py，K=2..8，â∈{1.5,2}）。
 - 禁止声称：作为独立新结果（本质是 GS 模型的紧性，注明）；"strict preference" 版本未经端点处理（J2 §3：段左端点扰动破坏单调性，主定理以 adversarial tie 为前提）。
 
 ## T5 lem:coherence — coherence lemma（唯一新引理）
