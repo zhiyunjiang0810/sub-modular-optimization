@@ -3,7 +3,7 @@
 规则：每条定理一张卡，字段固定。写作时只准从这里取陈述与状态，不准凭记忆。
 状态标签：[VERIFIED-SYMBOLIC] [VERIFIED-LP] [VERIFIED-EXHAUSTIVE] [HAND-PROOF-UNREVIEWED] [CONJECTURE] [OPEN]。
 "禁止声称"一栏是空洞性检验和审稿反例的沉淀，比陈述本身更重要。
-本版：2026-09-07，J2 修正后的目标形态；标注 (K1)(K4) 等的字段以当晚 Claude Code 落实的版本为准。
+本版：2026-09-07 深夜（第六晚 K+H 全部落实后）；每卡状态标签与 results/ 脚本一一对应。
 
 ---
 
@@ -76,24 +76,57 @@
   slack_r ≤ ε/λ_r（不升级为统一稳定性定理）。
 - 禁止声称：断点处唯一性；全体候选的最大真实边际被约束；"相变" 措辞（用 active-constraint switch）。
 
-## T7 rem:exact-gap — submodular surrogate（D1 remark）
-- 陈述（K6 后）：若额外要求 f̃ submodular，在已验证的 LP 点上最坏值严格更高（K=3, η=1.5: 9/16→19/33）；η=1 时两模型重合；一般刻画 [CONJECTURE ρ_K^sub=min_m W_m，q→r=1−1/K，76/76 点]，[OPEN]。
-- 禁止声称："strictly improves for all η<K−1"；"U_K no longer an upper bound"（实例失效≠界失效，19/33<37/64）；"more robust"。
+## T7 rem:exact-gap — submodular surrogate（D1 remark；H-C 后）
+- 陈述：若额外要求 f̃ submodular，在已验证的 LP 点上最坏值严格更高（K=3, η=1.5: 9/16→19/33；K=4, η=2: 22/49→23/50）；η=1 时两模型重合。
+- 上界方向 [VERIFIED-LP]（H-C）：对每个 K、m ∈ {0,…,K−1}、η ≥ 1 与每个拆分 η=η_u η_o，存在显式实例
+  （n=2K，f 与 f̃ 都单调 submodular，误差恰 (η_u,η_o)，对抗 tie 下 greedy 选满 K 步）比值恰为
+  W_m(K,η)=(K−m r^m)/(K(1+(η−1)r^m))，r=1−1/K；故 ρ_K^sub(η) ≤ min_m W_m(η)。
+  实例公式与 410 点验证：results/H_C_submodular_surrogate.md §6 + .py Part F。
+- 下界方向仍 [CONJECTURE]/[OPEN]：无证书；94 个全格点 LP 点吻合（F4 76 + H-C 18 个分段边界点）。
+  卡点：路径变量 reduced LP 加全部自然 f̃-submodularity 有效不等式后值仍为 min_j V_j（42/42
+  [VERIFIED-LP]），该批不等式不足以给下界（H-C §5）。
+- 紧系统 ⟹ W_m [VERIFIED-SYMBOLIC]（符号 K,m,η_u,η_o；机制推导非下界证明）。
+- 禁止声称："strictly improves for all η<K−1"（只在部分点验证）；"ρ_K^sub = min_m W_m"（下界无证书）；
+  "more robust"；把实例族说成证明相等（只给 ≤）；推广到一般 n（族与 LP 都在 n=2K）。
+- 修订原禁止项："U_K no longer an upper bound" 的禁令限定到原模型：U_K 仍是 ρ_K 的上界，但对
+  ρ_K^sub 不是（K=4, η=3/2 处 23/41 ≈ 0.5610 > U_4 ≈ 0.5519，显式实例背书，29 网格点）；
+  原括注 19/33<37/64 只覆盖 K=3 那一点。
 
 ## T8 thm:ceiling — 1/η 天花板
 - 陈述：任意确定性算法、任意 η_u,η_o ≥ 1、n ≥ 2K，存在误差恰为 (η_u,η_o) 的实例使 f(T) ≤ f(O*)/η；随机算法期望 ≤ (1−K/n)/η+K/n；对 f̃ 穷举 K-子集在任何实例上 ≥ f(O*)/η。
 - 状态：[HAND-PROOF-UNREVIEWED]（对称 f̃=c|S|，modular f，O 藏在输出外）。
-- 禁止声称：n<2K 时的值（[OPEN]，明晚 E 项）；"1/η 是多项式算法的界"（它是信息论的）；
+- 禁止声称："1/η 是多项式算法的界"（它是信息论的）；
   "η ≥ K 时 greedy、穷举与任何算法相同"（只能写 greedy 达到不限查询的确定性最优保证）；
   随机上界 (1−K/n)/η+K/n 是有限 n 下的精确最优（它只是上界）。
 - 构造的误差恰为 (η_u,η_o)：J4 精确穷举 253,220 个 all-pairs 增益 [VERIFIED-EXHAUSTIVE]。
 - 副产品（J4）：1 ≤ η < K 时穷举的最坏保证 1/η 严格优于 greedy 的 ρ_K（ρ_K ≤ V_1 < V_0），
   差 ≥ (K−η)/(Kηk_1)；K=3：η=1: 19/27 vs 1；1.5: 9/16 vs 2/3；2: 7/15 vs 1/2；3: 相等。比较的是最坏保证。
+- n<2K（H-E）：对称 f̃=b|S| 族给出的天花板 C(n,K,η)=K/(m0+(K−m0)η)，m0=max(0,2K−n)，
+  即 1/((1−λ)η+λ)、λ=m0/K；n ≥ 2K 时退化为 1/η；逐 overlap 类型 m 的值 K/(m+(K−m)η) 对 m 递增。
+  状态：[VERIFIED-LP]（K∈{2,3,4}, n∈{K+1..2K}, η∈{1.5,2,3}，84 点、n<2K 48 点、误差 ≤3.4e-16，
+  results/H_E_ceiling_small_n.py）+ 两侧手写论证 [HAND-PROOF-UNREVIEWED] + witness Fraction 精确
+  验证 [VERIFIED-SYMBOLIC]。输出大小 s<K 更差。
+- 禁止声称（H-E）：C 由某算法一般达到（exhaustive 在 K≤4, n≤7 网格恰达 C 是 [VERIFIED-LP] at
+  grid，一般 [CONJECTURE]，手证卡在 f(Ŝ∩O*) 可为 0，两步分解失效）；C 是 randomized 值
+  （n<2K randomized 仍 [OPEN]，(1−K/n)/η+K/n 只是上界且在 n<2K 比 C 松）；"值只依赖 η_uη_o"
+  推广到一般 f̃（scaling 论证只对 f̃=b|S| 族成立）。
 
 ## T9 cor:limit — 渐近
 - 陈述：固定 η，L_K(η)、ρ_K(η) → 1−e^{−1/η}；L_K 关于 K 单调（ρ_K 单调性 [OPEN]，G2 已删该子句）。
 - 状态：由 L_K ≤ ρ_K ≤ U_K 与两侧极限。
-- 待加（明晚 B 项）：ρ_K=1−e^{−1/η}+c(η)/K+O(1/K²)，c(1.5)≈0.228, c(2)≈0.227, c(3)≈0.197 [数值]。
+- 渐近展开（H-B）：固定 η ≥ 1，ρ_K(η)=1−e^{−1/η}+c(η)/K+O(1/K²)，c(η)=e^{−1/η}(2η−1)/(2η²)。
+  c 不随 ⌊η⌋ 分段（1/K 项上 m=⌊η⌋ 贡献相消）；分段的是 1/K² 系数
+  d(η,m)=e^{−1/η}[24η³(1−m)+12η²(m²+m−3)+20η−3]/(24η⁴)。c 在 η*=1+1/√2 处取最大 0.230579。
+  状态：[VERIFIED-SYMBOLIC]（sympy series，conditional on T6）；Richardson（K=50..800）与闭式差
+  ≤1.3e−12。更正：旧值 c(3)≈0.197 是 K=50 的原始值，极限为 0.199036；c(1.5)、c(2) 复现。
+- 单调性（H-B）：ρ_K 关于 K 非增；K ≤ ⌊η⌋ 平台 1/η，K ≥ ⌊η⌋ 起严格递减，从上方收敛。
+  证明：d ln P/dK 恒等式 + 一行 −ln 逐项尾界 + 坐标变换后非负系数证书（分子 84 项全非负）。
+  状态：[VERIFIED-SYMBOLIC，conditional on T6]，唯一手写步骤是尾界；精确有理差分 K=2..400 ×
+  7 个 η 共 2,793 个符号 0 负。cor:limit 的单调子句按此恢复（ρ_K 非增，K ≥ ⌊η⌋ 起严格）。
+- 副产品（H-B）：c_L=e^{−1/η}/(2η²)，ρ_K−L_K=e^{−1/η}(η−1)/η²·(1/K)+O(1/K²)；c_U=c，解释
+  U_K−ρ_K=O(1/K²)。均 [VERIFIED-SYMBOLIC]。
+- 禁止声称（H-B）：O(1/K²) 对 η 一致或带显式常数（[CONJECTURE]）；c 分段（不是，分段在 1/K²）；
+  由单调推凸凹（未查）；把本卡结论当对 ρ_K=min_j V_j 的独立确认（全部 conditional on T6）。
 
 ## T10 thm:hardness — 有界查询 hardness（K4 后按 J2 校准）
 - 陈述：c ≥ 0 实数，τ=⌈c⌉+1，K>τ，n ≥ 4K^{c+2}，η>1 且 η ≥ (K−1)/(K−τ)，θ̄=(η(K−τ)+1)/K。任意确定性算法，≤n^c 次、每次集合大小 ≤K 的 f̃ 查询、输出 ≤K 元素，存在实际误差恰为 η 的实例使 f(T)/f(O*) ≤ H_{K,τ}(η)=1−(1−1/(η(K−τ)+1))^K=L_K(θ̄)。随机版加 ε_n=K/n+K^{2τ+2}/((τ+1)! n^{τ+1−c})。
@@ -107,6 +140,14 @@
 - 陈述：greedy 用 ≤ Kn−K(K−1)/2 次查询；当 nK ≤ n^c（如整数 c ≥ 2, K ≤ n）时，该查询类的渐近最优值为 1−e^{−1/η}，有限 K 间隙 O((c+1)/K)。
 - 禁止声称：c=0,1 的类（精确穷举反例：单查询算法可被逼到 0）；"O(c/K)"；有限 K 的同预算最优性
   （[OPEN]：只排除渐近常数的统一改进，不排除有限 K 或低阶项的改进）。
+- PE_R 数值结论（H-F，K=3, R=1）[VERIFIED-LP，分支定界跑完 + 逐实例 certificate]：
+  n=6=2K 时 PE_1 严格优于 greedy（19/29、1/2、2/5 vs 9/16、7/15、7/18，后两值恰为 1/η）；
+  n=7,8 时 η∈{2,2.5} 处 PE_1 严格劣于 greedy（4/9、16/45 等），η=1.5 仍优（16/27）。
+  η=1 精确复现 NW 1978（5/6 与 19/27）。n=6 闭式 min{1/η,(9η−4)/(2(3η²+η−1))} [CONJECTURE]，
+  在 n=7 被证伪。解读：枚举起点的收益与"按 f̃ 选终点"的损失独立，n 大时后者占优，NW 的有限 K
+  改进不能原样搬入预测模型；这是 greedy 有限 K 最优性的正面证据（R=1,K=3,n≤8），非证明。
+- 禁止声称（H-F）：PE_1 一致优于（或一致劣于）greedy；n=6/7/8 的值互相覆盖或覆盖 n≥9
+  （inf over n [OPEN]）；R≥2、K≥4、all-pairs band 的任何结论（未算）。
 
 ## T12 F3 任意大小查询 hardness（附录：构造方向与有限证据，不作 theorem）
 - 内容：任意大小查询、预算 Q ≤ n²/(2K²(t*+K)²) 的确定性算法在已检查参数上不超过 greedy 的渐近值。

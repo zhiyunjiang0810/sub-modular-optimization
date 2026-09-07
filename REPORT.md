@@ -1,5 +1,13 @@
 # REPORT.md
 
+## Summary（第六晚：修错误 + 加硬核，台账已同步）
+
+- 全部完成：K1-K7（前日）+ K9（J4 六项措辞与范围修正，F3 降为 candidate bound 段落）+ H-J3（sharp form、prop:rigidity 刚性命题、断点 active-constraint-switch remark、app:rigidity 逐步证明；闸门由自写 results/H_J3_gate_check.py 全过，2,480 LP 偏差 4e-15，J3 原脚本未交付已记录）+ 四个硬核探针 H-F/H-B/H-E/H-C。全文 34 页编译 0 错误 0 未定义引用（results/H_final_compile.log），数字审计 311 literals 0 违规。
+- **三个新硬核结果**：H-B 的 c(η)=e^{−1/η}(2η−1)/(2η²) 非分段闭式 + ρ_K 关于 K 非增的证明闭合（conditional on thm:exact，cor:limit 单调子句已按台账恢复）；H-E 的 n<2K 精确天花板 K/((2K−n)+(n−K)η)（84 点 LP，thm:ceiling 后已加句）；H-C 的一般 K 双 submodular 实例族把 ρ_K^sub ≤ min_m W_m 升为定论（410/410），下界仍 [CONJECTURE] 且卡点已定位。
+- **最需人类判断（H-F 发现）**：partial enumeration PE_1 在 n=2K 严格优于 greedy，但 n≥7 起在 η∈{2,2.5} **严格劣于** greedy（按 f̃ 选终点的损失超过枚举收益，NW 1978 的有限 K 改进不能搬入预测模型）；这是 greedy 有限 K 最优性的正面证据（R=1,K=3,n≤8），建议进 open problem 段并回 Tianming 的 O(n)K 问题。
+- **台账已同步**：THEOREM_LEDGER.md 逐卡更新 T4/T5/T6/T6b(新)/T7/T8/T9/T11 + 表头；每卡状态标签与 results/ 脚本一一对应；本晚全部陈述改动先改卡后改 .tex。TASKS_J2.md 依旧缺失（按 H3 计划执行）；J3/J4 的 oracle 脚本未交付，闸门与数值以自写脚本替代（H_J3_gate_check.py；J4 的 253,220/1,928/325/1,638 检查无法本地复跑，只据其报告引用并注明）。
+- H 系列唯一 FAILED：H-C 的 W_m 对偶证书（卡点：路径变量 LP 加自然 f̃-submodular 割后仍收在 min_j V_j，42/42，需换聚合变量）；H-E 的 LP-B 手证、H-F 的一个 branch_both 交叉检查超时也已如实记卡点。contribution (iv) 要点沿用 J2 采纳日的清单，另加一条：intro 可引用 rem:exhaustive-vs-greedy 与 H-F 作为"greedy 在同预算类内最优"的证据链。
+
 ## Summary（J2 采纳日：K1-K7 全部完成）
 
 - 外部审查 J2（GPT）的六项发现经 H3 独立复核后全部落实进正文，K1-K7 无 FAILED：η^sel 换逐步定义（有害零步 ∞）、E2 证书连锁重算、主图拆两幅、R6 slack 证书入附录、hardness 重校准为 H_{K,τ}、P2 小修全清。编译 0 错误 0 未定义引用，30 页（results/K7_compile.log）；数字审计 0 违规。

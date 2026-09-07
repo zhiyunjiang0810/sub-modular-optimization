@@ -389,8 +389,16 @@ Conversely, exhaustive search over all $K$-subsets of predicted values
 achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
 \end{theorem}
 The randomized expression is an upper bound on the randomized worst case; it
-is not claimed to be the exact randomized value at finite $n$, and the exact
-ceiling for $n<2K$ is open.
+is not claimed to be the exact randomized value at finite $n$.  For $n<2K$
+the same symmetric construction gives the sharper deterministic ceiling
+$K/\bigl((2K-n)+(n-K)\eta\bigr)$, which interpolates between $1/\eta$ at
+$n=2K$ and $1$ at $n=K$ and is attained by exhaustive search on the
+LP-verified grid $K\le4$, $n\le7$ (general attainment is a conjecture).
+% K9/H-E (ledger T8): ceiling value [VERIFIED-LP 84 grid points, error
+% <= 3.4e-16, results/H_E_ceiling_small_n.py]; both hand arguments
+% [HAND-PROOF-UNREVIEWED]; exhaustive attainment [VERIFIED-LP at grid,
+% CONJECTURE general]; randomized value for n<2K stays open, and the
+% product-only dependence is established for the symmetric family only.
 % Status: [HAND-PROOF-UNREVIEWED], construction in Appendix
 % \ref{app:ceiling}.  The exhaustive-search matching bound is the only
 % surviving content of the removed R-step section.  K9 (J4 audit): the
@@ -426,16 +434,28 @@ predictive greedy itself attains the unbounded-query deterministic optimum.
 
 \begin{corollary}[Limit in $K$]\label{cor:limit}
 For fixed $\eta\ge1$, both $L_K(\eta)$ and $\rho_K(\eta)$ converge to
-$1-e^{-1/\eta}$ as $K\to\infty$; for $L_K$ the convergence is monotone
-in $K$.
+$1-e^{-1/\eta}$ as $K\to\infty$; $L_K$ is monotone in $K$, and
+$\rho_K$ is non-increasing in $K$, equal to $1/\eta$ for
+$K\le\lfloor\eta\rfloor$ and strictly decreasing from
+$K\ge\lfloor\eta\rfloor$ on, so the limit is approached from above.
 \end{corollary}
-% Status: for L_K elementary; for rho_K = min_j V_j it follows from the
-% closed form [VERIFIED-SYMBOLIC identities in results/T3_K3_closed_form.py].
-% Proof in Appendix \ref{app:asymptotics}.  Statement weakened during G2/G1
-% integration: the former clause "monotonically within each segment" is
-% derived only for L_K; for rho_K the minimizing index moves with K and
-% monotonicity has numeric support only (R8) [CONJECTURE], so the visible
-% claim was dropped for rho_K (conservative option, recorded per CLAUDE.md).
+Quantitatively, for fixed $\eta\ge1$,
+$\rho_K(\eta)=1-e^{-1/\eta}+c(\eta)/K+O(1/K^{2})$ with
+$c(\eta)=e^{-1/\eta}(2\eta-1)/(2\eta^{2})$; the same $1/K$ coefficient is
+shared by $U_K$, which is why $U_K-\rho_K=O(1/K^{2})$, while $L_K$ has
+$1/K$ coefficient $e^{-1/\eta}/(2\eta^{2})$.
+% Status: for L_K elementary; everything about rho_K is conditional on the
+% closed form of Theorem \ref{thm:exact}.  Monotonicity of rho_K restored
+% in the night-6 ledger sync (H-B): d ln/dK identity plus a one-line
+% termwise tail bound for -ln(1-1/x) plus a nonnegative-coefficient
+% certificate (84 monomials), [VERIFIED-SYMBOLIC conditional on
+% thm:exact; the tail bound is the single hand step]; exact rational
+% differences K=2..400 at 7 eta values show 0 negative signs
+% (results/H_B_asymptotic.py).  The expansion and c(eta) are
+% [VERIFIED-SYMBOLIC] sympy series at fixed eta, cross-checked against
+% Richardson extrapolation to 1.3e-12; uniformity of the O(1/K^2) remainder
+% in eta is [CONJECTURE] and not claimed.  Proof of the limits in Appendix
+% \ref{app:asymptotics}; ledger card T9.
 
 % ---------------------------------------------------------------- block 9 --
 \subsection{Hardness for bounded-query algorithms}\label{sec:hardness}
