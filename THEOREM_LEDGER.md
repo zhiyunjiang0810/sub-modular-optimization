@@ -42,6 +42,9 @@
 ## T5 lem:coherence — coherence lemma（唯一新引理）
 - 陈述：f 单调，S⊆N，e,e'∉S，d̃_e(S) ≥ d̃_{e'}(S)。则 (i) d_e(S∪{e'}) ≥ d_{e'}(S∪{e})/η；(ii) (1−1/η) d_{e'}(S∪{e}) ≥ d_{e'}(S)−d_e(S)。
 - 状态：两行证明（f̃(S∪{e,e'}) 两种展开）；J2 §2 给出三项非负 slack 分解 [VERIFIED-SYMBOLIC]。
+- Sharp form（H-J3 采纳）：d − g/η ≥ (1−1/η)(g−h) ≥ 0，其中 d=d_e(S)、g=d_{e'}(S)、h=d_{e'}(S∪{e})；
+  第一个不等号是 (ii) 的等价改写 [VERIFIED-SYMBOLIC，results/H_J3_gate_check.py]，第二个另用 f 的
+  submodularity。推论：η>1 且 d=g/η 时必有 h=g。作为 lemma 的 sharp form 陈述，不另立新定理。
 - 禁止声称：对 η^sel 或 η^tr 成立（它用到离轨状态 S∪{e} 的误差带，必须全局 η）。
 
 ## T6 thm:exact — 精确最坏值（主定理）
@@ -52,6 +55,24 @@
 - 全格点=reduced LP：K ≤ 5 [VERIFIED-LP]。
 - 禁止声称：ρ_K(η^sel) 是某 run 的保证（J2 §5 反例：η^sel=2 而 ratio=7/16<ρ_2(2)）；主图 ρ_K 曲线不得画在 η^sel 轴；V_i−V_{i+1} 索引 i ≤ K−2；对 η^sel 陈述精确值。
 - 副产品：下界证书中单调约束乘子恒为零（不等于可删 f 的单调性，coverage 归约仍用）；U_K > V_{K−1} 对所有 η>1（U_K 族不紧）。
+- 禁止声称（H-J3 追加）：T6b 的轨迹唯一性延伸到整数断点（K=3, η=2 有两条 7/15 轨迹）；唯一性约束未选候选的边际。
+
+## T6b prop:rigidity — 非断点最坏轨迹的刚性（H-J3 新增）
+- 陈述：K ≥ 2；η ∈ (K−j, K−j+1) 且 1 ≤ j ≤ K−1，或 j=0 且 η > K；OPT 归一化为 1。若一次
+  adversarial-tie run 达到 ρ_K(η)=V_j(η)，则其诱导的 reduced-LP 变量满足
+  d_t = q^t/k_1（t<j）、q^j/(Kη)（t≥j），g_{t,i} = q^{min(t,j)}/K（0 ≤ t ≤ K）。
+- 证明：互补松弛（正乘子支撑：coverage t=0..j、consistency t=0..K−2 每个 i、prediction t=j..K−1
+  每个 i）+ J3 §2.1 递推归纳（早期几何段、t=j 对称化、后期冻结、向后回推、末步锁定）。
+- 状态：递推恒等式 [VERIFIED-SYMBOLIC，results/H_J3_gate_check.py]；40 个有限最优面、2,480 次
+  坐标极值 LP 全塌缩到该序列 [VERIFIED-LP 同脚本，最大偏差 4e-15]；从一般对偶证书到任意规模
+  实际轨迹的互补松弛与归纳装配 [HAND-PROOF-UNREVIEWED]。
+- 范围：只约束选中增益与最优元素沿轨迹的边际；不唯一确定整个 f、f̃ 或未选候选的边际；
+  由 g 全正与置零约定，此类精确最坏 run 与所固定的 O* 不交。
+- 附属 remarks：断点 = active-constraint switch（λ_P(j) 在段左端点消失、λ_S(j) 在段右端点消失；
+  K=3, η=2 两条轨迹 (1/5,2/15,2/15) 与 (1/5,4/25,8/75) 均和 7/15）；精确取等强迫每步与最优元素
+  的预测增益打平（P=Q，slack 分解逐项为零推出，装配 [HAND-PROOF-UNREVIEWED]）；近等号
+  slack_r ≤ ε/λ_r（不升级为统一稳定性定理）。
+- 禁止声称：断点处唯一性；全体候选的最大真实边际被约束；"相变" 措辞（用 active-constraint switch）。
 
 ## T7 rem:exact-gap — submodular surrogate（D1 remark）
 - 陈述（K6 后）：若额外要求 f̃ submodular，在已验证的 LP 点上最坏值严格更高（K=3, η=1.5: 9/16→19/33）；η=1 时两模型重合；一般刻画 [CONJECTURE ρ_K^sub=min_m W_m，q→r=1−1/K，76/76 点]，[OPEN]。
