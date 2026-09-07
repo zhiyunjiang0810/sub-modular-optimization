@@ -1,0 +1,146 @@
+{
+  "symbolic": {
+    "status": "VERIFIED-SYMBOLIC",
+    "identities": {
+      "R6 pred nonnegative-slack identity": "0",
+      "R6 cons nonnegative-slack identity": "0",
+      "R6 selected-optimum case c: cons": "0",
+      "R6 selected-optimum case c: pred slack": "0",
+      "R6 coverage telescope core": "0",
+      "R6 coverage induction increment": "0",
+      "dual t=j printed numerator": "0",
+      "dual t=j middle-terms grouping": "0",
+      "hardness balanced x-edge ratio": "0",
+      "hardness balanced y-edge ratio": "0",
+      "hardness outside x-edge ratio": "0",
+      "hardness outside y-edge ratio": "0",
+      "hardness branch junction y=tau": "0",
+      "hardness y=K x-edge zero": "0",
+      "hardness true CC second difference": "0",
+      "hardness true CY second difference": "0",
+      "hardness true YY second difference": "0",
+      "hardness exact scalar product": "0",
+      "hardness smaller inflation AB-1": "0",
+      "hardness balanced x-ratio monotonic increment": "0",
+      "hardness new calibration": "0",
+      "hardness new contraction denominator": "0",
+      "hardness effective-inflation limit": "0",
+      "hardness strengthened bound logarithmic limit": "0"
+    },
+    "count": 24
+  },
+  "dual": {
+    "status": "VERIFIED-LP",
+    "exact_fraction_weighted_sums": 456,
+    "K_range": [
+      2,
+      17
+    ],
+    "all_segments_and_endpoints": true,
+    "eta_1_included": true
+  },
+  "R6_LP": {
+    "status": "VERIFIED-LP",
+    "lp_objectives": 1536,
+    "counts_by_constraint_and_case": {
+      "sum_all": 168,
+      "pred_c": 96,
+      "mono_c": 96,
+      "cons_c": 96,
+      "pred_b": 276,
+      "mono_b": 276,
+      "cons_b": 276,
+      "pred_a": 84,
+      "mono_a": 84,
+      "cons_a": 84
+    },
+    "minimum_slacks": {
+      "sum_all": -2.220446049250313e-16,
+      "pred_c": 0.0,
+      "mono_c": 0.0,
+      "cons_c": 0.0,
+      "pred_b": -6.661338147750939e-16,
+      "mono_b": 0.0,
+      "cons_b": -1.1102230246251565e-16,
+      "pred_a": 0.0,
+      "mono_a": 0.0,
+      "cons_a": 0.0
+    },
+    "scope": "full lattice n=4,K=2 and n=5,K=3; all optimal K-sets; four asymmetric/symmetric bands"
+  },
+  "hardness": {
+    "status": "VERIFIED-LP",
+    "exact_count_grid_cases": 264,
+    "edges_checked": 57728,
+    "K_range": [
+      2,
+      12
+    ],
+    "all_integer_tau_1_to_Kminus1": true,
+    "exact_error_counterexample": {
+      "K": 4,
+      "tau": 1,
+      "theta": "4",
+      "A": "5/4",
+      "B": "1",
+      "original_pair_eta_u": "2",
+      "original_pair_eta_o": "5/2",
+      "actual_scalar_error": "5",
+      "printed_Phi": "25/4"
+    }
+  },
+  "calibration": [
+    {
+      "K": 4,
+      "c": 0,
+      "eta": 4,
+      "old_design": 2.727081728298996,
+      "new_design": 3.25,
+      "old_hardness": 0.31927965762169025,
+      "new_hardness": 0.2739750008753195,
+      "greedy_guarantee": 0.22752380371093753
+    },
+    {
+      "K": 8,
+      "c": 1,
+      "eta": 2,
+      "old_design": 1.5683362167002763,
+      "new_design": 1.625,
+      "old_hardness": 0.4854510433543288,
+      "new_hardness": 0.47288770064600766,
+      "greedy_guarantee": 0.4032805261667818
+    },
+    {
+      "K": 16,
+      "c": 2,
+      "eta": 2,
+      "old_design": 1.6617717460232082,
+      "new_design": 1.6875,
+      "old_hardness": 0.4584802448040385,
+      "new_hardness": 0.4532946284516879,
+      "greedy_guarantee": 0.3982896965679276
+    },
+    {
+      "K": 32,
+      "c": 2,
+      "eta": 3,
+      "old_design": 2.6459173595165444,
+      "new_design": 2.75,
+      "old_hardness": 0.31626874889261253,
+      "new_hardness": 0.3063017881933081,
+      "greedy_guarantee": 0.2847202798163214
+    },
+    {
+      "K": 64,
+      "c": 3,
+      "eta": 1.5,
+      "old_design": 1.4024829839643975,
+      "new_design": 1.421875,
+      "old_hardness": 0.5117963993715097,
+      "new_hardness": 0.5069721008345963,
+      "greedy_guarantee": 0.4883749218939585
+    }
+  ],
+  "elapsed_seconds": 6.658659896000017,
+  "all_passed": true
+}

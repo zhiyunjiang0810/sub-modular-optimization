@@ -1,0 +1,342 @@
+==============================================================================
+N1: general-K dual certificate for the reduced LP  (results/N1_dual_certificate.py)
+==============================================================================
+
+--- PART A: dual feasibility A'y = c, symbolic in (K, j, t) ---
+  [PASS] D2 at t=0 (j>=1): y_sum(0) = y_cons(0) forces it
+  [PASS] D2 for 1 <= t <= j-1
+  [PASS] D2 at t=j (j>=1)
+  [PASS] D2 for j+1 <= t <= K-1
+  [PASS] D2 at t=K (needs y_cons(K-1) = 0)
+  [PASS] D2 at t=0 for the j=0 segment
+  [PASS] D1 for t >= j: y_pred(t) + y_cons(t) = -1/K  (and sum_{s>t} y_sum(s) = 0)
+  [PASS] D1 base at t=j-1: -y_sum(j) - K y_cons(j-1) = 1
+  [PASS] D1 downward induction step for t <= j-2
+  [PASS] b'y = V_j for j >= 1
+  [PASS] b'y = V_0 = 1/eta for j = 0
+
+--- PART B: primal feasibility and c'x = V_j, symbolic in (K, j, t) ---
+  [PASS] P_t = 1-q^t for t<=j: step (1-q^{t+1}) - (1-q^t) = d_t = q^t/k1
+  [PASS] P_t for t>=j: step = d_t = q^j/(K eta)
+  [PASS] P_t claims agree at t=j
+  [PASS] sum(t) is TIGHT for t <= j:  K G_t = q^t = r_t
+  [PASS] sum(t) slack for t > j equals (t-j) q^j/(K eta) >= 0
+  [PASS] pred(t) slack for t < j equals q^t (eta-1)/(K eta k1) >= 0
+  [PASS] pred(t) is TIGHT for t >= j
+  [PASS] mono(t) slack for t < j equals q^t/(K k1) > 0
+  [PASS] mono(t) is TIGHT for t >= j (G frozen)
+  [PASS] cons(t) is TIGHT for t < j
+  [PASS] cons(t) is TIGHT for t >= j
+  [PASS] c'x = P_K = 1 - q^j(1-(K-j)/(K eta)) = V_j
+
+--- PART C: sign conditions y <= 0 on the segment, symbolic in (K, j, t) ---
+  [PASS] k1 > 0 on segment j>=1   (coeffs=[1, 1, 1, 1, 1, 2])
+  [PASS] numerator of q is > 0  =>  q > 0   (coeffs=[1, 1, 1, 1, 1, 1])
+  [PASS] M = K eta - (K-j) > 0 on segment j>=1   (coeffs=[1, 1, 1, 1, 2, 1])
+  [PASS] -y_sum(j) numerator = K-j+1-eta = 1-s >= 0 (=0 at eta=K-j+1)   (coeffs=[1])
+  [PASS] K k1 > 0  =>  y_sum(0), y_cons(t<=j-1) <= 0 (with q>0, M>0)   (coeffs=[1, 1, 1, 3, 3, 4, 2, 2, 4])
+  [PASS] k1^2 > 0  =>  y_sum(1..j-1) <= 0   (coeffs=[1, 2, 2, 1, 2, 1, 2, 4, 6, 2, 6, 4, 1, 2, 4, 1, 4, 4])
+  [PASS] j<=K-2: K(eta-1) > 0 on [K-j, K-j+1]   (coeffs=[1, 1, 1, 2, 2, 2])
+  [PASS] -y_pred(j+m) numerator = eta-(K-j-m) = s+m >= 0 (=0 at eta=K-j, m=0)   (coeffs=[1, 1])
+  [PASS] -y_cons(j+m) numerator = K-1-t = u-1-m >= 0   (coeffs=[1])
+  [PASS] j=K-1: y_pred(K-1) = -(eta-1)/(K(eta-1)) = -1/K (removable at eta=1)
+  [PASS] j=K-1: y_cons(K-1) = -(K-1-(K-1))/(K(eta-1)) = 0
+  [PASS] j=0: K(eta-1) > 0 on [K,oo)   (coeffs=[1, 1, 3, 2, 2])
+  [PASS] j=0: -y_pred(t) numerator = eta-(K-t) = s+t >= 0 on [K,oo)   (coeffs=[1, 1])
+  [PASS] j=0: -y_cons(t) numerator = K-1-t >= 0   (coeffs=[1])
+  [PASS] j=0: -y_sum(0) = 1/eta > 0   (coeffs=[1, 1, 2])
+
+--- PART D: V_j = min_i V_i on segment j, symbolic in (K, j, i) ---
+  [PASS] V_i - V_{i+1} = q^i (K-i-eta) / (K eta k1)
+  [PASS] i<=j-1 on segment: K-i-eta = 1+a-s >= 0   (coeffs=[1, 1])
+  [PASS] i>=j on segment: -(K-i-eta) = a+s >= 0   (coeffs=[1, 1])
+  [PASS] V_0 = 1/eta
+  [PASS] V_j - V_{j-1} = 0 exactly at eta = K-j+1 (breakpoints are integers)
+  [PASS] U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k1) >= 0 for eta >= 1
+
+--- PART E: full matrix certificate, K = 2..10, symbolic eta ---
+  [PASS] K=2 j=0 eta in [2,oo]: A'y = c   (0 bad columns)
+  [PASS] K=2 j=0 eta in [2,oo]: y <= 0 on segment   ([])
+  [PASS] K=2 j=0 eta in [2,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=2 j=0 eta in [2,oo]: b'y = V_j   (b'y = 1/eta  (0.0s))
+  [PASS] K=2 j=0 eta in [2,oo]: c'x = V_j
+  [PASS] K=2 j=1 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=2 j=1 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=2 j=1 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=2 j=1 eta in [1,2]: b'y = V_j   (b'y = 3/(2*(eta + 1))  (0.0s))
+  [PASS] K=2 j=1 eta in [1,2]: c'x = V_j
+  [PASS] K=3 j=0 eta in [3,oo]: A'y = c   (0 bad columns)
+  [PASS] K=3 j=0 eta in [3,oo]: y <= 0 on segment   ([])
+  [PASS] K=3 j=0 eta in [3,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=3 j=0 eta in [3,oo]: b'y = V_j   (b'y = 1/eta  (0.1s))
+  [PASS] K=3 j=0 eta in [3,oo]: c'x = V_j
+  [PASS] K=3 j=1 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=3 j=1 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=3 j=1 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=3 j=1 eta in [2,3]: b'y = V_j   (b'y = 7/(3*(2*eta + 1))  (0.1s))
+  [PASS] K=3 j=1 eta in [2,3]: c'x = V_j
+  [PASS] K=3 j=2 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=3 j=2 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=3 j=2 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=3 j=2 eta in [1,2]: b'y = V_j   (b'y = (16*eta + 3)/(3*(2*eta + 1)**2)  (0.1s))
+  [PASS] K=3 j=2 eta in [1,2]: c'x = V_j
+  [PASS] K=4 j=0 eta in [4,oo]: A'y = c   (0 bad columns)
+  [PASS] K=4 j=0 eta in [4,oo]: y <= 0 on segment   ([])
+  [PASS] K=4 j=0 eta in [4,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=4 j=0 eta in [4,oo]: b'y = V_j   (b'y = 1/eta  (0.1s))
+  [PASS] K=4 j=0 eta in [4,oo]: c'x = V_j
+  [PASS] K=4 j=1 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=4 j=1 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=4 j=1 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=4 j=1 eta in [3,4]: b'y = V_j   (b'y = 13/(4*(3*eta + 1))  (0.1s))
+  [PASS] K=4 j=1 eta in [3,4]: c'x = V_j
+  [PASS] K=4 j=2 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=4 j=2 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=4 j=2 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=4 j=2 eta in [2,3]: b'y = V_j   (b'y = (21*eta + 2)/(2*(3*eta + 1)**2)  (0.2s))
+  [PASS] K=4 j=2 eta in [2,3]: c'x = V_j
+  [PASS] K=4 j=3 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=4 j=3 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=4 j=3 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=4 j=3 eta in [1,2]: b'y = V_j   (b'y = (135*eta**2 + 36*eta + 4)/(4*(3*eta + 1)**3)  (0.2s))
+  [PASS] K=4 j=3 eta in [1,2]: c'x = V_j
+  [PASS] K=5 j=0 eta in [5,oo]: A'y = c   (0 bad columns)
+  [PASS] K=5 j=0 eta in [5,oo]: y <= 0 on segment   ([])
+  [PASS] K=5 j=0 eta in [5,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=5 j=0 eta in [5,oo]: b'y = V_j   (b'y = 1/eta  (0.1s))
+  [PASS] K=5 j=0 eta in [5,oo]: c'x = V_j
+  [PASS] K=5 j=1 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=5 j=1 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=5 j=1 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=5 j=1 eta in [4,5]: b'y = V_j   (b'y = 21/(5*(4*eta + 1))  (0.2s))
+  [PASS] K=5 j=1 eta in [4,5]: c'x = V_j
+  [PASS] K=5 j=2 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=5 j=2 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=5 j=2 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=5 j=2 eta in [3,4]: b'y = V_j   (b'y = (88*eta + 5)/(5*(4*eta + 1)**2)  (0.2s))
+  [PASS] K=5 j=2 eta in [3,4]: c'x = V_j
+  [PASS] K=5 j=3 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=5 j=3 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=5 j=3 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=5 j=3 eta in [2,3]: b'y = V_j   (b'y = (368*eta**2 + 60*eta + 5)/(5*(4*eta + 1)**3)  (0.3s))
+  [PASS] K=5 j=3 eta in [2,3]: c'x = V_j
+  [PASS] K=5 j=4 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=5 j=4 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=5 j=4 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=5 j=4 eta in [1,2]: b'y = V_j   (b'y = (1536*eta**3 + 480*eta**2 + 80*eta + 5)/(5*(4*eta + 1)**4)  (0.3s))
+  [PASS] K=5 j=4 eta in [1,2]: c'x = V_j
+  [PASS] K=6 j=0 eta in [6,oo]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=0 eta in [6,oo]: y <= 0 on segment   ([])
+  [PASS] K=6 j=0 eta in [6,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=0 eta in [6,oo]: b'y = V_j   (b'y = 1/eta  (0.1s))
+  [PASS] K=6 j=0 eta in [6,oo]: c'x = V_j
+  [PASS] K=6 j=1 eta in [5,6]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=1 eta in [5,6]: y <= 0 on segment   ([])
+  [PASS] K=6 j=1 eta in [5,6]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=1 eta in [5,6]: b'y = V_j   (b'y = 31/(6*(5*eta + 1))  (0.3s))
+  [PASS] K=6 j=1 eta in [5,6]: c'x = V_j
+  [PASS] K=6 j=2 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=2 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=6 j=2 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=2 eta in [4,5]: b'y = V_j   (b'y = (80*eta + 3)/(3*(5*eta + 1)**2)  (0.3s))
+  [PASS] K=6 j=2 eta in [4,5]: c'x = V_j
+  [PASS] K=6 j=3 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=3 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=6 j=3 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=3 eta in [3,4]: b'y = V_j   (b'y = (275*eta**2 + 30*eta + 2)/(2*(5*eta + 1)**3)  (0.4s))
+  [PASS] K=6 j=3 eta in [3,4]: c'x = V_j
+  [PASS] K=6 j=4 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=4 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=6 j=4 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=4 eta in [2,3]: b'y = V_j   (b'y = (2125*eta**3 + 450*eta**2 + 60*eta + 3)/(3*(5*eta + 1)**4)  (0.5s))
+  [PASS] K=6 j=4 eta in [2,3]: c'x = V_j
+  [PASS] K=6 j=5 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=6 j=5 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=6 j=5 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=6 j=5 eta in [1,2]: b'y = V_j   (b'y = (21875*eta**4 + 7500*eta**3 + 1500*eta**2 + 150*eta + 6)/(6*(5*eta + 1)**5)  (0.6s))
+  [PASS] K=6 j=5 eta in [1,2]: c'x = V_j
+  [PASS] K=7 j=0 eta in [7,oo]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=0 eta in [7,oo]: y <= 0 on segment   ([])
+  [PASS] K=7 j=0 eta in [7,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=0 eta in [7,oo]: b'y = V_j   (b'y = 1/eta  (0.2s))
+  [PASS] K=7 j=0 eta in [7,oo]: c'x = V_j
+  [PASS] K=7 j=1 eta in [6,7]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=1 eta in [6,7]: y <= 0 on segment   ([])
+  [PASS] K=7 j=1 eta in [6,7]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=1 eta in [6,7]: b'y = V_j   (b'y = 43/(7*(6*eta + 1))  (0.3s))
+  [PASS] K=7 j=1 eta in [6,7]: c'x = V_j
+  [PASS] K=7 j=2 eta in [5,6]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=2 eta in [5,6]: y <= 0 on segment   ([])
+  [PASS] K=7 j=2 eta in [5,6]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=2 eta in [5,6]: b'y = V_j   (b'y = (264*eta + 7)/(7*(6*eta + 1)**2)  (0.4s))
+  [PASS] K=7 j=2 eta in [5,6]: c'x = V_j
+  [PASS] K=7 j=3 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=3 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=7 j=3 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=3 eta in [4,5]: b'y = V_j   (b'y = (1620*eta**2 + 126*eta + 7)/(7*(6*eta + 1)**3)  (0.5s))
+  [PASS] K=7 j=3 eta in [4,5]: c'x = V_j
+  [PASS] K=7 j=4 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=4 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=7 j=4 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=4 eta in [3,4]: b'y = V_j   (b'y = (9936*eta**3 + 1512*eta**2 + 168*eta + 7)/(7*(6*eta + 1)**4)  (0.6s))
+  [PASS] K=7 j=4 eta in [3,4]: c'x = V_j
+  [PASS] K=7 j=5 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=5 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=7 j=5 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=5 eta in [2,3]: b'y = V_j   (b'y = (60912*eta**4 + 15120*eta**3 + 2520*eta**2 + 210*eta + 7)/(7*(6*eta + 1)**5)  (0.7s))
+  [PASS] K=7 j=5 eta in [2,3]: c'x = V_j
+  [PASS] K=7 j=6 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=7 j=6 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=7 j=6 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=7 j=6 eta in [1,2]: b'y = V_j   (b'y = (373248*eta**5 + 136080*eta**4 + 30240*eta**3 + 3780*eta**2 + 252*eta + 7)/(7*(6*eta + 1)**6)  (0.8s))
+  [PASS] K=7 j=6 eta in [1,2]: c'x = V_j
+  [PASS] K=8 j=0 eta in [8,oo]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=0 eta in [8,oo]: y <= 0 on segment   ([])
+  [PASS] K=8 j=0 eta in [8,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=0 eta in [8,oo]: b'y = V_j   (b'y = 1/eta  (0.3s))
+  [PASS] K=8 j=0 eta in [8,oo]: c'x = V_j
+  [PASS] K=8 j=1 eta in [7,8]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=1 eta in [7,8]: y <= 0 on segment   ([])
+  [PASS] K=8 j=1 eta in [7,8]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=1 eta in [7,8]: b'y = V_j   (b'y = 57/(8*(7*eta + 1))  (0.4s))
+  [PASS] K=8 j=1 eta in [7,8]: c'x = V_j
+  [PASS] K=8 j=2 eta in [6,7]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=2 eta in [6,7]: y <= 0 on segment   ([])
+  [PASS] K=8 j=2 eta in [6,7]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=2 eta in [6,7]: b'y = V_j   (b'y = (203*eta + 4)/(4*(7*eta + 1)**2)  (0.6s))
+  [PASS] K=8 j=2 eta in [6,7]: c'x = V_j
+  [PASS] K=8 j=3 eta in [5,6]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=3 eta in [5,6]: y <= 0 on segment   ([])
+  [PASS] K=8 j=3 eta in [5,6]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=3 eta in [5,6]: b'y = V_j   (b'y = (2891*eta**2 + 168*eta + 8)/(8*(7*eta + 1)**3)  (0.6s))
+  [PASS] K=8 j=3 eta in [5,6]: c'x = V_j
+  [PASS] K=8 j=4 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=4 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=8 j=4 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=4 eta in [4,5]: b'y = V_j   (b'y = (5145*eta**3 + 588*eta**2 + 56*eta + 2)/(2*(7*eta + 1)**4)  (0.8s))
+  [PASS] K=8 j=4 eta in [4,5]: c'x = V_j
+  [PASS] K=8 j=5 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=5 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=8 j=5 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=5 eta in [3,4]: b'y = V_j   (b'y = (146461*eta**4 + 27440*eta**3 + 3920*eta**2 + 280*eta + 8)/(8*(7*eta + 1)**5)  (1.0s))
+  [PASS] K=8 j=5 eta in [3,4]: c'x = V_j
+  [PASS] K=8 j=6 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=6 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=8 j=6 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=6 eta in [2,3]: b'y = V_j   (b'y = (521017*eta**5 + 144060*eta**4 + 27440*eta**3 + 2940*eta**2 + 168*eta + 4)/(4*(7*eta + 1)**6)  (1.1s))
+  [PASS] K=8 j=6 eta in [2,3]: c'x = V_j
+  [PASS] K=8 j=7 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=8 j=7 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=8 j=7 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=8 j=7 eta in [1,2]: b'y = V_j   (b'y = (7411887*eta**6 + 2823576*eta**5 + 672280*eta**4 + 96040*eta**3 + 8232*eta**2 + 392*eta + 8)/(8*(7*eta + 1)**7)  (1.3s))
+  [PASS] K=8 j=7 eta in [1,2]: c'x = V_j
+  [PASS] K=9 j=0 eta in [9,oo]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=0 eta in [9,oo]: y <= 0 on segment   ([])
+  [PASS] K=9 j=0 eta in [9,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=0 eta in [9,oo]: b'y = V_j   (b'y = 1/eta  (0.3s))
+  [PASS] K=9 j=0 eta in [9,oo]: c'x = V_j
+  [PASS] K=9 j=1 eta in [8,9]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=1 eta in [8,9]: y <= 0 on segment   ([])
+  [PASS] K=9 j=1 eta in [8,9]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=1 eta in [8,9]: b'y = V_j   (b'y = 73/(9*(8*eta + 1))  (0.6s))
+  [PASS] K=9 j=1 eta in [8,9]: c'x = V_j
+  [PASS] K=9 j=2 eta in [7,8]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=2 eta in [7,8]: y <= 0 on segment   ([])
+  [PASS] K=9 j=2 eta in [7,8]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=2 eta in [7,8]: b'y = V_j   (b'y = (592*eta + 9)/(9*(8*eta + 1)**2)  (0.6s))
+  [PASS] K=9 j=2 eta in [7,8]: c'x = V_j
+  [PASS] K=9 j=3 eta in [6,7]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=3 eta in [6,7]: y <= 0 on segment   ([])
+  [PASS] K=9 j=3 eta in [6,7]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=3 eta in [6,7]: b'y = V_j   (b'y = (1600*eta**2 + 72*eta + 3)/(3*(8*eta + 1)**3)  (0.8s))
+  [PASS] K=9 j=3 eta in [6,7]: c'x = V_j
+  [PASS] K=9 j=4 eta in [5,6]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=4 eta in [5,6]: y <= 0 on segment   ([])
+  [PASS] K=9 j=4 eta in [5,6]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=4 eta in [5,6]: b'y = V_j   (b'y = (38912*eta**3 + 3456*eta**2 + 288*eta + 9)/(9*(8*eta + 1)**4)  (0.8s))
+  [PASS] K=9 j=4 eta in [5,6]: c'x = V_j
+  [PASS] K=9 j=5 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=5 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=9 j=5 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=5 eta in [4,5]: b'y = V_j   (b'y = (315392*eta**4 + 46080*eta**3 + 5760*eta**2 + 360*eta + 9)/(9*(8*eta + 1)**5)  (0.9s))
+  [PASS] K=9 j=5 eta in [4,5]: c'x = V_j
+  [PASS] K=9 j=6 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=6 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=9 j=6 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=6 eta in [3,4]: b'y = V_j   (b'y = (851968*eta**5 + 184320*eta**4 + 30720*eta**3 + 2880*eta**2 + 144*eta + 3)/(3*(8*eta + 1)**6)  (1.1s))
+  [PASS] K=9 j=6 eta in [3,4]: c'x = V_j
+  [PASS] K=9 j=7 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=7 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=9 j=7 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=7 eta in [2,3]: b'y = V_j   (b'y = (20709376*eta**6 + 6193152*eta**5 + 1290240*eta**4 + 161280*eta**3 + 12096*eta**2 + 504*eta + 9)/(9*(8*eta + 1)**7)  (1.5s))
+  [PASS] K=9 j=7 eta in [2,3]: c'x = V_j
+  [PASS] K=9 j=8 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=9 j=8 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=9 j=8 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=9 j=8 eta in [1,2]: b'y = V_j   (b'y = (167772160*eta**7 + 66060288*eta**6 + 16515072*eta**5 + 2580480*eta**4 + 258048*eta**3 + 16128*eta**2 + 576*eta + 9)/(9*(8*eta + 1)**8)  (2.0s))
+  [PASS] K=9 j=8 eta in [1,2]: c'x = V_j
+  [PASS] K=10 j=0 eta in [10,oo]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=0 eta in [10,oo]: y <= 0 on segment   ([])
+  [PASS] K=10 j=0 eta in [10,oo]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=0 eta in [10,oo]: b'y = V_j   (b'y = 1/eta  (0.4s))
+  [PASS] K=10 j=0 eta in [10,oo]: c'x = V_j
+  [PASS] K=10 j=1 eta in [9,10]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=1 eta in [9,10]: y <= 0 on segment   ([])
+  [PASS] K=10 j=1 eta in [9,10]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=1 eta in [9,10]: b'y = V_j   (b'y = 91/(10*(9*eta + 1))  (0.7s))
+  [PASS] K=10 j=1 eta in [9,10]: c'x = V_j
+  [PASS] K=10 j=2 eta in [8,9]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=2 eta in [8,9]: y <= 0 on segment   ([])
+  [PASS] K=10 j=2 eta in [8,9]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=2 eta in [8,9]: b'y = V_j   (b'y = (414*eta + 5)/(5*(9*eta + 1)**2)  (0.9s))
+  [PASS] K=10 j=2 eta in [8,9]: c'x = V_j
+  [PASS] K=10 j=3 eta in [7,8]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=3 eta in [7,8]: y <= 0 on segment   ([])
+  [PASS] K=10 j=3 eta in [7,8]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=3 eta in [7,8]: b'y = V_j   (b'y = (7533*eta**2 + 270*eta + 10)/(10*(9*eta + 1)**3)  (1.1s))
+  [PASS] K=10 j=3 eta in [7,8]: c'x = V_j
+  [PASS] K=10 j=4 eta in [6,7]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=4 eta in [6,7]: y <= 0 on segment   ([])
+  [PASS] K=10 j=4 eta in [6,7]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=4 eta in [6,7]: b'y = V_j   (b'y = (34263*eta**3 + 2430*eta**2 + 180*eta + 5)/(5*(9*eta + 1)**4)  (1.1s))
+  [PASS] K=10 j=4 eta in [6,7]: c'x = V_j
+  [PASS] K=10 j=5 eta in [5,6]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=5 eta in [5,6]: y <= 0 on segment   ([])
+  [PASS] K=10 j=5 eta in [5,6]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=5 eta in [5,6]: b'y = V_j   (b'y = (124659*eta**4 + 14580*eta**3 + 1620*eta**2 + 90*eta + 2)/(2*(9*eta + 1)**5)  (1.2s))
+  [PASS] K=10 j=5 eta in [5,6]: c'x = V_j
+  [PASS] K=10 j=6 eta in [4,5]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=6 eta in [4,5]: y <= 0 on segment   ([])
+  [PASS] K=10 j=6 eta in [4,5]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=6 eta in [4,5]: b'y = V_j   (b'y = (2834352*eta**5 + 492075*eta**4 + 72900*eta**3 + 6075*eta**2 + 270*eta + 5)/(5*(9*eta + 1)**6)  (1.5s))
+  [PASS] K=10 j=6 eta in [4,5]: c'x = V_j
+  [PASS] K=10 j=7 eta in [3,4]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=7 eta in [3,4]: y <= 0 on segment   ([])
+  [PASS] K=10 j=7 eta in [3,4]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=7 eta in [3,4]: b'y = V_j   (b'y = (51549777*eta**6 + 12400290*eta**5 + 2296350*eta**4 + 255150*eta**3 + 17010*eta**2 + 630*eta + 10)/(10*(9*eta + 1)**7)  (1.7s))
+  [PASS] K=10 j=7 eta in [3,4]: c'x = V_j
+  [PASS] K=10 j=8 eta in [2,3]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=8 eta in [2,3]: y <= 0 on segment   ([])
+  [PASS] K=10 j=8 eta in [2,3]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=8 eta in [2,3]: b'y = V_j   (b'y = (234365481*eta**7 + 74401740*eta**6 + 16533720*eta**5 + 2296350*eta**4 + 204120*eta**3 + 11340*eta**2 + 360*eta + 5)/(5*(9*eta + 1)**8)  (1.9s))
+  [PASS] K=10 j=8 eta in [2,3]: c'x = V_j
+  [PASS] K=10 j=9 eta in [1,2]: A'y = c   (0 bad columns)
+  [PASS] K=10 j=9 eta in [1,2]: y <= 0 on segment   ([])
+  [PASS] K=10 j=9 eta in [1,2]: A x <= b and x >= 0 on segment   ([])
+  [PASS] K=10 j=9 eta in [1,2]: b'y = V_j   (b'y = (4261625379*eta**8 + 1721868840*eta**7 + 446410440*eta**6 + 74401740*eta**5 + 8266860*eta**4 + 612360*eta**3 + 29160*eta**2 + 810*eta + 10)/(10*(9*eta + 1)**9)  (2.4s))
+  [PASS] K=10 j=9 eta in [1,2]: c'x = V_j
+
+--- PART F: numerical cross-checks against scipy ---
+  [PASS] closed-form y is dual feasible AND optimal (b'y = LP), K=2..6, every segment   (max violation 3.33e-16 at (5, 4, 1.5))
+  [PASS] closed form = scipy dual symmetrised over i, wherever scipy stays on the same face (mono multipliers 0)   (max rel dev 7.63e-16 at (5, 2, 3.5); 2/60 points had a degenerate dual face)
+  [PASS] LP value = V_{j(eta)} on grid, K=2..10   (max abs dev 7.22e-16 at (10, 2.5))
+  [PASS] corollary y_mono=0: dropping the mono(t,i) rows leaves the LP value unchanged   (max abs dev 2.22e-16 at (7, 6.5))
+  [PASS] sandwich L_K(eta) <= min_j V_j(eta) <= U_K(eta), K=2..24 grid   (max L_K excess 0.00e+00 at None, max U_K excess 6.66e-16)
+
+--- PART G: agreement with the T3 published multipliers ---
+  [PASS] general-K formula reproduces EVERY T3 multiplier (K=2,3,4, all 9 segments)   (58 multipliers compared, 0 mismatches [])
+
+==============================================================================
+320/320 checks passed   (37.7 s)
+OVERALL: PASS
+wrote /workspace/scratch/7b9d355151cc/review_current/results/N1_dual_certificate.json

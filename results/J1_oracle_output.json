@@ -1,0 +1,142 @@
+{
+  "zero_gain_counterexample": {
+    "true_weights": [
+      1,
+      1,
+      0
+    ],
+    "predicted_weights": [
+      2,
+      1,
+      3
+    ],
+    "states": [
+      0,
+      4
+    ],
+    "order": [
+      2,
+      0
+    ],
+    "gains": [
+      0,
+      1
+    ],
+    "bests": [
+      1,
+      1
+    ],
+    "old_eta": "1",
+    "repaired_eta": "infinity",
+    "repaired_uniform_bound": "0",
+    "product_bound": "1/2",
+    "output": 1,
+    "optimum": 2,
+    "ratio": "1/2",
+    "old_claimed_bound": "3/4",
+    "strict_greedy": true
+  },
+  "two_rulers_counterexample": {
+    "states": [
+      0,
+      1
+    ],
+    "order": [
+      0,
+      1
+    ],
+    "gains": [
+      "1/4",
+      "3/16"
+    ],
+    "bests": [
+      "1/2",
+      "3/8"
+    ],
+    "old_eta": "2",
+    "repaired_eta": "2",
+    "repaired_uniform_bound": "7/16",
+    "product_bound": "7/16",
+    "output": "7/16",
+    "optimum": "1",
+    "ratio": "7/16",
+    "global_band": {
+      "eta_u": "81/16",
+      "eta_o": "8/3",
+      "eta": "27/2"
+    },
+    "trajectory_band": {
+      "eta_u": "9/4",
+      "eta_o": "8/3",
+      "eta": "6"
+    },
+    "displayed_rho_at_selection_error": "1/2",
+    "strict_preference_over_optimal_elements": true,
+    "all_true_values": [
+      "0",
+      "1/4",
+      "1/4",
+      "7/16",
+      "1/2",
+      "5/8",
+      "5/8",
+      "23/32",
+      "1/2",
+      "5/8",
+      "5/8",
+      "23/32",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "all_predictor_values": [
+      "0",
+      "2/3",
+      "2/3",
+      "8/9",
+      "1/2",
+      "5/6",
+      "5/6",
+      "17/18",
+      "1/2",
+      "5/6",
+      "5/6",
+      "17/18",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  },
+  "small_lattice_oracle": {
+    "candidate_functions": 16384,
+    "monotone_submodular_functions": 127,
+    "ordered_runs_checked": 1905,
+    "uniform_bound_failures": 0,
+    "product_bound_failures": 0,
+    "old_definition_violations": 90,
+    "runs_with_harmful_zero": 501,
+    "scope": "n=3; all values in {0,1,2,3}; K=1,2,3; all ordered runs"
+  },
+  "finite_delta_branch_check": {
+    "K": 4,
+    "tau": 2,
+    "theta": "13/10",
+    "first_squared_branch": "194481/114244",
+    "second_squared_branch": "676/441",
+    "asymptotic_switch": "3/2",
+    "finite_switch_decimal": 1.2118305254657684,
+    "branch_equivalence_checks": 378,
+    "scope": "Only compares the TWO GIVEN formulas. Does not prove they exhaust distortion."
+  },
+  "all_assertions_passed": true,
+  "not_reviewed": [
+    "R6 reduction",
+    "dual coefficient matching",
+    "hardness distortion completeness",
+    "original CSV figures",
+    "Theorem 6 source construction",
+    "new ICLR PDF layout"
+  ]
+}

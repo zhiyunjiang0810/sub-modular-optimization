@@ -1,0 +1,316 @@
+{
+  "coverage": {
+    "status": "VERIFIED-LP",
+    "n": 8,
+    "K": 2,
+    "true_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "observed_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "trace": [
+      {
+        "step": 0,
+        "state": 0,
+        "pick": 0,
+        "true_gain": 5,
+        "best_true": 5,
+        "predicted_gain": 3,
+        "true_gains": {
+          "0": 5,
+          "1": 2,
+          "2": 2,
+          "3": 3,
+          "4": 3,
+          "5": 3,
+          "6": 3,
+          "7": 3
+        },
+        "predicted_gains": {
+          "0": 3,
+          "1": 2,
+          "2": 2,
+          "3": 2,
+          "4": 2,
+          "5": 1,
+          "6": 1,
+          "7": 1
+        }
+      },
+      {
+        "step": 1,
+        "state": 1,
+        "pick": 3,
+        "true_gain": 0,
+        "best_true": 3,
+        "predicted_gain": 2,
+        "true_gains": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 3,
+          "6": 3,
+          "7": 3
+        },
+        "predicted_gains": {
+          "1": 0,
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 1,
+          "6": 1,
+          "7": 1
+        }
+      }
+    ],
+    "old_eta_sel": 1,
+    "ratio": "5/8",
+    "old_claimed_bound": "3/4",
+    "predictor_is_coverage_on_a_subgraph": true,
+    "explanation": "First choice is unique; second-step ties only among equally bad nodes 3 and 4."
+  },
+  "query_budget": {
+    "status": "VERIFIED-LP",
+    "n": 16,
+    "K": 2,
+    "c": 0,
+    "query_output_pairs_checked": 18769,
+    "true_weights_on_hidden": [
+      1,
+      1
+    ],
+    "predictor_weights_on_hidden": [
+      1,
+      2
+    ],
+    "exact_scalar_error": 2,
+    "output_ratio": 0,
+    "consequence": "The deterministic one-query class has worst-case ratio zero, not 1-exp(-1/eta)."
+  },
+  "endpoints": {
+    "strict_variant_integer_endpoint": {
+      "K": 3,
+      "j": 1,
+      "declared_eta": 2,
+      "build_eta": "19/10",
+      "state_counts": {
+        "x": 1,
+        "z": 2,
+        "y": 2
+      },
+      "adding_final_O_gain": "-1/72",
+      "consequence": "The printed capped perturbation is nonmonotone at the segment lower endpoint."
+    },
+    "submodular_surrogate_at_eta_1": {
+      "K": 3,
+      "eta": 1,
+      "ratio_both_models": "19/27",
+      "reason": "eta_u=eta_o=1 forces predictor=f on every edge and at the empty set."
+    },
+    "Phi_derivative_typo": {
+      "K": 4,
+      "tau": 1,
+      "actual_derivative": 1,
+      "printed_derivative": "1/4",
+      "consequence": "Missing chain-rule factor K; positivity conclusion is unchanged."
+    }
+  },
+  "experiments": {
+    "tolerance": 1e-09,
+    "by_family": {
+      "E1": {
+        "rows_K_ge_2": 720,
+        "below_L": 0,
+        "below_rho_at_selection": 0,
+        "below_L_with_eta_1": 0,
+        "rows_with_nonpositive_chosen_step": 295,
+        "K5_below_L": 0,
+        "pair_rows": 15330,
+        "states": 840,
+        "run_prefixes_with_negative_selection": 208,
+        "run_prefixes_with_harmful_zero": 173,
+        "run_prefixes_with_negative_candidate": 711,
+        "all_selected_steps_positive": 425,
+        "unmatched_prefixes": 0
+      },
+      "E2": {
+        "rows_K_ge_2": 6960,
+        "below_L": 0,
+        "below_rho_at_selection": 0,
+        "below_L_with_eta_1": 0,
+        "rows_with_nonpositive_chosen_step": 225,
+        "K5_below_L": 0,
+        "sample_pairs": 613935,
+        "true_zero_predicted_positive": 30416,
+        "true_positive_predicted_zero": 5952,
+        "distinct_zero_steps": 16,
+        "confirmed_harmful_zero_steps": 16,
+        "zero_steps_not_resolved_by_sample": 0,
+        "prefixes_K_ge_2_with_confirmed_harmful_zero": 225,
+        "trajectories": 240,
+        "trajectories_with_harmful_zero": 16,
+        "pooled_zero_step_fraction": 0.0022222222222222222
+      },
+      "E3": {
+        "rows_K_ge_2": 4377,
+        "below_L": 63,
+        "below_rho_at_selection": 70,
+        "below_L_with_eta_1": 38,
+        "rows_with_nonpositive_chosen_step": 2269,
+        "K5_below_L": 15,
+        "pair_rows": 91683,
+        "states": 6171,
+        "run_prefixes_with_negative_selection": 2266,
+        "run_prefixes_with_harmful_zero": 7,
+        "run_prefixes_with_negative_candidate": 3526,
+        "all_selected_steps_positive": 2108,
+        "unmatched_prefixes": 0
+      }
+    },
+    "total_rows": 12057,
+    "total_below_L": 63,
+    "worst_L_violations": [
+      {
+        "task": "E3",
+        "dataset": "sport_coverage",
+        "K": 4,
+        "seed": 7,
+        "ratio": 0.415324,
+        "eta_sel": 1.0,
+        "eta_path_trimmed": 4.86552,
+        "viol_sign_pct": 40.91,
+        "LK_eta_sel": 0.683594,
+        "LK_eta_path": 0.190223,
+        "n_steps_nonpos": 3,
+        "frac_steps_nonpos": 0.75,
+        "J2_L": 0.68359375,
+        "J2_rho_at_sel": 0.68359375,
+        "J2_below_L": true,
+        "J2_below_rho_at_sel": true,
+        "J2_gap": 0.26826975
+      },
+      {
+        "task": "E3",
+        "dataset": "sport_coverage",
+        "K": 3,
+        "seed": 7,
+        "ratio": 0.46281,
+        "eta_sel": 1.0,
+        "eta_path_trimmed": 4.86552,
+        "viol_sign_pct": 38.89,
+        "LK_eta_sel": 0.703704,
+        "LK_eta_path": 0.191769,
+        "n_steps_nonpos": 2,
+        "frac_steps_nonpos": 0.666667,
+        "J2_L": 0.7037037037037036,
+        "J2_rho_at_sel": 0.7037037037037037,
+        "J2_below_L": true,
+        "J2_below_rho_at_sel": true,
+        "J2_gap": 0.2408937037037036
+      },
+      {
+        "task": "E3",
+        "dataset": "sport_coverage",
+        "K": 3,
+        "seed": 77,
+        "ratio": 0.492754,
+        "eta_sel": 1.0,
+        "eta_path_trimmed": 41.9231,
+        "viol_sign_pct": 33.33,
+        "LK_eta_sel": 0.703704,
+        "LK_eta_path": 0.023664,
+        "n_steps_nonpos": 2,
+        "frac_steps_nonpos": 0.666667,
+        "J2_L": 0.7037037037037036,
+        "J2_rho_at_sel": 0.7037037037037037,
+        "J2_below_L": true,
+        "J2_below_rho_at_sel": true,
+        "J2_gap": 0.21094970370370358
+      },
+      {
+        "task": "E3",
+        "dataset": "sport_coverage",
+        "K": 4,
+        "seed": 77,
+        "ratio": 0.506512,
+        "eta_sel": 1.0,
+        "eta_path_trimmed": 41.9231,
+        "viol_sign_pct": 36.36,
+        "LK_eta_sel": 0.683594,
+        "LK_eta_path": 0.023641,
+        "n_steps_nonpos": 3,
+        "frac_steps_nonpos": 0.75,
+        "J2_L": 0.68359375,
+        "J2_rho_at_sel": 0.68359375,
+        "J2_below_L": true,
+        "J2_below_rho_at_sel": true,
+        "J2_gap": 0.17708175000000004
+      },
+      {
+        "task": "E3",
+        "dataset": "tech_coverage",
+        "K": 4,
+        "seed": 15,
+        "ratio": 0.54567,
+        "eta_sel": 1.0,
+        "eta_path_trimmed": 17.2109,
+        "viol_sign_pct": 26.0,
+        "LK_eta_sel": 0.683594,
+        "LK_eta_path": 0.056849,
+        "n_steps_nonpos": 3,
+        "frac_steps_nonpos": 0.75,
+        "J2_L": 0.68359375,
+        "J2_rho_at_sel": 0.68359375,
+        "J2_below_L": true,
+        "J2_below_rho_at_sel": true,
+        "J2_gap": 0.13792375
+      }
+    ],
+    "interpretation": "A negative candidate disproves monotonicity on that state. Absence of such a record does not prove global model membership."
+  },
+  "all_passed": true
+}

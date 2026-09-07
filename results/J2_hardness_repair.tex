@@ -1,0 +1,212 @@
+% J2 independent review, 2026-09-07. Insertable supplement, not an edit to paper/.
+% Dependencies already present in the manuscript: amsmath, amssymb, booktabs.
+% General algebra: [VERIFIED-SYMBOLIC], results/J2_core_oracles.py.
+% Exact count-grid support: [VERIFIED-LP], 264 instances / 57,728 edges.
+% The probability/transcript assembly retains [HAND-PROOF-UNREVIEWED]:
+% independently reviewed here, but not a formal proof-assistant certificate.
+
+\subsection{Exact error of the bounded-query construction}
+\label{app:j2-hardness-repair}
+
+\paragraph{Verification scope.}
+The edge identities below are verified symbolically for general parameters
+by \texttt{results/J2\_core\_oracles.py}. The same script checks every count-grid
+edge of 264 rational instances. The counting, transcript, and averaging
+arguments are written out below and retain the status
+\texttt{[HAND-PROOF-UNREVIEWED]}; the finite computations do not certify
+arbitrary adaptive algorithms.
+
+Fix integers $1\le\tau<K<n$ and $\theta\ge1$, and set
+\[
+ a=1-\frac1{\theta K},\qquad
+ A=a^\tau\frac K{K-\tau},\qquad B=a^{1-\tau}.
+\]
+For a hidden $K$-set $O$, let $x=|S\setminus O|$, $y=|S\cap O|$, and use the
+same family as the manuscript:
+\[
+ F_O(S)=\theta^{-1/2}\left[1-a^x\left(1-\frac yK\right)\right],\qquad
+ G_O(S)=\begin{cases}
+ 1-a^{x+y},&y\le\tau,\\
+ 1-a^{x+\tau}(K-y)/(K-\tau),&y\ge\tau.
+ \end{cases}
+\]
+The two expressions for $G_O$ agree at $y=\tau$.
+
+\paragraph{Every edge, including the boundary and the unbalanced region.}
+On an edge with positive true gain, define
+$r=\Delta G_O/(\sqrt\theta\,\Delta F_O)$. Direct subtraction gives the
+following exhaustive table.
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Direction & Starting state & $r$ \\
+\midrule
+$x$ & $0\le y\le\tau$ & $a^yK/(K-y)$ \\
+$x$ & $\tau\le y<K$ & $A$ \\
+$y$ & $0\le y\le\tau-1$ & $a^y/\theta$ \\
+$y$ & $\tau\le y<K$ & $A$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+An $x$-edge at $y=K$ has zero true and predicted gains. There is no feasible
+$y$-edge starting at $y=K$. The edge from $y=\tau-1$ to $\tau$ is in the third
+row; the edge from $y=\tau$ to $\tau+1$ is in the fourth. Thus no omitted
+crossing edge needs a separate extension argument.
+
+For $h_y=a^yK/(K-y)$,
+\[
+ \frac{h_{y+1}}{h_y}-1
+ =\frac{(\theta-1)K+y}{\theta K(K-y-1)}\ge0.
+\]
+Consequently $1=h_0\le h_y\le h_\tau=A$. The third row decreases from
+$1/\theta$ to $a^{\tau-1}/\theta=1/(\theta B)$; also $A\ge1$ and $B\ge1$.
+Both extreme ratios occur on actual edges, since $n>K$ and $1\le\tau<K$.
+The smallest admissible factors for this unscaled pair are therefore
+\[
+ \eta_o^{\rm act}=\sqrt\theta A,\qquad
+ \eta_u^{\rm act}=\sqrt\theta B,
+ \qquad
+ \boxed{\eta^{\rm act}=\theta AB
+ =\frac{\theta K-1}{K-\tau}.}
+\]
+These factors are at least one, as required by Definition~1.
+
+The manuscript's expression
+$\Phi(\theta)=\theta\max\{A,B\}^2$ is the smallest product obtained when
+both factors are constrained to equal the same number
+$\sqrt\theta\,s$. It is an admissible bound, but it is generally larger
+than the pair's actual scalar error. Indeed,
+$AB\le\max\{A,B\}^2$, with equality precisely when $A=B$.
+For example, $(K,\tau,\theta)=(4,1,4)$ gives
+$(\eta_u^{\rm act},\eta_o^{\rm act})=(2,5/2)$, hence actual error $5$, while
+$\Phi(4)=25/4$.
+
+If a prescribed split $\eta_u\eta_o=\eta^{\rm act}$ is desired, replace
+$G_O$ by $\beta G_O$ with
+\[
+ \beta=\frac{\eta_o}{\sqrt\theta A}.
+\]
+The largest predicted-to-true ratio becomes $\eta_o$ and the smallest becomes
+$1/\eta_u$. The balanced profile is simply multiplied by $\beta$, so it
+remains independent of the identity of $O$. In particular,
+$\beta=\sqrt{B/A}$ gives the symmetric split
+$\eta_u=\eta_o=\sqrt{\eta^{\rm act}}$.
+
+\paragraph{The true objective and its optimum.}
+For $H=\sqrt\theta F_O$ the first differences are
+\[
+ \Delta_xH=a^x(1-a)(1-y/K),\qquad \Delta_yH=a^x/K.
+\]
+They are nonnegative on all feasible edges. The second differences are
+\[
+ \Delta_x^2H=-a^x(1-a)^2(1-y/K),\qquad
+ \Delta_y\Delta_xH=\Delta_x\Delta_yH=-a^x(1-a)/K,
+ \qquad \Delta_y^2H=0.
+\]
+Thus the count function defines a normalized monotone submodular objective
+on every finite ground set. Also $0\le H\le1$ and $H(O)=1$, so the optimum
+over $|S|\le K$ is exactly $F_O(O)=\theta^{-1/2}$. If $T\cap O=\emptyset$
+and $|T|\le K$, its ratio is $1-a^{|T|}\le1-a^K$.
+
+\paragraph{Proposed replacement theorem, with exact scalar calibration.}
+Let $c\ge0$ be real and put $\tau=\lceil c\rceil+1$. Fix integers
+$K>\tau$, $n\ge4K^{c+2}$ and $\eta>1$ such that
+\[
+ \eta\ge\frac{K-1}{K-\tau},\qquad
+ \bar\theta=\frac{\eta(K-\tau)+1}{K}\ge1.
+\]
+For every deterministic algorithm using at most $n^c$ predictor queries of
+size at most $K$ and returning at most $K$ elements, there is an instance
+with actual scalar error exactly $\eta$ and
+\[
+ \frac{f(T)}{f(O^*)}\le
+ H_{K,\tau}(\eta):=
+ 1-\left(1-\frac1{\eta(K-\tau)+1}\right)^K
+ =L_K(\bar\theta).
+\]
+For randomized algorithms the analogous expectation bound has additive term
+\[
+ \varepsilon_n=\frac Kn+
+ \frac{K^{2\tau+2}}{(\tau+1)!\,n^{\tau+1-c}}.
+\]
+For integer $c$, the second term is exactly
+$K^{2c+4}/((c+2)!n^2)$, as in the manuscript.
+
+\paragraph{Counting and the deterministic transcript.}
+For fixed $S$ with $|S|\le K$ and uniform $O$ of size $K$, a union bound over
+the $(\tau+1)$-subsets of $S$ gives
+\[
+ \Pr(|S\cap O|>\tau)
+ \le\binom K{\tau+1}\left(\frac Kn\right)^{\tau+1}
+ \le\frac{K^{2\tau+2}}{(\tau+1)!n^{\tau+1}}.
+\]
+Here $\Pr(R\subseteq O)=\prod_{i=0}^{\tau}(K-i)/(n-i)\le(K/n)^{\tau+1}$,
+since $(K-i)n\le K(n-i)$ for $n\ge K$. The integrality of $\tau$ is used
+in this step.
+
+Run the algorithm against the canonical profile
+$\hat G(s)=1-a^s$, with $a=1-1/(\bar\theta K)$; include the constant
+$\beta$ if the predictor has been rescaled. Its queries $S_i$ and output
+$T_0$ are now fixed independently of $O$. The probability of an unbalanced
+canonical query or an intersection $T_0\cap O\ne\emptyset$ is at most
+\[
+ \frac{K^{2\tau+2}}{(\tau+1)!n^{\tau+1-c}}+\frac{K^2}{n}.
+\]
+Under the displayed lower bound on $n$, the first term is at most
+\[
+ \frac{K^{c(c+1-\tau)}}{(\tau+1)!4^{\tau+1-c}}
+ \le\frac1{16(\tau+1)!}\le\frac1{32},
+\]
+because $\tau\ge c+1$; the second is at most $1/4$. Thus some $O$ makes
+every canonical query balanced and avoids $T_0$. Induction on the adaptive
+queries identifies their actual answers with the canonical transcript, so
+the actual output is $T_0$ and its ratio is at most $1-a^K$.
+
+This uses the canonical transcript before taking the union bound. A union
+bound over queries generated under the unknown actual oracle would not by
+itself justify their independence from $O$.
+
+\paragraph{Randomized algorithms.}
+Fix the random seed $r$ and write $E_r$ for the event that every canonical
+query is balanced. On $E_r$ the actual output is the canonical
+$T_0^{(r)}$. Since $x\le K$ and $a\in(0,1)$,
+\[
+ 1-a^x(1-y/K)\le1-a^K+y/K.
+\]
+Off $E_r$ the output ratio is at most one. Consequently, pointwise in $O$,
+\[
+ \frac{f_O(T)}{f_O(O)}\le
+ 1-a^K+\frac{|T_0^{(r)}\cap O|}{K}+\mathbf1[E_r^c].
+\]
+Average over uniform $O$ and then over the random seed. The middle term has
+expectation at most $K/n$, and the last is bounded by the query union bound.
+There exists a single $O$ with the same upper bound on the algorithm's
+expected ratio. Only this averaging direction is needed.
+
+\paragraph{Comparison and limit.}
+For integer $c$, using the same $\tau=c+1$ as the manuscript,
+$\Psi(\theta)=(\theta K-1)/(K-\tau)\le\Phi(\theta)$. Hence, whenever the
+manuscript's inverse is defined,
+$\bar\theta=\Psi^{-1}(\eta)\ge\Phi^{-1}(\eta)$ and
+$L_K(\bar\theta)\le L_K(\Phi^{-1}(\eta))$: the proposed hardness upper bound
+is stronger. Its limit remains $1-e^{-1/\eta}$ for fixed $c,\eta$.
+
+If an inflation factor relative to $\theta$ is retained, it is now
+\[
+ \delta_{\rm act}(\theta)=AB-1
+ =\frac{\tau-1/\theta}{K-\tau},\qquad
+ K\delta_{\rm act}(\theta)\longrightarrow\tau-1/\theta.
+\]
+There is no branch inversion to solve. The finite gap from $L_K(\eta)$ is
+of order $(c+1)/K$ for fixed $c,\eta$; writing $O(c/K)$ without excluding
+$c=0$ hides a nonzero gap.
+
+\paragraph{Scope of an asymptotic optimality claim.}
+Combining this theorem with greedy requires a query class containing greedy.
+The direct implementation uses at most
+$Kn-K(K-1)/2$ predicted set evaluations (up to a cached initial value),
+not $K$ evaluations per step. The condition $nK\le n^c$ is sufficient;
+integer $c\ge2$ and $K\le n$ provide one simple regime. The theorem alone
+does not identify the optimum of every smaller query class. In particular,
+for $c=0$ a deterministic one-query algorithm can be forced to obtain zero
+on a hidden modular objective, even at fixed finite prediction error.

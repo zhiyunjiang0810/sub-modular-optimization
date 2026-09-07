@@ -1,0 +1,69 @@
+symbolic PASS
+dual PASS
+R6_LP PASS
+hardness PASS
+calibration PASS
+{
+  "dual": {
+    "status": "VERIFIED-LP",
+    "exact_fraction_weighted_sums": 456,
+    "K_range": [
+      2,
+      17
+    ],
+    "all_segments_and_endpoints": true,
+    "eta_1_included": true
+  },
+  "R6_LP": {
+    "status": "VERIFIED-LP",
+    "lp_objectives": 1536,
+    "counts_by_constraint_and_case": {
+      "sum_all": 168,
+      "pred_c": 96,
+      "mono_c": 96,
+      "cons_c": 96,
+      "pred_b": 276,
+      "mono_b": 276,
+      "cons_b": 276,
+      "pred_a": 84,
+      "mono_a": 84,
+      "cons_a": 84
+    },
+    "minimum_slacks": {
+      "sum_all": -2.220446049250313e-16,
+      "pred_c": 0.0,
+      "mono_c": 0.0,
+      "cons_c": 0.0,
+      "pred_b": -6.661338147750939e-16,
+      "mono_b": 0.0,
+      "cons_b": -1.1102230246251565e-16,
+      "pred_a": 0.0,
+      "mono_a": 0.0,
+      "cons_a": 0.0
+    },
+    "scope": "full lattice n=4,K=2 and n=5,K=3; all optimal K-sets; four asymmetric/symmetric bands"
+  },
+  "hardness": {
+    "status": "VERIFIED-LP",
+    "exact_count_grid_cases": 264,
+    "edges_checked": 57728,
+    "K_range": [
+      2,
+      12
+    ],
+    "all_integer_tau_1_to_Kminus1": true,
+    "exact_error_counterexample": {
+      "K": 4,
+      "tau": 1,
+      "theta": "4",
+      "A": "5/4",
+      "B": "1",
+      "original_pair_eta_u": "2",
+      "original_pair_eta_o": "5/2",
+      "actual_scalar_error": "5",
+      "printed_Phi": "25/4"
+    }
+  },
+  "elapsed_seconds": 4.2674441170001955,
+  "all_passed": true
+}
