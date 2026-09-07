@@ -1094,21 +1094,34 @@ Theorem~\ref{thm:hardness}, by \texttt{results/N5\_asymptotics.py}.
 % ---------------------------------------------------------------------------
 \subsection{Bounded-query hardness (Theorem~\ref{thm:hardness})}
 \label{app:hardness}
-% Status decomposition, unchanged from results/N5_bounded_query_hardness.tex:
-%  - the concentration and union lemmas: [HAND-PROOF-UNREVIEWED], elementary;
-%  - the valuation lemma: [HAND-PROOF-UNREVIEWED] for the simulation argument,
-%    and it CONSUMES four facts about the family, (F1) to (F4) below, which are
-%    [VERIFIED-LP] on the finite test set of N5 declaration D1 and [CONJECTURE]
-%    for general (K, tau, eta);
-%  - the closed form of delta: derived below by four edge computations
-%    [HAND-PROOF-UNREVIEWED], matched by the LP oracle at 40 points
-%    [VERIFIED-LP], and [CONJECTURE] at general (K, tau, eta).  N5 records that
-%    this max-form CORRECTS the single-branch form of T2 Conclusion 1, which
-%    the oracle refutes at 8 of those 40 points;
-%  - invertibility of Phi and the K -> infinity limits: [VERIFIED-SYMBOLIC],
-%    results/N5_asymptotics.py (iv), (vi) and (i), (ii).
-% The tau = c+1 choice is not optimal (tau = c also suffices and gives a
-% smaller delta); it is kept because the statement fixes it.
+% Source after K5: results/J2_hardness_repair.tex (the drop-in supplement of
+% the J2 external review), adopted after the independent recheck
+% results/H3_j2_recheck.py.  It REPLACES the six-step write-up taken from
+% results/N5_bounded_query_hardness.tex, whose delta closed form and Phi
+% inverse are superseded.
+% Status decomposition:
+%  - the four-row edge table, the monotone row h_y, the extremal factors
+%    sqrt(theta)A and sqrt(theta)B, the exact product Psi(theta) = theta A B,
+%    the inflation delta = AB - 1, the first and second differences of the
+%    true objective, the calibration H_{K,tau}(eta) = L_K(thetabar), the
+%    comparison Psi <= Phi and both limits:
+%    [VERIFIED-SYMBOLIC] (24 identities) and [VERIFIED-LP] (264 exact
+%    rational count-grid instances, 57,728 edges, K = 2..12, every integer
+%    tau = 1..K-1), results/J2_core_oracles.py.
+%  - the counting bound, the canonical-transcript induction and the two
+%    averagings: [HAND-PROOF-UNREVIEWED].  No script certifies an arbitrary
+%    adaptive or randomized algorithm.  This tag is not to be upgraded.
+%  - what the four rows retire: the delta closed form was [CONJECTURE] at
+%    general (K, tau, eta) because the earlier derivation covered only the
+%    balanced strip and left "no other pair of sets binds harder" to the LP.
+%    The table below is exhaustive over the count grid, so that gap is
+%    closed; what it also shows is that Phi is the minimal SYMMETRIC band and
+%    not the pair's error, which is why the old "error exactly eta" reading
+%    of the Phi calibration does not hold (J2 review section 6.2).
+%  - the earlier hypothesis (H), Phi(1) <= eta, and its sufficient condition
+%    K >= tau(1 + 2/ln eta) are not needed: Psi inverts in closed form.
+%    The derivative typo in the old invertibility argument (a missing chain
+%    factor K in the second branch of Phi) disappears with the branch.
 
 In this subsection "information-theoretic" is used with the following meaning,
 stated here at its first use: the bound depends only on the number and the
@@ -1116,165 +1129,309 @@ size of the queries that the algorithm makes and uses no computational
 assumption, so nothing below is a statement about running time.
 
 \paragraph{The family.}
-Fix a design parameter $\theta\ge1$ and put $a_\theta=1-\tfrac{1}{\theta K}$.
-For a hidden $K$-set $O$ and $S\subseteq N$ write $x=|S\setminus O|$,
-$y=|S\cap O|$, and define
+Fix integers $1\le\tau<K<n$ and a real $\theta\ge1$, and write $a=a_\theta$,
+$A=A_\theta$, $B=B_\theta$ for the constants of Section~\ref{sec:hardness}.
+For a hidden $K$-set $O\subseteq N$ and $S\subseteq N$ put $x=|S\setminus O|$
+and $y=|S\cap O|$, and define
 \[
-  F_O(S)=\theta^{-1/2}\Bigl(1-a_\theta^{x}\bigl(1-\tfrac yK\bigr)\Bigr),
+  F_O(S)=\theta^{-1/2}\Bigl[1-a^{x}\Bigl(1-\frac yK\Bigr)\Bigr],
   \qquad
   G_O(S)=\begin{cases}
-    1-a_\theta^{\,x+y}, & y\le\tau,\\[2pt]
-    1-a_\theta^{\,x+\tau}\dfrac{K-y}{K-\tau}, & y\ge\tau,
+    1-a^{\,x+y}, & y\le\tau,\\[2pt]
+    1-a^{\,x+\tau}\dfrac{K-y}{K-\tau}, & y\ge\tau,
   \end{cases}
 \]
-together with the balanced-region profile $\hat G(s)=1-a_\theta^{\,s}$.
-The two branches of $G_O$ agree at $y=\tau$.  The prefactor $\theta^{-1/2}$ only fixes
-the split $\eta_u=\eta_o=\sqrt\theta$ and cancels from every ratio.  The facts
-used below are: (F1) $G_O(S)=\hat G(|S|)$ whenever $|S\cap O|\le\tau$, which is
-immediate from the first branch since then $x+y=|S|$; (F2) $F_O$ is monotone
-submodular and the pair has single-element error exactly
-$\Phi(\theta)=\theta(1+\delta(\theta))$; (F3)
-$\max_{|S|\le K}F_O(S)=F_O(O)=\theta^{-1/2}$; (F4) $F_O(T)/F_O(O)=1-a_\theta^{K}$
-for every $K$-set $T$ disjoint from $O$.  Facts (F2) to (F4) carry the status
-recorded in the comment above.
+together with the balanced-region profile $\hat G(s)=1-a^{s}$.  The two
+branches of $G_O$ agree at $y=\tau$.  Both functions depend on $S$ only
+through the pair $(x,y)$, so Lemma~\ref{lem:app-count} applies to them with
+the partition $N=(N\setminus O)\cup O$.  The instance is $f=F_O$ and
+$\tilde f=G_O$; the prefactor $\theta^{-1/2}$ places the symmetric split and
+cancels from every ratio below.
 
-\paragraph{Step 1: concentration.}
-For a fixed $S$ with $|S|\le K$, a uniformly random $K$-subset $O$ of an
-$n$-element ground set and an integer $0\le\tau<K$, put $m=\tau+1$.  The event
-$\{|S\cap O|>\tau\}$ is the union, over the $\binom{|S|}{m}$ subsets
-$R\subseteq S$ with $|R|=m$, of the events $\{R\subseteq O\}$, and
-\[
-  \Pr[R\subseteq O]=\frac{\binom{n-m}{K-m}}{\binom nK}
-  =\prod_{i=0}^{m-1}\frac{K-i}{n-i}\ \le\ \Bigl(\frac Kn\Bigr)^{m},
-\]
-because $(K-i)n\le K(n-i)$ reduces to $iK\le in$, valid for $K\le n$.  A union
-bound over $\binom{|S|}{m}\le\binom Km\le K^{m}/m!$ choices gives
-\[
-  \Pr\bigl[|S\cap O|>\tau\bigr]\le\binom{K}{\tau+1}\Bigl(\frac Kn\Bigr)^{\tau+1}
-  \le\frac{K^{2(\tau+1)}}{(\tau+1)!\,n^{\tau+1}} .
-\]
-With $Q=n^{c}$ queries, $\tau=c+1$ and a further output set $T_0$ of size at
-most $K$, summing the per-query bound and adding
-$\Pr[T_0\cap O\ne\emptyset]\le\mathbb E|T_0\cap O|=|T_0|K/n\le K^{2}/n$ gives
-\[
-  \Pr\bigl[\exists i:|S_i\cap O|>\tau\ \text{ or }\ T_0\cap O\ne\emptyset\bigr]
-  \ \le\ \frac{K^{2c+4}}{(c+2)!\,n^{2}}+\frac{K^{2}}{n}\ <\ \frac12 ,
-\]
-where the last step uses $n\ge4K^{c+2}$: then $n^{2}\ge16K^{2c+4}$ bounds the
-first term by $1/(16\cdot(c+2)!)\le1/32$, and $K^{2}/n\le1/(4K^{c})\le1/4$, so
-the sum is at most $9/32$.
+\paragraph{Every edge of the count grid.}
+On an edge with positive true gain put
+$r=\Delta G_O/(\sqrt\theta\,\Delta F_O)$, the predicted-to-true gain ratio of
+that edge.  Subtracting the two displays gives the following exhaustive table.
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Direction & Starting state & $r$ \\
+\midrule
+$x$ & $0\le y\le\tau$ & $a^{y}K/(K-y)$ \\
+$x$ & $\tau\le y<K$   & $A$ \\
+$y$ & $0\le y\le\tau-1$ & $a^{y}/\theta$ \\
+$y$ & $\tau\le y<K$   & $A$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+An $x$-edge starting at $y=K$ has zero true and zero predicted gain, and no
+$y$-edge starts at $y=K$, so neither carries a band constraint.  The edge from
+$y=\tau-1$ to $y=\tau$ is in the third row and the edge from $y=\tau$ to
+$y=\tau+1$ is in the fourth, so the junction of the two branches needs no
+separate extension argument, and the edges leaving the balanced strip are
+already in rows two and four.  Every $x$ cancels, so the table is the same for
+all $n>K$.
 
-\paragraph{Step 2: valuation on the balanced event.}
-Let $\mathcal A$ be deterministic, make at most $Q$ queries of size at most
-$K$, and output $T$ with $|T|\le K$.  Run it against the canonical oracle that
-answers every query $S$ with $\hat G(|S|)$, and let $S_1,\dots,S_Q$ and $T_0$
-be the resulting queries and output; they are fixed sets, independent of $O$.
-Suppose $|S_i\cap O|\le\tau$ for every $i$ and $T_0\cap O=\emptyset$.  By
-induction on $i$: if the first $i-1$ answers of the real oracle $G_O$ agree
-with the canonical ones, then determinism makes the $i$th query equal to
-$S_i$, and (F1) with $|S_i\cap O|\le\tau$ makes the real answer
-$G_O(S_i)=\hat G(|S_i|)$, the canonical one.  So all $Q$ answers agree and the
-output is $T_0$.  Since $T_0\cap O=\emptyset$, the counts of $T_0$ are
-$y=0$ and $x=|T_0|\le K$, hence by (F3) and (F4)
+Write $h_y=a^{y}K/(K-y)$ for the first row.  Then
 \[
-  \frac{F_O(T_0)}{F_O(O^{\ast})}=1-a_\theta^{\,|T_0|}\le1-a_\theta^{K}
-  =1-\Bigl(1-\frac{1}{\theta K}\Bigr)^{K}=L_K(\theta),
+  \frac{h_{y+1}}{h_y}-1=\frac{(\theta-1)K+y}{\theta K(K-y-1)}\;\ge\;0 ,
 \]
-using $a_\theta\in(0,1)$, which needs $\theta K>1$.
+so $1=h_0\le h_y\le h_\tau=A$ for $0\le y\le\tau$.  The third row
+$a^{y}/\theta$ decreases from $1/\theta$ to $a^{\tau-1}/\theta=1/(\theta B)$.
+Since $A\ge1$ and $B\ge1$, the largest and the smallest values of $r$ over the
+whole grid are $A$ and $1/(\theta B)$, and both are attained on actual edges
+because $n>K$ and $1\le\tau<K$.  In the notation of Definition~\ref{def:eta},
+where the band reads $1/\eta_u\le\tilde d_e(S)/d_e(S)\le\eta_o$ and
+$\tilde d_e(S)/d_e(S)=\sqrt\theta\,r$, the smallest admissible factors of the
+unscaled pair are therefore
+\[
+  \eta_o^{\mathrm{act}}=\sqrt\theta\,A,\qquad
+  \eta_u^{\mathrm{act}}=\sqrt\theta\,B,\qquad
+  \eta^{\mathrm{act}}=\theta AB=\frac{\theta K-1}{K-\tau}=\Psi(\theta) ,
+\]
+and both factors are at least $1$, as Definition~\ref{def:eta} requires.
 
-\paragraph{Step 3: which band constraint binds.}
-With $\eta_u=\eta_o=\sqrt\theta\,s$ for an inflation factor $s\ge1$, the band
-of Definition~\ref{def:eta} holds on a given edge exactly when $s$ is at least
-both of the two ratios $\Delta G/(\sqrt\theta\,\Delta F)$ and
-$\Delta F/(\sqrt\theta\,\Delta G)$ of that edge.  Writing $a=a_\theta$, the
-edges with both endpoints in the balanced strip give
-\[
-  \text{$x$-edge, } y\le\tau:\quad
-  \Delta F=\theta^{-1/2}a^{x}(1-a)\frac{K-y}{K},\quad
-  \Delta G=a^{x+y}(1-a),\quad
-  \frac{\Delta G}{\sqrt\theta\,\Delta F}=a^{y}\frac{K}{K-y},
-\]
-\[
-  \frac{\Delta F}{\sqrt\theta\,\Delta G}=\frac{K-y}{\theta Ka^{y}}\le1,
-  \qquad
-  \text{$y$-edge, } y+1\le\tau:\quad
-  \Delta F=\frac{\theta^{-1/2}a^{x}}{K},\quad \Delta G=\frac{a^{x+y}}{\theta K},
-\]
-\[
-  \frac{\Delta G}{\sqrt\theta\,\Delta F}=\frac{a^{y}}{\theta}\le1,
-  \qquad
-  \frac{\Delta F}{\sqrt\theta\,\Delta G}=a^{-y}.
-\]
-The two bounds marked $\le1$ use $\theta\ge1$: the second is immediate, and
-the first follows from $a^{y}\ge1-\tfrac{y}{\theta K}$, which gives
-$\theta Ka^{y}\ge\theta K-y\ge K-y$.  The first candidate $a^{y}K/(K-y)$
-increases in $y$, since the ratio of consecutive terms is
-$a\frac{K-y}{K-y-1}\ge1$ exactly when $a\ge1-\frac{1}{K-y}$, which holds
-because $a=1-\frac{1}{\theta K}$ and $\theta K\ge K\ge K-y$; its maximum over
-the strip is at $y=\tau$.  The second candidate $a^{-y}$ is maximized at
-$y=\tau-1$.  Hence the smallest admissible $s$ is
-$s=\max\bigl\{a_\theta^{\tau}\tfrac{K}{K-\tau},\,a_\theta^{\,1-\tau}\bigr\}$,
-that is $1+\delta(\theta)=s^{2}$ and $\Phi(\theta)=\theta(1+\delta(\theta))$.
-That no other pair of sets binds harder is the part supplied by the linear
-program rather than by hand.
+\paragraph{A prescribed split of the error.}
+Replacing $\tilde f=G_O$ by $\beta G_O$ with $\beta=\eta_o/(\sqrt\theta A)$
+multiplies every $r$ by $\beta$, so the largest predicted-to-true ratio becomes
+$\eta_o$ and the smallest becomes $1/\eta_u$, with
+$\eta_u\eta_o=\eta^{\mathrm{act}}$ unchanged.  The canonical profile $\hat G$
+is multiplied by the same constant and remains a function of $|S|$ alone, so
+the rescaling carries no information about the identity of $O$.  The choice
+$\beta=\sqrt{B/A}$ returns the symmetric split
+$\eta_u=\eta_o=\sqrt{\eta^{\mathrm{act}}}$.
 
-\paragraph{Step 4: the design parameter, and assembly.}
-$\Phi$ is continuous and strictly increasing on $\theta\ge1$ when $K\ge2\tau$
-and $\tau\ge1$: the maximum of two increasing functions is increasing, and
-$\theta a_\theta^{2\tau}$ has derivative
-$a^{2\tau}+2\tau a^{2\tau-1}/(\theta K)>0$ while
-$\theta a_\theta^{2-2\tau}$ has derivative, with $u=\theta K$,
-$\frac1K\bigl(\tfrac{u}{u-1}\bigr)^{2\tau-2}
-\bigl[1-\tfrac{2\tau-2}{u-1}\bigr]$, positive because $u\ge K\ge2\tau>2\tau-1$.
-Also $\Phi(\theta)\ge\theta$, so $\hat\eta=\Phi^{-1}(\eta)\le\eta$ whenever
-hypothesis (H), $\Phi(1)\le\eta$, holds.  Hypothesis (H) is implied by
-$K\ge\tau\bigl(1+\tfrac{2}{\ln\eta}\bigr)$: with $a=a_1=1-1/K$ and $\ln a<0$,
+\paragraph{The true objective and its optimum.}
+Write $\bar F=\sqrt\theta\,F_O$, a function of $(x,y)$.  Its first differences
+are
 \[
-  \ln\Phi(1)\le2\max\Bigl\{\tau\ln a+\ln\tfrac{K}{K-\tau},\,(1-\tau)\ln a\Bigr\}
-  \le\frac{2\tau}{K-\tau}\le\ln\eta ,
+  \Delta_x\bar F=a^{x}(1-a)\Bigl(1-\frac yK\Bigr),\qquad
+  \Delta_y\bar F=\frac{a^{x}}{K},
 \]
-using $-\ln(1-t)\le t/(1-t)$ for the first branch and
-$(\tau-1)\ln\tfrac{K}{K-1}\le\tfrac{\tau-1}{K-1}\le\tfrac{\tau}{K-\tau}$ for
-the second.  Now build the family with $\theta=\hat\eta$, so that its
-single-element error is exactly $\eta$ and it is admissible at that error
-level.  Let $S_1,\dots,S_Q,T_0$ be the canonical transcript of Step 2.  By
-Step 1 the bad event has probability below $1/2$, so at least one $K$-set $O$
-makes every canonical query balanced and misses $T_0$; fix such an $O$.  Step 2
-then gives $f(T)=F_O(T_0)\le L_K(\hat\eta)f(O^{\ast})$ for that one instance.
-The random choice of $O$ is used only to establish existence.
+nonnegative on every feasible edge, and its second differences are
+\[
+  \Delta_x^{2}\bar F=-a^{x}(1-a)^{2}\Bigl(1-\frac yK\Bigr),\qquad
+  \Delta_y\Delta_x\bar F=\Delta_x\Delta_y\bar F=-\frac{a^{x}(1-a)}{K},\qquad
+  \Delta_y^{2}\bar F=0,
+\]
+all nonpositive.  Lemma~\ref{lem:app-count} then makes $F_O$ a normalized
+monotone submodular function on every finite ground set.  Also
+$0\le\bar F\le1$ and $\bar F(O)=1$, so $\max_{|S|\le K}F_O(S)=F_O(O)=\theta^{-1/2}$ and the optimal
+set is $O^{\ast}=O$.  If $|T|\le K$ and $T\cap O=\emptyset$, then
+\[
+  \frac{F_O(T)}{F_O(O^{\ast})}=1-a^{|T|}\;\le\;1-a^{K}=L_K(\theta).
+\]
 
-\paragraph{Step 5: randomized algorithms, by averaging.}
-For each fixing $r$ of the random string, the algorithm $\mathcal R_r$ is
-deterministic with canonical output $T_0^{(r)}$; let $E_r$ be the event that
-all its canonical queries are balanced.  Pointwise in $O$, the variant of
-Step 2 that drops the requirement $T_0\cap O=\emptyset$ (the transcript
-argument is unchanged, only the value bound weakens) together with
-$F_O\le F_O(O^{\ast})$ gives
+\paragraph{Counting.}
+For a fixed $S$ with $|S|\le K$ and a uniformly random $K$-subset $O$ of the
+$n$-element ground set, the event $\{|S\cap O|>\tau\}$ is the union, over the
+$(\tau+1)$-subsets $R\subseteq S$, of the events $\{R\subseteq O\}$, and
+$\Pr[R\subseteq O]=\prod_{i=0}^{\tau}\frac{K-i}{n-i}\le(K/n)^{\tau+1}$, since
+$(K-i)n\le K(n-i)$ for $n\ge K$.  A union bound over at most
+$\binom{K}{\tau+1}\le K^{\tau+1}/(\tau+1)!$ sets $R$ gives
 \[
-  \frac{f_O(T)}{f_O(O^{\ast})}\le L_K(\hat\eta)
-   +\frac{|T_0^{(r)}\cap O|}{K}+\mathbf 1[E_r^{c}] .
+  \Pr\bigl[|S\cap O|>\tau\bigr]
+  \;\le\;\binom{K}{\tau+1}\Bigl(\frac Kn\Bigr)^{\tau+1}
+  \;\le\;\frac{K^{2\tau+2}}{(\tau+1)!\,n^{\tau+1}} .
 \]
-Averaging over a uniform $O$ bounds the middle term by $K/n$ and, by Step 1,
-the last by $K^{2c+4}/((c+2)!\,n^{2})$; averaging over $r$ and exchanging the
-two finite expectations, then using $\min_O\le\mathbb E_O$, gives the
+The integrality of $\tau$ enters at this step, which is the reason for
+$\tau=\lceil c\rceil+1$ rather than $\tau=c+1$ at real $c$.
+
+\paragraph{The canonical transcript, and the deterministic statement.}
+Let $\mathcal A$ be deterministic, make at most $Q=n^{c}$ queries of size at
+most $K$, and return a set of size at most $K$.  Run it against the canonical
+oracle $S\mapsto\hat G(|S|)$, rescaled by $\beta$ if a split was prescribed,
+and let $S_1,\dots,S_Q$ and $T_0$ be the queries and the output it produces.
+These are fixed sets, determined before $O$ is drawn.  Summing the counting
+bound over the $Q$ canonical queries and adding
+$\Pr[T_0\cap O\ne\emptyset]\le\mathbb E|T_0\cap O|=|T_0|K/n\le K^{2}/n$,
+\[
+  \Pr\bigl[\exists i:\ |S_i\cap O|>\tau\ \text{ or }\ T_0\cap O\ne\emptyset\bigr]
+  \;\le\;\frac{K^{2\tau+2}}{(\tau+1)!\,n^{\tau+1-c}}+\frac{K^{2}}{n} .
+\]
+Under $n\ge4K^{c+2}$ the first term is at most
+\[
+  \frac{K^{\,c(c+1-\tau)}}{(\tau+1)!\,4^{\,\tau+1-c}}
+  \;\le\;\frac1{16\,(\tau+1)!}\;\le\;\frac1{32},
+\]
+because $\tau\ge c+1$ makes the exponent of $K$ nonpositive and
+$\tau+1-c\ge2$; the second term is $K^{2}/n\le1/(4K^{c})\le1/4$.  The sum is
+at most $9/32$, so at least one $K$-set $O$ makes every canonical query
+balanced and misses $T_0$; fix such an $O$.  Induction on $i$: if the first
+$i-1$ answers of $G_O$ agree with the canonical ones, determinism makes the
+$i$th query equal to $S_i$, and $|S_i\cap O|\le\tau$ puts $S_i$ in the first
+branch, where $x+y=|S_i|$ and $G_O(S_i)=\hat G(|S_i|)$.  So all $Q$ answers
+agree, the actual output is $T_0$, and $T_0\cap O=\emptyset$ gives
+$f(T_0)/f(O^{\ast})\le1-a^{K}=L_K(\theta)$.
+
+The order of the two arguments matters: the union bound is taken over the
+canonical transcript, which does not depend on $O$.  A union bound over the
+queries an algorithm actually issues against $G_O$ would not by itself make
+those queries independent of $O$.
+
+\paragraph{Randomized algorithms, by averaging.}
+Fix the random seed $r$; then $\mathcal R_r$ is deterministic, with canonical
+queries and canonical output $T_0^{(r)}$, and let $E_r$ be the event that all
+of its canonical queries are balanced.  On $E_r$ the run against $G_O$ returns
+$T_0^{(r)}$.  Every output has at most $K$ elements, so its counts satisfy
+$x\le K$, and $a\in(0,1)$ gives
+\[
+  1-a^{x}\Bigl(1-\frac yK\Bigr)\;\le\;1-a^{K}+\frac yK ,
+\]
+while off $E_r$ the output ratio is at most $1$.  Hence, pointwise in $O$,
+\[
+  \frac{f_O(T)}{f_O(O^{\ast})}
+  \;\le\;1-a^{K}+\frac{|T_0^{(r)}\cap O|}{K}+\mathbf 1[E_r^{c}] .
+\]
+Averaging over a uniform $O$ bounds the middle term by $K/n$ and the last one
+by the query union bound above; averaging over $r$, exchanging the two finite
+expectations and using $\min_O\le\mathbb E_O$ gives a single $O$ with the
 additive $\varepsilon_n$ of Theorem~\ref{thm:hardness}.  Only the averaging
 direction of the minimax principle is used; no minimax theorem is invoked.
 
-\paragraph{Step 6: what happens as $K$ grows.}
-Both branches of $\delta$ tend to $0$, with
-$K\delta(\eta)\to\max\{2\tau(1-\tfrac1\eta),\tfrac{2(\tau-1)}\eta\}$, so
-$\hat\eta\to\eta$ and $L_K(\hat\eta)\to1-e^{-1/\eta}$.  At finite $K$ the
-constant $L_K(\hat\eta)$ is larger than $L_K(\eta)$, since $\hat\eta\le\eta$
-and $L_K$ is decreasing, so the theorem and Proposition~\ref{prop:guarantee}
-are consistent and leave a gap of order $c/K$ between them, which closes only
-in the limit.
-% This is why the word "tight" does not appear here (GLOSSARY.md): at finite K
-% none of its three admissible meanings applies, and the K -> infinity matching
-% statement is conditional on the [CONJECTURE] status of the delta closed form
-% at general (K, tau, eta).
+\paragraph{Calibration, comparison with the symmetric band, and the limit.}
+Choosing $\theta=\bar\theta=\Psi^{-1}(\eta)=(\eta(K-\tau)+1)/K$ makes the
+pair's error exactly $\eta$ and turns the value bound into
+\[
+  L_K(\bar\theta)=1-\Bigl(1-\frac1{\bar\theta K}\Bigr)^{K}
+  =1-\Bigl(1-\frac1{\eta(K-\tau)+1}\Bigr)^{K}=H_{K,\tau}(\eta),
+\]
+the constant of Theorem~\ref{thm:hardness}.  Since $\eta\tau\ge1$ gives
+$\bar\theta\le\eta$ and $L_K$ is decreasing, $H_{K,\tau}(\eta)\ge L_K(\eta)$,
+so Theorem~\ref{thm:hardness} and Proposition~\ref{prop:guarantee} do not
+cross at any finite $K$.
 
-The identities of this proof are machine-checked by
-\texttt{results/N5\_asymptotics.py} and \texttt{results/N5\_delta\_at\_etahat.py}.
+For the same integer $\tau$, $\Psi(\theta)=\theta AB\le\theta\max\{A,B\}^{2}
+=\Phi(\theta)$, with equality only at $A=B$.  Hence
+$\bar\theta\ge\hat\eta=\Phi^{-1}(\eta)$ wherever the latter is defined, and
+$H_{K,\tau}(\eta)=L_K(\bar\theta)\le L_K(\hat\eta)$: the constant above is not
+weaker than the one the symmetric-band calibration produces.  The two differ
+already at $(K,\tau,\theta)=(4,1,4)$, where the pair has factors
+$(\eta_u,\eta_o)=(2,\tfrac52)$ and error $5$, while $\Phi(4)=\tfrac{25}4$; a
+family calibrated through $\Phi^{-1}$ therefore has error at most, and in
+general below, the prescribed level, which is what the earlier statement of
+"error exactly $\eta$" did not account for.
+
+The inflation relative to $\theta$ is $\delta(\theta)=AB-1=(\tau-1/\theta)/
+(K-\tau)$, so $K\delta(\theta)\to\tau-1/\theta$ with $\tau$ and $\theta$
+fixed.  With $c$ and $\eta$ fixed, $K/(\eta(K-\tau)+1)\to1/\eta$ and
+$H_{K,\tau}(\eta)\to1-e^{-1/\eta}$.  No branch has to be inverted and no case
+distinction enters the design parameter.
+
+The edge table, the extremal factors, the exact product $\Psi$, the second
+differences, the calibration identity and both limits are re-checked by
+\texttt{results/J2\_core\_oracles.py}, symbolically for general parameters and
+on an exact rational count grid; the extremes and the calibration comparison
+are recomputed independently by \texttt{results/H3\_j2\_recheck.py}.  The
+limit check of \texttt{results/N5\_asymptotics.py}, cited at the end of
+Appendix~\ref{app:asymptotics}, is the corresponding statement for
+$L_K(\hat\eta)$ and so belongs to the superseded calibration; the limit of
+$H_{K,\tau}$ is the one checked in \texttt{results/J2\_core\_oracles.py}.  No
+script certifies the counting bound, the transcript induction or the two
+averagings: those are the hand-written part of this subsection, and finite
+computations over instances do not range over adaptive algorithms.
+
+% ---------------------------------------------------------------------------
+\subsection{Supplementary theorem: queries of arbitrary size}
+\label{app:hardness-anysize}
+% Condensed from results/F3_hardness_full.tex (night-4 draft), which is the
+% full write-up and is kept in the supplementary material.  Status tags are
+% carried over from that file verbatim:
+%   Step 1 (concentration, any query size)  [HAND-PROOF-UNREVIEWED]
+%   Step 2 (the family is admissible)       [EXACT] 42 (K,eta) points,
+%                                           results/N4_check.py section A;
+%                                           [EXACT] 12 points,
+%                                           results/F3_check.py section H
+%   Step 3 (valuation / value)              [HAND-PROOF-UNREVIEWED], plus
+%                                           [VERIFIED-SYMBOLIC] for the closed
+%                                           form of W_K (N4_symbolic.py 19/19)
+%   Step 4 (averaging, randomized)          [HAND-PROOF-UNREVIEWED]
+%   The theorem as a whole                  [HAND-PROOF-UNREVIEWED]
+%   j and m* as closed forms                [CONJECTURE], 264 points
+%   D1, exponent 2 intrinsic                [VERIFIED-LP + EXACT], 48 configs
+%   D2, two-sided band                      [VERIFIED-LP], 144 configs;
+%                                           threshold n = K(T+1)+1 matched
+%                                           at 12/12 points
+%   Corollary (randomized) additionally uses F_O <= W_K + y/K, which no script
+%   has checked.
+% [EXACT] is that file's name for an exact-rational enumeration; it is used
+% here unchanged so that the two documents can be compared line by line.
+% NOTATION: the F3 draft writes T for the window constant j + m*, which
+% collides with the output set T of Theorem \ref{thm:hardness}; it is written
+% t* here.  Nothing else is renamed.
+
+Theorem~\ref{thm:hardness} restricts every query to at most $K$ elements.  A
+companion construction removes that restriction and pays for it in the budget.
+For $K\ge3$ and $\eta>1$ put $k_1=\eta(K-1)+1$, $q=1-1/k_1$,
+$\nu=\eta/(\eta-1)$, $j=\min\{K,\max\{0,K+1-\lceil\eta\rceil\}\}$,
+$m^{\ast}=\lceil\eta K\rceil-1$ and $t^{\ast}=j+m^{\ast}$, and let
+\[
+  D=\max\Bigl\{\frac{q^{j}}{K\eta},\
+    \frac{q^{j}\bigl(\nu^{m^{\ast}}/K-1\bigr)}
+         {\eta(\nu^{m^{\ast}}-1)-m^{\ast}}\Bigr\},
+  \qquad
+  W_K(\eta)=1-q^{j}+(K-j)D .
+\]
+The family is the one of \texttt{results/F3\_hardness\_full.tex}: a hidden
+$K$-set $O$, a true objective that is piecewise geometric in $x=|S\setminus O|$
+and flattens at $x>t^{\ast}$, and a predictor that agrees with an $O$-free
+profile $\hat G_{|S|}$ whenever $|S\cap O|\le1$ and also whenever
+$|S\setminus O|>t^{\ast}$.  The second half of that condition is what removes
+the query-size restriction: a query can break the simulation only if it meets
+$O$ twice and has at most $t^{\ast}+K$ elements, so large queries need no
+concentration argument at all.  Two caveats are recorded with the draft.  If
+the tolerance is raised to $|S\cap O|\le\tau$ with $\tau\ge2$, the family is
+infeasible at every inflation, by an explicit two-constraint certificate at
+all $48$ tested configurations.  If instead the predictor is required to be a
+function of $|S|$ on the whole two-sided band
+$\bigl||S\cap O|-K|S|/n\bigr|\le\tau$, the family is feasible exactly when
+$\tau=1$ and $n>K(t^{\ast}+1)$, and infeasible at every inflation otherwise;
+which of the two formalizations a reader accepts is the open judgement call
+of that draft.
+
+\begin{theorem}[Bounded-query hardness, unrestricted query size]
+\label{thm:hardness-anysize}
+Let $K\ge3$, $\eta>1$ and $n\ge4K(t^{\ast}+K)$, which forces $n\ge8K^{2}$.
+For every deterministic algorithm
+that makes at most $Q\le n^{2}/\bigl(2K^{2}(t^{\ast}+K)^{2}\bigr)$ queries to
+$\tilde f$, of arbitrary size, and returns a set of size at most $K$, there is
+a $K$-set $O$ for which the instance $(f,\tilde f)$ has monotone submodular
+$f$, single-element error exactly $\eta$, $O^{\ast}=O$, and the output
+$T_{\mathcal A}$ of the algorithm satisfies
+\[
+  \frac{f(T_{\mathcal A})}{f(O^{\ast})}\;\le\;W_K(\eta)
+  \;=\;V_j(\eta)+(K-j)\Bigl(D-\frac{q^{j}}{K\eta}\Bigr).
+\]
+For randomized algorithms the same bound holds in expectation up to an
+additive $K/n+QK^{2}(t^{\ast}+K)^{2}/(2n^{2})$.
+\end{theorem}
+
+Since $t^{\ast}+K\le(2+\eta)K+1$, the admissible budget is
+$Q=\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)$, that is $n^{2-o(1)}$ and not
+every polynomial.  The exponent $2$ is a property of this family rather than
+of the analysis: it is the exponent in
+$\Pr[|S\cap O|\ge2]\le(Ks/n)^{2}/2$ for a query of size $s$, and raising it
+would require the $O$-oblivious window to tolerate $|S\cap O|\le\tau$ with
+$\tau\ge2$, which is the first of the two regimes recorded above as
+infeasible.
+The constant is the reduced-LP segment value $V_j$ of
+Theorem~\ref{thm:exact} plus an excess that decays quickly in $K$: at $\eta=2$
+it is $3.2\cdot10^{-4}$, $5.9\cdot10^{-7}$, $4.5\cdot10^{-12}$ and
+$5.2\cdot10^{-22}$ at $K=4,8,16,32$, and
+$L_K(\eta)\le V_j(\eta)\le W_K(\eta)<U_K(\eta)$ with
+$W_K(\eta)\to1-e^{-1/\eta}$.
+
+What this supplementary statement does not carry is a general-$K$ argument.
+The closed forms of $j$ and $m^{\ast}$ have numerical support at $264$
+parameter points and no proof; monotonicity, submodularity and the
+normalization of the family are enumerated exactly at $42$ $(K,\eta)$ points
+and have no general-$K$ symbolic derivation; the concentration lemma, the
+simulation induction, the assembly and the averaging are hand arguments that
+no script checks, and the randomized version additionally uses an inequality
+on the family that no script has checked.  The full draft, with its per-step
+declarations, is \texttt{results/F3\_hardness\_full.tex} in the supplementary
+material; the enumerations behind it are \texttt{results/N4\_check.py},
+\texttt{results/F3\_check.py} and \texttt{results/N4\_symbolic.py}.
 
 % ---------------------------------------------------------------------------
 \subsection{Validity of the reduced constraints}\label{app:validity}
