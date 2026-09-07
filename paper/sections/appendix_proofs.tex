@@ -238,33 +238,37 @@ one application of submodularity per term.  Monotonicity gives
 $f(O^{\ast}\cup S^{t})\ge f(O^{\ast})$, so
 $r_t\le\sum_{i=1}^{m}d_{o_i}(S^{t})\le m\max_{e\notin S^{t}}d_e(S^{t})
 \le K\max_{e\notin S^{t}}d_e(S^{t})$.  This is the only place where the count
-$m\le K$ enters.  Definition~\ref{def:etasel} applied at this step reads
-$\max_{e\notin S^{t}}d_e(S^{t})\le\etasel\,d_{e_t}(S^{t})$, hence
+$m\le K$ enters.  At a step with $g_t=d_{e_t}(S^{t})>0$,
+Definition~\ref{def:etasel} gives
+$M_t=\max_{e\notin S^{t}}d_e(S^{t})=a_tg_t\le\etasel\,d_{e_t}(S^{t})$
+whenever $\etasel$ is finite (Step 2 handles the zero steps), hence
 \[
   d_{e_t}(S^{t})\;\ge\;\frac{1}{\etasel K}\,r_t,
   \qquad\text{and so}\qquad
   r_{t+1}=r_t-d_{e_t}(S^{t})\;\le\;\Bigl(1-\frac{1}{\etasel K}\Bigr)r_t .
 \]
 
-\paragraph{Step 2: why only the steps with positive chosen gain matter.}
-Monotonicity of $f$ makes $d_{e_t}(S^{t})\ge0$ always, so the excluded steps
-are exactly those with $d_{e_t}(S^{t})=0$.  Suppose $t$ is the first such step.
-By Definition~\ref{def:eta}, $\tilde d_{e_t}(S^{t})\le\eta_o d_{e_t}(S^{t})=0$,
-and $e_t$ maximizes the predicted gain, so $\tilde d_e(S^{t})=0$ for every
-$e\notin S^{t}$; the lower band $d_e(S^{t})\le\eta_u\tilde d_e(S^{t})$ then
-forces $d_e(S^{t})=0$ for every $e\notin S^{t}$.  The covering inequality
-$r_t\le K\max_{e\notin S^{t}}d_e(S^{t})$ of Step 1, whose derivation does not
-use positivity of the chosen gain, then reads $r_t\le K\cdot0=0$, that is,
-$f(S^{t})\ge f(O^{\ast})$: the run has
-already reached the optimal value and $r_s=0$ for every $s\ge t$.  Therefore
-the contraction of Step 1 may be applied at every step, treating the residual
-as $0$ from the first nonpositive step onwards.
-% [HAND-PROOF-UNREVIEWED.]  This is the step the night-4 draft asserted in one
-% clause; it is written out here because it is what licenses restricting
-% Definition \ref{def:etasel} to the positive steps.  In measured runs on real
-% objectives the excluded steps are reported separately (columns n_steps_nonpos
-% and frac_steps_nonpos of the F1 pipeline), since there the error is finite
-% only on the trajectory.
+\paragraph{Step 2: the zero-gain steps.}
+Monotonicity of $f$ makes $g_t=d_{e_t}(S^{t})\ge0$ always, so the steps not
+covered by Step 1 are exactly those with $g_t=0$, and
+Definition~\ref{def:etasel} distinguishes two cases.  If the step is harmful
+($M_t>0$), then $a_t=\infty$, so $\etasel=\infty$, $L_K(\infty)=0$, and the
+claimed bound is the trivial one; nothing needs proving.  If the step is
+benign ($M_t=0$), the covering inequality
+$r_t\le K\max_{e\notin S^{t}}d_e(S^{t})=KM_t$ of Step 1, whose derivation does
+not use positivity of the chosen gain, reads $r_t\le0$: the run has already
+reached the optimal value, and $r_s=0$ for every $s\ge t$ by monotonicity.
+Therefore, when $\etasel$ is finite, the contraction of Step 1 may be applied
+at every step, treating the residual as $0$ from the first zero step onwards.
+% [HAND-PROOF-UNREVIEWED.]  Rewritten for the stepwise Definition
+% \ref{def:etasel} (decision D3, J2 adoption).  The night-5 version of this
+% step argued the harmless case from the GLOBAL band of Definition
+% \ref{def:eta}, which is not a hypothesis of the Proposition; the external
+% J2 review exhibited a three-element modular counterexample to that reading
+% (re-verified, results/H3_j2_recheck.py).  Under the stepwise definition no
+% appeal to Definition \ref{def:eta} is needed.  In measured runs on real
+% objectives, zero and negative chosen steps are reported separately (columns
+% n_steps_nonpos and frac_steps_nonpos of the F1 pipeline).
 
 \paragraph{Step 3: unrolling.}
 With $r_0=f(O^{\ast})$, iterating $K$ times gives
@@ -288,19 +292,42 @@ At every state $S^{t}$ of the run,
 \]
 the first step by the lower band applied to the maximizing element, the middle
 equality by the greedy choice, the last by the upper band at $(S^{t},e_t)$.
-Reading the two ends as a step ratio of Definition~\ref{def:etasel} gives
-$\etasel\le\eta_u\eta_o$ when the band is the global one, and
-$\etasel\le\etatr$ when it is restricted to the states of the run;
-$\etatr\le\eta$ holds because the states of the run are a subset of all sets.
+Reading the two ends as the step ratio $a_t$ of
+Definition~\ref{def:etasel} gives, at every step with $g_t>0$,
+$a_t\le\eta_u\eta_o$ when the band is the global one, and
+$a_t\le\etatr$ when it is restricted to the states of the run; at a step
+with $g_t=0$ the same display forces $M_t=0$, so $a_t=1$.  Taking the
+maximum over the steps gives $\etasel\le\etatr\le\eta$ for every
+predictor with finite error ($\etatr\le\eta$ because the states of the
+run are a subset of all sets); this is where the finiteness hypothesis of
+the last sentence of the Proposition is used.
 The map
 $x\mapsto1-\tfrac{1}{xK}$ is increasing on $x\ge1$ with values in $[0,1)$, so
 $x\mapsto(1-\tfrac1{xK})^{K}$ is increasing and $L_K$ is decreasing.  Hence
 $L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$, and the bound of Step 3 holds a
 fortiori with $\etatr$ or $\eta$ in place of $\etasel$.
 
-No script certifies the steps of this argument.  That the bound is met with
-equality, and that the three rulers read $\etasel=\etatr=\hat a<\eta$ on the
-family of Appendix~\ref{app:tightness}, is machine-checked by
+\begin{remark}[stepwise product bound]\label{rem:app-product}
+When the per-step ratios are retained individually, the same unrolling
+gives
+\[
+  f(S^{K})\;\ge\;
+  \Bigl(1-\prod_{t=0}^{K-1}\bigl(1-\tfrac1{Ka_t}\bigr)\Bigr)f(O^{\ast}),
+  \qquad 1/\infty=0,
+\]
+which degrades a harmful zero step to a contraction factor of $1$ instead
+of collapsing the whole bound to $0$.
+% [HAND-PROOF-UNREVIEWED]; suggested by the J2 external review (section
+% 4.2), which checked it with exact arithmetic on 1,905 small-instance
+% trajectories (results/J1_independent_audit.py); the recursive assembly
+% for general runs is not oracle-checked.
+\end{remark}
+
+No script certifies the steps of the main argument.  That the bound is met
+with equality, and that the three rulers read $\etasel=\etatr=\hat a<\eta$
+on the family of Appendix~\ref{app:tightness} (also under the stepwise
+Definition~\ref{def:etasel}: no zero step occurs in that family, see
+\texttt{results/K1\_etasel\_newdef\_check.py}), is machine-checked by
 \texttt{results/F2\_etasel\_tight.py}.
 
 % ---------------------------------------------------------------------------
@@ -445,13 +472,17 @@ which is $L_K(\hat a)f(O^{\ast})$ by Step 5.
 At the state $S^{t}=(t,0)$ the true gains are $a^{t}(1-a)=a^{t}/(\hat aK)$ for
 an element of $B$ and $a^{t}/K$ for an element of $O$, by
 \eqref{eq:uk-F-diffs}.  Since $\hat a>1$, the largest true gain at that state
-is $a^{t}/K$ while the chosen element has gain $a^{t}/(\hat aK)>0$, so the
-step ratio of Definition~\ref{def:etasel} is
+is $a^{t}/K$ while the chosen element has gain $a^{t}/(\hat aK)>0$, so every
+step has positive chosen gain, the stepwise $a_t$ of
+Definition~\ref{def:etasel} reduce to the ratio form, and
 \[
-  \frac{\max_{e\notin S^{t}}d_e(S^{t})}{d_{e_t}(S^{t})}
+  a_t=\frac{\max_{e\notin S^{t}}d_e(S^{t})}{d_{e_t}(S^{t})}
   =\frac{a^{t}/K}{a^{t}/(\hat aK)}=\hat a
 \]
-at every one of the $K$ steps, so $\etasel=\hat a$.  For $\etatr$, only the
+at every one of the $K$ steps, so $\etasel=\hat a$.
+% D3 check (J2 adoption): no zero step occurs in this family, so the
+% stepwise definition changes nothing here; machine-checked for K=2..8,
+% ahat in {1.5,2} by results/K1_etasel_newdef_check.py (14/14).  For $\etatr$, only the
 states of the run matter, and at those states $y=0$, so by Step 2 the only two
 ratios that occur are $1$ (direction $x$) and $1/\hat a$ (direction $y$);
 therefore the trajectory-restricted factors are

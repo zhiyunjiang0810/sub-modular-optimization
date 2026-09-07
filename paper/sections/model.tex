@@ -47,28 +47,47 @@ at error level $\eta$ is written $\rho_K(\eta)$.  Two run-dependent error
 measures refine $\eta$:
 \begin{definition}[Selection error]\label{def:etasel}
 For an execution of predictive greedy with states
-$S^{0},\dots,S^{K-1}$ and picks $e_{0},\dots,e_{K-1}$, the selection error is
+$S^{0},\dots,S^{K-1}$ and picks $e_{0},\dots,e_{K-1}$, write
+$M_t=\max_{e\notin S^{t}} d_{e}(S^{t})$ and $g_t=d_{e_t}(S^{t})$
+(monotonicity of $f$ gives $g_t\ge0$), and set
 \[
-  \etasel\;=\;\max\Bigl\{\,\max_{e\notin S^{t}} d_{e}(S^{t})\,/\,d_{e_t}(S^{t})
-  \;:\;t<K,\ d_{e_t}(S^{t})>0\Bigr\}\;\ge\;1 ,
+  a_t\;=\;\begin{cases}
+    M_t/g_t, & g_t>0,\\
+    1, & M_t=g_t=0,\\
+    \infty, & g_t=0<M_t .
+  \end{cases}
+  \qquad
+  \etasel\;=\;\max\{1,a_0,\dots,a_{K-1}\},
 \]
 the largest factor by which a step of the run fell short of the best true
-gain, over the steps with positive chosen gain.  In the terminology of
-Goundan and Schulz, a run with selection error $\etasel$ is an execution of
-greedy with an $\alpha$-approximate incremental oracle with
-$\alpha=\etasel$ \citep{goundan2007revisiting}.
-% Status of the attribution: F6 audit item 4 (their alpha >= 1 satisfies
-% alpha rho_{e_t} >= max_e rho_e, so alpha = etasel; the earlier 1/etasel
-% reading was reversed and is corrected here).  The notation \etasel is ours.
-% Their Theorem 1 (p. 7) is verbatim the L_K bound; Proposition
+gain; a step whose chosen true gain vanishes while a better candidate
+exists makes the selection error infinite.  Bounds evaluated at
+$\etasel$ use the convention $L_K(\infty)=0$.  In the terminology of
+Goundan and Schulz, a run with finite $\etasel$ is an execution of greedy
+with an $\alpha$-approximate incremental oracle with $\alpha=\etasel$;
+their condition is a per-step condition, which is what the case
+$a_t=\infty$ records \citep{goundan2007revisiting}.
+% Status of the attribution: F6 audit item 4 and the J2 external review
+% both confirm alpha = etasel on GS p. 7 (not 1/etasel).  The notation
+% \etasel is ours.  Their Theorem 1 is the L_K bound; Proposition
 % \ref{prop:guarantee} is that theorem instantiated and is attributed
 % accordingly, not claimed as new (decision D2).
+% Decision D3 (J2 adoption, 2026-09-07): the earlier definition excluded
+% the steps with g_t = 0 and its unconditional certificate reading was
+% refuted by a three-element modular instance (J2 review section 4.1,
+% re-verified in results/H3_j2_recheck.py); the stepwise a_t close that
+% hole with the infinity case.
 \end{definition}
 The trajectory error restricts Definition~\ref{def:eta} to the states of the
 run; it is used in a remark and in the appendix, and written $\etatr$ when a
-symbol is needed.  The chain $\etasel\le\etatr\le\eta$ holds for every run.
-% [HAND-PROOF-UNREVIEWED, two lines: max_e d_e <= eta_u max_e dtilde_e <=
-%  eta_u dtilde_{e_t} <= eta_u eta_o d_{e_t} at every state of the run.]
+symbol is needed.  For every run of a predictor with finite error
+$(\eta_u,\eta_o)$ the chain $\etasel\le\etatr\le\eta$ holds; in particular
+$a_t=\infty$ cannot occur then, because a vanishing chosen predicted gain
+forces every candidate's predicted, and then true, gain to vanish.
+% [HAND-PROOF-UNREVIEWED, three lines: for finite steps max_e d_e <=
+%  eta_u max_e dtilde_e <= eta_u dtilde_{e_t} <= eta_u eta_o d_{e_t} at
+%  every state of the run; for g_t = 0 the band gives M_t = 0, so
+%  a_t = 1.  Without a finite band the chain can fail (J2 section 4).]
 
 Table~\ref{tab:notation} in Appendix~\ref{sec:notation} collects the
 notation.

@@ -67,32 +67,41 @@ $\max\{1-1/\eta_u,\ \eta_o-1\}$.
 
 \begin{proposition}[Guarantee of predictive greedy]\label{prop:guarantee}
 Let $f$ be monotone submodular with $f(\emptyset)=0$ and let $T=S^{K}$ be the
-output of a run of predictive greedy whose selection error is $\etasel$.
+output of a run of predictive greedy whose selection error is $\etasel$
+(Definition~\ref{def:etasel}, with $L_K(\infty)=0$).
 Then, with $L_K(x)=1-(1-\tfrac1{xK})^{K}$,
 \[
   f(T)\;\ge\;L_K(\etasel)\,f(O^{\ast})
   \;\ge\;\bigl(1-e^{-1/\etasel}\bigr)f(O^{\ast}).
 \]
-The same bound therefore holds with $\etasel$ replaced by $\etatr$ or by
-$\eta$, and the three bounds are ordered
-$L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$.
+If moreover the predictor has finite error $(\eta_u,\eta_o)$, the same bound
+holds with $\etasel$ replaced by $\etatr$ or by $\eta$, and the three bounds
+are ordered $L_K(\etasel)\ge L_K(\etatr)\ge L_K(\eta)$.
 \end{proposition}
 Proposition~\ref{prop:guarantee} is restated in the prediction-error model of
 Section~\ref{sec:model}; it is essentially due to Goundan and Schulz
 \citep[Theorem~1]{goundan2007revisiting}.  A proof is included in
 Appendix~\ref{app:guarantee} for completeness.
 % Status: [HAND-PROOF-UNREVIEWED]; decision D2 (TASKS5): stated as a
-% Proposition, attributed, never claimed as new.  Steps with nonpositive
-% chosen gain do not enter \etasel; the appendix states why the analysis only
-% needs the positive steps.  Experiment columns n_steps_nonpos /
-% frac_steps_nonpos report how often such steps occur in practice (F1).
+% Proposition, attributed, never claimed as new.  Decision D3 (J2 adoption):
+% the statement is now unconditional in the run because Definition
+% \ref{def:etasel} sends harmful zero-gain steps to infinity (the old
+% positive-steps-only definition admitted a three-element modular
+% counterexample, J2 section 4.1, re-verified in results/H3_j2_recheck.py);
+% benign zero steps mean the run already reached the optimal value
+% (appendix Step 2).  Experiment columns n_steps_nonpos / frac_steps_nonpos
+% report how often zero or negative chosen steps occur in practice (F1).
 
 \begin{remark}\label{rem:etasel-measurable}
 $\etasel$ is computable from the run when $f$ becomes observable in
 hindsight, which makes Proposition~\ref{prop:guarantee} a certificate: the
 measured $\etasel$ of a finished run certifies the printed bound for that
-run.  The experiments of Section~\ref{sec:experiments} report measured
-$\etasel$ and the resulting certified bounds.
+run, and a run with a harmful zero step ($a_t=\infty$) certifies nothing,
+which the value $L_K(\infty)=0$ reports honestly.  The certificate reading
+requires the true objective to be monotone submodular; on objectives
+outside the model the same measurement is only a selection diagnostic.
+The experiments of Section~\ref{sec:experiments} report which of their
+objectives support certificates and which do not.
 \end{remark}
 
 % ---------------------------------------------------------------- block 4 --
