@@ -1,5 +1,35 @@
 # REPORT.md
 
+## Summary（J2 采纳日：K1-K7 全部完成）
+
+- 外部审查 J2（GPT）的六项发现经 H3 独立复核后全部落实进正文，K1-K7 无 FAILED：η^sel 换逐步定义（有害零步 ∞）、E2 证书连锁重算、主图拆两幅、R6 slack 证书入附录、hardness 重校准为 H_{K,τ}、P2 小修全清。编译 0 错误 0 未定义引用，30 页（results/K7_compile.log）；数字审计 0 违规。
+- **最重要的变化**：thm:hardness 换为更强更简的 H_{K,τ}(η)=1−(1−1/(η(K−τ)+1))^K（实际误差乘积校准，无反函数分支）；τ=1（c=0）时 H=U_K，四曲线成链 L_K ≤ ρ_K ≤ U_K = H_{K,1}；app:validity 关键步升级 [VERIFIED-SYMBOLIC]。
+- **最需人类判断**：contribution (iv) 的 intro 承重位要按下节"contribution (iv) 需相应改写的要点"重写（查询类最优性现在限定 c≥2 的类）；E2 证书叙事新增 16 条 ∞ 轨迹的表述已定稿，如嫌重可再压。
+- 注意：TASKS_J2.md 在仓库、上传目录与 J2 包中均不存在；本日按 results/H3_j2_assessment.md 的 P0-P2 计划 + 用户四点补充执行（用户称两者一致）。若该文件后续出现且规格有差异，按差异补做。
+- 逐项改动的 J2 章节对照与复核结果在下面"J2 采纳日明细"，全部 commit 已 push（82f50cf 等 5 个），experiment 镜像已同步。
+
+## J2 采纳日明细（K1-K7，2026-09-07）
+
+每项注明【J2 章节 | 复核结果】。复核 = results/H3_j2_recheck.py（我的独立实现，ALL PASS）+ J2 双脚本本环境重跑 all_passed。
+
+- **K1**【J2 §4 | 三元素反例独立复算成立】def:etasel 换逐步 a_t（正常步 M_t/g_t、良性零步 1、有害零步 ∞，L_K(∞)=0）；prop:guarantee 无条件化，η^tr/η 替换句加有限 band 前提；app:guarantee Step 2 重写（不再暗用全局 band）、Step 4 补零步情形、新增 stepwise product bound remark（[HAND-PROOF-UNREVIEWED]，J1 1,905 轨迹精确算术支持）；GS α=η^sel 三方一致（F6、J2、原文 p.7）。**补充点 1 完成**：U_K 族在新定义下 η^sel=η^tr=â 逐位不变，14/14（results/K1_etasel_newdef_check.py），无零步。
+- **K2**【J2 §8 | 225/16/711/30416/5952 五个计数全部独立复算吻合】E2 有害零步轨迹 η^sel=∞：K=30 中位 η^sel 4.3→4.5、certified bound 0.207→0.199、p-η 单调网络 4→3（facebook_government p=0.5 半数 run 覆盖为 ∞，该 cell 中位 ∞）；E1/E3 全部改称 finite-step diagnostic（E1 也出模型：711/720 前缀见负候选边际）；OPT 代理方向两处 + 表注三条修正；"structurally zero" 注释删除。宏由 results/G3_gen_numbers.py 重生成，审计 199 literals 0 violations。
+- **K3**【J2 §5 | 两把尺反例全枚举复算成立】**补充点 3 完成**：主图拆两幅。η^sel 轴（figures/money_plot）只画 L_K + 三族散点，16 条 ∞ E2 runs 面板注记不画点；全局 η 轴新图（figures/eta_global_plot）ρ_{3,5,8} + V_j 贴线 + U_K 悬上方；aux p-η 图按 ∞ cell 重绘（results/K3_split_figs.py，字号 ≥7pt）。
+- **K4**【J2 §2 | 两条 slack 恒等式 sympy 独立验证 + 1,536 格点】cons case (b) 的三项非负证书写入 app:validity，恒等式 [VERIFIED-SYMBOLIC]，记账部分保持 [HAND-PROOF-UNREVIEWED]；thm:exact ≥ 方向状态注释同步。G5 严重第 2 条正面了结。
+- **K5**【J2 §6-7 | 边表极值与 η_act=(θK−1)/(K−τ) 暴力枚举复核 + 新旧校准表 4 行复算】**补充点 2 完成**：thm:hardness 换 H_{K,τ} 版（实际误差恰 η、任意拆分可达，Ψ 闭式逆无分支，randomized ε_n 在整数 c 处还原旧式）；新增 rem:hardness-chain（c=0：H_{K,1}=U_K，链 L_K ≤ ρ_K ≤ U_K，注意 τ=⌈c⌉+1 下 τ=1 ⟺ c=0）；rem:hardness-pins 限定包含 greedy 的类（nK≤n^c，整数 c≥2）+ c=0 反例 + 间隙 O((c+1)/K)；app:hardness 重写（四行边表穷尽、β 缩放、概率装配按用户要求保持 [HAND-PROOF-UNREVIEWED] 未升级）；F3 任意大小查询定理入附录 app:hardness-anysize（约 1 页，状态标签原样保留，含 [CONJECTURE]/[EXACT] 边界）。notation 表的 Φ/η̂ 以"superseded 校准"身份保留定义，旧 N5_delta 脚本口径问题在附录注明。
+- **K6**【J2 §3/§9 | 端点反例与 U_3(1.5)=37/64>19/33 复核】rem:exact-gap 收缩（η=1 两模型重合；"strictly improves" 限定到已验证点位；U_K 句改为"上界证明不再适用"）；V_i 索引 0..K−2；严格扰动端点 caveat（K=3,j=1,η=2,η'=19/10 失单调性）与补法草图入注释。
+- **K7**：本节 + D3 记录（RESEARCH_STATE/GLOSSARY）+ REVIEW_BRIEF 顶部加时效注记。
+
+## contribution (iv) 需相应改写的要点（供人类改 intro，正文未动）
+
+intro 注释块的第 4 承重位（hardness position）按 K5 后的定理需要这样改：
+
+1. 陈述换名换形：不再是 "no deterministic algorithm with n^c queries of size at most K beats L_K(η̂)"，而是 "…beats H_{K,τ}(η) = 1−(1−1/(η(K−τ)+1))^K，τ=⌈c⌉+1"；不再需要 Φ 反函数与假设 (H)，前提改为 η ≥ (K−1)/(K−τ)。
+2. **"pins the bounded-query optimum to 1−e^{−1/η}" 必须限定查询类包含 greedy**：nK ≤ n^c（例如整数 c≥2、K≤n）。小 c 不成立（c=0 有单查询 ratio=0 反例）。写法建议："for every query class rich enough to contain greedy (n^c queries with c ≥ 2), the optimum at error η is pinned to 1−e^{−1/η} asymptotically in K"。
+3. 有限 K 间隙写 O((c+1)/K)，不写 O(c/K)。
+4. 新卖点可加一句：τ=1 时 hardness 曲线恰是旧显式族值 U_K，于是 L_K ≤ ρ_K ≤ U_K = H_{K,1} 四条曲线在一条链上（图 2 的 U_K 方框悬在 ρ_K 上方就是这条链的可视化）。
+5. 第 2 承重位（certificate）同步微调：η^sel 是逐步定义（有害零步 ∞），certificate 只对模型内目标声明；实验三族一分为二（E2 证书 / E1、E3 诊断）。
+
 ## Summary（第五晚：装配全文骨架）
 
 - 全部完成，无 FAILED：G0 落实 D1/D2；G1 全文骨架；G2 附录逐行证明（约 14 页）；G3 experiments/related 正文 + 94 个数字宏（审计 0 手打数字）；G4 breast_cancer K=5 穷举 OPT（median 0.982）+ airline 保守 OPT 下估（≤0.33% 改进）；G5 对抗审稿；G6 投稿卫生（双盲干净、statements 按模板、图字号 ≥7pt）。
