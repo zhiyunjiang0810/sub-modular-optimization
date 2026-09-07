@@ -1,0 +1,7216 @@
+{
+ "A_headline": [
+  {
+   "K": 3,
+   "eta": 1.5,
+   "value": 0.575757575757576,
+   "target": "19/33",
+   "min_m_Wm": 0.5757575757575756,
+   "argmin_m": 2,
+   "O": "(3, 4, 5)",
+   "all_O_enumerated": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 4,
+   "eta": 2.0,
+   "value": 0.46,
+   "target": "23/50",
+   "min_m_Wm": 0.46,
+   "argmin_m": 2,
+   "O": "(4, 5, 6, 7)",
+   "all_O_enumerated": false,
+   "seconds": 1.6
+  }
+ ],
+ "B_boundary_grid": [
+  {
+   "K": 2,
+   "eta": 1.95,
+   "lp_sub": 0.5084745762711864,
+   "min_m_Wm": 0.5084745762711864,
+   "argmin_m": 1,
+   "min_j_Vj": 0.5084745762711864,
+   "argmin_j": 1,
+   "gap": 0.0,
+   "all_O": true,
+   "seconds": 0.0
+  },
+  {
+   "K": 2,
+   "eta": 2.0,
+   "lp_sub": 0.49999999999999994,
+   "min_m_Wm": 0.5,
+   "argmin_m": 0,
+   "min_j_Vj": 0.5,
+   "argmin_j": 0,
+   "gap": -5.551115123125783e-17,
+   "all_O": true,
+   "seconds": 0.0
+  },
+  {
+   "K": 2,
+   "eta": 2.05,
+   "lp_sub": 0.48780487804878053,
+   "min_m_Wm": 0.48780487804878053,
+   "argmin_m": 0,
+   "min_j_Vj": 0.4878048780487805,
+   "argmin_j": 0,
+   "gap": 0.0,
+   "all_O": true,
+   "seconds": 0.0
+  },
+  {
+   "K": 3,
+   "eta": 1.55,
+   "lp_sub": 0.5654761904761907,
+   "min_m_Wm": 0.5654761904761904,
+   "argmin_m": 2,
+   "min_j_Vj": 0.5512591711282966,
+   "argmin_j": 2,
+   "gap": 3.3306690738754696e-16,
+   "all_O": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 3,
+   "eta": 1.6,
+   "lp_sub": 0.5555555555555555,
+   "min_m_Wm": 0.5555555555555554,
+   "argmin_m": 2,
+   "min_j_Vj": 0.5404383975812548,
+   "argmin_j": 2,
+   "gap": 1.1102230246251565e-16,
+   "all_O": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 3,
+   "eta": 1.65,
+   "lp_sub": 0.5426356589147286,
+   "min_m_Wm": 0.5426356589147286,
+   "argmin_m": 1,
+   "min_j_Vj": 0.5300162249864792,
+   "argmin_j": 2,
+   "gap": 0.0,
+   "all_O": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 3,
+   "eta": 2.95,
+   "lp_sub": 0.3381642512077294,
+   "min_m_Wm": 0.3381642512077294,
+   "argmin_m": 1,
+   "min_j_Vj": 0.3381642512077294,
+   "argmin_j": 1,
+   "gap": 0.0,
+   "all_O": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 3,
+   "eta": 3.0,
+   "lp_sub": 0.33333333333333337,
+   "min_m_Wm": 0.3333333333333333,
+   "argmin_m": 0,
+   "min_j_Vj": 0.33333333333333326,
+   "argmin_j": 0,
+   "gap": 5.551115123125783e-17,
+   "all_O": true,
+   "seconds": 0.5
+  },
+  {
+   "K": 3,
+   "eta": 3.05,
+   "lp_sub": 0.32786885245901626,
+   "min_m_Wm": 0.3278688524590164,
+   "argmin_m": 0,
+   "min_j_Vj": 0.3278688524590164,
+   "argmin_j": 0,
+   "gap": -1.6653345369377348e-16,
+   "all_O": true,
+   "seconds": 0.4
+  },
+  {
+   "K": 4,
+   "eta": 1.382432,
+   "lp_sub": 0.5886257538176847,
+   "min_m_Wm": 0.5886257538176853,
+   "argmin_m": 3,
+   "min_j_Vj": 0.5715244715662899,
+   "argmin_j": 3,
+   "gap": -6.661338147750939e-16,
+   "all_O": false,
+   "seconds": 1.7
+  },
+  {
+   "K": 4,
+   "eta": 1.432432,
+   "lp_sub": 0.5781250891964421,
+   "min_m_Wm": 0.5781250891964423,
+   "argmin_m": 3,
+   "min_j_Vj": 0.5593180680824714,
+   "argmin_j": 3,
+   "gap": -2.220446049250313e-16,
+   "all_O": false,
+   "seconds": 1.7
+  },
+  {
+   "K": 4,
+   "eta": 1.482432,
+   "lp_sub": 0.5653359216214344,
+   "min_m_Wm": 0.5653359216214345,
+   "argmin_m": 2,
+   "min_j_Vj": 0.5475887793482164,
+   "argmin_j": 3,
+   "gap": -1.1102230246251565e-16,
+   "all_O": false,
+   "seconds": 1.6
+  },
+  {
+   "K": 4,
+   "eta": 2.092857,
+   "lp_sub": 0.4451202875647365,
+   "min_m_Wm": 0.4451202875647365,
+   "argmin_m": 2,
+   "min_j_Vj": 0.43367386066082814,
+   "argmin_j": 2,
+   "gap": 0.0,
+   "all_O": false,
+   "seconds": 2.2
+  },
+  {
+   "K": 4,
+   "eta": 2.142857,
+   "lp_sub": 0.43750002139945765,
+   "min_m_Wm": 0.4375000213994576,
+   "argmin_m": 2,
+   "min_j_Vj": 0.4258506136706315,
+   "argmin_j": 2,
+   "gap": 5.551115123125783e-17,
+   "all_O": false,
+   "seconds": 1.6
+  },
+  {
+   "K": 4,
+   "eta": 2.192857,
+   "lp_sub": 0.428840740556498,
+   "min_m_Wm": 0.42884074055649807,
+   "argmin_m": 1,
+   "min_j_Vj": 0.41830082574462024,
+   "argmin_j": 2,
+   "gap": -5.551115123125783e-17,
+   "all_O": false,
+   "seconds": 1.4
+  },
+  {
+   "K": 4,
+   "eta": 3.95,
+   "lp_sub": 0.2529182879377432,
+   "min_m_Wm": 0.2529182879377432,
+   "argmin_m": 1,
+   "min_j_Vj": 0.2529182879377432,
+   "argmin_j": 1,
+   "gap": 0.0,
+   "all_O": false,
+   "seconds": 1.2
+  },
+  {
+   "K": 4,
+   "eta": 4.0,
+   "lp_sub": 0.24999999999999994,
+   "min_m_Wm": 0.25,
+   "argmin_m": 0,
+   "min_j_Vj": 0.25,
+   "argmin_j": 0,
+   "gap": -5.551115123125783e-17,
+   "all_O": false,
+   "seconds": 1.6
+  },
+  {
+   "K": 4,
+   "eta": 4.05,
+   "lp_sub": 0.24691358024691362,
+   "min_m_Wm": 0.2469135802469136,
+   "argmin_m": 0,
+   "min_j_Vj": 0.24691358024691357,
+   "argmin_j": 0,
+   "gap": 2.7755575615628914e-17,
+   "all_O": false,
+   "seconds": 1.1
+  }
+ ],
+ "B_boundaries": {
+  "2": [
+   [
+    0,
+    2.0
+   ]
+  ],
+  "3": [
+   [
+    0,
+    3.0000000000000075
+   ],
+   [
+    1,
+    1.6000000000000003
+   ]
+  ],
+  "4": [
+   [
+    0,
+    3.9999999999999947
+   ],
+   [
+    1,
+    2.1428571428571432
+   ],
+   [
+    2,
+    1.4324324324324322
+   ]
+  ],
+  "5": [
+   [
+    0,
+    4.99999999999997
+   ],
+   [
+    1,
+    2.6666666666666705
+   ],
+   [
+    2,
+    1.8196721311475479
+   ],
+   [
+    3,
+    1.338753387533875
+   ]
+  ],
+  "6": [
+   [
+    0,
+    6.000000000000026
+   ],
+   [
+    1,
+    3.181818181818195
+   ],
+   [
+    2,
+    2.1868131868131897
+   ],
+   [
+    3,
+    1.6438152011922467
+   ],
+   [
+    4,
+    1.2786497527413503
+   ]
+  ]
+ },
+ "C_duals": {
+  "K2_eta1.5": {
+   "value": 0.6000000000000001,
+   "value_frac": "3/5",
+   "nnz_raw": 18,
+   "nnz_sym": 27,
+   "rows": 197,
+   "eqlin_marginals": [
+    0.39999999999999986,
+    -0.0,
+    0.6000000000000001
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 1,
+     "rows": 32,
+     "sum": 0.20000000000000026
+    },
+    "submod_f": {
+     "nnz": 2,
+     "rows": 48,
+     "sum": 0.39999999999999986
+    },
+    "submod_g": {
+     "nnz": 6,
+     "rows": 48,
+     "sum": 0.5715476066494083
+    },
+    "band_lo": {
+     "nnz": 6,
+     "rows": 32,
+     "sum": 1.4696938456699067
+    },
+    "band_hi": {
+     "nnz": 8,
+     "rows": 32,
+     "sum": 1.4696938456699067
+    },
+    "greedy": {
+     "nnz": 4,
+     "rows": 5,
+     "sum": 1.469693845669907
+    }
+   },
+   "support": {
+    "mono_f": [
+     {
+      "lambda": 0.20000000000000026,
+      "rational": "1/5",
+      "desc": "S={o0,o1}[x,y=(0, 2)] e=b0"
+     }
+    ],
+    "submod_g": [
+     {
+      "lambda": 0.12247448713915904,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.12247448713915904,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.12247448713915879,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=b1 e2=o0"
+     },
+     {
+      "lambda": 0.12247448713915879,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=b1 e2=o1"
+     },
+     {
+      "lambda": 0.040824829046386325,
+      "rational": "196/4801",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=b1 e2=o1"
+     },
+     {
+      "lambda": 0.040824829046386325,
+      "rational": "196/4801",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=b1 e2=o0"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.4082482904638631,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.4082482904638631,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     },
+     {
+      "lambda": 0.3265986323710903,
+      "rational": "2/5/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.3265986323710903,
+      "rational": "2/5/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.3674234614174767,
+      "rational": "9/20/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.3674234614174767,
+      "rational": "9/20/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.24494897427831766,
+      "rational": "3/10/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.24494897427831766,
+      "rational": "3/10/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.12247448713915904,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.12247448713915904,
+      "rational": "3/20/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={o0}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.3265986323710903,
+      "rational": "2/5/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.16329931618554544,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={b0,o0,o1}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={b1,o0}[x,y=(1, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.16329931618554516,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={b1,o1}[x,y=(1, 1)] B={b0}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.6000000000000001,
+   "dual_obj_sym": 0.6000000000000001,
+   "dual_feas_residual": 1.1102230246251565e-16,
+   "min_multiplier": 0.0
+  },
+  "K2_eta2.0": {
+   "value": 0.49999999999999994,
+   "value_frac": "1/2",
+   "nnz_raw": 12,
+   "nnz_sym": 15,
+   "rows": 197,
+   "eqlin_marginals": [
+    0.5000000000000001,
+    -0.0,
+    0.5
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 0,
+     "rows": 32,
+     "sum": 0.0
+    },
+    "submod_f": {
+     "nnz": 2,
+     "rows": 48,
+     "sum": 0.24999999999999994
+    },
+    "submod_g": {
+     "nnz": 2,
+     "rows": 48,
+     "sum": 0.35355339059327373
+    },
+    "band_lo": {
+     "nnz": 4,
+     "rows": 32,
+     "sum": 1.414213562373095
+    },
+    "band_hi": {
+     "nnz": 3,
+     "rows": 32,
+     "sum": 1.414213562373095
+    },
+    "greedy": {
+     "nnz": 4,
+     "rows": 5,
+     "sum": 1.414213562373095
+    }
+   },
+   "support": {
+    "mono_f": [],
+    "submod_g": [
+     {
+      "lambda": 0.17677669529663687,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.17677669529663687,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o0"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.35355339059327373,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.35355339059327373,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     },
+     {
+      "lambda": 0.35355339059327373,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.35355339059327373,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.5303300858899106,
+      "rational": "3/4/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.5303300858899106,
+      "rational": "3/4/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.17677669529663687,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.17677669529663687,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={o0}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.7071067811865475,
+      "rational": "1/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.3535533905932738,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.35355339059327373,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b0}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.5,
+   "dual_obj_sym": 0.5,
+   "dual_feas_residual": 1.1102230246251565e-16,
+   "min_multiplier": 0.0
+  },
+  "K3_eta1.5": {
+   "value": 0.575757575757576,
+   "value_frac": "19/33",
+   "nnz_raw": 50,
+   "nnz_sym": 120,
+   "rows": 1548,
+   "eqlin_marginals": [
+    0.4242424242424242,
+    -0.0,
+    0.5757575757575758
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 2,
+     "rows": 192,
+     "sum": 0.40909090909090934
+    },
+    "submod_f": {
+     "nnz": 42,
+     "rows": 480,
+     "sum": 1.257575757575757
+    },
+    "submod_g": {
+     "nnz": 21,
+     "rows": 480,
+     "sum": 1.0268063063182007
+    },
+    "band_lo": {
+     "nnz": 18,
+     "rows": 192,
+     "sum": 2.115468414221836
+    },
+    "band_hi": {
+     "nnz": 28,
+     "rows": 192,
+     "sum": 2.1154684142218354
+    },
+    "greedy": {
+     "nnz": 9,
+     "rows": 12,
+     "sum": 2.1154684142218354
+    }
+   },
+   "support": {
+    "mono_f": [
+     {
+      "lambda": 0.36363636363636376,
+      "rational": "4/11",
+      "desc": "S={o0,o1,o2}[x,y=(0, 3)] e=b0"
+     },
+     {
+      "lambda": 0.045454545454545574,
+      "rational": "1/22",
+      "desc": "S={b0,o0,o1,o2}[x,y=(1, 3)] e=b1"
+     }
+    ],
+    "submod_g": [
+     {
+      "lambda": 0.13608276348795426,
+      "rational": "1/6/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.13608276348795426,
+      "rational": "1/6/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.13608276348795426,
+      "rational": "1/6/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.04329906110980366,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.043299061109803645,
+      "rational": "7/132/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.016494880422782358,
+      "rational": "2/99/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o1"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.2721655269759087,
+      "rational": "1/3/sqrt(eta)",
+      "desc": "t=2 e=o0"
+     },
+     {
+      "lambda": 0.2721655269759087,
+      "rational": "1/3/sqrt(eta)",
+      "desc": "t=2 e=o1"
+     },
+     {
+      "lambda": 0.2721655269759087,
+      "rational": "1/3/sqrt(eta)",
+      "desc": "t=2 e=o2"
+     },
+     {
+      "lambda": 0.2597943666588219,
+      "rational": "7/22/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.2597943666588219,
+      "rational": "7/22/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     },
+     {
+      "lambda": 0.2597943666588219,
+      "rational": "7/22/sqrt(eta)",
+      "desc": "t=1 e=o2"
+     },
+     {
+      "lambda": 0.17319624443921458,
+      "rational": "7/33/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.17319624443921458,
+      "rational": "7/33/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     },
+     {
+      "lambda": 0.17319624443921458,
+      "rational": "7/33/sqrt(eta)",
+      "desc": "t=0 e=o2"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.40824829046386296,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.40824829046386296,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.40824829046386296,
+      "rational": "1/2/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.09072184232530289,
+      "rational": "1/9/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.09072184232530289,
+      "rational": "1/9/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.09072184232530289,
+      "rational": "1/9/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.08865998227245513,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.08865998227245513,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.0886599822724551,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.0886599822724551,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.0886599822724551,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.0886599822724551,
+      "rational": "43/396/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.014433020369934548,
+      "rational": "7/396/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o1}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.2597943666588219,
+      "rational": "7/22/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.1567013640164323,
+      "rational": "19/99/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.15670136401643228,
+      "rational": "19/99/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.15670136401643228,
+      "rational": "19/99/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.11546416295947641,
+      "rational": "14/99/sqrt(eta)",
+      "desc": "A={b0,o0,o1}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.11546416295947641,
+      "rational": "14/99/sqrt(eta)",
+      "desc": "A={b0,o0,o2}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.11546416295947641,
+      "rational": "14/99/sqrt(eta)",
+      "desc": "A={b0,o1,o2}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,b2,o0}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,b2,o1}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.08659812221960732,
+      "rational": "7/66/sqrt(eta)",
+      "desc": "A={b0,b2,o2}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.05773208147973819,
+      "rational": "7/99/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.05773208147973819,
+      "rational": "7/99/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.05773208147973819,
+      "rational": "7/99/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o0,o1}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o0,o1}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,b2,o0,o1}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o0,o2}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o0,o2}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,b2,o0,o2}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o1,o2}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,o1,o2}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.028866040739869096,
+      "rational": "7/198/sqrt(eta)",
+      "desc": "A={b1,b2,o1,o2}[x,y=(2, 2)] B={b0}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.5757575757575758,
+   "dual_obj_sym": 0.5757575757575758,
+   "dual_feas_residual": 1.6653345369377348e-16,
+   "min_multiplier": 0.0
+  },
+  "K3_eta2.0": {
+   "value": 0.46666666666666645,
+   "value_frac": "7/15",
+   "nnz_raw": 55,
+   "nnz_sym": 145,
+   "rows": 1548,
+   "eqlin_marginals": [
+    0.5333333333333334,
+    -0.0,
+    0.4666666666666665
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 1,
+     "rows": 192,
+     "sum": 0.19999999999999984
+    },
+    "submod_f": {
+     "nnz": 27,
+     "rows": 480,
+     "sum": 1.2933333333333328
+    },
+    "submod_g": {
+     "nnz": 39,
+     "rows": 480,
+     "sum": 1.357645019878171
+    },
+    "band_lo": {
+     "nnz": 33,
+     "rows": 192,
+     "sum": 1.9798989873223327
+    },
+    "band_hi": {
+     "nnz": 35,
+     "rows": 192,
+     "sum": 1.9798989873223334
+    },
+    "greedy": {
+     "nnz": 10,
+     "rows": 12,
+     "sum": 2.045895620233077
+    }
+   },
+   "support": {
+    "mono_f": [
+     {
+      "lambda": 0.19999999999999984,
+      "rational": "1/5",
+      "desc": "S={o0,o1,o2}[x,y=(0, 3)] e=b0"
+     }
+    ],
+    "submod_g": [
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.06442528450810765,
+      "rational": "41/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.058139890897560546,
+      "rational": "37/450/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.050283148884376745,
+      "rational": "16/225/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.050283148884376745,
+      "rational": "16/225/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.050283148884376745,
+      "rational": "16/225/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.03142696805273545,
+      "rational": "2/45/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.023570226039551567,
+      "rational": "1/30/sqrt(eta)",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.02042752923427803,
+      "rational": "13/450/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "S={b0,b2}[x,y=(2, 0)] e=o2 e2=o1"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.2577011380324306,
+      "rational": "82/225/sqrt(eta)",
+      "desc": "t=2 e=o0"
+     },
+     {
+      "lambda": 0.2577011380324306,
+      "rational": "82/225/sqrt(eta)",
+      "desc": "t=2 e=o1"
+     },
+     {
+      "lambda": 0.2577011380324306,
+      "rational": "82/225/sqrt(eta)",
+      "desc": "t=2 e=o2"
+     },
+     {
+      "lambda": 0.213703382758601,
+      "rational": "68/225/sqrt(eta)",
+      "desc": "t=1 e=o2"
+     },
+     {
+      "lambda": 0.21370338275860098,
+      "rational": "68/225/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.21370338275860098,
+      "rational": "68/225/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     },
+     {
+      "lambda": 0.18856180831641267,
+      "rational": "4/15/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.18856180831641267,
+      "rational": "4/15/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     },
+     {
+      "lambda": 0.18856180831641267,
+      "rational": "4/15/sqrt(eta)",
+      "desc": "t=0 e=o2"
+     },
+     {
+      "lambda": 0.06599663291074448,
+      "rational": "7/75/sqrt(eta)",
+      "desc": "t=1 e=b2"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.1697056274847714,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.1697056274847714,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.1697056274847714,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.08799551054765921,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.0879955105476592,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0,b2}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0,b2}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.04399775527382965,
+      "rational": "14/225/sqrt(eta)",
+      "desc": "A={b0,b2}[x,y=(2, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.021998877636914826,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o0}[x,y=(2, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o0}[x,y=(2, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o1}[x,y=(2, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o1}[x,y=(2, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o2}[x,y=(2, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.0031426968052735457,
+      "rational": "1/225/sqrt(eta)",
+      "desc": "A={b0,b2,o2}[x,y=(2, 1)] B={o1}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.19798989873223324,
+      "rational": "7/25/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.14142135623730942,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o2}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.14142135623730942,
+      "rational": "1/5/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o2}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.13199326582148874,
+      "rational": "14/75/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.08799551054765924,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.08799551054765924,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.08799551054765924,
+      "rational": "28/225/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.06599663291074447,
+      "rational": "7/75/sqrt(eta)",
+      "desc": "A={b0,b2}[x,y=(2, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.056568542494923955,
+      "rational": "2/25/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.056568542494923955,
+      "rational": "2/25/sqrt(eta)",
+      "desc": "A={b1}[x,y=(1, 0)] B={b2}"
+     },
+     {
+      "lambda": 0.056568542494923955,
+      "rational": "2/25/sqrt(eta)",
+      "desc": "A={b1,b2}[x,y=(2, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b2,o0}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,b2,o0}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b2,o1}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,b2,o1}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,o0,o1}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b2,o2}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,b2,o2}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,o0,o2}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b1,o1,o2}[x,y=(1, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.04085505846855606,
+      "rational": "13/225/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.021998877636914823,
+      "rational": "7/225/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b0}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.4666666666666665,
+   "dual_obj_sym": 0.4666666666666665,
+   "dual_feas_residual": 1.942890293094024e-16,
+   "min_multiplier": 0.0
+  },
+  "K4_eta1.5": {
+   "value": 0.5609756097560972,
+   "value_frac": "23/41",
+   "nnz_raw": 125,
+   "nnz_sym": 586,
+   "rows": 10262,
+   "eqlin_marginals": [
+    0.4390243902439026,
+    -0.0,
+    0.5609756097560972
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 2,
+     "rows": 1024,
+     "sum": 0.6178861788617889
+    },
+    "submod_f": {
+     "nnz": 224,
+     "rows": 3584,
+     "sum": 2.10365853658536
+    },
+    "submod_g": {
+     "nnz": 160,
+     "rows": 3584,
+     "sum": 2.2622929656924287
+    },
+    "band_lo": {
+     "nnz": 77,
+     "rows": 1024,
+     "sum": 2.7880371056068665
+    },
+    "band_hi": {
+     "nnz": 107,
+     "rows": 1024,
+     "sum": 2.7880371056068673
+    },
+    "greedy": {
+     "nnz": 16,
+     "rows": 22,
+     "sum": 2.748208004098197
+    }
+   },
+   "support": {
+    "mono_f": [
+     {
+      "lambda": 0.3983739837398374,
+      "rational": "49/123",
+      "desc": "S={o0,o1,o2,o3}[x,y=(0, 4)] e=b0"
+     },
+     {
+      "lambda": 0.21951219512195144,
+      "rational": "9/41",
+      "desc": "S={b0,o0,o1,o2,o3}[x,y=(1, 4)] e=b1"
+     }
+    ],
+    "submod_g": [
+     {
+      "lambda": 0.044807739197253164,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.044807739197253164,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.04480773919725315,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.04480773919725315,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.03816955561247498,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.038169555612474974,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.038169555612474974,
+      "rational": "23/492/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.03219519038617452,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.03219519038617452,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.03219519038617452,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.03219519038617452,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.032195190386174515,
+      "rational": "97/2460/sqrt(eta)",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.030203735310741154,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.03020373531074115,
+      "rational": "91/2460/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.011616821273361938,
+      "rational": "7/492/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614197,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.010925343816614195,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.009957275377167375,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.005255228671282817,
+      "rational": "19/2952/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o1}[x,y=(1, 2)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o1}[x,y=(1, 2)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o2}[x,y=(1, 2)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o2}[x,y=(1, 2)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o1,o2}[x,y=(1, 2)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o1,o2}[x,y=(1, 2)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o3}[x,y=(1, 2)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o0,o3}[x,y=(1, 2)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o1,o3}[x,y=(1, 2)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o1,o3}[x,y=(1, 2)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o2,o3}[x,y=(1, 2)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.003319091792389125,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,o2,o3}[x,y=(1, 2)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o1}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o1}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o2}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o2}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o2}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o2}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o3}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o3}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o3}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o3}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2,o3}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0033190917923891228,
+      "rational": "1/246/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2,o3}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0008297729480973385,
+      "rational": "1/984/sqrt(eta)",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=o1 e2=o0"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.20412414523193154,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=3 e=o2"
+     },
+     {
+      "lambda": 0.20412414523193148,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=3 e=o1"
+     },
+     {
+      "lambda": 0.20412414523193145,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=3 e=o0"
+     },
+     {
+      "lambda": 0.20412414523193145,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=3 e=o3"
+     },
+     {
+      "lambda": 0.20412414523193143,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=2 e=o1"
+     },
+     {
+      "lambda": 0.20412414523193143,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=2 e=o2"
+     },
+     {
+      "lambda": 0.20412414523193134,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=2 e=o0"
+     },
+     {
+      "lambda": 0.20412414523193134,
+      "rational": "1/4/sqrt(eta)",
+      "desc": "t=2 e=o3"
+     },
+     {
+      "lambda": 0.15931640603467792,
+      "rational": "8/41/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.15931640603467792,
+      "rational": "8/41/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     },
+     {
+      "lambda": 0.15931640603467792,
+      "rational": "8/41/sqrt(eta)",
+      "desc": "t=1 e=o2"
+     },
+     {
+      "lambda": 0.15931640603467792,
+      "rational": "8/41/sqrt(eta)",
+      "desc": "t=1 e=o3"
+     },
+     {
+      "lambda": 0.11948730452600846,
+      "rational": "6/41/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.11948730452600846,
+      "rational": "6/41/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     },
+     {
+      "lambda": 0.11948730452600846,
+      "rational": "6/41/sqrt(eta)",
+      "desc": "t=0 e=o2"
+     },
+     {
+      "lambda": 0.11948730452600846,
+      "rational": "6/41/sqrt(eta)",
+      "desc": "t=0 e=o3"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.24196179166516738,
+      "rational": "243/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.24196179166516738,
+      "rational": "243/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.24196179166516732,
+      "rational": "243/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.2419617916651673,
+      "rational": "243/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.06870520010245486,
+      "rational": "69/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.06870520010245484,
+      "rational": "69/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.06870520010245483,
+      "rational": "69/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.06870520010245483,
+      "rational": "69/820/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.04480773919725318,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.04480773919725318,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.04480773919725318,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.04480773919725318,
+      "rational": "9/164/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.03982910150866948,
+      "rational": "2/41/sqrt(eta)",
+      "desc": "A={o0,o1,o2,o3}[x,y=(0, 4)] B={b0}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.03875039667614306,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.027382507287210454,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.027382507287210454,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.027382507287210454,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.027382507287210454,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.02738250728721045,
+      "rational": "11/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.016180572487897064,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.016180572487897064,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.016180572487897064,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.016180572487897064,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.01618057248789706,
+      "rational": "13/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.014106140117653836,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.014106140117653834,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.014106140117653834,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.014106140117653834,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.014106140117653834,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.01244659422145939,
+      "rational": "5/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1,o2}[x,y=(4, 3)] B={o3}"
+     },
+     {
+      "lambda": 0.01244659422145939,
+      "rational": "5/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1,o3}[x,y=(4, 3)] B={o2}"
+     },
+     {
+      "lambda": 0.01244659422145939,
+      "rational": "5/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2,o3}[x,y=(4, 3)] B={o1}"
+     },
+     {
+      "lambda": 0.01244659422145939,
+      "rational": "5/328/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2,o3}[x,y=(4, 3)] B={o0}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.009957275377167148,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.009957275377167146,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.009957275377167146,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.009957275377167146,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.009957275377167146,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={o1}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.11948730452600921,
+      "rational": "6/41/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.0559266967017567,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0559266967017567,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0559266967017567,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.055926696701756685,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.055926696701756685,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.055926696701756685,
+      "rational": "337/4920/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.04978637688583754,
+      "rational": "5/82/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o2,o3}[x,y=(3, 4)] B={b2}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o2}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o2}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,o0,o2,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.045637512145350424,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o2,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.04563751214535042,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,o1,o2,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.04563751214535042,
+      "rational": "55/984/sqrt(eta)",
+      "desc": "A={b0,b2,o1,o2,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.04397796624915595,
+      "rational": "53/984/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04397796624915595,
+      "rational": "53/984/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04397796624915595,
+      "rational": "53/984/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04397796624915595,
+      "rational": "53/984/sqrt(eta)",
+      "desc": "A={b0,o3}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.03982910150866948,
+      "rational": "2/41/sqrt(eta)",
+      "desc": "A={o0,o1,o2,o3}[x,y=(0, 4)] B={b3}"
+     },
+     {
+      "lambda": 0.03982910150866948,
+      "rational": "2/41/sqrt(eta)",
+      "desc": "A={b3,o0,o1,o2,o3}[x,y=(1, 4)] B={b0}"
+     },
+     {
+      "lambda": 0.03982910150866948,
+      "rational": "2/41/sqrt(eta)",
+      "desc": "A={b0,b3,o0,o1,o2,o3}[x,y=(2, 4)] B={b1}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,o0}[x,y=(1, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,b3,o0}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b1,b2,b3,o0}[x,y=(3, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,o1}[x,y=(1, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,b3,o1}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b1,b2,b3,o1}[x,y=(3, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,o2}[x,y=(1, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,b3,o2}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b1,b2,b3,o2}[x,y=(3, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o3}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={o3}[x,y=(0, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,o3}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,o3}[x,y=(1, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o3}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b2,b3,o3}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.02987182613150213,
+      "rational": "3/82/sqrt(eta)",
+      "desc": "A={b1,b2,b3,o3}[x,y=(3, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02788037105606943,
+      "rational": "7/205/sqrt(eta)",
+      "desc": "A={b0}[x,y=(1, 0)] B={b3}"
+     },
+     {
+      "lambda": 0.02788037105606943,
+      "rational": "7/205/sqrt(eta)",
+      "desc": "A={b0,b3}[x,y=(2, 0)] B={b1}"
+     },
+     {
+      "lambda": 0.02788037105606943,
+      "rational": "7/205/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={b2}"
+     },
+     {
+      "lambda": 0.02115921017648074,
+      "rational": "17/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02115921017648074,
+      "rational": "17/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02115921017648074,
+      "rational": "17/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.02115921017648074,
+      "rational": "17/656/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.019914550754334754,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o2}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.019914550754334754,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.019914550754334754,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.019914550754334754,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o2}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o0,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o1,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={o2,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o2,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.01991455075433475,
+      "rational": "1/41/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o2,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,b2,o0}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,b2,o1}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,b2,o2}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,o3}[x,y=(1, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.017591186499662237,
+      "rational": "53/2460/sqrt(eta)",
+      "desc": "A={b0,b2,o3}[x,y=(2, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.014935913065751405,
+      "rational": "3/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o2}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.014935913065751405,
+      "rational": "3/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.014935913065751405,
+      "rational": "3/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.014935913065751405,
+      "rational": "3/164/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.014106140117653833,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.014106140117653833,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.014106140117653833,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.014106140117653833,
+      "rational": "17/984/sqrt(eta)",
+      "desc": "A={b0,b1,o3}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.009957275377168062,
+      "rational": "1/82/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o2,o3}[x,y=(2, 4)] B={b3}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.004978637688583422,
+      "rational": "1/164/sqrt(eta)",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o0,o1}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1}[x,y=(2, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o0,o2}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o2}[x,y=(2, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o1,o2}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o1,o2}[x,y=(2, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o0,o3}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o3}[x,y=(2, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o1,o3}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o1,o3}[x,y=(2, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,o2,o3}[x,y=(1, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.003540364578548475,
+      "rational": "8/1845/sqrt(eta)",
+      "desc": "A={b0,b2,o2,o3}[x,y=(2, 2)] B={b1}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.5609756097560972,
+   "dual_obj_sym": 0.5609756097560972,
+   "dual_feas_residual": 1.0547118733938987e-15,
+   "min_multiplier": 0.0
+  },
+  "K4_eta2.0": {
+   "value": 0.46,
+   "value_frac": "23/50",
+   "nnz_raw": 166,
+   "nnz_sym": 812,
+   "rows": 10262,
+   "eqlin_marginals": [
+    0.5400000000000001,
+    -0.0,
+    0.45999999999999996
+   ],
+   "families": {
+    "mono_f": {
+     "nnz": 3,
+     "rows": 1024,
+     "sum": 0.31954545454545435
+    },
+    "submod_f": {
+     "nnz": 289,
+     "rows": 3584,
+     "sum": 2.1486363636363617
+    },
+    "submod_g": {
+     "nnz": 273,
+     "rows": 3584,
+     "sum": 2.263384524143485
+    },
+    "band_lo": {
+     "nnz": 105,
+     "rows": 1024,
+     "sum": 2.602795779113028
+    },
+    "band_hi": {
+     "nnz": 125,
+     "rows": 1024,
+     "sum": 2.6027957791130296
+    },
+    "greedy": {
+     "nnz": 17,
+     "rows": 22,
+     "sum": 2.643936537291155
+    }
+   },
+   "support": {
+    "mono_f": [
+     {
+      "lambda": 0.23954545454545437,
+      "rational": "527/2200",
+      "desc": "S={o0,o1,o2,o3}[x,y=(0, 4)] e=b0"
+     },
+     {
+      "lambda": 0.04000000000000001,
+      "rational": "1/25",
+      "desc": "S={o0,o1,o2,o3}[x,y=(0, 4)] e=b1"
+     },
+     {
+      "lambda": 0.04000000000000001,
+      "rational": "1/25",
+      "desc": "S={b1,b2,b3,o0,o1,o2,o3}[x,y=(3, 4)] e=b0"
+     }
+    ],
+    "submod_g": [
+     {
+      "lambda": 0.05030100511622493,
+      "rational": "313/4400/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.05030100511622492,
+      "rational": "313/4400/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.05030100511622492,
+      "rational": "313/4400/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.05030100511622492,
+      "rational": "313/4400/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.04676547121029215,
+      "rational": "291/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.04676547121029215,
+      "rational": "291/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.04676547121029215,
+      "rational": "291/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.04676547121029215,
+      "rational": "291/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.030212744287061565,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.030212744287061558,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.030212744287061558,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.030212744287061558,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.030212744287061558,
+      "rational": "47/1100/sqrt(eta)",
+      "desc": "S={b0,b1}[x,y=(2, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0282842712474619,
+      "rational": "1/25/sqrt(eta)",
+      "desc": "S={b1,o0,o1,o2,o3}[x,y=(1, 4)] e=b0 e2=b2"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.028230702551917442,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.02823070255191744,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.02823070255191744,
+      "rational": "?",
+      "desc": "S={b0}[x,y=(1, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.01821335648510805,
+      "rational": "21/1153",
+      "desc": "S={b0,b1,b2}[x,y=(3, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.014195704319275387,
+      "rational": "53/2640/sqrt(eta)",
+      "desc": "S={}[x,y=(0, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.010579817370025993,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o0}[x,y=(1, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o1}[x,y=(1, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o2}[x,y=(1, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.010579817370025989,
+      "rational": "?",
+      "desc": "S={b0,o3}[x,y=(1, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=b2 e2=o3"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=b2 e2=o3"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=b2 e2=o3"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.009803071284631683,
+      "rational": "61/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o0}[x,y=(2, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o1}[x,y=(2, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o2}[x,y=(2, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.008999540851465144,
+      "rational": "7/550/sqrt(eta)",
+      "desc": "S={b0,b1,o3}[x,y=(2, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.0036962399925660645,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1,o2}[x,y=(2, 3)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0036962399925660645,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1,o3}[x,y=(2, 3)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0036962399925660645,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2,o3}[x,y=(2, 3)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0036962399925660645,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2,o3}[x,y=(2, 3)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1,o2}[x,y=(2, 3)] e=b2 e2=b3"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0,o1,o2}[x,y=(3, 3)] e=b2 e2=o3"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o1,o3}[x,y=(2, 3)] e=b2 e2=b3"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0,o1,o3}[x,y=(3, 3)] e=b2 e2=o2"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o0,o2,o3}[x,y=(2, 3)] e=b2 e2=b3"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0,o2,o3}[x,y=(3, 3)] e=b2 e2=o1"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,o1,o2,o3}[x,y=(2, 3)] e=b2 e2=b3"
+     },
+     {
+      "lambda": 0.003696239992566057,
+      "rational": "23/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1,o2,o3}[x,y=(3, 3)] e=b2 e2=o0"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o1}[x,y=(2, 2)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o2}[x,y=(2, 2)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o1,o2}[x,y=(2, 2)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o0,o3}[x,y=(2, 2)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o1,o3}[x,y=(2, 2)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0035891026014771743,
+      "rational": "?",
+      "desc": "S={b0,b1,o2,o3}[x,y=(2, 2)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.0031605530371216994,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.0017677669529663745,
+      "rational": "1/400/sqrt(eta)",
+      "desc": "S={b0,b1,b3}[x,y=(3, 0)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o0}[x,y=(4, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o1}[x,y=(4, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o2}[x,y=(4, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.0005089026076721369,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,b3,o3}[x,y=(4, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o0}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o1}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o2}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331209,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b3,o3}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o1}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o1}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o2}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o2}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o2}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o2}[x,y=(3, 2)] e=b3 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o3}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o0,o3}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o3}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o1,o3}[x,y=(3, 2)] e=b3 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2,o3}[x,y=(3, 2)] e=b3 e2=o0"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,o2,o3}[x,y=(3, 2)] e=b3 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 0.00016070608663331203,
+      "rational": "1/4400/sqrt(eta)",
+      "desc": "S={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o0}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o1}[x,y=(3, 1)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o2}[x,y=(3, 1)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o1 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 8.035304331665602e-05,
+      "rational": "?",
+      "desc": "S={b0,b1,b2,o3}[x,y=(3, 1)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o1}[x,y=(1, 2)] e=o2 e2=o3"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o1}[x,y=(1, 2)] e=o3 e2=o2"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o2}[x,y=(1, 2)] e=o1 e2=o3"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o2}[x,y=(1, 2)] e=o3 e2=o1"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o1,o2}[x,y=(1, 2)] e=o0 e2=o3"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o1,o2}[x,y=(1, 2)] e=o3 e2=o0"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o3}[x,y=(1, 2)] e=o1 e2=o2"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o0,o3}[x,y=(1, 2)] e=o2 e2=o1"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o1,o3}[x,y=(1, 2)] e=o0 e2=o2"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o1,o3}[x,y=(1, 2)] e=o2 e2=o0"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o2,o3}[x,y=(1, 2)] e=o0 e2=o1"
+     },
+     {
+      "lambda": 5.356869554444648e-05,
+      "rational": "?",
+      "desc": "S={b0,o2,o3}[x,y=(1, 2)] e=o1 e2=o0"
+     }
+    ],
+    "greedy": [
+     {
+      "lambda": 0.18722259092780189,
+      "rational": "233/880/sqrt(eta)",
+      "desc": "t=3 e=o3"
+     },
+     {
+      "lambda": 0.18722259092780183,
+      "rational": "233/880/sqrt(eta)",
+      "desc": "t=3 e=o0"
+     },
+     {
+      "lambda": 0.18722259092780183,
+      "rational": "233/880/sqrt(eta)",
+      "desc": "t=3 e=o1"
+     },
+     {
+      "lambda": 0.18722259092780183,
+      "rational": "233/880/sqrt(eta)",
+      "desc": "t=3 e=o2"
+     },
+     {
+      "lambda": 0.16970562748477128,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "t=1 e=o0"
+     },
+     {
+      "lambda": 0.16970562748477128,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "t=1 e=o1"
+     },
+     {
+      "lambda": 0.16970562748477128,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "t=1 e=o2"
+     },
+     {
+      "lambda": 0.16970562748477128,
+      "rational": "6/25/sqrt(eta)",
+      "desc": "t=1 e=o3"
+     },
+     {
+      "lambda": 0.166330799665472,
+      "rational": "207/880/sqrt(eta)",
+      "desc": "t=2 e=o0"
+     },
+     {
+      "lambda": 0.166330799665472,
+      "rational": "207/880/sqrt(eta)",
+      "desc": "t=2 e=o1"
+     },
+     {
+      "lambda": 0.166330799665472,
+      "rational": "207/880/sqrt(eta)",
+      "desc": "t=2 e=o2"
+     },
+     {
+      "lambda": 0.166330799665472,
+      "rational": "207/880/sqrt(eta)",
+      "desc": "t=2 e=o3"
+     },
+     {
+      "lambda": 0.12727922061357863,
+      "rational": "9/50/sqrt(eta)",
+      "desc": "t=0 e=o0"
+     },
+     {
+      "lambda": 0.12727922061357863,
+      "rational": "9/50/sqrt(eta)",
+      "desc": "t=0 e=o1"
+     },
+     {
+      "lambda": 0.12727922061357863,
+      "rational": "9/50/sqrt(eta)",
+      "desc": "t=0 e=o2"
+     },
+     {
+      "lambda": 0.12727922061357863,
+      "rational": "9/50/sqrt(eta)",
+      "desc": "t=0 e=o3"
+     },
+     {
+      "lambda": 0.04178358252465972,
+      "rational": "13/220/sqrt(eta)",
+      "desc": "t=2 e=b3"
+     }
+    ],
+    "band_lo": [
+     {
+      "lambda": 0.16038467446003962,
+      "rational": "499/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.1603846744600396,
+      "rational": "499/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.16038467446003957,
+      "rational": "499/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.16038467446003957,
+      "rational": "499/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.1205295649749798,
+      "rational": "15/88/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.12052956497497978,
+      "rational": "15/88/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.12052956497497978,
+      "rational": "15/88/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.12052956497497978,
+      "rational": "15/88/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3}[x,y=(4, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.0629967859602561,
+      "rational": "49/550/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.0629967859602561,
+      "rational": "49/550/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.0629967859602561,
+      "rational": "49/550/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.0629967859602561,
+      "rational": "49/550/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.028766389507361798,
+      "rational": "179/4400/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o0}"
+     },
+     {
+      "lambda": 0.028766389507361798,
+      "rational": "179/4400/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o1}"
+     },
+     {
+      "lambda": 0.028766389507361798,
+      "rational": "179/4400/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o2}"
+     },
+     {
+      "lambda": 0.028766389507361798,
+      "rational": "179/4400/sqrt(eta)",
+      "desc": "A={b0,b1}[x,y=(2, 0)] B={o3}"
+     },
+     {
+      "lambda": 0.024963012123706885,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.024963012123706885,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.024963012123706885,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.024963012123706885,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.024963012123706885,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o3}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o1}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.02496301212370688,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o2}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.024963012123706874,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.020731085175696485,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.02073108517569648,
+      "rational": "129/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o2}[x,y=(4, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.018695474745007986,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o3}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.018695474745007983,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.018695474745007983,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o0}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.018695474745007983,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,b3,o1}[x,y=(4, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.011410132150964801,
+      "rational": "71/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1,o2}[x,y=(4, 3)] B={o3}"
+     },
+     {
+      "lambda": 0.011410132150964801,
+      "rational": "71/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1,o3}[x,y=(4, 3)] B={o2}"
+     },
+     {
+      "lambda": 0.011410132150964801,
+      "rational": "71/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2,o3}[x,y=(4, 3)] B={o1}"
+     },
+     {
+      "lambda": 0.011410132150964801,
+      "rational": "71/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2,o3}[x,y=(4, 3)] B={o0}"
+     },
+     {
+      "lambda": 0.011195857368787011,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.011195857368787011,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.011195857368787011,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o1}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o2}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o2}[x,y=(4, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o0,o3}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o1,o3}[x,y=(4, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.01119585736878701,
+      "rational": "19/1200/sqrt(eta)",
+      "desc": "A={b0,b1,b2,b3,o2,o3}[x,y=(4, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2}[x,y=(3, 1)] B={o3}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o3}[x,y=(3, 1)] B={o0}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o3}[x,y=(3, 1)] B={o1}"
+     },
+     {
+      "lambda": 0.008303147809387476,
+      "rational": "31/2640/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o3}[x,y=(3, 1)] B={o2}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.004606907816821428,
+      "rational": "?",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.0006428243465333577,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={o0,o1,o2,o3}[x,y=(0, 4)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o2}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o2}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o2}[x,y=(3, 2)] B={o3}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o3}[x,y=(3, 2)] B={o1}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o3}[x,y=(3, 2)] B={o2}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2,o3}[x,y=(3, 2)] B={o0}"
+     },
+     {
+      "lambda": 0.00032141217326662417,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2,o3}[x,y=(3, 2)] B={o1}"
+     }
+    ],
+    "band_hi": [
+     {
+      "lambda": 0.3400540793160758,
+      "rational": "529/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b2}[x,y=(3, 0)] B={b3}"
+     },
+     {
+      "lambda": 0.17034845183130465,
+      "rational": "53/220/sqrt(eta)",
+      "desc": "A={}[x,y=(0, 0)] B={b0}"
+     },
+     {
+      "lambda": 0.11377990933638092,
+      "rational": "177/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3}[x,y=(3, 0)] B={b2}"
+     },
+     {
+      "lambda": 0.08967399634138491,
+      "rational": "279/2200/sqrt(eta)",
+      "desc": "A={b0,o0}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.08967399634138491,
+      "rational": "279/2200/sqrt(eta)",
+      "desc": "A={b0,o1}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.08967399634138491,
+      "rational": "279/2200/sqrt(eta)",
+      "desc": "A={b0,o3}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.0896739963413849,
+      "rational": "279/2200/sqrt(eta)",
+      "desc": "A={b0,o2}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.04435487991079251,
+      "rational": "69/1100/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04435487991079251,
+      "rational": "69/1100/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04435487991079251,
+      "rational": "69/1100/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.04435487991079251,
+      "rational": "69/1100/sqrt(eta)",
+      "desc": "A={b0,b1,o3}[x,y=(2, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.041622876438026306,
+      "rational": "259/4400/sqrt(eta)",
+      "desc": "A={b0,o1,o2,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.04162287643802629,
+      "rational": "259/4400/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o2}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.04162287643802629,
+      "rational": "259/4400/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.04162287643802629,
+      "rational": "259/4400/sqrt(eta)",
+      "desc": "A={b0,o0,o2,o3}[x,y=(1, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.031980511240027924,
+      "rational": "199/4400/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o2}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.031980511240027924,
+      "rational": "199/4400/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.031980511240027924,
+      "rational": "199/4400/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o2,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.031980511240027924,
+      "rational": "199/4400/sqrt(eta)",
+      "desc": "A={b0,b2,o1,o2,o3}[x,y=(2, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.0282842712474619,
+      "rational": "1/25/sqrt(eta)",
+      "desc": "A={b1,o0,o1,o2,o3}[x,y=(1, 4)] B={b2}"
+     },
+     {
+      "lambda": 0.0282842712474619,
+      "rational": "1/25/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1,o2,o3}[x,y=(3, 4)] B={b3}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o0,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o1,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.028069996465284148,
+      "rational": "131/3300/sqrt(eta)",
+      "desc": "A={o2,o3}[x,y=(0, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.025873679947962303,
+      "rational": "161/4400/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.0258736799479623,
+      "rational": "161/4400/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.0258736799479623,
+      "rational": "161/4400/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.0258736799479623,
+      "rational": "161/4400/sqrt(eta)",
+      "desc": "A={o3}[x,y=(0, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.02410591299499593,
+      "rational": "3/88/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02410591299499593,
+      "rational": "3/88/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02410591299499593,
+      "rational": "3/88/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02410591299499593,
+      "rational": "3/88/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o3}[x,y=(3, 1)] B={b2}"
+     },
+     {
+      "lambda": 0.02153461560886298,
+      "rational": "67/2200/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o2}[x,y=(1, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.02153461560886298,
+      "rational": "67/2200/sqrt(eta)",
+      "desc": "A={b0,o0,o1,o3}[x,y=(1, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.02153461560886298,
+      "rational": "67/2200/sqrt(eta)",
+      "desc": "A={b0,o0,o2,o3}[x,y=(1, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.02153461560886298,
+      "rational": "67/2200/sqrt(eta)",
+      "desc": "A={b0,o1,o2,o3}[x,y=(1, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={o0}[x,y=(0, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b3,o0}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b1,b3,o0}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={o1}[x,y=(0, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b3,o1}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b1,b3,o1}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={o2}[x,y=(0, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b3,o2}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b1,b3,o2}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={o3}[x,y=(0, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b3,o3}[x,y=(1, 1)] B={b1}"
+     },
+     {
+      "lambda": 0.016231314749963924,
+      "rational": "101/4400/sqrt(eta)",
+      "desc": "A={b1,b3,o3}[x,y=(2, 1)] B={b0}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0143564104059087,
+      "rational": "67/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.013177899103931101,
+      "rational": "41/2200/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o2}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.013177899103931101,
+      "rational": "41/2200/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.013177899103931101,
+      "rational": "41/2200/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.013177899103931101,
+      "rational": "41/2200/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.012106525193042401,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0,o1}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0121065251930424,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0,o2}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0121065251930424,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o1,o2}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.0121065251930424,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o2,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.012106525193042396,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o0,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.012106525193042396,
+      "rational": "?",
+      "desc": "A={b0,b1,b2,o1,o3}[x,y=(3, 2)] B={b3}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.010070914762353849,
+      "rational": "47/3300/sqrt(eta)",
+      "desc": "A={b0,b1,o2,o3}[x,y=(2, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o2}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,b3,o0,o1,o2}[x,y=(3, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o1,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,b3,o0,o1,o3}[x,y=(3, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,o0,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,b3,o0,o2,o3}[x,y=(3, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,o1,o2,o3}[x,y=(2, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00964236519799837,
+      "rational": "3/220/sqrt(eta)",
+      "desc": "A={b0,b2,b3,o1,o2,o3}[x,y=(3, 3)] B={b1}"
+     },
+     {
+      "lambda": 0.009481659111365033,
+      "rational": "59/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o2}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.009481659111365033,
+      "rational": "59/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.009481659111365033,
+      "rational": "59/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o2,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.009481659111365033,
+      "rational": "59/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o2,o3}[x,y=(3, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.005303300858899123,
+      "rational": "3/400/sqrt(eta)",
+      "desc": "A={b0,b1,o0}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.005303300858899123,
+      "rational": "3/400/sqrt(eta)",
+      "desc": "A={b0,b1,o1}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.005303300858899123,
+      "rational": "3/400/sqrt(eta)",
+      "desc": "A={b0,b1,o2}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.005303300858899123,
+      "rational": "3/400/sqrt(eta)",
+      "desc": "A={b0,b1,o3}[x,y=(2, 1)] B={b3}"
+     },
+     {
+      "lambda": 0.004981888685632477,
+      "rational": "31/4400/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o2}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.004981888685632477,
+      "rational": "31/4400/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o1,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.004981888685632477,
+      "rational": "31/4400/sqrt(eta)",
+      "desc": "A={b0,b1,o0,o2,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.004981888685632477,
+      "rational": "31/4400/sqrt(eta)",
+      "desc": "A={b0,b1,o1,o2,o3}[x,y=(2, 3)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465333577,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={o0,o1,o2,o3}[x,y=(0, 4)] B={b3}"
+     },
+     {
+      "lambda": 0.0006428243465333577,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b3,o0,o1,o2,o3}[x,y=(1, 4)] B={b1}"
+     },
+     {
+      "lambda": 0.0006428243465333577,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b1,b3,o0,o1,o2,o3}[x,y=(2, 4)] B={b0}"
+     },
+     {
+      "lambda": 0.0006428243465333577,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1,o2,o3}[x,y=(3, 4)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o1}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o2}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o2}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o0,o3}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o1,o3}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.0006428243465332483,
+      "rational": "1/1100/sqrt(eta)",
+      "desc": "A={b0,b1,b3,o2,o3}[x,y=(3, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00048211825989993607,
+      "rational": "3/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1,o2}[x,y=(3, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00048211825989993607,
+      "rational": "3/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o1,o3}[x,y=(3, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00048211825989993607,
+      "rational": "3/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o0,o2,o3}[x,y=(3, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00048211825989993607,
+      "rational": "3/4400/sqrt(eta)",
+      "desc": "A={b0,b1,b2,o1,o2,o3}[x,y=(3, 3)] B={b3}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o0,o1}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o0,o1}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o0,o1}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o0,o2}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o0,o2}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o0,o2}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o1,o2}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o1,o2}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o1,o2}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o0,o3}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o0,o3}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o0,o3}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o1,o3}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o1,o3}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o1,o3}[x,y=(2, 2)] B={b0}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={o2,o3}[x,y=(0, 2)] B={b2}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b2,o2,o3}[x,y=(1, 2)] B={b1}"
+     },
+     {
+      "lambda": 0.00032141217326662406,
+      "rational": "1/2200/sqrt(eta)",
+      "desc": "A={b1,b2,o2,o3}[x,y=(2, 2)] B={b0}"
+     }
+    ]
+   },
+   "dual_obj_raw": 0.45999999999999996,
+   "dual_obj_sym": 0.45999999999999996,
+   "dual_feas_residual": 6.106226635438361e-16,
+   "min_multiplier": 0.0
+  }
+ },
+ "D_reduced": {
+  "rows": [
+   {
+    "K": 2,
+    "eta": 1.0,
+    "reduced_sub": 0.75,
+    "min_j_Vj": 0.75,
+    "min_m_Wm": 0.75,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 2,
+    "eta": 1.25,
+    "reduced_sub": 0.6666666666666666,
+    "min_j_Vj": 0.6666666666666667,
+    "min_m_Wm": 0.6666666666666666,
+    "dev_from_V": -1.1102230246251565e-16,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 2,
+    "eta": 1.5,
+    "reduced_sub": 0.5999999999999999,
+    "min_j_Vj": 0.6,
+    "min_m_Wm": 0.6,
+    "dev_from_V": -1.1102230246251565e-16,
+    "dev_from_W": -1.1102230246251565e-16
+   },
+   {
+    "K": 2,
+    "eta": 2.0,
+    "reduced_sub": 0.5000000000000001,
+    "min_j_Vj": 0.5,
+    "min_m_Wm": 0.5,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": 1.1102230246251565e-16
+   },
+   {
+    "K": 2,
+    "eta": 2.5,
+    "reduced_sub": 0.4,
+    "min_j_Vj": 0.4,
+    "min_m_Wm": 0.4,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 2,
+    "eta": 3.0,
+    "reduced_sub": 0.33333333333333337,
+    "min_j_Vj": 0.33333333333333326,
+    "min_m_Wm": 0.3333333333333333,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": 5.551115123125783e-17
+   },
+   {
+    "K": 2,
+    "eta": 4.0,
+    "reduced_sub": 0.25,
+    "min_j_Vj": 0.25,
+    "min_m_Wm": 0.25,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 3,
+    "eta": 1.0,
+    "reduced_sub": 0.7037037037037037,
+    "min_j_Vj": 0.7037037037037037,
+    "min_m_Wm": 0.7037037037037036,
+    "dev_from_V": 0.0,
+    "dev_from_W": 1.1102230246251565e-16
+   },
+   {
+    "K": 3,
+    "eta": 1.25,
+    "reduced_sub": 0.6258503401360545,
+    "min_j_Vj": 0.6258503401360545,
+    "min_m_Wm": 0.6333333333333332,
+    "dev_from_V": 0.0,
+    "dev_from_W": -0.007482993197278742
+   },
+   {
+    "K": 3,
+    "eta": 1.5,
+    "reduced_sub": 0.5625,
+    "min_j_Vj": 0.5625,
+    "min_m_Wm": 0.5757575757575756,
+    "dev_from_V": 0.0,
+    "dev_from_W": -0.01325757575757558
+   },
+   {
+    "K": 3,
+    "eta": 2.0,
+    "reduced_sub": 0.4666666666666667,
+    "min_j_Vj": 0.46666666666666656,
+    "min_m_Wm": 0.4666666666666666,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": 5.551115123125783e-17
+   },
+   {
+    "K": 3,
+    "eta": 2.5,
+    "reduced_sub": 0.38888888888888895,
+    "min_j_Vj": 0.38888888888888884,
+    "min_m_Wm": 0.38888888888888884,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": 1.1102230246251565e-16
+   },
+   {
+    "K": 3,
+    "eta": 3.0,
+    "reduced_sub": 0.3333333333333333,
+    "min_j_Vj": 0.33333333333333326,
+    "min_m_Wm": 0.3333333333333333,
+    "dev_from_V": 5.551115123125783e-17,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 3,
+    "eta": 4.0,
+    "reduced_sub": 0.25,
+    "min_j_Vj": 0.25,
+    "min_m_Wm": 0.25,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 4,
+    "eta": 1.0,
+    "reduced_sub": 0.68359375,
+    "min_j_Vj": 0.68359375,
+    "min_m_Wm": 0.68359375,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 4,
+    "eta": 1.25,
+    "reduced_sub": 0.6063566117509841,
+    "min_j_Vj": 0.606356611750984,
+    "min_m_Wm": 0.6183745583038869,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": -0.01201794655290278
+   },
+   {
+    "K": 4,
+    "eta": 1.5,
+    "reduced_sub": 0.5435762584522915,
+    "min_j_Vj": 0.5435762584522914,
+    "min_m_Wm": 0.5609756097560976,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": -0.0173993513038061
+   },
+   {
+    "K": 4,
+    "eta": 2.0,
+    "reduced_sub": 0.4489795918367347,
+    "min_j_Vj": 0.44897959183673475,
+    "min_m_Wm": 0.46,
+    "dev_from_V": -5.551115123125783e-17,
+    "dev_from_W": -0.011020408163265327
+   },
+   {
+    "K": 4,
+    "eta": 2.5,
+    "reduced_sub": 0.3771626297577856,
+    "min_j_Vj": 0.3771626297577855,
+    "min_m_Wm": 0.38235294117647056,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": -0.005190311418684979
+   },
+   {
+    "K": 4,
+    "eta": 3.0,
+    "reduced_sub": 0.3249999999999999,
+    "min_j_Vj": 0.32499999999999996,
+    "min_m_Wm": 0.325,
+    "dev_from_V": -5.551115123125783e-17,
+    "dev_from_W": -1.1102230246251565e-16
+   },
+   {
+    "K": 4,
+    "eta": 4.0,
+    "reduced_sub": 0.25,
+    "min_j_Vj": 0.25,
+    "min_m_Wm": 0.25,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 5,
+    "eta": 1.0,
+    "reduced_sub": 0.67232,
+    "min_j_Vj": 0.6723199999999999,
+    "min_m_Wm": 0.6723199999999999,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": 1.1102230246251565e-16
+   },
+   {
+    "K": 5,
+    "eta": 1.25,
+    "reduced_sub": 0.5949074074074076,
+    "min_j_Vj": 0.5949074074074073,
+    "min_m_Wm": 0.6098693759071117,
+    "dev_from_V": 2.220446049250313e-16,
+    "dev_from_W": -0.014961968499704104
+   },
+   {
+    "K": 5,
+    "eta": 1.5,
+    "reduced_sub": 0.5321949187838404,
+    "min_j_Vj": 0.5321949187838402,
+    "min_m_Wm": 0.551592356687898,
+    "dev_from_V": 2.220446049250313e-16,
+    "dev_from_W": -0.01939743790405757
+   },
+   {
+    "K": 5,
+    "eta": 2.0,
+    "reduced_sub": 0.4381344307270233,
+    "min_j_Vj": 0.4381344307270234,
+    "min_m_Wm": 0.45365853658536576,
+    "dev_from_V": -1.1102230246251565e-16,
+    "dev_from_W": -0.015524105858342463
+   },
+   {
+    "K": 5,
+    "eta": 2.5,
+    "reduced_sub": 0.36889556724267464,
+    "min_j_Vj": 0.3688955672426748,
+    "min_m_Wm": 0.3795918367346938,
+    "dev_from_V": -1.6653345369377348e-16,
+    "dev_from_W": -0.010696269492019184
+   },
+   {
+    "K": 5,
+    "eta": 3.0,
+    "reduced_sub": 0.31834319526627214,
+    "min_j_Vj": 0.3183431952662721,
+    "min_m_Wm": 0.3230769230769231,
+    "dev_from_V": 5.551115123125783e-17,
+    "dev_from_W": -0.004733727810650956
+   },
+   {
+    "K": 5,
+    "eta": 4.0,
+    "reduced_sub": 0.2470588235294117,
+    "min_j_Vj": 0.24705882352941178,
+    "min_m_Wm": 0.24705882352941178,
+    "dev_from_V": -8.326672684688674e-17,
+    "dev_from_W": -8.326672684688674e-17
+   },
+   {
+    "K": 6,
+    "eta": 1.0,
+    "reduced_sub": 0.6651020233196159,
+    "min_j_Vj": 0.6651020233196159,
+    "min_m_Wm": 0.6651020233196158,
+    "dev_from_V": 0.0,
+    "dev_from_W": 1.1102230246251565e-16
+   },
+   {
+    "K": 6,
+    "eta": 1.25,
+    "reduced_sub": 0.5873687199743578,
+    "min_j_Vj": 0.5873687199743581,
+    "min_m_Wm": 0.6043803013039624,
+    "dev_from_V": -3.3306690738754696e-16,
+    "dev_from_W": -0.017011581329604564
+   },
+   {
+    "K": 6,
+    "eta": 1.5,
+    "reduced_sub": 0.5246000125364737,
+    "min_j_Vj": 0.5246000125364738,
+    "min_m_Wm": 0.5466791006113355,
+    "dev_from_V": -1.1102230246251565e-16,
+    "dev_from_W": -0.022079088074861808
+   },
+   {
+    "K": 6,
+    "eta": 2.0,
+    "reduced_sub": 0.4308221205291077,
+    "min_j_Vj": 0.43082212052910773,
+    "min_m_Wm": 0.4501466275659824,
+    "dev_from_V": -5.551115123125783e-17,
+    "dev_from_W": -0.019324507036874716
+   },
+   {
+    "K": 6,
+    "eta": 2.5,
+    "reduced_sub": 0.36297412757640707,
+    "min_j_Vj": 0.362974127576407,
+    "min_m_Wm": 0.3764172335600906,
+    "dev_from_V": 5.551115123125783e-17,
+    "dev_from_W": -0.013443105983683534
+   },
+   {
+    "K": 6,
+    "eta": 3.0,
+    "reduced_sub": 0.31335449218749994,
+    "min_j_Vj": 0.3133544921875,
+    "min_m_Wm": 0.32170542635658905,
+    "dev_from_V": -5.551115123125783e-17,
+    "dev_from_W": -0.008350934169089108
+   },
+   {
+    "K": 6,
+    "eta": 4.0,
+    "reduced_sub": 0.24414210128495842,
+    "min_j_Vj": 0.2441421012849585,
+    "min_m_Wm": 0.24603174603174605,
+    "dev_from_V": -8.326672684688674e-17,
+    "dev_from_W": -0.0018896447467876276
+   },
+   {
+    "K": 8,
+    "eta": 1.0,
+    "reduced_sub": 0.6563910841941833,
+    "min_j_Vj": 0.6563910841941833,
+    "min_m_Wm": 0.6563910841941833,
+    "dev_from_V": 0.0,
+    "dev_from_W": 0.0
+   },
+   {
+    "K": 8,
+    "eta": 1.25,
+    "reduced_sub": 0.5780445790728063,
+    "min_j_Vj": 0.578044579072806,
+    "min_m_Wm": 0.5964792385688867,
+    "dev_from_V": 2.220446049250313e-16,
+    "dev_from_W": -0.018434659496080474
+   },
+   {
+    "K": 8,
+    "eta": 1.5,
+    "reduced_sub": 0.5151005962127376,
+    "min_j_Vj": 0.5151005962127375,
+    "min_m_Wm": 0.5407533123641354,
+    "dev_from_V": 1.1102230246251565e-16,
+    "dev_from_W": -0.025652716151397748
+   },
+   {
+    "K": 8,
+    "eta": 2.0,
+    "reduced_sub": 0.4215994293552812,
+    "min_j_Vj": 0.42159942935528116,
+    "min_m_Wm": 0.445667231029706,
+    "dev_from_V": 5.551115123125783e-17,
+    "dev_from_W": -0.024067801674424794
+   },
+   {
+    "K": 8,
+    "eta": 2.5,
+    "reduced_sub": 0.3551771316315745,
+    "min_j_Vj": 0.3551771316315745,
+    "min_m_Wm": 0.37347783731125184,
+    "dev_from_V": 0.0,
+    "dev_from_W": -0.018300705679677343
+   },
+   {
+    "K": 8,
+    "eta": 3.0,
+    "reduced_sub": 0.30658836816443247,
+    "min_j_Vj": 0.30658836816443225,
+    "min_m_Wm": 0.3194444444444444,
+    "dev_from_V": 2.220446049250313e-16,
+    "dev_from_W": -0.012856076280011952
+   },
+   {
+    "K": 8,
+    "eta": 4.0,
+    "reduced_sub": 0.23958935698824085,
+    "min_j_Vj": 0.2395893569882407,
+    "min_m_Wm": 0.245260663507109,
+    "dev_from_V": 1.6653345369377348e-16,
+    "dev_from_W": -0.005671306518868158
+   }
+  ],
+  "n_eq_V": 42,
+  "n_eq_W": 19,
+  "n_points": 42
+ },
+ "E_symbolic": {
+  "value": "(K**(m + 1) - m*(K - 1)**m)/(K*(K**m + eta_o*eta_u*(K - 1)**m - (K - 1)**m))",
+  "W_m": "(K**(m + 1) - m*(K - 1)**m)/(K*(K**m + (K - 1)**m*(eta_o*eta_u - 1)))",
+  "A0": "K**m*eta_o/(K**m + eta_o*eta_u*(K - 1)**m - (K - 1)**m)",
+  "value_minus_W": "0",
+  "ok": true
+ },
+ "F_instances": {
+  "n_points": 200,
+  "fails": [],
+  "n_points_split": 210,
+  "fails_split": [],
+  "UK_crossings": [
+   {
+    "K": 4,
+    "eta": 1.25,
+    "min_m_Wm": 0.6183745583038869,
+    "U_K": 0.6115361300174185
+   },
+   {
+    "K": 4,
+    "eta": 1.5,
+    "min_m_Wm": 0.5609756097560976,
+    "U_K": 0.5518748719349773
+   },
+   {
+    "K": 5,
+    "eta": 1.25,
+    "min_m_Wm": 0.6098693759071117,
+    "U_K": 0.598122427983539
+   },
+   {
+    "K": 5,
+    "eta": 1.5,
+    "min_m_Wm": 0.551592356687898,
+    "U_K": 0.5373356339620394
+   },
+   {
+    "K": 5,
+    "eta": 2.0,
+    "min_m_Wm": 0.45365853658536576,
+    "U_K": 0.4450710426933565
+   },
+   {
+    "K": 5,
+    "eta": 2.5,
+    "min_m_Wm": 0.3795918367346938,
+    "U_K": 0.37907867694084496
+   },
+   {
+    "K": 6,
+    "eta": 1.25,
+    "min_m_Wm": 0.6043803013039624,
+    "U_K": 0.5895577453325844
+   },
+   {
+    "K": 6,
+    "eta": 1.5,
+    "min_m_Wm": 0.5466791006113355,
+    "U_K": 0.528095600679588
+   },
+   {
+    "K": 6,
+    "eta": 2.0,
+    "min_m_Wm": 0.4501466275659824,
+    "U_K": 0.43552606994622267
+   },
+   {
+    "K": 6,
+    "eta": 2.5,
+    "min_m_Wm": 0.3764172335600906,
+    "U_K": 0.36983037311689515
+   },
+   {
+    "K": 6,
+    "eta": 3.0,
+    "min_m_Wm": 0.32170542635658905,
+    "U_K": 0.32106584310531616
+   },
+   {
+    "K": 8,
+    "eta": 1.25,
+    "min_m_Wm": 0.5964792385688867,
+    "U_K": 0.5792467312691798
+   },
+   {
+    "K": 8,
+    "eta": 1.5,
+    "min_m_Wm": 0.5407533123641354,
+    "U_K": 0.5170171946466788
+   },
+   {
+    "K": 8,
+    "eta": 2.0,
+    "min_m_Wm": 0.445667231029706,
+    "U_K": 0.4241700985581466
+   },
+   {
+    "K": 8,
+    "eta": 2.5,
+    "min_m_Wm": 0.37347783731125184,
+    "U_K": 0.35889293584017434
+   },
+   {
+    "K": 8,
+    "eta": 3.0,
+    "min_m_Wm": 0.3194444444444444,
+    "U_K": 0.3107561315413552
+   },
+   {
+    "K": 8,
+    "eta": 4.0,
+    "min_m_Wm": 0.245260663507109,
+    "U_K": 0.24476820113559883
+   },
+   {
+    "K": 12,
+    "eta": 1.25,
+    "min_m_Wm": 0.5892080418833849,
+    "U_K": 0.5693463482155051
+   },
+   {
+    "K": 12,
+    "eta": 1.5,
+    "min_m_Wm": 0.5344313946534616,
+    "U_K": 0.5064277365219434
+   },
+   {
+    "K": 12,
+    "eta": 2.0,
+    "min_m_Wm": 0.4414469017108615,
+    "U_K": 0.41340529604211373
+   },
+   {
+    "K": 12,
+    "eta": 2.5,
+    "min_m_Wm": 0.37056335007787733,
+    "U_K": 0.34859062308484456
+   },
+   {
+    "K": 12,
+    "eta": 3.0,
+    "min_m_Wm": 0.31699921361643146,
+    "U_K": 0.3010915777130102
+   },
+   {
+    "K": 12,
+    "eta": 4.0,
+    "min_m_Wm": 0.24388218842859644,
+    "U_K": 0.23637180973035432
+   },
+   {
+    "K": 20,
+    "eta": 1.25,
+    "min_m_Wm": 0.5835945299409523,
+    "U_K": 0.5617032868535536
+   },
+   {
+    "K": 20,
+    "eta": 1.5,
+    "min_m_Wm": 0.5295125128068767,
+    "U_K": 0.49828523672420033
+   },
+   {
+    "K": 20,
+    "eta": 2.0,
+    "min_m_Wm": 0.4380162600901054,
+    "U_K": 0.40518790382737124
+   },
+   {
+    "K": 20,
+    "eta": 2.5,
+    "min_m_Wm": 0.36821239181176635,
+    "U_K": 0.34076930539744066
+   },
+   {
+    "K": 20,
+    "eta": 3.0,
+    "min_m_Wm": 0.31526263466478804,
+    "U_K": 0.2937845049189304
+   },
+   {
+    "K": 20,
+    "eta": 4.0,
+    "min_m_Wm": 0.24283996297807642,
+    "U_K": 0.2300591854789984
+   }
+  ],
+  "headline": [
+   {
+    "K": 3,
+    "eta": 1.5,
+    "target": 0.5757575757575758,
+    "ratio": 0.5757575757575758,
+    "m": 2,
+    "ok": true
+   },
+   {
+    "K": 4,
+    "eta": 1.5,
+    "target": 0.5609756097560976,
+    "ratio": 0.5609756097560975,
+    "m": 2,
+    "ok": true
+   },
+   {
+    "K": 4,
+    "eta": 2.0,
+    "target": 0.46,
+    "ratio": 0.45999999999999996,
+    "m": 2,
+    "ok": true
+   },
+   {
+    "K": 5,
+    "eta": 1.5,
+    "target": 0.5515923566878981,
+    "ratio": 0.5515923566878981,
+    "m": 3,
+    "ok": true
+   },
+   {
+    "K": 5,
+    "eta": 2.0,
+    "target": 0.45365853658536587,
+    "ratio": 0.45365853658536587,
+    "m": 2,
+    "ok": true
+   }
+  ],
+  "formula": "Ground set b_0..b_{K-1} = bits 0..K-1, o_0..o_{K-1} = bits K..2K-1.\n\n        r = 1-1/K,  D = 1 + (eta-1) r^m,  A0 = eta_o / D,\n        d_t = r^{min(t,m)} / (K D),       dtilde_t = eta_o d_t,\n        cut(S) = sum_{t < m, b_t in S} d_t,       y = |S n O|\n\n        f(S)      = sum_{b_t in S} d_t        + (y/K) (1  - cut(S))\n        ftilde(S) = eta_o sum_{b_t in S} d_t  + (y/K) (A0 - eta_o cut(S))\n    "
+ },
+ "G_canonical_duals": {
+  "essentiality": [
+   {
+    "K": 2,
+    "eta": 1.5,
+    "min_submod_g_mass": 0.0,
+    "value": 0.6000000000000001,
+    "min_m_Wm": 0.6,
+    "argmin_m": 1,
+    "min_j_Vj": 0.6,
+    "value_changes_vs_base": false,
+    "consistent": true
+   },
+   {
+    "K": 2,
+    "eta": 2.0,
+    "min_submod_g_mass": 0.0,
+    "value": 0.49999999999999994,
+    "min_m_Wm": 0.5,
+    "argmin_m": 0,
+    "min_j_Vj": 0.5,
+    "value_changes_vs_base": false,
+    "consistent": true
+   },
+   {
+    "K": 3,
+    "eta": 1.25,
+    "min_submod_g_mass": 0.4919349550499479,
+    "value": 0.6333333333333333,
+    "min_m_Wm": 0.6333333333333332,
+    "argmin_m": 2,
+    "min_j_Vj": 0.6258503401360545,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 3,
+    "eta": 1.5,
+    "min_submod_g_mass": 0.5195887333176572,
+    "value": 0.575757575757576,
+    "min_m_Wm": 0.5757575757575756,
+    "argmin_m": 2,
+    "min_j_Vj": 0.5625,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 3,
+    "eta": 1.8,
+    "min_submod_g_mass": 0.186338998124979,
+    "value": 0.507246376811594,
+    "min_m_Wm": 0.5072463768115941,
+    "argmin_m": 1,
+    "min_j_Vj": 0.5009451795841209,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 3,
+    "eta": 2.0,
+    "min_submod_g_mass": 0.0,
+    "value": 0.46666666666666645,
+    "min_m_Wm": 0.4666666666666666,
+    "argmin_m": 1,
+    "min_j_Vj": 0.46666666666666656,
+    "value_changes_vs_base": false,
+    "consistent": true
+   },
+   {
+    "K": 3,
+    "eta": 3.0,
+    "min_submod_g_mass": 0.0,
+    "value": 0.33333333333333337,
+    "min_m_Wm": 0.3333333333333333,
+    "argmin_m": 0,
+    "min_j_Vj": 0.33333333333333326,
+    "value_changes_vs_base": false,
+    "consistent": true
+   },
+   {
+    "K": 4,
+    "eta": 1.25,
+    "min_submod_g_mass": 1.3147763655687388,
+    "value": 0.6183745583038869,
+    "min_m_Wm": 0.6183745583038869,
+    "argmin_m": 3,
+    "min_j_Vj": 0.606356611750984,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 4,
+    "eta": 1.5,
+    "min_submod_g_mass": 0.8164965809276965,
+    "value": 0.5609756097560972,
+    "min_m_Wm": 0.5609756097560976,
+    "argmin_m": 2,
+    "min_j_Vj": 0.5435762584522914,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 4,
+    "eta": 2.0,
+    "min_submod_g_mass": 0.5091168824543095,
+    "value": 0.46,
+    "min_m_Wm": 0.46,
+    "argmin_m": 2,
+    "min_j_Vj": 0.44897959183673475,
+    "value_changes_vs_base": true,
+    "consistent": true
+   },
+   {
+    "K": 4,
+    "eta": 3.0,
+    "min_submod_g_mass": 0.0,
+    "value": 0.3250000000000002,
+    "min_m_Wm": 0.325,
+    "argmin_m": 1,
+    "min_j_Vj": 0.32499999999999996,
+    "value_changes_vs_base": false,
+    "consistent": true
+   }
+  ],
+  "greedy_pattern": [
+   {
+    "K": 3,
+    "eta": 1.25,
+    "m_star": 2,
+    "observed": {
+     "0": 0.1833333333,
+     "1": 0.275,
+     "2": 0.3333333333
+    },
+    "predicted": {
+     "0": 0.1833333333333334,
+     "1": 0.27500000000000013,
+     "2": 0.3333333333333333
+    },
+    "max_dev": 3.333339160249693e-11
+   },
+   {
+    "K": 3,
+    "eta": 1.5,
+    "m_star": 2,
+    "observed": {
+     "0": 0.2121212121,
+     "1": 0.3181818182,
+     "2": 0.3333333333
+    },
+    "predicted": {
+     "0": 0.2121212121212122,
+     "1": 0.31818181818181834,
+     "2": 0.3333333333333333
+    },
+    "max_dev": 3.33333360913457e-11
+   },
+   {
+    "K": 3,
+    "eta": 1.8,
+    "m_star": 1,
+    "observed": {
+     "0": 0.2463768116,
+     "1": 0.3333333333,
+     "2": 0.3333333333
+    },
+    "predicted": {
+     "0": 0.24637681159420294,
+     "1": 0.3333333333333333,
+     "2": 0.3333333333333333
+    },
+    "max_dev": 3.33333360913457e-11
+   },
+   {
+    "K": 4,
+    "eta": 1.25,
+    "m_star": 3,
+    "observed": {
+     "0": 0.1272084806,
+     "1": 0.1696113074,
+     "2": 0.2261484099,
+     "3": 0.25
+    },
+    "predicted": {
+     "0": 0.12720848056537104,
+     "1": 0.1696113074204947,
+     "2": 0.22614840989399296,
+     "3": 0.25
+    },
+    "max_dev": 3.462896636108326e-11
+   },
+   {
+    "K": 4,
+    "eta": 1.5,
+    "m_star": 2,
+    "observed": {
+     "0": 0.1463414634,
+     "1": 0.1951219512,
+     "2": 0.25,
+     "3": 0.25
+    },
+    "predicted": {
+     "0": 0.14634146341463414,
+     "1": 0.19512195121951217,
+     "2": 0.25,
+     "3": 0.25
+    },
+    "max_dev": 1.9512169657787126e-11
+   },
+   {
+    "K": 4,
+    "eta": 2.0,
+    "m_star": 2,
+    "observed": {
+     "0": 0.18,
+     "1": 0.24,
+     "2": 0.25,
+     "3": 0.25
+    },
+    "predicted": {
+     "0": 0.18000000000000002,
+     "1": 0.24000000000000002,
+     "2": 0.25,
+     "3": 0.25
+    },
+    "max_dev": 2.7755575615628914e-17
+   }
+  ]
+ },
+ "checks": [
+  {
+   "check": "A: K=3 eta=1.5 sub-LP = 19/33",
+   "pass": true,
+   "info": "value=0.575757575758 (min_m W_m=0.575757575758, m*=2, 0.5s)"
+  },
+  {
+   "check": "A: K=4 eta=2.0 sub-LP = 23/50",
+   "pass": true,
+   "info": "value=0.460000000000 (min_m W_m=0.460000000000, m*=2, 1.6s)"
+  },
+  {
+   "check": "B: LP = min_m W_m on all boundary-crossing eta",
+   "pass": true,
+   "info": "18 points, max |LP - min_m W_m| = 6.66e-16"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=2, eta=1.5)",
+   "pass": true,
+   "info": "b'y = 0.600000000000 vs 0.600000000000, |A'y - c|_inf = 1.11e-16, min lambda = 0.00e+00"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=2, eta=2.0)",
+   "pass": true,
+   "info": "b'y = 0.500000000000 vs 0.500000000000, |A'y - c|_inf = 1.11e-16, min lambda = 0.00e+00"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=3, eta=1.5)",
+   "pass": true,
+   "info": "b'y = 0.575757575758 vs 0.575757575758, |A'y - c|_inf = 1.67e-16, min lambda = 0.00e+00"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=3, eta=2.0)",
+   "pass": true,
+   "info": "b'y = 0.466666666667 vs 0.466666666667, |A'y - c|_inf = 1.94e-16, min lambda = 0.00e+00"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=4, eta=1.5)",
+   "pass": true,
+   "info": "b'y = 0.560975609756 vs 0.560975609756, |A'y - c|_inf = 1.05e-15, min lambda = 0.00e+00"
+  },
+  {
+   "check": "C: symmetrised dual is feasible with objective = LP value (K=4, eta=2.0)",
+   "pass": true,
+   "info": "b'y = 0.460000000000 vs 0.460000000000, |A'y - c|_inf = 6.11e-16, min lambda = 0.00e+00"
+  },
+  {
+   "check": "D: reduced-sub LP equals min_j V_j at every grid point",
+   "pass": true,
+   "info": "42/42 equal min_j V_j, 19/42 equal min_m W_m"
+  },
+  {
+   "check": "E1: tight system implies objective = W_m (symbolic K, m, eta_u, eta_o)",
+   "pass": true,
+   "info": "value - W_m = 0"
+  },
+  {
+   "check": "E2: A_0 = eta_o / (1 + (eta-1) r^m)",
+   "pass": true,
+   "info": "A0 = K**m*eta_o/(K**m + eta_o*eta_u*(K - 1)**m - (K - 1)**m)"
+  },
+  {
+   "check": "E3: the attained value depends on eta_u, eta_o only through eta",
+   "pass": true,
+   "info": null
+  },
+  {
+   "check": "F1: family is a valid instance and attains W_m (symmetric eta split)",
+   "pass": true,
+   "info": "200/200 PASS, max ftilde-submod violation 5.55e-16, max |ratio - W_m| 2.22e-16"
+  },
+  {
+   "check": "F2: same family for every split eta = eta_u * eta_o",
+   "pass": true,
+   "info": "210/210 PASS"
+  },
+  {
+   "check": "F3: min_m W_m > U_K at the recorded (K, eta) (now instance-backed)",
+   "pass": true,
+   "info": "29 grid points exceed U_K"
+  },
+  {
+   "check": "F4: family reproduces the five F4 headline values",
+   "pass": true,
+   "info": "K=3,eta=1.5:0.575757576, K=4,eta=1.5:0.560975610, K=4,eta=2.0:0.460000000, K=5,eta=1.5:0.551592357, K=5,eta=2.0:0.453658537"
+  },
+  {
+   "check": "G1: submod_g dual mass is > 0 exactly where the value moves off min_j V_j",
+   "pass": true,
+   "info": "11/11"
+  },
+  {
+   "check": "G2: lambda_greedy(t)*eta_o = (1-W_m)/(K-1) * (K/(K-1))^t for t < m*, = 1/K for t >= m*",
+   "pass": true,
+   "info": "6/6 points"
+  }
+ ],
+ "seconds": 54.4
+}
