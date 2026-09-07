@@ -576,6 +576,24 @@ program they define is compared against the full-lattice program by
 % ---------------------------------------------------------------------------
 \subsection{The exact worst case (Theorem~\ref{thm:exact})}\label{app:exact}
 
+\paragraph{Roadmap.}
+The mechanism behind the value runs in the following order.  The sharp form of
+Lemma~\ref{lem:coherence}, in Section~\ref{sec:coherence}, limits how much a
+single step can lose now and cost later at the same time; the two-phase
+trajectory of the attaining instances below is the shape that limit leaves
+available; the multipliers \eqref{eq:duals-jpos} turn that shape into a lower
+bound valid for every run, and the instances \eqref{eq:vj-family} attain it;
+Appendix~\ref{app:rigidity} reads the same certificate backwards and recovers
+the trajectory from the equality case; and the integer breakpoints appear
+there as the error levels at which the multipliers carrying that argument
+vanish.  The coefficient bookkeeping of the certificate, the gain table of the
+instances, and the validity of the four constraint families
+(Appendix~\ref{app:validity}) are kept apart from that line of reasoning and
+can be read afterwards.
+% Roadmap added in H-J3 item 5, following results/J3_proof_structure.md
+% section 5.  Minimal reorganization: the existing proofs below are unchanged,
+% only this pointer paragraph was inserted.
+
 Throughout this subsection $K\ge2$, $\eta\ge1$, $f(O^{\ast})=1$, and
 \[
   k_1=(K-1)\eta+1,\qquad q=\frac{(K-1)\eta}{k_1}=1-\frac1{k_1},\qquad
@@ -985,6 +1003,204 @@ $\eta'\uparrow\eta$.
 
 The identities of this proof are machine-checked by
 \texttt{results/N2\_check.py}.
+
+% ---------------------------------------------------------------------------
+\subsection{Structure of the attaining runs
+(Proposition~\ref{prop:rigidity})}\label{app:rigidity}
+% Status (ledger card T6b, H-J3).  The recurrences of Steps 3 to 6 and the
+% rearrangement used in Step 7 are [VERIFIED-SYMBOLIC] and the collapse of the
+% optimal face is [VERIFIED-LP], both in results/H_J3_gate_check.py; the
+% assembly of the steps into a statement about a run of arbitrary size is
+% [HAND-PROOF-UNREVIEWED] and is NOT to be upgraded (no script certifies an
+% arbitrary K).  Source: results/J3_proof_structure.md sections 2, 2.1, 2.2.
+% The J3 note's own oracle script (J3_structure_oracles.py) was never
+% delivered, so every citation below names results/H_J3_gate_check.py, our
+% independent re-implementation of that gate, and no claim rests on the
+% undelivered script.  Per the file convention the visible text states the
+% argument and never asserts a verification tag.
+
+Throughout this subsection the notation is that of Appendix~\ref{app:exact},
+$f(O^{\ast})=1$, and $\eta$ lies in the interior of a segment: either
+$K-j<\eta<K-j+1$ for some $j$ with $1\le j\le K-1$, or $j=0$ and $\eta>K$.
+Write $\gamma=1-\tfrac1\eta$ and $r_t=1-\sum_{s<t}d_s$, so that $r_0=1$ and
+$r_{t+1}=r_t-d_t$.  Fix a run of predictive greedy with adversarial ties whose
+value attains the exact worst case, $\sum_{t<K}d_t=V_j(\eta)$;
+Appendix~\ref{app:validity} makes the vector $(d_t,g_{t,i})$ it induces
+feasible for \eqref{eq:redlp}.  Nothing below assumes that the run avoids
+$O^{\ast}$ or that the numbers $g_{t,i}$ are equal across $i$; both come out
+of the argument.
+
+\paragraph{Step 1: which multipliers are positive.}
+On the interior of the segment, $M=K\eta-(K-j)>0$, $q\in(0,1)$, $k_1>0$, and
+$\eta>1$: for $j\le K-2$ the segment gives $\eta>K-j\ge2$, and for $j=K-1$ the
+segment is $(1,2)$.  Reading the signs off \eqref{eq:duals-jpos} and
+\eqref{eq:duals-jzero}:
+\begin{itemize}
+\item $\lambda_S(t)>0$ exactly for $0\le t\le j$.  The entries with
+$t\le j-1$ are positive multiples of $M$, and
+$\lambda_S(j)=(K-j+1-\eta)/k_1>0$ because $\eta<K-j+1$ strictly inside the
+segment, while $\lambda_S(t)=0$ for $t>j$ by definition.  For $j=0$ the single
+entry is $\lambda_S(0)=1/\eta>0$.
+\item $\lambda_C(t)>0$ exactly for $0\le t\le K-2$.  For $t\le j-1$ the entry
+is a positive multiple of $M$; for $j\le t\le K-2$ it is
+$(K-1-t)/(K(\eta-1))>0$; and $\lambda_C(K-1)=0$.
+\item $\lambda_P(t)>0$ exactly for $j\le t\le K-1$.  It is $0$ for $t<j$ by
+definition, and for $t\ge j$ its numerator is
+$\eta-(K-t)\ge\eta-(K-j)>0$, again strictly inside the segment.
+\item every multiplier of the family $\mathrm{mono}$ is $0$.
+\end{itemize}
+At an integer $\eta$ one of the two strict inequalities above becomes an
+equality, which is the content of
+Remark~\ref{rem:rigidity-breakpoints}: $\lambda_P(j)$ vanishes at the left
+endpoint of the segment and $\lambda_S(j)$ at the right endpoint.
+
+\paragraph{Step 2: every supported constraint holds with equality.}
+Identity \eqref{eq:combination} reads $\sum_{t<K}d_t-V_j=\Sigma$ for every
+vector, and $\Sigma$ is a sum of terms $\lambda_r\,\mathrm{slack}_r$ with
+$\lambda_r\ge0$ throughout and $\mathrm{slack}_r\ge0$ at a feasible point.
+The run attains the value, so the left-hand side is $0$, so every term
+vanishes, so
+\[
+  \mathrm{sum}(t)\ (0\le t\le j),\qquad
+  \mathrm{cons}(t,i)\ (0\le t\le K-2),\qquad
+  \mathrm{pred}(t,i)\ (j\le t\le K-1)
+\]
+hold with equality, for every index $i$.  The constraints carrying a zero
+multiplier, namely $\mathrm{sum}(t)$ for $t>j$, $\mathrm{cons}(K-1,i)$ and
+every $\mathrm{mono}(t,i)$, stay valid but are not forced; Step 7 uses two of
+them as inequalities.
+
+\paragraph{Step 3: the geometric phase, $t<j$.}
+Let $t<j$; the range is empty when $j=0$.  Both $\mathrm{sum}(t)$ and
+$\mathrm{sum}(t+1)$ carry indices at most $j$, so
+$\sum_ig_{t,i}=r_t$ and $\sum_ig_{t+1,i}=r_{t+1}$.  Summing the $K$ equalities
+$\mathrm{cons}(t,i)$ over $i$, which is legitimate because
+$t\le j-1\le K-2$,
+\[
+  \gamma\sum_ig_{t+1,i}-\sum_ig_{t,i}+Kd_t=0,
+  \qquad\text{that is}\qquad
+  \gamma\,r_{t+1}=r_t-Kd_t .
+\]
+Substituting $r_{t+1}=r_t-d_t$ gives $d_t(K-\gamma)=r_t(1-\gamma)=r_t/\eta$,
+and $K-\gamma=K-1+\tfrac1\eta=k_1/\eta$, so
+\[
+  d_t=\frac{r_t}{k_1},\qquad r_{t+1}=r_t\Bigl(1-\frac1{k_1}\Bigr)=q\,r_t .
+\]
+With $r_0=1$ this gives $r_t=q^{\,t}$ and $d_t=q^{\,t}/k_1$ for every $t<j$,
+and $r_j=q^{\,j}$.
+
+\paragraph{Step 4: the switch at $t=j$.}
+The index $j$ lies in the support of both $\lambda_S$ and $\lambda_P$, so
+$\mathrm{pred}(j,i)$ holds with equality for every $i$, which is
+$g_{j,i}=\eta\,d_j$, and $\mathrm{sum}(j)$ holds with equality, which is
+$\sum_ig_{j,i}=r_j=q^{\,j}$ (for $j=0$ this is $r_0=1=q^{0}$).  Hence
+$K\eta\,d_j=q^{\,j}$, that is
+\[
+  d_j=\frac{q^{\,j}}{K\eta},\qquad
+  g_{j,i}=\frac{q^{\,j}}{K}\quad\text{for every }i .
+\]
+The $K$ numbers $g_{j,i}$ come out equal; this is a conclusion of the equality
+case, not a symmetry imposed on the program, which treats the indices $i$
+separately.
+
+\paragraph{Step 5: the frozen phase, $j\le t\le K-2$.}
+Both $\mathrm{pred}(t,i)$ and $\mathrm{pred}(t+1,i)$ hold with equality, so
+$g_{t,i}=\eta d_t$ and $g_{t+1,i}=\eta d_{t+1}$, and $\mathrm{cons}(t,i)$
+holds with equality, so
+\[
+  \gamma\,g_{t+1,i}=g_{t,i}-d_t=(\eta-1)d_t,
+  \qquad\text{while}\qquad
+  \gamma\,g_{t+1,i}=\gamma\eta\,d_{t+1}=(\eta-1)d_{t+1} .
+\]
+Since $\eta>1$ this forces $d_{t+1}=d_t$ and then $g_{t+1,i}=g_{t,i}$.  With
+Step 4, $d_t=q^{\,j}/(K\eta)$ and $g_{t,i}=q^{\,j}/K$ for every $t$ with
+$j\le t\le K-1$ and every $i$.
+
+\paragraph{Step 6: the optimal marginals before the switch.}
+For $t<j$ the equality $\mathrm{cons}(t,i)$ reads
+$g_{t,i}=d_t+\gamma\,g_{t+1,i}$.  Going downwards from
+$g_{j,i}=q^{\,j}/K$ and assuming $g_{t+1,i}=q^{\,t+1}/K$,
+\[
+  g_{t,i}=\frac{q^{\,t}}{k_1}+\gamma\,\frac{q^{\,t+1}}{K}
+  =\frac{q^{\,t}}{K}\Bigl[\frac{K}{k_1}
+    +\frac{\eta-1}{\eta}\cdot\frac{(K-1)\eta}{k_1}\Bigr]
+  =\frac{q^{\,t}}{K}\cdot\frac{K+(K-1)(\eta-1)}{k_1}
+  =\frac{q^{\,t}}{K},
+\]
+because $K+(K-1)(\eta-1)=(K-1)\eta+1=k_1$.  Downward induction gives
+$g_{t,i}=q^{\,t}/K$ for every $t\le j$ and every $i$, one index $i$ at a time.
+
+\paragraph{Step 7: the last state.}
+The multiplier $\lambda_C(K-1)$ is $0$, so Step 2 does not force
+$\mathrm{cons}(K-1,i)$; the constraint is valid all the same
+(Lemma~\ref{lem:app-cons}), and so is $\mathrm{mono}(K-1,i)$
+(Lemma~\ref{lem:app-mono}).  Write $d=d_{K-1}$, $g=g_{K-1,i}$ and
+$h=g_{K,i}$.  Rearranged as the sharp form of Section~\ref{sec:coherence},
+the two constraints read
+\[
+  d-\frac g\eta\;\ge\;\Bigl(1-\frac1\eta\Bigr)(g-h)
+  \qquad\text{and}\qquad
+  g-h\;\ge\;0 .
+\]
+Step 2 forces $\mathrm{pred}(K-1,i)$ with equality, that is $d=g/\eta$, so the
+left-hand side of the first display is $0$; since $\eta>1$ the two displays
+leave $h=g=q^{\,j}/K$.  Every variable of the run is therefore determined, and
+the values are those of Proposition~\ref{prop:rigidity}.  As a check,
+$\sum_{t<K}d_t=(1-q^{\,j})+(K-j)q^{\,j}/(K\eta)=V_j(\eta)$, and the gain table
+of Appendix~\ref{app:exact} shows that the instances \eqref{eq:vj-family}
+follow exactly this trajectory, so the forced trajectory is realized.
+
+\paragraph{What the argument delivers and what it leaves open.}
+Every $g_{K,i}$ equals $q^{\,j}/K>0$, while the zeroing convention of
+Appendix~\ref{app:validity} sets $g_{K,i}=0$ whenever $o_i\in S^{K}$.  So no
+optimal element is selected: an attaining run in this range of $\eta$ is
+disjoint from the fixed $O^{\ast}$.  The reduction of
+Appendix~\ref{app:validity} still has to admit runs that select optimal
+elements, and the equality analysis excludes them only in the narrower
+situation treated here.  The conclusion is about the vector $(d_t,g_{t,i})$
+and about nothing else: the pair $(f,\tilde f)$ is not determined by it, and
+neither are the true marginals of the candidates the run does not select.  In
+particular the largest true marginal at a state, the quantity that
+Definition~\ref{def:etasel} compares the chosen gain against, is not pinned by
+this argument.  At an integer $\eta$ the argument stops at Step 1, and
+Remark~\ref{rem:rigidity-breakpoints} records that the conclusion itself
+fails there.
+
+Two consequences of the same certificate are recorded in
+Remark~\ref{rem:rigidity-ties}.  For the first, the slack of
+$\mathrm{pred}(t,i)$ decomposes in case (b) of Appendix~\ref{app:validity},
+with $P=\tilde d_{e_t}(S^{t})$ and $Q=\tilde d_{o_i}(S^{t})$, as
+\[
+  d_t-\frac{g_{t,i}}{\eta}
+  =\underbrace{\frac{\eta_od_t-P}{\eta_o}}_{\text{upper band at }(S^{t},e_t)}
+  +\underbrace{\frac{P-Q}{\eta_o}}_{\text{greedy}}
+  +\underbrace{\frac{\eta_uQ-g_{t,i}}{\eta_u\eta_o}}_{\text{lower band at
+   }(S^{t},o_i)} ,
+\]
+the three-term counterpart of the decomposition of the $\mathrm{cons}(t,i)$
+slack in Lemma~\ref{lem:app-cons}.  Steps 2 and 7 put both slacks at zero,
+the coherence one for $t\le K-2$ and the greedy-choice one at $t=K-1$, and
+each term of each decomposition is nonnegative, so $P=Q$ at every step: the
+selected element and every optimal element carry the same predicted gain, and
+the run is a sequence of ties.  For the second, if the run outputs
+$V_j(\eta)+\varepsilon$ instead of $V_j(\eta)$, then \eqref{eq:combination}
+gives $\sum_r\lambda_r\,\mathrm{slack}_r=\varepsilon$ with all terms
+nonnegative, hence $\mathrm{slack}_r\le\varepsilon/\lambda_r$ for every
+constraint with $\lambda_r>0$.  That bound is stated for one run at a time;
+the multipliers themselves degenerate at the segment endpoints, and no uniform
+statement over $\eta$ and $K$ is derived from it here.
+
+The recurrences of Steps 3 to 6, the rearrangement of Step 7 and the two
+$K=3$, $\eta=2$ sequences of Remark~\ref{rem:rigidity-breakpoints} are
+machine-checked by \texttt{results/H\_J3\_gate\_check.py}.  The same script
+also fixes the objective of \eqref{eq:redlp} at the exact rational $V_j(\eta)$
+and minimizes and maximizes each coordinate separately, for $K=2,\dots,6$,
+every $j$ and two error levels per segment: on all $40$ optimal faces the
+$2{,}480$ linear programs collapse every coordinate range to the values above,
+with a largest deviation of about $4\cdot10^{-15}$, and no symmetry constraint
+is added to the program.  What no script checks is the assembly of Steps 1 to
+7 into a statement about a run of arbitrary size: the face enumeration is
+finite, and the induction above carries the general case.
 
 % ---------------------------------------------------------------------------
 \subsection{The ceiling (Theorem~\ref{thm:ceiling})}\label{app:ceiling}

@@ -97,7 +97,7 @@ $\etasel$ is computable from the run when $f$ becomes observable in
 hindsight, which makes Proposition~\ref{prop:guarantee} a certificate: the
 measured $\etasel$ of a finished run certifies the printed bound for that
 run, and a run with a harmful zero step ($a_t=\infty$) certifies nothing,
-which the value $L_K(\infty)=0$ reports honestly.  The certificate reading
+which the value $L_K(\infty)=0$ makes explicit.  The certificate reading
 requires the true objective to be monotone submodular; on objectives
 outside the model the same measurement is only a selection diagnostic.
 The experiments of Section~\ref{sec:experiments} report which of their
@@ -138,6 +138,35 @@ $\tilde d_{e}(S)\ge\tilde d_{e'}(S)$.  Then
 % ftilde(S u {e,e'}) - ftilde(S) in two orders, Appendix \ref{app:coherence}.
 % Renamed from "consistency lemma": consistency retains its
 % learning-augmented-algorithms meaning throughout (GLOSSARY).
+
+Part (ii) has a sharp form that is the starting point of the proof of the next
+theorem.  Let $e$ be the element the predictor prefers at $S$ and $e'$ a
+competing candidate, and write $d=d_{e}(S)$ for the chosen true gain,
+$g=d_{e'}(S)$ for the competitor's current true gain and
+$h=d_{e'}(S\cup\{e\})$ for the same competitor's gain after the step; then
+(ii), combined with submodularity of $f$, reads
+\[
+  d-\frac g\eta\;\ge\;\Bigl(1-\frac1\eta\Bigr)(g-h)\;\ge\;0 .
+\]
+The left-hand side is the margin by which the chosen gain exceeds the smallest
+value the error band allows it, and the middle expression is the amount by
+which the step erodes the competitor's next gain, so the two kinds of damage
+cannot both be extreme at the same step.  In particular, for $\eta>1$ a step
+with $d=g/\eta$ forces $h=g$: a maximally wrong selection cannot also erode
+that candidate's future gain.
+% Status (ledger card T5, sharp form, adopted in H-J3): the first inequality is
+% an equivalent rearrangement of (ii) [VERIFIED-SYMBOLIC,
+% results/H_J3_gate_check.py item 1]; the second is g >= h, which is
+% submodularity of f, together with eta >= 1.  Kept inside this subsection and
+% NOT made a separate theorem, which the ledger card states explicitly.
+% Scope: like the lemma it is charged the global eta, since the proof of (ii)
+% uses the band at the off-trajectory state S u {e'}; it is NOT available with
+% etasel or etatr (Remark \ref{rem:app-rulers}).
+% The equality case is consumed in Appendix \ref{app:rigidity}, last step of
+% Proposition \ref{prop:rigidity}.
+% Source: results/J3_proof_structure.md section 1.  The J3 note's own oracle
+% script was never delivered, so the citation above is to our independent
+% implementation results/H_J3_gate_check.py.
 
 % ---------------------------------------------------------------- block 6 --
 \subsection{The exact worst case}\label{sec:exact}
@@ -182,6 +211,138 @@ $[1,2],[2,3],[3,4],[4,\infty)$.
 %    \ref{prop:guarantee} analysis and more, so its value dominates (F0).
 % The instances use adversarial ties; under strict preference the value is an
 % infimum (strict variant checked in results/N2_check.py).
+
+\paragraph{How the two directions fit together.}
+The starting point is the sharp form of Lemma~\ref{lem:coherence}: at a step
+where the run does not take a best candidate, the loss incurred now and the
+erosion of that candidate's later gain are linked, so an adversary cannot send
+both to their extremes at the same step.  What the limit permits is a
+two-phase trajectory, a geometric phase in which the run buys gain $q^{t}/k_1$
+while the marginals of the optimal elements decay by the factor $q$, followed
+by a frozen phase in which the chosen gain sits at the bottom of the band and
+those marginals stop decaying, the switch occurring after $j$ steps.  The
+lower bound charges that shape to every run at once: a fixed nonnegative
+combination of the four constraint families of Appendix~\ref{app:exact} equals
+$\sum_{t<K}d_t-V_j$ identically, so no run outputs less than $V_j$ on the
+segment of $j$, and the explicit instances of the same appendix attain the
+value.  Proposition~\ref{prop:rigidity} below reads that combination
+backwards: on the interior of a segment the equality case pins the two-phase
+trajectory exactly, so its shape is forced by the constraints rather than
+chosen by a construction.  The integer breakpoints are where the forcing
+lapses, because the multipliers that carry it vanish at the segment endpoints
+(Remark~\ref{rem:rigidity-breakpoints}).
+% Organization follows results/J3_proof_structure.md section 5 (sharp form,
+% two-phase candidate, dual lower bound, rigidity, breakpoints).  Minimal
+% reorganization per H-J3 item 5: no existing proof was restructured; the
+% matching roadmap paragraph is at the top of Appendix \ref{app:exact}.
+
+For a run with picks $e_0,\dots,e_{K-1}$ and states
+$S^{0}=\emptyset,\dots,S^{K}$ and for an enumeration
+$O^{\ast}=\{o_1,\dots,o_K\}$, write $d_t=d_{e_t}(S^{t})$, and let $g_{t,i}$ be
+$d_{o_i}(S^{t})$ when $o_i\notin S^{t}$ and $0$ otherwise.  These are the
+variables of the reduced linear program of Appendix~\ref{app:exact}.
+
+\begin{proposition}[Structure of worst-case runs]\label{prop:rigidity}
+Let $K\ge2$, normalize $f(O^{\ast})=1$, and let either
+$\eta\in(K-j,K-j+1)$ for some $j$ with $1\le j\le K-1$, or $j=0$ and
+$\eta>K$.  If an adversarial-tie run of predictive greedy attains
+$f(S^{K})=\rho_K(\eta)=V_j(\eta)$, then the variables it induces are
+\[
+  d_t=\begin{cases}q^{\,t}/k_1, & t<j,\\[2pt]
+                   q^{\,j}/(K\eta), & t\ge j,\end{cases}
+  \qquad
+  g_{t,i}=\frac{q^{\min(t,j)}}{K}
+  \quad\text{for }0\le t\le K\text{ and every }i .
+\]
+\end{proposition}
+The conclusion constrains the chosen gains and the marginals of the optimal
+elements along the run.  It does not determine the pair $(f,\tilde f)$, and it
+does not constrain the marginals of the candidates the run does not select.
+Since every $g_{t,i}$ above is positive, while the convention of
+Appendix~\ref{app:validity} sets $g_{t,i}=0$ once $o_i$ has been selected, a
+run attaining the exact value in the stated range is disjoint from the fixed
+optimal set $O^{\ast}$.
+% Status decomposition (ledger card T6b):
+%  - the recurrence identities of the proof (gamma r_{t+1} = r_t - K d_t
+%    together with r_{t+1} = r_t - d_t forcing d_t = r_t/k_1 and
+%    r_{t+1} = q r_t) are [VERIFIED-SYMBOLIC], results/H_J3_gate_check.py
+%    item 3;
+%  - uniqueness on the optimal face is [VERIFIED-LP], same script item 5: for
+%    K = 2..6, every j, and eta = K-j+1/4 and K-j+3/4 (40 optimal faces), the
+%    objective is fixed at the exact rational V_j and every coordinate of the
+%    reduced LP is separately minimized and maximized (2,480 LPs); every
+%    coordinate range collapses to the display above, maximum deviation
+%    3.9e-15.  No symmetry constraint g_{t,i} = g_{t,i'} is imposed on the LP.
+%  - the assembly from complementary slackness to a run of arbitrary size is
+%    [HAND-PROOF-UNREVIEWED] (Appendix \ref{app:rigidity}); this tag is NOT to
+%    be upgraded, no script certifies an arbitrary K.
+% Source: results/J3_proof_structure.md section 2 and 2.1.  The J3 note's own
+% oracle script (J3_structure_oracles.py) was never delivered, so all citations
+% here point to results/H_J3_gate_check.py, our independent implementation.
+% Forbidden (ledger T6 and T6b): extending the uniqueness to the integer
+% breakpoints (Remark \ref{rem:rigidity-breakpoints}); claiming that the
+% largest true marginal over all candidates is constrained; the wording "phase
+% transition" (use active-constraint switch).
+
+\begin{remark}[Breakpoints as an active-constraint switch]
+\label{rem:rigidity-breakpoints}
+The integers at which the minimizing index changes are the error levels where
+the multipliers carrying Proposition~\ref{prop:rigidity} degenerate.  In the
+certificate of Appendix~\ref{app:exact} the prediction multiplier
+$\lambda_P(j)=\bigl(\eta-(K-j)\bigr)/\bigl(K(\eta-1)\bigr)$ vanishes at the
+left endpoint of the segment of $j$ and the coverage multiplier
+$\lambda_S(j)=(K-j+1-\eta)/k_1$ vanishes at its right endpoint, so at an
+integer $\eta$ fewer constraints are forced and the argument of the
+proposition no longer applies.  This is a switch of the active constraint set,
+and the uniqueness does not extend across it: at $K=3$ and $\eta=2$ the two
+chosen-gain sequences $(1/5,\,2/15,\,2/15)$ and $(1/5,\,4/25,\,8/75)$, coming
+from the $j=1$ and the $j=2$ instances of Appendix~\ref{app:exact}, both sum
+to $7/15=\rho_3(2)$.
+\end{remark}
+% Status: the two K=3, eta=2 sequences, the equality of their sums, and
+% V_1(2) = V_2(2) = 7/15 are exact rational identities [VERIFIED-SYMBOLIC,
+% results/H_J3_gate_check.py item 4]; the adjacent-branch difference
+% V_i - V_{i+1} = q^i (K-i-eta)/(K eta k_1), whose sign change at the integers
+% is the reason the minimizing index moves, is item 2 of the same script and
+% is derived in Appendix \ref{app:exact}.  The vanishing of lambda_P(j) and
+% lambda_S(j) at the two segment endpoints is read off \eqref{eq:duals-jpos}.
+% Wording (ledger T6b): "active-constraint switch"; never "phase transition".
+
+\begin{remark}[Ties, and what near-equality forces]\label{rem:rigidity-ties}
+In the range of Proposition~\ref{prop:rigidity}, attaining the exact value
+forces a predicted-gain tie with an optimal element at every step.  The two
+constraints of the reduced program that carry the error band, the coherence
+constraint $\mathrm{cons}(t,i)$ and the greedy-choice constraint
+$\mathrm{pred}(t,i)$ of Appendix~\ref{app:validity}, have slacks that
+decompose into three nonnegative terms each (Appendix~\ref{app:validity} and
+Appendix~\ref{app:rigidity}), whose middle term in both cases is
+$\bigl(\tilde d_{e_t}(S^{t})-\tilde d_{o_i}(S^{t})\bigr)/\eta_o$; the
+proposition sets both slacks to zero, the first for $t\le K-2$ and the second
+at $t=K-1$, so the predicted gain of the selected element equals that of every
+optimal element at every step.  This is why adversarial tie breaking is a
+hypothesis of Theorem~\ref{thm:exact} and not a convenience.  The same
+certificate also controls near-equality: a run whose output is
+$V_j(\eta)+\varepsilon$ has $0\le\mathrm{slack}_r\le\varepsilon/\lambda_r$ for
+every constraint $r$ whose multiplier $\lambda_r$ is positive, since the
+weighted sum of the slacks equals $\varepsilon$.  That is a bound checkable
+one run at a time and not a uniform stability statement: turning it into a
+distance bound on the whole trajectory would have to accumulate the errors of
+the recursion above and to handle the multipliers degenerating as $\eta$
+approaches a breakpoint or as $K$ grows.
+\end{remark}
+% Status: the three-term decomposition of the cons(t,i) slack is
+% [VERIFIED-SYMBOLIC] (results/H3_j2_recheck.py, results/J2_core_oracles.py,
+% adopted in K4 and written out in Appendix \ref{app:validity}); the same
+% decomposition for pred(t,i) is the three-inequality chain of
+% Lemma \ref{lem:app-pred} written as a sum, displayed in Appendix
+% \ref{app:rigidity}.  The step from "every supported slack vanishes" to "every
+% step ties with an optimal element" reuses the assembly of Appendix
+% \ref{app:rigidity} and stays [HAND-PROOF-UNREVIEWED].
+% The near-equality bound is one line from the weighted-sum identity
+% \eqref{eq:combination}; ledger T6b forbids upgrading it to a uniform
+% stability theorem (no constant, no K dependence, no behaviour at the
+% breakpoints has been established).
+% Source: results/J3_proof_structure.md section 4.
 
 \begin{remark}\label{rem:exact-gap}
 $L_K$ and $\rho_K$ differ by $O(1/K)$ for fixed $\eta$, and the previously
