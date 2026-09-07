@@ -1332,8 +1332,13 @@ averagings: those are the hand-written part of this subsection, and finite
 computations over instances do not range over adaptive algorithms.
 
 % ---------------------------------------------------------------------------
-\subsection{Supplementary theorem: queries of arbitrary size}
+\subsection{Queries of arbitrary size: a construction direction with
+finite evidence}
 \label{app:hardness-anysize}
+% K9 (J4 audit): demoted from a theorem environment to a candidate bound.
+% General-parameter admissibility of the family has only finite exhaustive
+% support, so per the ledger card T12 this subsection presents a
+% construction direction with finite evidence, not a theorem of the paper.
 % Condensed from results/F3_hardness_full.tex (night-4 draft), which is the
 % full write-up and is kept in the supplementary material.  Status tags are
 % carried over from that file verbatim:
@@ -1389,31 +1394,35 @@ $\tau=1$ and $n>K(t^{\ast}+1)$, and infeasible at every inflation otherwise;
 which of the two formalizations a reader accepts is the open judgement call
 of that draft.
 
-\begin{theorem}[Bounded-query hardness, unrestricted query size]
-\label{thm:hardness-anysize}
-Let $K\ge3$, $\eta>1$ and $n\ge4K(t^{\ast}+K)$, which forces $n\ge8K^{2}$.
-For every deterministic algorithm
+\paragraph{Candidate bound (not a theorem of this paper).}
+The intended statement is: for $K\ge3$, $\eta>1$ and $n\ge4K(t^{\ast}+K)$
+(which forces $n\ge8K^{2}$), every deterministic algorithm
 that makes at most $Q\le n^{2}/\bigl(2K^{2}(t^{\ast}+K)^{2}\bigr)$ queries to
-$\tilde f$, of arbitrary size, and returns a set of size at most $K$, there is
+$\tilde f$, of arbitrary size, and returns a set of size at most $K$, meets
 a $K$-set $O$ for which the instance $(f,\tilde f)$ has monotone submodular
-$f$, single-element error exactly $\eta$, $O^{\ast}=O$, and the output
-$T_{\mathcal A}$ of the algorithm satisfies
+$f$, single-element error exactly $\eta$, $O^{\ast}=O$, and output
+$T_{\mathcal A}$ with
 \[
   \frac{f(T_{\mathcal A})}{f(O^{\ast})}\;\le\;W_K(\eta)
-  \;=\;V_j(\eta)+(K-j)\Bigl(D-\frac{q^{j}}{K\eta}\Bigr).
+  \;=\;V_j(\eta)+(K-j)\Bigl(D-\frac{q^{j}}{K\eta}\Bigr),
 \]
-For randomized algorithms the same bound holds in expectation up to an
-additive $K/n+QK^{2}(t^{\ast}+K)^{2}/(2n^{2})$.
-\end{theorem}
+and, for randomized algorithms, the same bound in expectation up to an
+additive $K/n+QK^{2}(t^{\ast}+K)^{2}/(2n^{2})$.  It is a candidate because
+the admissibility of the family at general parameters is exactly what the
+finite evidence below does not yet establish.
 
 Since $t^{\ast}+K\le(2+\eta)K+1$, the admissible budget is
-$Q=\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)$, that is $n^{2-o(1)}$ and not
-every polynomial.  The exponent $2$ is a property of this family rather than
-of the analysis: it is the exponent in
+$Q=\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)$: for fixed $K$ and $\eta$
+this is a polynomial budget of degree approaching $2$, and not every
+polynomial; a uniform reading such as $n^{2-o(1)}$ would additionally
+require restricting how $K$ and $\eta$ grow with $n$, which is not done
+here.  Within the $48$ checked configurations, the exponent $2$ is a
+property of this family rather than of the analysis: it is the exponent in
 $\Pr[|S\cap O|\ge2]\le(Ks/n)^{2}/2$ for a query of size $s$, and raising it
 would require the $O$-oblivious window to tolerate $|S\cap O|\le\tau$ with
 $\tau\ge2$, which is the first of the two regimes recorded above as
-infeasible.
+infeasible; no claim is made beyond those configurations or for extensions
+of the family.
 The constant is the reduced-LP segment value $V_j$ of
 Theorem~\ref{thm:exact} plus an excess that decays quickly in $K$: at $\eta=2$
 it is $3.2\cdot10^{-4}$, $5.9\cdot10^{-7}$, $4.5\cdot10^{-12}$ and

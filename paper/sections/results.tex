@@ -227,9 +227,38 @@ bound becomes $(1-\tfrac Kn)\tfrac1\eta+\tfrac Kn$ in expectation.
 Conversely, exhaustive search over all $K$-subsets of predicted values
 achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
 \end{theorem}
+The randomized expression is an upper bound on the randomized worst case; it
+is not claimed to be the exact randomized value at finite $n$, and the exact
+ceiling for $n<2K$ is open.
 % Status: [HAND-PROOF-UNREVIEWED], construction in Appendix
 % \ref{app:ceiling}.  The exhaustive-search matching bound is the only
-% surviving content of the removed R-step section.
+% surviving content of the removed R-step section.  K9 (J4 audit): the
+% caveat sentence above and the remark below implement ledger card T8; the
+% error-exactness of the construction is [VERIFIED-EXHAUSTIVE] per J4
+% (253,220 all-pairs gains; script not delivered, recorded in REPORT).
+
+\begin{remark}[Exhaustive search against greedy, by worst-case guarantee]
+\label{rem:exhaustive-vs-greedy}
+For $1\le\eta<K$ the worst-case guarantee $1/\eta$ of exhaustive search
+over predicted values is strictly better than the exact worst case of
+predictive greedy: $\rho_K(\eta)\le V_1(\eta)<V_0(\eta)=1/\eta$, with
+$V_0-V_1=(K-\eta)/(K\eta k_1)$.  At $K=3$ the pairs
+(greedy, exhaustive) are $(19/27,\,1)$ at $\eta=1$,
+$(9/16,\,2/3)$ at $\eta=3/2$, $(7/15,\,1/2)$ at $\eta=2$, and both equal
+$1/3$ at $\eta=3$.  This compares worst-case guarantees and does not say
+that the exhaustive output has larger true value on every instance; the
+exhaustive algorithm also evaluates $\binom nK$ predicted sets.  For
+$\eta\ge K$, $\rho_K(\eta)=1/\eta$ (Theorem~\ref{thm:exact}), so there
+predictive greedy itself attains the unbounded-query deterministic optimum.
+\end{remark}
+% Status (K9, ledger T8): V_0 - V_1 = (K-eta)/(K eta k_1) is the i = 0 case
+% of the adjacent-difference identity of app:exact [VERIFIED-SYMBOLIC]; the
+% K = 3 values are the closed forms of Theorem \ref{thm:exact}; the
+% exhaustive guarantee is the converse half of Theorem \ref{thm:ceiling}
+% [HAND-PROOF-UNREVIEWED]; J4 reports 325 exact bound comparisons (script
+% not delivered).  Wording rules: compares WORST-CASE GUARANTEES only;
+% never phrase as "greedy, exhaustion and any algorithm are the same" at
+% eta >= K.
 
 % ---------------------------------------------------------------- block 8 --
 \subsection{Asymptotics}\label{sec:asymptotics}
@@ -308,6 +337,22 @@ which for integer $c$ reads $\tfrac Kn+\tfrac{K^{2c+4}}{(c+2)!\,n^{2}}$.  As
 $K\to\infty$ with $\tau$ and $\theta$ fixed, $K\delta(\theta)\to\tau-1/\theta$;
 with $c$ and $\eta$ fixed, $H_{K,\tau}(\eta)\to1-e^{-1/\eta}$.
 \end{theorem}
+Three scope notes.  The additive term of the randomized bound does not
+vanish on its own: at the smallest permitted $n=4K^{c+2}$ and integer $c$
+its second summand equals $1/(16\,(c+2)!)$, a constant, so a limit
+statement for randomized algorithms selects $n(K)$ with
+$\varepsilon_n\to0$, for example $n\ge4K^{c+3}$.  The cap on query size is
+a condition of the query model: it neither follows from nor implies
+polynomial running time, and computation between queries is unrestricted.
+At finite parameters $H_{K,\tau}$ can exceed the ceiling $1/\eta$ of
+Theorem~\ref{thm:ceiling} (at $\eta=2$, $c=2$, $K=8$ it lies above $1/2$),
+so the two upper bounds combine as $\min\{H_{K,\tau}(\eta),\,1/\eta\}$;
+the content of Theorem~\ref{thm:hardness} is the asymptotic match with
+$L_K$, not a pointwise improvement.
+% K9 (J4 audit, ledger T10): the three notes are the eps_n quantifier, the
+% model-condition reading of the query-size cap, and the min{H, 1/eta}
+% combination (H(2) at K=8, tau=3 is 1-(10/11)^8, about 0.533).  The
+% constant 1/(16(c+2)!) is (K^{2c+4})/((c+2)! (4K^{c+2})^2).
 % Status decomposition (K5, adoption of the J2 external review):
 %  - the four-row edge table, the extremal factors sqrt(theta)A, sqrt(theta)B,
 %    the product Psi(theta) = (theta K - 1)/(K - tau), the inflation

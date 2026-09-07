@@ -39,8 +39,10 @@ one, the $\alpha$-approximate incremental oracle of
 error $\etasel$ of Definition~\ref{def:etasel}.  Their Theorem~1 gives
 $1-(1-1/(\alpha k))^{k}\ge1-e^{-1/\alpha}$ under such an oracle, which at
 $\alpha=1$ is the classical cardinality-constrained bound of
-\citet{nemhauser1978analysis}, unimprovable by polynomially many value
-queries \citep{nemhauser1978best}; for the related set cover problem no
+\citet{nemhauser1978analysis}, whose asymptotic constant $1-e^{-1}$ is
+unimprovable by polynomially many value queries \citep{nemhauser1978best}
+(at finite $K$, partial enumeration trades a larger budget for a better
+constant); for the related set cover problem no
 polynomial-time algorithm approximates within $(1-\varepsilon)\ln n$ unless
 $\mathrm{NP}\subseteq\mathrm{DTIME}(n^{O(\log\log n)})$
 \citep{feige1998threshold}.  We differ in the question, not the bound:
@@ -48,7 +50,8 @@ Proposition~\ref{prop:guarantee} is their theorem restated in the model of
 Section~\ref{sec:model} and attributed as such, while what is new is the
 exact worst-case ratio at every error level (Theorem~\ref{thm:exact}), a
 per-$K$ attaining family at error $\etasel$ (Theorem~\ref{thm:tightness}),
-and a matching bounded-query obstruction (Theorem~\ref{thm:hardness}).
+and an asymptotically matching bounded-query obstruction
+(Theorem~\ref{thm:hardness}).
 
 \paragraph{Approximate submodularity.}
 A second line weakens the objective instead of the access, measuring distance
