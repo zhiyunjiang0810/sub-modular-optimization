@@ -780,7 +780,10 @@ $\eta$ gives such a feasible point with objective $f(S^{K})/f(O^{\ast})$,
   \rho_K(\eta)\;\ge\;V_j(\eta)\qquad\text{on the segment of $j$.}
 \]
 
-\emph{Which $V_j$ is smallest.}  For $0\le i\le K-1$,
+\emph{Which $V_j$ is smallest.}  For $0\le i\le K-2$,
+% index upper limit corrected from K-1 in K6 (J2 review section 3): i = K-1
+% would invoke the undefined V_K; the comparisons below only ever use
+% adjacent pairs up to (V_{K-2}, V_{K-1}).
 \begin{align*}
   V_i-V_{i+1}
   &=q^{i}\Bigl[q-\frac{q(K-i-1)}{K\eta}-1+\frac{K-i}{K\eta}\Bigr]\\
@@ -963,12 +966,22 @@ $t\ge j$ the tie is forced by the band: the prediction constraint of
 \eqref{eq:redlp} holds with equality at the optimum, so
 $\eta_o\,d_P=d_O/\eta_u$, and the largest value the band allows a $P$ element
 and the smallest it allows an $O$ element coincide.  Under strict preference
-the same value is an infimum rather than a maximum: replacing $\eta$ by
+the same value is an infimum rather than a maximum: for $\eta$ in the
+interior of the segment $[K-j,K-j+1]$, replacing $\eta$ by
 $\eta'<\eta$ inside $f$ while declaring the band at $\eta$ makes all
 preferences strict and gives ratio $V_j(\eta')\to V_j(\eta)$ as
 $\eta'\uparrow\eta$.
 % The strict variant is checked at 6 (K, j, eta) triples and 2 values of
-% epsilon in Part E of results/N2_check.py.
+% epsilon in Part E of results/N2_check.py, all at segment INTERIOR points.
+% K6 caveat (J2 review section 3.2): at a segment left endpoint the same
+% perturbation can leave the family (exact rational counterexample at
+% K=3, j=1, eta=2, eta'=19/10: one late O gain becomes -1/72, so f loses
+% monotonicity; results/J2_extra_audit.py).  A repair sketch, approach the
+% integer endpoint eta >= 2 from the left with the adjacent j+1 segment
+% (adjacent branch values agree at breakpoints), and at eta = 1 perturb f
+% and ftilde together by a vanishing positive modular term, is recorded
+% here as [HAND-PROOF-UNREVIEWED] and not used by the theorem, whose
+% statement is for adversarial ties.
 
 The identities of this proof are machine-checked by
 \texttt{results/N2\_check.py}.
@@ -1266,12 +1279,16 @@ The identities of this proof are machine-checked by
 % ---------------------------------------------------------------------------
 \subsection{Validity of the reduced constraints}\label{app:validity}
 % Source: results/F2_R6_validity.tex, adapted to the paper notation (b_t -> e_t,
-% O -> O*, the LP written as in \eqref{eq:redlp}).  STATUS: unchanged,
-% [HAND-PROOF-UNREVIEWED]: no oracle certifies these derivations.  What IS
-% oracle-checked is stated in Remark \ref{rem:app-status} below.
-% This is the one remaining hand step of the reduction from arbitrary instances
-% to the reduced LP, so it is written out one family at a time, with the case
-% e_t in O* (the gap flagged in R6) treated as a separate case in each.
+% O -> O*, the LP written as in \eqref{eq:redlp}).  STATUS after K4 (J2
+% adoption): the slack identities behind pred(t,i) and cons(t,i) case (b) are
+% [VERIFIED-SYMBOLIC] (results/H3_j2_recheck.py, results/J2_core_oracles.py),
+% and the finite full-lattice slack minimization over TRUE lattice variables
+% is [VERIFIED-LP] (J2_core_oracles.py: (n,K) = (4,2),(5,3), all optimal
+% K-sets, four bands, 1,536 targets, min slack -6.7e-16).  The remaining
+% bookkeeping (zeroing convention, case split, Lemma app-relaxation) is
+% [HAND-PROOF-UNREVIEWED].
+% Each family is written out one at a time, with the case e_t in O* (the gap
+% flagged in R6) treated as a separate case in each.
 
 This subsection supplies the step consumed by Appendix~\ref{app:exact}: every
 constraint of \eqref{eq:redlp} is a valid inequality, so the linear program is
@@ -1369,13 +1386,33 @@ $(1-\tfrac1\eta)g_{t+1,i}\ge g_{t,i}-d_t$ for every $t,i$.
 \end{lemma}
 \begin{proof}
 Case (a): the left side is $0$ and the right side is $-d_t\le0$.
-Case (b): apply Lemma~\ref{lem:coherence} with $S=S^{t}$, $e=e_t$ and
-$e'=o_i$; its hypothesis $\tilde d_{e_t}(S^{t})\ge\tilde d_{o_i}(S^{t})$ holds
-because $o_i$ is eligible at step $t$, and $e\ne e'$ holds by the case
-assumption.  Part (ii) of that lemma reads
-$(1-\tfrac1\eta)d_{o_i}(S^{t}\cup\{e_t\})\ge d_{o_i}(S^{t})-d_{e_t}(S^{t})$,
-which is the claim, since $S^{t+1}=S^{t}\cup\{e_t\}$ and $o_i\notin S^{t+1}$
-give $d_{o_i}(S^{t+1})=g_{t+1,i}$.
+Case (b): abbreviate $d=d_t$, $g=g_{t,i}$, $h=g_{t+1,i}$ and, for the
+predicted gains, $P=\tilde d_{e_t}(S^{t})$, $Q=\tilde d_{o_i}(S^{t})$,
+$R=\tilde d_{o_i}(S^{t+1})$.  Because the four values of a set function on
+$S^{t}$, $S^{t+1}=S^{t}\cup\{e_t\}$, $S^{t}\cup\{o_i\}$ and
+$S^{t}\cup\{e_t,o_i\}$ determine both orders of insertion, the gains of
+$e_t$ at $S^{t}\cup\{o_i\}$ are $d+h-g$ (true) and $P+R-Q$ (predicted).
+The claim is then the sum of three nonnegative terms:
+\[
+  \Bigl(1-\frac1\eta\Bigr)h-g+d
+  \;=\;\underbrace{\frac{\eta_o(d+h-g)-(P+R-Q)}{\eta_o}}_{\text{upper band
+  at }(S^{t}\cup\{o_i\},\,e_t)}
+  \;+\;\underbrace{\frac{P-Q}{\eta_o}}_{\text{greedy}}
+  \;+\;\underbrace{\frac{\eta_uR-h}{\eta_u\eta_o}}_{\text{lower band at
+  }(S^{t+1},\,o_i)} ,
+\]
+an identity in the six symbols; the first brace is nonnegative by
+Definition~\ref{def:eta} at the off-trajectory state $S^{t}\cup\{o_i\}$, the
+second because $o_i$ is eligible at step $t$ and $e_t$ was chosen, the third
+by the lower band.  (Equivalently one may route the claim through part (ii)
+of Lemma~\ref{lem:coherence}; the display above is the same argument with
+its certificate written out.)
+% The identity is [VERIFIED-SYMBOLIC]: results/H3_j2_recheck.py (sympy, this
+% session's independent implementation) and results/J2_core_oracles.py (the
+% external J2 review's implementation, plus 1,536 full-lattice LP targets
+% minimizing this slack over true lattice variables, all nonnegative up to
+% solver rounding).  The decomposition is due to the J2 external review
+% (section 2), adopted in K4.
 Case (c): $g_{t+1,i}=0$ by the zeroing convention and
 $g_{t,i}-d_t=d_{e_t}(S^{t})-d_{e_t}(S^{t})=0$, so the constraint holds with
 equality.  Lemma~\ref{lem:coherence}, which requires $e\ne e'$, is not invoked
@@ -1431,9 +1468,12 @@ both bands through Lemma~\ref{lem:coherence}, and monotonicity in cases (a) and
 predictor being an arbitrary set function.
 \end{remark}
 
-No script checks the derivations of this subsection; the linear program they
-justify is compared against the full-lattice program by
-\texttt{results/N3\_K5\_lattice.py}.
+The slack identities of $\mathrm{pred}$ and $\mathrm{cons}$ case (b) are
+machine-checked by \texttt{results/H3\_j2\_recheck.py} and
+\texttt{results/J2\_core\_oracles.py} (symbolic, plus 1{,}536 full-lattice
+slack-minimization targets); the bookkeeping around them is not
+oracle-checked.  The linear program the subsection justifies is compared
+against the full-lattice program by \texttt{results/N3\_K5\_lattice.py}.
 
 % ---------------------------------------------------------------------------
 \subsection{Instances used in the experiments}\label{app:instances}

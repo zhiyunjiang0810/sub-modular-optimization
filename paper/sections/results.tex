@@ -170,7 +170,10 @@ $[1,2],[2,3],[3,4],[4,\infty)$.
 %    reduced LP, general K [VERIFIED-SYMBOLIC modulo a finite branch
 %    enumeration], results/N1_dual_certificate.py (320/320); the reduction
 %    from arbitrary instances to the reduced LP is the validity argument of
-%    Appendix \ref{app:validity} [HAND-PROOF-UNREVIEWED].
+%    Appendix \ref{app:validity}, whose key slack identities are now
+%    [VERIFIED-SYMBOLIC] (K4, J2 adoption: results/H3_j2_recheck.py,
+%    results/J2_core_oracles.py) with the surrounding bookkeeping
+%    [HAND-PROOF-UNREVIEWED].
 %  <= direction ("the value is attained"): explicit three-block instances for
 %    every j, general K [VERIFIED-SYMBOLIC modulo the same enumeration
 %    convention], results/N2_check.py (480/480); their per-step gains are in
@@ -188,17 +191,26 @@ $V_{K-1}$ for every $\eta>1$.
 % [VERIFIED-SYMBOLIC]: U_K - V_{K-1} = q^{K-1}(eta-1)/(K eta k_1) > 0,
 % results/N1_dual_certificate.py part G.
 The predictor $\tilde f$ of the attaining instances is monotone but not
-submodular.  If the surrogate is itself submodular, the exact worst case
-strictly improves for $\eta<K-1$: at $K=3$, $\eta=1.5$ the value rises from
-$9/16$ to $19/33$
+submodular.  Requiring the surrogate to be submodular changes the worst
+case: at $\eta=1$ the band forces $\tilde f=f$ and the two models coincide,
+while at the verified points with $1<\eta<K-1$ the worst case strictly
+improves; at $K=3$, $\eta=1.5$ the value rises from $9/16$ to $19/33$, and
+at $K=4$, $\eta=2$ from $22/49$ to $23/50$.
 % [VERIFIED-LP with instance-validated attainment,
 %  results/F4_submodular_ftilde.md]
-and the family above becomes inadmissible, so $U_K$ is no longer an upper
-bound in that model.  A general characterization is left open.
+The family above becomes inadmissible in that model, so the upper-bound
+argument through $U_K$ no longer applies there; at the verified points
+$U_K$ itself still lies above the new worst case.  A general
+characterization is left open.
 % Decision D1 (TASKS5): the main model leaves ftilde unrestricted; this
 % remark is the only place the submodular-surrogate variant appears.  LP
 % evidence for a min_m W_m closed form is recorded in
 % results/F4_submodular_ftilde.md [CONJECTURE]; kept out of the main text.
+% K6 (J2 review section 9): the former blanket "strictly improves for
+% eta < K-1" was wrong at eta = 1 (models coincide) and unverified between
+% LP points; and "U_K is no longer an upper bound" was a non sequitur
+% (inadmissibility of the witness does not disprove the bound; at K=3,
+% eta=1.5 indeed 19/33 < 37/64 = U_3(1.5)).  Both are reworded above.
 % "improves" = the worst-case RATIO increases (adversary loses instances);
 % never phrase as robustness ("more robust" is banned, GLOSSARY).
 \end{remark}
