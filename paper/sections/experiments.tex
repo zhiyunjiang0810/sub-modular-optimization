@@ -32,8 +32,11 @@
 The experiments ask what Proposition~\ref{prop:guarantee} certifies on
 surrogates that were never built to satisfy Definition~\ref{def:eta}, and how
 far that certificate sits below what predictive greedy delivers.  The
-certificate is read at the measured selection error $\etasel$ of the finished
-run (Remark~\ref{rem:etasel-measurable}).  Three surrogate families are
+certificate is read at the measured stepwise selection error $\etasel$ of the
+finished run (Remark~\ref{rem:etasel-measurable}); it applies only where the
+true objective satisfies the model, which the second family does and the
+first and third measurably do not, so their selection numbers are reported
+as diagnostics rather than certificates.  Three surrogate families are
 ordered by their distance from the model of Section~\ref{sec:model}:
 surrogates \emph{learned} from data, surrogates that evaluate the same
 objective on a \emph{partially observed} input, and \emph{heuristic}
@@ -65,8 +68,10 @@ submodular sentence-selection objectives that never see the reference
 \citep{lin2011class}; \EThreeNumDocs\ articles in \EThreeNumCategories\
 categories of the {BBC} news corpus \citep{greene2006practical},
 $K=\EThreeKMin,\dots,\EThreeKMax$.  Ratios are
-$f(S^{\tilde f})/f(S^{f})$, whose denominator is greedy on the true
-objective and hence an upper-estimate proxy for the optimum
+$f(S^{\tilde f})/f(S^{f})$, whose denominator is the value of greedy on the
+true objective, a feasible solution and hence a lower estimate of the
+optimum, so the printed ratio is an upper estimate of
+$f(S^{\tilde f})/f(O^{\ast})$
 (Table~\ref{tab:experiments}, note~(i)); on the one dataset small enough to
 enumerate the optimum, that proxy inflates a ratio by
 \EOneBreastOptInflationPct\,\%.  Greedy uses cached lazy evaluation;
@@ -78,69 +83,102 @@ enumeration.
 
 \begin{figure}[t]
 \centering
-% Width fits the ICLR one-column text block (397.5pt).  Source figure:
-% results/G6_paper_figs.py (paper-sized re-render of E5_money_plot.py;
-% 7.0in canvas, min nominal font 9pt, effective 7.1pt at \textwidth).
+% K3 (J2 adoption): the selection-error axis carries ONLY the L_K curve.
+% rho_K is a worst case for the GLOBAL error and is not an envelope over
+% (etasel, ratio) pairs (exact K=2 counterexample: ratio = L_2(etasel) <
+% rho_2(etasel); J2 section 5, re-verified in results/H3_j2_recheck.py),
+% so it moved to Figure \ref{fig:global} on the global-eta axis.
+% Source: results/K3_split_figs.py (paper-sized fonts, 7pt floor met).
 \includegraphics[width=\textwidth]{figures/money_plot.pdf}
-\caption{Measured ratio against measured selection error $\etasel$ (log
-scale) at $K=\MoneyKLeft$ and $K=\MoneyKRight$.  Solid: the exact worst case
-$\rho_K$ of Theorem~\ref{thm:exact}; dashed: the bound $L_K(\etasel)$ of
-Proposition~\ref{prop:guarantee}.  Colored points are runs of the three
-surrogate families, black crosses the constructed instances of
-Theorem~\ref{thm:exact} executed by the same pipeline, which were built at
-the budgets $K\in\{\EFourKList\}$ and so appear in the left panel only.  Real
-tasks sit far above both curves; the constructed instances sit on the solid
-one.  Ratio
-denominators are greedy on the true objective, an upper-estimate proxy for
-the optimum.}
+\caption{Measured ratio against the measured selection diagnostic $\etasel$
+(log scale) at $K=\MoneyKLeft$ and $K=\MoneyKRight$, with the curve
+$L_K(\etasel)$ of Proposition~\ref{prop:guarantee}.  The curve is a
+certificate only for runs whose true objective satisfies the model
+(influence maximization); for the other two families it is a reference
+value at their finite-step diagnostic.  The
+\ETwoHarmfulZeroTrajKMain\ influence-maximization runs whose stepwise
+$\etasel$ is infinite, so that their certified bound vanishes, are stated
+in the panel and not drawn.  Ratio denominators are greedy on the true objective, a lower
+estimate of the optimum, so the plotted ratios are upper estimates.}
 \label{fig:money}
 \end{figure}
 
+\begin{figure}[t]
+\centering
+% K3: global-eta axis; only the constructed instances live here, because
+% only for them is the global error known by design.
+\includegraphics[width=0.6\textwidth]{figures/eta_global_plot.pdf}
+\caption{The exact worst case $\rho_K(\eta)$ of Theorem~\ref{thm:exact} on
+the global-error axis, with the \EFourNumInstances\ constructed instances
+executed by the experiment pipeline at their design errors
+($K\in\{\EFourKList\}$).  Realized ratios match the theory to
+$\EFourMaxDeviation$.  The global $\eta$ of the real-task runs is not
+identified by the data, which is why they appear only in
+Figure~\ref{fig:money}.}
+\label{fig:global}
+\end{figure}
+
 \paragraph{Learned surrogates.}
-At $K=\EOneKMain$, over \EOneNumRunsKMain\ runs, the median ratio is
-\EOneKMainRatioMedian\ (interquartile range \EOneKMainRatioLoQ\ to
-\EOneKMainRatioHiQ) at median selection error \EOneKMainEtaSelMedian, so the
-median run certifies $L_{\EOneKMain}(\etasel)=\EOneKMainBound$ against an
-exact worst case of $\rho_{\EOneKMain}=\EOneKMainExactWorst$ at that same
-error; on the largest dataset alone the ratio is \EOneAirlineRatioMedian\ at
-error \EOneAirlineEtaSelMedian, certifying \EOneAirlineBound.  Which measure
-the guarantee is read at decides whether it says anything: the trajectory
-error of the same runs has median at least \EOneKMainEtaTrMedian\ (the
-reported figure discards candidate pairs whose gains fall below one
-quantization unit of the accuracy, so it is a lower estimate;
-Appendix~\ref{app:experiments}), and at that value
-Proposition~\ref{prop:guarantee} certifies only \EOneKMainEtaTrBound.
+Held-out accuracy is not a monotone submodular function of the feature set:
+\EOneNegCandPrefixes\ of the \EOnePrefixTotal\ budget prefixes observe a
+negative true candidate gain at a visited state, \EOneSelectedNegPrefixes\
+select one, and \EOneHarmfulZeroPrefixes\ contain a harmful zero step, so
+for this family every selection number below is a diagnostic, not a
+certificate.  At $K=\EOneKMain$, over \EOneNumRunsKMain\ runs, the median
+ratio is \EOneKMainRatioMedian\ (interquartile range \EOneKMainRatioLoQ\ to
+\EOneKMainRatioHiQ) at median finite-step diagnostic
+\EOneKMainEtaSelMedian, where the reference value
+$L_{\EOneKMain}(\etasel)$ is \EOneKMainBound; on the largest dataset alone
+the ratio is \EOneAirlineRatioMedian\ at diagnostic
+\EOneAirlineEtaSelMedian\ (reference \EOneAirlineBound).  Which measure a
+bound is read at decides whether it says anything: the trajectory error of
+the same runs has median at least \EOneKMainEtaTrMedian\ (the reported
+figure discards candidate pairs whose gains fall below one quantization
+unit of the accuracy, so it is a lower estimate;
+Appendix~\ref{app:experiments}), and at that value the same formula gives
+only \EOneKMainEtaTrBound.
 
 \paragraph{Partially observed surrogates.}
-Here $f$ and $\tilde f$ are one function of two nested edge sets, so the
-predictor errs only by missing coverage.  At $K=\ETwoKMain$ the median ratio
-is \ETwoKMainRatioMedian\ (interquartile range \ETwoKMainRatioLoQ\ to
-\ETwoKMainRatioHiQ) at median selection error \ETwoKMainEtaSelMedian,
-certifying $L_{\ETwoKMain}(\etasel)=\ETwoKMainBound$ against an exact worst
-case of \ETwoKMainExactWorst.  Only \ETwoNonposPctKMain\,\%\ of steps have a
-nonpositive chosen true gain, and no predicted and true gain can disagree in
-sign, both by construction rather than by luck
-(Table~\ref{tab:experiments}, note~(iii)).
+Here $f$ and $\tilde f$ are one coverage function of two nested edge sets,
+both monotone submodular, so Proposition~\ref{prop:guarantee} reads as a
+certificate.  At $K=\ETwoKMain$ the median ratio is \ETwoKMainRatioMedian\
+(interquartile range \ETwoKMainRatioLoQ\ to \ETwoKMainRatioHiQ) at median
+stepwise selection error \ETwoKMainEtaSelMedian, certifying
+$L_{\ETwoKMain}(\etasel)=\ETwoKMainBound$ for the median run.
+Nested coverage guarantees that predicted and true VALUES never disagree in
+sign, but it does not align the zero sets of the marginal gains:
+\ETwoHarmfulZeroTrajKMain\ of the \ETwoNumTrajectories\ trajectories
+(\ETwoHarmfulZeroTrajPctKMain\,\%) contain a step whose chosen true gain is
+zero while a positive candidate exists, their stepwise $\etasel$ is
+infinite, and they certify nothing
+(Table~\ref{tab:experiments}, note~(iii); \ETwoHarmfulZeroPrefixes\ budget
+prefixes are affected in total).
 
 \paragraph{Observation probability against error.}
 This family lets the amount of error be dialled.  Lowering $p$ from
-\ETwoPHigh\ to \ETwoPLow\ raises the median $\etasel$ monotonically on all
-\ETwoNumGraphsEtaMonotone\ networks, by factors from \ETwoEtaRiseMin\ to
-\ETwoEtaRiseMax; the realized ratio degrades far more slowly over the same
-range, also monotonically on all \ETwoNumGraphsRatioMonotone\ networks, from
-no worse than \ETwoRatioPHighMin\ down to between \ETwoRatioPLowMin\ and
+\ETwoPHigh\ to \ETwoPLow\ raises the median stepwise $\etasel$ monotonically
+on \ETwoNumGraphsEtaMonotone\ of the \ETwoNumGraphs\ networks, by factors
+from \ETwoEtaRiseMin\ to \ETwoEtaRiseMax\ between the endpoints; on the
+remaining network one intermediate setting has an infinite median
+(\ETwoInfMedianCells\ network-$p$ cell, where half the runs contain a
+harmful zero step), which is the strongest form the degradation takes.  The
+realized ratio degrades far more slowly over the same range, monotonically
+on all \ETwoNumGraphsRatioMonotone\ networks, from no worse than
+\ETwoRatioPHighMin\ down to between \ETwoRatioPLowMin\ and
 \ETwoRatioPLowMax.  The certified bound moves fastest of the three:
 $L_{\ETwoKMain}(\etasel)$ falls from the range \ETwoBoundPHighMin\ to
-\ETwoBoundPHighMax\ down to \ETwoBoundPLowMin\ to \ETwoBoundPLowMax, by up to
-a factor \ETwoBoundDropFactorMax\ on one network.  Missing observations
-therefore cost much less realized value than they cost certificate.
+\ETwoBoundPHighMax\ down to \ETwoBoundPLowMin\ to \ETwoBoundPLowMax, by up
+to a factor \ETwoBoundDropFactorMax\ on one network, and vanishes outright
+on the infinite-median cell.  Missing observations therefore cost much less
+realized value than they cost certificate.
 
 \paragraph{Heuristic surrogates outside the model.}
 At $K=\EThreeKMain$, over \EThreeNumRunsKMain\ runs, the median ratio falls
 to \EThreeKMainRatioMedian\ (interquartile range \EThreeKMainRatioLoQ\ to
-\EThreeKMainRatioHiQ) at median selection error \EThreeKMainEtaSelMedian,
-where $L_{\EThreeKMain}(\etasel)=\EThreeKMainBound$ and the exact worst case
-is \EThreeKMainExactWorst; the best single surrogate, the
+\EThreeKMainRatioHiQ) at median finite-step diagnostic
+\EThreeKMainEtaSelMedian, where the reference value
+$L_{\EThreeKMain}(\etasel)$ is \EThreeKMainBound; the best single
+surrogate, the
 \EThreeBestSurrogateName\ objective, reaches \EThreeBestSurrogateRatio.
 Across the three families the median selection
 error grows and the median ratio falls together, which is the spectrum
@@ -157,8 +195,10 @@ submodularity on \EThreeSubmodViolPct\,\%\ and monotonicity on
 \EThreeMaxSubmodViol\ in units of the score, while the
 \EThreeNumSurrogates\ surrogates record \EThreeSurrogateViolCount\
 violations of either property on the same triples; a further
-\EThreeNonposPctKMain\,\%\ of trajectory steps have a nonpositive chosen true
-gain and fall outside the scope of $\etasel$
+\EThreeNonposPctKMain\,\%\ of trajectory steps have a nonpositive chosen
+true gain, which under Definition~\ref{def:etasel} would already send the
+stepwise $\etasel$ to infinity, so the printed diagnostic is the
+finite-step ratio
 (Table~\ref{tab:experiments}, note~(ii)).  For this family the $L_K$ column
 is therefore a reference value computed by the same formula and not a
 certificate, and recovering one would need a guarantee stated for
@@ -175,10 +215,10 @@ Theorem~\ref{thm:tightness}.  Realized ratios match the theoretical values to
 $\EFourMaxDeviation$, and on the $V_j$ instances the measured selection error
 matches the design error to $\EFourEtaSelDeviation$.  The worst case is thus
 not an asymptotic figure of speech: it occurs point by point in the same
-implementation of greedy that produced the scatter, so the vertical distance
-in Figure~\ref{fig:money} between the crosses and the colored points at a
-common $\etasel$ is a distance between two behaviours of one algorithm, not
-between two measurement paths.  Three auxiliary figures, the distribution of
+implementation of greedy that produced the scatter of
+Figure~\ref{fig:money}, and Figure~\ref{fig:global} shows the constructed
+instances on the axis where their design error lives.  Three auxiliary
+figures, the distribution of
 $\etasel$ by budget, the observation probability sweep, and the true against
 predicted gains with an error band drawn in, are deferred to
 Appendix~\ref{app:experiments}.

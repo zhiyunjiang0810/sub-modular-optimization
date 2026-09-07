@@ -21,8 +21,11 @@ trajectory the true best gain $\max_{e\notin S^{t}}d_e(S^{t})$ is computed as
 well, which is what makes $\etasel$ measurable; where $f$ is not submodular
 this maximum is taken by an exact scan rather than by a lazy heap, since
 lazy evaluation is only valid under submodularity.  Steps whose chosen true
-gain is nonpositive are excluded from $\etasel$ and counted separately, and
-that count is the last column of Table~\ref{tab:experiments}.
+gain is nonpositive are counted separately (last column of
+Table~\ref{tab:experiments}); under Definition~\ref{def:etasel} a harmful
+such step makes the stepwise $\etasel$ infinite, which the in-model family
+reports as certificate $0$, while the out-of-model families print the
+finite-step diagnostic instead.
 
 The trajectory error $\etatr$ is measured on the same runs, but only over
 candidate pairs whose true and predicted gains both exceed one quantization
@@ -100,9 +103,10 @@ statement there is a draw rather than an improvement.
 % the widths used here are 8.1-8.6pt (7pt floor met; table in the script
 % output and in results/G6_submission_checklist.md).
 \includegraphics[width=\textwidth]{figures/aux_eta_sel_by_K.pdf}
-\caption{Distribution of the measured selection error $\etasel$ by budget
-$K$ for each surrogate family (boxes: quartiles over runs; log scale; outliers
-suppressed).  The learned surrogates stay in the single digits over the whole
+\caption{Distribution of the finite-step selection diagnostic by budget
+$K$ for each surrogate family (boxes: quartiles over runs; log scale;
+outliers suppressed; the influence-maximization runs whose stepwise
+$\etasel$ is infinite enter the text counts, not these boxes).  The learned surrogates stay in the single digits over the whole
 budget range, while the heuristic surrogates do not.}
 \label{fig:aux-eta}
 \end{figure}
@@ -110,13 +114,17 @@ budget range, while the heuristic surrogates do not.}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.66\textwidth]{figures/aux_p_vs_eta.pdf}
-\caption{Median $\etasel$ at $K=\ETwoKMain$ against the edge observation
-probability $p$, one line per network (log scale).  The error rises as the
-graph is observed less, on all \ETwoNumGraphsEtaMonotone\ networks; over the
-same range the realized ratio falls only from no worse than
+\caption{Median stepwise $\etasel$ at $K=\ETwoKMain$ against the edge
+observation probability $p$, one line per network (log scale).  The error
+rises monotonically as the graph is observed less on
+\ETwoNumGraphsEtaMonotone\ of the \ETwoNumGraphs\ networks; on the
+remaining network one cell has an infinite median (marker at the top: half
+its runs contain a harmful zero step and certify nothing).  Over the same
+range the realized ratio falls only from no worse than
 \ETwoRatioPHighMin\ to between \ETwoRatioPLowMin\ and \ETwoRatioPLowMax,
 while the certified bound $L_{\ETwoKMain}(\etasel)$ falls by up to a factor
-\ETwoBoundDropFactorMax.}
+\ETwoBoundDropFactorMax\ (and to $0$ on the infinite cell).  Source:
+results/K3\_split\_figs.py.}
 \label{fig:aux-p}
 \end{figure}
 

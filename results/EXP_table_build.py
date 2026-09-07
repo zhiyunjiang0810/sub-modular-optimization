@@ -123,16 +123,18 @@ Worst-case $V_j$ (5) & constructed & __E4RATIO__\textsuperscript{a} & exact & __
 {\footnotesize \textsuperscript{a} representative point $j=2$, $\eta=__E4ETA__$;
 every constructed instance realizes its theoretical value to $10^{-10}$
 (results/E4\_worst\_case.csv).\\
-\emph{Note (i)}: the ratio's denominator is greedy-on-$f$, an upper-estimate
-proxy for OPT, so every ratio in this table is an upper estimate of
-$f(S^{\tilde f})/f(\mathrm{OPT})$.\\
-\emph{Note (ii)}: $\eta^{sel}$ is defined on the steps with positive true gain,
-so the certified bound in the $L_K$ column is a statement about those steps;
-the last column reports the share of steps with $d_t \le 0$ (column
-\texttt{frac\_steps\_nonpos} of the row CSVs), which are outside that scope.\\
-\emph{Note (iii)}: for influence maximization $f$ and $\tilde f$ are coverage
-functions on nested edge sets, so opposite-sign $(d,\tilde d)$ pairs cannot
-occur; the entry is ``--'' rather than a measured zero.}
+\emph{Note (i)}: the ratio's denominator is greedy-on-$f$, a feasible
+solution and hence a lower estimate of OPT, so every ratio in this table is
+an upper estimate of $f(S^{\tilde f})/f(\mathrm{OPT})$.\\
+\emph{Note (ii)}: the $\eta^{sel}$ column is the finite-step ratio; a step
+with $d_t \le 0$ and a positive candidate makes the stepwise $\eta^{sel}$
+infinite (certificate $0$), and the last column reports how often such
+steps occur (column \texttt{frac\_steps\_nonpos} of the row CSVs); for the
+out-of-model families the column is a diagnostic, not a certificate.\\
+\emph{Note (iii)}: for influence maximization $f$ and $\tilde f$ are
+coverage functions on nested edge sets, so strictly opposite-sign
+$(d,\tilde d)$ pairs cannot occur and the entry is ``--''; zero-positive
+mismatches can occur and do (the harmful zero steps counted in the text).}
 \end{table}
 """
     tex = tex.replace('__E1__', line('Feature sel.\\', '5-fold CV acc.',

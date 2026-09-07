@@ -174,3 +174,24 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
   Theorem 1)"；证明移入附录并注明 included for completeness。全文不得对该结果写 "we prove/show"。
   对应 label 由 thm:guarantee 改为 prop:guarantee（results.tex、notation_table.tex、
   appendix_proofs.tex、captions.tex、EXP_table 已同步）。
+
+## 更新（J2 采纳日：K1-K7，2026-09-07）
+- **D3（η^sel 重定义，J2 §4）**：逐步 a_t = M_t/g_t（g_t>0）、1（M_t=g_t=0）、∞（g_t=0<M_t），
+  η^sel = max{1, a_0..a_{K-1}}，约定 L_K(∞)=0。旧"只取正步"定义被三元素 modular 反例推翻
+  （真值 (1,1,0)、预测 (2,1,3)、K=2：ratio 1/2 < L_2(1)=3/4）[VERIFIED-EXHAUSTIVE，
+  results/H3_j2_recheck.py]。链 η^sel ≤ η^tr ≤ η 在有限 band 下保持（有害零步不可能发生）。
+  U_K 族数值确认新定义下 η^sel=η^tr=â 逐位不变（14/14，results/K1_etasel_newdef_check.py）。
+- **R6 升级（J2 §2）**：pred/cons case (b) 的三项非负 slack 恒等式 [VERIFIED-SYMBOLIC]
+  （H3_j2_recheck.py + J2_core_oracles.py，另有 1,536 个全格点 slack 最小化 [VERIFIED-LP]）；
+  app:validity 只剩记账部分为手证。主定理 ≥ 方向的悬空步了结。
+- **Hardness 重校准（J2 §6）**：旧 Φ 是最小对称带非实际误差乘积，"error exactly η" 在旧校准下
+  不成立（(4,1,4)：实际 5 < 25/4）；实际乘积 η_act = θAB = (θK−1)/(K−τ)，四行边表穷尽
+  [VERIFIED-SYMBOLIC + 264 实例/57,728 边 LP]。新上界 H_{K,τ}(η) = 1−(1−1/(η(K−τ)+1))^K，
+  更强更简；τ=1 时 = U_K(η)。概率装配保持 [HAND-PROOF-UNREVIEWED]。
+- **查询类最优性收缩（J2 §7）**：pinning 只对包含 greedy 的查询类成立（nK ≤ n^c，如整数 c≥2）；
+  c=0 单查询反例 ratio=0 于误差 2 [VERIFIED-EXHAUSTIVE 18,769 组合]。间隙写 O((c+1)/K)。
+- **实验模型边界（J2 §8）**：E1 也在 monotone 模型外（711/720 前缀见负候选边际）；E2 有 16 条
+  有害零步轨迹（225 个 K≥2 前缀）η^sel=∞、证书归零，"structurally zero" 注释系误读（覆盖值
+  同号 ≠ 边际零点对齐；采样对 30,416 真0预正 + 5,952 真正预0）；OPT 代理方向措辞已改
+  （greedy-on-f 是 OPT 下估，ratio 是上估）。主图拆两幅：η^sel 轴只留 L_K 与真实任务散点，
+  ρ_K 与 E4 构造实例移到全局 η 轴（两把尺反例：η^sel=2 处 ratio=7/16 < ρ_2(2)=1/2）。

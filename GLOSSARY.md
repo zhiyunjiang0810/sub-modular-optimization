@@ -21,3 +21,4 @@
 | 引用四步核验（F6） | 每条引用：(1) 存在性（DBLP/出版方/arXiv 官方页）；(2) 支持陈述定位（页码/定理号）；(3) bib 字段逐项核对；(4) 版本选择理由 | 未过四步的只能以 [CITATION-NEEDS-VERIFICATION] 出现在注释，不得进 .bib |
 | D1（第五晚定案，2026-09-05） | 主模型 f̃ 无任何结构限制；submodular f̃ 只作一条 Remark（K=3, η=1.5: 9/16→19/33，[VERIFIED-LP]），general characterization left open | 不得在正文写 W_m 闭式（仅 [CONJECTURE]）；不得用 "more robust" 描述该变体 |
 | D2（第五晚定案，2026-09-05） | 原 Theorem 6 降为 Proposition~prop:guarantee，措辞 "restated in the prediction-error model of Section 2; essentially due to Goundan & Schulz (2007, Theorem 1)"，证明入附录标 included for completeness | 对该结果禁写 "we prove/show"；引用一律 Proposition + \ref{prop:guarantee} |
+| D3（J2 采纳，2026-09-07） | η^sel 为逐步 a_t 的最大值：正常步 M_t/g_t、良性零步 1、有害零步 ∞（L_K(∞)=0）；certificate 只对 monotone submodular 的真目标成立，模型外一律称 finite-step diagnostic | 旧"只取正步"定义已废（有三元素反例）；ρ_K(η^sel) 不是逐 run 包络（J2 两把尺反例），ρ_K 只画在全局 η 轴 |

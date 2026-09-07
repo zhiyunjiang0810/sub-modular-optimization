@@ -32,14 +32,11 @@
 % third quartile of that ratio
 \newcommand{\EOneKMainRatioHiQ}{0.998}
 
-% median measured selection error
+% median finite-step selection DIAGNOSTIC (E1 objective is out of the monotone model, so this is not a certificate; K2, J2 section 8.1)
 \newcommand{\EOneKMainEtaSelMedian}{2.0}
 
-% L_K at the median selection error
+% L_K evaluated at that diagnostic, printed as a reference value
 \newcommand{\EOneKMainBound}{0.405}
-
-% exact worst case rho_K at the same selection error
-\newcommand{\EOneKMainExactWorst}{0.426}
 
 % median measured trajectory error
 \newcommand{\EOneKMainEtaTrMedian}{19.4}
@@ -67,6 +64,18 @@
 
 % folds of the cross-validation surrogate
 \newcommand{\EOneCVFolds}{5}
+
+% E1 budget prefixes with K>=2
+\newcommand{\EOnePrefixTotal}{720}
+
+% prefixes with a negative TRUE candidate gain observed at a visited state (out-of-model evidence)
+\newcommand{\EOneNegCandPrefixes}{711}
+
+% prefixes that selected a negative-gain element
+\newcommand{\EOneSelectedNegPrefixes}{208}
+
+% prefixes with a harmful zero step
+\newcommand{\EOneHarmfulZeroPrefixes}{173}
 
 % classical feature selectors compared against extra_trees/mutual_info/rfe/selectkbest
 \newcommand{\EOneNumBaselines}{4}
@@ -137,16 +146,22 @@
 % third quartile
 \newcommand{\ETwoKMainRatioHiQ}{0.989}
 
-% median measured selection error
-\newcommand{\ETwoKMainEtaSelMedian}{4.3}
+% median stepwise selection error (infinity override applied; the median stays finite because only 16 of 240 runs are infinite)
+\newcommand{\ETwoKMainEtaSelMedian}{4.5}
 
 % L_K at that selection error
-\newcommand{\ETwoKMainBound}{0.207}
+\newcommand{\ETwoKMainBound}{0.199}
 
-% rho_K at that selection error
-\newcommand{\ETwoKMainExactWorst}{0.211}
+% K=30 trajectories whose stepwise eta_sel is infinite
+\newcommand{\ETwoHarmfulZeroTrajKMain}{16}
 
-% median share of steps with nonpositive chosen true gain (structurally zero: both objectives are coverage functions)
+% their share of the K=30 trajectories, percent
+\newcommand{\ETwoHarmfulZeroTrajPctKMain}{6.7}
+
+% K>=2 budget prefixes with the infinity override (J2 section 8.2)
+\newcommand{\ETwoHarmfulZeroPrefixes}{225}
+
+% median PER-RUN share of steps with nonpositive chosen true gain (a median over runs, not the pooled step rate, and not an impossibility statement)
 \newcommand{\ETwoNonposPctKMain}{0.0}
 
 % nodes of the largest E2 network, facebook_artist (E2_notes.md sec. 2)
@@ -155,8 +170,11 @@
 % input edges of that network (E2_notes.md sec. 2)
 \newcommand{\ETwoLargestEdges}{819{,}306}
 
+% network-p cells whose median stepwise eta_sel is infinite (each excluded from the rise/drop factors and reported in text)
+\newcommand{\ETwoInfMedianCells}{1}
+
 % networks on which the median selection error is strictly decreasing in p
-\newcommand{\ETwoNumGraphsEtaMonotone}{4}
+\newcommand{\ETwoNumGraphsEtaMonotone}{3}
 
 % networks on which the median ratio is strictly increasing in p
 \newcommand{\ETwoNumGraphsRatioMonotone}{4}
@@ -221,14 +239,11 @@
 % third quartile
 \newcommand{\EThreeKMainRatioHiQ}{0.757}
 
-% median measured selection error
+% median finite-step selection DIAGNOSTIC (the ROUGE objective is out of the model; not a certificate)
 \newcommand{\EThreeKMainEtaSelMedian}{7.2}
 
-% L_K at that selection error
+% L_K evaluated at that diagnostic, printed as a reference value
 \newcommand{\EThreeKMainBound}{0.132}
-
-% rho_K at the same error
-\newcommand{\EThreeKMainExactWorst}{0.140}
 
 % median share of candidate pairs disagreeing in sign
 \newcommand{\EThreeSignViolPctKMain}{10.0}
@@ -302,4 +317,4 @@
 % right panel budget of the main figure
 \newcommand{\MoneyKRight}{30}
 
-% 98 macros.
+% 103 macros.

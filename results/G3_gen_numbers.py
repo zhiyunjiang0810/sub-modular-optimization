@@ -160,10 +160,11 @@ def do_e1():
     M('EOneKMainRatioHiQ', f3(q3), 'third quartile of that ratio')
 
     e = median(col(main, 'eta_sel'))
-    M('EOneKMainEtaSelMedian', f1(e), 'median measured selection error')
-    M('EOneKMainBound', f3(L_K(e, K)), 'L_K at the median selection error')
-    M('EOneKMainExactWorst', f3(rho_K(e, K)),
-      'exact worst case rho_K at the same selection error')
+    M('EOneKMainEtaSelMedian', f1(e),
+      'median finite-step selection DIAGNOSTIC (E1 objective is out of the '
+      'monotone model, so this is not a certificate; K2, J2 section 8.1)')
+    M('EOneKMainBound', f3(L_K(e, K)),
+      'L_K evaluated at that diagnostic, printed as a reference value')
 
     tr = median(col(main, 'eta_path_trimmed'))
     M('EOneKMainEtaTrMedian', f1(tr), 'median measured trajectory error')
@@ -194,6 +195,24 @@ def do_e1():
     # parameter of the surrogate, pinned here so the section text stays free
     # of numeric literals.
     M('EOneCVFolds', '5', 'folds of the cross-validation surrogate')
+
+    # K2 (J2 section 8.1): model-violation counts per K>=2 budget prefix,
+    # from the committed external-review diagnostics
+    # (results/J2_selection_diagnostics.csv; flags recomputed there from the
+    # full E1 candidate logs, verified in H3).
+    diag = [r for r in read('J2_selection_diagnostics.csv')
+            if r['family'] == 'E1' and int(r['K']) >= 2]
+    M('EOnePrefixTotal', str(len(diag)), 'E1 budget prefixes with K>=2')
+    M('EOneNegCandPrefixes',
+      str(sum(1 for r in diag if r['negative_candidate_observed'] == 'True')),
+      'prefixes with a negative TRUE candidate gain observed at a visited '
+      'state (out-of-model evidence)')
+    M('EOneSelectedNegPrefixes',
+      str(sum(1 for r in diag if r['selected_negative'] == 'True')),
+      'prefixes that selected a negative-gain element')
+    M('EOneHarmfulZeroPrefixes',
+      str(sum(1 for r in diag if r['harmful_zero'] == 'True')),
+      'prefixes with a harmful zero step')
 
     base = read('E1_baselines.csv')
     methods = sorted({r['method'] for r in base})
@@ -295,14 +314,36 @@ def do_e2():
     M('ETwoKMainRatioMedian', f3(med), 'median ratio at the headline budget')
     M('ETwoKMainRatioLoQ', f3(q1), 'first quartile')
     M('ETwoKMainRatioHiQ', f3(q3), 'third quartile')
-    e = median(col(main, 'eta_sel'))
-    M('ETwoKMainEtaSelMedian', f1(e), 'median measured selection error')
+    # K2 (J2 adoption, decision D3): a trajectory containing a harmful zero
+    # step (chosen true gain 0 while a positive candidate exists) has
+    # stepwise eta_sel = infinity.  J2's evidence CSV shows every E2 zero
+    # step has a positive candidate (results/J2_E2_zero_step_evidence.csv),
+    # so rows with n_steps_nonpos > 0 get the infinity override.  Both
+    # objectives being coverage functions guarantees VALUE-level sign
+    # agreement, not marginal zero-point alignment; the former "structurally
+    # zero" comment was wrong (J2 section 8.2).
+    e2sel = [float('inf') if float(r['n_steps_nonpos']) > 0
+             else float(r['eta_sel']) for r in main]
+    n_inf = sum(1 for x in e2sel if x == float('inf'))
+    e = median(e2sel)
+    M('ETwoKMainEtaSelMedian', f1(e),
+      'median stepwise selection error (infinity override applied; the '
+      'median stays finite because only %d of %d runs are infinite)'
+      % (n_inf, len(main)))
     M('ETwoKMainBound', f3(L_K(e, K)), 'L_K at that selection error')
-    M('ETwoKMainExactWorst', f3(rho_K(e, K)), 'rho_K at that selection error')
+    M('ETwoHarmfulZeroTrajKMain', str(n_inf),
+      'K=30 trajectories whose stepwise eta_sel is infinite')
+    M('ETwoHarmfulZeroTrajPctKMain', f1(100 * n_inf / len(main)),
+      'their share of the K=30 trajectories, percent')
+    all_pref = [r for r in rows if int(r['K']) >= 2
+                and float(r['n_steps_nonpos']) > 0]
+    M('ETwoHarmfulZeroPrefixes', str(len(all_pref)),
+      'K>=2 budget prefixes with the infinity override (J2 section 8.2)')
     M('ETwoNonposPctKMain',
       f1(100 * median(col(main, 'frac_steps_nonpos'))),
-      'median share of steps with nonpositive chosen true gain (structurally '
-      'zero: both objectives are coverage functions)')
+      'median PER-RUN share of steps with nonpositive chosen true gain '
+      '(a median over runs, not the pooled step rate, and not an '
+      'impossibility statement)')
 
     # Largest network (results/E2_notes.md section 2).  Node/edge counts are
     # properties of the input graph files, not of the row CSVs, so they are
@@ -312,11 +353,32 @@ def do_e2():
     M('ETwoLargestEdges', thousands(819306),
       'input edges of that network (E2_notes.md sec. 2)')
 
-    # p sweep.
-    sweep = read('E2_p_eta.csv')
+    # p sweep.  K2: recomputed from E2_rows.csv at K = K_MAIN with the
+    # infinity override, instead of reading the night-3 E2_p_eta.csv (whose
+    # medians predate decision D3).  A cell whose median is infinite (half
+    # or more of its runs overridden) is excluded from rise/drop factors
+    # and counted separately.
     by = {}
-    for r in sweep:
-        by[(r['dataset'], float(r['p']))] = r
+    inf_cells = []
+    for g in graphs:
+        for p in ps:
+            cell = [float('inf') if float(r['n_steps_nonpos']) > 0
+                    else float(r['eta_sel'])
+                    for r in main if r['dataset'] == g
+                    and float(r['p']) == p]
+            m = median(cell)
+            rm = median([float(r['ratio']) for r in main
+                         if r['dataset'] == g and float(r['p']) == p])
+            by[(g, p)] = {'eta_sel_K30_median': m,
+                          'ratio_K30_median': rm,
+                          'LK_eta_sel_median': L_K(m, K) if m != float('inf')
+                          else 0.0,
+                          'n_inf': sum(1 for x in cell if x == float('inf'))}
+            if m == float('inf'):
+                inf_cells.append((g, p))
+    M('ETwoInfMedianCells', str(len(inf_cells)),
+      'network-p cells whose median stepwise eta_sel is infinite '
+      '(each excluded from the rise/drop factors and reported in text)')
     lo, hi = min(ps), max(ps)
     rises, drops = [], []
     mono_eta = mono_ratio = 0
@@ -325,6 +387,8 @@ def do_e2():
         rats = [float(by[(g, p)]['ratio_K30_median']) for p in ps]
         # ps is ascending, so "less observed => larger error" means etas is
         # descending and rats ascending.
+        # an infinite-median cell in the interior breaks strict descent;
+        # that network is then honestly not counted as monotone (K2)
         mono_eta += all(etas[i] > etas[i + 1] for i in range(len(ps) - 1))
         mono_ratio += all(rats[i] < rats[i + 1] for i in range(len(ps) - 1))
         rises.append(float(by[(g, lo)]['eta_sel_K30_median'])
@@ -390,9 +454,11 @@ def do_e3():
     M('EThreeKMainRatioLoQ', f3(q1), 'first quartile')
     M('EThreeKMainRatioHiQ', f3(q3), 'third quartile')
     e = median(col(main, 'eta_sel'))
-    M('EThreeKMainEtaSelMedian', f1(e), 'median measured selection error')
-    M('EThreeKMainBound', f3(L_K(e, K)), 'L_K at that selection error')
-    M('EThreeKMainExactWorst', f3(rho_K(e, K)), 'rho_K at the same error')
+    M('EThreeKMainEtaSelMedian', f1(e),
+      'median finite-step selection DIAGNOSTIC (the ROUGE objective is out '
+      'of the model; not a certificate)')
+    M('EThreeKMainBound', f3(L_K(e, K)),
+      'L_K evaluated at that diagnostic, printed as a reference value')
     M('EThreeSignViolPctKMain', f1(median(col(main, 'viol_sign_pct'))),
       'median share of candidate pairs disagreeing in sign')
     M('EThreeNonposPctKMain',
