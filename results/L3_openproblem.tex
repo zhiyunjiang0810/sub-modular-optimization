@@ -1,0 +1,74 @@
+% L3 (TASKS7): draft open-problem paragraph and paper-version sandwich
+% figure, for the conclusion/discussion section.
+%
+% NOT wired into paper/main.tex: the conclusion is written by the human
+% (same rule as abstract/intro).  This file is the drop-in candidate text.
+% Compile test (from paper/):
+%   sed 's|\\input{sections/results}|\\input{sections/results}\n\\input{../results/L3_openproblem}|' \
+%       main.tex > main_l3.tex
+%   pdflatex -interaction=nonstopmode -jobname=main_l3 main_l3.tex  (x2)
+%   rm main_l3.tex        # log kept as results/L3_compile.log
+%
+% Numbers note: as a results/ draft this file is outside the G3 audit scope;
+% on wiring into main, the four literals below (0.4216, 0.4242, 0.5 at
+% K=8/eta=2, and the eta set {2, 2.5}) must become numbers.tex macros per
+% the CLAUDE.md rule (proposed names: \OPRhoEightTwo, \OPUEightTwo,
+% \OPInvEtaTwo; the eta set can stay symbolic).  Sources: 0.4216/0.4242 are
+% rho_8(2), U_8(2) from results/L1_table.csv (exact rationals; also printed
+% by results/L3_sandwich_fig.py); the PE_1 values are ledger card T11
+% (results/H_F_partial_enumeration.py).
+%
+% Assertion discipline (TASKS7): the only assertion beyond verified facts is
+% the single conjecture sentence at the end; everything else is a statement
+% of what is proved, computed, or not known.
+
+\paragraph{An open problem: the last $O(1/K^{2})$.}
+Corollary~\ref{cor:greedybudget} and Theorem~\ref{thm:exact} leave a
+sandwich.  Within the class $\mathcal A_{\mathrm{lin}}$ of deterministic
+algorithms operating on predictive greedy's own budget, at most $nK$
+queries of size at most $K$, the best achievable worst-case ratio at error
+level $\eta$ lies in the interval
+$[\rho_K(\eta),\,\min\{U_K(\eta),1/\eta\}]$, whose width at fixed
+$\eta$ is $c'(\eta)/K^{2}+O(1/K^{3})$
+(Remark~\ref{rem:greedybudget}).  At $K=8$ and $\eta=2$ the interval reads
+$[0.4216,\,0.4242]$, against the unrestricted-query ceiling $1/\eta=0.5$.
+For $\eta\ge K$ the interval is a point and predictive greedy is exactly
+optimal within the class.  For $1<\eta<K$ we do not know whether the lower
+end moves: we are not aware of any algorithm in $\mathcal A_{\mathrm{lin}}$
+whose worst-case ratio exceeds $\rho_K(\eta)$.  %% [L2-PENDING] one or two sentences with the exact-LP conclusions for the
+%% two linear-budget candidates: A (top-(K+1) shortlist by predicted
+%% singleton values) and B (predictive greedy plus one swap pass).  To be
+%% filled from results/L2_linear_candidates.md; the wording must follow the
+%% LP outcome (strictly above / equal to / below rho_K per configuration)
+%% and must not presuppose it.
+Partial enumeration, which improves the finite-$K$ constant in the
+exact-oracle setting of Nemhauser and Wolsey, is finite-parameter evidence
+in the same direction rather than a way out: at $R=1$, $K=3$ its exact
+worst case falls strictly below $\rho_3$ already at $n=7,8$ for
+$\eta\in\{2,\,2.5\}$, the gain of enumerating a starting element being
+outpaced by the loss of selecting the endpoint by $\tilde f$.  A
+construction direction with finite exhaustive support
+(Appendix~\ref{app:hardness-anysize}) points the same way for far larger
+budgets of arbitrary-size queries.  We conjecture that predictive greedy is
+worst-case optimal within $\mathcal A_{\mathrm{lin}}$; settling the last
+$O(1/K^{2})$ is open.
+
+% Draft caption for the paper-version sandwich figure
+% (paper/figures/sandwich_paper.pdf, built by results/L3_sandwich_fig.py).
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/sandwich_paper}
+\caption{The sandwich around predictive greedy within its own query budget.
+(a)~At $K=8$: the a priori guarantee $L_8$, greedy's exact worst case
+$\rho_8$ (Theorem~\ref{thm:exact}), the budget-class ceiling
+$U_8=H_{8,1}$ (Corollary~\ref{cor:greedybudget}) and the unrestricted-query
+ceiling $1/\eta$ (Theorem~\ref{thm:ceiling}).  The admissible band
+$[\rho_8,\min\{U_8,1/\eta\}]$ (shaded) is already too thin to see: at
+$\eta=2$ it is $[0.4216,\,0.4242]$ while $1/\eta=0.5$.
+(b)~Width of the band against $K$ (log--log) at four error levels, with the
+asymptote $c'(\eta)/K^{2}$ of Remark~\ref{rem:greedybudget} dashed in the
+matching color; the kink at small $K$ is the switch of the minimum from
+$1/\eta$ to $U_K$, and the band is empty for $K\le\eta$, where greedy is
+exactly optimal in the class.}
+\label{fig:sandwich}
+\end{figure}
