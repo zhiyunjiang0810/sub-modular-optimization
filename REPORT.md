@@ -1,6 +1,19 @@
 # REPORT.md
 
-## Summary（第六晚：修错误 + 加硬核，台账已同步）
+## Summary（第七晚：问题 B 收口，台账已同步）
+
+- L1-L4 全部完成，无 FAILED：正文新增 cor:greedybudget（台账新卡 T10b 先行）+ rem:greedybudget + 附录 app:greedybudget + results/L1_table.csv；L2 两个线性预算候选的精确 LP（Opus 代理，五道闸门我本地重跑 exit 0）；L3 open-problem 段草稿（results/L3_openproblem.tex，未接入 main，conclusion 由人写）+ sandwich 图 paper 版（figures/sandwich_paper.pdf）；台账 T10b 新卡 + T11 追加 L2 行。编译 35 页 0 错误 0 未定义引用（results/L4_compile.log），审计 342 literals 0 违规。
+- **最重要结果**：greedy 预算类 𝒜_lin（≤nK 次、size ≤K 查询）在误差 η 的天花板 ≤ min{U_K(η), 1/η}（τ=1 计数按预算 nK 重做，n ≥ 4K⁵ 显式条件，计数链 [VERIFIED-SYMBOLIC]，装配沿 app:hardness 保持 [HAND-PROOF-UNREVIEWED]）；与 ρ_K 的差 = c'(η)/K² + O(1/K³)，c'(η)=e^{−1/η}⌊η⌋(2η−⌊η⌋−1)/(2η²) 连续且 η>1 时为正（[VERIFIED-SYMBOLIC conditional on thm:exact]，K≤400 数值贴合）；η ≥ K 时 greedy 恰达类天花板。
+- **L2 结论**：36/40 跑完的配置无一超过 ρ_K（"严格优于"规程未触发）；候选 A（top-(K+1) shortlist）全线塌到单元素保证量级；候选 B（greedy+单轮 swap）在 n=2K 恰持平 ρ_K、更大 n 严格劣于；与 H-F 的 PE_1 对照，n=2K 处无"小 n 超越"。K=3,n=7 的 η∈{1.25,1.5} 两格分支定界未穷尽 [OPEN]（incumbent 是上界，不是超越证据）。
+- **最需人类判断**：conclusion 是否吸收 L3_openproblem.tex 草稿（含唯一允许的断言 "we conjecture predictive greedy is worst-case optimal within 𝒜_lin"）与 sandwich 图；K=3,n=7 两格 [OPEN] 是否值得再算（md §5.1 有三条提速建议）。
+- 保守决定与逐项对照见下节"第七晚任务明细"（ε_n 按 TASKS7 取 K²/n+K⁵/(2n)（装配实际给 K/n）；候选 B 预算 2nK−K² 超出 Q=nK 的记账已进 T11 禁止声称）。
+
+## 第七晚任务明细（L1-L4，2026-09-08）
+
+- **L1**：先写台账卡 T10b 再落 .tex（用户指令顺序）。计数重做：单查询对概率 K(K−1)/(n(n−1)) ≤ (K/n)²（slack K(n−K)/(n²(n−1))）、Q=nK 并集 ≤ K⁵/(2n)、输出相交 ≤ K²/n、n ≥ 4K⁵ ⇒ 总失败 ≤ 5/32 < 1/2，全部 sympy（results/L1_table.py §1）；U_K−V_{K−1} 恒等式因 sympy 不并符号指数改为两步分解验证（1−1/k₁=q + 括号项）。gap 级数：U_K 与 V_{K−m} 的 1/K 系数同为 c(η)（故 K·gap→0），1/K² 系数差 c'(η)，整数 η 处两支同值 e^{−1/η}(η−1)/(2η)。表 35 行（K∈{2,3,4,5,8,10,20}×η∈{1.25,1.5,2,3,5}）。附录注明同一算术覆盖任意 Q ≤ n²/(4K⁴)。
+- **L2**（Opus 代理，1.5h）：全格点 LP + 决策分支枚举 + 五道闸门（冻结 worst_case_lp 复现 ρ_K 20/20 偏差 ≤5.6e−16；O-对称归约、拆分不变性、叶子计数、greedy 轨迹 WLOG）+ 40/40 instance-rebuild 一致性。我重跑 gates 模式确认 exit 0。额外发现（均入 md/T11）：swap 严格比较的 ε-余量研究（下确界不变，inf 非 min）；候选 A 闭式猜想 1/((K−1)η+1) 与 1/(Kη)；候选 B 预算 2nK−K²。交付 results/L2_linear_candidates.{py,json,md}。
+- **L3**：sandwich 图两面板（K=8 区间 + log-log 宽度贴 c'/K² 渐近，最小有效字号 7.07pt ≥ 7pt，results/L3_sandwich_fig.py）；open-problem 段按 TASKS7 清单逐项落实（三个数 0.4216/0.4242/0.5 来自 L1_table.csv 精确值；候选句在 L2 出结果后按实际结论填写，占位期不预设方向）；wrapper 编译测试 0 错误（results/L3_compile.log，wrapper 已删，citation warning 是 wrapper 无 bibtex 所致）。接入 main 时四个字面数字需转 numbers.tex 宏（文件头有提案宏名）。
+- **L4**：台账 T10b/T11 + 表头日期；编译（results/L4_compile.log）；审计 0 违规；push + experiment 镜像同步。
 
 - 全部完成：K1-K7（前日）+ K9（J4 六项措辞与范围修正，F3 降为 candidate bound 段落）+ H-J3（sharp form、prop:rigidity 刚性命题、断点 active-constraint-switch remark、app:rigidity 逐步证明；闸门由自写 results/H_J3_gate_check.py 全过，2,480 LP 偏差 4e-15，J3 原脚本未交付已记录）+ 四个硬核探针 H-F/H-B/H-E/H-C。全文 34 页编译 0 错误 0 未定义引用（results/H_final_compile.log），数字审计 311 literals 0 违规。
 - **三个新硬核结果**：H-B 的 c(η)=e^{−1/η}(2η−1)/(2η²) 非分段闭式 + ρ_K 关于 K 非增的证明闭合（conditional on thm:exact，cor:limit 单调子句已按台账恢复）；H-E 的 n<2K 精确天花板 K/((2K−n)+(n−K)η)（84 点 LP，thm:ceiling 后已加句）；H-C 的一般 K 双 submodular 实例族把 ρ_K^sub ≤ min_m W_m 升为定论（410/410），下界仍 [CONJECTURE] 且卡点已定位。
@@ -37,6 +50,7 @@ intro 注释块的第 4 承重位（hardness position）按 K5 后的定理需�
 3. 有限 K 间隙写 O((c+1)/K)，不写 O(c/K)。
 4. 新卖点可加一句：τ=1 时 hardness 曲线恰是旧显式族值 U_K，于是 L_K ≤ ρ_K ≤ U_K = H_{K,1} 四条曲线在一条链上（图 2 的 U_K 方框悬在 ρ_K 上方就是这条链的可视化）。
 5. 第 2 承重位（certificate）同步微调：η^sel 是逐步定义（有害零步 ∞），certificate 只对模型内目标声明；实验三族一分为二（E2 证书 / E1、E3 诊断）。
+6. （第七晚新增）第 4 承重位可再加一句收口：在 greedy 自己的预算类 𝒜_lin（nK 次 size ≤K 查询）内，天花板收紧到 min{U_K, 1/η}（cor:greedybudget，τ=1 常数），与 ρ_K 只差 c'(η)/K²+O(1/K³)；η ≥ K 时 greedy 恰达类天花板。措辞注意：有限 K、1<η<K 的类内最优性仍是 open（T10b/T11 禁止声称），intro 只能说 "within O(1/K²) of optimal in its own budget class"，不能说 optimal。
 
 ## Summary（第五晚：装配全文骨架）
 
