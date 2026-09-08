@@ -178,7 +178,7 @@ def candA_worst(n, K, eta, eu=None, eo=None, full_O=False, verbose=False):
 # candidate B
 # ---------------------------------------------------------------------------
 def candB_search(n, K, eta, eu=None, eo=None, swap_mode="continue",
-                 time_limit=900.0, verbose=False):
+                 time_limit=900.0, verbose=False, ub_init=None):
     """Exhaustive min over (O, accept/reject profile) with branch and bound.
 
     Relabelling (md section 1.2) fixes the greedy trajectory to 0 -> 1 -> ... ->
@@ -200,7 +200,12 @@ def candB_search(n, K, eta, eu=None, eo=None, swap_mode="continue",
     L = list(range(K, n))                        # scan list, ascending
     T0 = list(range(K))                          # slots in insertion order
     stats = dict(nodes=0, leaves=0, pruned=0, lp=0)
-    best = dict(val=np.inf, O=None, profile=None, T=None)
+    # ub_init seeds the incumbent.  Every node whose bound is >= ub_init is cut,
+    # so a search that COMPLETES without improving certifies worst case >= ub_init
+    # (a valid LOWER bound); a search that improves behaves as if unseeded.
+    best = dict(val=np.inf if ub_init is None else float(ub_init),
+                O=None, profile=None, T=None)
+    seeded = ub_init is not None
     t_start = time.time()
 
     class Stop(Exception):
@@ -263,12 +268,105 @@ def candB_search(n, K, eta, eu=None, eo=None, swap_mode="continue",
             status = "TIMEOUT"
             break
     n_leaves_total = _leaf_count(n, K, swap_mode) * math.comb(n, K)
+    if seeded and best["profile"] is None:
+        # exhaustive search never went below the seed: a certified LOWER bound.
+        # If it also ran out of time, the returned number is just the seed and
+        # certifies nothing.
+        status = ("OK_NO_IMPROVEMENT_BELOW_SEED" if status == "OK"
+                  else "TIMEOUT_SEEDED_NOT_IMPROVED")
     return dict(val=best["val"], O=None if best["O"] is None else bits(best["O"]),
                 T=best["T"], profile=best["profile"], status=status,
                 n_lps=stats["lp"], n_leaves=stats["leaves"],
                 n_nodes=stats["nodes"], n_pruned=stats["pruned"],
                 n_branches=n_leaves_total, swap_mode=swap_mode,
+                seed=ub_init, improved=best["profile"] is not None,
                 secs=time.time() - t_start)
+
+
+def solve_with_rhs(LP, extra_rows, extra_rhs, O_mask, obj_mask, want_x=False):
+    """LPBuilder.solve, but the extra rows may have a nonzero right-hand side
+    (needed for the eps-strict variant of candidate B's swap test)."""
+    from H_F_partial_enumeration import _to_csr
+    A = LP.base_csr
+    b = np.zeros(A.shape[0])
+    if extra_rows:
+        A = vstack([A, _to_csr(extra_rows, LP.nv)]).tocsr()
+        b = np.concatenate([b, np.asarray(extra_rhs, dtype=float)])
+    obj = np.zeros(LP.nv)
+    obj[obj_mask] = 1.0
+    A_eq = _to_csr([{0: 1.0}, {LP.N: 1.0}, {O_mask: 1.0}], LP.nv)
+    res = linprog(obj, A_ub=A, b_ub=b, A_eq=A_eq, b_eq=[0.0, 0.0, 1.0],
+                  bounds=[(None, None)] * LP.nv, method="highs")
+    if res.status != 0:
+        return (np.inf, None) if want_x else np.inf
+    return (res.fun, res.x) if want_x else res.fun
+
+
+def candB_eps(n, K, eta, eps, eu=None, eo=None, swap_mode="continue",
+              time_limit=600.0):
+    """Candidate B with the LITERAL strict swap rule relaxed to a margin:
+    accept requires ftilde(T-t+e) >= ftilde(T) + eps, reject requires <=.
+    eps > 0 is an under-approximation of "strictly larger"; the value is
+    non-decreasing as eps grows, and lim_{eps -> 0+} equals the eps = 0
+    (tie-adversarial) value iff the tie convention does not move the infimum."""
+    if eu is None:
+        eu, eo = split(eta)
+    LP = LPBuilder(n, eu, eo)
+    N = LP.N
+    G = lambda S: N + S
+    base = greedy_rows(n, N, K)
+    L = list(range(K, n))
+    best = dict(val=np.inf)
+    t0 = time.time()
+    nlp = [0]
+
+    class Stop(Exception):
+        pass
+
+    def solve(rows, rhs, O_mask, obj_mask):
+        nlp[0] += 1
+        if time.time() - t0 > time_limit:
+            raise Stop
+        return solve_with_rhs(LP, rows, rhs, O_mask, obj_mask)
+
+    def rec(O_mask, p, i, cur, rows, rhs):
+        if p == K:
+            v = solve(rows, rhs, O_mask, mask(cur))
+            if v < best["val"] - 1e-12:
+                best["val"] = v
+            return
+        if i == len(L):
+            if p + 1 < K and solve(rows, rhs, O_mask,
+                                   mask(cur[:p + 1])) >= best["val"] - 1e-12:
+                return
+            rec(O_mask, p + 1, 0, cur, rows, rhs)
+            return
+        e = L[i]
+        if e in cur:
+            rec(O_mask, p, i + 1, cur, rows, rhs)
+            return
+        Tc = mask(cur)
+        nxt = list(cur)
+        nxt[p] = e
+        Tn = mask(nxt)
+        rec(O_mask, p, i + 1, cur,
+            rows + [{G(Tn): 1.0, G(Tc): -1.0}], rhs + [0.0])
+        arows = rows + [{G(Tc): 1.0, G(Tn): -1.0}]
+        arhs = rhs + [-eps]
+        if swap_mode == "first":
+            rec(O_mask, p + 1, 0, nxt, arows, arhs)
+        else:
+            rec(O_mask, p, i + 1, nxt, arows, arhs)
+
+    status = "OK"
+    for O in itertools.combinations(range(n), K):
+        try:
+            rec(mask(O), 0, 0, list(range(K)), base, [0.0] * len(base))
+        except Stop:
+            status = "TIMEOUT"
+            break
+    return dict(val=best["val"], eps=eps, status=status, n_lps=nlp[0],
+                secs=time.time() - t0)
 
 
 def _leaf_count(n, K, swap_mode):
@@ -290,6 +388,81 @@ def _leaf_count(n, K, swap_mode):
         return rec(p, i + 1, cur) + rec(p, i + 1, nxt)
 
     return rec(0, 0, list(range(K)))
+
+
+def greedy_rows_traj(n, N, traj):
+    """Greedy trajectory rows for an ARBITRARY ordered trajectory (used only by
+    Gate 5, which checks that fixing traj = (0,...,K-1) is WLOG)."""
+    G = lambda S: N + S
+    rows, S = [], 0
+    for t in traj:
+        for e in range(n):
+            if e == t or S >> e & 1:
+                continue
+            rows.append({G(S | 1 << e): 1.0, G(S | 1 << t): -1.0})
+        S |= 1 << t
+    return rows
+
+
+def candB_search_traj(n, K, eta, traj, eu=None, eo=None, swap_mode="continue",
+                      time_limit=600.0, incumbent=np.inf):
+    """Candidate B restricted to one ordered greedy trajectory `traj`, with the
+    scan list = sorted([n] \\ traj) in ASCENDING GLOBAL INDEX order (the real
+    algorithm).  Gate 5 minimises this over all ordered trajectories and compares
+    with candB_search, which only uses traj = (0, 1, ..., K-1)."""
+    if eu is None:
+        eu, eo = split(eta)
+    LP = LPBuilder(n, eu, eo)
+    N = LP.N
+    G = lambda S: N + S
+    base = greedy_rows_traj(n, N, traj)
+    L = sorted(e for e in range(n) if e not in traj)
+    best = dict(val=incumbent)
+    t0 = time.time()
+
+    class Stop(Exception):
+        pass
+
+    def solve(rows, O_mask, obj_mask):
+        if time.time() - t0 > time_limit:
+            raise Stop
+        return LP.solve(rows, O_mask, obj_mask)
+
+    def rec(O_mask, p, i, cur, rows):
+        if p == K:
+            v = solve(rows, O_mask, mask(cur))
+            if v < best["val"] - 1e-12:
+                best["val"] = v
+            return
+        if i == len(L):
+            if p + 1 < K and solve(rows, O_mask,
+                                   mask(cur[:p + 1])) >= best["val"] - 1e-9:
+                return
+            rec(O_mask, p + 1, 0, cur, rows)
+            return
+        e = L[i]
+        if e in cur:
+            rec(O_mask, p, i + 1, cur, rows)
+            return
+        Tc = mask(cur)
+        nxt = list(cur)
+        nxt[p] = e
+        Tn = mask(nxt)
+        rec(O_mask, p, i + 1, cur, rows + [{G(Tn): 1.0, G(Tc): -1.0}])
+        arows = rows + [{G(Tc): 1.0, G(Tn): -1.0}]
+        if swap_mode == "first":
+            rec(O_mask, p + 1, 0, nxt, arows)
+        else:
+            rec(O_mask, p, i + 1, nxt, arows)
+
+    status = "OK"
+    for O in itertools.combinations(range(n), K):
+        try:
+            rec(mask(O), 0, 0, list(traj), base)
+        except Stop:
+            status = "TIMEOUT"
+            break
+    return dict(val=best["val"], status=status, secs=time.time() - t0)
 
 
 def candB_relax_lb(n, K, eta, eu=None, eo=None):
@@ -593,6 +766,26 @@ def run_gates():
               f"#O={tot}   leaves continue={c*tot} first={fst*tot}")
         g4.append(dict(K=K, n=n, per_O_continue=c, per_O_first=fst, nO=tot))
     out["gate4_leafcounts"] = g4
+
+    print("=" * 78)
+    print("Gate 5: candidate B, fixing the greedy trajectory to (0..K-1) is WLOG")
+    print("=" * 78)
+    g5 = []
+    for (K, n) in [(2, 4), (2, 5)]:
+        for eta in [1.25, 2.0]:
+            fixed = candB_search(n, K, eta, time_limit=600)["val"]
+            allt = np.inf
+            worst_traj = None
+            for traj in itertools.permutations(range(n), K):
+                v = candB_search_traj(n, K, eta, traj, time_limit=600)["val"]
+                if v < allt:
+                    allt, worst_traj = v, traj
+            print(f"  K={K} n={n} eta={eta}: fixed traj = {fixed:.9f}   "
+                  f"min over all {math.perm(n, K)} ordered trajs = {allt:.9f} "
+                  f"(argmin {worst_traj})   diff = {fixed-allt:+.2e}", flush=True)
+            g5.append(dict(K=K, n=n, eta=eta, fixed=fixed, all_trajs=allt,
+                           argmin_traj=list(worst_traj), diff=fixed - allt))
+    out["gate5_trajectory_wlog"] = g5
     return out
 
 
@@ -600,31 +793,34 @@ def run_gates():
 # driver
 # ---------------------------------------------------------------------------
 def run_config(K, n, eta, cand, swap_mode="continue", time_limit=900.0,
-               do_check=True):
+               do_check=True, seed=None):
     t0 = time.time()
     print(f"[{time.strftime('%H:%M:%S')}] K={K} n={n} eta={eta} cand={cand} "
-          f"mode={swap_mode}", flush=True)
+          f"mode={swap_mode} seed={seed}", flush=True)
     if cand == "A":
         res = candA_worst(n, K, eta)
     else:
-        res = candB_search(n, K, eta, swap_mode=swap_mode, time_limit=time_limit)
+        res = candB_search(n, K, eta, swap_mode=swap_mode, time_limit=time_limit,
+                           ub_init=seed)
     val = res["val"]
     fr = rationalize(val) if np.isfinite(val) else None
     r, U = rho(K, eta), UK(K, eta)
+    kind, vs_rho, vs_U = _classify(val, r, U, res["status"])
     row = dict(K=K, n=n, eta=eta, candidate=cand, swap_mode=swap_mode,
                value_float=None if not np.isfinite(val) else float(val),
                value_fraction=None if fr is None else str(fr),
+               value_kind=kind,
+               value_is_upper_bound_only=(kind == "upper_bound"),
+               value_is_lower_bound_only=(kind == "lower_bound"),
                n_branches=res.get("n_branches"), n_lps=res.get("n_lps"),
                n_leaves=res.get("n_leaves"), n_pruned=res.get("n_pruned"),
-               status=res["status"], rho=r, U=U,
-               vs_rho=("strictly_better" if val > r + 1e-9 else
-                       "equal" if abs(val - r) <= 1e-9 else "worse"),
-               vs_U=("above_U" if val > U + 1e-9 else
-                     "equal_U" if abs(val - U) <= 1e-9 else "below_U"),
+               status=res["status"], rho=r, U=U, seed=res.get("seed"),
+               vs_rho=vs_rho, vs_U=vs_U,
                gap_vs_rho=None if not np.isfinite(val) else float(val - r),
                O=res.get("O"), T=res.get("T"),
                profile=res.get("profile"), secs=time.time() - t0)
-    print(f"    value = {val:.9f} ({fr})   rho_{K} = {r:.9f}   U_{K} = {U:.9f}"
+    print(f"    value = {val:.9f} ({fr}) [{row['value_kind']}]   "
+          f"rho_{K} = {r:.9f}   U_{K} = {U:.9f}"
           f"   -> {row['vs_rho']}   status={res['status']}  "
           f"LPs={res.get('n_lps')}  ({row['secs']:.0f}s)", flush=True)
     if res["status"] == "TIMEOUT":
@@ -633,10 +829,11 @@ def run_config(K, n, eta, cand, swap_mode="continue", time_limit=900.0,
         row["relaxation_lower_bound"] = float(lb)
         print(f"    TIMEOUT: incumbent (upper bound) {val:.9f}, "
               f"profile-free relaxation lower bound {lb:.9f}", flush=True)
-    if do_check and np.isfinite(val):
+    have_branch = (cand == "A") or (res.get("profile") is not None)
+    if do_check and np.isfinite(val) and have_branch:
         rep, f, g = consistency_check(n, K, eta, cand, res, swap_mode)
         row["consistency"] = rep
-        if val > r + 1e-9:
+        if vs_rho == "strictly_better":
             print("    *** strictly better than rho_K: exact rational re-check ***",
                   flush=True)
             row["exact_recheck"] = exact_witness(n, K, eta, cand, res, f, g)
@@ -659,13 +856,18 @@ def query_audit(n, K, cand):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("mode", nargs="?", default="all",
-                    choices=["all", "gates", "run", "merge", "lb"])
+                    choices=["all", "gates", "run", "merge", "lb",
+                             "extra", "epsstudy"])
     ap.add_argument("--K", type=int)
     ap.add_argument("--n", type=int)
     ap.add_argument("--eta", type=float)
     ap.add_argument("--cand", choices=["A", "B"])
     ap.add_argument("--swap-mode", default="continue", choices=["continue", "first"])
     ap.add_argument("--time-limit", type=float, default=900.0)
+    ap.add_argument("--seed", type=float, default=None,
+                    help="seed the branch-and-bound incumbent (candidate B). A "
+                         "search that COMPLETES without improving on the seed "
+                         "certifies worst case >= seed.")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -678,23 +880,84 @@ def main():
     if args.mode == "lb":
         print(candB_relax_lb(args.n, args.K, args.eta))
         return
+    if args.mode == "extra":
+        # md section 3.3 (swap_mode = first) and section 4.6 (candidate A at larger n)
+        extra = dict(A_larger_n=[], B_swapmode_first=[])
+        for (K, n) in [(2, 7), (2, 8), (3, 8)]:
+            for eta in ETAS:
+                r = candA_worst(n, K, eta)
+                print(f"  A K={K} n={n} eta={eta}: {r['val']:.9f} "
+                      f"({rationalize(r['val'])})  1/(K eta) = {1/(K*eta):.9f}",
+                      flush=True)
+                extra["A_larger_n"].append(
+                    dict(K=K, n=n, eta=eta, val=r["val"],
+                         frac=str(rationalize(r["val"])), rho=rho(K, eta)))
+        for (K, n) in [(2, 5), (2, 6), (3, 6)]:
+            for eta in ETAS:
+                r = candB_search(n, K, eta, swap_mode="first", time_limit=600)
+                print(f"  B(first) K={K} n={n} eta={eta}: {r['val']:.9f} "
+                      f"({rationalize(r['val'])})  rho = {rho(K, eta):.9f}  "
+                      f"{r['status']}", flush=True)
+                extra["B_swapmode_first"].append(
+                    dict(K=K, n=n, eta=eta, val=r["val"],
+                         frac=str(rationalize(r["val"])), status=r["status"],
+                         rho=rho(K, eta)))
+        _dump(os.path.join(HERE, "_L2_shard_extra.json"), dict(extra=extra))
+        return
+    if args.mode == "epsstudy":
+        # md section 4.5: does the tie convention move the infimum?
+        out = []
+        for (K, n, eta) in [(2, 5, 1.25), (2, 6, 1.25), (2, 6, 2.0),
+                            (2, 4, 1.25), (3, 6, 1.25), (3, 6, 2.0)]:
+            row = dict(K=K, n=n, eta=eta)
+            for eps in [0.0, 1e-8, 1e-6, 1e-4]:
+                r = (candB_search(n, K, eta, time_limit=600) if eps == 0.0
+                     else candB_eps(n, K, eta, eps, time_limit=600))
+                row[f"eps_{eps:g}"] = r["val"]
+                row[f"status_{eps:g}"] = r["status"]
+                print(f"  K={K} n={n} eta={eta} eps={eps:g}: {r['val']:.9f} "
+                      f"{r['status']}", flush=True)
+            out.append(row)
+        _dump(os.path.join(HERE, "_L2_shard_eps.json"), dict(eps_study=out))
+        return
     if args.mode == "merge":
         log = _load(path)
         rows = {(_key(r)): r for r in log.get("results", [])}
         for fn in sorted(os.listdir(HERE)):
             if fn.startswith("_L2_shard_") and fn.endswith(".json"):
-                for r in _load(os.path.join(HERE, fn)).get("results", []):
+                sh = _load(os.path.join(HERE, fn))
+                if "seeded" in fn:
+                    # seeded re-runs answer a different question; keep them out
+                    # of `results` so they cannot overwrite an unseeded row
+                    log.setdefault("seeded_reruns", [])
+                    have = {_key(x) for x in log["seeded_reruns"]}
+                    for r in sh.get("results", []):
+                        _normalise_labels(r)
+                        if _key(r) in have:
+                            log["seeded_reruns"] = [
+                                x for x in log["seeded_reruns"] if _key(x) != _key(r)]
+                        log["seeded_reruns"].append(r)
+                    continue
+                for r in sh.get("results", []):
                     rows[_key(r)] = r
+                for k in ("extra", "eps_study"):
+                    if k in sh:
+                        log[k] = sh[k]
+                if "gate5" in sh:
+                    log.setdefault("gates", {})["gate5_trajectory_wlog"] = sh["gate5"]
+        for r in rows.values():
+            _normalise_labels(r)
         log["results"] = [rows[k] for k in sorted(rows)]
         _dump(path, log)
         print(f"merged {len(log['results'])} rows into {path}")
         return
     if args.mode == "run":
         row = run_config(args.K, args.n, args.eta, args.cand,
-                         args.swap_mode, args.time_limit)
+                         args.swap_mode, args.time_limit, seed=args.seed)
+        sfx = "" if args.seed is None else "_seeded"
         out = args.out or os.path.join(
             HERE, f"_L2_shard_{args.cand}_{args.K}_{args.n}_{args.eta}"
-                  f"_{args.swap_mode}.json")
+                  f"_{args.swap_mode}{sfx}.json")
         _dump(out, dict(results=[row]))
         print(f"wrote {out}")
         return
@@ -711,6 +974,53 @@ def main():
     log["results"] = [rows[k] for k in sorted(rows)]
     _dump(path, log)
     print(f"wrote {path}")
+
+
+def _classify(v, r, U, status):
+    """What the returned number actually IS, and what it licenses.
+
+    status "OK"                          -> v is the EXACT worst case.
+    status "TIMEOUT"                     -> v is the incumbent, an UPPER bound
+        on the exact worst case: it can support "worse than rho_K" (exact <= v <
+        rho) but NEVER "strictly better".
+    status "OK_NO_IMPROVEMENT_BELOW_SEED"-> the exhaustive search finished
+        without going below the seed, so v (= the seed) is a certified LOWER
+        bound: it can support "strictly better than rho_K" (exact >= v > rho)
+        but never "worse"."""
+    if not np.isfinite(v):
+        return "none", "unknown", "unknown"
+    if status == "OK":
+        return ("exact",
+                "strictly_better" if v > r + 1e-9 else
+                "equal" if abs(v - r) <= 1e-9 else "worse",
+                "above_U" if v > U + 1e-9 else
+                "equal_U" if abs(v - U) <= 1e-9 else "below_U")
+    if status == "OK_NO_IMPROVEMENT_BELOW_SEED":
+        return ("lower_bound",
+                "strictly_better" if v > r + 1e-9
+                else "inconclusive_lower_bound_only",
+                "above_U" if v > U + 1e-9 else "inconclusive_lower_bound_only")
+    if status == "TIMEOUT_SEEDED_NOT_IMPROVED":
+        # a seeded search that neither completed nor improved on the seed: the
+        # returned number IS the seed and carries no information whatsoever.
+        return ("none_seed_not_improved", "no_information", "no_information")
+    return ("upper_bound",
+            "worse" if v < r - 1e-9 else "inconclusive_upper_bound_only",
+            "below_U" if v < U - 1e-9 else "inconclusive_upper_bound_only")
+
+
+def _normalise_labels(r):
+    """Recompute value_kind / vs_rho / vs_U from status (see _classify)."""
+    v = r.get("value_float")
+    if v is None:
+        return r
+    kind, vs_rho, vs_U = _classify(v, rho(r["K"], r["eta"]),
+                                   UK(r["K"], r["eta"]), r.get("status"))
+    r["value_kind"] = kind
+    r["value_is_upper_bound_only"] = (kind == "upper_bound")
+    r["value_is_lower_bound_only"] = (kind == "lower_bound")
+    r["vs_rho"], r["vs_U"] = vs_rho, vs_U
+    return r
 
 
 def _key(r):
