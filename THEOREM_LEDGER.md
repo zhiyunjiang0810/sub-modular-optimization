@@ -136,6 +136,28 @@
   "non-trivial" 而不说明是渐近匹配（有限参数下 H 可大于 1/η，如 η=2,c=2,K=8 时 H≈0.533）；
   随机版 K→∞ 时 ε_n 自动消失（需 n ≥ 4K^{c+3} 之类）；把查询大小限制等同于多项式时间。
 
+## T10b cor:greedybudget — greedy 同预算类的天花板（L1 新增）
+- 陈述：K ≥ 2，η > 1，n ≥ 4K⁵。𝒜_lin = 确定性算法类：至多 nK 次 f̃ 查询、每次查询集合大小 ≤ K、输出 ≤ K 元素
+  （predictive greedy 用 ≤ Kn−K(K−1)/2 次查询，属于该类）。对任意 A ∈ 𝒜_lin 存在实际误差恰为 η 的实例
+  （f 单调 submodular）使 f(T)/f(O*) ≤ U_K(η) = H_{K,1}(η) = 1−(1−1/(η(K−1)+1))^K；与 thm:ceiling 合并得
+  worst-case ratio ≤ min{U_K(η), 1/η}。随机版量词：对任意随机算法存在实例（实际误差恰 η）使
+  E_seed[f(T)/f(O*)] ≤ U_K(η) + ε_n，ε_n = K²/n + K⁵/(2n)。
+- 证明结构：thm:hardness 的族取 τ=1（η ≥ (K−1)/(K−τ) = 1 自动满足，θ̄ = (η(K−1)+1)/K ≥ 1），预算从 n^c 换为
+  Q = nK 重做计数：单查询 P(|S∩O| ≥ 2) ≤ C(K,2)·K(K−1)/(n(n−1)) ≤ C(K,2)(K/n)²；对 Q = nK 并集 ≤ K⁵/(2n)；
+  输出相交 ≤ K²/n；n ≥ 4K⁵ 时总失败 ≤ 1/8 + 1/32 = 5/32 < 1/2。
+- 状态：计数不等式链 [VERIFIED-SYMBOLIC，results/L1_table.py]；canonical transcript 归纳与两次平均沿
+  app:hardness 原样 [HAND-PROOF-UNREVIEWED]，按用户指令不升级。
+- Gap：U_K − ρ_K = c'(η)/K² + O(1/K³)，c'(η) = e^{−1/η}·⌊η⌋(2η−⌊η⌋−1)/(2η²)；c' 在整数 η 处两支相等
+  （值 e^{−1/η}(η−1)/(2η)），η > 1 时 c' > 0。状态：[VERIFIED-SYMBOLIC conditional on thm:exact 与 T9 的
+  H-B 展开，results/L1_table.py]；数值 K ≤ 400 收敛检查同脚本。U_K − ρ_K ≥ 0 由 ρ_K ≤ V_{K−1} < U_K
+  （T6 副产品，η > 1 严格）。
+- η ≥ K：ρ_K = 1/η 且 1/η ≤ U_K（由 ρ_K ≤ U_K），故 min{U_K,1/η} = 1/η = ρ_K，greedy 恰达该类天花板。
+- 禁止声称：有限 K、1 < η < K 时 greedy 在 𝒜_lin 内最优（[OPEN]，同 T11 卡；只知道改进空间 ≤ U_K−ρ_K = O(1/K²)）；
+  ε_n 中间项 K²/n 当成装配的产出（装配实际给 K/n，K²/n 是按 TASKS7 规格取的保守上界）；把 n ≥ 4K⁵ 说成必要
+  （只是使总失败 < 1/2 的显式充分条件；同一算术覆盖任意 Q ≤ n²/(4K⁴)，未单列陈述）；把查询预算等同多项式时间
+  （查询模型条件，同 T10）；随机版与 1/η 合并（thm:ceiling 随机版是 (1−K/n)/η+K/n，未合并陈述）；
+  在 η^sel 轴上引用本卡（全局 η 的陈述）。
+
 ## T11 rem:hardness-pins — 查询类最优性（K5 后）
 - 陈述：greedy 用 ≤ Kn−K(K−1)/2 次查询；当 nK ≤ n^c（如整数 c ≥ 2, K ≤ n）时，该查询类的渐近最优值为 1−e^{−1/η}，有限 K 间隙 O((c+1)/K)。
 - 禁止声称：c=0,1 的类（精确穷举反例：单查询算法可被逼到 0）；"O(c/K)"；有限 K 的同预算最优性

@@ -1548,6 +1548,100 @@ averagings: those are the hand-written part of this subsection, and finite
 computations over instances do not range over adaptive algorithms.
 
 % ---------------------------------------------------------------------------
+\subsection{The greedy budget (Corollary~\ref{cor:greedybudget})}
+\label{app:greedybudget}
+% L1 (ledger card T10b).  The corollary is the family and the assembly of
+% app:hardness at tau = 1, with the counting redone for the explicit budget
+% Q = nK in place of n^c.  Status decomposition:
+%  - every displayed inequality of the counting chain below, the calibration
+%    thetabar >= 1, and H_{K,1} = U_K: [VERIFIED-SYMBOLIC],
+%    results/L1_table.py section 1.
+%  - the canonical-transcript induction and the two averagings are used
+%    verbatim from app:hardness: [HAND-PROOF-UNREVIEWED], and per the ledger
+%    this tag is NOT to be upgraded.
+
+Fix $K\ge2$, $\eta>1$ and $n\ge4K^{5}$, and take the family of
+Appendix~\ref{app:hardness} with $\tau=1$.  The constraint
+$\eta\ge(K-1)/(K-\tau)$ of Theorem~\ref{thm:hardness} reads $\eta\ge1$ and
+holds vacuously, and
+$\bar\theta-1=(\eta-1)(K-1)/K\ge0$, so the calibration is admissible and the
+value bound of the family is
+$L_K(\bar\theta)=H_{K,1}(\eta)=U_K(\eta)$.  The edge table, the exact error
+$\Psi(\theta)$, the prescribed-split rescaling and the optimum $O^{\ast}=O$
+are exactly as in Appendix~\ref{app:hardness}; nothing in them refers to the
+query budget.  Only the counting changes.
+
+\paragraph{Counting at the budget $Q=nK$.}
+At $\tau=1$ a query $S$, $|S|\le K$, is unbalanced when $|S\cap O|\ge2$,
+which is the union over the pairs $R\subseteq S$ of the events
+$\{R\subseteq O\}$.  For a uniformly random $K$-subset $O$,
+\[
+  \Pr[R\subseteq O]=\frac{K(K-1)}{n(n-1)}
+  =\Bigl(\frac Kn\Bigr)^{2}-\frac{K(n-K)}{n^{2}(n-1)}
+  \;\le\;\Bigl(\frac Kn\Bigr)^{2},
+\]
+so one query is unbalanced with probability at most
+$\binom K2(K/n)^{2}$, and the canonical transcript's $Q=nK$ queries
+$S_1,\dots,S_Q$ together with its output $T_0$ fail with probability at most
+\[
+  nK\binom K2\Bigl(\frac Kn\Bigr)^{2}+\Pr[T_0\cap O\ne\emptyset]
+  \;\le\;\frac{K^{4}(K-1)}{2n}+\frac{K^{2}}{n}
+  \;\le\;\frac{K^{5}}{2n}+\frac{K^{2}}{n}.
+\]
+Under $n\ge4K^{5}$ the first term is at most $\tfrac18$ and the second is at
+most $1/(4K^{3})\le\tfrac1{32}$, so the total is at most
+$\tfrac5{32}<\tfrac12$: some $K$-set $O$ makes every canonical query
+balanced and misses $T_0$.  The transcript induction of
+Appendix~\ref{app:hardness}, with balanced now meaning $|S_i\cap O|\le1$,
+then forces the actual run to reproduce the canonical one and gives
+$f(T_0)/f(O^{\ast})\le1-a^{K}=L_K(\bar\theta)=U_K(\eta)$, with error exactly
+$\eta$ and any prescribed split realized by the $\beta$-rescaling.  The
+ceiling $1/\eta$ holds for every deterministic algorithm at $n\ge2K$
+(Theorem~\ref{thm:ceiling}), and $4K^{5}\ge2K$, so the two caps combine into
+$\min\{U_K(\eta),1/\eta\}$ for the worst-case ratio.
+
+The only property of the budget that the computation uses is
+$Q\le n^{2}/(4K^{4})$, which $Q=nK$ satisfies exactly when $n\ge4K^{5}$.
+By contrast, covering the budget $nK$ on the scale of
+Theorem~\ref{thm:hardness} needs $n^{c}\ge nK$, hence $c>1$ and
+$\tau=\lceil c\rceil+1\ge3$, and delivers only the weaker constant
+$H_{K,3}(\eta)>H_{K,1}(\eta)$; running the count at the exact budget is what
+keeps the $\tau=1$ constant.
+
+\paragraph{Randomized algorithms.}
+The averaging of Appendix~\ref{app:hardness}, applied verbatim with the
+union bound above, yields for every randomized algorithm of the class a
+single instance with
+$\mathbb E[f(T)/f(O^{\ast})]\le U_K(\eta)+K/n+K^{5}/(2n)$; the corollary
+states the slightly larger
+$\varepsilon_n=K^{2}/n+K^{5}/(2n)$, which also matches the deterministic
+output count.  The quantifier order is that of Theorem~\ref{thm:hardness}:
+the instance may depend on the algorithm, and the expectation is over the
+algorithm's randomness only.
+
+\paragraph{The width of the interval.}
+For the gap statement of Remark~\ref{rem:greedybudget}, expanding both
+closed forms at fixed $\eta$ in $1/K$ (with $m=\lfloor\eta\rfloor$ and
+$\rho_K=V_{K-m}$ on the active branch) gives
+\[
+  U_K(\eta)-\rho_K(\eta)
+  =\frac{e^{-1/\eta}\,m\,(2\eta-m-1)}{2\eta^{2}}\cdot\frac1{K^{2}}
+  +O\!\Bigl(\frac1{K^{3}}\Bigr):
+\]
+the constant and the $1/K$ coefficients of the two series agree (the latter
+is the $c(\eta)$ of Appendix~\ref{app:asymptotics}), and the $1/K^{2}$
+coefficients differ by $c'(\eta)$ as displayed.  At integer $\eta$ the
+branches $m=\eta$ and $m=\eta-1$ of $c'$ agree, with common value
+$e^{-1/\eta}(\eta-1)/(2\eta)$, so $c'$ is continuous although the
+$1/K^{2}$ coefficient of $\rho_K$ alone is piecewise.  Both series, the
+cancellation at order $1/K$, the closed form of $c'$ and its positivity for
+$\eta>1$ are checked in \texttt{results/L1\_table.py} (section 2,
+symbolically; section 3 numerically in exact rationals up to $K=400$,
+with one Richardson step); the two ends of the interval are tabulated in
+\texttt{results/L1\_table.csv}.  All of this is conditional on
+Theorem~\ref{thm:exact} through the closed form of $\rho_K$.
+
+% ---------------------------------------------------------------------------
 \subsection{Queries of arbitrary size: a construction direction with
 finite evidence}
 \label{app:hardness-anysize}

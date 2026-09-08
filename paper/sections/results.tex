@@ -636,3 +636,90 @@ it is not.
 % false (the c = 0 witness); deleting "deterministic" from the witness is not
 % claimed, no randomized version of it was constructed; deleting
 % "asymptotically in K" makes it false at finite K by the (c+1)/K gap.
+
+Remark~\ref{rem:hardness-pins} measures budgets on the scale $n^{c}$, which
+is coarser than the budget predictive greedy actually spends.  Re-running the
+counting argument of Theorem~\ref{thm:hardness} at that exact budget gives a
+ceiling for the whole budget class, with the $\tau=1$ constant of
+Remark~\ref{rem:hardness-chain} rather than the weaker constant that the
+scale $n^{c}\ge nK$ would force.
+
+\begin{corollary}[Optimality within the greedy query budget]
+\label{cor:greedybudget}
+Let $K\ge2$, $\eta>1$ and $n\ge4K^{5}$, and let $\mathcal A_{\mathrm{lin}}$
+be the class of deterministic algorithms that make at most $nK$ queries to
+$\tilde f$, each on a set of size at most $K$, and output a set of size at
+most $K$; predictive greedy, at $Kn-K(K-1)/2$ queries, belongs to
+$\mathcal A_{\mathrm{lin}}$.  For every $A\in\mathcal A_{\mathrm{lin}}$
+there is an instance $(f,\tilde f)$ with monotone submodular $f$, whose
+smallest admissible error factors in Definition~\ref{def:eta} have product
+exactly $\eta$, on which the output $T$ satisfies
+\[
+  \frac{f(T)}{f(O^{\ast})}\;\le\;U_K(\eta)\;=\;H_{K,1}(\eta)\;=\;
+  1-\Bigl(1-\frac{1}{\eta(K-1)+1}\Bigr)^{K},
+\]
+so that, together with Theorem~\ref{thm:ceiling}, the worst-case ratio of
+$A$ at error level $\eta$ is at most $\min\{U_K(\eta),\,1/\eta\}$.  For
+every randomized algorithm with the same budget there is again an instance
+with error exactly $\eta$ on which the expectation over the algorithm's
+randomness satisfies
+$\mathbb E\bigl[f(T)/f(O^{\ast})\bigr]\le U_K(\eta)+\varepsilon_n$, where
+$\varepsilon_n=K^{2}/n+K^{5}/(2n)$.
+\end{corollary}
+% Proof: Appendix \ref{app:greedybudget} -- the family of app:hardness at
+% tau = 1 with the counting redone for the explicit budget Q = nK.  Ledger
+% card T10b.  Status: the counting chain (pair probability, union over nK
+% queries, output intersection, the explicit condition n >= 4K^5 giving
+% total failure <= 5/32 < 1/2) is [VERIFIED-SYMBOLIC],
+% results/L1_table.py section 1; the canonical-transcript induction and the
+% averaging are those of app:hardness, [HAND-PROOF-UNREVIEWED], not to be
+% upgraded.  The middle term of eps_n is K^2/n by the deterministic output
+% count; the averaging itself yields the smaller K/n, so the stated eps_n is
+% a valid rounding up.
+% Vacuity check: "deterministic" -- the randomized sentence differs by
+% eps_n.  "at most nK queries" -- without a budget, Theorem \ref{thm:ceiling}
+% alone applies and its constant 1/eta is different.  "each on a set of size
+% at most K" -- the any-size regime is Appendix \ref{app:hardness-anysize}.
+% "n >= 4K^5" -- the explicit sufficient condition for failure < 1/2; the
+% same arithmetic covers any budget Q <= n^2/(4K^4), not stated separately.
+% "output a set of size at most K" -- part of the query model, as in
+% thm:hardness.
+
+\begin{remark}\label{rem:greedybudget}
+Every run of predictive greedy on an instance with error at most $\eta$
+achieves at least $\rho_K(\eta)$ (Theorem~\ref{thm:exact}), and
+Corollary~\ref{cor:greedybudget} caps every member of
+$\mathcal A_{\mathrm{lin}}$ at $\min\{U_K(\eta),1/\eta\}$, so the best
+worst-case ratio achievable within the greedy query budget lies in the
+interval $[\rho_K(\eta),\,\min\{U_K(\eta),1/\eta\}]$.  For $\eta\ge K$ the
+interval collapses: $\rho_K(\eta)=1/\eta$ by Theorem~\ref{thm:exact} and
+$1/\eta\le U_K(\eta)$ by the chain of Remark~\ref{rem:hardness-chain}, so
+predictive greedy attains the ceiling of its own budget class exactly.  For
+$1<\eta<K$, at fixed $\eta$ as $K\to\infty$ the width of the interval is
+\[
+  U_K(\eta)-\rho_K(\eta)\;=\;\frac{c'(\eta)}{K^{2}}+O\!\Bigl(\frac{1}{K^{3}}\Bigr),
+  \qquad
+  c'(\eta)\;=\;e^{-1/\eta}\,
+  \frac{\lfloor\eta\rfloor\bigl(2\eta-\lfloor\eta\rfloor-1\bigr)}{2\eta^{2}}
+  \;>\;0,
+\]
+so any improvement over predictive greedy within
+$\mathcal A_{\mathrm{lin}}$ is confined to a band of width $O(1/K^{2})$;
+whether any of it can be realized at finite $K$ is open.
+\end{remark}
+% Status: the interval's lower end is the >= direction of thm:exact (every
+% feasible run is a point of the reduced LP, so its ratio is at least the LP
+% value rho_K; instances with error below eta are feasible for the eta-LP).
+% The expansion and the closed form c'(eta) are [VERIFIED-SYMBOLIC,
+% conditional on thm:exact through the closed form rho_K = min_j V_j]:
+% results/L1_table.py section 2 (series of U_K and of the active branch
+% V_{K-m}, m = floor(eta); the 1/K coefficients agree, so K(U_K-rho_K) -> 0,
+% and the 1/K^2 coefficients differ by c').  c' is continuous across integer
+% eta (both branches give e^{-1/eta}(eta-1)/(2 eta)) even though the 1/K^2
+% coefficient d(eta, m) of rho_K itself is piecewise (ledger T9).  Numeric
+% convergence at K <= 400, exact rationals: section 3 of the same script;
+% table of the two ends at K in {2,3,4,5,8,10,20}: results/L1_table.csv.
+% NOT claimed (ledger T10b, T11): greedy optimal in A_lin at finite K and
+% 1 < eta < K -- that is the open problem; the H-F evidence (PE_1 falls
+% below rho_3 for n >= 7 at eta in {2, 2.5}) is finite-parameter support,
+% not a proof.
