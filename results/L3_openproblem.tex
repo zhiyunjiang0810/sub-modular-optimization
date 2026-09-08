@@ -35,18 +35,24 @@ $[0.4216,\,0.4242]$, against the unrestricted-query ceiling $1/\eta=0.5$.
 For $\eta\ge K$ the interval is a point and predictive greedy is exactly
 optimal within the class.  For $1<\eta<K$ we do not know whether the lower
 end moves: we are not aware of any algorithm in $\mathcal A_{\mathrm{lin}}$
-whose worst-case ratio exceeds $\rho_K(\eta)$.  %% [L2-PENDING] one or two sentences with the exact-LP conclusions for the
-%% two linear-budget candidates: A (top-(K+1) shortlist by predicted
-%% singleton values) and B (predictive greedy plus one swap pass).  To be
-%% filled from results/L2_linear_candidates.md; the wording must follow the
-%% LP outcome (strictly above / equal to / below rho_K per configuration)
-%% and must not presuppose it.
+whose worst-case ratio exceeds $\rho_K(\eta)$.  Two natural linear-budget candidates provide no counterexample at the
+exact-LP level ($K\le3$, $n\le7$, adversarial ties): choosing the best
+$K$-subset of a top-$(K{+}1)$ shortlist by predicted values collapses to a
+one-element guarantee, far below $\rho_K$ in all twenty solved
+configurations, while predictive greedy followed by a single swap pass on
+$\tilde f$ matches $\rho_K$ exactly at $n=2K$, falls strictly below it at
+every larger solved $n$, and exceeds it nowhere (two configurations at
+$K=3$, $n=7$ remain unresolved in either direction).
+% Source: results/L2_linear_candidates.md sections 0, 2, 5; ledger T11.
+% The unresolved cells are [OPEN]: their branch-and-bound incumbents are
+% upper bounds of an unfinished search and are NOT evidence of exceeding.
 Partial enumeration, which improves the finite-$K$ constant in the
-exact-oracle setting of Nemhauser and Wolsey, is finite-parameter evidence
-in the same direction rather than a way out: at $R=1$, $K=3$ its exact
-worst case falls strictly below $\rho_3$ already at $n=7,8$ for
-$\eta\in\{2,\,2.5\}$, the gain of enumerating a starting element being
-outpaced by the loss of selecting the endpoint by $\tilde f$.  A
+exact-oracle setting of Nemhauser and Wolsey and, unlike the two candidates
+above, does beat $\rho_3$ at $n=2K$, is finite-parameter evidence in the
+same direction rather than a way out: at $R=1$, $K=3$ its exact worst case
+falls strictly below $\rho_3$ already at $n=7,8$ for $\eta\in\{2,\,2.5\}$,
+the gain of enumerating a starting element being outpaced by the loss of
+selecting the endpoint by $\tilde f$.  A
 construction direction with finite exhaustive support
 (Appendix~\ref{app:hardness-anysize}) points the same way for far larger
 budgets of arbitrary-size queries.  We conjecture that predictive greedy is

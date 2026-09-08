@@ -1,0 +1,318 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main_l3.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
+(./iclr2027_conference.sty
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)))
+(./fancyhdr.sty) (./natbib.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty) (./math_commands.tex
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(./macros.tex) (./sections/numbers.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main_l3.aux)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./main_l3.out) (./main_l3.out)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(./sections/model.tex
+
+Package natbib Warning: Citation `lattanzi2020online' on page 1 undefined on in
+put line 33.
+
+
+Package natbib Warning: Citation `azar2021flow' on page 1 undefined on input li
+ne 33.
+
+
+Package natbib Warning: Citation `zhao2022real' on page 1 undefined on input li
+ne 33.
+
+
+Package natbib Warning: Citation `goundan2007revisiting' on page 1 undefined on
+ input line 69.
+
+) (./sections/related.tex
+
+Package natbib Warning: Citation `goundan2007revisiting' on page 1 undefined on
+ input line 38.
+
+
+Package natbib Warning: Citation `nemhauser1978analysis' on page 1 undefined on
+ input line 42.
+
+
+Package natbib Warning: Citation `nemhauser1978best' on page 1 undefined on inp
+ut line 43.
+
+
+Package natbib Warning: Citation `feige1998threshold' on page 1 undefined on in
+put line 48.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}]
+
+Package natbib Warning: Citation `das2011submodular' on page 2 undefined on inp
+ut line 59.
+
+
+Package natbib Warning: Citation `das2011submodular' on page 2 undefined on inp
+ut line 60.
+
+
+Package natbib Warning: Citation `elenberg2018restricted' on page 2 undefined o
+n input line 61.
+
+
+Package natbib Warning: Citation `hassidim2017submodular' on page 2 undefined o
+n input line 71.
+
+
+Package natbib Warning: Citation `horel2016maximization' on page 2 undefined on
+ input line 74.
+
+
+Package natbib Warning: Citation `bhawalkar2025unified' on page 2 undefined on 
+input line 77.
+
+
+Package natbib Warning: Citation `purohit2018improving' on page 2 undefined on 
+input line 89.
+
+
+Package natbib Warning: Citation `lykouris2021competitive' on page 2 undefined 
+on input line 90.
+
+
+Package natbib Warning: Citation `balcan2018submodular' on page 2 undefined on 
+input line 95.
+
+
+Package natbib Warning: Citation `rosenfeld2018learning' on page 2 undefined on
+ input line 97.
+
+
+Package natbib Warning: Citation `agarwal2024learning' on page 2 undefined on i
+nput line 102.
+
+
+Package natbib Warning: Citation `cohenaddad2024learning' on page 2 undefined o
+n input line 107.
+
+
+Package natbib Warning: Citation `balkanski2016power' on page 2 undefined on in
+put line 114.
+
+
+Package natbib Warning: Citation `balkanski2017limitations' on page 2 undefined
+ on input line 117.
+
+) (./sections/results.tex [2]
+
+Package natbib Warning: Citation `hassidim2017submodular' on page 3 undefined o
+n input line 37.
+
+
+Package natbib Warning: Citation `goundan2007revisiting' on page 3 undefined on
+ input line 83.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+[3] [4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 380.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\eta' on input line 380.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 380.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [5]
+[6]) (../results/L3_openproblem.tex [7]) (./sections/experiments.tex
+
+Package natbib Warning: Citation `kempe2003maximizing' on page 8 undefined on i
+nput line 60.
+
+
+Package natbib Warning: Citation `rozemberczki2019gemsec' on page 8 undefined o
+n input line 64.
+
+
+Package natbib Warning: Citation `leskovec2007graph' on page 8 undefined on inp
+ut line 64.
+
+
+Package natbib Warning: Citation `yin2017local' on page 8 undefined on input li
+ne 64.
+
+
+Package natbib Warning: Citation `lin2011class' on page 8 undefined on input li
+ne 68.
+
+
+Package natbib Warning: Citation `greene2006practical' on page 8 undefined on i
+nput line 69.
+
+
+Package natbib Warning: Citation `mirzasoleiman2015lazier' on page 8 undefined 
+on input line 79.
+
+[8 <./figures/sandwich_paper.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active [9 <./figu
+res/money_plot.pdf> <./figures/eta_global_plot.pdf>] (./sections/EXP_table.tex
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd)))
+(./sections/conclusion.tex) (./sections/statements.tex [10])
+No file main_l3.bbl.
+(./sections/notation_table.tex
+Overfull \hbox (137.70775pt too wide) in paragraph at lines 8--44
+ [][] 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/appendix_proofs.tex [11] [12]
+
+Package natbib Warning: Citation `goundan2007revisiting' on page 13 undefined o
+n input line 217.
+
+[13] [14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 334.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 334.
+
+[15] [16]
+Underfull \hbox (badness 3049) in paragraph at lines 515--517
+[]\OT1/ptm/m/n/10 The iden-ti-ties of this proof are machine-checked by \OT1/pc
+r/m/n/10 results/T5[]symbolic.py \OT1/ptm/m/n/10 and
+[17] [18] [19] [20] [21]
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd) [22] [23] [24]
+[25] [26] [27]
+Underfull \hbox (badness 1742) in paragraph at lines 1612--1621
+\OT1/ptm/m/n/10 bound above, yields for ev-ery ran-dom-ized al-go-rithm of the 
+class a sin-gle in-stance with
+[28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 1947--1953
+[]\OT1/ptm/m/n/10 The slack iden-ti-ties of $[]$ and $[]$ case (b) are machine-
+checked by
+
+Underfull \hbox (badness 4981) in paragraph at lines 1947--1953
+\OT1/pcr/m/n/10 results/H3[]j2[]recheck.py \OT1/ptm/m/n/10 and \OT1/pcr/m/n/10 
+results/J2[]core[]oracles.py \OT1/ptm/m/n/10 (sym-bolic, plus
+) (./sections/appendix_experiments.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1967--9
+[]\OT1/ptm/m/n/10 The com-pu-ta-tions of this sub-sec-tion are machine-checked 
+by
+[31]
+
+Package natbib Warning: Citation `peng2005feature' on page 32 undefined on inpu
+t line 82.
+
+
+Package natbib Warning: Citation `geurts2006extremely' on page 32 undefined on 
+input line 84.
+
+[32])
+
+Package natbib Warning: There were undefined citations.
+
+[33 <./figures/aux_eta_sel_by_K.pdf> <./figures/aux_p_vs_eta.pdf>] [34 <./figur
+es/aux_d_dtilde_scatter.pdf>] (./main_l3.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main_l3.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on main_l3.pdf (34 pages, 645120 bytes).
+Transcript written on main_l3.log.
