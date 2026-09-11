@@ -2,6 +2,7 @@
 
 ## Summary（第七晚：问题 B 收口，台账已同步）
 
+- **（09-11 追加，L2R）**K=3, n=7 候选 B 的两格 [OPEN] 已按 md §5.1 建议重跑并**穷尽定案**：η=1.25 精确值 31/51、η=1.5 精确值 37/69，均**严格劣于** ρ_3（92/147、9/16，差 15/833、29/1104）；n=7 四个 η 全部劣于，超越规程未触发；闸门（五道原闸门 + Gate R 改编闸门）全过；见 results/L2R_finish_k3n7.{py,json,log}、md §5.1.1、台账 T11。
 - L1-L4 全部完成，无 FAILED：正文新增 cor:greedybudget（台账新卡 T10b 先行）+ rem:greedybudget + 附录 app:greedybudget + results/L1_table.csv；L2 两个线性预算候选的精确 LP（Opus 代理，五道闸门我本地重跑 exit 0）；L3 open-problem 段草稿（results/L3_openproblem.tex，未接入 main，conclusion 由人写）+ sandwich 图 paper 版（figures/sandwich_paper.pdf）；台账 T10b 新卡 + T11 追加 L2 行。编译 35 页 0 错误 0 未定义引用（results/L4_compile.log），审计 342 literals 0 违规。
 - **最重要结果**：greedy 预算类 𝒜_lin（≤nK 次、size ≤K 查询）在误差 η 的天花板 ≤ min{U_K(η), 1/η}（τ=1 计数按预算 nK 重做，n ≥ 4K⁵ 显式条件，计数链 [VERIFIED-SYMBOLIC]，装配沿 app:hardness 保持 [HAND-PROOF-UNREVIEWED]）；与 ρ_K 的差 = c'(η)/K² + O(1/K³)，c'(η)=e^{−1/η}⌊η⌋(2η−⌊η⌋−1)/(2η²) 连续且 η>1 时为正（[VERIFIED-SYMBOLIC conditional on thm:exact]，K≤400 数值贴合）；η ≥ K 时 greedy 恰达类天花板。
 - **L2 结论**：36/40 跑完的配置无一超过 ρ_K（"严格优于"规程未触发）；候选 A（top-(K+1) shortlist）全线塌到单元素保证量级；候选 B（greedy+单轮 swap）在 n=2K 恰持平 ρ_K、更大 n 严格劣于；与 H-F 的 PE_1 对照，n=2K 处无"小 n 超越"。K=3,n=7 的 η∈{1.25,1.5} 两格分支定界未穷尽 [OPEN]（incumbent 是上界，不是超越证据）。

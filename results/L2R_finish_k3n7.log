@@ -1,0 +1,12 @@
+Gate R: per-O parallel merge vs frozen candB_search on K=3, n=6
+  eta=1.25: frozen 0.625850340 (2120 leaves, 0 pruned) vs merge 0.625850340 (2120 leaves, 0 pruned; full tree 2120) -> OK
+  eta=2.0: frozen 0.466666667 (2096 leaves, 3 pruned) vs merge 0.466666667 (2120 leaves, 0 pruned; full tree 2120) -> OK
+===== eta=5/4 seed=23/33 (=0.696969697)  rho_3=92/147 (=0.625850340) =====
+  cell: completed=True val=0.607843137 improved=True lps=28980 leaves=23660 pruned=0 secs=505.4
+    consistency n=7 K=3 eta=1.25 cand=B: LP=0.607843137 sim=0.607843137 mono=True submod=True band=True -> CONSISTENT   [strict-rule value 0.640522876]
+  RESULT: value 31/51 strictly BELOW rho_3 92/147 (worse than greedy)
+===== eta=3/2 seed=13/22 (=0.590909091)  rho_3=9/16 (=0.562500000) =====
+  cell: completed=True val=0.536231884 improved=True lps=28980 leaves=23660 pruned=0 secs=472.9
+    consistency n=7 K=3 eta=1.5 cand=B: LP=0.536231884 sim=0.536231884 mono=True submod=True band=True -> CONSISTENT   [strict-rule value 0.768115942]
+  RESULT: value 37/69 strictly BELOW rho_3 9/16 (worse than greedy)
+wrote results/L2R_finish_k3n7.json

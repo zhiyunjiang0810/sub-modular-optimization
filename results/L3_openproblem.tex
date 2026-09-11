@@ -40,12 +40,12 @@ exact-LP level ($K\le3$, $n\le7$, adversarial ties): choosing the best
 $K$-subset of a top-$(K{+}1)$ shortlist by predicted values collapses to a
 one-element guarantee, far below $\rho_K$ in all twenty solved
 configurations, while predictive greedy followed by a single swap pass on
-$\tilde f$ matches $\rho_K$ exactly at $n=2K$, falls strictly below it at
-every larger solved $n$, and exceeds it nowhere (two configurations at
-$K=3$, $n=7$ remain unresolved in either direction).
-% Source: results/L2_linear_candidates.md sections 0, 2, 5; ledger T11.
-% The unresolved cells are [OPEN]: their branch-and-bound incumbents are
-% upper bounds of an unfinished search and are NOT evidence of exceeding.
+$\tilde f$ matches $\rho_K$ exactly at $n=2K$ and falls strictly below it
+at every solved larger-$n$ configuration, all four error levels at $K=3$,
+$n=7$ included.
+% Source: results/L2_linear_candidates.md sections 0, 2, 5 (5.1.1: the two
+% formerly open K=3 n=7 cells were exhausted on 2026-09-11, exact values
+% 31/51 and 37/69, both strictly below rho_3); ledger T11.
 Partial enumeration, which improves the finite-$K$ constant in the
 exact-oracle setting of Nemhauser and Wolsey and, unlike the two candidates
 above, does beat $\rho_3$ at $n=2K$, is finite-parameter evidence in the
