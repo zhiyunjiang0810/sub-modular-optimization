@@ -1,0 +1,3351 @@
+[
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 2.0,
+  "band": "proxy",
+  "variant": "spec",
+  "vstar": 0.4999999999999999,
+  "objcut": 0.4989999999999999,
+  "nrows": 1739,
+  "iis_size": 11,
+  "iis_group_counts": {
+   "norm": 2,
+   "band_up": 3,
+   "band_lo": 3,
+   "oind_up": 1,
+   "oind_lo": 1,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.5,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy",
+   "sub_yy"
+  ],
+  "n_lp_solves": 118,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "coefs": {
+     "188": 1.0,
+     "184": -1.0,
+     "4": -1.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "coefs": {
+     "1": 0.5,
+     "0": -0.5,
+     "185": -1.0,
+     "184": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "coefs": {
+     "2": 0.5,
+     "1": -0.5,
+     "186": -1.0,
+     "185": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "coefs": {
+     "3": 0.5,
+     "2": -0.5,
+     "187": -1.0,
+     "186": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "coefs": {
+     "192": 1.0,
+     "188": -1.0,
+     "8": -1.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "196": 1.0,
+     "192": -1.0,
+     "12": -1.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "coefs": {
+     "187": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.4989999999999999
+   }
+  ],
+  "secs": 0.6
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 2.0,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.5,
+  "objcut": 0.499,
+  "nrows": 1735,
+  "iis_size": 14,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 2,
+   "band_up": 3,
+   "band_lo": 2,
+   "oind_up": 2,
+   "oind_lo": 2,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.5,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy"
+  ],
+  "n_lp_solves": 138,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,1)",
+    "coefs": {
+     "189": 1.0,
+     "185": -1.0,
+     "5": -1.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "coefs": {
+     "2": 0.5,
+     "1": -0.5,
+     "186": -1.0,
+     "185": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "coefs": {
+     "193": 1.0,
+     "189": -1.0,
+     "9": -1.0,
+     "5": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "196": 1.0,
+     "192": -1.0,
+     "12": -1.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "coefs": {
+     "9": 0.5,
+     "8": -0.5,
+     "193": -1.0,
+     "192": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "coefs": {
+     "186": 1.0,
+     "370": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "coefs": {
+     "192": -1.0,
+     "370": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "coefs": {
+     "193": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.499
+   }
+  ],
+  "secs": 0.7
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 2.0,
+  "band": "proxy",
+  "variant": "capped",
+  "vstar": 1.0,
+  "objcut": 0.999,
+  "nrows": 1913,
+  "iis_size": 16,
+  "iis_group_counts": {
+   "norm": 2,
+   "band_up": 4,
+   "band_lo": 4,
+   "oind_up": 2,
+   "oind_lo": 3,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 1.0,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 3.0
+   },
+   {
+    "group": "norm",
+    "label": "F(2,3)<=1",
+    "rhs": 1.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,3)",
+    "rhs": 0.0,
+    "mult": 3.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "rhs": 0.0,
+    "mult": 3.0
+   },
+   {
+    "group": "band_up",
+    "label": "y(2,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,1)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,2)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,0)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,1)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 3.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy",
+   "sub_yy"
+  ],
+  "n_lp_solves": 158,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "norm",
+    "label": "F(2,3)<=1",
+    "coefs": {
+     "11": 1.0
+    },
+    "rhs": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,3)",
+    "coefs": {
+     "191": 1.0,
+     "187": -1.0,
+     "7": -1.0,
+     "3": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "coefs": {
+     "195": 1.0,
+     "191": -1.0,
+     "11": -1.0,
+     "7": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "y(2,1)",
+    "coefs": {
+     "194": 1.0,
+     "193": -1.0,
+     "10": -1.0,
+     "9": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,1)",
+    "coefs": {
+     "10": 0.5,
+     "9": -0.5,
+     "194": -1.0,
+     "193": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,2)",
+    "coefs": {
+     "198": 1.0,
+     "194": -1.0,
+     "14": -1.0,
+     "10": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,2)",
+    "coefs": {
+     "11": 0.5,
+     "10": -0.5,
+     "195": -1.0,
+     "194": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,0)",
+    "coefs": {
+     "13": 0.5,
+     "12": -0.5,
+     "197": -1.0,
+     "196": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,1)",
+    "coefs": {
+     "14": 0.5,
+     "13": -0.5,
+     "198": -1.0,
+     "197": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "coefs": {
+     "187": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,1)",
+    "coefs": {
+     "193": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,3)",
+    "coefs": {
+     "195": -1.0,
+     "373": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,2)",
+    "coefs": {
+     "198": 1.0,
+     "373": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.999000000",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.999
+   }
+  ],
+  "secs": 0.6
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 2.0,
+  "band": "hyper",
+  "variant": "capped",
+  "vstar": 0.75,
+  "objcut": 0.749,
+  "nrows": 1909,
+  "iis_size": 26,
+  "iis_group_counts": {
+   "norm": 3,
+   "sub_xx": 8,
+   "band_up": 4,
+   "band_lo": 4,
+   "oind_up": 3,
+   "oind_lo": 3,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.7499999999999998,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.25
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 2.6249999999999996
+   },
+   {
+    "group": "norm",
+    "label": "F(2,3)<=1",
+    "rhs": 1.0,
+    "mult": 1.8750000000000004
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.25
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 2.6249999999999996
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,0)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,3)",
+    "rhs": 0.0,
+    "mult": 0.75
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,0)",
+    "rhs": 0.0,
+    "mult": 0.75
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,3)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "sub_xx",
+    "label": "(3,3)",
+    "rhs": 0.0,
+    "mult": 0.7499999999999998
+   },
+   {
+    "group": "sub_xx",
+    "label": "(4,0)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,3)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_lo",
+    "label": "x(4,0)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,3)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,0)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,0)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,1)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,2)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,3)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,3)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,3)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,0)",
+    "rhs": 0.0,
+    "mult": 4.499999999999999
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xy",
+   "sub_yy"
+  ],
+  "n_lp_solves": 231,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "norm",
+    "label": "F(2,3)<=1",
+    "coefs": {
+     "11": 1.0
+    },
+    "rhs": 1.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,0)",
+    "coefs": {
+     "8": 1.0,
+     "4": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,3)",
+    "coefs": {
+     "11": 1.0,
+     "7": -2.0,
+     "3": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,0)",
+    "coefs": {
+     "12": 1.0,
+     "8": -2.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,3)",
+    "coefs": {
+     "15": 1.0,
+     "11": -2.0,
+     "7": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,0)",
+    "coefs": {
+     "16": 1.0,
+     "12": -2.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,3)",
+    "coefs": {
+     "19": 1.0,
+     "15": -2.0,
+     "11": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(3,3)",
+    "coefs": {
+     "23": 1.0,
+     "19": -2.0,
+     "15": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(4,0)",
+    "coefs": {
+     "24": 1.0,
+     "20": -2.0,
+     "16": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "coefs": {
+     "195": 1.0,
+     "191": -1.0,
+     "11": -1.0,
+     "7": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,3)",
+    "coefs": {
+     "203": 1.0,
+     "199": -1.0,
+     "19": -1.0,
+     "15": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "x(4,0)",
+    "coefs": {
+     "20": 0.5,
+     "16": -0.5,
+     "204": -1.0,
+     "200": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,3)",
+    "coefs": {
+     "207": 1.0,
+     "203": -1.0,
+     "23": -1.0,
+     "19": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,0)",
+    "coefs": {
+     "208": 1.0,
+     "204": -1.0,
+     "24": -1.0,
+     "20": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,0)",
+    "coefs": {
+     "21": 0.5,
+     "20": -0.5,
+     "205": -1.0,
+     "204": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,1)",
+    "coefs": {
+     "22": 0.5,
+     "21": -0.5,
+     "206": -1.0,
+     "205": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,2)",
+    "coefs": {
+     "23": 0.5,
+     "22": -0.5,
+     "207": -1.0,
+     "206": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,3)",
+    "coefs": {
+     "191": 1.0,
+     "372": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,3)",
+    "coefs": {
+     "195": -1.0,
+     "373": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,3)",
+    "coefs": {
+     "199": 1.0,
+     "374": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "coefs": {
+     "200": -1.0,
+     "372": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,0)",
+    "coefs": {
+     "204": 1.0,
+     "373": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "coefs": {
+     "208": -1.0,
+     "374": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.749000000",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.749
+   }
+  ],
+  "secs": 1.0
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 1.5,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.6666666666666667,
+  "objcut": 0.6656666666666667,
+  "nrows": 1735,
+  "iis_size": 16,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 2,
+   "band_up": 3,
+   "band_lo": 2,
+   "oind_up": 3,
+   "oind_lo": 3,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.6666666666666666,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.33333333333333326
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.6666666666666666
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.33333333333333326
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.6666666666666666
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(1,1)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(1,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,2)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy"
+  ],
+  "n_lp_solves": 138,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,2)",
+    "coefs": {
+     "190": 1.0,
+     "186": -1.0,
+     "6": -1.0,
+     "2": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "coefs": {
+     "193": 1.0,
+     "189": -1.0,
+     "9": -1.0,
+     "5": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(1,1)",
+    "coefs": {
+     "6": 0.6666666666666666,
+     "5": -0.6666666666666666,
+     "190": -1.0,
+     "189": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "196": 1.0,
+     "192": -1.0,
+     "12": -1.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "coefs": {
+     "9": 0.6666666666666666,
+     "8": -0.6666666666666666,
+     "193": -1.0,
+     "192": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "coefs": {
+     "186": 1.0,
+     "370": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(1,1)",
+    "coefs": {
+     "189": -1.0,
+     "370": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,2)",
+    "coefs": {
+     "190": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "coefs": {
+     "192": -1.0,
+     "370": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "coefs": {
+     "193": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.665666667",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.6656666666666667
+   }
+  ],
+  "secs": 0.7
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 2,
+  "eta": 3.0,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.3333333333333332,
+  "objcut": 0.3323333333333332,
+  "nrows": 1735,
+  "iis_size": 17,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 2,
+   "band_up": 4,
+   "band_lo": 2,
+   "oind_up": 3,
+   "oind_lo": 3,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.3333333333333333,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.6666666666666665
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.33333333333333326
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.6666666666666665
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.33333333333333326
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,1)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "rhs": 0.0,
+    "mult": 0.5000000000000001
+   },
+   {
+    "group": "band_lo",
+    "label": "y(1,0)",
+    "rhs": 0.0,
+    "mult": 1.5000000000000002
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "rhs": 0.0,
+    "mult": 0.4999999999999998
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999998
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "oind_lo",
+    "label": "(1,0)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,1)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy"
+  ],
+  "n_lp_solves": 143,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,1)",
+    "coefs": {
+     "189": 1.0,
+     "185": -1.0,
+     "5": -1.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "coefs": {
+     "192": 1.0,
+     "188": -1.0,
+     "8": -1.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(1,0)",
+    "coefs": {
+     "5": 0.3333333333333333,
+     "4": -0.3333333333333333,
+     "189": -1.0,
+     "188": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,1)",
+    "coefs": {
+     "193": 1.0,
+     "189": -1.0,
+     "9": -1.0,
+     "5": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "196": 1.0,
+     "192": -1.0,
+     "12": -1.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "coefs": {
+     "9": 0.3333333333333333,
+     "8": -0.3333333333333333,
+     "193": -1.0,
+     "192": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,1)",
+    "coefs": {
+     "185": 1.0,
+     "369": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(1,0)",
+    "coefs": {
+     "188": -1.0,
+     "369": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(1,1)",
+    "coefs": {
+     "189": 1.0,
+     "370": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "coefs": {
+     "192": -1.0,
+     "370": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,1)",
+    "coefs": {
+     "193": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.332333333",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.3323333333333332
+   }
+  ],
+  "secs": 0.7
+ },
+ {
+  "K": 3,
+  "n": 48,
+  "c": 3,
+  "eta": 2.0,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.4999999999999999,
+  "objcut": 0.4989999999999999,
+  "nrows": 1739,
+  "iis_size": 11,
+  "iis_group_counts": {
+   "norm": 2,
+   "band_up": 3,
+   "band_lo": 3,
+   "oind_up": 1,
+   "oind_lo": 1,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.5,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy",
+   "sub_yy"
+  ],
+  "n_lp_solves": 118,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "3": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "coefs": {
+     "188": 1.0,
+     "184": -1.0,
+     "4": -1.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "coefs": {
+     "1": 0.5,
+     "0": -0.5,
+     "185": -1.0,
+     "184": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "coefs": {
+     "2": 0.5,
+     "1": -0.5,
+     "186": -1.0,
+     "185": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "coefs": {
+     "3": 0.5,
+     "2": -0.5,
+     "187": -1.0,
+     "186": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "coefs": {
+     "192": 1.0,
+     "188": -1.0,
+     "8": -1.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "196": 1.0,
+     "192": -1.0,
+     "12": -1.0,
+     "8": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "coefs": {
+     "187": 1.0,
+     "371": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "196": -1.0,
+     "371": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "12": 1.0
+    },
+    "rhs": 0.4989999999999999
+   }
+  ],
+  "secs": 0.6
+ },
+ {
+  "K": 4,
+  "n": 64,
+  "c": 2,
+  "eta": 2.0,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.5,
+  "objcut": 0.499,
+  "nrows": 2963,
+  "iis_size": 16,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 3,
+   "band_up": 4,
+   "band_lo": 2,
+   "oind_up": 2,
+   "oind_lo": 2,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.5,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,1)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy"
+  ],
+  "n_lp_solves": 165,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "4": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "coefs": {
+     "4": 1.0,
+     "3": -2.0,
+     "2": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,2)",
+    "coefs": {
+     "312": 1.0,
+     "307": -1.0,
+     "7": -1.0,
+     "2": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,2)",
+    "coefs": {
+     "317": 1.0,
+     "312": -1.0,
+     "12": -1.0,
+     "7": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "320": 1.0,
+     "315": -1.0,
+     "15": -1.0,
+     "10": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,0)",
+    "coefs": {
+     "11": 0.5,
+     "10": -0.5,
+     "316": -1.0,
+     "315": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(2,1)",
+    "coefs": {
+     "12": 0.5,
+     "11": -0.5,
+     "317": -1.0,
+     "316": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,0)",
+    "coefs": {
+     "325": 1.0,
+     "320": -1.0,
+     "20": -1.0,
+     "15": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,2)",
+    "coefs": {
+     "307": 1.0,
+     "612": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(2,0)",
+    "coefs": {
+     "315": -1.0,
+     "612": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,2)",
+    "coefs": {
+     "317": 1.0,
+     "614": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "coefs": {
+     "325": -1.0,
+     "614": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "20": 1.0
+    },
+    "rhs": 0.499
+   }
+  ],
+  "secs": 1.2
+ },
+ {
+  "K": 4,
+  "n": 64,
+  "c": 2,
+  "eta": 2.0,
+  "band": "proxy",
+  "variant": "spec",
+  "vstar": 0.5,
+  "objcut": 0.499,
+  "nrows": 2979,
+  "iis_size": 13,
+  "iis_group_counts": {
+   "norm": 2,
+   "band_up": 4,
+   "band_lo": 4,
+   "oind_up": 1,
+   "oind_lo": 1,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.5,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,4)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy",
+   "sub_yy"
+  ],
+  "n_lp_solves": 148,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "4": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,0)",
+    "coefs": {
+     "310": 1.0,
+     "305": -1.0,
+     "5": -1.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,0)",
+    "coefs": {
+     "1": 0.5,
+     "0": -0.5,
+     "306": -1.0,
+     "305": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,1)",
+    "coefs": {
+     "2": 0.5,
+     "1": -0.5,
+     "307": -1.0,
+     "306": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,2)",
+    "coefs": {
+     "3": 0.5,
+     "2": -0.5,
+     "308": -1.0,
+     "307": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(0,3)",
+    "coefs": {
+     "4": 0.5,
+     "3": -0.5,
+     "309": -1.0,
+     "308": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,0)",
+    "coefs": {
+     "315": 1.0,
+     "310": -1.0,
+     "10": -1.0,
+     "5": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,0)",
+    "coefs": {
+     "320": 1.0,
+     "315": -1.0,
+     "15": -1.0,
+     "10": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,0)",
+    "coefs": {
+     "325": 1.0,
+     "320": -1.0,
+     "20": -1.0,
+     "15": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,4)",
+    "coefs": {
+     "309": 1.0,
+     "614": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,0)",
+    "coefs": {
+     "325": -1.0,
+     "614": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "20": 1.0
+    },
+    "rhs": 0.499
+   }
+  ],
+  "secs": 1.1
+ },
+ {
+  "K": 6,
+  "n": 96,
+  "c": 2,
+  "eta": 2.0,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.5,
+  "objcut": 0.499,
+  "nrows": 6368,
+  "iis_size": 26,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 7,
+   "band_up": 6,
+   "band_lo": 4,
+   "oind_up": 3,
+   "oind_lo": 3,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.4999999999999998,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.4999999999999999
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.49999999999999983
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.4999999999999999
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999999
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 1.4999999999999996
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999997
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,4)",
+    "rhs": 0.0,
+    "mult": 0.49999999999999983
+   },
+   {
+    "group": "sub_yy",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "sub_yy",
+    "label": "(3,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,1)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,0)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(5,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "rhs": 0.0,
+    "mult": 1.0
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xx",
+   "sub_xy"
+  ],
+  "n_lp_solves": 239,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "6": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "coefs": {
+     "4": 1.0,
+     "3": -2.0,
+     "2": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,3)",
+    "coefs": {
+     "5": 1.0,
+     "4": -2.0,
+     "3": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,4)",
+    "coefs": {
+     "6": 1.0,
+     "5": -2.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(3,0)",
+    "coefs": {
+     "23": 1.0,
+     "22": -2.0,
+     "21": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(3,1)",
+    "coefs": {
+     "24": 1.0,
+     "23": -2.0,
+     "22": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(0,3)",
+    "coefs": {
+     "647": 1.0,
+     "640": -1.0,
+     "10": -1.0,
+     "3": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(1,3)",
+    "coefs": {
+     "654": 1.0,
+     "647": -1.0,
+     "17": -1.0,
+     "10": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,3)",
+    "coefs": {
+     "661": 1.0,
+     "654": -1.0,
+     "24": -1.0,
+     "17": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,0)",
+    "coefs": {
+     "22": 0.5,
+     "21": -0.5,
+     "659": -1.0,
+     "658": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,1)",
+    "coefs": {
+     "666": 1.0,
+     "659": -1.0,
+     "29": -1.0,
+     "22": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,1)",
+    "coefs": {
+     "23": 0.5,
+     "22": -0.5,
+     "660": -1.0,
+     "659": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(3,2)",
+    "coefs": {
+     "24": 0.5,
+     "23": -0.5,
+     "661": -1.0,
+     "660": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,1)",
+    "coefs": {
+     "673": 1.0,
+     "666": -1.0,
+     "36": -1.0,
+     "29": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,0)",
+    "coefs": {
+     "679": 1.0,
+     "672": -1.0,
+     "42": -1.0,
+     "35": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,0)",
+    "coefs": {
+     "36": 0.5,
+     "35": -0.5,
+     "673": -1.0,
+     "672": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(0,3)",
+    "coefs": {
+     "640": 1.0,
+     "1277": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,0)",
+    "coefs": {
+     "658": -1.0,
+     "1277": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(3,2)",
+    "coefs": {
+     "660": 1.0,
+     "1279": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(5,0)",
+    "coefs": {
+     "672": -1.0,
+     "1279": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,1)",
+    "coefs": {
+     "673": 1.0,
+     "1280": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "coefs": {
+     "679": -1.0,
+     "1280": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.499000000",
+    "coefs": {
+     "42": 1.0
+    },
+    "rhs": 0.499
+   }
+  ],
+  "secs": 6.0
+ },
+ {
+  "K": 6,
+  "n": 96,
+  "c": 2,
+  "eta": 1.5,
+  "band": "hyper",
+  "variant": "spec",
+  "vstar": 0.6666666831667878,
+  "objcut": 0.6656666831667878,
+  "nrows": 6368,
+  "iis_size": 26,
+  "iis_group_counts": {
+   "norm": 2,
+   "sub_yy": 5,
+   "sub_xx": 3,
+   "band_up": 4,
+   "band_lo": 4,
+   "oind_up": 3,
+   "oind_lo": 4,
+   "objcut": 1
+  },
+  "cert_status": 0,
+  "cert_bound": 0.6666666666666665,
+  "cert_multipliers": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "rhs": 0.0,
+    "mult": 0.3333333333333333
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "rhs": -1.0,
+    "mult": 0.6666666666666665
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "rhs": 0.0,
+    "mult": 0.3333333333333333
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "rhs": 0.0,
+    "mult": 0.6666666666666666
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "rhs": 0.0,
+    "mult": 0.9999999999999998
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,3)",
+    "rhs": 0.0,
+    "mult": 1.333333333333333
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,4)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,4)",
+    "rhs": 0.0,
+    "mult": 0.6666666666666665
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,4)",
+    "rhs": 0.0,
+    "mult": 2.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,4)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,4)",
+    "rhs": 0.0,
+    "mult": 2.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,4)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,2)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(4,2)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "band_lo",
+    "label": "y(4,3)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,1)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,1)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "band_lo",
+    "label": "y(6,0)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,4)",
+    "rhs": 0.0,
+    "mult": 2.5
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,4)",
+    "rhs": 0.0,
+    "mult": 1.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,2)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_lo",
+    "label": "(5,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,2)",
+    "rhs": 0.0,
+    "mult": 0.5
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "rhs": 0.0,
+    "mult": 1.5
+   },
+   {
+    "group": "oind_up",
+    "label": "(6,1)",
+    "rhs": 0.0,
+    "mult": 0.5
+   }
+  ],
+  "dropped_groups": [
+   "mono_x",
+   "mono_y",
+   "sub_xy"
+  ],
+  "n_lp_solves": 231,
+  "iis": [
+   {
+    "group": "norm",
+    "label": "F(0,0)>=0",
+    "coefs": {
+     "0": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "norm",
+    "label": "F(0,K)>=1",
+    "coefs": {
+     "6": -1.0
+    },
+    "rhs": -1.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,0)",
+    "coefs": {
+     "2": 1.0,
+     "1": -2.0,
+     "0": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,1)",
+    "coefs": {
+     "3": 1.0,
+     "2": -2.0,
+     "1": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,2)",
+    "coefs": {
+     "4": 1.0,
+     "3": -2.0,
+     "2": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,3)",
+    "coefs": {
+     "5": 1.0,
+     "4": -2.0,
+     "3": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(0,4)",
+    "coefs": {
+     "18": 1.0,
+     "11": -2.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_yy",
+    "label": "(0,4)",
+    "coefs": {
+     "6": 1.0,
+     "5": -2.0,
+     "4": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(1,4)",
+    "coefs": {
+     "25": 1.0,
+     "18": -2.0,
+     "11": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "sub_xx",
+    "label": "(2,4)",
+    "coefs": {
+     "32": 1.0,
+     "25": -2.0,
+     "18": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(2,4)",
+    "coefs": {
+     "662": 1.0,
+     "655": -1.0,
+     "25": -1.0,
+     "18": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(3,4)",
+    "coefs": {
+     "669": 1.0,
+     "662": -1.0,
+     "32": -1.0,
+     "25": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(4,2)",
+    "coefs": {
+     "674": 1.0,
+     "667": -1.0,
+     "37": -1.0,
+     "30": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(4,2)",
+    "coefs": {
+     "31": 0.6666666666666666,
+     "30": -0.6666666666666666,
+     "668": -1.0,
+     "667": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(4,3)",
+    "coefs": {
+     "32": 0.6666666666666666,
+     "31": -0.6666666666666666,
+     "669": -1.0,
+     "668": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_up",
+    "label": "x(5,1)",
+    "coefs": {
+     "680": 1.0,
+     "673": -1.0,
+     "43": -1.0,
+     "36": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(5,1)",
+    "coefs": {
+     "37": 0.6666666666666666,
+     "36": -0.6666666666666666,
+     "674": -1.0,
+     "673": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "band_lo",
+    "label": "y(6,0)",
+    "coefs": {
+     "43": 0.6666666666666666,
+     "42": -0.6666666666666666,
+     "680": -1.0,
+     "679": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(2,4)",
+    "coefs": {
+     "655": 1.0,
+     "1280": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(3,4)",
+    "coefs": {
+     "662": -1.0,
+     "1281": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(4,2)",
+    "coefs": {
+     "667": -1.0,
+     "1280": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(5,1)",
+    "coefs": {
+     "673": -1.0,
+     "1280": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(5,2)",
+    "coefs": {
+     "674": 1.0,
+     "1281": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_lo",
+    "label": "(6,0)",
+    "coefs": {
+     "679": -1.0,
+     "1280": 1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "oind_up",
+    "label": "(6,1)",
+    "coefs": {
+     "680": 1.0,
+     "1281": -1.0
+    },
+    "rhs": 0.0
+   },
+   {
+    "group": "objcut",
+    "label": "F(K,0)<=0.665666683",
+    "coefs": {
+     "42": 1.0
+    },
+    "rhs": 0.6656666831667878
+   }
+  ],
+  "secs": 19.8
+ }
+]
