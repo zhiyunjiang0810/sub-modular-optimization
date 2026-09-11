@@ -1,0 +1,71 @@
+{
+ "results": [
+  {
+   "K": 3,
+   "n": 6,
+   "eta": 2.5,
+   "algorithm": "a",
+   "value_float": 0.375,
+   "value_fraction": "3/8",
+   "value_kind": "exact",
+   "value_is_upper_bound_only": false,
+   "rho": 0.38888888888888884,
+   "inv_eta": 0.4,
+   "U": 0.42129629629629617,
+   "L": 0.3490370370370369,
+   "vs_rho": "worse",
+   "gap_vs_rho": -0.01388888888888884,
+   "vs_inv_eta": "below",
+   "n_branches": 8,
+   "n_branches_raw": 2400,
+   "n_lps": 8,
+   "status": "OK",
+   "O": [
+    0,
+    1,
+    3
+   ],
+   "delseq": [
+    3,
+    4,
+    5
+   ],
+   "T": [
+    0,
+    1,
+    2
+   ],
+   "which": null,
+   "secs": 0.4484059810638428,
+   "consistency": {
+    "lp_value": 0.375,
+    "monotone": true,
+    "submodular": true,
+    "band": true,
+    "OPT": 1.0,
+    "sim_ratio": 0.375,
+    "sim_arg": "7",
+    "obj_set": [
+     0,
+     1,
+     2
+    ],
+    "O": [
+     0,
+     1,
+     3
+    ],
+    "branch_ratio": 0.375,
+    "consistent": true
+   },
+   "query_audit": {
+    "n_queries": 15,
+    "max_query_size": 5,
+    "K": 3,
+    "n": 6,
+    "exceeds_K": true,
+    "poly_queries": true
+   }
+  }
+ ]
+}

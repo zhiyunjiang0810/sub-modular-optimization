@@ -1,0 +1,68 @@
+{
+ "results": [
+  {
+   "K": 3,
+   "n": 7,
+   "eta": 2.0,
+   "algorithm": "b",
+   "value_float": 0.4045801526717557,
+   "value_fraction": "53/131",
+   "value_kind": "exact",
+   "value_is_upper_bound_only": false,
+   "rho": 0.46666666666666656,
+   "inv_eta": 0.5,
+   "U": 0.4879999999999999,
+   "L": 0.42129629629629617,
+   "vs_rho": "worse",
+   "gap_vs_rho": -0.062086513994910886,
+   "vs_inv_eta": "below",
+   "n_branches": 1715,
+   "n_branches_raw": 58800,
+   "n_lps": 3395,
+   "status": "OK",
+   "O": [
+    2,
+    3,
+    4
+   ],
+   "delseq": [
+    2,
+    3,
+    4,
+    0
+   ],
+   "T": null,
+   "which": "r",
+   "secs": 279.78881216049194,
+   "consistency": {
+    "lp_value": 0.4045801526717557,
+    "monotone": true,
+    "submodular": true,
+    "band": true,
+    "OPT": 1.0,
+    "sim_ratio": 0.4045801526717557,
+    "sim_arg": "(35, 98, 98)",
+    "obj_set": [
+     1,
+     5,
+     6
+    ],
+    "O": [
+     2,
+     3,
+     4
+    ],
+    "branch_ratio": 0.4045801526717557,
+    "consistent": true
+   },
+   "query_audit": {
+    "n_queries": 42,
+    "max_query_size": 6,
+    "K": 3,
+    "n": 7,
+    "exceeds_K": true,
+    "poly_queries": true
+   }
+  }
+ ]
+}
