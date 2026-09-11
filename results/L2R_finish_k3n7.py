@@ -204,20 +204,35 @@ def main():
     print("Gate R: per-O parallel merge vs frozen candB_search on K=3, n=6",
           flush=True)
     gate = {}
+    # Pass criterion: equal values (1e-12).  Leaf counts are compared too,
+    # but a deficit is acceptable only when explained by pruning: the frozen
+    # search shares one incumbent across all O, so its node bound can cut
+    # subtrees that the per-O tasks (each with only its own O's incumbent)
+    # still enumerate; pruning removes only subtrees whose bound certifies
+    # no value below incumbent - 1e-9, so the minimum is unaffected.  When
+    # NEITHER side pruned, the leaf counts must agree exactly.
+    full_leaves = l2._leaf_count(6, 3, "continue") * math.comb(6, 3)
     for eta_g in (1.25, 2.0):
         ref = l2.candB_search(6, 3, eta_g, swap_mode="continue",
                               time_limit=600.0, verbose=False)
         par = run_cell(6, 3, eta_g, None, 600.0)
         same_val = abs(ref["val"] - par["best"]["val"]) < 1e-12
         same_leaves = ref["n_leaves"] == par["n_leaves"]
+        deficit_explained = (ref["n_pruned"] > 0 or par["n_pruned"] > 0)
+        covered = (par["n_leaves"] == full_leaves) or par["n_pruned"] > 0
+        ok = bool(same_val and covered
+                  and (same_leaves or deficit_explained))
         gate[str(eta_g)] = dict(ref_val=ref["val"], par_val=par["best"]["val"],
                                 ref_leaves=ref["n_leaves"],
                                 par_leaves=par["n_leaves"],
-                                ok=bool(same_val and same_leaves))
+                                ref_pruned=ref["n_pruned"],
+                                par_pruned=par["n_pruned"],
+                                full_leaves=full_leaves, ok=ok)
         print(f"  eta={eta_g}: frozen {ref['val']:.9f} ({ref['n_leaves']} "
-              f"leaves) vs merge {par['best']['val']:.9f} "
-              f"({par['n_leaves']} leaves) -> "
-              f"{'OK' if gate[str(eta_g)]['ok'] else 'MISMATCH'}", flush=True)
+              f"leaves, {ref['n_pruned']} pruned) vs merge "
+              f"{par['best']['val']:.9f} ({par['n_leaves']} leaves, "
+              f"{par['n_pruned']} pruned; full tree {full_leaves}) -> "
+              f"{'OK' if ok else 'MISMATCH'}", flush=True)
     out["gateR"] = gate
     if not all(g["ok"] for g in gate.values()):
         print("Gate R FAILED: aborting before the n=7 cells", flush=True)
