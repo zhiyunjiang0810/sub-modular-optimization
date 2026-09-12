@@ -1,0 +1,48 @@
+PASS P1 j = 2 j=2
+PASS P1 old rule m* = 4 m_old=4
+PASS P1 true argmax of D(m) is 3 (one below the old rule) argmax=3
+PASS P1 D(4) < D(3) strictly D(3)=0.1327455089 D(4)=0.1327283743
+PASS P1 old-rule family infeasible: r_{t*} = Q - 4 D(4) < 0 r_t*=-1.843668e-03 = -151089222203006/81950355825200625
+PASS P1 argmax family feasible: r_{t*} = Q - 3 D(3) >= 0 r_t*=1.308333e-01
+PASS P1 corrected candidate rule agrees with the argmax m_corr=3
+PASS P1 excess threshold m_c = floor(eta(K-1))+1 = 3 (E(m)>0 iff m>2.668) m_c=3
+PASS P2 W - rho_K > 0 at K=3 eta=3/2 
+PASS P2 W - rho_K > 0 at K=4 eta=3/2 
+PASS P2 W - rho_K > 0 at K=5 eta=3/2 
+PASS P2 W - rho_K > 0 at K=6 eta=3/2 
+PASS P2 W - rho_K > 0 at K=7 eta=3/2 
+PASS P2 W - rho_K > 0 at K=8 eta=3/2 
+PASS P2 W - rho_K > 0 at K=9 eta=3/2 
+PASS P2 W - rho_K > 0 at K=10 eta=3/2 
+PASS P2 W - rho_K > 0 at K=11 eta=3/2 
+PASS P2 W - rho_K > 0 at K=12 eta=3/2 
+PASS P2 W - rho_K > 0 at K=13 eta=3/2 
+PASS P2 W - rho_K > 0 at K=14 eta=3/2 
+PASS P2 gap strictly decreasing in K (K>=4) at eta=3/2 
+    eta=3/2: successive ratios gap(K+1)/gap(K): 0.1183 0.1725 0.1374 0.1891 0.1451 0.1968 0.1496 0.2016 0.1525 0.2048 0.1546
+PASS P2 W - rho_K > 0 at K=3 eta=667/500 
+PASS P2 W - rho_K > 0 at K=4 eta=667/500 
+PASS P2 W - rho_K > 0 at K=5 eta=667/500 
+PASS P2 W - rho_K > 0 at K=6 eta=667/500 
+PASS P2 W - rho_K > 0 at K=7 eta=667/500 
+PASS P2 W - rho_K > 0 at K=8 eta=667/500 
+PASS P2 W - rho_K > 0 at K=9 eta=667/500 
+PASS P2 W - rho_K > 0 at K=10 eta=667/500 
+PASS P2 W - rho_K > 0 at K=11 eta=667/500 
+PASS P2 W - rho_K > 0 at K=12 eta=667/500 
+PASS P2 W - rho_K > 0 at K=13 eta=667/500 
+PASS P2 W - rho_K > 0 at K=14 eta=667/500 
+PASS P2 gap strictly decreasing in K (K>=4) at eta=667/500 
+    eta=667/500: successive ratios gap(K+1)/gap(K): 0.1304 0.1305 0.1033 0.1594 0.1448 0.1113 0.1681 0.1507 0.1152 0.1726 0.1540
+PASS P3 K=3 eta=3/2 n=8 max(fwd,rev) <= W fwd=0.562500 rev=0.562500 W=0.563578 rho=0.562500
+PASS P3 K=3 eta=3/2 n=9 max(fwd,rev) <= W fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+PASS P3 K=3 eta=3/2 n=10 max(fwd,rev) <= W fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+PASS P3 K=3 eta=3/2 n=11 max(fwd,rev) <= W fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+PASS P3 K=3 eta=3/2 n=12 max(fwd,rev) <= W fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+PASS P3 K=3 eta=667/500 n=8 max(fwd,rev) <= W fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+PASS P3 K=3 eta=667/500 n=9 max(fwd,rev) <= W fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+PASS P3 K=3 eta=667/500 n=10 max(fwd,rev) <= W fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+PASS P3 K=3 eta=667/500 n=11 max(fwd,rev) <= W fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+PASS P3 K=3 eta=667/500 n=12 max(fwd,rev) <= W fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+
+ALL PASS
