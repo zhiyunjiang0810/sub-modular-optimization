@@ -212,3 +212,17 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
   appendix 的定义改为 argmax 形式；修正规则 [CONJECTURE]（T12）。
 - **仍 [OPEN]**：任意大小查询的最优值（T12）；随机类有限 n；n^c 尺度与其他预算类；
   submodular surrogate 的精确最坏值（T7）。
+
+## R16 [J6/J7 日] 任意大小查询线性类的上界（thm:linear-anysize，台账 T10d）
+- **主结果**：K ≥ 3、η > 1。α_lin(K,η)（确定性 O(nK) 次任意大小查询、输出 ≤ K，n → ∞ 类最优值）满足
+  ρ_K ≤ α_lin ≤ min{1/η, W_K(η)} ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}。greedy 在自己的 oracle
+  复杂度下即使放开查询大小也只差指数小项。随机版按期望同界。
+- **修正截断规则**：Ψ(t) = (Kη−t−1)ν^t − K(η−1)，m = min{z ≥ 1: Ψ(z) ≤ 0}；η(K−1) < m < Kη；
+  d = (ν^m/K−1)/B_m ∈ [1/(m+1), 1/m]。旧规则 m = ⌈Kη⌉−1 在 K=3, η=667/500 给出 r_{t*} < 0（非法），
+  Ψ 规则给 m=3 且与 argmax 在 303 个精确点一致（结构恒等式解释）。
+- **状态**：count-grid 合法性与值/gap 算术 [VERIFIED-SYMBOLIC 148 项 + 99 组精确电池 + (18) 精确 oracle]；
+  集合函数提升、泄漏界、transcript、平均 [HAND-PROOF-UNREVIEWED，来源 J7]；两条经典初等不等式残留。
+- **有限 n 警告**：n < K+t* 时反向 greedy 经泄漏区恰达比值 1（对抗模拟精确 DP），n → ∞ 量词必不可少。
+- **正文变化**：thm:linear-anysize 入 results.tex；app:hardness-anysize 从 candidate bound 改写为定理证明，
+  F3 candidate-bound 段删除，超线性预算与指数 2 材料保留（T12 余留）；sandwich 图与 open-problem
+  草稿改为双闭合版（新 open problem：消掉指数小项或找到严格更好的线性算法）。
