@@ -3,7 +3,7 @@
 规则：每条定理一张卡，字段固定。写作时只准从这里取陈述与状态，不准凭记忆。
 状态标签：[VERIFIED-SYMBOLIC] [VERIFIED-LP] [VERIFIED-EXHAUSTIVE] [HAND-PROOF-UNREVIEWED] [CONJECTURE] [OPEN]。
 "禁止声称"一栏是空洞性检验和审稿反例的沉淀，比陈述本身更重要。
-本版：2026-09-11 深夜（第九晚 P0-P3 后：T10/T12 第九晚注与禁止声称、T11 追加 P2 行；此前第七晚 T10b 新卡、T11 L2/L2R 行）；每卡状态标签与 results/ 脚本一一对应。
+本版：2026-09-12（第八晚 M0-M5，J5 独立审计落实：T0 lem:scaling 与固定 K 步、T1/T2/T3 量词与定义域、T6 n 量词、T7 M3.2 精确点与方向更正、T8 随机量词、T10b 改名与 n ≥ 4K⁵ 量词、T11 证据等级与候选总结、T14 范围、M4 九条禁止声称；J5 输入文件未送达，处理规则见 results/J5/MISSING_INPUTS.md；此前第九晚 P0-P3、第七晚 L 系列）；每卡状态标签与 results/ 脚本一一对应。
 
 ---
 
@@ -114,9 +114,20 @@
   下界要对偶/保证侧证书，J5 指出的方向错误，M3.2 处理中）。
 - 禁止声称："strictly improves for all η<K−1"（只在部分点验证）；"ρ_K^sub = min_m W_m"（下界无证书）；
   "more robust"；把实例族说成证明相等（只给 ≤）；推广到一般 n（族与 LP 都在 n=2K）。
-- 修订原禁止项："U_K no longer an upper bound" 的禁令限定到原模型：U_K 仍是 ρ_K 的上界，但对
-  ρ_K^sub 不是（K=4, η=3/2 处 23/41 ≈ 0.5610 > U_4 ≈ 0.5519，显式实例背书，29 网格点）；
-  原括注 19/33<37/64 只覆盖 K=3 那一点。
+- M3.2 精确点（2026-09-12，本地重建替代未送达的 J5 对偶 JSON，未与 J5 比对）：
+  **ρ^sub_{8,4}(3/2) = 23/41，双侧精确**。上界侧：H-C §6 实例 Fraction 重建（两函数单调 submodular、
+  band 恰为拆分、greedy 逐步打平、比值精确 23/41、7702 行 0 违反）[VERIFIED-SYMBOLIC-EXACT]；
+  下界侧：16 个轨道的精确有理对偶，提升回完整 7702 行逐坐标核对并搬运到全部 70 个 target set，
+  y > 23/41 时对偶系统不可行 [VERIFIED-EXACT-DUAL]；模型到 LP 的三步归约（拆分归一化/分支钉住/
+  OPT 归一化）[HAND-PROOF-UNREVIEWED]。三个有理拆分同值。results/M3_rhosub_K4_exact.{md,py,json}。
+  推论（方向正确的证据）：23/41 > U_4(3/2) = 8080/14641（336743 > 331280）且 > ρ_4(3/2) = 1447/2662，
+  故 U_K 在 submodular-surrogate 模型不再一般成立为上界；此前"显式实例背书"是方向错误的证据
+  （实例只给 ρ^sub ≤ 值），已按 J5/M3.2 更正。n ≥ 8 同值：restriction+padding（rem:exact-n 论证移植，
+  restriction/padding 保持 f̃ 的 submodularity 与 band）[HAND-PROOF-UNREVIEWED，本地]。
+- 修订原禁止项："U_K no longer an upper bound" 的禁令限定到原模型：U_K 仍是 ρ_K 的上界，对
+  ρ_K^sub 在 K=4, η=3/2 处**证实失效**（上一条，双侧精确）；在其他已验证点（K=3, η=1.5 的
+  19/33 < 37/64；K=4, η=2 的 23/50 < 61/125）U_K 数值上仍在其上。
+- J5 §13 的 W_m 一般手证未转录（原文缺失）；上界方向维持 H-C 的 [VERIFIED-LP 410 点]。
 
 ## T8 thm:ceiling — 1/η 天花板
 - 陈述（M1 随机量词校正）：任意确定性算法、任意 η_u,η_o ≥ 1、n ≥ 2K，存在误差恰为 (η_u,η_o) 的实例使

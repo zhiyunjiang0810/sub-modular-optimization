@@ -1,5 +1,26 @@
 # REPORT.md
 
+## Summary（第八晚，2026-09-12：落实独立审计 J5（M0-M5），输入缺失下按闸门执行）
+
+- **M0-M5 全部执行**。J5 的四个输入文件（审计报告、验证摘要、verify_audit.py、对偶 JSON）在仓库/镜像/uploads 均未送达（results/J5/MISSING_INPUTS.md），故 "四个 PASS" 无法确认；闸门（results/M0_j5_gate.md）裁定：TASKS8 内联规格可独立复算的全部照做（九个本地脚本复跑 exit 0；三个反例 Fraction 复算 ALL PASS），依赖 J5 原文的跳过或本地重建并如实标注。TASKS8 要求的 "J5 严重项 5/5 已处理" 以 TASKS8 的 M 项拆解为处理口径（J5 原文清单不可得）。
+- **最重要修正（M0 §11 反例）**：cor:greedybudget 改名 "An upper bound within the greedy query budget"，greedy 类内最优的一切陈述与猜想加 **n ≥ 4K⁵ 量词**（n=4, K=2 时全对枚举属 𝒜_lin，保证 2/3 = 1/η，同时超过 ρ_2 = 3/5 与 U_2 = 16/25）；**表 1 的 influence-max 行 4.3/0.207 更正为 4.5/0.199**（EXP_table_build.py 补 D3 ∞ override，经 G3 生成链传播，与正文宏一致；管线本身确认固定 K 步、0 早停，results/M1_e2_fixedk.md）。
+- **最重要新结果（M3.2，本地重建替代未送达的 J5 对偶）**：ρ^sub_{8,4}(3/2) = **23/41 双侧精确**（Fraction 实例 + 70 个 target set 的精确有理对偶，y > 23/41 对偶不可行），23/41 > U_4(3/2) = 8080/14641，rem:exact-gap 此前"实例背书"的方向错误已更正；另新增 lem:scaling（band 类双射）、rem:exact-n（ρ_{n,K} = ρ_{2K,K}，restriction+padding）、rem:hardness-leak（N∖{e} 泄露、K=4 精确复算）、η=1 与 K=1 情形（族在 θ̄=1 退化为 f̃=f [VERIFIED-SYMBOLIC]）。
+- **FAILED/跳过（如实）**：M3.1 的 n<2K 达到方向本地重构失败（值带 telescoping 只给 1/η，卡点与 H-E 相同，T8 维持 [CONJECTURE]，results/M3_ceiling_attempt.md）；M3.3 的 "J5 人工复核已闭合" 注记跳过（来源不可核实即虚构）；J5 新手证一律按用户规则不升级（本晚实际采纳的手证全部标 "本地重构"）。
+- 编译 36 页 0 错误 0 未定义（results/M4_compile.log 等逐任务日志）、审计 384 literals 0 违规、台账 12 张卡先卡后文、\iclrfinalcopy 已删（页眉转匿名 under review）、M4 九条 must-not-claim 已入卡。逐项 J5 章节对照见下节。
+
+## 第八晚明细：J5 章节对照（章节号转述自 TASKS8，J5 原文未送达）
+
+- **M0**【J5 §3/§10/§11 | 三反例全部独立 Fraction 复算 PASS】九脚本复跑 exit 0；results/M0_j5_gate.md 含逐 M 项闸门裁定；results/M0_counterexamples.py。
+- **M1.1**【§3 | 停止版反例】固定 K 步语义显式化（model.tex + rem:app-product 已执行步范围 + T0/T3 卡）；实验侧（Opus 代理）确认管线固定 K 步、宏 0 受影响、表 1 两数更正（见上）。
+- **M1.2**【"Lemma 0′" | 本地三行代数 + sympy】新 lem:scaling：band 类双射、comparison-based run 不变；不对个体 f̃ 的最小因子陈述（results/M1_checks.py）。
+- **M1.3**【§13 | 论证本地重构】rem:exact-n：ρ_{n,K} = ρ_{2K,K}（restriction+padding [HAND-PROOF-UNREVIEWED 本地]，数值支持 = L2 Gate 1）；n<K、OPT=0、空轨迹约定入 model.tex。
+- **M1.4/M1.5**【量词与定义域】prop:necessity 限定 deterministic（随机类比注明未声称）；thm:ceiling 随机版改逐算法固定实例量词；prop:valueacc (iii) 加 η_o < 2 前提（引用定义不动，保守二选一）。
+- **M2**【§10/§11 等十项】证据等级（"精确分数"→ [VERIFIED-LP 浮点]，T11 + 三个 md 注记）；候选总结口径（T11）；cor:greedybudget 改名 + n 量词；rem:hardness-pins 已是 nK ≤ n^c 形式（无改动，记录）；新 rem:hardness-leak；ε_n 联合极限 n/K⁵ → ∞ + min 只对确定性；R-step 推理无残留（记录）；additive band 范围收缩（T14，未进正文）；H-B 证据来源注释改写；§2 前解释句软化。
+- **M3.2**【§13 + 对偶 JSON（未送达，本地重建）】见 Summary 第三条；T7 卡与 rem:exact-gap 同步，J5 §13 的 W_m 一般手证未转录（原文缺失）。
+- **M3.4**cor:greedybudget 的 η=1（U_K(1)=L_K(1)=ρ_K(1)，族退化 f̃=f）与 K=1（三行链 1/η，全算法类最优）单列（results/M3_checks.py ALL PASS）。
+- **M4**：九条 must-not-claim 入 T3/T7/T8/T10/T10b/T11/T15；\iclrfinalcopy 删除。
+- 若 J5 文件后续送达且与本晚处理有出入，按差异补做（MISSING_INPUTS.md 有约定）。
+
 ## Summary（第九晚：任意大小查询探索，P0-P3 全交付，台账已同步）
 
 - **P0（band 可行性 LP）：预期的不可行没有出现，出现的是退化。** 两版 band（TASKS9 proxy + 精确 hypergeometric-tail）下 216 个 LP 全部可行，最优值 106/108 点精确等于 1/η，最优解是 prop:necessity 的 modular 实例；带目标割的 11 行证书固定了三步塌缩链；平顶族退到 1.0。[VERIFIED-LP 有限参数]

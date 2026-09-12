@@ -384,9 +384,23 @@ at $K=4$, $\eta=2$ from $22/49$ to $23/50$.
 % [VERIFIED-LP with instance-validated attainment,
 %  results/F4_submodular_ftilde.md]
 The family above becomes inadmissible in that model, so the upper-bound
-argument through $U_K$ no longer applies there; at the verified points
-$U_K$ itself still lies above the new worst case.  A general
-characterization is left open.
+argument through $U_K$ no longer applies there, and the bound itself can
+fail: at $K=4$, $\eta=3/2$, $n=8$ the submodular-surrogate worst case
+equals $23/41$ exactly, certified on both sides (an explicit rational
+instance and exact rational dual certificates for all seventy target
+sets), and $23/41>U_4(3/2)=8080/14641$; the value is unchanged for every
+$n\ge8$ by restriction and padding.  At the other verified points, such as
+$K=3$, $\eta=3/2$, the value $19/33$ still lies below $U_3(3/2)=37/64$.  A
+general characterization is left open.
+% M3.2 (J5 item; the J5 dual file was never delivered, so the certificates
+% are a LOCAL rebuild): results/M3_rhosub_K4_exact.{md,py,json}.  Upper
+% side [VERIFIED-SYMBOLIC-EXACT] (Fraction instance, 0 of 7702 rows
+% violated); lower side [VERIFIED-EXACT-DUAL] (16 orbits lifted to the
+% full LP, transported to 70 target sets; dual infeasible above 23/41);
+% the model-to-LP reduction steps and the restriction+padding extension
+% are [HAND-PROOF-UNREVIEWED].  The former wording backed 23/41 > U_4 by
+% an instance alone, which is the wrong direction (an instance only upper
+% bounds the worst case); corrected here per the J5 audit.  Ledger T7.
 % Decision D1 (TASKS5): the main model leaves ftilde unrestricted; this
 % remark is the only place the submodular-surrogate variant appears.  LP
 % evidence for a min_m W_m closed form is recorded in
