@@ -153,3 +153,23 @@ results/Q3_W_vs_UK.log），且 W - rho_K 随 K 衰减远快于 U_K - W
 日志: results/Q2_indep_nsweep.log, results/Q2_grid_check.log,
 results/Q2_symbolic_run.log, results/Q3_W_vs_UK.log,
 results/Q1_selfcheck.json, results/Q2_symbolic.json。
+
+## 附录（Q4 交叉核对日补记）
+
+Q4 的外部并行结果（双残差截断族）与本报告不矛盾，且闭合了目标：
+
+- 本报告的 FAILED 结论针对的是**全局 O-无关**的计数网格族（O-无关强加于
+  一切大小的 balanced 状态，沿 N4 的 LP 表述）。该结论仍真：那一类族的
+  极限是 W > rho_K，卡点不等式 E(m) > 0 iff m > eta(K-1) 不变。
+- 但 TASKS10 目标 (b) 原文只要求 |S| <= K 处 O-无关，transcript 论证也只
+  查得到这些集合。把 LP 的 O-无关约束改到 small-set-only 后，其值在全部
+  18 个测试 (K, eta, n)（含本报告表格中阶梯启动之后的 n）恰等于 rho_K
+  （results/Q4_smallset_lp.py [VERIFIED-LP]）。第十晚把 (b) 实现成了
+  全局约束，是路线实现对目标条件的过度约束。
+- Q4 的族在正确的约束下逐点达到 rho_K（对一切 n >= 2K，无极限），
+  合法性 13+34 项 [VERIFIED-SYMBOLIC] + 111+159 组精确电池，定理已装配
+  为 thm:linear-exact（台账 T10c）。
+- 第 6 节的副产物（用 W 换 U_K 的 ceiling）被更强的精确结果取代，
+  不再需要；W 不进正文，第 5 节的命名冲突随之消解。
+- 第 2 节的 m* 附注在 Q4 得到落实：appendix 的 m* 定义已改为 argmax
+  形式（results.tex 未涉及）。
