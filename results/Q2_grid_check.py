@@ -59,10 +59,39 @@ def load():
     return build_closed_form()
 
 
+def resolve_params(Kv, jv, ev, nv):
+    """Resolve the free symbols (q, nu, D, T) of the delivered closed form
+    for a concrete (K, j, eta, n).  Own computation, independent of
+    Q1_closed_form.instantiate: D is picked by DIRECT argmax of
+    D(m) = q^j (nu^m/K - 1)/(eta (nu^m - 1) - m) over m = 1..X-j versus the
+    base value q^j/(K eta); the m* = ceil(eta K) - 1 conjecture is not used.
+    Tail engages only on a strict improvement.  Returns sympy Rationals plus
+    the integer T (X + K + 1 acts as 'infinity' when no tail engages)."""
+    ev = Fr(ev)
+    k1 = (Kv - 1) * ev + 1
+    q = (Kv - 1) * ev / k1
+    nu = ev / (ev - 1)
+    X = nv - Kv
+    Dbase = q ** jv / (Kv * ev)
+    best, best_m = Dbase, None
+    for m in range(1, X - jv + 1):
+        den = ev * (nu ** m - 1) - m
+        if den <= 0:
+            continue
+        Dm = q ** jv * (nu ** m / Kv - 1) / den
+        if Dm > best:
+            best, best_m = Dm, m
+    T = jv + best_m if best_m is not None else X + Kv + 1
+    to_sp = lambda f: sp.Rational(f.numerator, f.denominator)
+    return dict(q=to_sp(q), nu=to_sp(nu), D=to_sp(best), T=T,
+                m=best_m if best_m is not None else 0)
+
+
 def as_fr(expr):
-    """sympy Rational/number -> Fraction, exact."""
-    e = sp.nsimplify(expr, rational=True) if not expr.is_Rational else expr
-    e = sp.Rational(e)
+    """sympy expression, fully substituted -> Fraction, exact.  Strict: no
+    float round-trip (denominators like 93^57 occur at K=8, n=64)."""
+    e = sp.together(expr) if not expr.is_Rational else expr
+    assert e.is_Rational, f"non-rational after substitution: {expr}"
     return Fr(int(e.p), int(e.q))
 
 
@@ -71,8 +100,9 @@ def eval_grid(cf, Kv, jv, ev, nv):
     sy = cf["symbols"]
     subs_common = {sy["K"]: Kv, sy["j"]: jv, sy["eta"]: sp.Rational(ev.numerator, ev.denominator),
                    sy["n"]: nv}
-    for name, val in cf.get("extra_values", {}).items():
-        subs_common[sy[name]] = val
+    for name, val in resolve_params(Kv, jv, ev, nv).items():
+        if name in sy:
+            subs_common[sy[name]] = val
     X, Y = nv - Kv, Kv
     F, G = {}, {}
     Fx = cf["F"].subs(subs_common)
@@ -80,11 +110,11 @@ def eval_grid(cf, Kv, jv, ev, nv):
     Gu = cf["G_unbal"].subs(subs_common) if cf.get("G_unbal") is not None else None
     for x in range(X + 1):
         for y in range(Y + 1):
-            F[x, y] = as_fr(sp.simplify(Fx.subs({sy["x"]: x, sy["y"]: y})))
+            F[x, y] = as_fr(Fx.subs({sy["x"]: x, sy["y"]: y}))
             if y <= 1:
-                G[x, y] = as_fr(sp.simplify(Gh.subs({sy["s"]: x + y})))
+                G[x, y] = as_fr(Gh.subs({sy["s"]: x + y}))
             elif Gu is not None:
-                G[x, y] = as_fr(sp.simplify(Gu.subs({sy["x"]: x, sy["y"]: y})))
+                G[x, y] = as_fr(Gu.subs({sy["x"]: x, sy["y"]: y}))
             else:
                 G[x, y] = None      # rule-described; band check will skip
     return F, G
@@ -145,9 +175,13 @@ def run_config(cf, Kv, jv, ev, nv, verbose=True):
     obj_sub = {sy["K"]: Kv, sy["j"]: jv,
                sy["eta"]: sp.Rational(ev.numerator, ev.denominator),
                sy["n"]: nv}
-    for name, v in cf.get("extra_values", {}).items():
-        obj_sub[sy[name]] = v
-    obj = as_fr(sp.simplify(cf["objective"].subs(obj_sub)))
+    prm = resolve_params(Kv, jv, ev, nv)
+    for name, v in prm.items():
+        if name in sy:
+            obj_sub[sy[name]] = v
+    print(f"    resolved tail: m={prm['m']} T={prm['T']} "
+          f"D={prm['D']} (tail {'engaged' if prm['m'] else 'off'})")
+    obj = as_fr(cf["objective"].subs(obj_sub))
     rec("objective formula matches F(K,0)", obj == val,
         f"formula {obj} vs grid {val}")
     vj = V_exact(Kv, jv, ev)
@@ -171,8 +205,10 @@ def main():
     print("closed form loaded:", cf.get("notes", "")[:100])
     configs = []
     if args.sweep:
+        # j >= 2 only: the delivered closed form is LP-exact on that domain
+        # (for j <= 1 it is an upper bound only; see Q1 notes item 3).
         for Kv in (3, 4, 5, 8):
-            for jv in range(1, Kv):
+            for jv in range(2, Kv):
                 ev = Fr(2 * (Kv - jv) + 1, 2)          # segment midpoint
                 for nv in (2 * Kv, 4 * Kv, 8 * Kv):
                     configs.append((Kv, jv, ev, nv))
