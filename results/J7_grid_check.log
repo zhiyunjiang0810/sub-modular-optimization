@@ -1,0 +1,118 @@
+config K=3 eta=21/20: W=0.686798088 gap=1.349e-05 leaks=8
+config K=3 eta=5/4: W=0.626297888 gap=4.475e-04 leaks=8
+config K=3 eta=667/500: W=0.603675679 gap=5.442e-04 leaks=8
+config K=3 eta=3/2: W=0.563577586 gap=1.078e-03 leaks=10
+config K=3 eta=2: W=0.468538012 gap=1.871e-03 leaks=12
+config K=3 eta=5/2: W=0.394457941 gap=5.569e-03 leaks=14
+config K=3 eta=8/3: W=0.374088029 gap=5.667e-03 leaks=14
+config K=3 eta=3: W=0.339115263 gap=5.782e-03 leaks=16
+config K=3 eta=7/2: W=0.295483506 gap=9.769e-03 leaks=18
+config K=4 eta=21/20: W=0.666813425 gap=4.334e-07 leaks=18
+config K=4 eta=5/4: W=0.606388316 gap=3.170e-05 leaks=18
+config K=4 eta=667/500: W=0.583898229 gap=7.098e-05 leaks=21
+config K=4 eta=3/2: W=0.543703751 gap=1.275e-04 leaks=21
+config K=4 eta=2: W=0.449298285 gap=3.187e-04 leaks=27
+config K=4 eta=5/2: W=0.378149912 gap=9.873e-04 leaks=30
+config K=4 eta=3: W=0.326099829 gap=1.100e-03 leaks=36
+config K=4 eta=11/3: W=0.272715032 gap=1.882e-03 leaks=42
+config K=4 eta=4: W=0.251852255 gap=1.852e-03 leaks=45
+config K=4 eta=9/2: W=0.224805317 gap=2.583e-03 leaks=48
+config K=5 eta=21/20: W=0.655480828 gap=1.512e-08 leaks=32
+config K=5 eta=5/4: W=0.594911359 gap=3.952e-06 leaks=36
+config K=5 eta=667/500: W=0.572387463 gap=9.260e-06 leaks=36
+config K=5 eta=3/2: W=0.532216915 gap=2.200e-05 leaks=40
+config K=5 eta=2: W=0.438196059 gap=6.163e-05 leaks=48
+config K=5 eta=5/2: W=0.369107581 gap=2.120e-04 leaks=56
+config K=5 eta=3: W=0.318587424 gap=2.442e-04 leaks=64
+config K=5 eta=14/3: W=0.214162550 gap=6.032e-04 leaks=92
+config K=5 eta=5: W=0.200591891 gap=5.919e-04 leaks=96
+config K=5 eta=11/2: W=0.182571060 gap=7.529e-04 leaks=104
+config K=6 eta=21/20: W=0.648170906 gap=5.529e-10 leaks=50
+config K=6 eta=5/4: W=0.587369208 gap=4.876e-07 leaks=55
+config K=6 eta=667/500: W=0.564798431 gap=9.568e-07 leaks=60
+config K=6 eta=3/2: W=0.524603035 gap=3.022e-06 leaks=60
+config K=6 eta=2: W=0.430834793 gap=1.267e-05 leaks=75
+config K=6 eta=5/2: W=0.363020447 gap=4.632e-05 leaks=85
+config K=6 eta=3: W=0.313412964 gap=5.847e-05 leaks=100
+config K=6 eta=17/3: W=0.176331543 gap=1.952e-04 leaks=165
+config K=6 eta=6: W=0.166858514 gap=1.918e-04 leaks=175
+config K=6 eta=13/2: W=0.154076747 gap=2.306e-04 leaks=185
+config K=7 eta=21/20: W=0.643062217 gap=2.081e-11 leaks=72
+config K=7 eta=5/4: W=0.582027587 gap=5.523e-08 leaks=78
+config K=7 eta=667/500: W=0.559407163 gap=1.525e-07 leaks=84
+config K=7 eta=3/2: W=0.519173000 gap=5.715e-07 leaks=90
+config K=7 eta=2: W=0.425565338 gap=2.699e-06 leaks=108
+config K=7 eta=5/2: W=0.358580095 gap=1.122e-05 leaks=126
+config K=7 eta=3: W=0.309570021 gap=1.460e-05 leaks=144
+config K=7 eta=20/3: W=0.149890035 gap=6.425e-05 leaks=276
+config K=7 eta=7: W=0.142920157 gap=6.301e-05 leaks=288
+config K=7 eta=15/2: W=0.133406668 gap=7.333e-05 leaks=306
+config K=8 eta=21/20: W=0.639289754 gap=7.978e-13 leaks=98
+config K=8 eta=5/4: W=0.578044584 gap=4.801e-09 leaks=105
+config K=8 eta=667/500: W=0.555377085 gap=2.208e-08 leaks=112
+config K=8 eta=3/2: W=0.515100679 gap=8.295e-08 leaks=119
+config K=8 eta=2: W=0.421600018 gap=5.885e-07 leaks=147
+config K=8 eta=5/2: W=0.355179753 gap=2.621e-06 leaks=168
+config K=8 eta=3: W=0.306592116 gap=3.748e-06 leaks=196
+config K=8 eta=23/3: W=0.130356661 gap=2.130e-05 leaks=427
+config K=8 eta=8: W=0.125020922 gap=2.092e-05 leaks=441
+config K=8 eta=17/2: W=0.117670780 gap=2.372e-05 leaks=462
+config K=9 eta=21/20: W=0.636389547 gap=3.096e-14 leaks=128
+config K=9 eta=5/4: W=0.574959943 gap=6.794e-10 leaks=144
+config K=9 eta=667/500: W=0.552250130 gap=2.458e-09 leaks=152
+config K=9 eta=3/2: W=0.511933072 gap=1.633e-08 leaks=160
+config K=9 eta=2: W=0.418506574 gap=1.305e-07 leaks=192
+config K=9 eta=5/2: W=0.352491009 gap=6.653e-07 leaks=224
+config K=9 eta=3: W=0.304216278 gap=9.800e-07 leaks=256
+config K=9 eta=26/3: W=0.115330966 gap=7.112e-06 leaks=616
+config K=9 eta=9: W=0.111118119 gap=7.008e-06 leaks=640
+config K=9 eta=19/2: W=0.105270978 gap=7.821e-06 leaks=672
+config K=10 eta=21/20: W=0.634090261 gap=1.210e-15 leaks=162
+config K=10 eta=5/4: W=0.572500382 gap=9.136e-11 leaks=180
+config K=10 eta=667/500: W=0.549753201 gap=4.131e-10 leaks=189
+config K=10 eta=3/2: W=0.509398727 gap=2.442e-09 leaks=198
+config K=10 eta=2: W=0.416025719 gap=2.931e-08 leaks=243
+config K=10 eta=5/2: W=0.350311818 gap=1.606e-07 leaks=279
+config K=10 eta=3: W=0.302277903 gap=2.599e-07 leaks=324
+config K=10 eta=29/3: W=0.103411492 gap=2.401e-06 leaks=864
+config K=10 eta=10: W=0.100002365 gap=2.365e-06 leaks=891
+config K=10 eta=21/2: W=0.095240696 gap=2.600e-06 leaks=927
+config K=11 eta=21/20: W=0.632222579 gap=4.739e-17 leaks=200
+config K=11 eta=5/4: W=0.570493311 gap=1.104e-11 leaks=220
+config K=11 eta=667/500: W=0.547713273 gap=6.226e-11 leaks=230
+config K=11 eta=3/2: W=0.507325009 gap=4.923e-10 leaks=250
+config K=11 eta=2: W=0.413991901 gap=6.653e-09 leaks=300
+config K=11 eta=5/2: W=0.348510523 gap=4.184e-08 leaks=350
+config K=11 eta=3: W=0.300667424 gap=6.972e-08 leaks=400
+config K=11 eta=32/3: W=0.093724428 gap=8.143e-07 leaks=1170
+config K=11 eta=11: W=0.090909894 gap=8.032e-07 leaks=1200
+config K=11 eta=23/2: W=0.086957397 gap=8.749e-07 leaks=1250
+config K=12 eta=21/20: W=0.630675357 gap=1.855e-18 leaks=242
+config K=12 eta=5/4: W=0.568824344 gap=1.009e-12 leaks=264
+config K=12 eta=667/500: W=0.546015379 gap=7.171e-12 leaks=286
+config K=12 eta=3/2: W=0.505596807 gap=7.507e-11 leaks=297
+config K=12 eta=2: W=0.412294323 gap=1.523e-09 leaks=363
+config K=12 eta=5/2: W=0.346997103 gap=1.031e-08 leaks=418
+config K=12 eta=3: W=0.299308849 gap=1.887e-08 leaks=484
+config K=12 eta=35/3: W=0.085696154 gap=2.776e-07 leaks=1529
+config K=12 eta=12: W=0.083333608 gap=2.743e-07 leaks=1573
+config K=12 eta=25/2: W=0.080000296 gap=2.960e-07 leaks=1628
+    sim K=3 eta=3/2 n= 8 (n< K+T): fwd=0.563578 rev=1.000000 W=0.563578 rho=0.562500
+    sim K=3 eta=3/2 n= 9 (n>=K+T): fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+    sim K=3 eta=3/2 n=10 (n>=K+T): fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+    sim K=3 eta=3/2 n=11 (n>=K+T): fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+    sim K=3 eta=3/2 n=12 (n>=K+T): fwd=0.563578 rev=0.563578 W=0.563578 rho=0.562500
+    sim K=3 eta=667/500 n= 8 (n>=K+T): fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+    sim K=3 eta=667/500 n= 9 (n>=K+T): fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+    sim K=3 eta=667/500 n=10 (n>=K+T): fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+    sim K=3 eta=667/500 n=11 (n>=K+T): fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+    sim K=3 eta=667/500 n=12 (n>=K+T): fwd=0.603676 rev=0.603676 W=0.603676 rho=0.603132
+    sim K=3 eta=2 n= 8 (n< K+T): fwd=0.468538 rev=1.000000 W=0.468538 rho=0.466667
+    sim K=3 eta=2 n= 9 (n< K+T): fwd=0.468538 rev=1.000000 W=0.468538 rho=0.466667
+    sim K=3 eta=2 n=10 (n>=K+T): fwd=0.468538 rev=0.468538 W=0.468538 rho=0.466667
+    sim K=3 eta=2 n=11 (n>=K+T): fwd=0.468538 rev=0.468538 W=0.468538 rho=0.466667
+    sim K=3 eta=2 n=12 (n>=K+T): fwd=0.468538 rev=0.468538 W=0.468538 rho=0.466667
+
+configs: 99
+ALL PASS
+exit=0
