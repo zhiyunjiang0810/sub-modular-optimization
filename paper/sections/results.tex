@@ -19,7 +19,8 @@
 \subsection{An error bound is necessary}\label{sec:necessity}
 
 \begin{proposition}[No bound, no guarantee]\label{prop:necessity}
-If no upper bound on $\eta$ is assumed, then for every algorithm with
+If no upper bound on $\eta$ is assumed, then for every deterministic
+algorithm with
 arbitrary query access to $\tilde f$ and every $n\ge2K$ there are pairs
 $(f,\tilde f)$ on which the output $T$ satisfies
 $f(T)\le\tfrac{K}{n-K}\,f(O^{\ast})$.  Consequently no constant worst-case
@@ -28,6 +29,10 @@ ratio is achievable without an error assumption.
 % Status: [HAND-PROOF-UNREVIEWED]; the construction is the symmetric
 % predictor of the 1/eta ceiling (Theorem \ref{thm:ceiling}) with the error
 % parameter sent to infinity; proof sketch in Appendix \ref{app:necessity}.
+% M1 (J5 quantifier item): "deterministic" made explicit.  A randomized
+% analogue would read "for every randomized algorithm there is a fixed pair
+% with E_seed[f(T)] <= ... f(O*)" via the averaging of app:hardness; no
+% constant is derived here and none is claimed (ledger T1).
 
 Proposition~\ref{prop:necessity} says that some error bound is needed; the
 next statement says the bound has to be on marginal gains rather than on
@@ -51,7 +56,12 @@ every state an element of maximum true gain, so $\etasel=1$ and the full
 guarantee of Proposition~\ref{prop:guarantee} applies to the run.
 \item[(iii)] Conversely, every predictor with error at most
 $(\eta_u,\eta_o)$ for a nonnegative $f$ is value-accurate at level
-$\max\{1-1/\eta_u,\ \eta_o-1\}$.
+$\max\{1-1/\eta_u,\ \eta_o-1\}$, provided that this value is below $1$
+(that is, $\eta_o<2$), so that it lies in the domain of the definition
+above.
+% M1 (J5 domain item, ledger T2): the quoted definition takes
+% epsilon in (0,1) and eta_o >= 2 puts the level outside it; the proviso is
+% the conservative fix that leaves the cited definition untouched.
 \end{itemize}
 \end{proposition}
 % Status: [HAND-PROOF-UNREVIEWED]; proof in Appendix \ref{app:valueacc}.
@@ -194,6 +204,19 @@ $\rho_4=\tfrac{135\eta^2+36\eta+4}{4(3\eta+1)^3}$,
 $\tfrac{21\eta+2}{2(3\eta+1)^2}$, $\tfrac{13}{4(3\eta+1)}$, $\tfrac1\eta$ on
 $[1,2],[2,3],[3,4],[4,\infty)$.
 \end{theorem}
+\begin{remark}[Ground-set size]\label{rem:exact-n}
+Write $\rho_{n,K}(\eta)$ for the worst case over instances on a fixed
+ground set of size $n$.  Restricting a worst-case instance to
+$T\cup O^{\ast}$ leaves the run legal and the ratio unchanged, and padding
+with elements of identically zero true and predicted gain preserves the
+band and the run, so $\rho_{n,K}(\eta)=\rho_{2K,K}(\eta)$ for every
+$n\ge2K$; $\rho_K$ denotes this common value throughout.
+\end{remark}
+% M1 (J5 section 13 spec, transcribed from TASKS8; the J5 text itself was
+% not delivered, so the two-step argument above is a LOCAL reconstruction):
+% [HAND-PROOF-UNREVIEWED].  Numeric support [VERIFIED-LP]: the full-lattice
+% greedy LPs of results/L2_linear_candidates.py (gates mode, Gate 1) equal
+% rho_K pointwise at K=2, n in {4,5,6} and K=3, n in {6,7}.
 % Status decomposition (per CLAUDE.md tags):
 %  >= direction ("greedy is never worse"): explicit dual certificates for the
 %    reduced LP, general K [VERIFIED-SYMBOLIC modulo a finite branch
@@ -383,8 +406,11 @@ characterization is left open.
 For every deterministic algorithm with arbitrary query access to $\tilde f$,
 every $\eta_u,\eta_o\ge1$, and every $n\ge2K$, there is a pair
 $(f,\tilde f)$ with error exactly $(\eta_u,\eta_o)$ on which the output
-$T$ satisfies $f(T)\le f(O^{\ast})/\eta$.  For randomized algorithms the
-bound becomes $(1-\tfrac Kn)\tfrac1\eta+\tfrac Kn$ in expectation.
+$T$ satisfies $f(T)\le f(O^{\ast})/\eta$.  For every randomized algorithm
+there is a fixed pair, again with error exactly $(\eta_u,\eta_o)$, on which
+the expectation over the algorithm's randomness satisfies
+$\mathbb E[f(T)]\le\bigl((1-\tfrac Kn)\tfrac1\eta+\tfrac Kn\bigr)
+f(O^{\ast})$.
 Conversely, exhaustive search over all $K$-subsets of predicted values
 achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
 \end{theorem}

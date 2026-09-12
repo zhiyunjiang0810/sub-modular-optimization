@@ -12,6 +12,10 @@ algorithm cannot evaluate $f$; it can only query a predictor
 $\tilde f:2^{N}\to\mathbb R$ with $\tilde f(\emptyset)=0$.  Marginal gains are
 written $d_e(S)=f(S\cup\{e\})-f(S)$ and
 $\tilde d_e(S)=\tilde f(S\cup\{e\})-\tilde f(S)$.
+Throughout, $1\le K\le n$; when $f(O^{\ast})=0$ every ratio statement is
+read as holding trivially, and $K\ge1$ excludes empty runs.
+% M1 (J5 audit, sections transcribed from TASKS8): the n < K, OPT = 0 and
+% empty-trajectory conventions are stated once, here.
 % Decision D1 (TASKS5): the main model places no structural assumption on
 % ftilde; the submodular-surrogate variant appears only in
 % Remark \ref{rem:exact-gap}.
@@ -35,6 +39,28 @@ degrade with that factor
 % section (it cited exactly these three at this point); all three re-passed
 % the F6 four-step check (results/H1_bib_crosscheck.md).
 
+Only the product $\eta=\eta_u\eta_o$ matters for worst-case statements, in
+the following class sense.
+\begin{lemma}[Scaling]\label{lem:scaling}
+Write $\mathcal F(\eta_u,\eta_o)$ for the set of predictors satisfying
+Definition~\ref{def:eta} for a given monotone submodular $f$.  For every
+$c\in[1/\eta_o,\ \eta_u]$ the map $\tilde f\mapsto c\tilde f$ is a bijection
+from $\mathcal F(\eta_u,\eta_o)$ onto $\mathcal F(\eta_u/c,\ c\,\eta_o)$,
+whose factors are again at least $1$ and have the same product.  The map
+preserves $f$ and every comparison of predicted values, so each run of a
+comparison-based algorithm, predictive greedy in particular, and hence its
+worst-case ratio over the class, depends on $(\eta_u,\eta_o)$ only through
+$\eta$.
+\end{lemma}
+% M1 (J5 "Lemma 0'" item, spec transcribed from TASKS8): stated for band
+% CLASSES, not for the smallest admissible factors of an individual
+% predictor (those move under scaling).  Status: three lines of algebra,
+% [HAND-PROOF-UNREVIEWED]; the band transformation and the endpoints of the
+% c-interval are checked symbolically in results/M1_checks.py.  Algorithms
+% that read predicted VALUES rather than comparisons are not covered by the
+% run-invariance clause; hardness statements handle their splits by
+% explicit rescaling (Appendix \ref{app:hardness}).
+
 Approximation ratios are stated as $\alpha\in(0,1]$ with
 $F^{\mathrm{ALG}}\ge\alpha\,F^{\mathrm{OPT}}$; larger is better.
 % Erratum guard: the submitted draft stated the ratio in the opposite
@@ -42,8 +68,18 @@ $F^{\mathrm{ALG}}\ge\alpha\,F^{\mathrm{OPT}}$; larger is better.
 
 Predictive greedy is the single-step greedy run on $\tilde f$: for
 $t=0,\dots,K-1$ it adds an element maximizing $\tilde d_e(S^{t})$, with ties
-broken adversarially in all worst-case statements.  Its exact worst-case ratio
-at error level $\eta$ is written $\rho_K(\eta)$.  Two run-dependent error
+broken adversarially in all worst-case statements.  The run always executes
+exactly $K$ steps; a step whose maximum predicted gain is zero still
+selects, and the cases of Definition~\ref{def:etasel} cover it.  A variant
+that stops early obtains none of the guarantees below: it is limited to the
+executed-steps product bound of Remark~\ref{rem:app-product}, and a
+two-element instance drives it to ratio $1/2$ against $L_2(1)=3/4$.
+Its exact worst-case ratio
+at error level $\eta$ is written $\rho_K(\eta)$.
+% M1 (J5 section 3 counterexample, independently recomputed in exact
+% rationals: results/M0_counterexamples.py part 1).  The fixed-K semantics
+% was already the stated one; this sentence makes it explicit and prices
+% the stopping variant.  Two run-dependent error
 measures refine $\eta$:
 \begin{definition}[Selection error]\label{def:etasel}
 For an execution of predictive greedy with states
