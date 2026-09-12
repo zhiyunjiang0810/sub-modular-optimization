@@ -195,3 +195,20 @@ all-pairs 误差、tie 对抗下，pair greedy 的精确最坏值在 η ∈ {1.5
   同号 ≠ 边际零点对齐；采样对 30,416 真0预正 + 5,952 真正预0）；OPT 代理方向措辞已改
   （greedy-on-f 是 OPT 下估，ratio 是上估）。主图拆两幅：η^sel 轴只留 L_K 与真实任务散点，
   ρ_K 与 E4 构造实例移到全局 η 轴（两把尺反例：η^sel=2 处 ratio=7/16 < ρ_2(2)=1/2）。
+
+## R15 [Q4 交叉核对日] greedy 同预算类的精确最优性（thm:linear-exact，台账 T10c）
+- **主结果**：K ≥ 2、η > 1、n ≥ 4K⁵ 时，确定性类 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的
+  minimax 值恰为 ρ_K(η)；predictive greedy 在自己的预算类内精确最优，值在每个 n 处精确（无极限）。
+  随机版只到 ρ_K + ε_n（ε_n = K²/n + K⁵/(2n)），有限 n 精确 [OPEN]。
+- **构造（双残差截断族，来源 Q4 外部并行审计）**：r_x、h_x 双残差（几何段 + δ 斜率线性段 + [·]_+），
+  F(x,0)=1−r_x、F(x,y≥1)=1−c_y h_x、H=η_u f̃ 闭式；O-无关**只在 |S| ≤ K** 成立（transcript 所需的
+  全部），更大集合真实泄漏（K=3, η=3/2: H(6,0)=61/48 ≠ 4/3=H(5,1)）。这解释并绕开第十晚的
+  W 超额：全局 O-无关是 N4 表述带进来的多余约束；small-set-only LP 在全部 18 个测试 (K,η,n)
+  恰为 ρ_K（results/Q4_smallset_lp.py）。
+- **状态**：合法性 13+34 项 [VERIFIED-SYMBOLIC]（results/Q4_gpt_check.py + Q4_symbolic_ineq.py）+
+  111+159 组精确有理电池 [VERIFIED-LP]；装配（DR 链接、transcript 归纳、两次平均）
+  [HAND-PROOF-UNREVIEWED，来源 Q4]；计数链沿 T10b [VERIFIED-SYMBOLIC]。
+- **附带更正**：F3 的 m* = ⌈ηK⌉−1 闭式被精确有理反例驳倒（frac(ηK) 小时差 1，4 例），
+  appendix 的定义改为 argmax 形式；修正规则 [CONJECTURE]（T12）。
+- **仍 [OPEN]**：任意大小查询的最优值（T12）；随机类有限 n；n^c 尺度与其他预算类；
+  submodular surrogate 的精确最坏值（T7）。
