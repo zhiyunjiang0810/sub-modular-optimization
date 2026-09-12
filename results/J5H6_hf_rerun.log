@@ -23,3 +23,9 @@ Part 4: exact PE_1 worst case (branch and bound) + certificates
     certificate n=8 eta=1.5: LP=0.592592593  PE_1 on instance=0.592592593  monotone=True submodular=True band=True  -> CONSISTENT
   n=8 eta=2.0: PE_1 = 0.444444444 (4/9)  status=OK  rho_3 = 0.466666667  1/eta = 0.500000000  LPs=99  (58s)
     certificate n=8 eta=2.0: LP=0.444444444  PE_1 on instance=0.444444444  monotone=True submodular=True band=True  -> CONSISTENT
+  n=8 eta=2.5: PE_1 = 0.355555556 (16/45)  status=OK  rho_3 = 0.388888889  1/eta = 0.400000000  LPs=99  (64s)
+    certificate n=8 eta=2.5: LP=0.355555556  PE_1 on instance=0.355555556  monotone=True submodular=True band=True  -> CONSISTENT
+
+wrote /home/user/sub-modular-optimization/results/H_F_partial_enumeration.json
+n8_exit=0
+UNKNOWN statuses this process (rerun ran in subprocesses, see log for raises): []

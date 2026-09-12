@@ -1394,13 +1394,65 @@ Remark~\ref{rem:exact-gap} the two curves differ by $O(1/K)$ at fixed $\eta$.
 % inside the hardness theorem, L_K(etahat) -> 1 - e^{-1/eta}, is
 % [VERIFIED-SYMBOLIC] in results/N5_asymptotics.py checks (ii.a), (ii.b), with
 % a 30-digit numeric cross-check at K = 10^6.]
-% GAP LEFT OPEN AND MARKED: the clause "monotonically within each segment" of
-% Corollary \ref{cor:limit} is derived above for L_K only (the standard
-% monotonicity of (1-x/K)^K).  For rho_K the minimizing index j = K - floor(eta)
-% moves with K, and no monotonicity argument in K is given here; the claim rests
-% on the Richardson-extrapolated numerics of R8 and is [CONJECTURE] at that
-% level of generality.  A human should either weaken the clause in
-% sections/results.tex or supply the missing monotonicity step.
+% J5H5: the former "GAP LEFT OPEN" comment is obsolete.  The monotonicity
+% of rho_K in K and the 1/K expansion were closed on night 6 (H-B) and are
+% migrated into this subsection below, as the J5 audit required; ledger T9
+% carries the unified status.
+
+\paragraph{The $1/K$ expansion.}
+Fix $\eta\ge1$ and write $m=\lfloor\eta\rfloor$.  Expanding the active
+branch $V_{K-m}$ at $K\to\infty$ (substitute $K=1/\varepsilon$ and expand
+the exponential of $(K-m)\log q$) gives
+\[
+  \rho_K(\eta)\;=\;1-e^{-1/\eta}
+  +\frac{e^{-1/\eta}(2\eta-1)}{2\eta^{2}}\cdot\frac1K
+  +O_\eta\Bigl(\frac1{K^{2}}\Bigr),
+\]
+and the $1/K$ coefficient $c(\eta)$ does not depend on $m$: at integer
+$\eta$ the two adjacent active branches give the same coefficient.  The
+same expansion for $L_K$ and $U_K$ yields the companion coefficients
+$c_L(\eta)=e^{-1/\eta}/(2\eta^{2})$ and $c_U=c$, so at fixed $\eta$
+\[
+  \rho_K-L_K=\frac{e^{-1/\eta}(\eta-1)}{\eta^{2}K}+O_\eta\Bigl(\frac1{K^{2}}\Bigr),
+  \qquad
+  U_K-\rho_K=O_\eta\Bigl(\frac1{K^{2}}\Bigr),
+\]
+the second difference being the $c'(\eta)/K^{2}$ band of
+Remark~\ref{rem:greedybudget}.
+% Status: the coefficients are [VERIFIED-SYMBOLIC], conditional on
+% thm:exact through the closed form (results/H_B_asymptotic.py section 2;
+% independently recomputed by results/J5_hardcore/J5_hardcore_oracles.py);
+% the Taylor-remainder assembly is [HAND-PROOF-UNREVIEWED]; uniformity of
+% the remainder in eta is not claimed (ledger T9).
+
+\paragraph{Monotonicity of $\rho_K$ in $K$.}
+For $K\le\lfloor\eta\rfloor$, $\rho_K(\eta)=1/\eta$ (the plateau of
+Theorem~\ref{thm:exact}), and the first step off the plateau is a strict
+drop by $(K-\eta)/(K\eta k_1)>0$ at $K=\lfloor\eta\rfloor+1>\eta$.  For
+$K\ge\lfloor\eta\rfloor$ write $\rho_K=1-P(K)$ with
+$P=q^{K-m}\bigl(1-\tfrac m{K\eta}\bigr)$ and $x=(K-1)\eta+1$; then
+\[
+  \frac{\partial\log P}{\partial K}
+  =\log\Bigl(1-\frac1x\Bigr)+\frac{K-m}{(K-1)x}+\frac{m}{K(K\eta-m)} .
+\]
+Bounding $-\log(1-1/x)\le1/x+1/(2x^{2})+1/(3x^{2}(x-1))$ for $x>1$
+(compare the tail of the logarithm series termwise with $1/i\le1/3$ for
+$i\ge3$) and clearing denominators after the substitution $s=t/(1+t)$,
+which covers the whole domain $m\ge1$, $K\ge m+1$, the difference becomes
+a ratio of two polynomials with only nonnegative coefficients ($84$
+numerator terms with constant term $14$; $165$ denominator terms with
+constant term $48$), so $\partial\log P/\partial K>0$, $P$ increases and
+$\rho_K$ strictly decreases in $K$ past the plateau.  Integer $\eta$
+corresponds to the endpoint $s=0$ and is included.
+% Status: the derivative identity, the tail bound and the two
+% nonnegative-coefficient certificates are [VERIFIED-SYMBOLIC], conditional
+% on thm:exact (results/H_B_asymptotic.py sections 4-5, exact rational
+% differences K = 2..400 at 7 eta values; independently rerun by the J5
+% hardcore oracle with the same 84/165-term counts); passing from the
+% continuous derivative on each branch to the discrete differences,
+% including the branch switches at integer eta, is the assembled hand
+% argument [HAND-PROOF-UNREVIEWED].  The full coefficient tables live in
+% the H-B and J5 JSONs and are deliberately not printed here.
 
 The limit identities of this proof are machine-checked, in the form used by
 Theorem~\ref{thm:hardness}, by \texttt{results/N5\_asymptotics.py}.
