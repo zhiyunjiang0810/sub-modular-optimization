@@ -1698,28 +1698,139 @@ averagings: those are the hand-written part of this subsection, and finite
 computations over instances do not range over adaptive algorithms.
 
 % ---------------------------------------------------------------------------
-\subsection{The greedy budget (Corollary~\ref{cor:greedybudget})}
+\subsection{Exact optimality at the greedy budget
+  (Theorem~\ref{thm:linear-exact})}
 \label{app:greedybudget}
-% L1 (ledger card T10b).  The corollary is the family and the assembly of
-% app:hardness at tau = 1, with the counting redone for the explicit budget
-% Q = nK in place of n^c.  Status decomposition:
-%  - every displayed inequality of the counting chain below, the calibration
-%    thetabar >= 1, and H_{K,1} = U_K: [VERIFIED-SYMBOLIC],
-%    results/L1_table.py section 1.
-%  - the canonical-transcript induction and the two averagings are used
-%    verbatim from app:hardness: [HAND-PROOF-UNREVIEWED], and per the ledger
-%    this tag is NOT to be upgraded.
+% Q4 (ledger card T10c).  This subsection replaces the former one-sided
+% U_K ceiling (ledger T10b) by the exact value rho_K, via a new hard
+% family.  Status decomposition:
+%  - legality of the family (monotone, submodular, band on all four edge
+%    classes, normalization, exact calibration at both split endpoints,
+%    the rigid trajectory, value rho_K at every n >= 2K): the 13 phase and
+%    edge identities and the 34 branch inequalities behind (i)-(iii) below
+%    are [VERIFIED-SYMBOLIC] (results/Q4_gpt_check.py and
+%    results/Q4_symbolic_ineq.py), and the whole grid is checked in exact
+%    rationals on 111 + 159 parameter configurations, K up to 13, both
+%    tied branches at integer eta, both extreme splits
+%    (results/Q4_indep_check.py, results/Q4_gpt_check.py).
+%  - the counting chain below is [VERIFIED-SYMBOLIC]
+%    (results/L1_table.py section 1), reused from the former corollary.
+%  - the count-grid-to-set-function chaining, the canonical-transcript
+%    induction (that of app:hardness) and the two averagings are
+%    [HAND-PROOF-UNREVIEWED] (source: the Q4 external parallel audit),
+%    and per the ledger this tag is NOT to be upgraded here.
 
-Fix $K\ge2$, $\eta>1$ and $n\ge4K^{5}$, and take the family of
-Appendix~\ref{app:hardness} with $\tau=1$.  The constraint
-$\eta\ge(K-1)/(K-\tau)$ of Theorem~\ref{thm:hardness} reads $\eta\ge1$ and
-holds vacuously, and
-$\bar\theta-1=(\eta-1)(K-1)/K\ge0$, so the calibration is admissible and the
-value bound of the family is
-$L_K(\bar\theta)=H_{K,1}(\eta)=U_K(\eta)$.  The edge table, the exact error
-$\Psi(\theta)$, the prescribed-split rescaling and the optimum $O^{\ast}=O$
-are exactly as in Appendix~\ref{app:hardness}; nothing in them refers to the
-query budget.  Only the counting changes.
+\paragraph{The double-residual family.}
+Fix $K\ge2$, $\eta>1$ and a split $\eta_u,\eta_o\ge1$ with
+$\eta_u\eta_o=\eta$.  Set $k_1=(K-1)\eta+1$, $q=(K-1)\eta/k_1$,
+$j=\max\{0,K-\lfloor\eta\rfloor\}$, $Q=q^{j}$, $\delta=Q/(K\eta)$,
+$C=k_1/K$ and $[z]_+=\max\{z,0\}$, and define two residual sequences on
+integers $x\ge0$:
+\[
+  r_x=\begin{cases}q^{x},&0\le x\le j,\\[2pt]
+    \bigl[Q-(x-j)\delta\bigr]_+,&x\ge j,\end{cases}
+  \qquad
+  h_x=\begin{cases}\tfrac{K-1}{K}\,q^{x},&0\le x\le j,\\[2pt]
+    \bigl[\tfrac{K-1}{K}Q-(x-j)\delta\bigr]_+,&x\ge j,\end{cases}
+\]
+the two branches agreeing at $x=j$.  On a ground set $N=B\sqcup O$ with
+$|O|=K$ and $|B|=n-K$, write $x=|S\cap B|$, $y=|S\cap O|$ and
+$c_y=(K-y)/(K-1)$, and define the objective and the scaled predictor
+$H=\eta_u\tilde f$ by
+\[
+  f(S)=F(x,y)=\begin{cases}1-r_x,&y=0,\\1-c_y\,h_x,&1\le y\le K,\end{cases}
+  \qquad
+  H(x,y)=\begin{cases}C-r_x-(\eta-1)h_x,&y=0,\\
+    C-\eta\,c_y\,h_x,&1\le y\le K.\end{cases}
+\]
+The formulas do not involve $n$: every $n\ge2K$ restricts the same table
+to its available count grid, and no saturation threshold needs to fit
+inside it.
+
+\paragraph{Legality.}
+Set $p_x=r_x-r_{x+1}$ and $s_x=h_x-h_{x+1}$.  Three groups of
+one-dimensional facts about the residuals carry the whole verification:
+(i)~$0\le s_x\le p_x$ and both sequences are nonincreasing, the junction
+satisfying $p_{j-1}=Q/((K-1)\eta)\ge\delta=s_{j-1}$;
+(ii)~$r_x-h_x\ge h_x/(K-1)\ge0$, with equality in the first inequality on
+$x\le j$; (iii)~the no-truncation window
+$(K-j)\delta\le Q/K\le(K-1)Q/K$, so neither residual is truncated before
+$x=K$.  Each is verified branch by branch (geometric phase, junction,
+linear phase, truncation crossings, and the $j=0$ regime $\eta\ge K$) in
+\texttt{results/Q4\_symbolic\_ineq.py}.  They give everything at once.
+The first differences of $F$ are
+\[
+  \Delta_xF(x,0)=p_x,\quad
+  \Delta_xF(x,y)=c_y s_x,\quad
+  \Delta_yF(x,0)=r_x-h_x,\quad
+  \Delta_yF(x,y)=\frac{h_x}{K-1}\ \ (1\le y<K),
+\]
+all nonnegative by (i)--(ii); each is nonincreasing in $x$ and in $y$,
+which is submodularity on the count grid, and chaining single-element
+additions transfers monotonicity and diminishing returns to the set
+function $f$.  Moreover $F(0,0)=0$, $F(0,K)=1$ and $0\le F\le1$ on the
+entire grid, so $O$ is optimal under the cardinality constraint and
+$f(O)=1$.  On the predictor side the four edge classes are
+\[
+  \begin{array}{l@{\qquad}l@{\qquad}l}
+    \text{$B$-edge, }y=0: & \Delta F=p_x, & \Delta H=p_x+(\eta-1)s_x,\\
+    \text{$B$-edge, }1\le y\le K: & \Delta F=c_y s_x, & \Delta H=\eta\,c_y s_x,\\
+    \text{$O$-edge, }y=0: & \Delta F=r_x-h_x, & \Delta H=r_x-h_x,\\
+    \text{$O$-edge, }1\le y<K: & \Delta F=h_x/(K-1), & \Delta H=\eta\,h_x/(K-1),
+  \end{array}
+\]
+and $0\le s_x\le p_x$ gives $\Delta F\le\Delta H\le\eta\,\Delta F$ in the
+first row; the other rows satisfy the same inequalities with ratio exactly
+$1$ or exactly $\eta$.  Hence on every edge
+$\Delta F/\eta_u\le\Delta\tilde f\le\eta_o\,\Delta F$ for
+$\tilde f=H/\eta_u$; zero-gain edges have $\Delta H=0$, and
+$H(0,0)=C-1-(\eta-1)(K-1)/K=0$ gives $\tilde f(\varnothing)=0$.  Both
+split endpoints are attained on positive-gain edges already at $x=0$ (the
+first $O$-edge has ratio $1/\eta_u$ in $\tilde f$-form, the second
+$\eta_o$), so the smallest admissible error factors of
+Definition~\ref{def:eta} are exactly $(\eta_u,\eta_o)$.
+
+\paragraph{Small-set indistinguishability and the rigid trajectory.}
+Define
+\[
+  \widehat H_s=\begin{cases}C\,(1-q^{s}),&0\le s\le j,\\
+    C\,(1-Q)+\eta\,(s-j)\,\delta,&j\le s\le K.\end{cases}
+\]
+Using $Cq=\eta(K-1)/K$ one checks $H(x,0)=\widehat H_{x}$ for $0\le x\le K$
+and $H(x,1)=\widehat H_{x+1}$ for $x+1\le K$, so
+\[
+  \tilde f(S)=\widehat H_{|S|}/\eta_u
+  \qquad\text{whenever } |S|\le K \text{ and } |S\cap O|\le1:
+\]
+on every set the transcript below can meet, the predictor depends on
+$|S|$ alone.  This is where the family departs from the size-based
+constructions of Appendix~\ref{app:hardness-anysize}: on larger sets the
+predictor genuinely leaks (at $K=3$, $\eta=3/2$ the two $6$-sets
+$(x,y)=(6,0)$ and $(5,1)$ receive $61/48$ and $4/3$), and this leak is
+what frees the small-set values from the long-range constraints that
+force a strict excess above $\rho_K$ in the globally size-based regime
+(\texttt{results/Q3\_failure\_point.md}; with $O$-independence imposed
+only on $|S|\le K$, the count-grid LP attains $\rho_K$ at every tested
+$n$, \texttt{results/Q4\_smallset\_lp.py}).
+At every state $(t,0)$, $t<K$, the predicted marginals of all remaining
+elements tie at $q^{\min(t,j)}/(K\eta_u)$, so adversarial tie-breaking
+keeps greedy inside $B$ for all $K$ steps; the true selected gains are
+$d_t=q^{t}/k_1$ for $t<j$ and $q^{j}/(K\eta)$ for $j\le t<K$, while every
+remaining optimal element keeps true marginal $q^{\min(t,j)}/K$: the
+trajectory prescribed by Proposition~\ref{prop:rigidity} is realized
+exactly.
+
+\paragraph{The value.}
+By (iii) no truncation occurs before $x=K$, so for every $K$-set
+$T\subseteq B$,
+\[
+  \frac{f(T)}{f(O)}=F(K,0)=1-Q+(K-j)\,\delta=V_{j}(\eta),
+\]
+and the adjacent-branch identity
+$V_{j+1}(\eta)-V_{j}(\eta)=q^{j}(\eta-K+j)/(K\eta k_1)$ shows that
+$j=\max\{0,K-\lfloor\eta\rfloor\}$ minimizes over branches, with ties
+exactly at integer $\eta$.  Hence $F(K,0)=\rho_K(\eta)$ for every
+$n\ge2K$: the value is exact at each $n$, and no limit is taken.
 
 \paragraph{Counting at the budget $Q=nK$.}
 At $\tau=1$ a query $S$, $|S|\le K$, is unbalanced when $|S\cap O|\ge2$,
@@ -1741,14 +1852,27 @@ $S_1,\dots,S_Q$ together with its output $T_0$ fail with probability at most
 Under $n\ge4K^{5}$ the first term is at most $\tfrac18$ and the second is at
 most $1/(4K^{3})\le\tfrac1{32}$, so the total is at most
 $\tfrac5{32}<\tfrac12$: some $K$-set $O$ makes every canonical query
-balanced and misses $T_0$.  The transcript induction of
-Appendix~\ref{app:hardness}, with balanced now meaning $|S_i\cap O|\le1$,
-then forces the actual run to reproduce the canonical one and gives
-$f(T_0)/f(O^{\ast})\le1-a^{K}=L_K(\bar\theta)=U_K(\eta)$, with error exactly
-$\eta$ and any prescribed split realized by the $\beta$-rescaling.  The
-ceiling $1/\eta$ holds for every deterministic algorithm at $n\ge2K$
-(Theorem~\ref{thm:ceiling}), and $4K^{5}\ge2K$, so the two caps combine into
-$\min\{U_K(\eta),1/\eta\}$ for the worst-case ratio.
+balanced and misses $T_0$.
+
+\paragraph{Transcript induction and the two directions.}
+Run the algorithm against the canonical oracle
+$S\mapsto\widehat H_{|S|}/\eta_u$ for $|S|\le K$; this fixes queries
+$S_1,\dots,S_Q$ and output $T_0$ independently of $O$.  Fix a $K$-set $O$
+outside the bad event above.  The transcript induction of
+Appendix~\ref{app:hardness}, with balanced meaning $|S_i\cap O|\le1$,
+forces the actual run on the family with this $O$ to reproduce the
+canonical one: identical previous answers determine the same next query,
+and the small-set identity above supplies the same answer.  The actual
+output is therefore $T_0$, disjoint from $O$ and of size at most $K$, so
+monotonicity and the value paragraph give
+$f(T_0)/f(O^{\ast})\le F(K,0)=\rho_K(\eta)$, with error exactly $\eta$
+and any prescribed split realized directly by $\tilde f=H/\eta_u$.  For
+the matching direction, predictive greedy spends
+$\sum_{t=0}^{K-1}(n-t)=nK-K(K-1)/2\le nK$ queries, all of size at most
+$K$, by retaining previously queried values, and achieves
+$\rho_K(\eta)$ on every instance with error at most $\eta$
+(Theorem~\ref{thm:exact}); together these give the sup--inf identity of
+Theorem~\ref{thm:linear-exact}.
 
 The only property of the budget that the computation uses is
 $Q\le n^{2}/(4K^{4})$, which $Q=nK$ satisfies exactly when $n\ge4K^{5}$.
@@ -1759,25 +1883,31 @@ $H_{K,3}(\eta)>H_{K,1}(\eta)$; running the count at the exact budget is what
 keeps the $\tau=1$ constant.
 
 \paragraph{Randomized algorithms.}
-The averaging of Appendix~\ref{app:hardness}, applied verbatim with the
-union bound above, yields for every randomized algorithm of the class a
-single instance with
-$\mathbb E[f(T)/f(O^{\ast})]\le U_K(\eta)+K/n+K^{5}/(2n)$; the corollary
-states the slightly larger
-$\varepsilon_n=K^{2}/n+K^{5}/(2n)$, which also matches the deterministic
-output count.  The quantifier order is that of Theorem~\ref{thm:hardness}:
-the instance may depend on the algorithm, and the expectation is over the
-algorithm's randomness only.  The additive term vanishes only in the joint
-limit $n/K^{5}\to\infty$; at fixed $n$ it does not.  The combination with
-the ceiling as $\min\{U_K(\eta),1/\eta\}$ is stated for deterministic
-algorithms only.
-% M2.6 (J5): joint-limit condition and the deterministic-only scope of the
-% min combination made explicit; ledger T10b.
+The averaging of Appendix~\ref{app:hardness}, applied with the union
+bound above, yields for every randomized algorithm of the class a single
+instance with
+$\mathbb E[f(T)/f(O^{\ast})]\le\rho_K(\eta)+K/n+K^{5}/(2n)$: fixing the
+seed and its canonical transcript, on the success event
+$f(T_0)\le\rho_K(\eta)+|T_0\cap O|/K$, because each element of $O$ has
+singleton value $F(0,1)=1/K$ and submodularity caps its marginal by its
+singleton value, while on the failure event $f\le1$; averaging over $O$
+bounds $\mathbb E|T_0\cap O|/K$ by $K/n$, and averaging over the seed and
+then selecting one $O$ no worse than the average gives the display.  The
+theorem states the slightly larger
+$\varepsilon_n=K^{2}/n+K^{5}/(2n)$, matching the deterministic output
+count.  The quantifier order is that of Theorem~\ref{thm:hardness}: the
+instance may depend on the algorithm, and the expectation is over the
+algorithm's randomness only.  The additive term vanishes only in the
+joint limit $n/K^{5}\to\infty$; at fixed $n$ it does not, and no exact
+finite-$n$ randomized statement is claimed.
+% M2.6 (J5) carried over: joint-limit condition explicit; Q4 (T10c): the
+% value inside the expectation upgraded from U_K to rho_K; the
+% F <= rho_K + y/K step is part of the [HAND-PROOF-UNREVIEWED] assembly.
 
-\paragraph{The width of the interval.}
-For the gap statement of Remark~\ref{rem:greedybudget}, expanding both
-closed forms at fixed $\eta$ in $1/K$ (with $m=\lfloor\eta\rfloor$ and
-$\rho_K=V_{K-m}$ on the active branch) gives
+\paragraph{The improvement over the former ceiling.}
+For the improvement statement of Remark~\ref{rem:greedybudget}, expanding
+both closed forms at fixed $\eta$ in $1/K$ (with $m=\lfloor\eta\rfloor$
+and $\rho_K=V_{K-m}$ on the active branch) gives
 \[
   U_K(\eta)-\rho_K(\eta)
   =\frac{e^{-1/\eta}\,m\,(2\eta-m-1)}{2\eta^{2}}\cdot\frac1{K^{2}}
@@ -1792,7 +1922,7 @@ $1/K^{2}$ coefficient of $\rho_K$ alone is piecewise.  Both series, the
 cancellation at order $1/K$, the closed form of $c'$ and its positivity for
 $\eta>1$ are checked in \texttt{results/L1\_table.py} (section 2,
 symbolically; section 3 numerically in exact rationals up to $K=400$,
-with one Richardson step); the two ends of the interval are tabulated in
+with one Richardson step); the two curves are tabulated in
 \texttt{results/L1\_table.csv}.  All of this is conditional on
 Theorem~\ref{thm:exact} through the closed form of $\rho_K$.
 
@@ -1872,7 +2002,9 @@ finite evidence}
 %                                           form of W_K (N4_symbolic.py 19/19)
 %   Step 4 (averaging, randomized)          [HAND-PROOF-UNREVIEWED]
 %   The theorem as a whole                  [HAND-PROOF-UNREVIEWED]
-%   j and m* as closed forms                [CONJECTURE], 264 points
+%   j and m* as closed forms                [CONJECTURE], 264 points;
+%     Q4: the m* closed form is REFUTED at small frac(eta K) (see the
+%     correction note below); m* is now defined as the argmax
 %   D1, exponent 2 intrinsic                [VERIFIED-LP + EXACT], 48 configs
 %   D2, two-sided band                      [VERIFIED-LP], 144 configs;
 %                                           threshold n = K(T+1)+1 matched
@@ -1889,14 +2021,26 @@ Theorem~\ref{thm:hardness} restricts every query to at most $K$ elements.  A
 companion construction removes that restriction and pays for it in the budget.
 For $K\ge3$ and $\eta>1$ put $k_1=\eta(K-1)+1$, $q=1-1/k_1$,
 $\nu=\eta/(\eta-1)$, $j=\min\{K,\max\{0,K+1-\lceil\eta\rceil\}\}$,
-$m^{\ast}=\lceil\eta K\rceil-1$ and $t^{\ast}=j+m^{\ast}$, and let
 \[
-  D=\max\Bigl\{\frac{q^{j}}{K\eta},\
-    \frac{q^{j}\bigl(\nu^{m^{\ast}}/K-1\bigr)}
-         {\eta(\nu^{m^{\ast}}-1)-m^{\ast}}\Bigr\},
+  D(m)=\frac{q^{j}\bigl(\nu^{m}/K-1\bigr)}{\eta(\nu^{m}-1)-m},
+  \qquad
+  m^{\ast}\in\operatorname*{arg\,max}_{m\ge1}D(m)
+\]
+(the supremum is attained at finite $m^{\ast}$: $D(m)\to q^{j}/(K\eta)$
+from above as $m\to\infty$), $t^{\ast}=j+m^{\ast}$, and let
+\[
+  D=\max\Bigl\{\frac{q^{j}}{K\eta},\ D(m^{\ast})\Bigr\},
   \qquad
   W_K(\eta)=1-q^{j}+(K-j)D .
 \]
+% Q4 correction (ledger T12): the earlier closed-form guess
+% m* = ceil(eta K) - 1 is REFUTED by exact rationals when frac(eta K) is
+% small (e.g. K=5, eta=2001/1000: true argmax 9, guess 10; four
+% counterexamples, results/Q2_symbolic.md), and at those corner points the
+% family built from the guessed m* is infeasible (r(t*) < 0).  The argmax
+% form above is what every script in results/ uses; the candidate rule
+% m* = min{m >= 1 : nu^m (eta K - 1 - m) <= K(eta - 1)} <= ceil(eta K) - 1
+% stays [CONJECTURE].
 The family is the one of \texttt{results/F3\_hardness\_full.tex}: a hidden
 $K$-set $O$, a true objective that is piecewise geometric in $x=|S\setminus O|$
 and flattens at $x>t^{\ast}$, and a predictor that agrees with an $O$-free
