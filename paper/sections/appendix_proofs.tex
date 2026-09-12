@@ -1274,7 +1274,100 @@ structure, which is the sense in which the ceiling is met.
 % unbounded queries.  The poly-query range (ii) is Theorem \ref{thm:hardness},
 % whose constant is different; the two must not be quoted interchangeably.
 
-No script checks the computations of this proof.
+\paragraph{The unified per-instance guarantee.}
+% J5H2: transcribed from results/J5_hardcore/J5_ceiling_proof.md (J5 audit,
+% batch A).  The three displayed decompositions below are
+% [VERIFIED-SYMBOLIC] (results/J5_hardcore/J5_hardcore_oracles.py); the
+% general exchange, telescoping and minimax assembly is
+% [HAND-PROOF-UNREVIEWED, source J5].
+The following argument closes the case $K\le n\le2K$ and reproves
+$n\ge2K$, giving the per-instance form of Theorem~\ref{thm:ceiling}.  Let
+$S$ maximize $\tilde f$ over all sets of size exactly $K$ (the band makes
+$\tilde f$ monotone, so completing a smaller predicted maximizer to size
+$K$ loses nothing), let $O$ be an optimal $K$-set, and put
+$a=|O\setminus S|$, $A=f(S)$, $B=f(O)$, $Z=f(S\cup O)$.
+
+\emph{Step 1 (all exchanges, summed).}  For $s\in S$ write
+$r_s=f(S)-f(S\setminus\{s\})$ and $R=\sum_{s\in S}r_s$; adding the elements
+of $S$ in any order, each increment is at least the end deletion loss of
+that element, so $0\le R\le A$.  For $b\in O\setminus S$ and every $s\in S$
+the predicted optimality of $S$ gives
+$\tilde d_b(S\setminus\{s\})\le\tilde d_s(S\setminus\{s\})$, and with the
+two band sides and diminishing returns,
+$d_b(S)\le d_b(S\setminus\{s\})\le\eta_u\,\tilde d_b(S\setminus\{s\})
+\le\eta_u\,\tilde d_s(S\setminus\{s\})\le\eta\,r_s$.  Summing over all
+$aK$ pairs $(b,s)$, with $D=\sum_{b\in O\setminus S}d_b(S)$,
+\[
+  KD\;\le\;\eta aR\;\le\;\eta aA,
+  \qquad\text{hence}\qquad
+  Z\;\le\;A+D\;\le\;\Bigl(1+\frac{\eta a}{K}\Bigr)A
+\]
+by submodularity along $S\to S\cup O$.  The deletion side ranges over all
+$K$ elements of $S$, intersection included; the exchanges are not
+restricted to $S\setminus O$.
+
+\emph{Step 2 (two bands coupled on one union).}  With
+$X=\tilde f(S\cup O)-\tilde f(S)$ and $Y=\tilde f(S\cup O)-\tilde f(O)$,
+predicted optimality gives $X\le Y$, and telescoping both bands along the
+two chains into the union gives $(Z-A)/\eta_u\le X\le Y\le\eta_o(Z-B)$,
+hence $B\le(1-\tfrac1\eta)Z+\tfrac A\eta$.  This uses the values of the
+single predicted set function on $S$, $O$ and $S\cup O$; the algorithm
+need not have queried the union, and $\tilde f$ need not be submodular.
+
+\emph{Step 3 (eliminate the union).}  Substituting Step 1 into Step 2 and
+using $\eta\ge1$,
+\[
+  B\;\le\;\Bigl(1-\frac1\eta\Bigr)\Bigl(1+\frac{\eta a}{K}\Bigr)A
+  +\frac A\eta
+  \;=\;\Bigl(1+\frac{(\eta-1)a}{K}\Bigr)A ,
+\]
+which is the per-instance bound; $a\le\min\{K,n-K\}$ then gives
+$C^{*}_{n,K}$.  With $\gamma=1-1/\eta$ and
+$E=\gamma Z+A/\eta-B$, $H=A+D-Z$, $J=\eta aR-KD$, $T=A-R$, the whole
+argument is one nonnegative combination:
+\begin{equation}\label{eq:ceiling-slack}
+  \Bigl(1+\frac{(\eta-1)a}{K}\Bigr)A-B
+  \;=\;E+\gamma H+\frac{\gamma}{K}J+\frac{\gamma\eta a}{K}T ,
+\end{equation}
+an identity in $A,B,Z,D,R,a,K,\eta$, with
+$E=\frac{\eta_o(Z-B)-Y}{\eta_o}+\frac{Y-X}{\eta_o}
++\frac{\eta_uX-(Z-A)}{\eta}$ and, per exchange,
+$\eta\,r_s-d_b(S)$ decomposing into four nonnegative terms (upper band,
+predicted exchange optimality, lower band, submodularity).  These
+identities are checked symbolically; the earlier obstruction at
+$f(S\cap O)$ never appears, because the argument routes through the union
+and the full exchange sum.
+
+\paragraph{The matching adversary for every $n>K$.}
+Feed the algorithm $\tilde f(T)=b|T|$; its transcript and output are
+fixed.  Complete the output to a $K$-set $S$ if necessary, and let $f$ be
+modular with weights $b/\eta_o$ on $S$ and $\eta_ub$ off $S$.  With
+$a_0=\min\{K,n-K\}$ an optimal set takes $a_0$ heavy and $K-a_0$ light
+elements, so $f(S)/f(O)=K/(K+(\eta-1)a_0)=C^{*}_{n,K}(\eta)$, and a
+smaller output is only worse.  Every set increment is a sum of weights, so
+the single-element and all-pairs errors equal the prescribed split
+exactly.  At $n=K$ the whole ground set is the output (ratio $1$); if both
+error endpoints must be attained there, mix high and low weights on at
+least two elements.
+
+\paragraph{Scope.}
+The lower-bound quantifier is: there exists an algorithm (exhaustive
+search) that guarantees $C^{*}_{n,K}$ on every instance; no claim is made
+for other algorithms, and one-swap local optimality of the output is not
+enough for Step 1, which uses all $aK$ exchange comparisons.  Exhaustive
+search evaluates $\binom nK$ predicted sets; nothing here produces a
+polynomial-query algorithm or changes the scope of
+Theorem~\ref{thm:hardness}.  The randomized value is genuinely different: at $n=3$, $K=2$, $\eta=3$ the
+deterministic value is $1/2$, while the uniform random $2$-subset has
+expected value at least $\tfrac23f(N)$ (sum nonincreasing expected
+marginals along a random permutation); the randomized minimax value
+remains open.
+
+The slack identities of this subsection and $52$ full-lattice
+algorithm-side LPs, together with $24$ exact rational modular adversary
+instances ($37{,}056$ all-pairs gains), are checked by
+\texttt{results/J5\_hardcore/J5\_hardcore\_oracles.py}; the general
+assembly is hand-written (source: the J5 audit) and is tagged accordingly.
 
 % ---------------------------------------------------------------------------
 \subsection{Asymptotics (Corollary~\ref{cor:limit})}\label{app:asymptotics}

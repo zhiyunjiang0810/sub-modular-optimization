@@ -417,35 +417,61 @@ general characterization is left open.
 % ---------------------------------------------------------------- block 7 --
 \subsection{The $1/\eta$ ceiling}\label{sec:ceiling}
 
-\begin{theorem}[Ceiling at $1/\eta$]\label{thm:ceiling}
-For every deterministic algorithm with arbitrary query access to $\tilde f$,
-every $\eta_u,\eta_o\ge1$, and every $n\ge2K$, there is a pair
-$(f,\tilde f)$ with error exactly $(\eta_u,\eta_o)$ on which the output
-$T$ satisfies $f(T)\le f(O^{\ast})/\eta$.  For every randomized algorithm
-there is a fixed pair, again with error exactly $(\eta_u,\eta_o)$, on which
-the expectation over the algorithm's randomness satisfies
-$\mathbb E[f(T)]\le\bigl((1-\tfrac Kn)\tfrac1\eta+\tfrac Kn\bigr)
-f(O^{\ast})$.
-Conversely, exhaustive search over all $K$-subsets of predicted values
-achieves $f(\hat S)\ge f(O^{\ast})/\eta$ on every instance.
+\begin{theorem}[Deterministic ceiling, all ground-set sizes]
+\label{thm:ceiling}
+Let $2\le K\le n$.  For every deterministic algorithm with arbitrary query
+access to $\tilde f$ and output of size at most $K$, and every
+$\eta_u,\eta_o\ge1$, there is a pair $(f,\tilde f)$ with error exactly
+$(\eta_u,\eta_o)$ on which the output $T$ satisfies
+$f(T)\le C^{*}_{n,K}(\eta)\,f(O^{\ast})$, where
+\[
+  C^{*}_{n,K}(\eta)\;=\;\frac{K}{K+(\eta-1)\min\{K,\,n-K\}}
+  \;=\;\begin{cases}
+    \dfrac{K}{(2K-n)+(n-K)\eta}, & K\le n\le2K,\\[6pt]
+    1/\eta, & n\ge2K.
+  \end{cases}
+\]
+Conversely, a set $S$ maximizing $\tilde f$ over all $K$-subsets satisfies,
+on every instance and for every optimal $K$-set $O^{\ast}$,
+\[
+  f(S)\;\ge\;\frac{K}{K+(\eta-1)\,|O^{\ast}\setminus S|}\,f(O^{\ast})
+  \;\ge\;C^{*}_{n,K}(\eta)\,f(O^{\ast}),
+\]
+so exhaustive search over predicted values attains the ceiling for every
+$n$.
 \end{theorem}
-The randomized expression is an upper bound on the randomized worst case; it
-is not claimed to be the exact randomized value at finite $n$.  For $n<2K$
-the same symmetric construction gives the sharper deterministic ceiling
-$K/\bigl((2K-n)+(n-K)\eta\bigr)$, which interpolates between $1/\eta$ at
-$n=2K$ and $1$ at $n=K$ and is attained by exhaustive search on the
-LP-verified grid $K\le4$, $n\le7$ (general attainment is a conjecture).
-% K9/H-E (ledger T8): ceiling value [VERIFIED-LP 84 grid points, error
-% <= 3.4e-16, results/H_E_ceiling_small_n.py]; both hand arguments
-% [HAND-PROOF-UNREVIEWED]; exhaustive attainment [VERIFIED-LP at grid,
-% CONJECTURE general]; randomized value for n<2K stays open, and the
-% product-only dependence is established for the symmetric family only.
-% Status: [HAND-PROOF-UNREVIEWED], construction in Appendix
-% \ref{app:ceiling}.  The exhaustive-search matching bound is the only
-% surviving content of the removed R-step section.  K9 (J4 audit): the
-% caveat sentence above and the remark below implement ledger card T8; the
-% error-exactness of the construction is [VERIFIED-EXHAUSTIVE] per J4
-% (253,220 all-pairs gains; script not delivered, recorded in REPORT).
+The deterministic value is not the randomized value.  For every randomized
+algorithm and $n\ge2K$ there is a fixed pair, again with error exactly
+$(\eta_u,\eta_o)$, on which the expectation over the algorithm's randomness
+satisfies $\mathbb E[f(T)]\le\bigl((1-\tfrac Kn)\tfrac1\eta+\tfrac Kn\bigr)
+f(O^{\ast})$; this is an upper bound, not the exact randomized value.  In
+the other direction, at $n=3$, $K=2$, $\eta=3$ the deterministic value is
+$1/2$, while outputting a uniformly random $2$-subset guarantees expected
+value at least $\tfrac23f(N)\ge\tfrac23f(O^{\ast})$ on every monotone
+submodular objective, so the randomized minimax value differs and remains
+open.
+% J5H2 (ledger T8; source: results/J5_hardcore/J5_ceiling_proof.md,
+% transcribed in Appendix \ref{app:ceiling}).  Status decomposition:
+%  - the four-term nonnegative slack identity (7), the three-term
+%    decomposition of E, and the four-term single-exchange decomposition:
+%    [VERIFIED-SYMBOLIC], results/J5_hardcore/J5_hardcore_oracles.py;
+%  - 52 independent full-lattice algorithm-side LPs and 24 rational
+%    modular adversary instances (37,056 all-pairs gains, exact Fractions):
+%    [VERIFIED-LP], same script;
+%  - the general exchange/telescoping/minimax assembly and the randomized
+%    K/n averaging: [HAND-PROOF-UNREVIEWED, source J5 batch A]; the former
+%    [CONJECTURE] on general attainment is upgraded to this tag per the
+%    user instruction, NOT to a machine-checked status.
+% The lower-bound quantifier is "there exists an algorithm that guarantees
+% this on every instance", not "every algorithm guarantees it".  Exhaustive
+% search evaluates C(n,K) predicted sets; nothing here yields a
+% polynomial-query algorithm or changes the scope of thm:hardness.
+% The adversary calibrates every prescribed split exactly (n=K uses mixed
+% high/low weights), so both sides hold for every split and the value
+% depends on the split only through the product.
+% Older evidence (superseded but consistent): H-E's 84-point grid
+% [VERIFIED-LP, results/H_E_ceiling_small_n.py]; J4's 253,220 all-pairs
+% exactness checks (script never delivered, recorded).
 
 \begin{remark}[Exhaustive search against greedy, by worst-case guarantee]
 \label{rem:exhaustive-vs-greedy}

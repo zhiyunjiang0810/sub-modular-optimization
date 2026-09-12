@@ -77,6 +77,13 @@ import numpy as np
 from scipy.optimize import linprog
 from scipy.sparse import csr_matrix
 
+
+class SolveUnknown(RuntimeError):
+    """J5H6: a solver status that does not certify infeasibility."""
+
+
+UNKNOWN_STATUSES = []   # J5H6: statuses seen that were NOT prunable
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "code"))
@@ -229,8 +236,18 @@ class LPBuilder:
         A_eq = _to_csr([{0: 1.0}, {self.N: 1.0}, {O_mask: 1.0}], self.nv)
         res = linprog(obj, A_ub=A, b_ub=b, A_eq=A_eq, b_eq=[0.0, 0.0, 1.0],
                       bounds=[(None, None)] * self.nv, method="highs")
-        if res.status != 0:
+        if res.status == 2:
+            # certified infeasible branch: +inf is a valid prune
             return (np.inf, None) if want_x else np.inf
+        if res.status != 0:
+            # J5H6 (J5 hardcore audit, section 7 item 5): iteration limits,
+            # unboundedness reports and numerical failures do NOT certify
+            # infeasibility and must not silently prune.  Fail loud and
+            # count; callers that can re-solve may catch SolveUnknown.
+            UNKNOWN_STATUSES.append(int(res.status))
+            raise SolveUnknown(
+                f"linprog status {res.status}: not a certificate of "
+                "infeasibility (UNKNOWN, not pruned)")
         return (res.fun, res.x) if want_x else res.fun
 
 

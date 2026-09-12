@@ -1,0 +1,21 @@
+==============================================================================
+Part 4: exact PE_1 worst case (branch and bound) + certificates
+==============================================================================
+  n=6 eta=1.5: PE_1 = 0.655172414 (19/29)  status=OK  rho_3 = 0.562500000  1/eta = 0.666666667  LPs=613  (10s)
+    certificate n=6 eta=1.5: LP=0.655172414  PE_1 on instance=0.655172414  monotone=True submodular=True band=True  -> CONSISTENT
+  n=6 eta=2.0: PE_1 = 0.500000000 (1/2)  status=OK  rho_3 = 0.466666667  1/eta = 0.500000000  LPs=173  (3s)
+    certificate n=6 eta=2.0: LP=0.500000000  PE_1 on instance=0.500000000  monotone=True submodular=True band=True  -> CONSISTENT
+  n=6 eta=2.5: PE_1 = 0.400000000 (2/5)  status=OK  rho_3 = 0.388888889  1/eta = 0.400000000  LPs=168  (3s)
+    certificate n=6 eta=2.5: LP=0.400000000  PE_1 on instance=0.400000000  monotone=True submodular=True band=True  -> CONSISTENT
+  n=7 eta=1.5: PE_1 = 0.592592593 (16/27)  status=OK  rho_3 = 0.562500000  1/eta = 0.666666667  LPs=212  (16s)
+    certificate n=7 eta=1.5: LP=0.592592593  PE_1 on instance=0.592592593  monotone=True submodular=True band=True  -> CONSISTENT
+  n=7 eta=2.0: PE_1 = 0.444444444 (4/9)  status=OK  rho_3 = 0.466666667  1/eta = 0.500000000  LPs=56  (4s)
+    certificate n=7 eta=2.0: LP=0.444444444  PE_1 on instance=0.444444444  monotone=True submodular=True band=True  -> CONSISTENT
+  n=7 eta=2.5: PE_1 = 0.358333333 (43/120)  status=OK  rho_3 = 0.388888889  1/eta = 0.400000000  LPs=56  (5s)
+    certificate n=7 eta=2.5: LP=0.358333333  PE_1 on instance=0.358333333  monotone=True submodular=True band=True  -> CONSISTENT
+
+wrote /home/user/sub-modular-optimization/results/H_F_partial_enumeration.json
+main_exit=0
+==============================================================================
+Part 4: exact PE_1 worst case (branch and bound) + certificates
+==============================================================================
