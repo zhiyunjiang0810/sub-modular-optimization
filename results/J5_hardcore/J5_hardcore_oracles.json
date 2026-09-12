@@ -1,0 +1,6952 @@
+{
+  "monotonicity_polynomial": {
+    "numerator_terms": 84,
+    "denominator_terms": 165,
+    "numerator_constant": "14",
+    "denominator_constant": "48",
+    "chart_power": 3,
+    "numerator": [
+      {
+        "powers": [
+          3,
+          3,
+          3
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          2
+        ],
+        "coefficient": "33"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          1
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          0
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          4
+        ],
+        "coefficient": "12"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          3
+        ],
+        "coefficient": "81"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          2
+        ],
+        "coefficient": "216"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          1
+        ],
+        "coefficient": "271"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          0
+        ],
+        "coefficient": "134"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          5
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          4
+        ],
+        "coefficient": "51"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          3
+        ],
+        "coefficient": "186"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          2
+        ],
+        "coefficient": "359"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          1
+        ],
+        "coefficient": "367"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          0
+        ],
+        "coefficient": "160"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          5
+        ],
+        "coefficient": "3"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          4
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          3
+        ],
+        "coefficient": "82"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          2
+        ],
+        "coefficient": "149"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          1
+        ],
+        "coefficient": "144"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          0
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          3
+        ],
+        "coefficient": "18"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          2
+        ],
+        "coefficient": "81"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          1
+        ],
+        "coefficient": "114"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          0
+        ],
+        "coefficient": "48"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          4
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          3
+        ],
+        "coefficient": "213"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          2
+        ],
+        "coefficient": "492"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          1
+        ],
+        "coefficient": "516"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          0
+        ],
+        "coefficient": "197"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          5
+        ],
+        "coefficient": "18"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          4
+        ],
+        "coefficient": "147"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          3
+        ],
+        "coefficient": "498"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          2
+        ],
+        "coefficient": "855"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          1
+        ],
+        "coefficient": "742"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          0
+        ],
+        "coefficient": "257"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          5
+        ],
+        "coefficient": "15"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          4
+        ],
+        "coefficient": "102"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          3
+        ],
+        "coefficient": "291"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          2
+        ],
+        "coefficient": "431"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          1
+        ],
+        "coefficient": "329"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          0
+        ],
+        "coefficient": "104"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          3
+        ],
+        "coefficient": "18"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          2
+        ],
+        "coefficient": "63"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          1
+        ],
+        "coefficient": "66"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          0
+        ],
+        "coefficient": "21"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          4
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          3
+        ],
+        "coefficient": "183"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          2
+        ],
+        "coefficient": "360"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          1
+        ],
+        "coefficient": "312"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          0
+        ],
+        "coefficient": "97"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          5
+        ],
+        "coefficient": "18"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          4
+        ],
+        "coefficient": "141"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          3
+        ],
+        "coefficient": "432"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          2
+        ],
+        "coefficient": "648"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          1
+        ],
+        "coefficient": "485"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          0
+        ],
+        "coefficient": "142"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          5
+        ],
+        "coefficient": "21"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          4
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          3
+        ],
+        "coefficient": "291"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          2
+        ],
+        "coefficient": "370"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          1
+        ],
+        "coefficient": "244"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          0
+        ],
+        "coefficient": "64"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          3
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          2
+        ],
+        "coefficient": "15"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          1
+        ],
+        "coefficient": "12"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          0
+        ],
+        "coefficient": "3"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          4
+        ],
+        "coefficient": "12"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          3
+        ],
+        "coefficient": "51"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          2
+        ],
+        "coefficient": "84"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          1
+        ],
+        "coefficient": "61"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          0
+        ],
+        "coefficient": "16"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          5
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          4
+        ],
+        "coefficient": "45"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          3
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          2
+        ],
+        "coefficient": "158"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          1
+        ],
+        "coefficient": "104"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          0
+        ],
+        "coefficient": "27"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          5
+        ],
+        "coefficient": "9"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          4
+        ],
+        "coefficient": "42"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          3
+        ],
+        "coefficient": "88"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          2
+        ],
+        "coefficient": "100"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          1
+        ],
+        "coefficient": "59"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          0
+        ],
+        "coefficient": "14"
+      }
+    ],
+    "denominator": [
+      {
+        "powers": [
+          4,
+          5,
+          0
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          4,
+          4,
+          1
+        ],
+        "coefficient": "30"
+      },
+      {
+        "powers": [
+          4,
+          4,
+          0
+        ],
+        "coefficient": "42"
+      },
+      {
+        "powers": [
+          4,
+          3,
+          2
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          4,
+          3,
+          1
+        ],
+        "coefficient": "168"
+      },
+      {
+        "powers": [
+          4,
+          3,
+          0
+        ],
+        "coefficient": "114"
+      },
+      {
+        "powers": [
+          4,
+          2,
+          3
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          4,
+          2,
+          2
+        ],
+        "coefficient": "252"
+      },
+      {
+        "powers": [
+          4,
+          2,
+          1
+        ],
+        "coefficient": "342"
+      },
+      {
+        "powers": [
+          4,
+          2,
+          0
+        ],
+        "coefficient": "150"
+      },
+      {
+        "powers": [
+          4,
+          1,
+          4
+        ],
+        "coefficient": "30"
+      },
+      {
+        "powers": [
+          4,
+          1,
+          3
+        ],
+        "coefficient": "168"
+      },
+      {
+        "powers": [
+          4,
+          1,
+          2
+        ],
+        "coefficient": "342"
+      },
+      {
+        "powers": [
+          4,
+          1,
+          1
+        ],
+        "coefficient": "300"
+      },
+      {
+        "powers": [
+          4,
+          1,
+          0
+        ],
+        "coefficient": "96"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          5
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          4
+        ],
+        "coefficient": "42"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          3
+        ],
+        "coefficient": "114"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          2
+        ],
+        "coefficient": "150"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          1
+        ],
+        "coefficient": "96"
+      },
+      {
+        "powers": [
+          4,
+          0,
+          0
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          3,
+          5,
+          1
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          3,
+          5,
+          0
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          3,
+          4,
+          2
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          3,
+          4,
+          1
+        ],
+        "coefficient": "282"
+      },
+      {
+        "powers": [
+          3,
+          4,
+          0
+        ],
+        "coefficient": "174"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          3
+        ],
+        "coefficient": "240"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          2
+        ],
+        "coefficient": "888"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          1
+        ],
+        "coefficient": "1122"
+      },
+      {
+        "powers": [
+          3,
+          3,
+          0
+        ],
+        "coefficient": "498"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          4
+        ],
+        "coefficient": "240"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          3
+        ],
+        "coefficient": "1212"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          2
+        ],
+        "coefficient": "2322"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          1
+        ],
+        "coefficient": "2040"
+      },
+      {
+        "powers": [
+          3,
+          2,
+          0
+        ],
+        "coefficient": "702"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          5
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          4
+        ],
+        "coefficient": "768"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          3
+        ],
+        "coefficient": "1974"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          2
+        ],
+        "coefficient": "2586"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          1
+        ],
+        "coefficient": "1746"
+      },
+      {
+        "powers": [
+          3,
+          1,
+          0
+        ],
+        "coefficient": "486"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          6
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          5
+        ],
+        "coefficient": "186"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          4
+        ],
+        "coefficient": "600"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          3
+        ],
+        "coefficient": "1044"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          2
+        ],
+        "coefficient": "1044"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          1
+        ],
+        "coefficient": "570"
+      },
+      {
+        "powers": [
+          3,
+          0,
+          0
+        ],
+        "coefficient": "132"
+      },
+      {
+        "powers": [
+          2,
+          5,
+          2
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          2,
+          5,
+          1
+        ],
+        "coefficient": "72"
+      },
+      {
+        "powers": [
+          2,
+          5,
+          0
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          2,
+          4,
+          3
+        ],
+        "coefficient": "180"
+      },
+      {
+        "powers": [
+          2,
+          4,
+          2
+        ],
+        "coefficient": "594"
+      },
+      {
+        "powers": [
+          2,
+          4,
+          1
+        ],
+        "coefficient": "684"
+      },
+      {
+        "powers": [
+          2,
+          4,
+          0
+        ],
+        "coefficient": "270"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          4
+        ],
+        "coefficient": "360"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          3
+        ],
+        "coefficient": "1656"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          2
+        ],
+        "coefficient": "2970"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          1
+        ],
+        "coefficient": "2472"
+      },
+      {
+        "powers": [
+          2,
+          3,
+          0
+        ],
+        "coefficient": "804"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          5
+        ],
+        "coefficient": "360"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          4
+        ],
+        "coefficient": "2124"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          3
+        ],
+        "coefficient": "5166"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          2
+        ],
+        "coefficient": "6534"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          1
+        ],
+        "coefficient": "4308"
+      },
+      {
+        "powers": [
+          2,
+          2,
+          0
+        ],
+        "coefficient": "1188"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          6
+        ],
+        "coefficient": "180"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          5
+        ],
+        "coefficient": "1296"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          4
+        ],
+        "coefficient": "3978"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          3
+        ],
+        "coefficient": "6732"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          2
+        ],
+        "coefficient": "6654"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          1
+        ],
+        "coefficient": "3648"
+      },
+      {
+        "powers": [
+          2,
+          1,
+          0
+        ],
+        "coefficient": "870"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          7
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          6
+        ],
+        "coefficient": "306"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          5
+        ],
+        "coefficient": "1134"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          4
+        ],
+        "coefficient": "2400"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          3
+        ],
+        "coefficient": "3150"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          2
+        ],
+        "coefficient": "2568"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          1
+        ],
+        "coefficient": "1206"
+      },
+      {
+        "powers": [
+          2,
+          0,
+          0
+        ],
+        "coefficient": "252"
+      },
+      {
+        "powers": [
+          1,
+          5,
+          3
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          1,
+          5,
+          2
+        ],
+        "coefficient": "72"
+      },
+      {
+        "powers": [
+          1,
+          5,
+          1
+        ],
+        "coefficient": "72"
+      },
+      {
+        "powers": [
+          1,
+          5,
+          0
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          1,
+          4,
+          4
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          1,
+          4,
+          3
+        ],
+        "coefficient": "510"
+      },
+      {
+        "powers": [
+          1,
+          4,
+          2
+        ],
+        "coefficient": "846"
+      },
+      {
+        "powers": [
+          1,
+          4,
+          1
+        ],
+        "coefficient": "642"
+      },
+      {
+        "powers": [
+          1,
+          4,
+          0
+        ],
+        "coefficient": "186"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          5
+        ],
+        "coefficient": "240"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          4
+        ],
+        "coefficient": "1320"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          3
+        ],
+        "coefficient": "3030"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          2
+        ],
+        "coefficient": "3618"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          1
+        ],
+        "coefficient": "2238"
+      },
+      {
+        "powers": [
+          1,
+          3,
+          0
+        ],
+        "coefficient": "570"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          6
+        ],
+        "coefficient": "240"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          5
+        ],
+        "coefficient": "1620"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          4
+        ],
+        "coefficient": "4734"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          3
+        ],
+        "coefficient": "7680"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          2
+        ],
+        "coefficient": "7284"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          1
+        ],
+        "coefficient": "3822"
+      },
+      {
+        "powers": [
+          1,
+          2,
+          0
+        ],
+        "coefficient": "864"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          7
+        ],
+        "coefficient": "120"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          6
+        ],
+        "coefficient": "960"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          5
+        ],
+        "coefficient": "3402"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          4
+        ],
+        "coefficient": "6954"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          3
+        ],
+        "coefficient": "8856"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          2
+        ],
+        "coefficient": "7020"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          1
+        ],
+        "coefficient": "3204"
+      },
+      {
+        "powers": [
+          1,
+          1,
+          0
+        ],
+        "coefficient": "648"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          8
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          7
+        ],
+        "coefficient": "222"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          6
+        ],
+        "coefficient": "924"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          5
+        ],
+        "coefficient": "2274"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          4
+        ],
+        "coefficient": "3624"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          3
+        ],
+        "coefficient": "3828"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          2
+        ],
+        "coefficient": "2616"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          1
+        ],
+        "coefficient": "1056"
+      },
+      {
+        "powers": [
+          1,
+          0,
+          0
+        ],
+        "coefficient": "192"
+      },
+      {
+        "powers": [
+          0,
+          5,
+          4
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          0,
+          5,
+          3
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          0,
+          5,
+          2
+        ],
+        "coefficient": "36"
+      },
+      {
+        "powers": [
+          0,
+          5,
+          1
+        ],
+        "coefficient": "24"
+      },
+      {
+        "powers": [
+          0,
+          5,
+          0
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          5
+        ],
+        "coefficient": "30"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          4
+        ],
+        "coefficient": "156"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          3
+        ],
+        "coefficient": "336"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          2
+        ],
+        "coefficient": "372"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          1
+        ],
+        "coefficient": "210"
+      },
+      {
+        "powers": [
+          0,
+          4,
+          0
+        ],
+        "coefficient": "48"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          6
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          5
+        ],
+        "coefficient": "384"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          4
+        ],
+        "coefficient": "1068"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          3
+        ],
+        "coefficient": "1644"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          2
+        ],
+        "coefficient": "1470"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          1
+        ],
+        "coefficient": "720"
+      },
+      {
+        "powers": [
+          0,
+          3,
+          0
+        ],
+        "coefficient": "150"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          7
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          6
+        ],
+        "coefficient": "456"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          5
+        ],
+        "coefficient": "1548"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          4
+        ],
+        "coefficient": "3036"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          3
+        ],
+        "coefficient": "3702"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          2
+        ],
+        "coefficient": "2796"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          1
+        ],
+        "coefficient": "1206"
+      },
+      {
+        "powers": [
+          0,
+          2,
+          0
+        ],
+        "coefficient": "228"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          8
+        ],
+        "coefficient": "30"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          7
+        ],
+        "coefficient": "264"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          6
+        ],
+        "coefficient": "1056"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          5
+        ],
+        "coefficient": "2508"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          4
+        ],
+        "coefficient": "3858"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          3
+        ],
+        "coefficient": "3924"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          2
+        ],
+        "coefficient": "2568"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          1
+        ],
+        "coefficient": "984"
+      },
+      {
+        "powers": [
+          0,
+          1,
+          0
+        ],
+        "coefficient": "168"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          9
+        ],
+        "coefficient": "6"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          8
+        ],
+        "coefficient": "60"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          7
+        ],
+        "coefficient": "276"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          6
+        ],
+        "coefficient": "768"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          5
+        ],
+        "coefficient": "1422"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          4
+        ],
+        "coefficient": "1812"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          3
+        ],
+        "coefficient": "1584"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          2
+        ],
+        "coefficient": "912"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          1
+        ],
+        "coefficient": "312"
+      },
+      {
+        "powers": [
+          0,
+          0,
+          0
+        ],
+        "coefficient": "48"
+      }
+    ]
+  },
+  "identities": [
+    "H-E four nonnegative slacks",
+    "H-E union band decomposition",
+    "H-E each swap decomposition",
+    "H-B real K derivative",
+    "H-B c coefficient divided by exponential",
+    "H-B d coefficient divided by exponential",
+    "H-B integer branch second coefficient",
+    "H-B U shares c",
+    "H-B L coefficient",
+    "H-B rho minus L coefficient",
+    "H-B first drop from plateau",
+    "H-C O edge minimum ratio",
+    "H-C B endpoint ratio Wm",
+    "H-C adjacent crossing"
+  ],
+  "exhaustive_lp": [
+    {
+      "n": 2,
+      "K": 2,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 2,
+      "K": 2,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 2,
+      "K": 2,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 2,
+      "K": 2,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "1",
+      "o": "1",
+      "a": 1,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "2",
+      "o": "1",
+      "a": 1,
+      "lp": 0.6666666666666667,
+      "expected": "2/3",
+      "slacks": [
+        0.0,
+        0.0,
+        1.3322676295501878e-15,
+        -4.440892098500626e-16
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "1",
+      "o": "2",
+      "a": 1,
+      "lp": 0.6666666666666666,
+      "expected": "2/3",
+      "slacks": [
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.1102230246251565e-16
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 3,
+      "K": 2,
+      "u": "3/2",
+      "o": "2",
+      "a": 1,
+      "lp": 0.5000000000000001,
+      "expected": "1/2",
+      "slacks": [
+        -1.1102230246251565e-16,
+        0.0,
+        1.5543122344752192e-15,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 1,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 1,
+      "lp": 0.75,
+      "expected": "3/4",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 1,
+      "lp": 0.75,
+      "expected": "3/4",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 4,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 1,
+      "lp": 0.5999999999999999,
+      "expected": "3/5",
+      "slacks": [
+        -1.1102230246251565e-16,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 2,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        2.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 2,
+      "lp": 0.6000000000000001,
+      "expected": "3/5",
+      "slacks": [
+        -1.1102230246251565e-16,
+        4.440892098500626e-16,
+        -8.881784197001252e-16,
+        2.220446049250313e-16
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 2,
+      "lp": 0.6,
+      "expected": "3/5",
+      "slacks": [
+        0.0,
+        0.0,
+        -8.881784197001252e-16,
+        1.1102230246251565e-16
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 5,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 2,
+      "lp": 0.42857142857142855,
+      "expected": "3/7",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "1",
+      "o": "1",
+      "a": 2,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "2",
+      "o": "1",
+      "a": 2,
+      "lp": 0.6666666666666666,
+      "expected": "2/3",
+      "slacks": [
+        0.0,
+        0.0,
+        -4.440892098500626e-16,
+        -1.1102230246251565e-16
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        -2.220446049250313e-16
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "1",
+      "o": "2",
+      "a": 2,
+      "lp": 0.6666666666666669,
+      "expected": "2/3",
+      "slacks": [
+        0.0,
+        2.220446049250313e-16,
+        1.7763568394002505e-15,
+        -2.220446049250313e-16
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 4,
+      "u": "3/2",
+      "o": "2",
+      "a": 2,
+      "lp": 0.49999999999999994,
+      "expected": "1/2",
+      "slacks": [
+        2.220446049250313e-16,
+        2.220446049250313e-16,
+        0.0,
+        -2.7755575615628914e-16
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "1",
+      "o": "1",
+      "a": 3,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        1.1102230246251565e-16,
+        3.0000000000000027,
+        -8.881784197001252e-16
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.32975460122699507
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "2",
+      "o": "1",
+      "a": 3,
+      "lp": 0.5714285714285714,
+      "expected": "4/7",
+      "slacks": [
+        0.0,
+        4.218847493575595e-15,
+        -8.881784197001252e-16,
+        -2.6645352591003757e-15
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "1",
+      "o": "2",
+      "a": 3,
+      "lp": 0.5714285714285714,
+      "expected": "4/7",
+      "slacks": [
+        0.0,
+        -2.5979218776228663e-14,
+        1.0391687510491465e-13,
+        0.0
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.06578088415775163
+      ]
+    },
+    {
+      "n": 7,
+      "K": 4,
+      "u": "3/2",
+      "o": "2",
+      "a": 3,
+      "lp": 0.39999999999999997,
+      "expected": "2/5",
+      "slacks": [
+        1.3322676295501878e-15,
+        -2.220446049250313e-15,
+        5.329070518200751e-15,
+        -4.996003610813204e-16
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "1",
+      "o": "1",
+      "a": 3,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        3.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "2",
+      "o": "1",
+      "a": 3,
+      "lp": 0.49999999999999983,
+      "expected": "1/2",
+      "slacks": [
+        -1.1102230246251565e-16,
+        -3.1086244689504383e-15,
+        4.440892098500626e-16,
+        1.2212453270876722e-15
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "1",
+      "o": "2",
+      "a": 3,
+      "lp": 0.5000000000000001,
+      "expected": "1/2",
+      "slacks": [
+        0.0,
+        4.440892098500626e-16,
+        4.440892098500626e-15,
+        -7.771561172376096e-16
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 0,
+      "lp": 1.0,
+      "expected": "1",
+      "slacks": [
+        0.0,
+        0.0,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "n": 6,
+      "K": 3,
+      "u": "3/2",
+      "o": "2",
+      "a": 3,
+      "lp": 0.3333333333333333,
+      "expected": "1/3",
+      "slacks": [
+        0.0,
+        4.440892098500626e-16,
+        -1.2878587085651816e-14,
+        1.27675647831893e-15
+      ]
+    }
+  ],
+  "modular_ceiling_witnesses": {
+    "instances": 24,
+    "all_pairs_gains_checked": 37056
+  },
+  "double_submodular": {
+    "instances": [
+      {
+        "K": 2,
+        "m": 0,
+        "u": "1",
+        "o": "1",
+        "ratio": "1"
+      },
+      {
+        "K": 2,
+        "m": 0,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "2/3"
+      },
+      {
+        "K": 2,
+        "m": 0,
+        "u": "1",
+        "o": "2",
+        "ratio": "1/2"
+      },
+      {
+        "K": 2,
+        "m": 0,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "1/3"
+      },
+      {
+        "K": 2,
+        "m": 1,
+        "u": "1",
+        "o": "1",
+        "ratio": "3/4"
+      },
+      {
+        "K": 2,
+        "m": 1,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "3/5"
+      },
+      {
+        "K": 2,
+        "m": 1,
+        "u": "1",
+        "o": "2",
+        "ratio": "1/2"
+      },
+      {
+        "K": 2,
+        "m": 1,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "3/8"
+      },
+      {
+        "K": 3,
+        "m": 0,
+        "u": "1",
+        "o": "1",
+        "ratio": "1"
+      },
+      {
+        "K": 3,
+        "m": 0,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "2/3"
+      },
+      {
+        "K": 3,
+        "m": 0,
+        "u": "1",
+        "o": "2",
+        "ratio": "1/2"
+      },
+      {
+        "K": 3,
+        "m": 0,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "1/3"
+      },
+      {
+        "K": 3,
+        "m": 1,
+        "u": "1",
+        "o": "1",
+        "ratio": "7/9"
+      },
+      {
+        "K": 3,
+        "m": 1,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "7/12"
+      },
+      {
+        "K": 3,
+        "m": 1,
+        "u": "1",
+        "o": "2",
+        "ratio": "7/15"
+      },
+      {
+        "K": 3,
+        "m": 1,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "1/3"
+      },
+      {
+        "K": 3,
+        "m": 2,
+        "u": "1",
+        "o": "1",
+        "ratio": "19/27"
+      },
+      {
+        "K": 3,
+        "m": 2,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "19/33"
+      },
+      {
+        "K": 3,
+        "m": 2,
+        "u": "1",
+        "o": "2",
+        "ratio": "19/39"
+      },
+      {
+        "K": 3,
+        "m": 2,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "19/51"
+      },
+      {
+        "K": 4,
+        "m": 0,
+        "u": "1",
+        "o": "1",
+        "ratio": "1"
+      },
+      {
+        "K": 4,
+        "m": 0,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "2/3"
+      },
+      {
+        "K": 4,
+        "m": 0,
+        "u": "1",
+        "o": "2",
+        "ratio": "1/2"
+      },
+      {
+        "K": 4,
+        "m": 0,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "1/3"
+      },
+      {
+        "K": 4,
+        "m": 1,
+        "u": "1",
+        "o": "1",
+        "ratio": "13/16"
+      },
+      {
+        "K": 4,
+        "m": 1,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "13/22"
+      },
+      {
+        "K": 4,
+        "m": 1,
+        "u": "1",
+        "o": "2",
+        "ratio": "13/28"
+      },
+      {
+        "K": 4,
+        "m": 1,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "13/40"
+      },
+      {
+        "K": 4,
+        "m": 2,
+        "u": "1",
+        "o": "1",
+        "ratio": "23/32"
+      },
+      {
+        "K": 4,
+        "m": 2,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "23/41"
+      },
+      {
+        "K": 4,
+        "m": 2,
+        "u": "1",
+        "o": "2",
+        "ratio": "23/50"
+      },
+      {
+        "K": 4,
+        "m": 2,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "23/68"
+      },
+      {
+        "K": 4,
+        "m": 3,
+        "u": "1",
+        "o": "1",
+        "ratio": "175/256"
+      },
+      {
+        "K": 4,
+        "m": 3,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "35/62"
+      },
+      {
+        "K": 4,
+        "m": 3,
+        "u": "1",
+        "o": "2",
+        "ratio": "25/52"
+      },
+      {
+        "K": 4,
+        "m": 3,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "175/472"
+      },
+      {
+        "K": 5,
+        "m": 0,
+        "u": "1",
+        "o": "1",
+        "ratio": "1"
+      },
+      {
+        "K": 5,
+        "m": 0,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "2/3"
+      },
+      {
+        "K": 5,
+        "m": 0,
+        "u": "1",
+        "o": "2",
+        "ratio": "1/2"
+      },
+      {
+        "K": 5,
+        "m": 0,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "1/3"
+      },
+      {
+        "K": 5,
+        "m": 1,
+        "u": "1",
+        "o": "1",
+        "ratio": "21/25"
+      },
+      {
+        "K": 5,
+        "m": 1,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "3/5"
+      },
+      {
+        "K": 5,
+        "m": 1,
+        "u": "1",
+        "o": "2",
+        "ratio": "7/15"
+      },
+      {
+        "K": 5,
+        "m": 1,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "21/65"
+      },
+      {
+        "K": 5,
+        "m": 2,
+        "u": "1",
+        "o": "1",
+        "ratio": "93/125"
+      },
+      {
+        "K": 5,
+        "m": 2,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "31/55"
+      },
+      {
+        "K": 5,
+        "m": 2,
+        "u": "1",
+        "o": "2",
+        "ratio": "93/205"
+      },
+      {
+        "K": 5,
+        "m": 2,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "31/95"
+      },
+      {
+        "K": 5,
+        "m": 3,
+        "u": "1",
+        "o": "1",
+        "ratio": "433/625"
+      },
+      {
+        "K": 5,
+        "m": 3,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "433/785"
+      },
+      {
+        "K": 5,
+        "m": 3,
+        "u": "1",
+        "o": "2",
+        "ratio": "433/945"
+      },
+      {
+        "K": 5,
+        "m": 3,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "433/1265"
+      },
+      {
+        "K": 5,
+        "m": 4,
+        "u": "1",
+        "o": "1",
+        "ratio": "2101/3125"
+      },
+      {
+        "K": 5,
+        "m": 4,
+        "u": "3/2",
+        "o": "1",
+        "ratio": "2101/3765"
+      },
+      {
+        "K": 5,
+        "m": 4,
+        "u": "1",
+        "o": "2",
+        "ratio": "2101/4405"
+      },
+      {
+        "K": 5,
+        "m": 4,
+        "u": "2",
+        "o": "3/2",
+        "ratio": "2101/5685"
+      }
+    ],
+    "exact_checks": {
+      "edge_band": 121344,
+      "square_submod": 262144
+    }
+  },
+  "submodular_K4_eta_3_over_2_duals": {
+    "certificates": [
+      {
+        "inside_mask": 0,
+        "O_mask": 240,
+        "dual_bound": "23/41",
+        "nonzero_duals": [
+          [
+            2,
+            "-242/615"
+          ],
+          [
+            48,
+            "-28/615"
+          ],
+          [
+            54,
+            "-122/615"
+          ],
+          [
+            89,
+            "-8/41"
+          ],
+          [
+            152,
+            "-14/205"
+          ],
+          [
+            163,
+            "-9/41"
+          ],
+          [
+            166,
+            "-1/41"
+          ],
+          [
+            279,
+            "-189/410"
+          ],
+          [
+            281,
+            "-61/615"
+          ],
+          [
+            284,
+            "-469/1230"
+          ],
+          [
+            287,
+            "-356/615"
+          ],
+          [
+            292,
+            "-10/123"
+          ],
+          [
+            293,
+            "-163/1845"
+          ],
+          [
+            294,
+            "-31/615"
+          ],
+          [
+            295,
+            "-31/1230"
+          ],
+          [
+            519,
+            "-81/205"
+          ],
+          [
+            522,
+            "-28/615"
+          ],
+          [
+            577,
+            "-28/615"
+          ],
+          [
+            610,
+            "-8/41"
+          ],
+          [
+            649,
+            "-122/615"
+          ],
+          [
+            667,
+            "-13/615"
+          ],
+          [
+            767,
+            "-28/1845"
+          ],
+          [
+            855,
+            "-122/615"
+          ],
+          [
+            933,
+            "-9/41"
+          ],
+          [
+            1057,
+            "-73/615"
+          ],
+          [
+            1074,
+            "-77/615"
+          ],
+          [
+            1170,
+            "-51/205"
+          ],
+          [
+            1263,
+            "-73/615"
+          ],
+          [
+            1445,
+            "-61/205"
+          ],
+          [
+            1452,
+            "-77/615"
+          ],
+          [
+            1516,
+            "-28/615"
+          ],
+          [
+            1518,
+            "-28/615"
+          ],
+          [
+            1642,
+            "-31/205"
+          ],
+          [
+            1692,
+            "-8/41"
+          ],
+          [
+            1758,
+            "-9/41"
+          ],
+          [
+            1868,
+            "-14/615"
+          ],
+          [
+            1871,
+            "-31/205"
+          ],
+          [
+            2051,
+            "-31/410"
+          ],
+          [
+            2088,
+            "-28/615"
+          ],
+          [
+            2437,
+            "-62/615"
+          ],
+          [
+            2650,
+            "-28/615"
+          ],
+          [
+            2678,
+            "-28/615"
+          ],
+          [
+            2741,
+            "-28/615"
+          ],
+          [
+            2846,
+            "-31/205"
+          ],
+          [
+            2850,
+            "-28/615"
+          ],
+          [
+            2892,
+            "-28/615"
+          ],
+          [
+            3066,
+            "-31/1230"
+          ],
+          [
+            3313,
+            "-8/41"
+          ],
+          [
+            3341,
+            "-13/615"
+          ],
+          [
+            3425,
+            "-27/410"
+          ],
+          [
+            3429,
+            "-8/123"
+          ],
+          [
+            3718,
+            "-51/205"
+          ],
+          [
+            3875,
+            "-8/41"
+          ],
+          [
+            3911,
+            "-62/615"
+          ],
+          [
+            4212,
+            "-31/615"
+          ],
+          [
+            4214,
+            "-31/410"
+          ],
+          [
+            4463,
+            "-9/205"
+          ],
+          [
+            4744,
+            "-8/41"
+          ],
+          [
+            4747,
+            "-73/615"
+          ],
+          [
+            4752,
+            "-62/615"
+          ],
+          [
+            4758,
+            "-62/615"
+          ],
+          [
+            4772,
+            "-62/615"
+          ],
+          [
+            4784,
+            "-73/615"
+          ],
+          [
+            4788,
+            "-58/615"
+          ],
+          [
+            4801,
+            "-62/615"
+          ],
+          [
+            4832,
+            "-62/615"
+          ],
+          [
+            4836,
+            "-62/615"
+          ],
+          [
+            4841,
+            "-73/615"
+          ],
+          [
+            4853,
+            "-62/615"
+          ],
+          [
+            4854,
+            "-62/615"
+          ],
+          [
+            4861,
+            "-62/615"
+          ],
+          [
+            4886,
+            "-6/41"
+          ],
+          [
+            4887,
+            "-6/41"
+          ],
+          [
+            4890,
+            "-62/615"
+          ],
+          [
+            4907,
+            "-8/41"
+          ],
+          [
+            4909,
+            "-8/41"
+          ],
+          [
+            4945,
+            "-196/615"
+          ],
+          [
+            4946,
+            "-8/41"
+          ],
+          [
+            5005,
+            "-39/410"
+          ],
+          [
+            5006,
+            "-13/82"
+          ],
+          [
+            5008,
+            "-91/615"
+          ],
+          [
+            5106,
+            "-14/615"
+          ],
+          [
+            5109,
+            "-31/615"
+          ],
+          [
+            5111,
+            "-31/1230"
+          ],
+          [
+            5130,
+            "-6/41"
+          ],
+          [
+            5146,
+            "-8/41"
+          ],
+          [
+            5171,
+            "-25/123"
+          ],
+          [
+            5172,
+            "-58/615"
+          ],
+          [
+            5213,
+            "-89/1230"
+          ],
+          [
+            5300,
+            "-62/615"
+          ],
+          [
+            5338,
+            "-58/615"
+          ],
+          [
+            5760,
+            "-58/615"
+          ],
+          [
+            5838,
+            "-62/615"
+          ],
+          [
+            5887,
+            "-31/615"
+          ],
+          [
+            5965,
+            "-31/615"
+          ],
+          [
+            6083,
+            "-91/615"
+          ],
+          [
+            6084,
+            "-31/1230"
+          ],
+          [
+            6653,
+            "-62/615"
+          ],
+          [
+            6660,
+            "-6/41"
+          ],
+          [
+            6661,
+            "-6/41"
+          ],
+          [
+            6662,
+            "-6/41"
+          ],
+          [
+            6663,
+            "-6/41"
+          ],
+          [
+            6667,
+            "-8/41"
+          ],
+          [
+            6668,
+            "-8/41"
+          ],
+          [
+            6669,
+            "-8/41"
+          ],
+          [
+            6670,
+            "-8/41"
+          ],
+          [
+            6673,
+            "-9/41"
+          ],
+          [
+            6674,
+            "-9/41"
+          ],
+          [
+            6675,
+            "-9/41"
+          ],
+          [
+            6676,
+            "-14/41"
+          ],
+          [
+            6678,
+            "-23/82"
+          ],
+          [
+            6679,
+            "-23/82"
+          ],
+          [
+            6680,
+            "-23/82"
+          ],
+          [
+            6681,
+            "-13/82"
+          ]
+        ],
+        "equality_duals": [
+          "18/41",
+          "0",
+          "23/41"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 1,
+        "O_mask": 113,
+        "dual_bound": "2/3",
+        "nonzero_duals": [
+          [
+            29,
+            "-1/3"
+          ],
+          [
+            89,
+            "-1/3"
+          ],
+          [
+            279,
+            "-1/3"
+          ],
+          [
+            281,
+            "-1/2"
+          ],
+          [
+            519,
+            "-1/2"
+          ],
+          [
+            522,
+            "-1/2"
+          ],
+          [
+            608,
+            "-1/3"
+          ],
+          [
+            756,
+            "-1/2"
+          ],
+          [
+            936,
+            "-1/2"
+          ],
+          [
+            1162,
+            "-1/3"
+          ],
+          [
+            1167,
+            "-1/2"
+          ],
+          [
+            1390,
+            "-1/3"
+          ],
+          [
+            1480,
+            "-1/3"
+          ],
+          [
+            1650,
+            "-1/3"
+          ],
+          [
+            1692,
+            "-1/3"
+          ],
+          [
+            1778,
+            "-1/3"
+          ],
+          [
+            2144,
+            "-1/3"
+          ],
+          [
+            2293,
+            "-1/3"
+          ],
+          [
+            2437,
+            "-1/3"
+          ],
+          [
+            2673,
+            "-1/3"
+          ],
+          [
+            4907,
+            "-1/3"
+          ],
+          [
+            4944,
+            "-1/3"
+          ],
+          [
+            4946,
+            "-1/3"
+          ],
+          [
+            5001,
+            "-1/6"
+          ],
+          [
+            5002,
+            "-1/6"
+          ],
+          [
+            5004,
+            "-1/6"
+          ],
+          [
+            5005,
+            "-1/6"
+          ],
+          [
+            5007,
+            "-1/6"
+          ],
+          [
+            5648,
+            "-1/6"
+          ],
+          [
+            6662,
+            "-1/3"
+          ],
+          [
+            6667,
+            "-1/3"
+          ],
+          [
+            6668,
+            "-1/3"
+          ],
+          [
+            6673,
+            "-1/3"
+          ],
+          [
+            6674,
+            "-1/3"
+          ],
+          [
+            6675,
+            "-1/3"
+          ],
+          [
+            6678,
+            "-1/3"
+          ],
+          [
+            6679,
+            "-1/3"
+          ],
+          [
+            6680,
+            "-1/3"
+          ]
+        ],
+        "equality_duals": [
+          "1/3",
+          "0",
+          "2/3"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 2,
+        "O_mask": 114,
+        "dual_bound": "12/19",
+        "nonzero_duals": [
+          [
+            2,
+            "-6/19"
+          ],
+          [
+            33,
+            "-2/57"
+          ],
+          [
+            49,
+            "-1/57"
+          ],
+          [
+            76,
+            "-5/19"
+          ],
+          [
+            89,
+            "-1/19"
+          ],
+          [
+            133,
+            "-2/57"
+          ],
+          [
+            166,
+            "-5/19"
+          ],
+          [
+            279,
+            "-59/171"
+          ],
+          [
+            281,
+            "-22/57"
+          ],
+          [
+            284,
+            "-59/114"
+          ],
+          [
+            287,
+            "-65/171"
+          ],
+          [
+            292,
+            "-47/513"
+          ],
+          [
+            294,
+            "-97/513"
+          ],
+          [
+            297,
+            "-58/513"
+          ],
+          [
+            299,
+            "-20/171"
+          ],
+          [
+            519,
+            "-49/114"
+          ],
+          [
+            522,
+            "-5/38"
+          ],
+          [
+            566,
+            "-2/57"
+          ],
+          [
+            598,
+            "-1/19"
+          ],
+          [
+            646,
+            "-1/19"
+          ],
+          [
+            936,
+            "-97/171"
+          ],
+          [
+            974,
+            "-1/57"
+          ],
+          [
+            991,
+            "-13/57"
+          ],
+          [
+            1016,
+            "-2/57"
+          ],
+          [
+            1049,
+            "-1/19"
+          ],
+          [
+            1112,
+            "-13/57"
+          ],
+          [
+            1341,
+            "-5/38"
+          ],
+          [
+            1393,
+            "-5/57"
+          ],
+          [
+            1412,
+            "-1/19"
+          ],
+          [
+            1553,
+            "-5/57"
+          ],
+          [
+            1589,
+            "-5/57"
+          ],
+          [
+            1687,
+            "-1/57"
+          ],
+          [
+            1710,
+            "-1/19"
+          ],
+          [
+            1725,
+            "-2/57"
+          ],
+          [
+            1778,
+            "-20/57"
+          ],
+          [
+            1876,
+            "-49/513"
+          ],
+          [
+            1879,
+            "-4/57"
+          ],
+          [
+            2048,
+            "-8/57"
+          ],
+          [
+            2081,
+            "-1/19"
+          ],
+          [
+            2116,
+            "-1/57"
+          ],
+          [
+            2141,
+            "-6/19"
+          ],
+          [
+            2220,
+            "-9/19"
+          ],
+          [
+            2222,
+            "-3/19"
+          ],
+          [
+            2360,
+            "-1/57"
+          ],
+          [
+            2387,
+            "-2/57"
+          ],
+          [
+            2437,
+            "-8/171"
+          ],
+          [
+            2440,
+            "-13/171"
+          ],
+          [
+            2461,
+            "-1/57"
+          ],
+          [
+            2589,
+            "-13/171"
+          ],
+          [
+            2601,
+            "-1/57"
+          ],
+          [
+            2619,
+            "-1/57"
+          ],
+          [
+            2650,
+            "-2/57"
+          ],
+          [
+            2691,
+            "-29/57"
+          ],
+          [
+            2696,
+            "-1/57"
+          ],
+          [
+            2709,
+            "-1/57"
+          ],
+          [
+            2711,
+            "-8/57"
+          ],
+          [
+            2753,
+            "-1/57"
+          ],
+          [
+            4873,
+            "-4/57"
+          ],
+          [
+            4874,
+            "-1/57"
+          ],
+          [
+            4875,
+            "-4/57"
+          ],
+          [
+            4886,
+            "-2/19"
+          ],
+          [
+            4887,
+            "-1/19"
+          ],
+          [
+            4907,
+            "-1/19"
+          ],
+          [
+            4910,
+            "-7/57"
+          ],
+          [
+            4929,
+            "-1/57"
+          ],
+          [
+            4931,
+            "-1/57"
+          ],
+          [
+            4943,
+            "-5/57"
+          ],
+          [
+            4944,
+            "-23/57"
+          ],
+          [
+            5004,
+            "-5/114"
+          ],
+          [
+            5107,
+            "-16/171"
+          ],
+          [
+            5120,
+            "-1/19"
+          ],
+          [
+            5130,
+            "-1/19"
+          ],
+          [
+            5170,
+            "-2/19"
+          ],
+          [
+            5208,
+            "-5/114"
+          ],
+          [
+            5465,
+            "-2/57"
+          ],
+          [
+            5576,
+            "-5/57"
+          ],
+          [
+            5649,
+            "-8/171"
+          ],
+          [
+            5831,
+            "-1/57"
+          ],
+          [
+            6657,
+            "-7/57"
+          ],
+          [
+            6660,
+            "-7/57"
+          ],
+          [
+            6661,
+            "-7/57"
+          ],
+          [
+            6662,
+            "-7/57"
+          ],
+          [
+            6667,
+            "-1/19"
+          ],
+          [
+            6668,
+            "-23/57"
+          ],
+          [
+            6669,
+            "-2/57"
+          ],
+          [
+            6673,
+            "-25/57"
+          ],
+          [
+            6674,
+            "-5/57"
+          ],
+          [
+            6675,
+            "-26/57"
+          ],
+          [
+            6678,
+            "-1/3"
+          ],
+          [
+            6679,
+            "-1/3"
+          ],
+          [
+            6680,
+            "-1/3"
+          ]
+        ],
+        "equality_duals": [
+          "7/19",
+          "0",
+          "12/19"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 3,
+        "O_mask": 51,
+        "dual_bound": "7/9",
+        "nonzero_duals": [
+          [
+            34,
+            "-2/9"
+          ],
+          [
+            130,
+            "-2/9"
+          ],
+          [
+            279,
+            "-5/9"
+          ],
+          [
+            284,
+            "-17/18"
+          ],
+          [
+            293,
+            "-2/27"
+          ],
+          [
+            519,
+            "-1/3"
+          ],
+          [
+            522,
+            "-2/9"
+          ],
+          [
+            631,
+            "-2/9"
+          ],
+          [
+            649,
+            "-2/9"
+          ],
+          [
+            855,
+            "-2/9"
+          ],
+          [
+            955,
+            "-2/9"
+          ],
+          [
+            1164,
+            "-5/6"
+          ],
+          [
+            1180,
+            "-2/9"
+          ],
+          [
+            1216,
+            "-2/9"
+          ],
+          [
+            1306,
+            "-2/9"
+          ],
+          [
+            1435,
+            "-1/9"
+          ],
+          [
+            1437,
+            "-4/9"
+          ],
+          [
+            4895,
+            "-2/9"
+          ],
+          [
+            4943,
+            "-4/9"
+          ],
+          [
+            5000,
+            "-1/9"
+          ],
+          [
+            5004,
+            "-7/18"
+          ],
+          [
+            6661,
+            "-2/9"
+          ],
+          [
+            6668,
+            "-2/9"
+          ],
+          [
+            6673,
+            "-2/3"
+          ],
+          [
+            6674,
+            "-2/9"
+          ],
+          [
+            6678,
+            "-1/2"
+          ],
+          [
+            6679,
+            "-1/2"
+          ]
+        ],
+        "equality_duals": [
+          "2/9",
+          "0",
+          "7/9"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 4,
+        "O_mask": 116,
+        "dual_bound": "92/155",
+        "nonzero_duals": [
+          [
+            2,
+            "-7/155"
+          ],
+          [
+            5,
+            "-7/31"
+          ],
+          [
+            38,
+            "-21/155"
+          ],
+          [
+            81,
+            "-7/155"
+          ],
+          [
+            96,
+            "-7/31"
+          ],
+          [
+            146,
+            "-21/310"
+          ],
+          [
+            154,
+            "-42/155"
+          ],
+          [
+            171,
+            "-21/155"
+          ],
+          [
+            238,
+            "-28/155"
+          ],
+          [
+            279,
+            "-63/155"
+          ],
+          [
+            284,
+            "-63/310"
+          ],
+          [
+            287,
+            "-33/155"
+          ],
+          [
+            297,
+            "-22/155"
+          ],
+          [
+            412,
+            "-42/155"
+          ],
+          [
+            519,
+            "-138/155"
+          ],
+          [
+            570,
+            "-21/155"
+          ],
+          [
+            724,
+            "-28/155"
+          ],
+          [
+            754,
+            "-49/155"
+          ],
+          [
+            759,
+            "-21/31"
+          ],
+          [
+            767,
+            "-43/155"
+          ],
+          [
+            933,
+            "-129/310"
+          ],
+          [
+            988,
+            "-7/155"
+          ],
+          [
+            1112,
+            "-21/155"
+          ],
+          [
+            1516,
+            "-43/155"
+          ],
+          [
+            2084,
+            "-21/155"
+          ],
+          [
+            2141,
+            "-21/155"
+          ],
+          [
+            2146,
+            "-63/310"
+          ],
+          [
+            2184,
+            "-28/155"
+          ],
+          [
+            2653,
+            "-21/155"
+          ],
+          [
+            2693,
+            "-21/155"
+          ],
+          [
+            2721,
+            "-34/93"
+          ],
+          [
+            2722,
+            "-43/155"
+          ],
+          [
+            2726,
+            "-43/155"
+          ],
+          [
+            2753,
+            "-43/155"
+          ],
+          [
+            4858,
+            "-86/465"
+          ],
+          [
+            4859,
+            "-43/155"
+          ],
+          [
+            4887,
+            "-21/155"
+          ],
+          [
+            4889,
+            "-21/155"
+          ],
+          [
+            4899,
+            "-28/155"
+          ],
+          [
+            4900,
+            "-21/155"
+          ],
+          [
+            4908,
+            "-28/155"
+          ],
+          [
+            4943,
+            "-21/310"
+          ],
+          [
+            4944,
+            "-56/155"
+          ],
+          [
+            5000,
+            "-46/155"
+          ],
+          [
+            5004,
+            "-129/310"
+          ],
+          [
+            5140,
+            "-28/155"
+          ],
+          [
+            5165,
+            "-56/155"
+          ],
+          [
+            5170,
+            "-21/310"
+          ],
+          [
+            5208,
+            "-43/310"
+          ],
+          [
+            5570,
+            "-21/155"
+          ],
+          [
+            5959,
+            "-43/155"
+          ],
+          [
+            5982,
+            "-43/155"
+          ],
+          [
+            6658,
+            "-21/155"
+          ],
+          [
+            6660,
+            "-21/155"
+          ],
+          [
+            6661,
+            "-21/155"
+          ],
+          [
+            6662,
+            "-21/155"
+          ],
+          [
+            6665,
+            "-28/155"
+          ],
+          [
+            6667,
+            "-28/155"
+          ],
+          [
+            6668,
+            "-28/155"
+          ],
+          [
+            6669,
+            "-28/155"
+          ],
+          [
+            6672,
+            "-42/155"
+          ],
+          [
+            6674,
+            "-14/155"
+          ],
+          [
+            6675,
+            "-56/155"
+          ],
+          [
+            6678,
+            "-89/155"
+          ],
+          [
+            6679,
+            "-15/31"
+          ],
+          [
+            6680,
+            "-33/155"
+          ]
+        ],
+        "equality_duals": [
+          "63/155",
+          "0",
+          "92/155"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 5,
+        "O_mask": 53,
+        "dual_bound": "5/7",
+        "nonzero_duals": [
+          [
+            2,
+            "-2/7"
+          ],
+          [
+            60,
+            "-2/7"
+          ],
+          [
+            143,
+            "-4/7"
+          ],
+          [
+            155,
+            "-8/21"
+          ],
+          [
+            296,
+            "-8/21"
+          ],
+          [
+            346,
+            "-2/7"
+          ],
+          [
+            412,
+            "-2/7"
+          ],
+          [
+            522,
+            "-15/14"
+          ],
+          [
+            1162,
+            "-5/7"
+          ],
+          [
+            1164,
+            "-1/2"
+          ],
+          [
+            1478,
+            "-3/7"
+          ],
+          [
+            1480,
+            "-2/7"
+          ],
+          [
+            4867,
+            "-2/7"
+          ],
+          [
+            4900,
+            "-2/7"
+          ],
+          [
+            4907,
+            "-2/7"
+          ],
+          [
+            5001,
+            "-5/14"
+          ],
+          [
+            5004,
+            "-3/14"
+          ],
+          [
+            5307,
+            "-2/7"
+          ],
+          [
+            6660,
+            "-2/7"
+          ],
+          [
+            6665,
+            "-2/7"
+          ],
+          [
+            6668,
+            "-2/7"
+          ],
+          [
+            6673,
+            "-4/7"
+          ],
+          [
+            6678,
+            "-3/14"
+          ],
+          [
+            6679,
+            "-11/14"
+          ]
+        ],
+        "equality_duals": [
+          "2/7",
+          "0",
+          "5/7"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 6,
+        "O_mask": 54,
+        "dual_bound": "13/19",
+        "nonzero_duals": [
+          [
+            8,
+            "-4/19"
+          ],
+          [
+            39,
+            "-2/19"
+          ],
+          [
+            62,
+            "-5/19"
+          ],
+          [
+            65,
+            "-3/19"
+          ],
+          [
+            85,
+            "-2/19"
+          ],
+          [
+            88,
+            "-10/57"
+          ],
+          [
+            143,
+            "-6/19"
+          ],
+          [
+            146,
+            "-2/19"
+          ],
+          [
+            155,
+            "-16/57"
+          ],
+          [
+            171,
+            "-4/19"
+          ],
+          [
+            198,
+            "-2/19"
+          ],
+          [
+            216,
+            "-4/19"
+          ],
+          [
+            249,
+            "-2/19"
+          ],
+          [
+            279,
+            "-7/19"
+          ],
+          [
+            281,
+            "-5/38"
+          ],
+          [
+            363,
+            "-2/19"
+          ],
+          [
+            426,
+            "-2/19"
+          ],
+          [
+            470,
+            "-4/19"
+          ],
+          [
+            495,
+            "-2/19"
+          ],
+          [
+            522,
+            "-6/19"
+          ],
+          [
+            660,
+            "-4/57"
+          ],
+          [
+            756,
+            "-17/38"
+          ],
+          [
+            805,
+            "-2/19"
+          ],
+          [
+            973,
+            "-2/19"
+          ],
+          [
+            1006,
+            "-4/57"
+          ],
+          [
+            1013,
+            "-2/19"
+          ],
+          [
+            1043,
+            "-2/19"
+          ],
+          [
+            1263,
+            "-2/19"
+          ],
+          [
+            1341,
+            "-6/19"
+          ],
+          [
+            1354,
+            "-2/19"
+          ],
+          [
+            1393,
+            "-2/19"
+          ],
+          [
+            1496,
+            "-11/19"
+          ],
+          [
+            1516,
+            "-4/19"
+          ],
+          [
+            4871,
+            "-2/19"
+          ],
+          [
+            4886,
+            "-2/19"
+          ],
+          [
+            5004,
+            "-25/38"
+          ],
+          [
+            5230,
+            "-2/19"
+          ],
+          [
+            5417,
+            "-2/19"
+          ],
+          [
+            6657,
+            "-2/19"
+          ],
+          [
+            6658,
+            "-2/19"
+          ],
+          [
+            6660,
+            "-2/19"
+          ],
+          [
+            6661,
+            "-2/19"
+          ],
+          [
+            6667,
+            "-5/19"
+          ],
+          [
+            6668,
+            "-3/19"
+          ],
+          [
+            6673,
+            "-6/19"
+          ],
+          [
+            6674,
+            "-2/19"
+          ],
+          [
+            6678,
+            "-13/38"
+          ],
+          [
+            6679,
+            "-25/38"
+          ]
+        ],
+        "equality_duals": [
+          "6/19",
+          "0",
+          "13/19"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 7,
+        "O_mask": 23,
+        "dual_bound": "8/9",
+        "nonzero_duals": [
+          [
+            5,
+            "-2/27"
+          ],
+          [
+            13,
+            "-2/27"
+          ],
+          [
+            38,
+            "-7/81"
+          ],
+          [
+            62,
+            "-1/9"
+          ],
+          [
+            79,
+            "-1/27"
+          ],
+          [
+            84,
+            "-1/27"
+          ],
+          [
+            96,
+            "-2/27"
+          ],
+          [
+            155,
+            "-2/27"
+          ],
+          [
+            197,
+            "-7/81"
+          ],
+          [
+            230,
+            "-1/27"
+          ],
+          [
+            263,
+            "-7/81"
+          ],
+          [
+            279,
+            "-22/27"
+          ],
+          [
+            281,
+            "-25/27"
+          ],
+          [
+            349,
+            "-1/27"
+          ],
+          [
+            367,
+            "-1/27"
+          ],
+          [
+            412,
+            "-2/27"
+          ],
+          [
+            414,
+            "-1/9"
+          ],
+          [
+            470,
+            "-1/27"
+          ],
+          [
+            519,
+            "-1/9"
+          ],
+          [
+            538,
+            "-1/27"
+          ],
+          [
+            649,
+            "-2/27"
+          ],
+          [
+            707,
+            "-1/27"
+          ],
+          [
+            754,
+            "-2/27"
+          ],
+          [
+            4939,
+            "-1/27"
+          ],
+          [
+            5188,
+            "-1/27"
+          ],
+          [
+            6660,
+            "-1/9"
+          ],
+          [
+            6666,
+            "-1/27"
+          ],
+          [
+            6667,
+            "-2/27"
+          ],
+          [
+            6673,
+            "-1/9"
+          ],
+          [
+            6678,
+            "-28/27"
+          ]
+        ],
+        "equality_duals": [
+          "1/9",
+          "0",
+          "8/9"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 8,
+        "O_mask": 120,
+        "dual_bound": "350/593",
+        "nonzero_duals": [
+          [
+            2,
+            "-486/2965"
+          ],
+          [
+            44,
+            "-324/2965"
+          ],
+          [
+            49,
+            "-81/593"
+          ],
+          [
+            86,
+            "-54/593"
+          ],
+          [
+            89,
+            "-216/2965"
+          ],
+          [
+            281,
+            "-1176/2965"
+          ],
+          [
+            287,
+            "-1041/2965"
+          ],
+          [
+            292,
+            "-568/2965"
+          ],
+          [
+            294,
+            "-613/2965"
+          ],
+          [
+            299,
+            "-297/2965"
+          ],
+          [
+            310,
+            "-324/2965"
+          ],
+          [
+            371,
+            "-54/593"
+          ],
+          [
+            440,
+            "-324/2965"
+          ],
+          [
+            495,
+            "-324/2965"
+          ],
+          [
+            519,
+            "-81/2965"
+          ],
+          [
+            522,
+            "-891/2965"
+          ],
+          [
+            525,
+            "-1584/2965"
+          ],
+          [
+            531,
+            "-244/2965"
+          ],
+          [
+            580,
+            "-216/2965"
+          ],
+          [
+            646,
+            "-24/2965"
+          ],
+          [
+            666,
+            "-192/2965"
+          ],
+          [
+            756,
+            "-171/593"
+          ],
+          [
+            764,
+            "-378/2965"
+          ],
+          [
+            825,
+            "-54/593"
+          ],
+          [
+            949,
+            "-324/2965"
+          ],
+          [
+            983,
+            "-81/2965"
+          ],
+          [
+            1027,
+            "-324/2965"
+          ],
+          [
+            1162,
+            "-297/2965"
+          ],
+          [
+            1213,
+            "-54/593"
+          ],
+          [
+            1238,
+            "-324/2965"
+          ],
+          [
+            1263,
+            "-594/2965"
+          ],
+          [
+            1349,
+            "-297/2965"
+          ],
+          [
+            1382,
+            "-81/2965"
+          ],
+          [
+            1437,
+            "-192/2965"
+          ],
+          [
+            1531,
+            "-81/2965"
+          ],
+          [
+            1574,
+            "-81/2965"
+          ],
+          [
+            1631,
+            "-81/2965"
+          ],
+          [
+            1653,
+            "-81/2965"
+          ],
+          [
+            1659,
+            "-324/2965"
+          ],
+          [
+            1685,
+            "-324/2965"
+          ],
+          [
+            1717,
+            "-486/2965"
+          ],
+          [
+            1725,
+            "-81/2965"
+          ],
+          [
+            1758,
+            "-81/2965"
+          ],
+          [
+            1877,
+            "-297/2965"
+          ],
+          [
+            1912,
+            "-324/2965"
+          ],
+          [
+            1920,
+            "-216/2965"
+          ],
+          [
+            2010,
+            "-216/2965"
+          ],
+          [
+            2045,
+            "-1368/2965"
+          ],
+          [
+            2111,
+            "-54/593"
+          ],
+          [
+            2144,
+            "-192/2965"
+          ],
+          [
+            2235,
+            "-324/2965"
+          ],
+          [
+            2260,
+            "-54/2965"
+          ],
+          [
+            2275,
+            "-324/2965"
+          ],
+          [
+            2293,
+            "-516/2965"
+          ],
+          [
+            2323,
+            "-54/2965"
+          ],
+          [
+            2346,
+            "-879/2965"
+          ],
+          [
+            2675,
+            "-54/593"
+          ],
+          [
+            2714,
+            "-78/2965"
+          ],
+          [
+            2770,
+            "-269/593"
+          ],
+          [
+            2788,
+            "-161/593"
+          ],
+          [
+            2812,
+            "-17/593"
+          ],
+          [
+            2814,
+            "-798/2965"
+          ],
+          [
+            4882,
+            "-324/2965"
+          ],
+          [
+            4883,
+            "-81/2965"
+          ],
+          [
+            4886,
+            "-81/2965"
+          ],
+          [
+            4903,
+            "-54/2965"
+          ],
+          [
+            4904,
+            "-54/593"
+          ],
+          [
+            4905,
+            "-54/593"
+          ],
+          [
+            4907,
+            "-54/593"
+          ],
+          [
+            4910,
+            "-54/593"
+          ],
+          [
+            4940,
+            "-528/2965"
+          ],
+          [
+            4941,
+            "-144/593"
+          ],
+          [
+            4943,
+            "-192/2965"
+          ],
+          [
+            4944,
+            "-144/593"
+          ],
+          [
+            5004,
+            "-663/2965"
+          ],
+          [
+            5026,
+            "-324/2965"
+          ],
+          [
+            5041,
+            "-54/2965"
+          ],
+          [
+            5068,
+            "-528/2965"
+          ],
+          [
+            5277,
+            "-81/2965"
+          ],
+          [
+            5295,
+            "-81/2965"
+          ],
+          [
+            5313,
+            "-54/593"
+          ],
+          [
+            5608,
+            "-192/2965"
+          ],
+          [
+            5610,
+            "-528/2965"
+          ],
+          [
+            5862,
+            "-144/593"
+          ],
+          [
+            6659,
+            "-81/593"
+          ],
+          [
+            6660,
+            "-81/593"
+          ],
+          [
+            6661,
+            "-81/593"
+          ],
+          [
+            6662,
+            "-81/593"
+          ],
+          [
+            6666,
+            "-108/593"
+          ],
+          [
+            6667,
+            "-108/593"
+          ],
+          [
+            6668,
+            "-108/593"
+          ],
+          [
+            6669,
+            "-108/593"
+          ],
+          [
+            6672,
+            "-144/593"
+          ],
+          [
+            6673,
+            "-144/593"
+          ],
+          [
+            6674,
+            "-144/593"
+          ],
+          [
+            6675,
+            "-144/593"
+          ],
+          [
+            6678,
+            "-192/593"
+          ],
+          [
+            6679,
+            "-192/593"
+          ],
+          [
+            6680,
+            "-192/593"
+          ]
+        ],
+        "equality_duals": [
+          "243/593",
+          "0",
+          "350/593"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 9,
+        "O_mask": 57,
+        "dual_bound": "7/10",
+        "nonzero_duals": [
+          [
+            5,
+            "-3/20"
+          ],
+          [
+            27,
+            "-3/40"
+          ],
+          [
+            42,
+            "-3/40"
+          ],
+          [
+            54,
+            "-3/40"
+          ],
+          [
+            96,
+            "-3/20"
+          ],
+          [
+            163,
+            "-9/40"
+          ],
+          [
+            279,
+            "-3/10"
+          ],
+          [
+            281,
+            "-27/40"
+          ],
+          [
+            284,
+            "-21/40"
+          ],
+          [
+            292,
+            "-9/40"
+          ],
+          [
+            293,
+            "-11/40"
+          ],
+          [
+            310,
+            "-3/40"
+          ],
+          [
+            440,
+            "-3/40"
+          ],
+          [
+            495,
+            "-3/40"
+          ],
+          [
+            522,
+            "-21/40"
+          ],
+          [
+            530,
+            "-9/40"
+          ],
+          [
+            560,
+            "-3/40"
+          ],
+          [
+            572,
+            "-3/40"
+          ],
+          [
+            646,
+            "-9/40"
+          ],
+          [
+            1054,
+            "-3/40"
+          ],
+          [
+            1071,
+            "-3/20"
+          ],
+          [
+            1263,
+            "-3/20"
+          ],
+          [
+            1341,
+            "-3/8"
+          ],
+          [
+            1357,
+            "-3/40"
+          ],
+          [
+            1372,
+            "-3/40"
+          ],
+          [
+            1412,
+            "-3/40"
+          ],
+          [
+            1551,
+            "-2/5"
+          ],
+          [
+            1553,
+            "-9/40"
+          ],
+          [
+            1587,
+            "-1/10"
+          ],
+          [
+            1589,
+            "-3/8"
+          ],
+          [
+            4882,
+            "-3/40"
+          ],
+          [
+            4883,
+            "-3/40"
+          ],
+          [
+            4903,
+            "-3/20"
+          ],
+          [
+            4907,
+            "-9/40"
+          ],
+          [
+            4940,
+            "-3/10"
+          ],
+          [
+            4943,
+            "-3/40"
+          ],
+          [
+            5025,
+            "-3/40"
+          ],
+          [
+            5142,
+            "-3/20"
+          ],
+          [
+            5335,
+            "-3/20"
+          ],
+          [
+            5450,
+            "-3/40"
+          ],
+          [
+            6659,
+            "-3/20"
+          ],
+          [
+            6660,
+            "-3/40"
+          ],
+          [
+            6661,
+            "-3/40"
+          ],
+          [
+            6666,
+            "-3/20"
+          ],
+          [
+            6667,
+            "-9/40"
+          ],
+          [
+            6668,
+            "-9/40"
+          ],
+          [
+            6672,
+            "-3/10"
+          ],
+          [
+            6673,
+            "-3/10"
+          ],
+          [
+            6674,
+            "-3/10"
+          ],
+          [
+            6678,
+            "-9/20"
+          ],
+          [
+            6679,
+            "-9/20"
+          ]
+        ],
+        "equality_duals": [
+          "3/10",
+          "0",
+          "7/10"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 10,
+        "O_mask": 58,
+        "dual_bound": "2/3",
+        "nonzero_duals": [
+          [
+            33,
+            "-1/9"
+          ],
+          [
+            34,
+            "-1/9"
+          ],
+          [
+            43,
+            "-1/9"
+          ],
+          [
+            96,
+            "-1/9"
+          ],
+          [
+            130,
+            "-1/9"
+          ],
+          [
+            160,
+            "-1/9"
+          ],
+          [
+            279,
+            "-2/9"
+          ],
+          [
+            281,
+            "-5/9"
+          ],
+          [
+            284,
+            "-1/6"
+          ],
+          [
+            292,
+            "-7/27"
+          ],
+          [
+            307,
+            "-1/9"
+          ],
+          [
+            379,
+            "-1/9"
+          ],
+          [
+            412,
+            "-2/9"
+          ],
+          [
+            519,
+            "-4/9"
+          ],
+          [
+            541,
+            "-1/9"
+          ],
+          [
+            616,
+            "-1/9"
+          ],
+          [
+            729,
+            "-1/9"
+          ],
+          [
+            933,
+            "-5/6"
+          ],
+          [
+            955,
+            "-1/9"
+          ],
+          [
+            980,
+            "-1/9"
+          ],
+          [
+            1054,
+            "-1/9"
+          ],
+          [
+            1180,
+            "-1/9"
+          ],
+          [
+            1213,
+            "-1/9"
+          ],
+          [
+            1376,
+            "-1/9"
+          ],
+          [
+            1569,
+            "-5/9"
+          ],
+          [
+            1587,
+            "-1/9"
+          ],
+          [
+            1589,
+            "-4/9"
+          ],
+          [
+            4903,
+            "-4/9"
+          ],
+          [
+            4940,
+            "-1/3"
+          ],
+          [
+            5004,
+            "-7/18"
+          ],
+          [
+            5040,
+            "-4/9"
+          ],
+          [
+            5208,
+            "-7/18"
+          ],
+          [
+            5398,
+            "-4/9"
+          ],
+          [
+            6657,
+            "-1/9"
+          ],
+          [
+            6659,
+            "-1/9"
+          ],
+          [
+            6660,
+            "-1/9"
+          ],
+          [
+            6661,
+            "-1/9"
+          ],
+          [
+            6667,
+            "-4/9"
+          ],
+          [
+            6672,
+            "-4/9"
+          ],
+          [
+            6674,
+            "-4/9"
+          ],
+          [
+            6678,
+            "-4/9"
+          ],
+          [
+            6679,
+            "-4/9"
+          ]
+        ],
+        "equality_duals": [
+          "1/3",
+          "0",
+          "2/3"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 11,
+        "O_mask": 27,
+        "dual_bound": "14/17",
+        "nonzero_duals": [
+          [
+            27,
+            "-3/17"
+          ],
+          [
+            84,
+            "-3/17"
+          ],
+          [
+            279,
+            "-3/17"
+          ],
+          [
+            281,
+            "-15/17"
+          ],
+          [
+            292,
+            "-7/17"
+          ],
+          [
+            349,
+            "-3/17"
+          ],
+          [
+            470,
+            "-3/17"
+          ],
+          [
+            519,
+            "-6/17"
+          ],
+          [
+            538,
+            "-3/17"
+          ],
+          [
+            597,
+            "-3/17"
+          ],
+          [
+            646,
+            "-3/17"
+          ],
+          [
+            853,
+            "-5/17"
+          ],
+          [
+            855,
+            "-6/17"
+          ],
+          [
+            4903,
+            "-3/17"
+          ],
+          [
+            4939,
+            "-3/17"
+          ],
+          [
+            5032,
+            "-3/17"
+          ],
+          [
+            6660,
+            "-3/17"
+          ],
+          [
+            6666,
+            "-3/17"
+          ],
+          [
+            6672,
+            "-6/17"
+          ],
+          [
+            6673,
+            "-6/17"
+          ],
+          [
+            6678,
+            "-12/17"
+          ]
+        ],
+        "equality_duals": [
+          "3/17",
+          "0",
+          "14/17"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 12,
+        "O_mask": 60,
+        "dual_bound": "46/73",
+        "nonzero_duals": [
+          [
+            2,
+            "-18/73"
+          ],
+          [
+            37,
+            "-9/73"
+          ],
+          [
+            54,
+            "-3/146"
+          ],
+          [
+            81,
+            "-9/146"
+          ],
+          [
+            85,
+            "-12/73"
+          ],
+          [
+            146,
+            "-9/73"
+          ],
+          [
+            160,
+            "-15/146"
+          ],
+          [
+            174,
+            "-9/146"
+          ],
+          [
+            205,
+            "-9/146"
+          ],
+          [
+            234,
+            "-9/146"
+          ],
+          [
+            249,
+            "-9/146"
+          ],
+          [
+            279,
+            "-27/146"
+          ],
+          [
+            281,
+            "-81/292"
+          ],
+          [
+            284,
+            "-33/73"
+          ],
+          [
+            293,
+            "-22/73"
+          ],
+          [
+            335,
+            "-9/73"
+          ],
+          [
+            346,
+            "-12/73"
+          ],
+          [
+            412,
+            "-45/146"
+          ],
+          [
+            414,
+            "-27/292"
+          ],
+          [
+            417,
+            "-9/146"
+          ],
+          [
+            429,
+            "-9/146"
+          ],
+          [
+            470,
+            "-9/146"
+          ],
+          [
+            495,
+            "-9/146"
+          ],
+          [
+            522,
+            "-9/73"
+          ],
+          [
+            677,
+            "-9/146"
+          ],
+          [
+            704,
+            "-9/146"
+          ],
+          [
+            756,
+            "-27/146"
+          ],
+          [
+            873,
+            "-9/146"
+          ],
+          [
+            1009,
+            "-9/73"
+          ],
+          [
+            1013,
+            "-15/146"
+          ],
+          [
+            1071,
+            "-3/146"
+          ],
+          [
+            1104,
+            "-9/146"
+          ],
+          [
+            1115,
+            "-9/146"
+          ],
+          [
+            1180,
+            "-9/146"
+          ],
+          [
+            1205,
+            "-9/146"
+          ],
+          [
+            1213,
+            "-9/146"
+          ],
+          [
+            1216,
+            "-9/146"
+          ],
+          [
+            1341,
+            "-42/73"
+          ],
+          [
+            1387,
+            "-9/146"
+          ],
+          [
+            1404,
+            "-3/73"
+          ],
+          [
+            1447,
+            "-6/73"
+          ],
+          [
+            1480,
+            "-3/73"
+          ],
+          [
+            1528,
+            "-9/146"
+          ],
+          [
+            1599,
+            "-37/73"
+          ],
+          [
+            1617,
+            "-25/73"
+          ],
+          [
+            1619,
+            "-9/73"
+          ],
+          [
+            4878,
+            "-9/146"
+          ],
+          [
+            4883,
+            "-9/73"
+          ],
+          [
+            4886,
+            "-9/146"
+          ],
+          [
+            4899,
+            "-15/146"
+          ],
+          [
+            4900,
+            "-15/146"
+          ],
+          [
+            4907,
+            "-9/146"
+          ],
+          [
+            4939,
+            "-27/292"
+          ],
+          [
+            4943,
+            "-123/292"
+          ],
+          [
+            4979,
+            "-3/73"
+          ],
+          [
+            5004,
+            "-33/292"
+          ],
+          [
+            5090,
+            "-9/146"
+          ],
+          [
+            5295,
+            "-9/146"
+          ],
+          [
+            5332,
+            "-141/292"
+          ],
+          [
+            5376,
+            "-33/73"
+          ],
+          [
+            5401,
+            "-9/146"
+          ],
+          [
+            6658,
+            "-9/73"
+          ],
+          [
+            6659,
+            "-9/73"
+          ],
+          [
+            6660,
+            "-9/73"
+          ],
+          [
+            6661,
+            "-9/73"
+          ],
+          [
+            6665,
+            "-12/73"
+          ],
+          [
+            6666,
+            "-12/73"
+          ],
+          [
+            6667,
+            "-12/73"
+          ],
+          [
+            6668,
+            "-12/73"
+          ],
+          [
+            6672,
+            "-6/73"
+          ],
+          [
+            6673,
+            "-75/146"
+          ],
+          [
+            6674,
+            "-9/146"
+          ],
+          [
+            6678,
+            "-21/146"
+          ],
+          [
+            6679,
+            "-87/146"
+          ]
+        ],
+        "equality_duals": [
+          "27/73",
+          "0",
+          "46/73"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 13,
+        "O_mask": 29,
+        "dual_bound": "10/13",
+        "nonzero_duals": [
+          [
+            2,
+            "-3/26"
+          ],
+          [
+            26,
+            "-3/26"
+          ],
+          [
+            84,
+            "-3/13"
+          ],
+          [
+            143,
+            "-6/13"
+          ],
+          [
+            155,
+            "-4/13"
+          ],
+          [
+            279,
+            "-3/13"
+          ],
+          [
+            281,
+            "-9/13"
+          ],
+          [
+            292,
+            "-7/13"
+          ],
+          [
+            334,
+            "-3/26"
+          ],
+          [
+            367,
+            "-3/26"
+          ],
+          [
+            437,
+            "-3/26"
+          ],
+          [
+            470,
+            "-3/13"
+          ],
+          [
+            580,
+            "-3/13"
+          ],
+          [
+            646,
+            "-3/13"
+          ],
+          [
+            789,
+            "-3/26"
+          ],
+          [
+            896,
+            "-7/13"
+          ],
+          [
+            4877,
+            "-3/26"
+          ],
+          [
+            4898,
+            "-3/26"
+          ],
+          [
+            6658,
+            "-3/26"
+          ],
+          [
+            6659,
+            "-3/26"
+          ],
+          [
+            6665,
+            "-3/26"
+          ],
+          [
+            6666,
+            "-3/26"
+          ],
+          [
+            6667,
+            "-3/13"
+          ],
+          [
+            6673,
+            "-6/13"
+          ],
+          [
+            6678,
+            "-6/13"
+          ]
+        ],
+        "equality_duals": [
+          "3/13",
+          "0",
+          "10/13"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 14,
+        "O_mask": 30,
+        "dual_bound": "26/35",
+        "nonzero_duals": [
+          [
+            5,
+            "-3/35"
+          ],
+          [
+            32,
+            "-3/35"
+          ],
+          [
+            33,
+            "-3/35"
+          ],
+          [
+            62,
+            "-9/70"
+          ],
+          [
+            80,
+            "-3/35"
+          ],
+          [
+            96,
+            "-6/35"
+          ],
+          [
+            126,
+            "-3/35"
+          ],
+          [
+            138,
+            "-6/35"
+          ],
+          [
+            216,
+            "-3/35"
+          ],
+          [
+            279,
+            "-6/35"
+          ],
+          [
+            281,
+            "-9/20"
+          ],
+          [
+            292,
+            "-3/10"
+          ],
+          [
+            304,
+            "-3/35"
+          ],
+          [
+            367,
+            "-3/35"
+          ],
+          [
+            470,
+            "-6/35"
+          ],
+          [
+            472,
+            "-3/35"
+          ],
+          [
+            483,
+            "-2/35"
+          ],
+          [
+            519,
+            "-9/20"
+          ],
+          [
+            568,
+            "-3/35"
+          ],
+          [
+            671,
+            "-3/35"
+          ],
+          [
+            793,
+            "-3/35"
+          ],
+          [
+            808,
+            "-3/35"
+          ],
+          [
+            914,
+            "-23/35"
+          ],
+          [
+            4878,
+            "-3/35"
+          ],
+          [
+            4894,
+            "-3/28"
+          ],
+          [
+            4899,
+            "-3/140"
+          ],
+          [
+            4903,
+            "-3/35"
+          ],
+          [
+            4939,
+            "-9/20"
+          ],
+          [
+            5133,
+            "-3/28"
+          ],
+          [
+            5163,
+            "-9/20"
+          ],
+          [
+            6657,
+            "-3/35"
+          ],
+          [
+            6658,
+            "-3/35"
+          ],
+          [
+            6659,
+            "-3/35"
+          ],
+          [
+            6660,
+            "-3/35"
+          ],
+          [
+            6665,
+            "-3/28"
+          ],
+          [
+            6667,
+            "-33/140"
+          ],
+          [
+            6672,
+            "-9/20"
+          ],
+          [
+            6678,
+            "-111/140"
+          ]
+        ],
+        "equality_duals": [
+          "9/35",
+          "0",
+          "26/35"
+        ],
+        "lp_rows": 6752
+      },
+      {
+        "inside_mask": 15,
+        "O_mask": 15,
+        "dual_bound": "1",
+        "nonzero_duals": [],
+        "equality_duals": [
+          "0",
+          "0",
+          "1"
+        ],
+        "lp_rows": 6752
+      }
+    ],
+    "exact_minimum": "23/41",
+    "U4": "8080/14641",
+    "gap": "5463/600281",
+    "scope": "Exact rational duals for all 16 optimal-set orbits on n=8; ground-set restriction and padding assembled in report."
+  },
+  "PE1_witness": {
+    "n": 7,
+    "K": 3,
+    "u": "2",
+    "o": "1",
+    "f": [
+      "0",
+      "1/9",
+      "1/6",
+      "5/18",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "5/6",
+      "17/18",
+      "5/6",
+      "17/18",
+      "1",
+      "10/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "5/6",
+      "17/18",
+      "5/6",
+      "17/18",
+      "1",
+      "10/9",
+      "2/3",
+      "7/9",
+      "5/6",
+      "17/18",
+      "5/6",
+      "17/18",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "5/18",
+      "7/18",
+      "4/9",
+      "5/9",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "7/9",
+      "8/9",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "7/9",
+      "8/9",
+      "7/9",
+      "8/9",
+      "8/9",
+      "1",
+      "8/9",
+      "1",
+      "1",
+      "10/9",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "7/9",
+      "8/9",
+      "7/9",
+      "8/9",
+      "8/9",
+      "1",
+      "8/9",
+      "1",
+      "1",
+      "10/9",
+      "7/9",
+      "8/9",
+      "8/9",
+      "1",
+      "8/9",
+      "1",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9",
+      "1",
+      "10/9"
+    ],
+    "g": [
+      "0",
+      "1/9",
+      "1/6",
+      "5/18",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "1/3",
+      "4/9",
+      "1/2",
+      "11/18",
+      "1/2",
+      "11/18",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "1/6",
+      "5/18",
+      "1/3",
+      "4/9",
+      "1/3",
+      "4/9",
+      "4/9",
+      "5/9",
+      "1/3",
+      "4/9",
+      "4/9",
+      "5/9",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "1/3",
+      "4/9",
+      "4/9",
+      "5/9",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "1/3",
+      "4/9",
+      "4/9",
+      "5/9",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "4/9",
+      "5/9",
+      "5/9",
+      "2/3",
+      "5/9",
+      "2/3",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9",
+      "2/3",
+      "7/9"
+    ],
+    "PE1_ratio": "4/9",
+    "greedy_ratio_on_same_instance": "5/9",
+    "greedy_universal_guarantee": "7/15",
+    "winning_mask": 7,
+    "winning_f": "4/9",
+    "winning_g": "4/9",
+    "opt": "1",
+    "per_start_min_predicted_endpoints": [
+      {
+        "start": 0,
+        "terminal_mask": 7,
+        "f": "4/9",
+        "g": "4/9"
+      },
+      {
+        "start": 1,
+        "terminal_mask": 67,
+        "f": "5/9",
+        "g": "4/9"
+      },
+      {
+        "start": 2,
+        "terminal_mask": 69,
+        "f": "5/9",
+        "g": "4/9"
+      },
+      {
+        "start": 3,
+        "terminal_mask": 73,
+        "f": "2/3",
+        "g": "4/9"
+      },
+      {
+        "start": 4,
+        "terminal_mask": 81,
+        "f": "2/3",
+        "g": "4/9"
+      },
+      {
+        "start": 5,
+        "terminal_mask": 97,
+        "f": "2/3",
+        "g": "4/9"
+      },
+      {
+        "start": 6,
+        "terminal_mask": 67,
+        "f": "5/9",
+        "g": "4/9"
+      }
+    ],
+    "checks": {
+      "edge_band": 448,
+      "square_submod": 672
+    },
+    "padding_checks": [
+      {
+        "n": 8,
+        "PE1_ratio": "4/9"
+      },
+      {
+        "n": 9,
+        "PE1_ratio": "4/9"
+      }
+    ],
+    "count_table": {
+      "delta_f": [
+        [
+          5,
+          4,
+          2,
+          0
+        ],
+        [
+          5,
+          3,
+          1,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0
+        ]
+      ],
+      "delta_g": [
+        [
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "scale": 18,
+      "checked_subsets": 128
+    }
+  },
+  "elapsed_seconds": 23.291295051574707,
+  "status": "PASS",
+  "scope": "Symbolic identities and finite rational/LP checks; see hand-proof assembly in J5 report."
+}

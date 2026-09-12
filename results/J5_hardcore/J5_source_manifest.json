@@ -1,0 +1,115 @@
+{
+  "review": "J5",
+  "review_date": "2026-09-07",
+  "repository": "zhiyunjiang0810/sub-modular-optimization",
+  "commit": "e83eacd4e6d5d896b9243e12165cba8e74c8b7d9",
+  "tree": "29867ff5e18f2ef51a39fa64fc48127a08abcf0f",
+  "files": [
+    {
+      "path": "THEOREM_LEDGER.md",
+      "git_blob_sha": "802553b7c3c84910763d9deb5b2cc20ae719570b",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/THEOREM_LEDGER.md"
+    },
+    {
+      "path": "paper/sections/results.tex",
+      "git_blob_sha": "dbe90e15affd2f548831e6b8594cfb6e848153f0",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/paper/sections/results.tex"
+    },
+    {
+      "path": "paper/sections/appendix_proofs.tex",
+      "git_blob_sha": "5501ec58c639751787b178e95a12def1d73f7d5a",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/paper/sections/appendix_proofs.tex"
+    },
+    {
+      "path": "results/H_J3_integration.md",
+      "git_blob_sha": "aa60f6b7c54576330a7ebb0192b5e5a6cf91893b",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_J3_integration.md"
+    },
+    {
+      "path": "results/H_J3_gate_check.py",
+      "git_blob_sha": "f97ddb5b9d904aa3a255f4890beb1903611ef2dc",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_J3_gate_check.py"
+    },
+    {
+      "path": "results/H_B_asymptotic.md",
+      "git_blob_sha": "9e962a70ebd56565badaba6315bd3859fdec4db0",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_B_asymptotic.md"
+    },
+    {
+      "path": "results/H_B_asymptotic.py",
+      "git_blob_sha": "0f656c050785a5bf8b2d511cbe75e9f5574faa5f",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_B_asymptotic.py"
+    },
+    {
+      "path": "results/H_B_asymptotic.json",
+      "git_blob_sha": "34bff4fddcbbdba0b1efdd66aaaddfddd7d6e6e2",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_B_asymptotic.json"
+    },
+    {
+      "path": "results/H_C_submodular_surrogate.md",
+      "git_blob_sha": "d02f0ac6b9689575169c1be7b96bc2ffaaef0b2f",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_C_submodular_surrogate.md"
+    },
+    {
+      "path": "results/H_C_submodular_surrogate.py",
+      "git_blob_sha": "13e6e20f90afc5f2f8c56adc1464a9eae60886e5",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_C_submodular_surrogate.py"
+    },
+    {
+      "path": "results/H_C_submodular_surrogate.json",
+      "git_blob_sha": "b814ff36aea111dffffdade65d81b8fdf3fdaba9",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_C_submodular_surrogate.json"
+    },
+    {
+      "path": "results/H_E_ceiling_small_n.md",
+      "git_blob_sha": "5cfad3a3b6895348a147fbf65d2d3f95aba7a196",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_E_ceiling_small_n.md"
+    },
+    {
+      "path": "results/H_E_ceiling_small_n.py",
+      "git_blob_sha": "3f8a32428e87450b4d027a03b6fb4bf7145f6921",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_E_ceiling_small_n.py"
+    },
+    {
+      "path": "results/H_E_ceiling_small_n.json",
+      "git_blob_sha": "20f4daa4c1bba80d70b873333b6f4cda96a8b361",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_E_ceiling_small_n.json"
+    },
+    {
+      "path": "results/H_F_partial_enumeration.md",
+      "git_blob_sha": "554658e0f0e051d13c83c27d31c628ab3602b9b3",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_F_partial_enumeration.md"
+    },
+    {
+      "path": "results/H_F_partial_enumeration.py",
+      "git_blob_sha": "e354b82ce31034b6cb2c51a6cb865c8afe02a307",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_F_partial_enumeration.py"
+    },
+    {
+      "path": "results/H_F_partial_enumeration.json",
+      "git_blob_sha": "80ee0e54f2bccc3e8035fc73dd3a1acde3ceb095",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/H_F_partial_enumeration.json"
+    },
+    {
+      "path": "paper/sections/model.tex",
+      "git_blob_sha": "eb4cc98d3be90b2d578159e83a3dd903c28f6503",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/paper/sections/model.tex"
+    },
+    {
+      "path": "results/F4_submodular_ftilde.py",
+      "git_blob_sha": "6ee8d2b229df5570cce790526c79d320299ba8f0",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/results/F4_submodular_ftilde.py"
+    },
+    {
+      "path": "code/reduced_lp.py",
+      "git_blob_sha": "4226d720897b0719b655507f1b9d1359a3083090",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/code/reduced_lp.py"
+    },
+    {
+      "path": "CLAUDE.md",
+      "git_blob_sha": "fb1beb7cf4307681cf0c40dbdf2cf1b3707af558",
+      "url": "https://github.com/zhiyunjiang0810/sub-modular-optimization/blob/e83eacd4e6d5d896b9243e12165cba8e74c8b7d9/CLAUDE.md"
+    }
+  ],
+  "note": "Remote files were read at this immutable commit. Reproduction uses the independent J5 script, not these original scripts."
+}
