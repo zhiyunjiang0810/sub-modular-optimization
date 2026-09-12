@@ -1,0 +1,238 @@
+
+====================================================================================================
+J7 SYMBOLIC ORACLE -- independent verification of results/J7/linear_anysize.md
+====================================================================================================
+  domain: K >= 3 integer (K = 3 + w), eta > 1 (eta = 1 + u), nu = eta/(eta-1) > 1,
+          m = min{z >= 1 : Psi(z) <= 0}, j = max{0, min{K-1, K+1-ceil(eta)}}
+
+====================================================================================================
+S1  Psi/phi structure and the root location  ->  eta(K-1) < m < K eta   [J7 (4),(5)]
+====================================================================================================
+  PASS     S1.1         phi(t) = nu^(-t) Psi(t) = K eta - t - 1 - K(eta-1) nu^(-t)
+  PASS     S1.2         phi''(t) = -K(eta-1)(ln nu)^2 nu^(-t)
+  PASS     S1.3         phi'' < 0 strictly: K > 0, eta-1 = u > 0, (ln nu)^2 > 0 since nu = 1 + 1/u > 1, nu^(-t) > 0   [strict concavity]
+  PASS     S1.4         phi(0) = Psi(0) = K - 1
+  PASS     S1.5         phi(0) = K - 1 > 0 (K >= 3)
+  PASS     S1.6         phi(eta(K-1)) = (eta-1)(1 - K nu^(-eta(K-1)))
+  PASS     S1.7         nu^(eta(K-1)) = (nu^eta)^(K-1)
+  PASS     S1.8         nu^eta = (1 + 1/u)^(u+1) with u = eta - 1 > 0
+  PASS     S1.9         h(u) = (u+1)ln(1+1/u) - 1 has h'(u) = ln(1+1/u) - 1/u
+  PASS     S1.10        lim_{u->oo} h(u) = 0
+  PASS     S1.11        d/dx [x - ln(1+x)] = x/(1+x), and [x - ln(1+x)]_{x=0} = 0
+  PASS     S1.12        x/(1+x) > 0 for x > 0
+  PASS     S1.13        (1+y)/(1-y) at y = 1/(2u+1) equals 1 + 1/u
+  PASS     S1.14        d/dy[atanh(y) - y] = y^2/(1-y^2), value 0 at y = 0
+  PASS     S1.15        y^2/(1-y^2) > 0 at y = 1/(2u+1) in (0,1)
+  PASS     S1.16        granting ln(1+1/u) > 2/(2u+1): (u+1)ln(1+1/u) - 1 > 1/(2u+1) > 0
+  ASSEMBLY S1.17        (1+1/u)^(u+1) > e for u > 0, hence nu^eta > e   [classical fact, cited not re-proved]
+  EXACT    S1.18        (1+1/u)^(u+1) > e checked exactly at u = 1..60 (Rational vs E)
+  PASS     S1.19        base K = 2: e^(K-1) = e > 2 = K
+  PASS     S1.20        induction step for e^(K-1) > K: e*K - (K+1) = K(e-1) - 1 > 0 for K >= 2
+  PASS     S1.21        base K = 3: e^(K-1) = e^2 > 4 = K+1
+  PASS     S1.22        induction step for e^(K-1) > K+1 (K >= 3): e(K+1) - (K+2) = K(e-1) + e - 2 > 0
+  ASSEMBLY S1.23        e^(K-1) > K for integer K >= 2 and e^(K-1) > K+1 for integer K >= 3
+  PASS     S1.24        phi(eta(K-1)) = (eta-1)(1 - K nu^(-eta(K-1))) > 0 once nu^(eta(K-1)) = K + s2 > K
+  ASSEMBLY S1.25        nu^(eta(K-1)) = (nu^eta)^(K-1) > e^(K-1) > K
+  PASS     S1.26        Psi(K eta - 1) = -K(eta-1)
+  PASS     S1.27        so Psi(K eta - 1) < 0
+  ASSEMBLY S1.28        J7 (5): eta(K-1) < m < K eta   [single-crossing assembly]
+  PASS     S1.29        eta(K-1) - (K-1) = (K-1)(eta-1) > 0, so m > eta(K-1) > K-1
+  ASSEMBLY S1.30        m >= K (m integer, m > K-1)
+
+====================================================================================================
+S2  J7 (7): the two truncation identities and 1/(m+1) <= d <= 1/m
+====================================================================================================
+  PASS     S2.1         d - 1/(m+1) = -Psi(m)/(K(m+1)B_m)
+  PASS     S2.2         1/m - d = nu Psi(m-1)/(K m B_m)
+  PASS     S2.3         Psi(m) = -s0 <= 0 (definition of m) and B_m = bp > 0 give d - 1/(m+1) >= 0
+  PASS     S2.4         Psi(m-1) = s1 >= 0 (minimality of m; for m = 1, Psi(0) = K-1 > 0) gives 1/m - d >= 0
+  PASS     S2.5         with nu^m = 1 + m(nu-1) + e (e >= 0): B_m = m/(eta-1) + eta e
+  PASS     S2.6         B_m >= m/(eta-1) > 0 (uses eta(nu-1) - 1 = 1/(eta-1) > 0)
+  PASS     S2.7         Bernoulli induction step: R_{m+1} = nu R_m + m(nu-1)^2 with R_m = nu^m - 1 - m(nu-1)
+  PASS     S2.8         so R_m >= 0 implies R_{m+1} >= 0; base R_1 = 0
+  ASSEMBLY S2.9         Bernoulli nu^m >= 1 + m(nu-1) for integer m >= 1
+  ASSEMBLY S2.10        J7 (7): 1/(m+1) <= d <= 1/m
+
+====================================================================================================
+S3  J7 (8): d - 1/(K eta) = (m - eta(K-1))/(K eta B_m) > 0
+====================================================================================================
+  PASS     S3.1         d - 1/(K eta) = (m - eta(K-1))/(K eta B_m)
+  PASS     S3.2         with m - eta(K-1) = sgap > 0 (S1) and B_m = bp > 0: d > 1/(K eta)
+
+====================================================================================================
+S4  J7 (11): r_T = g_T, and 0 <= r_T <= D equivalent to (7)
+====================================================================================================
+  PASS     S4.1         r_T = g_T exactly, for d = (nu^m/K - 1)/B_m  (this is what defines d)
+  PASS     S4.2         r_T = Q(1 - m d)
+  PASS     S4.3         r_T = Q m (1/m - d): r_T >= 0 iff d <= 1/m
+  PASS     S4.4         D - r_T = Q(m+1)(d - 1/(m+1)): r_T <= D iff d >= 1/(m+1)
+  PASS     S4.5         r_T = Q m (1/m - d) = Q nu Psi(m-1)/(K B_m) >= 0
+  PASS     S4.6         D - r_T = -Q Psi(m)/(K B_m) >= 0
+
+====================================================================================================
+S5  J7 (12) a_x - a_{x+1} = g_{x+1}/eta on every segment, and (14) H(x+1,0) = H(x,1)
+====================================================================================================
+  PASS     S5.1         (12) geometric phase x+1 <= j: a_x - a_{x+1} = g_{x+1}/eta (uses (K-1)(1-q) = q/eta)
+  PASS     S5.2         the geometric-phase mechanism: (K-1)(1-q) = q/eta, 1-q = 1/k1
+  PASS     S5.3         closed form satisfies the linear-phase recursion g_{x+1} = nu(g_x - D)
+  PASS     S5.4         (12) linear phase j <= x < x+1 <= T (l = x - j >= 0, so the junction x = j is the case l = 0): a_x - a_{x+1} = g_{x+1}/eta
+  PASS     S5.5         the two branches agree at x = j: g_j = Q/K = q^j/K (and r_j = Q)
+  PASS     S5.6         (12) closing step x = T-1 -> T: a_{T-1} - a_T = g_T/eta with a_T = 0
+  PASS     S5.7         (12) saturated segment x >= T: 0 - 0 = 0/eta
+  PASS     S5.8         (14) H(x+1,0) = H(x,1) holds identically GIVEN (12): substituting a_x = a_{x+1} + g_{x+1}/eta and r_{x+1} = a_{x+1} + g_{x+1}
+  PASS     S5.9         (14) therefore holds on every segment, x >= 0, since (12) does (S5.1, S5.4, S5.6, S5.7)
+
+====================================================================================================
+S6  J7 (13): K g - r on the plateau, concavity, endpoints
+====================================================================================================
+  PASS     S6.1         (13) K g_{j+l} - r_{j+l} = l D - K(eta D - Q/K)(nu^l - 1)
+  PASS     S6.2         second difference in l equals -(nu-1)^2 nu^l K (eta D - Q/K)
+  PASS     S6.3         eta D - Q/K = Q eta (d - 1/(K eta)) = Q(m - eta(K-1))/(K B_m)
+  PASS     S6.4         eta D - Q/K >= 0 by S3, so the second difference is <= 0 (concave in l)
+  PASS     S6.5         (13) equals 0 at l = 0
+  PASS     S6.6         (13) equals (K-1) r_T at l = m  (uses g_T = r_T)
+  ASSEMBLY S6.7         K g_x >= r_x for j <= x <= T   [concavity-to-interior assembly]
+  PASS     S6.7a        chord identity: K g_{j+l} - r_{j+l} = (l/m)(K-1) r_T + K(eta D - Q/K)[(l/m)(nu^m - 1) - (nu^l - 1)]
+  PASS     S6.7b        the chord endpoint is (K-1) r_T (same as S6.6)
+  PASS     S6.7c        so K g_x >= r_x on the plateau once (l/m)(nu^m - 1) >= nu^l - 1, i.e. once m(nu^l - 1) <= l(nu^m - 1) for integers 0 <= l <= m
+  PASS     S6.7d        the residual inequality in averaged form: (nu^l - 1)/(nu-1) = sum_{i<l} nu^i, so it says the average of the first l terms of the increasing sequence nu^i is at most the average of the first m   [Nl stands for nu^l]
+  EXACT    S6.7e        m(nu^l - 1) <= l(nu^m - 1) checked exactly for 7 rational nu > 1 and all integers 0 <= l <= m <= 40
+  PASS     S6.8         geometric phase x <= j: K g_x - r_x = 0 exactly (equality, not slack)
+  PASS     S6.9         saturated segment x > T: K g_x - r_x = 0 - 0 = 0
+
+====================================================================================================
+S7  junction inequality p_{j-1} = Q/((K-1)eta) >= D   (j >= 1)
+====================================================================================================
+  PASS     S7.1         p_{j-1} = q^(j-1) - q^j = Q(1-q)/q = Q/((K-1) eta)
+  PASS     S7.2         1/(eta(K-1)) - 1/m = (m - eta(K-1))/(eta(K-1) m) with m = eta(K-1)+sgap
+  PASS     S7.3         so 1/m < 1/(eta(K-1))
+  PASS     S7.4         p_{j-1} - D = Q(1/((K-1)eta) - d) = Q[(1/m - d) + (1/(eta(K-1)) - 1/m)] >= 0, strict by S7.3
+
+====================================================================================================
+S8  J7 section 3.3: the four edge classes, the band, and the monotone/DR reduction
+====================================================================================================
+  PASS     S8.1         edge class 1 (x-direction, y=0): DF = p_x
+  PASS     S8.2         edge class 1: DH = p_x + (eta-1) u_x
+  PASS     S8.3         edge class 2 (x-direction, y>=1): DF = ((K-y)/(K-1)) u_x
+  PASS     S8.4         edge class 2: DH = eta DF
+  PASS     S8.5         edge class 3 (y-direction, y=0->1): DF = g_x
+  PASS     S8.6         edge class 3: DH = g_x (= DF)
+  PASS     S8.7         edge class 4 (y-direction, y>=1): DF = a_x/(K-1)
+  PASS     S8.8         edge class 4: DH = eta DF
+  PASS     S8.9         class 1 lower band: DH - DF = (eta-1) u_x >= 0  <=  u_x >= 0
+  PASS     S8.10        class 1 upper band: eta DF - DH = (eta-1)(p_x - u_x) >= 0  <=  p_x >= u_x
+  PASS     S8.11        classes 2 and 4 (DH = eta DF): band holds iff DF >= 0
+  PASS     S8.12        class 3 (DH = DF = g_x): band holds iff g_x >= 0
+  PASS     S8.13        y-direction DR at y=0: DF(y=0) - DF(y=1) = g_x - a_x/(K-1) = (K g_x - r_x)/(K-1)
+  PASS     S8.14        mixed second difference at y=0 equals g_{x+1} - g_x <= 0
+  PASS     S8.15        x-direction DF at y=1 equals u_x, so the mixed difference at y=0 in the other order is u_x - p_x <= 0
+  PASS     S8.16        y-direction DR for y >= 1 is 0 = 0 (DF = a_x/(K-1) does not depend on y), and the mixed difference for y >= 1 is -u_x/(K-1) <= 0
+
+  reduced list: (R1) g >= 0, (R2) g nonincreasing, (R3) a >= 0 nonincreasing,
+                (R4) u >= 0 nonincreasing, (R5) p >= 0 nonincreasing and p >= u, (R6) K g >= r
+
+  PASS     S8.17        R2 geometric: g_x - g_{x+1} = q^x(1-q)/K
+  PASS     S8.18        R2 geometric: > 0 since 1 - q = 1/k1
+  PASS     S8.19        R2 plateau: g_x - g_{x+1} = (eta D - Q/K) nu^l (nu - 1)
+  PASS     S8.20        R2 plateau: >= 0 by S6.3/S3 (eta D - Q/K >= 0)
+  PASS     S8.21        R2 closing step: g_T - g_{T+1} = r_T - 0 = r_T >= 0 (S4.1, S4.5); R2 junction j-1 -> j: q^(j-1)/K - Q/K = Q(1/q - 1)/K > 0
+  PASS     S8.22a       R1 plateau in closed form: g_{j+l} = r_T + (eta D - Q/K) nu^l (nu^(m-l) - 1)
+  PASS     S8.22b       R1 plateau: g_{j+l} >= 0 with r_T >= 0 (S4.5), eta D - Q/K >= 0 (S6.3) and nu^(m-l) - 1 = cc >= 0 for 0 <= l <= m
+  ASSEMBLY S8.22        R1 g_x >= 0 everywhere   [residue reduced to nu^(m-l) >= 1]
+  PASS     S8.23        R4 u_x = a_x - a_{x+1} = g_{x+1}/eta >= 0 and nonincreasing
+  PASS     S8.24a       R3 plateau, telescoped: a_{j+l} = sum_{i=l+1}^{m} g_{j+i}/eta (sympy closed-form geometric sum, uses nu/(nu-1) = eta)
+  ASSEMBLY S8.24        R3 a_x >= 0 and nonincreasing   [residue reduced to a finite sum of nonnegatives]
+  PASS     S8.25        R5 geometric: p_x - u_x = q^x(1-q) - q^(x+1)/(K eta) = q^x/(K k1)
+  PASS     S8.26        R5 geometric: p_x - u_x > 0
+  PASS     S8.27        R5 plateau: p_x - u_x = D - g_{x+1}/eta = (eta D - Q/K) nu^(l+1)/eta
+  PASS     S8.28        R5 plateau: >= 0 by S3 (eta D >= Q/K)
+  PASS     S8.29        R5 closing step x = T: p_T - u_T = r_T - 0 = r_T >= 0; saturated x > T: 0 - 0 = 0
+  PASS     S8.30        R5 p_x >= 0 and nonincreasing: geometric p_x = q^x/k1 strictly decreasing; junction p_{j-1} = Q/((K-1)eta) >= D (S7); plateau p_x = D constant for j <= x <= T-1; closing p_T = r_T <= D (S4.4) and p_T = r_T >= 0 (S4.5); p_x = 0 for x > T
+  PASS     S8.31        R6 K g_x >= r_x: S6 (equality on the geometric phase and after T, concavity argument on the plateau)
+  PASS     S8.32        H(0,0) = C - r_0 - (eta-1) a_0 = 0 (r_0 = 1, a_0 = (K-1)/K)
+  PASS     S8.33        F(0,0) = 1 - r_0 = 0, F(x,K) = 1, F <= 1 (needs r_x >= 0, a_x >= 0), H monotone (follows from DH >= DF >= 0 on every class)
+
+====================================================================================================
+S9  J7 (17): W_K = F(K,0) and W_K - rho_K
+====================================================================================================
+  PASS     S9.1         W_K = F(K,0) = 1 - r_K with r_K = Q - (K-j) D  (needs j < K <= T)
+  ASSEMBLY S9.2         no truncation before x = K: K <= T = j + m
+  PASS     S9.3         W_K - V_j = (K-j) Q (d - 1/(K eta))
+  PASS     S9.4         J7 (17): W_K - rho_K = (K-j)Q(m - eta(K-1))/(K eta B_m)
+  PASS     S9.5         W_K - rho_K > 0 by S1(a) (m > eta(K-1)) and B_m > 0
+
+====================================================================================================
+S10  J7 (18): 0 < W_K - rho_K < 1/(K(e^(K-1) - K - 1)) for K >= 3
+====================================================================================================
+  PASS     S10.1        branch j = K+1-ceil(eta) (unclamped): K - j = ceil(eta) - 1 and eta - (ceil(eta)-1) = zb > 0 since eta < ceil(eta) <= eta + 1
+  PASS     S10.2        branch j = K-1 (upper clamp, ceil(eta) <= 2): K - j = 1 <= eta
+  PASS     S10.3        branch j = 0 (lower clamp, ceil(eta) >= K+1 hence eta > K): K - j = K < eta
+  ASSEMBLY S10.4        K - j <= eta in all three branches
+  PASS     S10.5        q = (K-1)eta/k1 < 1 since 1 - q = 1/k1 > 0
+  ASSEMBLY S10.6        Q = q^j <= 1 for integer j >= 0
+  PASS     S10.7        with m = K eta - sc (sc > 0 by S1(b)): m - eta(K-1) = eta - sc < eta
+  PASS     S10.8        so m - eta(K-1) < eta strictly
+  PASS     S10.9        B_m = eta(nu^m - 1) - m > eta(e^(K-1) - 1 - K) using nu^m > e^(K-1) (S1) and m < K eta (S1(b))
+  PASS     S10.10       the slack is strictly positive
+  ASSEMBLY S10.11       nu^m > e^(K-1): m > eta(K-1) (S1(a)) and nu > 1 give nu^m > nu^(eta(K-1)) > e^(K-1)
+  ASSEMBLY S10.12       e^(K-1) - K - 1 > 0 for integer K >= 3
+  PASS     S10.13       replacement lemma (numerator): 0 <= v <= v + sl and R > 0 give v R <= (v+sl) R
+  PASS     S10.14       replacement lemma (denominator): 0 < Dsm <= Dsm + Dsl and N >= 0 give N/(Dsm+Dsl) <= N/Dsm
+  PASS     S10.15       the closing arithmetic: eta * 1 * eta / (K eta * eta X) = 1/(K X) with X = e^(K-1) - 1 - K
+  ASSEMBLY S10.16       J7 (18): 0 < W_K - rho_K < 1/(K(e^(K-1) - K - 1)) for K >= 3
+
+====================================================================================================
+S11  the example rows, exact rationals
+====================================================================================================
+  EXACT    S11.1        K=3, eta=3/2: Psi(3) = 12 > 0, Psi(4) = -42 < 0, m = 4
+  EXACT    S11.2        K=3, eta=3/2: B_4=116, d=13/58, j=2, Q=9/16, D=117/928, W_3=523/928=9/16+1/928, rho_3=9/16
+  EXACT    S11.3        K=3, eta=3/2: the full (x,y) count grid satisfies every legality condition (range, monotone, band, DR, O-independence, normalisation)
+  EXACT    S11.4        K=3, eta=3/2: F(K,0) = 523/928 on the instantiated grid
+  EXACT    S11.5        K=3, eta=667/500 (the F3 counterexample point): the Psi rule gives m = 3 while the old rule ceil(K eta) - 1 gives 4
+  EXACT    S11.6        K=3, eta=667/500: old rule gives r_T < 0 (illegal), Psi rule gives r_T >= 0
+  EXACT    S11.7        K=3, eta=667/500: full count grid legal under the Psi rule
+  EXACT    S11.8        the value cited in J7 section 4 for the old rule's r_T at K=3, eta=667/500 is reproduced exactly by this pipeline
+
+====================================================================================================
+S12  exact-rational cross-check of the Psi rule against the direct argmax of D(m)
+====================================================================================================
+  PASS     S12.0a       d(m) - d(m-1) = r_T(m)/(eta B_{m-1}), and r_T(m) has the sign of Psi(m-1) (S4.3, S2.2): d increases exactly while Psi(.-1) >= 0
+  PASS     S12.0b       d(m) - r_T(m) = (eta-1) B_{m+1} (d(m) - d(m+1)), and d(m) - r_T(m) = (m+1)(d(m) - 1/(m+1)) has the sign of -Psi(m) (S2.1): d decreases exactly while Psi(.) <= 0
+  ASSEMBLY S12.0c       argmax_z d(z) = m = min{z : Psi(z) <= 0}
+  EXACT    S12.1        Psi rule m = min{z : Psi(z) <= 0} equals argmax_m d(m) on all 303 exact-rational grid points (K = 3..12)
+  EXACT    S12.2        the Psi-rule family is feasible at every grid point: r_T >= 0
+  EXACT    S12.3        J7's j = max{0, min{K-1, K+1-ceil(eta)}} attains rho_K = min_t V_t at every grid point
+  EXACT    S12.4        0 < W_K - rho_K < 1/(K(e^(K-1)-K-1)) at every grid point
+    K=3 eta=3/2: j=2 m=4 T=6 F(K,0)=0.563577586 violations=0
+    K=3 eta=667/500: j=2 m=3 T=5 F(K,0)=0.603675679 violations=0
+    K=3 eta=5/2: j=1 m=7 T=8 F(K,0)=0.394457941 violations=0
+    K=4 eta=3/2: j=3 m=5 T=8 F(K,0)=0.543703751 violations=0
+    K=4 eta=7/2: j=1 m=13 T=14 F(K,0)=0.284480606 violations=0
+    K=5 eta=3/2: j=4 m=7 T=11 F(K,0)=0.532216915 violations=0
+    K=5 eta=11/10: j=4 m=5 T=9 F(K,0)=0.639350641 violations=0
+    K=6 eta=5/2: j=4 m=14 T=18 F(K,0)=0.363020447 violations=0
+    K=7 eta=3/2: j=6 m=10 T=16 F(K,0)=0.519173000 violations=0
+    K=8 eta=199/100: j=7 m=15 T=22 F(K,0)=0.423147900 violations=0
+  EXACT    S12.5        full (x,y) count-grid legality battery (range, monotone, band, three DR second differences, O-independence on y <= 1, normalisation) on 10 exact-rational configurations
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+  PASS      116
+  EXACT      15
+  ASSEMBLY   17
+  S1   VERIFIED-SYMBOLIC + EXACT, with HAND-PROOF-UNREVIEWED residue   (30 items)
+  S2   VERIFIED-SYMBOLIC, with HAND-PROOF-UNREVIEWED residue   (10 items)
+  S3   VERIFIED-SYMBOLIC   (2 items)
+  S4   VERIFIED-SYMBOLIC   (6 items)
+  S5   VERIFIED-SYMBOLIC   (9 items)
+  S6   VERIFIED-SYMBOLIC + EXACT, with HAND-PROOF-UNREVIEWED residue   (14 items)
+  S7   VERIFIED-SYMBOLIC   (4 items)
+  S8   VERIFIED-SYMBOLIC, with HAND-PROOF-UNREVIEWED residue   (36 items)
+  S9   VERIFIED-SYMBOLIC, with HAND-PROOF-UNREVIEWED residue   (5 items)
+  S10  VERIFIED-SYMBOLIC, with HAND-PROOF-UNREVIEWED residue   (16 items)
+  S11  VERIFIED-LP (exact rational)   (8 items)
+  S12  VERIFIED-SYMBOLIC + EXACT, with HAND-PROOF-UNREVIEWED residue   (8 items)
+
+  wrote results/J7_symbolic.json
+  FAILED items: none
