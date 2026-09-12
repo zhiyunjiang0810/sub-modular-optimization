@@ -1,0 +1,2 @@
+13 symbolic identities: PASS
+{'configs': 159, 'edges': 111032, 'DR': 207842, 'balanced': 2441}
