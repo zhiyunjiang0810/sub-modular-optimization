@@ -1,5 +1,5 @@
-% L3 (TASKS7): draft open-problem paragraph and paper-version sandwich
-% figure, for the conclusion/discussion section.
+% L3 (TASKS7), REWRITTEN on the J6/J7 day: draft open-problem paragraph and
+% paper-version sandwich figure, for the conclusion/discussion section.
 %
 % NOT wired into paper/main.tex: the conclusion is written by the human
 % (same rule as abstract/intro).  This file is the drop-in candidate text.
@@ -10,83 +10,72 @@
 %   rm main_l3.tex        # log kept as results/L3_compile.log
 %
 % Numbers note: as a results/ draft this file is outside the G3 audit scope;
-% on wiring into main, the four literals below (0.4216, 0.4242, 0.5 at
-% K=8/eta=2, and the eta set {2, 2.5}) must become numbers.tex macros per
-% the CLAUDE.md rule (proposed names: \OPRhoEightTwo, \OPUEightTwo,
-% \OPInvEtaTwo; the eta set can stay symbolic).  Sources: 0.4216/0.4242 are
-% rho_8(2), U_8(2) from results/L1_table.csv (exact rationals; also printed
-% by results/L3_sandwich_fig.py); the PE_1 values are ledger card T11
-% (results/H_F_partial_enumeration.py).
+% on wiring into main, the literals below (0.4216, 5.9e-7 at K=8/eta=2)
+% must become numbers.tex macros per the CLAUDE.md rule.  Sources: rho_8(2)
+% from results/L1_table.csv; W_8(2) - rho_8(2) printed by
+% results/L3_sandwich_fig.py (exact-rational gap identity (17), ledger
+% T10d).
 %
-% Assertion discipline (TASKS7): the only assertion beyond verified facts is
-% the single conjecture sentence at the end; everything else is a statement
-% of what is proved, computed, or not known.
+% History: the previous version of this draft posed "settling the last
+% O(1/K^2)" as the open problem.  That problem is now closed twice over:
+% thm:linear-exact (ledger T10c) gives the exact value rho_K for the
+% size-<=K class at every n >= 4K^5, and thm:linear-anysize (ledger T10d)
+% caps the arbitrary-size linear class at rho_K plus an exponentially
+% small term.  The successor open problem below is the one recorded on
+% card T10d.
 
-\paragraph{An open problem: the last $O(1/K^{2})$.}
-Corollary~\ref{cor:greedybudget} and Theorem~\ref{thm:exact} leave a
-sandwich.  Within the class $\mathcal A_{\mathrm{lin}}$ of deterministic
-algorithms operating on predictive greedy's own budget, at most $nK$
-queries of size at most $K$, the best achievable worst-case ratio at error
-level $\eta$ lies in the interval
-$[\rho_K(\eta),\,\min\{U_K(\eta),1/\eta\}]$, whose width at fixed
-$\eta$ is $c'(\eta)/K^{2}+O(1/K^{3})$
-(Remark~\ref{rem:greedybudget}).  At $K=8$ and $\eta=2$ the interval reads
-$[0.4216,\,0.4242]$, against the unrestricted-query ceiling $1/\eta=0.5$.
-For $\eta\ge K$ the interval is a point and predictive greedy is exactly
-optimal within the class.  For $1<\eta<K$ and $n\ge4K^{5}$ we do not know whether the lower
-end moves: in that range we are not aware of any algorithm in
-$\mathcal A_{\mathrm{lin}}$
-whose worst-case ratio exceeds $\rho_K(\eta)$.  The quantifier on $n$ is
-necessary: for small $n$ the budget $nK$ admits exhaustive search over all
-$K$-subsets (at $n=4$, $K=2$, $\eta=3/2$ it guarantees $2/3=1/\eta$, above
-$\rho_2=3/5$), so no greedy-optimality reading survives there.
-% M2.3 (J5 section 11 counterexample, recomputed exactly:
-% results/M0_counterexamples.py part 2).  Two natural linear-budget candidates provide no counterexample at the
-exact-LP level ($K\le3$, $n\le7$, adversarial ties): choosing the best
-$K$-subset of a top-$(K{+}1)$ shortlist by predicted values collapses to a
-one-element guarantee, far below $\rho_K$ in all twenty solved
-configurations, while predictive greedy followed by a single swap pass on
-$\tilde f$ matches $\rho_K$ exactly at $n=2K$ and falls strictly below it
-at every solved larger-$n$ configuration, all four error levels at $K=3$,
-$n=7$ included.
-% Source: results/L2_linear_candidates.md sections 0, 2, 5 (5.1.1: the two
-% formerly open K=3 n=7 cells were exhausted on 2026-09-11, exact values
-% 31/51 and 37/69, both strictly below rho_3); ledger T11.
-Partial enumeration, which improves the finite-$K$ constant in the
-exact-oracle setting of Nemhauser, Wolsey and Fisher (1978, Section~7,
-Theorem~7.1) and, unlike the two candidates
-above, does beat $\rho_3$ at $n=2K$, is finite-parameter evidence in the
-same direction rather than a way out: at $R=1$, $K=3$ its exact worst case
-falls strictly below $\rho_3$ already at $n=7,8$ for $\eta\in\{2,\,2.5\}$,
-the gain of enumerating a starting element being outpaced by the loss of
-selecting the endpoint by $\tilde f$.  A
-construction direction with finite exhaustive support
-(Appendix~\ref{app:hardness-anysize}) points the same way for far larger
-budgets of arbitrary-size queries.  We conjecture that predictive greedy is
-worst-case optimal within $\mathcal A_{\mathrm{lin}}$ for $n\ge4K^{5}$;
-settling the last
-$O(1/K^{2})$ is open.
-% M2.3: the conjecture carries the n >= 4K^5 quantifier for the same
-% reason as above.  Evidence labels: every "exact" fraction from the
-% L2/L2R/H-F/P2 computations is [VERIFIED-LP, finite parameters,
-% floating-point solves with rational witnesses], per ledger T11 (M2.1).
+\paragraph{An open problem: the last exponentially small term.}
+Within predictive greedy's own oracle budget the picture is now closed or
+nearly closed on both readings of the query model.  If every query has
+size at most $K$, Theorem~\ref{thm:linear-exact} gives the exact optimum:
+no deterministic algorithm with at most $nK$ queries beats
+$\rho_K(\eta)$ at any $n\ge4K^{5}$, and predictive greedy attains it.
+If queries of arbitrary size are allowed, Theorem~\ref{thm:linear-anysize}
+pins the $n\to\infty$ optimum $\alpha_{\mathrm{lin}}(K,\eta)$ into
+\[
+  \rho_K(\eta)\;\le\;\alpha_{\mathrm{lin}}(K,\eta)\;\le\;
+  \rho_K(\eta)+\frac{1}{K\,(e^{K-1}-K-1)}
+  \qquad(K\ge3),
+\]
+a band exponentially small in $K$ (Figure~\ref{fig:sandwich}); at $K=8$
+and $\eta=2$ it has width $5.9\cdot10^{-7}$ above $\rho_8(2)=0.4216$.
+What remains open is the last term: either remove it, proving
+$\alpha_{\mathrm{lin}}(K,\eta)=\rho_K(\eta)$ outright, or exhibit a
+linear-query algorithm whose worst-case ratio strictly exceeds
+$\rho_K(\eta)$.  Two structural facts calibrate the difficulty.  The
+upper-bound side cannot be settled by the present family shape: for
+count-grid constructions whose predictor is a function of $|S|$ on all
+sets with $|S\cap O|\le1$, of every size, the value
+$W_K(\eta)>\rho_K(\eta)$ is optimal (the excess is forced, ledger T10d
+and \texttt{results/Q3\_failure\_point.md}), so removing the term needs
+either asymmetry or a different indistinguishability region.  The
+algorithm side is constrained by finite evidence in the opposite
+direction: every candidate examined so far, top-$(K{+}1)$ shortlists,
+greedy-plus-swap, partial enumeration, and $\max$ of forward and reverse
+greedy, falls back to $\rho_K$ or below once $n$ exceeds roughly $2K$
+(ledger T11), and at small $n$ the comparison degenerates (exhaustive
+search enters the budget; reverse greedy reads the hidden optimum off
+the leaking large sets at $n<K+t^{\ast}$).  We do not presuppose which
+way the term resolves.
 
 % Draft caption for the paper-version sandwich figure
 % (paper/figures/sandwich_paper.pdf, built by results/L3_sandwich_fig.py).
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/sandwich_paper}
-\caption{The sandwich around predictive greedy within its own query budget.
-(a)~At $K=8$: the a priori guarantee $L_8$, greedy's exact worst case
-$\rho_8$ (Theorem~\ref{thm:exact}), the budget-class ceiling
-$U_8=H_{8,1}$ (Corollary~\ref{cor:greedybudget}) and the unrestricted-query
-ceiling $1/\eta$ (Theorem~\ref{thm:ceiling}).  The admissible band
-$[\rho_8,\min\{U_8,1/\eta\}]$ (shaded) is already too thin to see: at
-$\eta=2$ it is $[0.4216,\,0.4242]$ while $1/\eta=0.5$.
-(b)~Width of the band against $K$ (log--log) at four error levels, with the
-asymptote $c'(\eta)/K^{2}$ of Remark~\ref{rem:greedybudget} dashed in the
-matching color; the kink at small $K$ is the switch of the minimum from
-$1/\eta$ to $U_K$, and the band is empty for $K\le\eta$, where greedy is
-exactly optimal in the class.}
+\caption{The two closures around predictive greedy at its own oracle
+budget.
+(a)~At $K=8$: the a priori guarantee $L_8$, the exact size-$\le K$ class
+optimum $\rho_8$ (Theorem~\ref{thm:linear-exact}), the arbitrary-size
+ceiling $\min\{W_8,1/\eta\}$ (Theorem~\ref{thm:linear-anysize}), the
+former ceiling $U_8$ (thin dashed) and the unrestricted-query ceiling
+$1/\eta$ (Theorem~\ref{thm:ceiling}).  The remaining band
+$[\rho_8,\min\{W_8,1/\eta\}]$ (shaded) is narrower than the line width:
+at $\eta=2$ its width is $5.9\cdot10^{-7}$.
+(b)~Width of the arbitrary-size band against $K$ (log scale), computed
+from the exact gap identity in rationals, with the theorem bound
+$1/(K(e^{K-1}-K-1))$ dashed and the former $O(1/K^{2})$ width
+$U_K-\rho_K$ in grey for comparison: the closure gained an exponential
+factor.}
 \label{fig:sandwich}
 \end{figure}

@@ -71,222 +71,270 @@ For additional information on amsmath, use the `?' option.
 (./sections/model.tex
 
 Package natbib Warning: Citation `lattanzi2020online' on page 1 undefined on in
-put line 33.
+put line 37.
 
 
 Package natbib Warning: Citation `azar2021flow' on page 1 undefined on input li
-ne 33.
+ne 37.
 
 
 Package natbib Warning: Citation `zhao2022real' on page 1 undefined on input li
-ne 33.
+ne 37.
 
 
 Package natbib Warning: Citation `goundan2007revisiting' on page 1 undefined on
- input line 69.
+ input line 105.
 
-) (./sections/related.tex
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}]) (./sections/related.tex
 
-Package natbib Warning: Citation `goundan2007revisiting' on page 1 undefined on
+Package natbib Warning: Citation `goundan2007revisiting' on page 2 undefined on
  input line 38.
 
 
-Package natbib Warning: Citation `nemhauser1978analysis' on page 1 undefined on
+Package natbib Warning: Citation `nemhauser1978analysis' on page 2 undefined on
  input line 42.
 
 
-Package natbib Warning: Citation `nemhauser1978best' on page 1 undefined on inp
+Package natbib Warning: Citation `nemhauser1978best' on page 2 undefined on inp
 ut line 43.
 
 
-Package natbib Warning: Citation `feige1998threshold' on page 1 undefined on in
-put line 48.
+Package natbib Warning: Citation `nemhauser1978analysis' on page 2 undefined on
+ input line 45.
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
-dist/fonts/enc/dvips/base/8r.enc}]
 
-Package natbib Warning: Citation `das2011submodular' on page 2 undefined on inp
-ut line 59.
+Package natbib Warning: Citation `feige1998threshold' on page 2 undefined on in
+put line 50.
 
 
 Package natbib Warning: Citation `das2011submodular' on page 2 undefined on inp
-ut line 60.
+ut line 61.
+
+
+Package natbib Warning: Citation `das2011submodular' on page 2 undefined on inp
+ut line 62.
 
 
 Package natbib Warning: Citation `elenberg2018restricted' on page 2 undefined o
-n input line 61.
+n input line 63.
 
 
 Package natbib Warning: Citation `hassidim2017submodular' on page 2 undefined o
-n input line 71.
+n input line 73.
 
 
 Package natbib Warning: Citation `horel2016maximization' on page 2 undefined on
- input line 74.
+ input line 76.
 
 
 Package natbib Warning: Citation `bhawalkar2025unified' on page 2 undefined on 
-input line 77.
+input line 79.
 
 
 Package natbib Warning: Citation `purohit2018improving' on page 2 undefined on 
-input line 89.
+input line 91.
 
 
 Package natbib Warning: Citation `lykouris2021competitive' on page 2 undefined 
-on input line 90.
+on input line 92.
 
 
 Package natbib Warning: Citation `balcan2018submodular' on page 2 undefined on 
-input line 95.
+input line 97.
 
 
 Package natbib Warning: Citation `rosenfeld2018learning' on page 2 undefined on
- input line 97.
+ input line 99.
 
 
 Package natbib Warning: Citation `agarwal2024learning' on page 2 undefined on i
-nput line 102.
+nput line 104.
 
 
 Package natbib Warning: Citation `cohenaddad2024learning' on page 2 undefined o
-n input line 107.
+n input line 109.
+
+[2]
+
+Package natbib Warning: Citation `balkanski2016power' on page 3 undefined on in
+put line 116.
 
 
-Package natbib Warning: Citation `balkanski2016power' on page 2 undefined on in
-put line 114.
+Package natbib Warning: Citation `balkanski2017limitations' on page 3 undefined
+ on input line 119.
 
-
-Package natbib Warning: Citation `balkanski2017limitations' on page 2 undefined
- on input line 117.
-
-) (./sections/results.tex [2]
+) (./sections/results.tex
 
 Package natbib Warning: Citation `hassidim2017submodular' on page 3 undefined o
-n input line 37.
+n input line 43.
 
 
 Package natbib Warning: Citation `goundan2007revisiting' on page 3 undefined on
- input line 83.
+ input line 94.
+
+[3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 119.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 108.
+(hyperref)                removing `math shift' on input line 119.
+
+[4] [5]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 108.
-
-[3] [4]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 380.
+(hyperref)                removing `\eta' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\eta' on input line 380.
+(hyperref)                removing `math shift' on input line 439.
 
+[6] [7] [8]) (../results/L3_openproblem.tex
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd))
+(./sections/experiments.tex
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 380.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active [5]
-[6]) (../results/L3_openproblem.tex [7]) (./sections/experiments.tex
-
-Package natbib Warning: Citation `kempe2003maximizing' on page 8 undefined on i
+Package natbib Warning: Citation `kempe2003maximizing' on page 9 undefined on i
 nput line 60.
 
 
-Package natbib Warning: Citation `rozemberczki2019gemsec' on page 8 undefined o
+Package natbib Warning: Citation `rozemberczki2019gemsec' on page 9 undefined o
 n input line 64.
 
 
-Package natbib Warning: Citation `leskovec2007graph' on page 8 undefined on inp
+Package natbib Warning: Citation `leskovec2007graph' on page 9 undefined on inp
 ut line 64.
 
 
-Package natbib Warning: Citation `yin2017local' on page 8 undefined on input li
+Package natbib Warning: Citation `yin2017local' on page 9 undefined on input li
 ne 64.
 
 
-Package natbib Warning: Citation `lin2011class' on page 8 undefined on input li
+Package natbib Warning: Citation `lin2011class' on page 9 undefined on input li
 ne 68.
 
 
-Package natbib Warning: Citation `greene2006practical' on page 8 undefined on i
+Package natbib Warning: Citation `greene2006practical' on page 9 undefined on i
 nput line 69.
 
 
-Package natbib Warning: Citation `mirzasoleiman2015lazier' on page 8 undefined 
+Package natbib Warning: Citation `mirzasoleiman2015lazier' on page 9 undefined 
 on input line 79.
 
-[8 <./figures/sandwich_paper.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active [9 <./figu
-res/money_plot.pdf> <./figures/eta_global_plot.pdf>] (./sections/EXP_table.tex
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd)))
-(./sections/conclusion.tex) (./sections/statements.tex [10])
+[9]
+Underfull \vbox (badness 7168) has occurred while \output is active [10 <./figu
+res/sandwich_paper.pdf> <./figures/money_plot.pdf>] [11 <./figures/eta_global_p
+lot.pdf>] (./sections/EXP_table.tex)) (./sections/conclusion.tex)
+(./sections/statements.tex)
+Underfull \vbox (badness 1215) has occurred while \output is active [12]
 No file main_l3.bbl.
 (./sections/notation_table.tex
 Overfull \hbox (137.70775pt too wide) in paragraph at lines 8--44
  [][] 
+) (./sections/appendix_proofs.tex [13] [14]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./sections/appendix_proofs.tex [11] [12]
-
-Package natbib Warning: Citation `goundan2007revisiting' on page 13 undefined o
+Package natbib Warning: Citation `goundan2007revisiting' on page 15 undefined o
 n input line 217.
 
-[13] [14]
+[15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
+(hyperref)                removing `math shift' on input line 339.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
+(hyperref)                removing `math shift' on input line 339.
 
-[15] [16]
-Underfull \hbox (badness 3049) in paragraph at lines 515--517
+[16] [17]
+Underfull \hbox (badness 3049) in paragraph at lines 520--522
 []\OT1/ptm/m/n/10 The iden-ti-ties of this proof are machine-checked by \OT1/pc
 r/m/n/10 results/T5[]symbolic.py \OT1/ptm/m/n/10 and
-[17] [18] [19] [20] [21]
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd) [22] [23] [24]
-[25] [26] [27]
-Underfull \hbox (badness 1742) in paragraph at lines 1612--1621
-\OT1/ptm/m/n/10 bound above, yields for ev-ery ran-dom-ized al-go-rithm of the 
-class a sin-gle in-stance with
-[28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1947--1953
+[18] [19] [20] [21] [22]
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd) [23] [24] [25]
+[26]
+Underfull \hbox (badness 3291) in paragraph at lines 1366--1371
+\OT1/cmr/m/n/10 24$ \OT1/ptm/m/n/10 ex-act ra-tio-nal mod-u-lar ad-ver-sary in-
+stances ($\OT1/cmr/m/n/10 37[]056$ \OT1/ptm/m/n/10 all-pairs gains), are checke
+d by
+[27] [28] [29] [30]
+Overfull \hbox (9.4479pt too wide) detected at line 1745
+\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S\OT1/cmr/m/n/10 ) = \OML/c
+mm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = []  \OML/
+cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = []
+
+Overfull \hbox (22.11395pt too wide) detected at line 1767
+\OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT
+1/cmr/m/n/10 0) = \OML/cmm/m/it/10 p[];  \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 
+F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 c[]
+s[];  \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+x; \OT1/cmr/m/n/10 0) = \OML/cmm/m/it/10 r[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it
+/10 h[];  \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 x; y\OT1/cmr/m/n/10 ) = []  (1 \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 y < K\
+OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
+[31] [32]
+
+Package natbib Warning: Citation `nemhauser1978analysis' on page 33 undefined o
+n input line 1935.
+
+
+Overfull \hbox (23.25476pt too wide) detected at line 1949
+\OT1/cmr/m/n/10 18\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr
+/m/n/10 ) = 2\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + 3\OML/cmm/m/it/10 b \OT1/cmr/
+m/n/10 + 6\OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3\OML/cmm/m/i
+t/10 b \OT1/cmr/bx/n/10 1[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 z \OT1/cmr/m/n/1
+0 ^^A[](\OML/cmm/m/it/10 b; y\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/
+10 18[](\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = 2\OML/cmm/m/it/10 x \OT1/cmr/m/n/
+10 + 3\OML/cmm/m/it/10 b \OT1/cmr/m/n/10 + 3\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 
++ 3(1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 b\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 
+1[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 ^^A[](\OML/cmm/m/it/10
+ b; y\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
+
+Overfull \hbox (2.43936pt too wide) detected at line 1956
+\OT1/cmr/m/n/10 ^^A[] = [] \OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 ^^A[] = []  ([]\
+OML/cmm/m/it/10 b \OT1/cmr/m/n/10 = 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/c
+mm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ;  []y \OT1/cmr/m/n/10 = 0\OML/c
+mm/m/it/10 ; [] ; \OT1/cmr/m/n/10 3)\OML/cmm/m/it/10 :
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 2110--2121
+ []\OT1/ptm/b/n/10 Correction of the night-4 trun-ca-tion rule.[] \OT1/ptm/m/n/
+10 The night-4 draft
+
+Underfull \hbox (badness 1107) in paragraph at lines 2122--2147
+ []\OT1/ptm/b/n/10 Beyond the lin-ear bud-get.[] \OT1/ptm/m/n/10 The night-4 dr
+aft's su-per-lin-ear read-ing, bud-gets up to $\OML/cmm/m/it/10 Q \OMS/cmsy/m/n
+/10 ^^T
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 2340--2346
 []\OT1/ptm/m/n/10 The slack iden-ti-ties of $[]$ and $[]$ case (b) are machine-
 checked by
 
-Underfull \hbox (badness 4981) in paragraph at lines 1947--1953
+Underfull \hbox (badness 4981) in paragraph at lines 2340--2346
 \OT1/pcr/m/n/10 results/H3[]j2[]recheck.py \OT1/ptm/m/n/10 and \OT1/pcr/m/n/10 
 results/J2[]core[]oracles.py \OT1/ptm/m/n/10 (sym-bolic, plus
-) (./sections/appendix_experiments.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1967--9
+[36]) (./sections/appendix_experiments.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2360--9
 []\OT1/ptm/m/n/10 The com-pu-ta-tions of this sub-sec-tion are machine-checked 
 by
-[31]
 
-Package natbib Warning: Citation `peng2005feature' on page 32 undefined on inpu
+Package natbib Warning: Citation `peng2005feature' on page 37 undefined on inpu
 t line 82.
 
 
-Package natbib Warning: Citation `geurts2006extremely' on page 32 undefined on 
+Package natbib Warning: Citation `geurts2006extremely' on page 37 undefined on 
 input line 84.
 
-[32])
+
+Underfull \vbox (badness 10000) has occurred while \output is active [37])
+[38 <./figures/aux_eta_sel_by_K.pdf> <./figures/aux_p_vs_eta.pdf>]
 
 Package natbib Warning: There were undefined citations.
 
-[33 <./figures/aux_eta_sel_by_K.pdf> <./figures/aux_p_vs_eta.pdf>] [34 <./figur
-es/aux_d_dtilde_scatter.pdf>] (./main_l3.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+[39 <./figures/aux_d_dtilde_scatter.pdf>] (./main_l3.aux)
 
 Package rerunfilecheck Warning: File `main_l3.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -311,8 +359,9 @@ lic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on main_l3.pdf (34 pages, 645120 bytes).
+usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on main_l3.pdf (39 pages, 697730 bytes).
 Transcript written on main_l3.log.
