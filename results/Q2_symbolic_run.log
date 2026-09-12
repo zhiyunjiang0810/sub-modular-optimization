@@ -1,0 +1,258 @@
+
+====================================================================================================
+Q2 SYMBOLIC ORACLE (TASKS10) -- general (K, j, eta, m), split (eta, 1)
+====================================================================================================
+  domain: K >= 3, 2 <= j <= K-1, eta in (K-j, K-j+1) (so eta > 1), n >= 2K, X = n-K
+
+====================================================================================================
+C0  transcription guard: re-derived branches vs build_closed_form()
+====================================================================================================
+  PASS  C0.r.geo                           delivered r, branch x <= j  ==  q^x
+  PASS  C0.g.geo                           delivered g, branch x <= j  ==  q^x/K
+  PASS  C0.r.tail                          delivered r, branch j < x <= T  ==  q^j - (x-j) D
+  PASS  C0.g.tail                          delivered g, branch j < x <= T  ==  nu^(x-j) q^j/K - eta D(nu^(x-j)-1)
+  PASS  C0.r.sat                           delivered r, branch x > T == 0
+  PASS  C0.g.sat                           delivered g, branch x > T == 0
+  PASS  C0.F.y0                            delivered F(x,0) == 1 - r(x)
+  PASS  C0.F.y1                            delivered F(x,y>=1) == 1 - r + g + (y-1)(r-g)/(K-1)
+  PASS  C0.Dm                              delivered D(m) == q^j (nu^m/K - 1)/(eta(nu^m-1)-m)
+  PASS  C0.Dbase                           delivered D_base == q^j/(K eta)
+  PASS  C0.obj                             delivered objective == 1 - q^j + (K-j) D
+  PASS  C0.Vj                              delivered V_j formula
+  PASS  C0.numeric                         exact sequences (this script) == Q1_closed_form.instantiate()
+
+====================================================================================================
+C1/C2  monotonicity and submodularity, branch by branch
+====================================================================================================
+
+  master identity   a(x) - a(x+1) = g(x+1)/eta    with a = r - g
+  PASS  C1.ID.geo                          branch x+1 <= j
+  PASS  C1.ID.junc                         junction x = j -> j+1
+  PASS  C1.ID.tail                         branch j <= x < x+1 <= T
+  PASS  C1.ID.close                        closing edge x = T: a(T) = r_T - g_T = 0 and g(T+1) = 0, identity 0=0
+  PASS  C1.ID.sat                          branch x > T: r = g = 0, identity 0 = 0
+  PASS  C1.consequence                     Delta_x F(x,y) = (K-y) g(x+1)/(eta(K-1)) for y >= 1;  Delta_x F(x,0) = d(x);  Delta_y F(x,0) = g(x);  Delta_y F(x,y>=1) = (r-g)/(K-1);  F(x,y>=1) = 1 - (r-g)(K-y)/(K-1)
+
+  C1  Delta_x F >= 0 and Delta_y F >= 0
+  PASS  C1.dx.geo                          x-edge y=0, x < j:   d(x) = q^x/k1 > 0   [never tight]
+  PASS  C1.dx.tailint                      x-edge y=0, j <= x < T:   d(x) = D > 0   [never tight]
+  PASS  C1.dx.close                        x-edge y=0, x = T:   d(T) = r_T >= 0  <=>  D(m) >= D(m-1)   [tight iff r_T = 0]
+  PASS  C1.dx.sat                          x-edge y=0, x > T:  d = 0   [tight]
+  PASS  C1.dx.y1                           x-edge y >= 1:   Delta_x F = (K-y) g(x+1)/(eta(K-1)) >= 0  <=  g >= 0   [tight at y=K or g(x+1)=0]
+  PASS  C1.dy.y0                           y-edge y=0->1:   Delta_y F = g(x) >= 0   [tight iff x > T]
+  PASS  C1.dy.y1                           y-edge y >= 1:   Delta_y F = (r-g)/(K-1) >= 0  <=  a = r-g >= 0   [tight for x >= T]
+  PASS  C1.a.geo                           a(x) = q^x (K-1)/K > 0 on x <= j
+  PASS  C1.g.nonneg                        g >= 0 on every branch: q^x/K > 0 (x <= j); g nonincreasing on the tail with g(T) = r_T >= 0; g = 0 for x > T   [NO-TAIL: g = q^j/K constant for x >= j]
+
+  C2  Delta_x^2 F <= 0, Delta_y^2 F <= 0, Delta_x Delta_y F <= 0
+  PASS  C2.dxx.geo                         Delta_x^2 F <= 0 at y=0, x+2 <= j:  d(x+1) = q d(x), q < 1
+  PASS  C2.dxx.junc1                       Delta_x^2 F <= 0 at y=0, junction x = j-1:  D <= q^(j-1)/k1 = q^j/((K-1) eta)   [strict on both regimes]
+  PASS  C2.dxx.tailint                     Delta_x^2 F = 0 at y=0 inside the tail: d == D constant   [TIGHT (equality) on every interior tail edge pair]
+  PASS  C2.dxx.junc2                       Delta_x^2 F <= 0 at y=0, junction x = T-1:  r_T <= D  <=>  D(m) >= D(m+1)   [at T = X the closing edge is off-grid, condition vacuous]
+  PASS  C2.dxx.sat                         Delta_x^2 F <= 0 at y=0, x = T:  d(T+1) = 0 <= r_T = d(T)
+  PASS  C2.g.geo                           Delta_x Delta_y F = e(x) = g(x+1)-g(x) = -q^x(1-q)/K <= 0 on x < j
+  PASS  C2.g.tail                          e(x) = -eta E nu^(x-j) (nu-1) <= 0 on j <= x < T  <=>  E = D - D_base >= 0   [TIGHT (e = 0) exactly in the NO-TAIL regime D = D_base]
+  PASS  C2.g.close                         e(T) = g(T+1) - g(T) = -r_T <= 0  <=  r_T >= 0
+  PASS  C2.dxx.y1                          Delta_x^2 F <= 0 at y >= 1  <=>  g nonincreasing
+  PASS  C2.dxy.y1                          Delta_x Delta_y F = -g(x+1)/(eta(K-1)) <= 0 at y >= 1  <=  g >= 0
+  PASS  C2.dyy.geo                         Delta_y^2 F at y=0:  (r-g)/(K-1) - g = -(K g - r)/(K-1) = 0 on x <= j   [TIGHT (equality) on the whole geometric branch]
+  PASS  C2.dyy.tailform                    K g - r = i D - K eta E (nu^i - 1) =: h(i) on the tail
+  PASS  C2.dyy.concave                     h concave: h(i+1)-2h(i)+h(i-1) = -K eta E nu^(i-1)(nu-1)^2 <= 0  <=  E >= 0
+  PASS  C2.dyy.tail                        K g - r >= 0 on the tail: h concave, h(0) = 0, h(m) = (K-1) r_T >= 0, so h(i) >= ((m-i) h(0) + i h(m))/m >= 0 for 0 <= i <= m
+  PASS  C2.dyy.endpoints                   h(m) = (K-1) r_T at D = D(m)  (closing edge g(T) = r(T))
+  PASS  C2.dyy.sat                         K g - r = 0 for x > T   [TIGHT]
+  PASS  C2.dyy.y1                          Delta_y^2 F = 0 for y >= 1 (F is affine in y on y >= 1)   [TIGHT everywhere]
+  PASS  C2.def.Dm                          D(m) is exactly the slope closing the tail: g(T) = r(T) at T = j+m
+  PASS  C2.dxx.notail                      NO-TAIL regime (T = +oo, D = D_base): d == D_base for x >= j, g == q^j/K constant, h(i) = i D_base >= 0, and r(X) >= q^j/K > 0 because X - j <= eta(K-1) there
+
+====================================================================================================
+C3  single-element band with split (eta_u, eta_o) = (eta, 1)
+====================================================================================================
+
+  edge class 1: x-edge at y = 0  (dF = d(x), dG = g(x)/eta)
+  PASS  C3.e1.reduce                       dF/eta <= dG <= dF  <=>  d(x) <= g(x) <= eta d(x)
+  PASS  C3.e1.lo                           lower end, x < j:  g - d = (eta-1) g(x+1)/eta >= 0
+  PASS  C3.e1.lo.tail                      lower end, j <= x < T:  g - d = (eta-1) g(x+1)/eta >= 0   [TIGHT iff g(x+1) = 0]
+  PASS  C3.e1.lo.close                     lower end, x = T:  g(T) = d(T) = r_T, so dG = dF/eta   [TIGHT at the LOWER end (this edge realises eta_u = eta)]
+  PASS  C3.e1.up.geo                       upper end, x < j:  eta d - g = q^x (eta-1)/(K k1) > 0   [not tight; ratio dG/dF = k1/(K eta) in (1/eta, 1)]
+  PASS  C3.e1.up.tail                      upper end, j <= x < T:  eta d - g = eta E nu^(x-j) >= 0  <=  E >= 0   [TIGHT iff E = 0, i.e. exactly in the NO-TAIL regime]
+  PASS  C3.e1.up.close                     upper end, x = T:  eta d(T) - g(T) = (eta-1) r_T >= 0
+  PASS  C3.e1.sat                          x > T: dF = dG = 0, band degenerate
+
+  edge class 2: x-edge at y = 1
+  PASS  C3.e2                              dF = d(x)+e(x) = g(x+1)/eta = Ghat(x+2)-Ghat(x+1) = dG exactly   [TIGHT at the UPPER end (this edge realises eta_o = 1)]
+  PASS  C3.e2.lo                           lower end: dF/eta <= dF  <=  dF >= 0 (C1.dx.y1)
+
+  edge class 3: y-edge y = 0 -> 1
+  PASS  C3.e3                              dF = g(x), dG = Ghat(x+1)-Ghat(x) = g(x)/eta = dF/eta exactly   [TIGHT at the LOWER end on EVERY such edge]
+  PASS  C3.e3.up                           upper end: g/eta <= g  <=  g >= 0, eta >= 1
+
+  edge class 4: edges inside y >= 2 (G_unbal rule)
+  PASS  C3.e4.y                            y-edges with y >= 1: dG = F(x,y+1)-F(x,y) = dF exactly (G_unbal = Ghat(x+1) + F(x,y) - F(x,1))   [TIGHT at the UPPER end]
+  PASS  C3.e4.x                            x-edges with y >= 2: dG = g(x+1)/eta + dF(x,y) - dF(x,1) = dF(x,y), because dF(x,1) = d+e = g(x+1)/eta   [TIGHT at the UPPER end]
+  PASS  C3.e4.lo                           lower end on y >= 2 edges: dF/eta <= dF  <=  dF >= 0 (C1)
+
+  extreme-edge inventory (band budget eta_u * eta_o = eta attained)
+  PASS  C3.inventory                       eta_u = eta attained on every y-edge y=0->1 and on the closing x-edge x=T at y=0; eta_o = 1 attained on every x-edge at y=1 and on every edge inside y >= 2 (and, in the NO-TAIL regime, on every x-edge at y=0 with x >= j); x-edges at y=0 with x < j are strictly interior with dG/dF = k1/(K eta)
+
+====================================================================================================
+C4  O-independence and the three Ghat phases
+====================================================================================================
+  PASS  C4.junc12                          phase1(j+1) == phase2(j+1)  (M = 0)
+  PASS  C4.junc23                          phase2(T+1) == phase3  (saturation)
+  PASS  C4.step.ph1                        phase 1 step:  Ghat(s+1)-Ghat(s) = q^s/(K eta) = g(s)/eta  (s < j)
+  PASS  C4.step.junc                       step at s = j:  = g(j)/eta
+  PASS  C4.step.cross                      step at s = j+1 (phase1 -> phase2):  = g(j+1)/eta
+  PASS  C4.step.ph2                        phase 2 step (W = nu^M, M = s-j-1):  Ghat(s+1)-Ghat(s) = g(s)/eta
+  PASS  C4.step.ph3                        phase 3 step: Ghat constant = g(s)/eta = 0 for s > T+1
+  PASS  C4.mono                            Ghat nondecreasing: every step equals g(s)/eta >= 0 (C1.g.nonneg)
+  PASS  C4.Oindep                          G(x,y) = Ghat(x+y) for y <= 1 by construction, so G depends on |S| = x+y only on the balanced region; the y >= 2 rule agrees at y = 1 (Ghat(x+1) + F(x,1) - F(x,1) = Ghat(x+1)), so G is well defined on the overlap
+
+====================================================================================================
+C5  normalization and objective
+====================================================================================================
+  PASS  C5.F00                             F(0,0) = 1 - r(0) = 0
+  PASS  C5.F0K                             F(0,K) = 1 - 1 + 1/K + (K-1)(1 - 1/K)/(K-1) = 1
+  PASS  C5.FxK                             F(x,K) = 1 for every x (the O-set value is normalized to 1)
+  PASS  C5.Fform                           F(x,y>=1) = 1 - a(x)(K-y)/(K-1) with a = r - g
+  PASS  C5.le1                             F(x,y) <= 1 everywhere (hence on x+y <= K): y = 0 needs r(x) >= 0; y >= 1 needs a(x)(K-y) >= 0, i.e. a = r-g >= 0 (C1.dy.y1)
+  PASS  C5.obj                             F(K,0) = 1 - r(K) = 1 - q^j + (K-j) D, valid for j <= K <= T
+  PASS  C5.obj.domain                      K <= T is automatic: NO-TAIL has T = +oo; TAIL has m >= m_c > eta(K-1) >= eta > K-j, so T = j+m > K
+  PASS  C5.obj.Vj                          at D = D_base the objective is exactly V_j
+  PASS  C5.obj.excess                      objective = V_j + (K-j) E,  E = D - D_base
+
+====================================================================================================
+C6  THE FAILURE POINT: sign of E(m) = D(m) - D_base
+====================================================================================================
+
+  (c) positivity of the denominator B(m) = eta(nu^m - 1) - m
+  PASS  C6.bern.step                       Bernoulli induction step: nu^(m+1)-1-(m+1)(nu-1) = nu[nu^m-1-m(nu-1)] + m(nu-1)^2 >= 0
+  PASS  C6.bern.bound                      Bernoulli bound: B(m) >= eta*m*(nu-1) - m = m/(eta-1) > 0   [so B(m) > 0 for every integer m >= 1 and eta > 1]
+
+  (a) D(1) < D_base for all K >= 3, eta > 1
+  PASS  C6.D1.form                         D(1) = q^j (K - eta(K-1))/K
+  PASS  C6.D1.sign                         D(1) - D_base = -q^j (eta(K-1)-1)(eta-1)/(K eta) < 0 for eta > 1, K >= 2   [so the staircase never starts at m = 1]
+
+  (b) exact sign of E(m)
+  PASS  C6.E.form                          E(m) = D(m) - D_base = q^j (m - eta(K-1)) / (K eta B(m))
+  PASS  C6.E.sign                          sign E(m) = sign(m - eta(K-1))  since q^j, K, eta, B(m) > 0.  THE STICKING INEQUALITY:  E(m) > 0  <=>  m > eta(K-1)
+  PASS  C6.mc                              m_c = min{m >= 1 : D(m) > D_base} = floor(eta(K-1)) + 1; first staircase step at n_c = K + j + m_c
+  PASS  C6.limit                           lim_{m->oo} D(m) = D_base (E(m) -> 0+), so the excess is NOT produced in the limit m -> oo: E(m) = q^j(m - eta(K-1))/(K eta B(m)) with B(m) ~ eta nu^m, so E(m) ~ q^j m /(K eta^2 nu^m) -> 0+ from ABOVE for m > eta(K-1); sup_m D(m) is attained at a finite m*
+
+  local optimality of m <=> the two junction conditions of C2
+  PASS  C6.ID.rT                           r_T = q^j - m D(m) = q^j (nu^m(eta K - m) - eta K)/(K B(m))
+  PASS  C6.ID.rT_local                     D(m) - D(m-1) = r_T / (eta B(m-1))   ==>   r_T >= 0 <=> D(m) >= D(m-1)
+  PASS  C6.ID.dT_local                     D - r_T = (eta-1) B(m+1) (D(m) - D(m+1))   ==>   d(T) = r_T <= D <=> D(m) >= D(m+1)
+  PASS  C6.feasible_at_argmax              hence at ANY m that maximises D over the available range the two junction conditions of C2 hold: r_T >= 0 (needs m-1 in range, true since TAIL forces m >= m_c >= 2) and r_T <= D (needs m+1 in range, i.e. T < X; when T = X the closing edge is off-grid and the condition is vacuous)
+  PASS  C6.ID.step_sign                    D(m) >= D(m+1)  <=>  nu^m (eta K - 1 - m) <= K(eta-1)  (the defining equation of m*)
+  CONJ  C6.mstar.rule                      m* = argmax_m D(m) = min{m >= 1 : nu^m (eta K - 1 - m) <= K(eta-1)}, and m* <= ceil(eta K) - 1 always   [hand argument, oracle only on the sweep]
+  PASS  C6.mc_gt_Kj                        m_c > K - j on the whole domain: m_c > eta(K-1) >= eta > K-j (K >= 2 and eta > K-j).  Hence at n = 2K (X = K, m ranges over 1..K-j) no m reaches m_c, D = D_base, and the value is exactly V_j
+  PASS  C6.regime                          NO-TAIL  <=>  X - j <= eta(K-1)  <=>  n <= K + j + floor(eta(K-1)) = n_c - 1; TAIL <=> n >= n_c = K + j + m_c
+  PASS  C6.premise_c                       TASKS10 premise (c) FAILS for this family: for n >= n_c the LP value is V_j + (K-j) max_m E(m) > V_j and it is nondecreasing in n, so it cannot converge down to rho_K = min_j V_j
+
+====================================================================================================
+C7  segment switching of V_j at integer eta
+====================================================================================================
+  PASS  C7.switch                          V_j(eta) = V_{j+1}(eta) exactly at eta = K - j (left endpoint of segment j, right endpoint of segment j+1)
+  PASS  C7.switch2                         V_j(eta) = V_{j-1}(eta) exactly at eta = K - j + 1 (right endpoint of segment j)
+  PASS  C7.n2K                             so rho_K = min_t V_t is continuous across integer eta and the active index switches there; at n = 2K the closed form value is V_j with j = K+1-ceil(eta) (C6.mc_gt_Kj), matching rho_K on the sweep below
+
+====================================================================================================
+C6(b)  exact-rational sweep: m_c, m*, excess, and the branch conditions
+====================================================================================================
+   K  j         eta  m_c floor+1   m* ceil(etaK)-1  conj r_T>=0 d(T)<=D m_c>K-j          V_j      W-V_j
+   3  2     101/100    3       3    3            3  True   True    True    True  0.700261684  1.391e-07
+   3  2         3/2    4       4    4            4  True   True    True    True  0.562500000  1.078e-03
+   3  2     199/100    4       4    5            5  True   True    True    True  0.468272017  1.871e-03
+   4  2     201/100    7       7    8            8  True   True    True    True  0.447280402  7.441e-04
+   4  2         5/2    8       8    9            9  True   True    True    True  0.377162630  9.873e-04
+   4  2     299/100    9       9   11           11  True   True    True    True  0.325902482  1.102e-03
+   4  3     101/100    4       4    4            4  True   True    True    True  0.680180481  9.709e-10
+   4  3         3/2    5       5    5            5  True   True    True    True  0.543576258  1.275e-04
+   4  3     199/100    6       6    7            7  True   True    True    True  0.450559295  3.190e-04
+   5  2     301/100   13      13   15           15  True   True    True    True  0.317428206  3.968e-04
+   5  2         7/2   15      15   17           17  True   True    True    True  0.278222222  4.280e-04
+   5  2     399/100   16      16   19           19  True   True    True    True  0.247613697  4.326e-04
+   5  4     101/100    5       5    5            5  True   True    True    True  0.668894069  7.394e-12
+   5  4         3/2    7       7    7            7  True   True    True    True  0.532194919  2.200e-05
+   5  4     199/100    8       8    9            9  True   True    True    True  0.439700562  6.170e-05
+   8  2     601/100   43      43   48           48  True   True    True    True  0.164961398  1.892e-05
+   8  2        13/2   46      46   51           51  True   True    True    True  0.153023471  1.868e-05
+   8  2     699/100   49      49   55           55  True   True    True    True  0.142696270  1.840e-05
+   8  4     401/100   29      29   32           32  True   True    True    True  0.239056753  1.097e-05
+   8  4         9/2   32      32   35           35  True   True    True    True  0.215566290  1.156e-05
+   8  4     499/100   35      35   39           39  True   True    True    True  0.196267983  1.191e-05
+   8  7     101/100    8       8    8            8  True   True    True    True  0.652909242  4.169e-18
+   8  7         3/2   11      11   11           11  True   True    True    True  0.515100596  8.295e-08
+   8  7     199/100   14      14   15           15  True   True    True    True  0.423147312  5.884e-07
+  13  2    1101/100  133     133  143          143  True   True    True    True  0.090670510  9.130e-08
+  13  2        23/2  139     139  149          149  True   True    True    True  0.086860451  9.003e-08
+  13  2    1199/100  144     144  155          155  True   True    True    True  0.083357671  8.863e-08
+  13  6     701/100   85      85   91           91  True   True    True    True  0.140006016  5.804e-08
+  13  6        15/2   91      91   97           97  True   True    True    True  0.131338315  5.875e-08
+  13  6     799/100   96      96  103          103  True   True    True    True  0.123680371  5.893e-08
+  13 12     101/100   13      13   13           13  True   True    True    True  0.643202755  2.252e-28
+  13 12         3/2   19      19   19           19  True   True    True    True  0.504134416  1.537e-11
+  13 12     199/100   24      24   25           25  True   True    True    True  0.412393334  3.494e-10
+  21  2    1901/100  381     381  399          399  True   True    True    True  0.052584328  2.026e-11
+  21  2        39/2  391     391  409          409  True   True    True    True  0.051269568  2.005e-11
+  21  2    1999/100  400     400  419          419  True   True    True    True  0.050018950  1.984e-11
+  21 10    1101/100  221     221  231          231  True   True    True    True  0.089767489  1.250e-11
+  21 10        23/2  231     231  241          241  True   True    True    True  0.086071215  1.255e-11
+  21 10    1199/100  240     240  251          251  True   True    True    True  0.082667182  1.257e-11
+  21 20     101/100   21      21   21           21  True   True    True    True  0.637476791  1.153e-44
+  21 20         3/2   31      31   31           31  True   True    True    True  0.497448581  1.778e-17
+  21 20     199/100   40      40   41           41  True   True    True    True  0.405790605  3.249e-15
+
+  extra probes: eta*K just above an integer (stress for the inherited m* = ceil(eta K) - 1 conjecture)
+   5  3   2001/1000    9       9    9           10 False   True    True    True  0.437970613  1.386e-04
+   5  3 20001/10000    9       9    9           10 False   True    True    True  0.438118044  1.387e-04
+   8  4 40001/10000   29      29   31           32 False   True    True    True  0.239584019  1.092e-05
+   6  4 25001/10000   13      13   14           15 False   True    True    True  0.362962658  4.632e-05
+  13  7   6001/1000   73      73   78           78  True   True    True    True  0.161856621  4.657e-08
+   3  2   1001/1000    3       3    3            3  True   True    True    True  0.703358173  1.472e-10
+  PASS  C6.sweep                           48 exact-rational (K, j, eta) points: all branch conditions of C1/C2/C3/C5 hold, m_c = floor(eta(K-1))+1, E(m*) > 0, m_c > K-j, value(n=2K) = V_j = rho_K, D(m) unimodal in m, B(m) > 0   [4/48 points refute m* = ceil(eta K)-1]
+  CONJ  C6.mstar.conj                      inherited [CONJECTURE] m* = ceil(eta K)-1 REFUTED at 4 of 48 sweep points (those with frac(eta K) small); the correct rule is m* = min{m : nu^m (eta K - 1 - m) <= K(eta-1)} <= ceil(eta K)-1   [auxiliary conjecture of N4/Q1; the closed form itself uses the direct argmax and is unaffected]
+
+====================================================================================================
+C8  full 2D grid cross-check of the branch analysis (exact rationals)
+====================================================================================================
+  K=3 j=2 eta=3/2 n=6: m=None T=None F(K,0)=0.562500000 violations=0
+  K=3 j=2 eta=3/2 n=9: m=4 T=6 F(K,0)=0.563577586 violations=0
+  K=3 j=2 eta=3/2 n=12: m=4 T=6 F(K,0)=0.563577586 violations=0
+  K=3 j=2 eta=19/10 n=6: m=None T=None F(K,0)=0.483217593 violations=0
+  K=3 j=2 eta=19/10 n=10: m=5 T=7 F(K,0)=0.485030698 violations=0
+  K=3 j=2 eta=19/10 n=13: m=5 T=7 F(K,0)=0.485030698 violations=0
+  K=4 j=2 eta=5/2 n=8: m=None T=None F(K,0)=0.377162630 violations=0
+  K=4 j=2 eta=5/2 n=15: m=9 T=11 F(K,0)=0.378149912 violations=0
+  K=4 j=2 eta=5/2 n=18: m=9 T=11 F(K,0)=0.378149912 violations=0
+  K=4 j=3 eta=3/2 n=8: m=None T=None F(K,0)=0.543576258 violations=0
+  K=4 j=3 eta=3/2 n=12: m=5 T=8 F(K,0)=0.543703751 violations=0
+  K=4 j=3 eta=3/2 n=15: m=5 T=8 F(K,0)=0.543703751 violations=0
+  K=5 j=3 eta=5/2 n=10: m=None T=None F(K,0)=0.368895567 violations=0
+  K=5 j=3 eta=5/2 n=20: m=12 T=15 F(K,0)=0.369107581 violations=0
+  K=5 j=3 eta=5/2 n=23: m=12 T=15 F(K,0)=0.369107581 violations=0
+  K=5 j=4 eta=3/2 n=10: m=None T=None F(K,0)=0.532194919 violations=0
+  K=5 j=4 eta=3/2 n=16: m=7 T=11 F(K,0)=0.532216915 violations=0
+  K=5 j=4 eta=3/2 n=19: m=7 T=11 F(K,0)=0.532216915 violations=0
+  PASS  C8.grid                            every LP constraint (monotone, submodular, band, F<=1, O-indep, normalization) holds on the full 2D grid at n = 2K, n = K+T and n = K+T+3 for the listed (K, j, eta)
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+  PASS         95
+  STRUCTURAL    7
+  CONJECTURE    2
+  C0: VERIFIED-SYMBOLIC  (13 items)
+  C1: VERIFIED-SYMBOLIC  (15 items)
+  C2: VERIFIED-SYMBOLIC  (19 items)
+  C3: VERIFIED-SYMBOLIC  (16 items)
+  C4: VERIFIED-SYMBOLIC  (9 items)
+  C5: VERIFIED-SYMBOLIC  (9 items)
+  C6: VERIFIED-SYMBOLIC + CONJECTURE(part)  (19 items)
+  C7: VERIFIED-SYMBOLIC  (3 items)
+  C8: VERIFIED-SYMBOLIC  (1 items)
+
+  wrote results/Q2_symbolic.json
+
+  FAILED items: none
