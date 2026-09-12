@@ -1,6 +1,14 @@
 # REPORT.md
 
-## Summary（第十晚，TASKS10 攻关夜：Q0-Q3 已完成，Q4 待明早人类提供 GPT 输出）
+## Summary（Q4 交叉核对日：目标定理闭合并加强，thm:linear-exact 已装配入正文）
+
+- **成功，且强于 TASKS10 原目标**：GPT 平行结果的双残差截断族通过全部检查，定理已装配：n ≥ 4K⁵ 时确定性 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的 minimax 值**恰为 ρ_K(η)**，对每个 n 精确（无 n → ∞ 极限）；predictive greedy 在自己的预算类内精确最优。正文 thm:linear-exact + 附录重写 + 台账新卡 T10c（先卡后文），编译 40 页 0 错误（results/Q4_compile.log），审计 421 literals 0 违规。
+- **关键洞察（与第十晚 FAILED 的和解）**：TASKS10 (b) 只要求 |S| ≤ K 处 O-无关，transcript 也只查得到这些集合；第十晚沿 N4 把 O-无关强加到全部大小才产生 W 超额。对账检查：把 LP 约束改为 small-set-only 后，值在全部 18 个测试 (K,η,n)（含阶梯启动后的 n）恰为 ρ_K [VERIFIED-LP，results/Q4_smallset_lp.py]。该族在大集合上真实泄漏（H(6,0)=61/48 ≠ 4/3=H(5,1)），任意大小查询仍 [OPEN]（T12）。
+- **验证链（采纳前全过）**：交付脚本原样复跑（13 恒等式 + 159 组/111,032 边精确电池）；自写独立实现电池 111 组（K ≤ 13、j=0 域、整数 η 双支、两个极端拆分、泄漏证人、prop:rigidity 轨迹、值 = ρ_K）[VERIFIED-LP]；自写 34 条分支不等式符号验证 [VERIFIED-SYMBOLIC，results/Q4_symbolic_ineq.py]；装配（DR 链接、transcript 归纳、平均）[HAND-PROOF-UNREVIEWED，来源 Q4]。
+- **附带修正**：F3 的 m* = ⌈ηK⌉−1 在 appendix 的定义改为 argmax 形式（昨夜驳倒的落实，T12）；rem:greedybudget 从区间表述改为闭合 + 改进幅度（c'/K² 保留为对旧天花板 U_K 的改进量）；T10b/T11 的 [OPEN] 项闭合注记；RESEARCH_STATE 增 R15；contribution (iv) 要点新增第 7 条（intro 可写 "exactly optimal within its own query budget"，限定词清单在列）。
+- **最需人类判断**：装配三步（count-grid → 集合函数、transcript 归纳、随机平均）是 [HAND-PROOF-UNREVIEWED，来源 GPT 平行审计]，建议作者亲自过一遍附录 app:greedybudget 的证明文本；随机版有限 n 与任意大小查询是仅剩的两个方向（T12 卡）。
+
+## Summary（第十晚，TASKS10 攻关夜：Q0-Q3 已完成，Q4 交叉核对见上节）
 
 - **FAILED + 卡点**：目标定理（𝒜_lin 的 hardness 值恰为 ρ_K）经 TASKS10 路线不可达。O-无关计数网格族的 LP 值 ρ_K^(n) 随 n **单调不减**：n=2K 处恰为 ρ_K，但从 n_c = K+j+⌊η(K−1)⌋+1 起严格超过，饱和于 W = V_j + (K−j)E(m*) > ρ_K。卡住的不等式有闭式：E(m) = q^j(m−η(K−1))/(Kη(η(ν^m−1)−m)) > 0 ⟺ **m > η(K−1)** [VERIFIED-SYMBOLIC + 独立复核]；transcript 需 n ≥ 4K⁵，与精确窗口 n ≤ K+j+⌊η(K−1)⌋ 无交集。前提 (c) 不成立即路线证不出目标，𝒜_lin 精确值仍 [OPEN]（results/Q3_failure_point.md）。
 - **验证链全过**：Q0/Q1（Opus 代理）52 个 LP 顶点 + 闭式提取；独立 n-sweep 33 个 LP（n=2K 恰等、单调、严格超额、饱和值逐位 = W 全过）；36/36 精确有理全格点电池（K ≤ 8 全部 2 ≤ j ≤ K−1 段）；一般 K 符号 C0-C8 共 103 项 0 FAILED（feasibility 全 [VERIFIED-SYMBOLIC]，主恒等式 a(x)−a(x+1) = g(x+1)/η 把 2D 约束系收成六条 1-D 条件；衔接分支的 submodularity 恰为 D 在 argmax 的局部最优性，无额外边条件）。
@@ -105,7 +113,8 @@ intro 注释块的第 4 承重位（hardness position）按 K5 后的定理需�
 3. 有限 K 间隙写 O((c+1)/K)，不写 O(c/K)。
 4. 新卖点可加一句：τ=1 时 hardness 曲线恰是旧显式族值 U_K，于是 L_K ≤ ρ_K ≤ U_K = H_{K,1} 四条曲线在一条链上（图 2 的 U_K 方框悬在 ρ_K 上方就是这条链的可视化）。
 5. 第 2 承重位（certificate）同步微调：η^sel 是逐步定义（有害零步 ∞），certificate 只对模型内目标声明；实验三族一分为二（E2 证书 / E1、E3 诊断）。
-6. （第七晚新增）第 4 承重位可再加一句收口：在 greedy 自己的预算类 𝒜_lin（nK 次 size ≤K 查询）内，天花板收紧到 min{U_K, 1/η}（cor:greedybudget，τ=1 常数），与 ρ_K 只差 c'(η)/K²+O(1/K³)；η ≥ K 时 greedy 恰达类天花板。措辞注意：有限 K、1<η<K 的类内最优性仍是 open（T10b/T11 禁止声称），intro 只能说 "within O(1/K²) of optimal in its own budget class"，不能说 optimal。
+6. （第七晚新增，**Q4 日已被第 7 条取代**）~~第 4 承重位可再加一句收口：在 greedy 自己的预算类 𝒜_lin 内，天花板收紧到 min{U_K, 1/η}，与 ρ_K 只差 c'(η)/K²；intro 只能说 "within O(1/K²) of optimal"，不能说 optimal。~~
+7. （Q4 日新增，**现在是第 4 承重位的主卖点**）thm:linear-exact（台账 T10c）：n ≥ 4K⁵ 时，确定性 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的 minimax 值**恰为 ρ_K(η)**，即 predictive greedy 在自己的预算类内**精确最优**，对每个这样的 n 精确、无渐近。intro 现在可以说 "exactly optimal within its own query budget"；必须带的限定词：deterministic（随机版只到 ρ_K + ε_n，渐近）、每次查询 |S| ≤ K（任意大小查询仍 open，族在大集合上真实泄漏）、n ≥ 4K⁵（n=4,K=2 穷举反例）。装配标签 [HAND-PROOF-UNREVIEWED，来源 Q4 外部平行审计]，合法性 [VERIFIED-SYMBOLIC]。第 6 条的 "within O(1/K²)" 措辞降为历史（c'/K² 现在是对旧天花板的改进幅度）。
 
 ## Summary（第五晚：装配全文骨架）
 
