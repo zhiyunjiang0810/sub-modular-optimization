@@ -1,0 +1,35 @@
+PASS S1 p - s = P/(K k1) > 0
+PASS S1 s > 0
+PASS S1 p one-step decrease = (1-q) p > 0, 1-q = 1/k1
+PASS S1 s one-step decrease > 0
+PASS S2 p_{j-1} identity Q/(q k1) = Q/((K-1) eta)
+PASS S2 p_{j-1} - delta = Q/(K(K-1)eta) > 0
+PASS S2 s_{j-1} = delta exactly
+PASS S3 delta > 0
+PASS S3 (11) untruncated case: r - (r - delta) = delta
+PASS S3 (11) crossing case: r - 0 = r > 0 and delta - r >= 0 by case
+PASS S3 r - h = Q/K > 0 while both untruncated
+PASS S3 r - h = Q - z >= 0 when only h truncated (case z <= Q)
+PASS S4 (10) equality at x <= j
+PASS S4 (10) linear phase: reduces to z/(K-1) >= 0
+PASS S4 (10) after h truncation: r = Q - z >= 0 (case z <= Q)
+PASS S5 Q/K - f delta = Q ts/(K eta) >= 0
+PASS S5 A - Q/K = Q(K-2)/K >= 0
+PASS S5 j=0: A - K delta = Q(eta(K-1)-K)/(K eta), num = K(K-2)+u(K-1)
+PASS S6 eta - 1 = f + ts - 1 >= 0 (f >= 1)
+PASS S6 lower slack: (p + (eta-1)s) - p = (eta-1) s >= 0
+PASS S6 upper slack: eta p - (p + (eta-1)s) = (eta-1)(p-s) >= 0
+PASS S7 c_y - c_{y+1} = 1/(K-1) > 0
+PASS S7 c_K = 0
+PASS S7 mixed second difference at y=0 is -(p-s) <= 0
+PASS S8 (29) adjacent-branch identity
+PASS S8 denominator K eta k1 > 0
+PASS S8 r_K = Q - f delta = Q(K-1)/K + Q ts/(K eta) > 0
+PASS S8 j=0 regime: r_K = Q - K delta = Q(eta-1)/eta > 0
+PASS S8 below the switch: eta - K + j = -(tb + a) < 0
+PASS S8 at/above the switch: eta - K + j = ts + a >= 0, tie iff ts=a=0
+PASS S9 phase-1 step: C q^s (1-q) = q^s/K > 0
+PASS S9 phase-2 step: eta delta > 0
+PASS S9 H(0,0) = C - 1 - (eta-1)(K-1)/K = 0
+
+ALL PASS
