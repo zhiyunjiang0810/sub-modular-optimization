@@ -359,3 +359,12 @@ python3 results/H_F_partial_enumeration.py all         # 除 n8/crosscheck 外�
 （有界非空必有 infimum，补零扩展下最坏比对 n 非增）。文献引用规范：Nemhauser, Wolsey, Fisher
 (1978), Section 7, Theorem 7.1（不写 "NW 1978"）。另见文件头部若有 LPBuilder.solve 的
 J5H6 修复说明（非零 solver status 只在确认 infeasible 时剪枝）。
+
+---
+**J5H6 修复与重跑记录（2026-09-12）**：LPBuilder.solve 原对任何非零 solver status 一律返回 +inf，
+会把数值失败/迭代上限当作不可行剪枝（J5 审计 §七 第 5 点）。已修复：status == 2（确认 infeasible）
+才返回 +inf；其余非零 status 抛 SolveUnknown 并计数，不再静默剪枝。修复后重跑 `main`（n=6,7 ×
+η∈{1.5,2,2.5}）与 `n8`：**9/9 格 status OK、0 次 SolveUnknown、9/9 instance-rebuild certificate
+CONSISTENT，数值与既有记录逐位一致**（n=6: 19/29, 1/2, 2/5；n=7: 16/27, 4/9, 43/120；
+n=8: 16/27, 4/9, 16/45）。审计"无证据表明已报告表格触发过该问题"由此确认。
+日志 results/J5H6_hf_rerun.log，JSON 已由重跑更新。
