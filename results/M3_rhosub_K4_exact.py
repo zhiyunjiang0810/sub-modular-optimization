@@ -288,6 +288,14 @@ def part_A(quick=False):
     fam = {}
     for tag, _m, _c in rows:
         fam[tag] = fam.get(tag, 0) + 1
+    idents = set(row_ident(tag, meta, N_GROUND) for tag, meta, _c in rows)
+    coefvecs = set(tuple(sorted(c.items())) for _t, _m, c in rows)
+    record("A5: row labels and row coefficient vectors are both injective "
+           "(no duplicated inequality, so the dual transport in Part C is "
+           "well defined)",
+           len(idents) == len(rows) and len(coefvecs) == len(rows),
+           f"{len(rows)} rows, {len(idents)} distinct labels, "
+           f"{len(coefvecs)} distinct coefficient vectors")
     print(f"   rows={A.shape[0]} vars={A.shape[1]} families={fam} "
           f"({time.time()-t0:.1f}s)")
     RESULTS['A_lp_shape'] = {'rows': int(A.shape[0]), 'vars': int(A.shape[1]),
@@ -479,7 +487,48 @@ def part_B():
     out['g_table'] = {str(S): str(g[S]) for S in range(1 << n)}
     record("B1: explicit rational (f, ftilde) attains exactly 23/41 with every "
            "model property verified in Fraction arithmetic", ok_all,
-           f"ratio = 23/41 at 3 rational splits of eta = 3/2")
+           f"ratio = 23/41 at 3 rational splits of eta = 3/2", )
+    # B2: the same instance is an exactly feasible point of the LP that Part C
+    # certifies, so primal and dual meet on the same object (this also catches a
+    # sign error in any row family: a flipped row would be violated here).
+    rows = build_rows()
+    x = {S: f[S] for S in range(1, 1 << n)}
+    x.update({(1 << n) + S: g[S] for S in range(1, 1 << n)})
+    worst = None
+    nbad = 0
+    for tag, meta, coefs in rows:
+        s = sum((val * x[k] for k, val in coefs.items()), Fr(0))
+        if s > 0:
+            nbad += 1
+            if worst is None or s > worst[0]:
+                worst = (s, tag, meta)
+    Om = ((1 << K) - 1) << K
+    ok2 = (nbad == 0 and f[Om] == 1 and f[(1 << K) - 1] == TARGET)
+    record("B2: the instance is an exactly feasible point of LP(O = {o_0..o_3}) "
+           "with f(O) = 1 and objective 23/41 (primal side of the same LP)", ok2,
+           f"{len(rows)} rows, {nbad} violated, f(O) = {f[Om]}, "
+           f"f(T) = {f[(1 << K) - 1]}")
+    out['primal_feasible_rows'] = len(rows)
+    out['primal_violated_rows'] = nbad
+    # B3: independent verifier (results/F4_submodular_ftilde.py, unmodified)
+    try:
+        sys.path.insert(0, HERE)
+        from F4_submodular_ftilde import verify_instance  # noqa: E402
+        v3 = verify_instance(n, K, np.array([float(z) for z in f]),
+                             np.array([float(z) for z in g]),
+                             float(ETA_U), float(ETA_O))
+        ok3 = (v3['f_empty'] and v3['monotone_f'] and v3['submodular_f'] and
+               v3['monotone_ftilde'] and v3['submodular_ftilde'] and
+               v3['band_ok'] and v3['greedy_picks_0..K-1'] and v3['opt_is_one']
+               and abs(v3['ratio'] - float(TARGET)) < 1e-12)
+        record("B3: F4's own verifier (unmodified) accepts the instance", ok3,
+               f"ratio = {v3['ratio']:.12f}, eta realised = "
+               f"{v3['eta_u_realised']:.6f} * {v3['eta_o_realised']:.6f}")
+        out['F4_verifier'] = {k: (float(z) if isinstance(z, float) else bool(z))
+                              for k, z in v3.items() if k != 'greedy_trace'}
+    except Exception as exc:                                  # pragma: no cover
+        record("B3: F4's own verifier (unmodified) accepts the instance", False,
+               f"import/eval failed: {exc}")
     RESULTS['B_instance'] = out
 
 

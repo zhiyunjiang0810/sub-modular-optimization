@@ -202,7 +202,7 @@
    "value": 0.5609756097560976
   }
  ],
- "A_seconds": 121.8,
+ "A_seconds": 122.3,
  "B_instance": {
   "m_star": 2,
   "W_mstar": "23/41",
@@ -969,6 +969,25 @@
    "253": "1",
    "254": "1",
    "255": "1"
+  },
+  "primal_feasible_rows": 7702,
+  "primal_violated_rows": 0,
+  "F4_verifier": {
+   "f_empty": true,
+   "monotone_f": true,
+   "monotone_ftilde": true,
+   "submodular_f": true,
+   "submodular_ftilde": true,
+   "max_submod_violation_f": 2.220446049250313e-16,
+   "max_submod_violation_ftilde": 1.6653345369377348e-16,
+   "eta_u_realised": 1.5000000000000016,
+   "eta_o_realised": 1.000000000000003,
+   "band_ok": true,
+   "greedy_picks_0..K-1": true,
+   "ratio": 0.5609756097560976,
+   "opt_value": 1.0,
+   "opt_is_one": true,
+   "ratio_over_opt": 0.5609756097560976
   }
  },
  "C_duals": {
@@ -1308,7 +1327,7 @@
       "n_rows_in_orbit": 3
      }
     ],
-    "seconds": 0.1
+    "seconds": 0.2
    },
    {
     "orbit_index": 2,
@@ -3414,7 +3433,7 @@
       "n_rows_in_orbit": 3
      }
     ],
-    "seconds": 0.1
+    "seconds": 0.2
    },
    {
     "orbit_index": 13,
@@ -3857,6 +3876,11 @@
    "info": "16 orbits, sizes [1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6]"
   },
   {
+   "check": "A5: row labels and row coefficient vectors are both injective (no duplicated inequality, so the dual transport in Part C is well defined)",
+   "pass": true,
+   "info": "7702 rows, 7702 distinct labels, 7702 distinct coefficient vectors"
+  },
+  {
    "check": "A1: LP value is constant on each of the 16 orbits (full 70-set gate)",
    "pass": true,
    "info": "max spread inside an orbit = 1.11e-15"
@@ -3882,6 +3906,16 @@
    "info": "ratio = 23/41 at 3 rational splits of eta = 3/2"
   },
   {
+   "check": "B2: the instance is an exactly feasible point of LP(O = {o_0..o_3}) with f(O) = 1 and objective 23/41 (primal side of the same LP)",
+   "pass": true,
+   "info": "7702 rows, 0 violated, f(O) = 1, f(T) = 23/41"
+  },
+  {
+   "check": "B3: F4's own verifier (unmodified) accepts the instance",
+   "pass": true,
+   "info": "ratio = 0.560975609756, eta realised = 1.500000 * 1.000000"
+  },
+  {
    "check": "C1: exact rational dual certificate at y = 23/41 per orbit",
    "pass": true,
    "info": "16/16 orbits attempted closed exactly"
@@ -3902,5 +3936,5 @@
    "info": "23*14641 = 336743 > 331280 = 41*8080"
   }
  ],
- "seconds": 124.7
+ "seconds": 125.5
 }
