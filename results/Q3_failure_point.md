@@ -10,7 +10,8 @@ open，夹逼区间由 [rho_K, min{U_K, 1/eta}] 收窄为 [rho_K, min{W, 1/eta}]
 ## 1. 一句话卡点
 
 O-无关计数网格族的 LP 值 rho_K^(n) 关于 n 单调不减: 在 n = 2K 处恰等于
-rho_K = min_j V_j，但从 n = K + j + m_c 起严格超过 rho_K，并在
+rho_K = min_j V_j，但从 n_c = K + j + m_c 起严格超过 rho_K
+（m_c = floor(eta(K-1)) + 1，[VERIFIED-SYMBOLIC]），并在
 n >= K + j + m* 处饱和于 W = V_j + (K-j) E(m*) > rho_K。而 transcript 论证
 （app:greedybudget 的并集界 K^5/(2n)）需要 n >= 4K^5，远在饱和点之后。
 所以该族在 transcript 所需的 n 上能给出的最好 ceiling 是 W，不是 rho_K，
@@ -25,26 +26,35 @@ eta 在段 (K-j, K-j+1) 内部；k1 = (K-1)eta + 1，q = 1 - 1/k1，nu = eta/(et
     D(m)   = q^j (nu^m / K - 1) / (eta (nu^m - 1) - m),   m >= 1,
     E(m)   = D(m) - D_base.
 
-卡住的不等式（excess positivity）:
+卡住的不等式（excess positivity）有闭式因子分解 [VERIFIED-SYMBOLIC，
+results/Q2_symbolic.py C6，并另做了独立 3 行 sympy 复核]:
 
-    存在 m >= 1 使 E(m) > 0。
+    E(m) = q^j (m - eta(K-1)) / ( K eta ( eta(nu^m - 1) - m ) ).
 
-等价地（分母 eta(nu^m - 1) - m 对 m >= 1、eta > 1 恒正，由 Bernoulli
-不等式 nu^m >= 1 + m/(eta-1) 得其 >= m/(eta-1) > 0，[VERIFIED-SYMBOLIC]
-见 results/Q2_symbolic.md C6c），E(m) > 0 当且仅当
+分母对 m >= 1、eta > 1 恒正（Bernoulli: nu^m >= 1 + m/(eta-1) 给出
+分母 >= m/(eta-1) > 0），于是
 
-    N(m) := eta nu^m (K-1) - K (eta - 1) nu^m ... 见 Q2_symbolic.md C6 的
-    规范形（sympy 给出的公分子）。
+    E(m) > 0  当且仅当  m > eta(K-1)，
+    m_c = floor(eta(K-1)) + 1，  n_c = K + j + m_c。
 
-关键结构事实（状态见第 4 节）:
-- E(1) < 0 恒成立: D(1) = q^j (K - eta(K-1))/K，
+关键结构事实（状态标签逐条）:
+- E(1) < 0 恒成立 [VERIFIED-SYMBOLIC]: D(1) = q^j (K - eta(K-1))/K，
   E(1) 的符号 = -((K-1)eta - 1)(eta - 1) < 0（eta > 1）。
-  所以超额不来自第一步，而来自长尾。
-- E(m) 在 m 充分大时 > 0，首个正的 m 记 m_c(K, eta)；
-  D(m) 的 argmax 记 m*(K, eta)，数值上 m* = ceil(eta K) - 1 [CONJECTURE]。
-- m_c > K - j 在全部测试参数上成立，这正是 n = 2K 恰好等于 rho_K 的原因:
+  超额不来自第一步，而来自长尾（m > eta(K-1) 的中段）。
+- lim_{m->infinity} D(m) = D_base 且从上方趋近 [VERIFIED-SYMBOLIC]，
+  所以 sup_m D(m) 在有限 m* 处取到，超额是中段现象不是极限现象。
+- m_c > K - j 恒成立 [VERIFIED-SYMBOLIC]: m_c > eta(K-1) >= eta > K - j
+  （活跃段内 eta > K - j）。这正是 n = 2K 恰好等于 rho_K 的原因:
   n = 2K 时网格宽度 X = K，尾巴可用长度 X - j = K - j < m_c，
   E(m) > 0 的 m 放不进网格，于是 D = D_base，LP 值 = V_j = rho_K。
+  无尾窗口的精确刻画: D = D_base 当且仅当 X - j <= eta(K-1)，
+  即 n <= n_c - 1。
+- argmax m*(K, eta) 的取值规则: 继承自 N4/Q1 的猜想 m* = ceil(eta K) - 1
+  被精确有理反例推翻（frac(eta K) 很小时差 1: 例如 K=5, eta=2001/1000 时
+  真 m* = 9 而猜想给 10；共 4 个反例，见 Q2_symbolic.md）。修正规则
+  m* = min{m >= 1: nu^m (eta K - 1 - m) <= K(eta-1)}，且 m* <= ceil(eta K) - 1
+  [CONJECTURE，48/48 sweep 点单峰确认]。此事只影响用 m* 预测 saturation
+  onset 的推断，不影响闭式 feasibility（本夜全部脚本用直接 argmax）。
 
 参数区间:
 - 2 <= j <= K-1（即 1 < eta < K-1 所在诸段）: 闭式与 LP 顶点逐格一致
@@ -56,9 +66,8 @@ eta 在段 (K-j, K-j+1) 内部；k1 = (K-1)eta + 1，q = 1 - 1/k1，nu = eta/(et
 
 ## 3. 与 transcript 的定量不相容
 
-- rho_K^(n) = rho_K 恰好只在窗口 n <= K + j + m_c - 1 内（含 n = 2K）。
-  m_c 与 m* 都是 Theta(eta K) 量级（数值上 m* = ceil(eta K) - 1），
-  所以窗口是 n = O((eta+2)K)。
+- rho_K^(n) = rho_K 恰好只在窗口 n <= n_c - 1 = K + j + floor(eta(K-1)) 内
+  （含 n = 2K）。窗口是 n = O(eta K) 的线性量级。
 - app:greedybudget 的 τ=1 计数链需要 n >= 4K^5 才能把
   并集界 K^5/(2n) 与输出泄露 K^2/n 压到 1/2 以下。
 - 两者无交集（K >= 2 时 4K^5 远大于 O((eta+2)K)），
@@ -81,13 +90,24 @@ eta 在段 (K-j, K-j+1) 内部；k1 = (K-1)eta + 1，q = 1 - 1/k1，nu = eta/(et
 
 TASKS10 Q2 checklist 对照（详表见 results/Q2_symbolic.md）:
 
-1. F 单调 submodular（分段）: [PLACEHOLDER-C1C2]
-2. 单元素带（四类边，split (eta,1)）: [PLACEHOLDER-C3]
+1. F 单调 submodular（分段，含 x=j 与 x=T 两个衔接分支）:
+   [VERIFIED-SYMBOLIC]（Q2_symbolic C1 15 项 + C2 19 项）。两个衔接分支的
+   submodularity 条件恰好等价于 D 在 argmax 处的局部最优性条件
+   （D(m) - D(m-1) = r_T/(eta B(m-1)) 与 D(m) - r_T = (eta-1)B(m+1)(D(m)-D(m+1))
+   两条恒等式），所以任何 argmax 处闭式都 feasible，无额外边条件。
+2. 单元素带（四类边，split (eta,1)）: [VERIFIED-SYMBOLIC]（C3 16 项）。
+   极值边清单: y-edge y=0->1 在下端 tight（dG = dF/eta，实现 eta_u = eta）；
+   其余三类边（y=0 与 y=1 的 x-edge、y>=1 的 y-edge、y>=2 的 x-edge）
+   全部上端 tight（dG = dF，实现 eta_o = 1），核心是主恒等式
+   a(x) - a(x+1) = g(x+1)/eta（a = r - g）。
 3. G 在 |S| <= K、|S∩O| <= 1 上只依赖 |S|: 构造上成立（y <= 1 区 G = Ghat(x+y)），
-   相邻表示的 tie G(x+1,0) = G(x,1) 逐格核对通过；Ghat 相位衔接 [PLACEHOLDER-C4]。
-4. 比值闭式与 n -> infinity 极限 = V_j: **[FAILED]**。极限是
+   相邻表示的 tie G(x+1,0) = G(x,1) 逐格核对通过；Ghat 三段相位衔接与步长
+   [VERIFIED-SYMBOLIC]（C4 9 项）。
+4. 比值闭式与 n -> infinity 极限 = V_j: 闭式 F(K,0) = 1 - q^j + (K-j)D 与
+   归一化 [VERIFIED-SYMBOLIC]（C5），但极限 = V_j **[FAILED]**: 极限是
    W = V_j + (K-j) E(m*) > V_j（第 2 节的不等式），不是 V_j。
-   这就是本夜的失败点。整数 eta 处的段切换恒等式 [PLACEHOLDER-C7]。
+   这就是本夜的失败点。整数 eta 处的段切换恒等式 V_j(eta) = V_{j+1}(eta)
+   于 eta = K - j: [VERIFIED-SYMBOLIC]（C7）。
 
 支撑 oracle（全部一键复现，见第 7 节）:
 - 独立 n-sweep: 6 组 (K,eta) x 33 个 LP，P1（n=2K 恰为 rho_K）、
@@ -96,7 +116,10 @@ TASKS10 Q2 checklist 对照（详表见 results/Q2_symbolic.md）:
 - 全格点电池: 36/36 配置（K in {3,4,5,8}，全部 2 <= j <= K-1 段中点，
   n in {2K,4K,8K}）精确有理通过单调/submodular/归一/带/tie/目标值
   [VERIFIED-LP]。
-- 一般 K 符号: results/Q2_symbolic.md [PLACEHOLDER-SYMBOLIC-SUMMARY]
+- 一般 K 符号: results/Q2_symbolic.py 亲跑 exit 0，103 项 PASS，
+  C0（转录守卫）到 C8（18 组全格点交叉）无一 FAILED；仅两条 [CONJECTURE]
+  且都只涉及 argmax 位置 m*，不涉及 feasibility。最要害的 E(m) 因子分解
+  另做了独立 sympy 复核（本报告第 2 节）。
 
 ## 5. 命名警示
 
@@ -111,10 +134,11 @@ TASKS10 Q2 checklist 对照（详表见 results/Q2_symbolic.md）:
 results/Q3_W_vs_UK.log），且 W - rho_K 随 K 衰减远快于 U_K - W
 （K=8: 8.3e-08 对 1.9e-03；K=12: 1.0e-08 对 1.6e-03）。
 若把 cor:greedybudget 的 ceiling 从 min{U_K, 1/eta} 换成 min{W, 1/eta}，
-夹逼区间会大幅收窄。需要的补件: (i) 闭式族 validity 的一般 K 符号版
-（Q2_symbolic 的 C1-C5）; (ii) transcript 复用检查（族在 n >= 4K^5 处
-可用、O-无关区域覆盖 transcript 所需查询集）; (iii) W 的解析性质
-（单调性、eta -> 1 与 eta -> K 端点、与 1/eta 的交点）。
+夹逼区间会大幅收窄。需要的补件: (i) 闭式族 validity 的一般 K 符号版: 本夜已具备
+（Q2_symbolic C1-C5 全部 [VERIFIED-SYMBOLIC]）; (ii) transcript 复用检查
+（族在 n >= 4K^5 处可用、O-无关区域覆盖 transcript 所需查询集）:
+未做; (iii) W 的解析性质（单调性、eta -> 1 与 eta -> K 端点、
+与 1/eta 的交点）: 未做。缺 (ii)(iii) 且按闸门规则，今晚不装配。
 按 "Q2 未全部通过不得改正文" 闸门，今晚正文与台账均未动（无 T10c 卡）。
 建议明早与 GPT 的 Q4 交叉核对时一并裁定。
 
@@ -127,4 +151,5 @@ results/Q3_W_vs_UK.log），且 W - rho_K 随 K 衰减远快于 U_K - W
 - python3 results/Q3_W_vs_UK.py            (副产物表, exit 0)
 
 日志: results/Q2_indep_nsweep.log, results/Q2_grid_check.log,
-results/Q3_W_vs_UK.log, results/Q1_selfcheck.json, results/Q2_symbolic.json。
+results/Q2_symbolic_run.log, results/Q3_W_vs_UK.log,
+results/Q1_selfcheck.json, results/Q2_symbolic.json。

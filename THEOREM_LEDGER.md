@@ -346,6 +346,15 @@
 - 内容：任意大小查询、预算 Q ≤ n²/(2K²(t*+K)²) 的确定性算法在已检查参数上不超过 greedy 的渐近值。
 - 状态：坏实例的单调、submodular、归一化只有有限参数穷举 [VERIFIED-LP 有限]；j、m* 一般闭式无证明；
   随机版另用未核查的构造不等式；装配 [HAND-PROOF-UNREVIEWED]。J4 裁定：不能以已完成定理计入。
+- 第十晚状态更新（只加注记，正文按 Q2 闸门未动）：m* = ⌈ηK⌉−1 作为 argmax 规则被精确有理反例
+  **推翻**（frac(ηK) 很小时差 1，4 个反例，如 K=5, η=2001/1000 真 argmax 9 对猜想 10；
+  results/Q2_symbolic.md）。反例点在 F3 原 264 点网格之外，附录已有的有限穷举结论不受影响；
+  但 appendix_proofs.tex 以该 m* 定义 D 与 W_K 的段落，在那些角点参数上给出的族不可行
+  （r(t*) < 0，由恒等式 D(m)−D(m−1) = r_T/(ηB(m−1)) [VERIFIED-SYMBOLIC]），待明早 Q4 时修正。
+  修正候选规则 m* = min{m ≥ 1: ν^m(ηK−1−m) ≤ K(η−1)} ≤ ⌈ηK⌉−1 [CONJECTURE，48/48 sweep]。
+  另：该族 feasibility 的一般 K 符号验证本夜完成（Q2_symbolic C1-C5 全 [VERIFIED-SYMBOLIC]，
+  在直接 argmax 处取 D 时无额外边条件），LP 值饱和常数 W 的精确定位见 T10 系与
+  results/Q3_failure_point.md（W 与 rem:exact-gap 的 W_m 是不同对象，写正文前必须换名）。
 - 第九晚证据（P1）：F3 的 O-无关区域 {y ≤ τ} ∪ {x > t*} 不被 N∖{e} 攻击打到（正文显式族则被打穿，
   两类 (n−1)-集合的 G 值差 a^{n−K+τ}/(K−τ) > 0）[VERIFIED-LP]。预算指数扫描：c=0.5 时 LP 值 ≈ W_K(η)、
   c ≥ 1.5 时塌缩到 1/η（8/8 组），故 Q 里的常数因子 1/(2K²(t*+K)²) 对该族是**必需的**，
