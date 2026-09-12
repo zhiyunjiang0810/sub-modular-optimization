@@ -110,6 +110,15 @@
   卡点：路径变量 reduced LP 加全部自然 f̃-submodularity 有效不等式后值仍为 min_j V_j（42/42
   [VERIFIED-LP]），该批不等式不足以给下界（H-C §5）。
 - 紧系统 ⟹ W_m [VERIFIED-SYMBOLIC]（符号 K,m,η_u,η_o；机制推导非下界证明）。
+- 分段点（J5H4，来源 J5 hardcore §1.4）：相邻分支交点 **β_m = 1 + (K−m−1)/(K(1−r^{m+1}))**，
+  m = 0..K−2，随 m 严格下降；取 β_{−1}=∞、β_{K−1}=1，则 W_m 在 [β_m, β_{m−1}] 上是全族最小。
+  交点恒等式与 W_m−W_{m+1} 的符号判别式 [VERIFIED-SYMBOLIC，results/J5_hardcore/
+  J5_hardcore_oracles.py]；由相邻差符号到区间活跃性的装配 [HAND-PROOF-UNREVIEWED，来源 J5]。
+  **这是候选上界族的下包络描述，不是一般匹配下界。** 一般参数实例核验升级：J5 对 56 个实例、
+  121,344 条边、262,144 个方块 Fraction 精确通过（含非对称拆分），一般参数的四点手证
+  （二阶差分非正、band 端点、逐步打平、OPT=1）[HAND-PROOF-UNREVIEWED，来源 J5]。
+  措辞禁令：不写"把 V_j 的 q 换成 r"（直接替换得不到该分母；该说法只出现在送审 dossier，
+  仓库正文从未使用，本条为预防性登记）。
 - 禁止声称（M4 追加）：用高比值实例证明 ρ^sub 的 worst-case 下界（实例只给上界 ρ^sub ≤ 值；
   下界要对偶/保证侧证书，J5 指出的方向错误，M3.2 处理中）。
 - 禁止声称："strictly improves for all η<K−1"（只在部分点验证）；"ρ_K^sub = min_m W_m"（下界无证书）；

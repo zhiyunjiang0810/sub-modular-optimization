@@ -390,8 +390,29 @@ equals $23/41$ exactly, certified on both sides (an explicit rational
 instance and exact rational dual certificates for all seventy target
 sets), and $23/41>U_4(3/2)=8080/14641$; the value is unchanged for every
 $n\ge8$ by restriction and padding.  At the other verified points, such as
-$K=3$, $\eta=3/2$, the value $19/33$ still lies below $U_3(3/2)=37/64$.  A
+$K=3$, $\eta=3/2$, the value $19/33$ still lies below $U_3(3/2)=37/64$.
+The explicit family behind these numbers has, with $r=1-1/K$ and a block
+parameter $m\in\{0,\dots,K-1\}$,
+\[
+  W_m(K,\eta)\;=\;\frac{K-m\,r^{m}}{K\bigl[1+(\eta-1)r^{m}\bigr]},
+  \qquad
+  \beta_m\;=\;1+\frac{K-m-1}{K\,(1-r^{m+1})}\quad(m\le K-2),
+\]
+where the breakpoints $\beta_m$ decrease strictly in $m$ and, with
+$\beta_{-1}=\infty$ and $\beta_{K-1}=1$, the branch $W_m$ is the family
+minimum on $[\beta_m,\beta_{m-1}]$.  This is the lower envelope of a
+family of upper-bound instances, so
+$\rho^{\mathrm{sub}}_K(\eta)\le\min_mW_m(K,\eta)$; the certified $23/41$
+point is the only matching lower bound so far, and a
 general characterization is left open.
+% J5H4 (ledger T7; source: results/J5_hardcore/J5_variant_certificates.md
+% sections 1 and 1.4).  The crossing identity and the sign discriminant of
+% W_m - W_{m+1} are [VERIFIED-SYMBOLIC] (J5 hardcore oracle); the interval
+% activity assembly from adjacent-difference signs and the four-point
+% general-parameter instance verification are [HAND-PROOF-UNREVIEWED,
+% source J5], with 56 instances / 121,344 edges / 262,144 squares exact in
+% Fractions.  Wording rule: W_m is NOT "V_j with q replaced by r" (a
+% direct substitution does not produce this denominator).
 % M3.2 (J5 item; the J5 dual file was never delivered, so the certificates
 % are a LOCAL rebuild): results/M3_rhosub_K4_exact.{md,py,json}.  Upper
 % side [VERIFIED-SYMBOLIC-EXACT] (Fraction instance, 0 of 7702 rows
