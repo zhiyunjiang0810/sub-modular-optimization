@@ -1,0 +1,101 @@
+
+== K=3 eta=3/2 rho_K=9/16=0.562500000 ==
+PASS K=3 eta=3/2 n=6 vertex feasible (recheck) 
+   n=  6  value=0.5625000000  (value - rho_K = -2.220e-16)
+   n=  7  value=0.5625000000  (value - rho_K = -2.220e-16)
+   n=  8  value=0.5625000000  (value - rho_K = -2.220e-16)
+   n=  9  value=0.5635775862  (value - rho_K = +1.078e-03)
+   n= 10  value=0.5635775862  (value - rho_K = +1.078e-03)
+   n= 11  value=0.5635775862  (value - rho_K = +1.078e-03)
+   n= 12  value=0.5635775862  (value - rho_K = +1.078e-03)
+PASS K=3 eta=3/2 n=24 vertex feasible (recheck) 
+   n= 24  value=0.5635775862  (value - rho_K = +1.078e-03)
+PASS K=3 eta=3/2 P1 value(2K) == rho_K 0.5625000000 vs 0.5625000000
+PASS K=3 eta=3/2 P2 nondecreasing in n 
+PASS K=3 eta=3/2 P3 value(24) > rho_K strictly excess 1.078e-03
+PASS K=3 eta=3/2 P4a value(24) == W (closed form) 0.5635775862 vs W=0.5635775862
+PASS K=3 eta=3/2 P4b flat at W for n >= K+T=9 
+PASS K=3 eta=3/2 P4c value(K+T-1) < W strictly gap 1.078e-03
+
+== K=4 eta=3/2 rho_K=1447/2662=0.543576258 ==
+PASS K=4 eta=3/2 n=8 vertex feasible (recheck) 
+   n=  8  value=0.5435762585  (value - rho_K = +0.000e+00)
+   n=  9  value=0.5435762585  (value - rho_K = +0.000e+00)
+   n= 10  value=0.5435762585  (value - rho_K = +2.220e-16)
+   n= 11  value=0.5435762585  (value - rho_K = +1.110e-16)
+   n= 12  value=0.5437037511  (value - rho_K = +1.275e-04)
+   n= 13  value=0.5437037511  (value - rho_K = +1.275e-04)
+   n= 14  value=0.5437037511  (value - rho_K = +1.275e-04)
+   n= 16  value=0.5437037511  (value - rho_K = +1.275e-04)
+PASS K=4 eta=3/2 n=32 vertex feasible (recheck) 
+   n= 32  value=0.5437037511  (value - rho_K = +1.275e-04)
+PASS K=4 eta=3/2 P1 value(2K) == rho_K 0.5435762585 vs 0.5435762585
+PASS K=4 eta=3/2 P2 nondecreasing in n 
+PASS K=4 eta=3/2 P3 value(32) > rho_K strictly excess 1.275e-04
+PASS K=4 eta=3/2 P4a value(32) == W (closed form) 0.5437037511 vs W=0.5437037511
+PASS K=4 eta=3/2 P4b flat at W for n >= K+T=12 
+PASS K=4 eta=3/2 P4c value(K+T-1) < W strictly gap 1.275e-04
+
+== K=4 eta=5/2 rho_K=109/289=0.377162630 ==
+PASS K=4 eta=5/2 n=8 vertex feasible (recheck) 
+   n=  8  value=0.3771626298  (value - rho_K = +5.551e-17)
+   n=  9  value=0.3771626298  (value - rho_K = +5.551e-17)
+   n= 10  value=0.3771626298  (value - rho_K = +1.110e-16)
+   n= 13  value=0.3771626298  (value - rho_K = +5.551e-17)
+   n= 14  value=0.3777253931  (value - rho_K = +5.628e-04)
+   n= 15  value=0.3781499125  (value - rho_K = +9.873e-04)
+   n= 16  value=0.3781499125  (value - rho_K = +9.873e-04)
+   n= 17  value=0.3781499125  (value - rho_K = +9.873e-04)
+PASS K=4 eta=5/2 n=32 vertex feasible (recheck) 
+   n= 32  value=0.3781499125  (value - rho_K = +9.873e-04)
+PASS K=4 eta=5/2 P1 value(2K) == rho_K 0.3771626298 vs 0.3771626298
+PASS K=4 eta=5/2 P2 nondecreasing in n 
+PASS K=4 eta=5/2 P3 value(32) > rho_K strictly excess 9.873e-04
+PASS K=4 eta=5/2 P4a value(32) == W (closed form) 0.3781499125 vs W=0.3781499125
+PASS K=4 eta=5/2 P4b flat at W for n >= K+T=15 
+PASS K=4 eta=5/2 P4c value(K+T-1) < W strictly gap 4.245e-04
+
+== K=5 eta=5/2 rho_K=491/1331=0.368895567 ==
+PASS K=5 eta=5/2 n=10 vertex feasible (recheck) 
+   n= 10  value=0.3688955672  (value - rho_K = -1.110e-16)
+   n= 11  value=0.3688955672  (value - rho_K = +0.000e+00)
+   n= 12  value=0.3688955672  (value - rho_K = -5.551e-17)
+   n= 18  value=0.3688955672  (value - rho_K = -1.110e-16)
+   n= 19  value=0.3690735010  (value - rho_K = +1.779e-04)
+   n= 20  value=0.3691075814  (value - rho_K = +2.120e-04)
+   n= 21  value=0.3691075814  (value - rho_K = +2.120e-04)
+   n= 22  value=0.3691075814  (value - rho_K = +2.120e-04)
+PASS K=5 eta=5/2 n=40 vertex feasible (recheck) 
+   n= 40  value=0.3691075814  (value - rho_K = +2.120e-04)
+PASS K=5 eta=5/2 P1 value(2K) == rho_K 0.3688955672 vs 0.3688955672
+PASS K=5 eta=5/2 P2 nondecreasing in n 
+PASS K=5 eta=5/2 P3 value(40) > rho_K strictly excess 2.120e-04
+PASS K=5 eta=5/2 P4a value(40) == W (closed form) 0.3691075814 vs W=0.3691075814
+PASS K=5 eta=5/2 P4b flat at W for n >= K+T=20 
+PASS K=5 eta=5/2 P4c value(K+T-1) < W strictly gap 3.408e-05
+
+== K=4 eta=2 rho_K=22/49=0.448979592 ==
+PASS K=4 eta=2 n=8 vertex feasible (recheck) 
+   n=  8  value=0.4489795918  (value - rho_K = -5.551e-17)
+   n=  9  value=0.4489795918  (value - rho_K = +5.551e-17)
+   n= 10  value=0.4489795918  (value - rho_K = -3.886e-16)
+   n= 16  value=0.4492982850  (value - rho_K = +3.187e-04)
+PASS K=4 eta=2 n=32 vertex feasible (recheck) 
+   n= 32  value=0.4492982850  (value - rho_K = +3.187e-04)
+PASS K=4 eta=2 P1 value(2K) == rho_K 0.4489795918 vs 0.4489795918
+PASS K=4 eta=2 P2 nondecreasing in n 
+PASS K=4 eta=2 P3 value(32) > rho_K strictly excess 3.187e-04
+
+== K=3 eta=5/2 rho_K=7/18=0.388888889 ==
+PASS K=3 eta=5/2 n=6 vertex feasible (recheck) 
+   n=  6  value=0.3888888889  (value - rho_K = -5.551e-17)
+   n=  7  value=0.3888888889  (value - rho_K = -1.110e-16)
+   n=  8  value=0.3888888889  (value - rho_K = +1.110e-16)
+   n= 12  value=0.3925925926  (value - rho_K = +3.704e-03)
+PASS K=3 eta=5/2 n=24 vertex feasible (recheck) 
+   n= 24  value=0.3930063770  (value - rho_K = +4.117e-03)
+PASS K=3 eta=5/2 P1 value(2K) == rho_K 0.3888888889 vs 0.3888888889
+PASS K=3 eta=5/2 P2 nondecreasing in n 
+PASS K=3 eta=5/2 P3 value(24) > rho_K strictly excess 4.117e-03
+
+ALL PASS
