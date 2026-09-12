@@ -432,3 +432,8 @@ cstudy ≈ 90 秒。峰值内存 < 1 GB（n=7 的 LP 是 256 列 × 2688 行）�
 输出：`results/P2_large_query_algorithms.json`
 （`results` 12 行主表、`gates` 七道闸门、`eta1` 小 η 补表、`closed_form_A` 闭式吻合表、
 `c_study` 的 `library` / `restricted_lp` / `summary` 三节）。
+
+---
+**证据等级注记（M2.1，2026-09-12，J5 采纳）**：本文档中一切"精确分数/精确值"的证据等级统一读作
+[VERIFIED-LP，有限参数，浮点求解 + 有理化 + witness 复核]；没有逐格的有理对偶证书，浮点分支穷尽
+不等于精确有理最优（台账 T11 的 M2.1 条）。

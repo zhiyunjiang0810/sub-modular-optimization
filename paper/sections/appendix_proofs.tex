@@ -1622,7 +1622,12 @@ states the slightly larger
 $\varepsilon_n=K^{2}/n+K^{5}/(2n)$, which also matches the deterministic
 output count.  The quantifier order is that of Theorem~\ref{thm:hardness}:
 the instance may depend on the algorithm, and the expectation is over the
-algorithm's randomness only.
+algorithm's randomness only.  The additive term vanishes only in the joint
+limit $n/K^{5}\to\infty$; at fixed $n$ it does not.  The combination with
+the ceiling as $\min\{U_K(\eta),1/\eta\}$ is stated for deterministic
+algorithms only.
+% M2.6 (J5): joint-limit condition and the deterministic-only scope of the
+% min combination made explicit; ledger T10b.
 
 \paragraph{The width of the interval.}
 For the gap statement of Remark~\ref{rem:greedybudget}, expanding both

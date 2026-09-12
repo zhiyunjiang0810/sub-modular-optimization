@@ -33,6 +33,9 @@ Exact Worst Cases, Query Hardness, and Per-Run Certificates}
 \maketitle
 
 \begin{abstract}
+% M2.5 (J5) editorial rule for the human: the query-size restriction must
+% appear WHEREVER the hardness theorem is mentioned (abstract included);
+% the N-minus-e leak (rem:hardness-leak) is why it cannot be elided.
 % [Placeholder -- the human writes the abstract.  One-sentence story
 % (English draft, G1): When a monotone submodular objective can only be
 % accessed through an inaccurate predictor, greedy on the predicted gains
@@ -63,10 +66,14 @@ Exact Worst Cases, Query Hardness, and Per-Run Certificates}
 %     under adversarial ties (Theorem~\ref{thm:exact}), with explicit dual
 %     certificates and attaining instances; strictly below the previously
 %     used explicit family U_K.
-%  4. Hardness position: no deterministic algorithm with n^c queries of
-%     size at most K beats L_K(etahat) (Theorem~\ref{thm:hardness}); with
-%     Proposition~\ref{prop:guarantee} this pins the bounded-query optimum
-%     at error eta to 1 - e^{-1/eta} asymptotically in K.
+%  4. Hardness position (updated K5 + M2.5; full rewrite notes in REPORT
+%     "contribution (iv)"): no deterministic algorithm with n^c queries OF
+%     SIZE AT MOST K beats H_{K,tau}(eta), tau = ceil(c)+1
+%     (Theorem~\ref{thm:hardness}); with Proposition~\ref{prop:guarantee}
+%     this pins the optimum of query classes CONTAINING GREEDY (nK <= n^c)
+%     at error eta to 1 - e^{-1/eta} asymptotically in K.  The query-size
+%     restriction must appear wherever hardness is mentioned
+%     (rem:hardness-leak: without it the family leaks O).
 %
 % Hook (A/B surrogate example, draft): two surrogates for the same
 % objective.  Surrogate A is pointwise accurate everywhere (eta close to 1

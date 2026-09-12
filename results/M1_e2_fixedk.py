@@ -101,6 +101,46 @@ def audit_rows():
     return rows, runs, short, flagged
 
 
+def quantiles(xs):
+    """Same quantile rule as results/EXP_table_build.py (linear interpolation)."""
+    xs = sorted(xs)
+    if not xs:
+        return (float('nan'),) * 3
+
+    def q(f):
+        if len(xs) == 1:
+            return xs[0]
+        i = f * (len(xs) - 1)
+        lo, hi = int(i), min(int(i) + 1, len(xs) - 1)
+        if xs[hi] == INF:
+            return INF
+        return xs[lo] + (xs[hi] - xs[lo]) * (i - lo)
+    return q(0.25), q(0.5), q(0.75)
+
+
+def table_impact(rows):
+    """The two E2 cells of Table 1 (paper/sections/EXP_table.tex, built by
+    results/EXP_table_build.py) recomputed both ways at the headline K.
+
+    EXP_table_build.task_stats reads the eta_sel COLUMN of E2_rows.csv, which is
+    the pre-D3 value, while results/G3_gen_numbers.py applies the D3 infinity
+    override before taking the same median.  Both feed the same paper."""
+    main = [r for r in rows if int(r['K']) == K_MAX]
+    raw = [float(r['eta_sel']) for r in main if r['eta_sel']]
+    ovr = [INF if float(r['n_steps_nonpos']) > 0 else float(r['eta_sel'])
+           for r in main if r['eta_sel']]
+    _, m_raw, _ = quantiles(raw)
+    _, m_ovr, _ = quantiles(ovr)
+    return dict(n_runs=len(main),
+                eta_sel_median_pre_d3=m_raw,
+                eta_sel_median_fixedk=m_ovr,
+                eta_sel_cell_pre_d3=f'{m_raw:.1f}',
+                eta_sel_cell_fixedk=f'{m_ovr:.1f}',
+                LK_cell_pre_d3=f'{L_K_fixedk(m_raw, K_MAX):.3f}',
+                LK_cell_fixedk=f'{L_K_fixedk(m_ovr, K_MAX):.3f}',
+                n_inf_runs=sum(1 for x in ovr if x == INF))
+
+
 # --------------------------------------------------------------------------
 # 2. replay one run, recording (g_t, M_t) per step
 # --------------------------------------------------------------------------
@@ -183,8 +223,14 @@ def main():
     for f in flagged:
         print('   ', f['run'], f['n_steps_nonpos'], f['eta_sel_csv'])
 
+    tab = table_impact(rows)
+    print(f'Table 1 E2 cells: eta^sel {tab["eta_sel_cell_pre_d3"]} (pre-D3) vs '
+          f'{tab["eta_sel_cell_fixedk"]} (fixed-K/D3); L_K '
+          f'{tab["LK_cell_pre_d3"]} vs {tab["LK_cell_fixedk"]}')
+
     summary = dict(k_max=K_MAX, n_rows=len(rows), n_runs=len(runs),
-                   early_stopped_runs=short, flagged_runs=flagged)
+                   early_stopped_runs=short, flagged_runs=flagged,
+                   table1_e2_cells=tab)
     if args.audit_only:
         print(json.dumps(summary, indent=1)[:400])
         return

@@ -33,9 +33,15 @@ $\eta$ is $c'(\eta)/K^{2}+O(1/K^{3})$
 (Remark~\ref{rem:greedybudget}).  At $K=8$ and $\eta=2$ the interval reads
 $[0.4216,\,0.4242]$, against the unrestricted-query ceiling $1/\eta=0.5$.
 For $\eta\ge K$ the interval is a point and predictive greedy is exactly
-optimal within the class.  For $1<\eta<K$ we do not know whether the lower
-end moves: we are not aware of any algorithm in $\mathcal A_{\mathrm{lin}}$
-whose worst-case ratio exceeds $\rho_K(\eta)$.  Two natural linear-budget candidates provide no counterexample at the
+optimal within the class.  For $1<\eta<K$ and $n\ge4K^{5}$ we do not know whether the lower
+end moves: in that range we are not aware of any algorithm in
+$\mathcal A_{\mathrm{lin}}$
+whose worst-case ratio exceeds $\rho_K(\eta)$.  The quantifier on $n$ is
+necessary: for small $n$ the budget $nK$ admits exhaustive search over all
+$K$-subsets (at $n=4$, $K=2$, $\eta=3/2$ it guarantees $2/3=1/\eta$, above
+$\rho_2=3/5$), so no greedy-optimality reading survives there.
+% M2.3 (J5 section 11 counterexample, recomputed exactly:
+% results/M0_counterexamples.py part 2).  Two natural linear-budget candidates provide no counterexample at the
 exact-LP level ($K\le3$, $n\le7$, adversarial ties): choosing the best
 $K$-subset of a top-$(K{+}1)$ shortlist by predicted values collapses to a
 one-element guarantee, far below $\rho_K$ in all twenty solved
@@ -56,8 +62,13 @@ selecting the endpoint by $\tilde f$.  A
 construction direction with finite exhaustive support
 (Appendix~\ref{app:hardness-anysize}) points the same way for far larger
 budgets of arbitrary-size queries.  We conjecture that predictive greedy is
-worst-case optimal within $\mathcal A_{\mathrm{lin}}$; settling the last
+worst-case optimal within $\mathcal A_{\mathrm{lin}}$ for $n\ge4K^{5}$;
+settling the last
 $O(1/K^{2})$ is open.
+% M2.3: the conjecture carries the n >= 4K^5 quantifier for the same
+% reason as above.  Evidence labels: every "exact" fraction from the
+% L2/L2R/H-F/P2 computations is [VERIFIED-LP, finite parameters,
+% floating-point solves with rational witnesses], per ledger T11 (M2.1).
 
 % Draft caption for the paper-version sandwich figure
 % (paper/figures/sandwich_paper.pdf, built by results/L3_sandwich_fig.py).
