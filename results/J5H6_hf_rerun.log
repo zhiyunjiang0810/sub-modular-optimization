@@ -19,3 +19,5 @@ main_exit=0
 ==============================================================================
 Part 4: exact PE_1 worst case (branch and bound) + certificates
 ==============================================================================
+  n=8 eta=1.5: PE_1 = 0.592592593 (16/27)  status=OK  rho_3 = 0.562500000  1/eta = 0.666666667  LPs=407  (231s)
+    certificate n=8 eta=1.5: LP=0.592592593  PE_1 on instance=0.592592593  monotone=True submodular=True band=True  -> CONSISTENT

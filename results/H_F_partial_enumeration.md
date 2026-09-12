@@ -348,3 +348,14 @@ python3 results/H_F_partial_enumeration.py all         # 除 n8/crosscheck 外�
 **证据等级注记（M2.1，2026-09-12，J5 采纳）**：本文档中一切"精确分数/精确值"的证据等级统一读作
 [VERIFIED-LP，有限参数，浮点求解 + 有理化 + witness 复核]；没有逐格的有理对偶证书，浮点分支穷尽
 不等于精确有理最优（台账 T11 的 M2.1 条）。
+
+---
+**更正注记（J5H3，2026-09-12，J5 hardcore 审查采纳）**：本文档 §"n=7 细扫"与结论段中
+"η ≥ 1.75 亦然"的表述是把离散扫描外推成连续断言，**撤回**；只保留已验证网格点的逐点结论
+（η ∈ {1.75, 2, 2.5} 等）。(K,η)=(3,2)、n=7 的格子现有精确有理穷举证书
+（results/J5_hardcore/J5_variant_certificates.md §4：4/9 < 7/15 < 5/9，128 子集 Fraction 全核；
+补零扩展到一切 n ≥ 7 [HAND-PROOF-UNREVIEWED，来源 J5]），已入论文附录 app:pe 与台账 T11。
+"n=6 放不下三组是反转的原因"读作机制解释而非唯一性证明；"没有证据说它有下确界"不成立
+（有界非空必有 infimum，补零扩展下最坏比对 n 非增）。文献引用规范：Nemhauser, Wolsey, Fisher
+(1978), Section 7, Theorem 7.1（不写 "NW 1978"）。另见文件头部若有 LPBuilder.solve 的
+J5H6 修复说明（非零 solver status 只在确认 infeasible 时剪枝）。

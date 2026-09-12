@@ -1745,6 +1745,61 @@ with one Richardson step); the two ends of the interval are tabulated in
 Theorem~\ref{thm:exact} through the closed form of $\rho_K$.
 
 % ---------------------------------------------------------------------------
+\subsection{Partial enumeration under predictions: an exact rational
+counterexample}\label{app:pe}
+% J5H3 (ledger T11; source: results/J5_hardcore/J5_variant_certificates.md
+% sections 4-5, oracle results/J5_hardcore/J5_hardcore_oracles.py).
+In the exact-oracle setting, partial enumeration improves the finite-$K$
+greedy constant \citep[Section~7, Theorem~7.1]{nemhauser1978analysis}.
+Under predictions this can invert.  Let $\mathrm{PE}_1$ run predictive
+greedy from every singleton start (adversarial ties inside each run) and
+return the completion with the largest predicted value, final ties again
+adversarial.  On the following seven-element instance with $K=3$ and
+$(\eta_u,\eta_o)=(2,1)$ it is strictly worse than plain predictive greedy
+and strictly below $\rho_3(2)$.
+
+For $T\subseteq\{0,\dots,6\}$ write $x=\mathbf 1_{\{0\in T\}}$,
+$b=|T\cap\{1,2\}|$, $y=|T\cap\{3,4,5\}|$, $z=\mathbf 1_{\{6\in T\}}$, and
+\[
+  18f(T)=2x+3b+6y-3b\,\mathbf 1_{\{y=3\}}+z\,\Delta_f(b,y),
+  \qquad
+  18\tilde f(T)=2x+3b+3y+3(1-b)\mathbf 1_{\{y=3\}}+z\,\Delta_g(b,y),
+\]
+with the two $3\times4$ correction tables
+\[
+  \Delta_f=\begin{pmatrix}5&4&2&0\\5&3&1&0\\4&2&0&0\end{pmatrix},
+  \qquad
+  \Delta_g=\begin{pmatrix}3&3&2&0\\3&2&1&0\\2&1&0&0\end{pmatrix}
+  \qquad(\text{rows }b=0,1,2,\ \text{columns }y=0,\dots,3).
+\]
+All $128$ subset values, all $448$ edges ($0\le d/2\le\tilde d\le d$, both
+band endpoints attained with positive gains), and all $672$ true
+submodularity squares are verified in exact rationals; $O=\{3,4,5\}$ has
+$f(O)=1$ and every $3$-set value is at most $1$.  One legal adversarial
+run per start gives the endpoints
+$(0{:}\,\{0,1,2\})$, $(1{:}\,\{1,6,0\})$, $(2{:}\,\{2,6,0\})$,
+$(v{:}\,\{v,6,0\})$ for $v\in\{3,4,5\}$, $(6{:}\,\{6,1,0\})$, all with
+predicted value $4/9$, so the final adversarial tie may select
+$\{0,1,2\}$ with true value $4/9$; enumerating all legal trajectories
+shows plain greedy's worst value on this instance is $5/9$.  Hence
+\[
+  \mathrm{PE}_1\;=\;\frac49\;<\;\frac7{15}\;=\;\rho_3(2)\;<\;\frac59 ,
+\]
+and the worst-case guarantee of $\mathrm{PE}_1$ at $(K,\eta)=(3,2)$ is
+strictly below predictive greedy's.  Padding with zero elements extends
+the counterexample to every $n\ge7$: old starts keep their runs, and a new
+zero start first picks a predicted argmax $b$ of the original instance and
+then follows a prefix of $b$'s completion run, whose predicted value
+monotonicity keeps below the winning endpoint.
+% Status: the instance and every displayed count are [VERIFIED-LP, exact
+% rational exhaustion] (J5 hardcore oracle, rerun this session, exit 0);
+% the padding extension is [HAND-PROOF-UNREVIEWED, source J5], with n=8,9
+% checked exhaustively.  NOT claimed: a general-K analytic family; a
+% uniform continuum statement in eta (the discrete scans support grid
+% points only; the former "eta >= 1.75 as well" reading is retracted,
+% ledger T11); that the losing endpoint must forfeit a full eta factor.
+
+% ---------------------------------------------------------------------------
 \subsection{Queries of arbitrary size: a construction direction with
 finite evidence}
 \label{app:hardness-anysize}
