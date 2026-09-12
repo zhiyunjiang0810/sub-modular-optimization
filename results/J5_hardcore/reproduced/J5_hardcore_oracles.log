@@ -1,0 +1,12 @@
+J5 verification summary (written from completed in-memory results)
+status: PASS
+symbolic identities: 14
+monotonicity numerator terms: 84
+exhaustive-search independent LPs: 52
+modular witnesses: {'instances': 24, 'all_pairs_gains_checked': 37056}
+double-submodular instances: 56
+double-submodular checks: {'edge_band': 121344, 'square_submod': 262144}
+K=4 eta=3/2: all 16 rational dual certificates pass; minimum 23/41
+PE1 rational witness: 4/9; greedy on same instance: 5/9; count table and zero padding pass
+elapsed_seconds: 30.461
+Symbolic identities and finite rational/LP checks; see hand-proof assembly in J5 report.
