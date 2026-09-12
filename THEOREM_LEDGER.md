@@ -131,6 +131,9 @@
   状态：[VERIFIED-LP]（K∈{2,3,4}, n∈{K+1..2K}, η∈{1.5,2,3}，84 点、n<2K 48 点、误差 ≤3.4e-16，
   results/H_E_ceiling_small_n.py）+ 两侧手写论证 [HAND-PROOF-UNREVIEWED] + witness Fraction 精确
   验证 [VERIFIED-SYMBOLIC]。输出大小 s<K 更差。
+- M3.1 记录（2026-09-12）：J5 §9 的补集损失证明（h supermodular、三步）因 J5 报告未送达无法转录；
+  本地重构在限时内 FAILED（值带 telescoping 只复现 1/η；重叠 m0 的利用卡在 f(Ŝ∩O*) 下界，
+  与 H-E 手证同一卡点；results/M3_ceiling_attempt.md）。达到方向维持 [CONJECTURE] 不升级。
 - 禁止声称（H-E）：C 由某算法一般达到（exhaustive 在 K≤4, n≤7 网格恰达 C 是 [VERIFIED-LP] at
   grid，一般 [CONJECTURE]，手证卡在 f(Ŝ∩O*) 可为 0，两步分解失效）；C 是 randomized 值
   （n<2K randomized 仍 [OPEN]，(1−K/n)/η+K/n 只是上界且在 n<2K 比 C 松）；"值只依赖 η_uη_o"
@@ -177,6 +180,14 @@
   且 2/3 > U_2(3/2) = 16/25 = 0.64，故小 n 处上端也失效（results/M0_counterexamples.py §2）。
 - 联合极限（M2.6）：ε_n = K²/n + K⁵/(2n) → 0 需 n/K⁵ → ∞（单独 K → ∞ 不够）；
   min{U_K, 1/η} 合并只对确定性（随机版未与 1/η 合并，原禁止项保持）。
+- η=1 情形（M3.4）：corollary 延伸到 η=1：θ̄=1 时族退化为 F ≡ G（恒等式 a^τ(K−y)/(K−τ) = 1−y/K
+  在 τ=1、a=1−1/K 时成立，[VERIFIED-SYMBOLIC，results/M3_checks.py]），误差恰为 1，计数不变，
+  界为 U_K(1) = L_K(1) = ρ_K(1)（V_{K−1}(1) = L_K(1) 同脚本验证）；故 η=1、n ≥ 4K⁵ 时 greedy
+  在 𝒜_lin 内恰最优。
+- K=1 情形（M3.4，单列）：thm:exact 与本卡的族都要求 K ≥ 2；K=1 时 greedy = argmax f̃ 单元素，
+  三行链 f(e) ≥ f̃(e)/η_o ≥ f̃(o)/η_o ≥ f(o)/η 给保证 1/η [HAND-PROOF-UNREVIEWED 三行]，
+  与 thm:ceiling（n ≥ 2）合并得 ρ_1 = 1/η 且 greedy 在**全部**确定性算法内恰最优（不只 𝒜_lin）；
+  U_1 = 1 空洞。
 - 陈述：K ≥ 2，η > 1，n ≥ 4K⁵。𝒜_lin = 确定性算法类：至多 nK 次 f̃ 查询、每次查询集合大小 ≤ K、输出 ≤ K 元素
   （predictive greedy 用 ≤ Kn−K(K−1)/2 次查询，属于该类）。对任意 A ∈ 𝒜_lin 存在实际误差恰为 η 的实例
   （f 单调 submodular）使 f(T)/f(O*) ≤ U_K(η) = H_{K,1}(η) = 1−(1−1/(η(K−1)+1))^K；与 thm:ceiling 合并得

@@ -181,6 +181,16 @@
    "ratio": "0.902291"
   }
  ],
+ "table1_e2_cells": {
+  "n_runs": 240,
+  "eta_sel_median_pre_d3": 4.339370000000001,
+  "eta_sel_median_fixedk": 4.532405,
+  "eta_sel_cell_pre_d3": "4.3",
+  "eta_sel_cell_fixedk": "4.5",
+  "LK_cell_pre_d3": "0.207",
+  "LK_cell_fixedk": "0.199",
+  "n_inf_runs": 16
+ },
  "replayed_runs": 240,
  "replay_mode": "all",
  "runs_with_short_trajectory": [],

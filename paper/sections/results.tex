@@ -760,7 +760,22 @@ predicted argmax stays within the $nK$-query budget and guarantees
 $2/3=1/\eta$, above both $\rho_2(3/2)=3/5$ and $U_2(3/2)$, so for small
 $n$ the class contains exhaustive search and no greedy-optimality reading
 survives.
+At $\eta=1$ the corollary extends: the calibration reads $\bar\theta=1$,
+where the family of Appendix~\ref{app:hardness} degenerates to
+$\tilde f=f$ (error exactly $1$), and the constant
+$U_K(1)=L_K(1)=\rho_K(1)$, so for $n\ge4K^{5}$ predictive greedy is
+exactly optimal within $\mathcal A_{\mathrm{lin}}$ at $\eta=1$.  The case
+$K=1$ sits outside the statements above (they require $K\ge2$): there
+greedy returns a predicted-argmax singleton of value at least
+$f(O^{\ast})/\eta$ on every instance, matching Theorem~\ref{thm:ceiling},
+so at $K=1$ greedy is exactly optimal among all deterministic algorithms,
+with no budget restriction at all.
 \end{remark}
+% M3.4 (J5): the theta = 1 degeneracy identity a(K-y)/(K-1) = 1 - y/K, the
+% collapse U_K(1) = L_K(1) = V_{K-1}(1), and the K = 1 arithmetic are
+% [VERIFIED-SYMBOLIC], results/M3_checks.py; the K = 1 three-line chain
+% f(e) >= ftilde(e)/eta_o >= ftilde(o)/eta_o >= f(o)/eta is
+% [HAND-PROOF-UNREVIEWED].  Ledger T10b.
 % Status: the interval's lower end is the >= direction of thm:exact (every
 % feasible run is a point of the reduced LP, so its ratio is at least the LP
 % value rho_K; instances with error below eta are feasible for the eta-LP).

@@ -698,13 +698,38 @@ def verify_dual_exact(rows, buckets, orbits, support, mu, O, y, K=K_BUDGET,
     return ok, nonneg, lam
 
 
+def transport_certificate(rows, row_index, lam, p, n=N_GROUND):
+    """Push a multiplier vector through a relabelling p of the ground set."""
+    out = {}
+    for i, val in lam.items():
+        tag, meta, _c = rows[i]
+        out[row_index[row_image(tag, meta, p, n)]] = val
+    return out
+
+
+def check_identity_exact(rows, lam, O, y, K=K_BUDGET, n=N_GROUND):
+    acc = {}
+    for i, val in lam.items():
+        _tag, _meta, coefs = rows[i]
+        for k, a in coefs.items():
+            acc[k] = acc.get(k, Fr(0)) + val * a
+    acc = {k: v for k, v in acc.items() if v != 0}
+    target = {(1 << K) - 1: Fr(-1)}
+    Om = sum(1 << i for i in O)
+    target[Om] = target.get(Om, Fr(0)) + y
+    target = {k: v for k, v in target.items() if v != 0}
+    return acc == target and all(v >= 0 for v in lam.values())
+
+
 def part_C(orbits_to_do=None, y_mode='target', time_budget=None):
     print("\n=== Part C: exact rational dual certificates (lower side) ===")
     n, K = N_GROUND, K_BUDGET
     rows = build_rows()
+    row_index = {row_ident(tag, meta, n): i for i, (tag, meta, _c) in enumerate(rows)}
     reps = orbit_reps(n, K)
     keys = sorted(reps.keys(), key=lambda z: (len(z[0]), z))
     out = []
+    n_members_ok = 0
     t_start = time.time()
     for ki, key in enumerate(keys):
         if orbits_to_do is not None and ki not in orbits_to_do:
@@ -741,21 +766,59 @@ def part_C(orbits_to_do=None, y_mode='target', time_budget=None):
         entry['exact'] = bool(consistent and nonneg and nn2 and ok)
         entry['n_full_rows_used'] = len(lam)
         entry['y'] = str(TARGET)
+        # transport the certificate to every other member of the orbit and
+        # re-verify the identity there (exact, no LP)
+        members_ok = 0
+        if entry['exact']:
+            for Op in reps[key]:
+                p = None
+                for q in itertools.permutations(range(K, n)):
+                    cand = tuple(range(K)) + q
+                    if tuple(sorted(cand[u] for u in O)) == tuple(sorted(Op)):
+                        p = cand
+                        break
+                if p is None:
+                    continue
+                lam2 = transport_certificate(rows, row_index, lam, p, n)
+                if check_identity_exact(rows, lam2, Op, TARGET, K, n):
+                    members_ok += 1
+        entry['orbit_members_verified'] = members_ok
+        n_members_ok += members_ok
         entry['dual'] = [{'orbit': str(orbs[j]), 'mu': str(mu[pos]),
                           'n_rows_in_orbit': len(buckets[orbs[j]])}
                          for pos, j in enumerate(supp) if mu[pos] != 0]
         entry['seconds'] = round(time.time() - t0, 1)
         print(f"   orbit {ki} {key}: |G|={len(group)} varorb={len(cols)} "
               f"roworb={len(orbs)} supp={len(supp)} -> exact={entry['exact']} "
-              f"({entry['seconds']}s)")
+              f"members {members_ok}/{len(reps[key])} ({entry['seconds']}s)")
         sys.stdout.flush()
         out.append(entry)
     done = [e for e in out if e.get('exact')]
     record("C1: exact rational dual certificate at y = 23/41 per orbit",
            len(done) == len(out) and len(out) > 0,
            f"{len(done)}/{len(out)} orbits attempted closed exactly")
+    record("C2: certificate transported to every target set in each orbit "
+           "and re-verified exactly",
+           n_members_ok == sum(e['orbit_size'] for e in done),
+           f"{n_members_ok} of the 70 target sets carry an exact certificate")
+    # tightness probe: no dual can certify more than 23/41 at the argmin orbit
+    Odis = tuple(range(K, 2 * K))
+    grp = orbit_group(Odis, n, K)
+    cols, orbs, buckets, Ahat, _v = reduced_dual_system(rows, Odis, grp, n, K)
+    probes = []
+    for eps in (Fr(1, 10000), Fr(1, 1000)):
+        r2, *_ = solve_reduced_dual(cols, orbs, Ahat, Odis, K, n,
+                                    y_fixed=TARGET + eps)
+        probes.append({'y': str(TARGET + eps), 'lp_status': int(r2.status),
+                       'feasible': r2.status == 0})
+    record("C3: the dual system is infeasible at y > 23/41 on the argmin orbit "
+           "(the certificate is tight, not a loose bound)",
+           all(not p['feasible'] for p in probes),
+           ", ".join(f"y={p['y']}: status {p['lp_status']}" for p in probes))
     RESULTS['C_duals'] = {'orbits': out, 'n_exact': len(done),
-                          'n_orbits_total': 16}
+                          'n_orbits_total': 16,
+                          'n_target_sets_certified': n_members_ok,
+                          'tightness_probe': probes}
 
 
 # ---------------------------------------------------------------------------
