@@ -49,7 +49,8 @@
 - 陈述（K1 后）：f 单调 submodular；run 的选择误差 η^sel（新定义：a_t=M_t/g_t，M_t=g_t=0 取 1，g_t=0<M_t 取 ∞，η^sel=max{1,a_t}，L_K(∞)=0）。则 f(T) ≥ L_K(η^sel) f(O*) ≥ (1−e^{−1/η^sel}) f(O*)，L_K(x)=1−(1−1/(xK))^K。同一界对 η^tr、η 成立。
 - 归属：essentially due to Goundan & Schulz (2007, Theorem 1)，α=η^sel（同向，不取倒数），要求每步满足近似选择条件。证明附录 for completeness。
 - 状态：[VERIFIED-LP 第一晚基线] + 附录证明（NWF 权重求和）。
-- 禁止声称："we prove"；旧定义下的无条件证书（J2 三元素反例 (1,1,0)/(2,1,3) 比值 1/2 < 3/4）；对非单调目标（E1 accuracy、E3 ROUGE）称 certificate；对提前停止变体声称本命题（M1：停止版只有已执行步乘积界，反例 results/M0_counterexamples.py §1）。
+- 禁止声称："we prove"；旧定义下的无条件证书（J2 三元素反例 (1,1,0)/(2,1,3) 比值 1/2 < 3/4）；对非单调目标（E1 accuracy、E3 ROUGE）称 certificate；对提前停止变体声称本命题（M1：停止版只有已执行步乘积界，反例 results/M0_counterexamples.py §1）；
+  由**停止前**的 η^sel 推 L_K 界（M4：同一反例，已执行步 a_t 全为 1 而 ratio = 1/2）。
 - 附属 remark：逐步乘积界 1−∏(1−1/(K a_t)) [HAND-PROOF-UNREVIEWED]，反例上取等。
 
 ## T4 thm:tight — 逐 K 紧（选择误差）
@@ -109,6 +110,8 @@
   卡点：路径变量 reduced LP 加全部自然 f̃-submodularity 有效不等式后值仍为 min_j V_j（42/42
   [VERIFIED-LP]），该批不等式不足以给下界（H-C §5）。
 - 紧系统 ⟹ W_m [VERIFIED-SYMBOLIC]（符号 K,m,η_u,η_o；机制推导非下界证明）。
+- 禁止声称（M4 追加）：用高比值实例证明 ρ^sub 的 worst-case 下界（实例只给上界 ρ^sub ≤ 值；
+  下界要对偶/保证侧证书，J5 指出的方向错误，M3.2 处理中）。
 - 禁止声称："strictly improves for all η<K−1"（只在部分点验证）；"ρ_K^sub = min_m W_m"（下界无证书）；
   "more robust"；把实例族说成证明相等（只给 ≤）；推广到一般 n（族与 LP 都在 n=2K）。
 - 修订原禁止项："U_K no longer an upper bound" 的禁令限定到原模型：U_K 仍是 ρ_K 的上界，但对
@@ -134,6 +137,7 @@
 - M3.1 记录（2026-09-12）：J5 §9 的补集损失证明（h supermodular、三步）因 J5 报告未送达无法转录；
   本地重构在限时内 FAILED（值带 telescoping 只复现 1/η；重叠 m0 的利用卡在 f(Ŝ∩O*) 下界，
   与 H-E 手证同一卡点；results/M3_ceiling_attempt.md）。达到方向维持 [CONJECTURE] 不升级。
+- 禁止声称（M4 追加）：随机算法**逐种子**满足确定性界（随机版只是期望陈述，量词是逐算法固定实例）。
 - 禁止声称（H-E）：C 由某算法一般达到（exhaustive 在 K≤4, n≤7 网格恰达 C 是 [VERIFIED-LP] at
   grid，一般 [CONJECTURE]，手证卡在 f(Ŝ∩O*) 可为 0，两步分解失效）；C 是 randomized 值
   （n<2K randomized 仍 [OPEN]，(1−K/n)/η+K/n 只是上界且在 n<2K 比 C 松）；"值只依赖 η_uη_o"
@@ -168,6 +172,8 @@
   Q=n^c、c ≥ 1.5 时最优值恰塌缩到 1/η（最优解为 prop:necessity 的 modular 实例；P0 216 个 LP、
   P1 用"任何合法区域必含"的必要区域 60 点，塌缩链有 11 行目标割证书，results/P0_band_lp_iis.json），
   即该族在任意大小查询下证不出任何强于 thm:ceiling 的常数。[VERIFIED-LP 有限参数]
+- 禁止声称（M4 追加）：小查询 hardness（本定理）已解决 unrestricted-size 查询类的最优常数
+  （rem:hardness-leak：族在大查询下泄露；unrestricted optimum 两个方向都 [OPEN]，见 P3）。
 - 禁止声称（第九晚追加）：本定理的族或其分块推广可用于任意大小查询的 hardness；据 P0/P1 断言
   任意大小查询、多项式次查询类的最优常数是 1/η 或 1−e^{−1/η}（两个方向都 [OPEN]，被排除的只是
   这条构造路线）。
@@ -180,6 +186,7 @@
   且 2/3 > U_2(3/2) = 16/25 = 0.64，故小 n 处上端也失效（results/M0_counterexamples.py §2）。
 - 联合极限（M2.6）：ε_n = K²/n + K⁵/(2n) → 0 需 n/K⁵ → ∞（单独 K → ∞ 不够）；
   min{U_K, 1/η} 合并只对确定性（随机版未与 1/η 合并，原禁止项保持）。
+- 禁止声称（M4 追加）：greedy 在**所有 n** 上同预算最优（n=4 反例；一切最优性猜想带 n ≥ 4K⁵）。
 - η=1 情形（M3.4）：corollary 延伸到 η=1：θ̄=1 时族退化为 F ≡ G（恒等式 a^τ(K−y)/(K−τ) = 1−y/K
   在 τ=1、a=1−1/K 时成立，[VERIFIED-SYMBOLIC，results/M3_checks.py]），误差恰为 1，计数不变，
   界为 U_K(1) = L_K(1) = ρ_K(1)（V_{K−1}(1) = L_K(1) 同脚本验证）；故 η=1、n ≥ 4K⁵ 时 greedy
@@ -259,6 +266,10 @@
       与 H-F 的 PE_1、L2 的候选 B 同为 n=2K 现象。
   (c) 双向评分（几何平均）：比较是 LP 变量二次约束，精确值 [FAILED]；库内实例精确模拟的上界
       全部严格低于 ρ_3。
+- 禁止声称（M4 追加）："c < 2 的类一律不含 greedy"（nK ≤ n^c ⟺ c ≥ 1 + log K/log n，大 n 时
+  c 略大于 1 即可含 greedy；c=0 反例只说明 c=0）；PE_1 属于 Q=nK 的类（其预算 O(n²K)）；
+  浮点分支穷尽等于精确有理最优（M2.1 证据等级条）；用**高比值实例**证明 worst-case 下界
+  （worst case 是 min，高比值实例什么都不证明；低比值实例给的是上界）。
 - 禁止声称（P2）：(b) 的 n=2K 超越延伸到 n ≥ 7（已被精确值证伪）或任何 n 无关陈述；(b) 超越 1/η
   （未发生，三值均低于 1/η）；(b) 属于 𝒜_lin（反向 pass 查询大小到 n−1，出了 T10b 的类，
   也因此与 cor:greedybudget 不冲突）；(c) 的上界当精确值；stingy 闭式当定理。
@@ -299,6 +310,8 @@
 - E2（coverage，模型内）：新定义下 16 个有害零步 run 的 η^sel=∞；其余 run 有 per-run certificate。
 - E1/E3（非单调目标）：selection diagnostic + 模型违反记录；L_K 列为 reference 非 certificate。
 - E4：19 个构造实例贴理论值 ≤1e−16；只在全局 η 轴与 ρ_K 比较。
+- 禁止声称（M4 追加）：本文证明了 learned predictors 满足全局误差假设（实验只测有限前缀的
+  diagnostic/certificate，E1/E3 且出模型）。
 - 禁止声称："all real tasks lie above both guarantee curves"；"structurally zero"（E2 零对正 pair 30,416 条）。
 
 ---
