@@ -1,5 +1,22 @@
 # REPORT.md
 
+## Summary（第十晚，TASKS10 攻关夜：Q0-Q3 已完成，Q4 待明早人类提供 GPT 输出）
+
+- **FAILED + 卡点**：目标定理（𝒜_lin 的 hardness 值恰为 ρ_K）经 TASKS10 路线不可达。O-无关计数网格族的 LP 值 ρ_K^(n) 随 n **单调不减**：n=2K 处恰为 ρ_K，但从 n_c = K+j+⌊η(K−1)⌋+1 起严格超过，饱和于 W = V_j + (K−j)E(m*) > ρ_K。卡住的不等式有闭式：E(m) = q^j(m−η(K−1))/(Kη(η(ν^m−1)−m)) > 0 ⟺ **m > η(K−1)** [VERIFIED-SYMBOLIC + 独立复核]；transcript 需 n ≥ 4K⁵，与精确窗口 n ≤ K+j+⌊η(K−1)⌋ 无交集。前提 (c) 不成立即路线证不出目标，𝒜_lin 精确值仍 [OPEN]（results/Q3_failure_point.md）。
+- **验证链全过**：Q0/Q1（Opus 代理）52 个 LP 顶点 + 闭式提取；独立 n-sweep 33 个 LP（n=2K 恰等、单调、严格超额、饱和值逐位 = W 全过）；36/36 精确有理全格点电池（K ≤ 8 全部 2 ≤ j ≤ K−1 段）；一般 K 符号 C0-C8 共 103 项 0 FAILED（feasibility 全 [VERIFIED-SYMBOLIC]，主恒等式 a(x)−a(x+1) = g(x+1)/η 把 2D 约束系收成六条 1-D 条件；衔接分支的 submodularity 恰为 D 在 argmax 的局部最优性，无额外边条件）。
+- **意外收获 1（反例）**：继承猜想 m* = ⌈ηK⌉−1 被 4 个精确有理反例**推翻**（frac(ηK) 小时差 1，如 K=5, η=2001/1000）；appendix 的 F3 段以该 m* 定义 W_K，在那些角点参数上给出的族不可行（r(t*) < 0）。台账 T12 已加状态注记；正文按闸门未动，待明早 Q4 修正。修正规则 m* = min{m: ν^m(ηK−1−m) ≤ K(η−1)} [CONJECTURE，48/48]。
+- **意外收获 2（副产物，最需人类判断）**：严格序 **ρ_K < W < U_K** 于全部 8 个测试配置成立，且 W−ρ_K 随 K 衰减远快于 U_K−W（K=8: 8.3e-08 对 1.9e-03；K=12: 1.0e-08）。若 cor:greedybudget 的 ceiling 由 min{U_K, 1/η} 换成 min{W, 1/η}，夹逼区间大幅收窄；validity 的一般 K 符号版本夜已具备，尚缺 transcript 复用检查与 W 的解析性质，建议明早 Q4 时一并裁定（注意换名：此 W 与 rem:exact-gap 的 W_m 不同对象）。
+- **规则执行**：Q2 checklist 第 4 项 FAILED ⇒ 正文零改动、无 T10c 卡（台账仅 T12 状态注记）；全部数字一键复现（Q0_extract / Q2_indep_nsweep / Q2_grid_check / Q2_symbolic / Q3_W_vs_UK，日志同名 .log）；逐任务 commit；.tex 无改动故无编译项；镜像已同步。
+
+## 第十晚明细（Q0-Q3）
+
+- **Q0+Q1**【Opus 代理】52 个 canonical LP 顶点（K ∈ {3,4,5}，n 到 16K）+ 闭式（三段 r/g、Ghat 三相、G_unbal 规则、目标 1−q^j+(K−j)D）；18/18 精确有理 feasibility、49/49 n-sweep 逐点命中（含阶梯中段）；j ≤ 1 闭式只是上界（F(x,K)≡1 过约束）已定位。关键负面事实即上面第一行。
+- **Q2 步骤 0**【主会话独立复核】results/Q2_indep_nsweep.py：自写精确参照（V_j、ρ_K、W、onset），不用代理的 helper；6 组 (K,η) 33 个 LP，P1-P4c 全 PASS，exit 0。
+- **Q2 步骤 1**【全格点电池】results/Q2_grid_check.py --sweep：自写 tail resolver（直接 argmax，不用 m* 猜想）；36/36 PASS，分母到 93^57 全程精确有理。
+- **Q2 核心**【Opus 代理 + 主会话亲跑闸门】results/Q2_symbolic.py exit 0（103 项）；C1-C5/C7/C8 [VERIFIED-SYMBOLIC]，C6 卡点闭式 + m_c = ⌊η(K−1)⌋+1 + m_c > K−j 符号证明（n=2K 恰等的原因）；仅 2 条 [CONJECTURE] 且都只涉及 argmax 位置。E(m) 因子分解与 D(1) 恒等式另做了会话内独立 sympy 复核。
+- **Q3**【FAILED 分支】results/Q3_failure_point.md（卡点不等式、参数区间、n_c 四组全中 LP 观测、与 transcript 的定量不相容、命名警示、副产物）；无定理装配、无 T10c。
+- **保守决定记录**：(1) 台账只加 T12 状态注记不改陈述（推翻的猜想若不记录会被后夜再次采纳，记录本身不引入新主张）；(2) 副产物不装配（缺 Q2 第 4 项 + transcript 复用检查，闸门规则）；(3) j ≤ 1 段的控制组只做 P1-P3 检查（该段闭式非 LP-exact，避免用非最优表述下结论）。
+
 ## Summary（J5 到齐日，2026-09-12 深夜：J5H1-J5H6 全部完成）
 
 - **J5 输入全部到齐并过闸**：四个此前缺失的文件 + hardcore 包入库（results/J5/、results/J5_hardcore/）；J5_hardcore_oracles.py --output-dir reproduced **exit 0 ALL PASS 30 秒**（14 项符号恒等式、52 个 H-E 全格点 LP、24 个 modular 实例 37,056 增量、56 个 H-C 实例、16 类精确对偶、PE₁ 完整有理反例）；verify_audit.py 5 项 PASS。第八晚按 TASKS8 转述执行的项目与原文对账一致，无返工（results/J5H_gate.md）。
