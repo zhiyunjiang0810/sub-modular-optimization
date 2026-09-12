@@ -1,5 +1,13 @@
 # REPORT.md
 
+## Summary（J6/J7 日：两份并行结果均验证通过并装配，任意大小查询定理入正文）
+
+- **两份都成功**。J6（= Q4 会话已全套处理并装配的 thm:linear-exact 构造，文件到库后内嵌脚本原样重跑 exit 0、计数逐位一致，T10c 补来源标注）；J7（新内容）验证全过并装配为 **thm:linear-anysize**（台账新卡 T10d 先行）：K ≥ 3 时任意大小查询的线性类满足 ρ_K ≤ α_lin ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}，greedy 即使放开查询大小也只差指数小项。app:hardness-anysize 从 candidate bound 改写为定理证明，**F3 candidate-bound 段落已删**（超线性预算与指数 2 材料保留，T12 余留）；编译 40 页 0 错误，审计 426 literals 0 违规。
+- **J7 验证链**（采纳前全过）：修正截断规则 Ψ 判据（旧 m = ⌈Kη⌉−1 的 F3 反例 K=3, η=667/500 精确复算，r_{t*} = −151089222203006/81950355825200625 < 0；Ψ 给 m=3）；自写符号管线 148 项 0 FAILED（亲跑 exit 0；Ψ/φ 根定位、(7)(8)(11)(12)(13)(14)(17)(18)、S12 的 303 点 Ψ = argmax + 结构恒等式）；自写 99 组精确全格点电池（全域 y ≤ 1 尺寸剖面、泄漏区恰为 {y ≥ 2, x ≤ t*}、gap 恒等式）；(18) 的 99 组精确 oracle（e 取有理上界）。手证残留仅两条经典初等不等式 + 装配 [HAND-PROOF-UNREVIEWED，来源 J7]。
+- **模拟发现（新 must-not-claim）**：对抗 DP 模拟（K=3, n=8..12）显示 n ≥ K+t* 时 fwd/rev/max 全部恰 = W；**n < K+t* 时反向 greedy 经泄漏区精确找回 O，比值恰为 1**。这正面确认 J7 自己的泄漏刻画 (15)，同时证明定理的 n → ∞ 量词消不掉；指令字面的 "n=8..12 全部 ≤ W" 在 3 个 n < K+t* 格子不成立，已按保守规则分开如实记录（测的是 J7 未主张的有限 n 性质，不算 J7 验证失败，理由见 results/J6J7_gate.md §2）。
+- **送达时间线**（闸门记录）：指令到达时两份文件全渠道缺失（远端分支、mirror、uploads、全盘搜索），先按 M0 缺失输入规则做可复算部分；随后经 uploads 送达并落库 results/J6/、results/J7/。J6 无需重复建卡；J7 无附带脚本（文件如实注明），验证全部自写。
+- **sandwich 图与 open problem 更新**：图改为双闭合版（panel (a) ρ_8 = size-≤K 类精确最优 + any-size ceiling,带宽细于线宽；panel (b) 精确有理 gap 的指数衰减对 1/(K(e^{K−1}−K−1)) 包络）;open-problem 草稿改写为"消掉指数小项证明 α_lin = ρ_K,或找到最坏保证严格超过 ρ_K 的线性算法"。**最需人类判断**：J7 的装配三步（集合函数提升、transcript、平均）与两条经典不等式残留建议作者过目 app:hardness-anysize；contribution (iv) 第 8 条已给 intro 措辞。
+
 ## Summary（Q4 交叉核对日：目标定理闭合并加强，thm:linear-exact 已装配入正文）
 
 - **成功，且强于 TASKS10 原目标**：GPT 平行结果的双残差截断族通过全部检查，定理已装配：n ≥ 4K⁵ 时确定性 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的 minimax 值**恰为 ρ_K(η)**，对每个 n 精确（无 n → ∞ 极限）；predictive greedy 在自己的预算类内精确最优。正文 thm:linear-exact + 附录重写 + 台账新卡 T10c（先卡后文），编译 40 页 0 错误（results/Q4_compile.log），审计 421 literals 0 违规。
@@ -114,7 +122,8 @@ intro 注释块的第 4 承重位（hardness position）按 K5 后的定理需�
 4. 新卖点可加一句：τ=1 时 hardness 曲线恰是旧显式族值 U_K，于是 L_K ≤ ρ_K ≤ U_K = H_{K,1} 四条曲线在一条链上（图 2 的 U_K 方框悬在 ρ_K 上方就是这条链的可视化）。
 5. 第 2 承重位（certificate）同步微调：η^sel 是逐步定义（有害零步 ∞），certificate 只对模型内目标声明；实验三族一分为二（E2 证书 / E1、E3 诊断）。
 6. （第七晚新增，**Q4 日已被第 7 条取代**）~~第 4 承重位可再加一句收口：在 greedy 自己的预算类 𝒜_lin 内，天花板收紧到 min{U_K, 1/η}，与 ρ_K 只差 c'(η)/K²；intro 只能说 "within O(1/K²) of optimal"，不能说 optimal。~~
-7. （Q4 日新增，**现在是第 4 承重位的主卖点**）thm:linear-exact（台账 T10c）：n ≥ 4K⁵ 时，确定性 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的 minimax 值**恰为 ρ_K(η)**，即 predictive greedy 在自己的预算类内**精确最优**，对每个这样的 n 精确、无渐近。intro 现在可以说 "exactly optimal within its own query budget"；必须带的限定词：deterministic（随机版只到 ρ_K + ε_n，渐近）、每次查询 |S| ≤ K（任意大小查询仍 open，族在大集合上真实泄漏）、n ≥ 4K⁵（n=4,K=2 穷举反例）。装配标签 [HAND-PROOF-UNREVIEWED，来源 Q4 外部平行审计]，合法性 [VERIFIED-SYMBOLIC]。第 6 条的 "within O(1/K²)" 措辞降为历史（c'/K² 现在是对旧天花板的改进幅度）。
+7. （Q4 日新增，**第 4 承重位主卖点之一**）thm:linear-exact（台账 T10c，来源 J6）：n ≥ 4K⁵ 时，确定性 𝒜_lin（≤ nK 次查询、每次 |S| ≤ K、输出 ≤ K）的 minimax 值**恰为 ρ_K(η)**，即 predictive greedy 在自己的预算类内**精确最优**，对每个这样的 n 精确、无渐近。intro 现在可以说 "exactly optimal within its own query budget"；必须带的限定词：deterministic（随机版只到 ρ_K + ε_n，渐近）、每次查询 |S| ≤ K、n ≥ 4K⁵（n=4,K=2 穷举反例）。装配标签 [HAND-PROOF-UNREVIEWED，来源 J6]，合法性 [VERIFIED-SYMBOLIC]。第 6 条的 "within O(1/K²)" 措辞降为历史（c'/K² 现在是对旧天花板的改进幅度）。
+8. （J6/J7 日新增，**与第 7 条并列的主卖点**）thm:linear-anysize（台账 T10d，来源 J7）：K ≥ 3 时**任意大小查询**的线性类满足 ρ_K ≤ α_lin(K,η) ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}。intro 可写 "Among algorithms with linear oracle complexity, predictive greedy achieves the optimal approximation ratio up to an additive term exponentially small in K, even when arbitrary-size queries are allowed"。必须带的限定词：K ≥ 3（K=2 时 e−3 < 0）、n → ∞（有限 n 的 ≤ W 为假：n < K+t* 时反向 greedy 恰达 1）、线性预算 O(nK)（超线性仍是 T12 的 candidate）。两条定理合起来把旧的 "within O(1/K²)" 卖点升级为：size-≤K 精确、any-size 指数小项。装配 [HAND-PROOF-UNREVIEWED，来源 J7]，合法性 [VERIFIED-SYMBOLIC]。
 
 ## Summary（第五晚：装配全文骨架）
 
