@@ -54,7 +54,16 @@ def task_stats(task):
     path = os.path.join(HERE, f'{task}_rows.csv')
     rows = [r for r in csv.DictReader(open(path)) if int(r['K']) == K]
     r1, rmed, r3 = quantiles(col(rows, 'ratio'))
-    _, emed, _ = quantiles(col(rows, 'eta_sel'))
+    if task == 'E2':
+        # M1.1 (J5 audit follow-up): the CSV column is pre-D3; apply the
+        # same infinity override as results/G3_gen_numbers.py (decision D3,
+        # K2) so Table 1 agrees with the numbers.tex macros (4.5 / 0.199,
+        # not the stale 4.3 / 0.207).  E1/E3 stay finite-step diagnostics.
+        e2sel = [float('inf') if float(r['n_steps_nonpos']) > 0
+                 else float(r['eta_sel']) for r in rows]
+        _, emed, _ = quantiles(e2sel)
+    else:
+        _, emed, _ = quantiles(col(rows, 'eta_sel'))
     _, vmed, _ = quantiles(col(rows, 'viol_sign_pct'))
     _, nmed, _ = quantiles(col(rows, 'frac_steps_nonpos'))
     npath = sum(1 for r in rows if r['eta_path_trimmed'] == 'n/a')
