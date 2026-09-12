@@ -3,7 +3,12 @@
 规则：每条定理一张卡，字段固定。写作时只准从这里取陈述与状态，不准凭记忆。
 状态标签：[VERIFIED-SYMBOLIC] [VERIFIED-LP] [VERIFIED-EXHAUSTIVE] [HAND-PROOF-UNREVIEWED] [CONJECTURE] [OPEN]。
 "禁止声称"一栏是空洞性检验和审稿反例的沉淀，比陈述本身更重要。
-本版：2026-09-12 Q4 交叉核对日（**新卡 T10c thm:linear-exact**：greedy 同预算类 𝒜_lin 的精确最优值
+本版：2026-09-14 J6/J7 日（**新卡 T10d thm:linear-anysize**：任意大小查询线性类
+ρ_K ≤ α_lin ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}，Ψ 修正截断规则，count-grid 合法性
+[VERIFIED-SYMBOLIC 148 项] + 99 组电池 + (18) 精确 oracle，装配 [HAND-PROOF-UNREVIEWED 来源 J7]；
+T10c 来源标注具体化为 J6；T12 candidate-bound 角色被 T10d 取代，P0/P1 与超线性预算内容保留；
+模拟发现的有限 n 反例（n < K+T 时反向 greedy 恰达 1）入 T10d 禁止声称；
+此前 2026-09-12 Q4 交叉核对日（**新卡 T10c thm:linear-exact**：greedy 同预算类 𝒜_lin 的精确最优值
 = ρ_K，n ≥ 4K⁵ 逐点精确，双残差截断族，合法性 [VERIFIED-SYMBOLIC] 装配 [HAND-PROOF-UNREVIEWED 来源 Q4]；
 T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m* 闭式驳倒落实为 appendix argmax 定义；
 此前第十晚 Q0-Q3：全局 O-无关族 FAILED 及卡点闭式 E(m) > 0 iff m > η(K−1)，见 results/Q3_failure_point.md；
@@ -272,6 +277,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   情形继续被 T10c 引用，本卡保留为出处。
 
 ## T10c thm:linear-exact — greedy 同预算类的精确最优值（Q4 装配，取代 T10b 的单边天花板）
+- 来源标注（J6/J7 日）：Q4 会话经 chat 交付并验证的构造即 **J6**，文件现已入库
+  results/J6/linear_exact.md（内嵌脚本提取原样重跑 exit 0，results/J6_script_run.log；
+  与 Q4_gpt_check.py 同一脚本）。装配标签来源改写作 [HAND-PROOF-UNREVIEWED，来源 J6]。
 - 陈述：K ≥ 2，η > 1，n ≥ 4K⁵。𝒜_lin 同 T10b（确定性、≤ nK 次 f̃ 查询、每次查询集合大小 ≤ K、输出 ≤ K 元素；
   predictive greedy 用 ≤ Kn−K(K−1)/2 次查询，属于该类）。
   (i) 上界：对任意 A ∈ 𝒜_lin 与任意给定拆分 η_u, η_o ≥ 1、η_uη_o = η，存在实例 (f, f̃)，f 单调 submodular
@@ -308,6 +316,44 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - 与旧卡关系：T10b 单边天花板与 rem:greedybudget 的区间表述改写；U_K−ρ_K = c'/K² 的展开保留为
   "对旧天花板的改进幅度"；η=1（族退化 f̃=f，U_K(1)=ρ_K(1)，本卡在 η→1 连续衔接）与 K=1
   （全类最优，无预算限制）情形沿 T10b 不变。
+
+## T10d thm:linear-anysize — 任意大小查询线性类的上界（J6/J7 日装配，来源 J7）
+- 陈述：K ≥ 3，η > 1。记 α_lin(K,η) 为确定性、O(nK) 次**任意大小**查询、输出 ≤ K 元素的算法类
+  在 n → ∞ 时的最优最坏近似比（随机算法按期望）。则
+  ρ_K(η) ≤ α_lin(K,η) ≤ min{1/η, W_K(η)} ≤ min{1/η, ρ_K(η) + 1/(K(e^{K−1}−K−1))}。
+  下界即 thm:exact（greedy 属于该类）；η ≥ K 时两端塌到 1/η。
+- 修正截断规则（取代被 Q2/J7 驳倒的 m = ⌈Kη⌉−1）：ν = η/(η−1)，Ψ(t) = (Kη−t−1)ν^t − K(η−1)，
+  **m = min{z ∈ ℤ≥1 : Ψ(z) ≤ 0}**；η(K−1) < m < Kη；B_m = η(ν^m−1)−m，d = (ν^m/K−1)/B_m，
+  1/(m+1) ≤ d ≤ 1/m，1/(Kη) < d；j = max{0, min{K−1, K+1−⌈η⌉}}，Q = q^j，D = Qd，T = j+m，
+  W_K(η) = 1−Q+(K−j)Qd，gap 恒等式 W_K−ρ_K = (K−j)Q(m−η(K−1))/(KηB_m)。
+  S12：Ψ 规则与 argmax_m D(m) 在 303 个精确点一致，且有结构恒等式（d(z) 在 Ψ(z−1) ≥ 0 时升、
+  Ψ(z) ≤ 0 时降）[VERIFIED-SYMBOLIC + 精确 sweep]。
+- 构造（双序列 + ν 递推平台）：r_x（几何段 q^x、平台斜率 D、r_T = g_T 收尾、x > T 归零）、
+  g_x（几何段 q^x/K、平台 g_{x+1} = ν(g_x−D)、x > T 归零）、a = r−g；F(x,0) = 1−r_x，
+  F(x,y≥1) = 1−c_y a_x；H = η_u G，H(x,0) = C−r_x−(η−1)a_x，H(x,y≥1) = C−ηc_y a_x。
+  关键性质：**H(x+1,0) = H(x,1) 对一切 x ≥ 0**（⟺ 恒等式 (12) a_x−a_{x+1} = g_{x+1}/η），
+  即 G 在整个 y ≤ 1 区域只依赖 |S|；x > T 全饱和；泄漏查询必须 y ≥ 2 且 |S| ≤ T+K，
+  单查询泄漏概率 ≤ K²(T+K)²/(2n²)，cnK 次累计 ≤ cK³(T+K)²/(2n) → 0。
+- 状态：count-grid 合法性与值/gap 算术 [VERIFIED-SYMBOLIC]（自写管线 148 项 0 FAILED，
+  results/J7_symbolic.py 亲跑 exit 0；99 组精确电池 results/J7_grid_check.py；(18) 的 99 组
+  精确 oracle results/J7_bound18_check.py，e 用有理上界）；集合函数提升、泄漏界与
+  canonical transcript、平均、下界方向的引用 [HAND-PROOF-UNREVIEWED，来源 J7]；
+  两条经典初等不等式残留（(1+1/u)^{u+1} > e 与弦不等式 m(ν^l−1) ≤ l(ν^m−1)）
+  各有精确 sweep 支持，属手证残留不升级。
+- 模拟证据（results/J7_grid_check.py sim 段）：对抗 tie 的 fwd/rev/max(fwd,rev) 于 K=3、
+  三个 η、n = 8..12：n ≥ K+T 时全部恰 = W；**n < K+T 时反向 greedy 经泄漏区精确找回 O，
+  比值恰为 1**（J7 (15) 允许此事；定理的 n → ∞ 量词必不可少）。
+- 量词检验：K ≥ 3（K=2 时 e^{K−1}−K−1 = e−3 < 0，(18) 无内容；W_K 与更紧链仍可另立）；
+  任意大小查询（与 T10c 的 |S| ≤ K 类互补，两卡合用覆盖两种预算读法）；n → ∞
+  （有限 n 的 "≤ W" 为假，见模拟行；有限 n 版需要显式 n₀ ~ K³(T+K)² 未陈述）；
+  确定性主陈述（随机版期望、渐近）；线性预算 O(nK)（超线性到 n²/(2K²(t*+K)²) 的界
+  沿 T12 的旧陈述域，未并入本卡）。
+- 禁止声称：α_lin = ρ_K（指数小项当前消不掉；J7 §2 的解析障碍封掉"对称 (x,y) 构造 +
+  全域不可区分 + 精确轨迹"路线，但不否定等号本身）；有限 n 的 "≤ W_K"（反例即上面模拟行）；
+  K = 2 情形；把 W_K 与 rem:exact-gap 的 W_m（H-C submodular-surrogate 包络）混同；
+  f̃ submodular 模型下的同界（T7 域）；预算指数 2 的必然性超出 T12 已检查的有限配置。
+- open problem（接替 L3 旧段）：消掉指数小项证明 α_lin = ρ_K，或找到最坏保证严格超过
+  ρ_K 的线性查询算法；当前不能预设等号成立。
 
 ## T11 rem:hardness-pins — 查询类最优性（K5 后；M2 证据等级与候选总结校正）
 - 证据等级（M2.1）：本卡（含 H-F、L2、L2R、P2 各行）出现的一切"精确分数/精确值"，其证据等级统一读作
@@ -390,6 +436,12 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   把 η ∈ {2,2.5} 的 4/9、16/45 当成 n=7 的精确值（只是带 certificate 的上界，足以定"劣于"）。
 
 ## T12 F3 任意大小查询 hardness（附录：构造方向与有限证据，不作 theorem）
+- **J6/J7 日收编**：本卡的 candidate-bound 角色被 **T10d（thm:linear-anysize）取代**：修正截断
+  规则（Ψ 判据，即第十晚的候选规则，二者恒等）+ 一般 K 合法性证明 + 泄漏界闭合了 O(nK) 线性
+  预算的任意大小定理；appendix 的 candidate-bound 段落按指令删除并换成 T10d 的构造与证明。
+  本卡保留仍然有效且 T10d 未覆盖的内容：P0/P1 塌缩证书与两种形式化的判定、预算指数 2 的
+  有限证据（超线性预算 Q ≤ n²/(2K²(t*+K)²) 的原陈述域不在 T10d 内）、τ ≥ 2 不可行证书。
+  下面的"待明早 Q4 时修正"已执行（先 argmax 形式，后 T10d 的 Ψ 形式）。
 - 内容：任意大小查询、预算 Q ≤ n²/(2K²(t*+K)²) 的确定性算法在已检查参数上不超过 greedy 的渐近值。
 - 状态：坏实例的单调、submodular、归一化只有有限参数穷举 [VERIFIED-LP 有限]；j、m* 一般闭式无证明；
   随机版另用未核查的构造不等式；装配 [HAND-PROOF-UNREVIEWED]。J4 裁定：不能以已完成定理计入。
