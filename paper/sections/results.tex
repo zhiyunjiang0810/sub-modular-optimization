@@ -875,7 +875,57 @@ with no budget restriction at all.
 % table of the two ends at K in {2,3,4,5,8,10,20}: results/L1_table.csv.
 % Q4 (ledger T10c): the former open problem -- greedy optimal in A_lin at
 % finite K and 1 < eta < K -- is CLOSED by thm:linear-exact for
-% n >= 4K^5; what remains open is the any-size-query regime (ledger T12),
-% the randomized class at finite n, and every budget scale other than
-% Q = nK with |S| <= K.  The H-F evidence (PE_1 falls below rho_3 for
+% n >= 4K^5; the any-size-query regime is thm:linear-anysize below
+% (ledger T10d), exact up to an exponentially small additive term; what
+% remains open is that term, the randomized class at finite n, and budget
+% scales beyond O(nK).  The H-F evidence (PE_1 falls below rho_3 for
 % n >= 7 at eta in {2, 2.5}) stays consistent finite-parameter support.
+
+\begin{theorem}[Arbitrary query sizes at linear budget]
+\label{thm:linear-anysize}
+% J6/J7 day (ledger card T10d; source J7).  Proof:
+% Appendix~\ref{app:hardness-anysize}.
+Let $K\ge3$ and $\eta>1$, and let $\alpha_{\mathrm{lin}}(K,\eta)$ denote
+the limit as $n\to\infty$ of the optimal worst-case ratio of deterministic
+algorithms that make $O(nK)$ queries to $\tilde f$ \emph{of arbitrary
+size} and output a set of size at most $K$, over instances with monotone
+submodular $f$ and error product at most $\eta$ (randomized algorithms
+measured in expectation over their own randomness).  Then
+\[
+  \rho_K(\eta)\;\le\;\alpha_{\mathrm{lin}}(K,\eta)\;\le\;
+  \min\Bigl\{\frac1\eta,\;W_K(\eta)\Bigr\}
+  \;\le\;
+  \min\Bigl\{\frac1\eta,\;\rho_K(\eta)+\frac{1}{K\,\bigl(e^{K-1}-K-1\bigr)}\Bigr\},
+\]
+where $W_K(\eta)$ is the explicit constant of
+Appendix~\ref{app:hardness-anysize}: even with arbitrary-size queries,
+predictive greedy is optimal among algorithms of its own oracle
+complexity up to an additive term exponentially small in $K$.  For
+$\eta\ge K$ both ends equal $1/\eta$.
+\end{theorem}
+% Status (ledger T10d): count-grid legality of the hard family, the
+% corrected truncation rule (Psi criterion) with its location bounds, and
+% the value/gap arithmetic are [VERIFIED-SYMBOLIC]
+% (results/J7_symbolic.py, 148 items; residue: two classical elementary
+% inequalities, each with exact sweeps), with 99 exact-rational
+% configurations (results/J7_grid_check.py) and an exact finite oracle for
+% the exponential bound (results/J7_bound18_check.py); the set-function
+% lift, the leakage bound, the transcript induction and the averaging are
+% [HAND-PROOF-UNREVIEWED, source J7]; the lower bound is thm:exact.
+% Vacuity check: "K >= 3" -- at K = 2 the display's denominator e - 3 is
+% negative and the exponential form is empty (W_2 itself still exists).
+% "arbitrary size" -- this is what separates the theorem from
+% thm:linear-exact; the hard family here is size-profiled on ALL sets with
+% |S cap O| <= 1, and pays the strictly positive gap W_K - rho_K for it
+% (the night-10 analysis shows the gap is unavoidable for globally
+% size-profiled count-grid families, results/Q3_failure_point.md).
+% "limit as n -> infinity" -- essential: at n < K + t* reverse greedy
+% provably reads O off the leaking large sets and reaches ratio exactly 1
+% (results/J7_grid_check.py, adversarial simulation), so no finite-n
+% "<= W_K" statement holds wholesale.
+% "O(nK) queries" -- superlinear budgets up to n^2/(2K^2(t*+K)^2) remain a
+% candidate bound of the supplement (ledger T12), not a theorem.
+% "deterministic ... randomized in expectation" -- both stated; no exact
+% finite-n randomized claim.
+% NOT to be confused: W_K here vs the W_m envelope of rem:exact-gap
+% (different objects, ledger T7/T10d).

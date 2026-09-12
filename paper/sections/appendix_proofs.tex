@@ -1982,129 +1982,168 @@ monotonicity keeps below the winning endpoint.
 % ledger T11); that the losing endpoint must forfeit a full eta factor.
 
 % ---------------------------------------------------------------------------
-\subsection{Queries of arbitrary size: a construction direction with
-finite evidence}
+\subsection{Queries of arbitrary size
+  (Theorem~\ref{thm:linear-anysize})}
 \label{app:hardness-anysize}
-% K9 (J4 audit): demoted from a theorem environment to a candidate bound.
-% General-parameter admissibility of the family has only finite exhaustive
-% support, so per the ledger card T12 this subsection presents a
-% construction direction with finite evidence, not a theorem of the paper.
-% Condensed from results/F3_hardness_full.tex (night-4 draft), which is the
-% full write-up and is kept in the supplementary material.  Status tags are
-% carried over from that file verbatim:
-%   Step 1 (concentration, any query size)  [HAND-PROOF-UNREVIEWED]
-%   Step 2 (the family is admissible)       [EXACT] 42 (K,eta) points,
-%                                           results/N4_check.py section A;
-%                                           [EXACT] 12 points,
-%                                           results/F3_check.py section H
-%   Step 3 (valuation / value)              [HAND-PROOF-UNREVIEWED], plus
-%                                           [VERIFIED-SYMBOLIC] for the closed
-%                                           form of W_K (N4_symbolic.py 19/19)
-%   Step 4 (averaging, randomized)          [HAND-PROOF-UNREVIEWED]
-%   The theorem as a whole                  [HAND-PROOF-UNREVIEWED]
-%   j and m* as closed forms                [CONJECTURE], 264 points;
-%     Q4: the m* closed form is REFUTED at small frac(eta K) (see the
-%     correction note below); m* is now defined as the argmax
-%   D1, exponent 2 intrinsic                [VERIFIED-LP + EXACT], 48 configs
-%   D2, two-sided band                      [VERIFIED-LP], 144 configs;
-%                                           threshold n = K(T+1)+1 matched
-%                                           at 12/12 points
-%   Corollary (randomized) additionally uses F_O <= W_K + y/K, which no script
-%   has checked.
-% [EXACT] is that file's name for an exact-rational enumeration; it is used
-% here unchanged so that the two documents can be compared line by line.
-% NOTATION: the F3 draft writes T for the window constant j + m*, which
-% collides with the output set T of Theorem \ref{thm:hardness}; it is written
-% t* here.  Nothing else is renamed.
+% J6/J7 day (ledger card T10d; source J7, results/J7/linear_anysize.md).
+% This subsection replaces the former candidate bound (J4 demotion, ledger
+% T12) by a theorem: the night-4 truncation rule is corrected (the old
+% m* = ceil(K eta) - 1 is refuted, see the closing note) and the family's
+% legality is proved at general parameters.  Status decomposition:
+%  - the Psi-rule structure, every displayed identity, and the count-grid
+%    legality reductions: [VERIFIED-SYMBOLIC], results/J7_symbolic.py
+%    (148 items, 0 failed; hand-proof residue: two classical elementary
+%    inequalities, (1+1/u)^{u+1} > e and m(nu^l-1) <= l(nu^m-1), each
+%    backed by exact sweeps), plus 99 exact-rational full-grid
+%    configurations (results/J7_grid_check.py) and an exact finite oracle
+%    for the exponential bound (results/J7_bound18_check.py, e replaced
+%    by a rational upper bound so the decision is exact);
+%  - the lift from the count grid to set functions, the leakage bound,
+%    the canonical-transcript induction and the averaging:
+%    [HAND-PROOF-UNREVIEWED], source J7;
+%  - the lower bound of the theorem is Theorem~\ref{thm:exact}.
+% Finite-n caveat (must-not-claim, ledger T10d): at n < K + t* reverse
+% greedy provably reads O off the leaking large sets and reaches ratio
+% exactly 1 (results/J7_grid_check.py, adversarial simulation), so the
+% n -> infinity quantifier of the theorem cannot be dropped.
+% NOTATION: as before, the window constant is written t* to avoid the
+% output set T of Theorem \ref{thm:hardness}.
 
-Theorem~\ref{thm:hardness} restricts every query to at most $K$ elements.  A
-companion construction removes that restriction and pays for it in the budget.
-For $K\ge3$ and $\eta>1$ put $k_1=\eta(K-1)+1$, $q=1-1/k_1$,
-$\nu=\eta/(\eta-1)$, $j=\min\{K,\max\{0,K+1-\lceil\eta\rceil\}\}$,
+Theorem~\ref{thm:hardness} restricts every query to at most $K$ elements,
+and Theorem~\ref{thm:linear-exact} inherits that restriction.  Removing it
+costs an additive term exponentially small in $K$.  Fix $K\ge3$ and
+$\eta>1$, keep $k_1=\eta(K-1)+1$, $q=1-1/k_1$, $\nu=\eta/(\eta-1)$, and
+define
 \[
-  D(m)=\frac{q^{j}\bigl(\nu^{m}/K-1\bigr)}{\eta(\nu^{m}-1)-m},
+  \Psi(t)=(K\eta-t-1)\,\nu^{t}-K(\eta-1),
   \qquad
-  m^{\ast}\in\operatorname*{arg\,max}_{m\ge1}D(m)
+  m=\min\{z\in\mathbb Z_{\ge1}:\Psi(z)\le0\}.
 \]
-(the supremum is attained at finite $m^{\ast}$: $D(m)\to q^{j}/(K\eta)$
-from above as $m\to\infty$), $t^{\ast}=j+m^{\ast}$, and let
+The function $\nu^{-t}\Psi(t)$ is strictly concave, equals $K-1>0$ at
+$t=0$ and tends to $-\infty$, so $m$ is well defined; since
+$\nu^{\eta(K-1)}=(\nu^{\eta})^{K-1}>e^{K-1}>K$ (using
+$(1+1/u)^{u+1}>e$ for $u=\eta-1>0$) and $\Psi(K\eta-1)=-K(\eta-1)<0$,
 \[
-  D=\max\Bigl\{\frac{q^{j}}{K\eta},\ D(m^{\ast})\Bigr\},
+  \eta(K-1)\;<\;m\;<\;K\eta.
+\]
+Set $B_m=\eta(\nu^{m}-1)-m>0$ and $d=(\nu^{m}/K-1)/B_m$.  The two
+identities
+\[
+  d-\frac{1}{m+1}=\frac{-\Psi(m)}{K(m+1)B_m}\ge0,
   \qquad
-  W_K(\eta)=1-q^{j}+(K-j)D .
+  \frac1m-d=\frac{\nu\,\Psi(m-1)}{K\,m\,B_m}\ge0
 \]
-% Q4 correction (ledger T12): the earlier closed-form guess
-% m* = ceil(eta K) - 1 is REFUTED by exact rationals when frac(eta K) is
-% small (e.g. K=5, eta=2001/1000: true argmax 9, guess 10; four
-% counterexamples, results/Q2_symbolic.md), and at those corner points the
-% family built from the guessed m* is infeasible (r(t*) < 0).  The argmax
-% form above is what every script in results/ uses; the candidate rule
-% m* = min{m >= 1 : nu^m (eta K - 1 - m) <= K(eta - 1)} <= ceil(eta K) - 1
-% stays [CONJECTURE].
-The family is the one of \texttt{results/F3\_hardness\_full.tex}: a hidden
-$K$-set $O$, a true objective that is piecewise geometric in $x=|S\setminus O|$
-and flattens at $x>t^{\ast}$, and a predictor that agrees with an $O$-free
-profile $\hat G_{|S|}$ whenever $|S\cap O|\le1$ and also whenever
-$|S\setminus O|>t^{\ast}$.  The second half of that condition is what removes
-the query-size restriction: a query can break the simulation only if it meets
-$O$ twice and has at most $t^{\ast}+K$ elements, so large queries need no
-concentration argument at all.  Two caveats are recorded with the draft.  If
-the tolerance is raised to $|S\cap O|\le\tau$ with $\tau\ge2$, the family is
-infeasible at every inflation, by an explicit two-constraint certificate at
-all $48$ tested configurations.  If instead the predictor is required to be a
-function of $|S|$ on the whole two-sided band
-$\bigl||S\cap O|-K|S|/n\bigr|\le\tau$, the family is feasible exactly when
-$\tau=1$ and $n>K(t^{\ast}+1)$, and infeasible at every inflation otherwise;
-which of the two formalizations a reader accepts is the open judgement call
-of that draft.
-
-\paragraph{Candidate bound (not a theorem of this paper).}
-The intended statement is: for $K\ge3$, $\eta>1$ and $n\ge4K(t^{\ast}+K)$
-(which forces $n\ge8K^{2}$), every deterministic algorithm
-that makes at most $Q\le n^{2}/\bigl(2K^{2}(t^{\ast}+K)^{2}\bigr)$ queries to
-$\tilde f$, of arbitrary size, and returns a set of size at most $K$, meets
-a $K$-set $O$ for which the instance $(f,\tilde f)$ has monotone submodular
-$f$, single-element error exactly $\eta$, $O^{\ast}=O$, and output
-$T_{\mathcal A}$ with
+pin $d$ into $[1/(m+1),\,1/m]$, and
+$d-1/(K\eta)=\bigl(m-\eta(K-1)\bigr)/(K\eta B_m)>0$.  With
+$j=\max\{0,\min\{K-1,\,K+1-\lceil\eta\rceil\}\}$, $Q=q^{j}$, $D=Qd$ and
+$t^{\ast}=j+m$, define two sequences on integers $x\ge0$,
 \[
-  \frac{f(T_{\mathcal A})}{f(O^{\ast})}\;\le\;W_K(\eta)
-  \;=\;V_j(\eta)+(K-j)\Bigl(D-\frac{q^{j}}{K\eta}\Bigr),
+  r_x=\begin{cases}q^{x},&x\le j,\\ Q-(x-j)D,&j<x\le t^{\ast},\\
+    0,&x>t^{\ast},\end{cases}
+  \qquad
+  g_x=\begin{cases}q^{x}/K,&x\le j,\\
+    \eta D-(\eta D-Q/K)\,\nu^{x-j},&j<x\le t^{\ast},\\
+    0,&x>t^{\ast},\end{cases}
 \]
-and, for randomized algorithms, the same bound in expectation up to an
-additive $K/n+QK^{2}(t^{\ast}+K)^{2}/(2n^{2})$.  It is a candidate because
-the admissibility of the family at general parameters is exactly what the
-finite evidence below does not yet establish.
+$a_x=r_x-g_x$, and, with $x=|S\cap B|$, $y=|S\cap O|$,
+$c_y=(K-y)/(K-1)$ and $C=k_1/K$, the instance
+\[
+  f=F(x,y)=\begin{cases}1-r_x,&y=0,\\1-c_y\,a_x,&y\ge1,\end{cases}
+  \qquad
+  \eta_u\tilde f=H(x,y)=\begin{cases}C-r_x-(\eta-1)a_x,&y=0,\\
+    C-\eta\,c_y\,a_x,&y\ge1.\end{cases}
+\]
 
-Since $t^{\ast}+K\le(2+\eta)K+1$, the admissible budget is
-$Q=\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)$: for fixed $K$ and $\eta$
-this is a polynomial budget of degree approaching $2$, and not every
-polynomial; a uniform reading such as $n^{2-o(1)}$ would additionally
-require restricting how $K$ and $\eta$ grow with $n$, which is not done
-here.  Within the $48$ checked configurations, the exponent $2$ is a
-property of this family rather than of the analysis: it is the exponent in
-$\Pr[|S\cap O|\ge2]\le(Ks/n)^{2}/2$ for a query of size $s$, and raising it
-would require the $O$-oblivious window to tolerate $|S\cap O|\le\tau$ with
-$\tau\ge2$, which is the first of the two regimes recorded above as
-infeasible; no claim is made beyond those configurations or for extensions
-of the family.
-The constant is the reduced-LP segment value $V_j$ of
-Theorem~\ref{thm:exact} plus an excess that decays quickly in $K$: at $\eta=2$
+\paragraph{Legality.}
+The choice of $d$ makes the closing step legal:
+$r_{t^{\ast}}=g_{t^{\ast}}$ exactly, with
+$0\le r_{t^{\ast}}\le D$ equivalent to $d\in[1/(m+1),1/m]$.  On the
+plateau $g_{x+1}=\nu(g_x-D)$, and on every segment
+\[
+  a_x-a_{x+1}=\frac{g_{x+1}}{\eta}.
+\]
+From these facts: $g$ and $a$ are nonnegative and nonincreasing; the
+steps of $r$ are nonincreasing (geometric decrease, then the plateau
+constant $D$, then the final step $r_{t^{\ast}}\le D$, with the junction
+$p_{j-1}=Q/((K-1)\eta)\ge D$ because $d\le1/m<1/(\eta(K-1))$); the steps
+of $r$ dominate those of $a$; and $Kg_x\ge r_x$ throughout, because on
+the plateau $Kg_{j+\ell}-r_{j+\ell}$ is concave in $\ell$, zero at
+$\ell=0$ and equal to $(K-1)\,r_{t^{\ast}}\ge0$ at $\ell=m$ (equality
+holds on the geometric phase and both sides vanish past $t^{\ast}$).
+These one-dimensional facts yield every monotonicity and
+diminishing-returns inequality of $F$ on the count grid, and the same
+four-edge-class table as in Appendix~\ref{app:greedybudget} yields
+$\Delta F\le\Delta H\le\eta\,\Delta F$ on every edge, with both split
+endpoints attained on positive-gain edges at $x=0$; moreover
+$F(0,0)=H(0,0)=0$, $F(0,K)=1$ and $0\le F\le1$ on the whole grid, so $O$
+is optimal with $f(O)=1$ and the smallest admissible error factors are
+exactly $(\eta_u,\eta_o)$.
+
+\paragraph{Arbitrary query sizes.}
+The identity $a_x-a_{x+1}=g_{x+1}/\eta$ is equivalent to
+$H(x+1,0)=H(x,1)$ for \emph{every} $x\ge0$: the predictor depends only on
+$|S|$ on the whole region $|S\cap O|\le1$, at every size, and for
+$x>t^{\ast}$ both functions saturate ($F=1$, $H=C$).  A query can
+therefore distinguish the hidden $O$ only if $|S\cap O|\ge2$ and
+$|S|\le t^{\ast}+K$.  For a uniformly random $K$-set $O$, one such query
+leaks with probability at most $K^{2}(t^{\ast}+K)^{2}/(2n^{2})$, so $cnK$
+queries leak with total probability at most
+$cK^{3}(t^{\ast}+K)^{2}/(2n)\to0$; the canonical-transcript induction and
+the averaging are those of Appendix~\ref{app:hardness}.
+
+\paragraph{Value and the exponential gap.}
+Every $K$-set disjoint from $O$ has value
+$W_K(\eta)=1-Q+(K-j)\,Q\,d$, and
+\[
+  W_K(\eta)-\rho_K(\eta)
+  =\frac{(K-j)\,Q\,\bigl(m-\eta(K-1)\bigr)}
+        {K\eta\,\bigl(\eta(\nu^{m}-1)-m\bigr)}
+  \;\in\;\Bigl(0,\ \frac{1}{K\,(e^{K-1}-K-1)}\Bigr)
+\]
+for $K\ge3$, using $K-j\le\eta$, $Q\le1$, $m-\eta(K-1)<\eta$ and
+$\nu^{m}>e^{K-1}$.  This proves Theorem~\ref{thm:linear-anysize}, the
+lower bound being Theorem~\ref{thm:exact}.  At $K=3$, $\eta=3/2$: $m=4$,
+$d=13/58$, and $W_3(3/2)=523/928=9/16+1/928$ against
+$\rho_3(3/2)=9/16$.
+
+\paragraph{Correction of the night-4 truncation rule.}
+The night-4 draft (\texttt{results/F3\_hardness\_full.tex}) uses
+$m=\lceil K\eta\rceil-1$, which is not admissible in general: at $K=3$,
+$\eta=667/500$ it gives $m=4$ and
+$r_{t^{\ast}}=-151089222203006/81950355825200625<0$, a negative
+$O$-marginal, while the $\Psi$-rule gives $m=3$
+(\texttt{results/J7\_fragment\_checks.py}, exact rationals; the same
+corner-point failure class, small $\operatorname{frac}(K\eta)$, as the
+four counterexamples of \texttt{results/Q2\_symbolic.md}).  On $303$
+exact-rational test points the $\Psi$-rule agrees with the direct argmax
+of the excess slope, and two identities explain the agreement
+structurally (\texttt{results/J7\_symbolic.py}, section S12).
+\paragraph{Beyond the linear budget.}
+The night-4 draft's superlinear reading, budgets up to
+$Q\le n^{2}/\bigl(2K^{2}(t^{\ast}+K)^{2}\bigr)$, remains a candidate
+bound of the supplementary material and not a theorem of this paper
+(ledger T12; \texttt{results/F3\_hardness\_full.tex}).  Since
+$t^{\ast}+K\le(2+\eta)K+1$, that budget is
+$\Omega\bigl(n^{2}/((2+\eta)^{2}K^{4})\bigr)$: for fixed $K$ and $\eta$ a
+polynomial budget of degree approaching $2$, and not every polynomial;
+a uniform reading such as $n^{2-o(1)}$ would additionally require
+restricting how $K$ and $\eta$ grow with $n$.  Within the checked
+configurations the exponent $2$ is a property of the family rather than
+of the analysis: it is the exponent in
+$\Pr[|S\cap O|\ge2]\le(Ks/n)^{2}/2$ for a query of size $s$, raising the
+tolerance to $|S\cap O|\le\tau$ with $\tau\ge2$ is infeasible by explicit
+two-constraint certificates at all $48$ tested configurations, and
+requiring the size-only property on the whole two-sided band
+$\bigl||S\cap O|-K|S|/n\bigr|\le\tau$ is feasible exactly when $\tau=1$
+and $n>K(t^{\ast}+1)$.  Numerically the excess decays fast: at $\eta=2$
 it is $3.2\cdot10^{-4}$, $5.9\cdot10^{-7}$, $4.5\cdot10^{-12}$ and
 $5.2\cdot10^{-22}$ at $K=4,8,16,32$, and
 $L_K(\eta)\le V_j(\eta)\le W_K(\eta)<U_K(\eta)$ with
 $W_K(\eta)\to1-e^{-1/\eta}$.
-
-What this supplementary statement does not carry is a general-$K$ argument.
-The closed forms of $j$ and $m^{\ast}$ have numerical support at $264$
-parameter points and no proof; monotonicity, submodularity and the
-normalization of the family are enumerated exactly at $42$ $(K,\eta)$ points
-and have no general-$K$ symbolic derivation; the concentration lemma, the
-simulation induction, the assembly and the averaging are hand arguments that
-no script checks, and the randomized version additionally uses an inequality
-on the family that no script has checked.  The full draft, with its per-step
-declarations, is \texttt{results/F3\_hardness\_full.tex} in the supplementary
-material; the enumerations behind it are \texttt{results/N4\_check.py},
-\texttt{results/F3\_check.py} and \texttt{results/N4\_symbolic.py}.
+% Decay row recomputed under the Psi rule this session (identical to the
+% old figures at these points); chain and limit: night-4 enumerations
+% results/N4_check.py, N4_symbolic.py, plus this session's
+% J7_bound18_check.py.
 
 % ---------------------------------------------------------------------------
 \subsection{Validity of the reduced constraints}\label{app:validity}
