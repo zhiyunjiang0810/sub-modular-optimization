@@ -3,7 +3,8 @@
 规则：每条定理一张卡，字段固定。写作时只准从这里取陈述与状态，不准凭记忆。
 状态标签：[VERIFIED-SYMBOLIC] [VERIFIED-LP] [VERIFIED-EXHAUSTIVE] [HAND-PROOF-UNREVIEWED] [CONJECTURE] [OPEN]。
 "禁止声称"一栏是空洞性检验和审稿反例的沉淀，比陈述本身更重要。
-本版：2026-09-12（第八晚 M0-M5，J5 独立审计落实：T0 lem:scaling 与固定 K 步、T1/T2/T3 量词与定义域、T6 n 量词、T7 M3.2 精确点与方向更正、T8 随机量词、T10b 改名与 n ≥ 4K⁵ 量词、T11 证据等级与候选总结、T14 范围、M4 九条禁止声称；J5 输入文件未送达，处理规则见 results/J5/MISSING_INPUTS.md；此前第九晚 P0-P3、第七晚 L 系列）；每卡状态标签与 results/ 脚本一一对应。
+本版：2026-09-12 深夜（J5 到齐日 J5H1-J5H6：T8 统一 ceiling 重写并升级达到方向、T7 加 β_m 下包络与
+措辞禁令、T9 首行统一与历史归档、T11 PE₁ 精确证书升级与撤回条；此前同日第八晚 M0-M5：T0 lem:scaling 与固定 K 步、T1/T2/T3 量词与定义域、T6 n 量词、T7 M3.2 精确点与方向更正、T8 随机量词、T10b 改名与 n ≥ 4K⁵ 量词、T11 证据等级与候选总结、T14 范围、M4 九条禁止声称；J5 输入文件未送达，处理规则见 results/J5/MISSING_INPUTS.md；此前第九晚 P0-P3、第七晚 L 系列）；每卡状态标签与 results/ 脚本一一对应。
 
 ---
 

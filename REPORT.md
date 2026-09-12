@@ -1,5 +1,13 @@
 # REPORT.md
 
+## Summary（J5 到齐日，2026-09-12 深夜：J5H1-J5H6 全部完成）
+
+- **J5 输入全部到齐并过闸**：四个此前缺失的文件 + hardcore 包入库（results/J5/、results/J5_hardcore/）；J5_hardcore_oracles.py --output-dir reproduced **exit 0 ALL PASS 30 秒**（14 项符号恒等式、52 个 H-E 全格点 LP、24 个 modular 实例 37,056 增量、56 个 H-C 实例、16 类精确对偶、PE₁ 完整有理反例）；verify_audit.py 5 项 PASS。第八晚按 TASKS8 转述执行的项目与原文对账一致，无返工（results/J5H_gate.md）。
+- **thm:ceiling 升级为统一确定性 minimax**：C*_{n,K}(η) = K/(K+(η−1)·min{K,n−K})，全部 2 ≤ K ≤ n，含更强的逐实例式 f(S)/f(O) ≥ K/(K+(η−1)|O∖S|)；附录转录 J5 三步证明与非负 slack 恒等式 (7)；T8 达到方向 [CONJECTURE] → **[HAND-PROOF-UNREVIEWED，来源 J5 套 A，恒等式 VERIFIED-SYMBOLIC]**；随机版单列并加 n=3,K=2,η=3 反例（确定性 1/2 vs 随机 2/3，随机 minimax 仍 [OPEN]）。
+- **PE₁ / W_m / asymptotics 三处收口**：4/9 < 7/15 < 5/9 的七元素精确有理反例入附录 app:pe（两张 3×4 表重建，补零扩展 n ≥ 7），"η ≥ 1.75 亦然"连续外推撤回，NWF 引用规范为三作者 Section 7 Theorem 7.1；rem:exact-gap 写入 W_m 精确定义与 β_m 分段点（明确为候选上界族的下包络）；app:asymptotics 迁入 H-B 单调性证明与 c(η) 展开，T9 首行统一、"GAP LEFT OPEN"过时注释删除。
+- **H_F 求解器状态修复**：LPBuilder.solve 只对确认 infeasible（status 2）剪枝，其余非零 status 抛 SolveUnknown；重跑 9 格全部 OK、**0 次 UNKNOWN、9/9 certificate CONSISTENT、数值逐位一致**（含 n=7, η=2.5 = 43/120），审计的谨慎项确认无害。
+- 编译 38 页 0 错误 0 未定义（J5H2-J5H5 逐任务日志），审计 430 literals 0 违规；台账 T7/T8/T9/T11 全部先卡后文；六项各自独立 commit；镜像已同步。**最需人类判断**：统一 ceiling 定理的表述现在承重更大（全 n 确定性 minimax），J5 与作者复核后可考虑按审计建议进正文主线叙事（sharp form → exact → rigidity → ceiling → hardness）。
+
 ## Summary（第八晚，2026-09-12：落实独立审计 J5（M0-M5），输入缺失下按闸门执行）
 
 - **M0-M5 全部执行**。J5 的四个输入文件（审计报告、验证摘要、verify_audit.py、对偶 JSON）在仓库/镜像/uploads 均未送达（results/J5/MISSING_INPUTS.md），故 "四个 PASS" 无法确认；闸门（results/M0_j5_gate.md）裁定：TASKS8 内联规格可独立复算的全部照做（九个本地脚本复跑 exit 0；三个反例 Fraction 复算 ALL PASS），依赖 J5 原文的跳过或本地重建并如实标注。TASKS8 要求的 "J5 严重项 5/5 已处理" 以 TASKS8 的 M 项拆解为处理口径（J5 原文清单不可得）。
