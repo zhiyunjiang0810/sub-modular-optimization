@@ -86,3 +86,19 @@ m = min{z >= 1: Psi(z) <= 0}，Psi(t) = (K eta - t - 1)nu^t - K(eta-1)；
 - python3 results/J7_symbolic.py          (状态见其输出)
 - Q4 会话既有: Q4_gpt_check.py, Q4_indep_check.py, Q4_symbolic_ineq.py,
   Q4_smallset_lp.py（均 exit 0）
+
+## 5. 补充送达（J7 spot-check）
+
+- results/J7/J7_claude_spotcheck.py 后续经 uploads 送达（Claude chat 侧的
+  spot-check；其头部自述"非 TASKS10 Q4 要求的独立 sympy 管线，不改任何
+  标签"，按此处理，标签体系不变）。
+- 原样运行 exit 0（results/J7_claude_spotcheck_run.log）：恒等式
+  (7a)(7b)(8)(12) 全零；71 组精确网格（K=3..8）、20,924 条边、37,850 次
+  DR、1,606 个全域剖面状态全过；(18) 用 float e（我们的
+  J7_bound18_check.py 已有精确版，互为补充）。
+- 数值对账：K=3, η=3/2 行（j=2, m=4, Q=9/16, D=117/928, W=523/928,
+  gap=1/928, Ψ(3)=12）与我们的管线逐位一致；η=667/500 的 m=3 对旧规则 4
+  一致；其打印的 r_T = g_T = 20664743922357/157947123981500 与我们
+  builder 的值逐位一致（本会话现算核对）。
+- 结论：三条独立实现（J7_grid_check、J7_symbolic、spot-check）在全部
+  重叠点位一致；无新增采纳事项。
