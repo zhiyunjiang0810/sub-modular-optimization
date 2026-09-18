@@ -1,0 +1,478 @@
+{
+ "script": "results/V11/oracle/probelottery.py",
+ "statement": "J8 ProbeLottery: K = 2, eta = 3/2, randomized, <= 9n queries, queried sets of size <= 5, output of size 2, E[f(T)] >= (3/5 + 1/400000) OPT on every legal instance",
+ "sources": {
+  "statement": "results/V11/inputs/statement_probelottery.md",
+  "definition": "results/V11/inputs/definition1.md (convention B)",
+  "route_one": "NOT DELIVERED: results/J8/probe_lottery.md with the inequalities (3), (8)-(12) does not exist in the repository",
+  "implementation_reference": "results/J8/J8_claude_spotcheck.py (rerun only, not imported)",
+  "handoff": "HANDOFF_2026-09-18.md section 4",
+  "e4_families": "results/E4_worst_instances.py via results/N2_check.py and code/check_explicit_instance.py (cited, rebuilt exactly in Fractions, not modified)"
+ },
+ "seeds": {
+  "C2_coverage": 20260901,
+  "C2_modular": 20260902,
+  "C2_mixture": 20260903,
+  "C3_eta1_n4": 20260904,
+  "C3_eta1_n5": 20260905,
+  "D2_local": 20260906
+ },
+ "target_bound": "240001/400000",
+ "tight_value": "6149/10240",
+ "checks": [
+  {
+   "name": "C1 tight instance n in {6,8,12,20}",
+   "status": "PASS",
+   "detail": "E[f(T)] = 3/5 + 1/2048 = 6149/10240 on every n, queries <= 9n, max queried size 5"
+  },
+  {
+   "name": "C2 random legal instances (n = 8..12)",
+   "status": "PASS",
+   "detail": "2100 instances, 0 violations, worst ratio 17/23 = 0.739130"
+  },
+  {
+   "name": "C3 structured cases",
+   "status": "PASS",
+   "detail": "7 cases: eta = 1 at n = 4, 5; tight at n = 6..12; V_0, V_1, V_2 and U_2 of the E4 families"
+  },
+  {
+   "name": "C4 algorithm contract",
+   "status": "PASS",
+   "detail": "every run: output sets of size 2, mass 1, queries <= 9n, queried size <= 5"
+  },
+  {
+   "name": "C5 rerun J8_claude_spotcheck.py",
+   "status": "PASS",
+   "detail": "exit code 0, tight value 6149/10240 matches this script"
+  },
+  {
+   "name": "G1 LP dual certificates for (3), (8)-(12)",
+   "status": "GAP",
+   "detail": "the proof file results/J8/probe_lottery.md was not delivered; the inequalities do not exist in the repository, so no dual certificate can be built or checked"
+  },
+  {
+   "name": "D2 local search (500 evaluated perturbations)",
+   "status": "PASS",
+   "detail": "worst ratio 6149/10240 = 0.60048828 >= target"
+  }
+ ],
+ "counts": {
+  "C1_n_values": 8,
+  "C1_tight_runs": 8,
+  "C2_instances": 2100,
+  "C2_legality_checks": 2100,
+  "C2_violations": 0,
+  "C3_eta1_n4_instances": 250,
+  "C3_eta1_n5_instances": 250,
+  "C3_cases": 7,
+  "D2_evaluated": 505,
+  "D2_attempts": 3775,
+  "D2_rejected": 3275,
+  "D2_equal_to_tight_value": 307,
+  "D2_distinct_ratios": 17
+ },
+ "tight_rows": [
+  {
+   "n": 6,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 30,
+   "bound_9n": 54,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    4,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 7,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 39,
+   "bound_9n": 63,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    5,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 8,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 48,
+   "bound_9n": 72,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    6,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 9,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 57,
+   "bound_9n": 81,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    7,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 10,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 66,
+   "bound_9n": 90,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    8,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 11,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 75,
+   "bound_9n": 99,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    9,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 12,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 84,
+   "bound_9n": 108,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    10,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  },
+  {
+   "n": 20,
+   "E": "6149/10240",
+   "OPT": "1",
+   "ratio": "6149/10240",
+   "ratio_minus_3_5": "1/2048",
+   "queries": 156,
+   "bound_9n": 180,
+   "maxsize": 5,
+   "anchors": [
+    0,
+    1,
+    18,
+    2,
+    3
+   ],
+   "eta_u": "1",
+   "eta_o": "3/2"
+  }
+ ],
+ "random": {
+  "instances": 2100,
+  "violations": 0,
+  "worst_ratio": "17/23",
+  "worst_ratio_float": 0.7391304347826086,
+  "worst_instance": {
+   "family": "coverage",
+   "n": 10,
+   "ratio": "17/23",
+   "order": [
+    9,
+    0,
+    8,
+    1,
+    7,
+    2,
+    5,
+    6,
+    4,
+    3
+   ],
+   "anchors": [
+    9
+   ]
+  },
+  "per_family": {
+   "coverage": {
+    "instances": 700,
+    "worst_ratio": "17/23",
+    "worst_ratio_float": 0.7391304347826086
+   },
+   "modular": {
+    "instances": 700,
+    "worst_ratio": "11/14",
+    "worst_ratio_float": 0.7857142857142857
+   },
+   "mixture": {
+    "instances": 700,
+    "worst_ratio": "39/49",
+    "worst_ratio_float": 0.7959183673469388
+   }
+  }
+ },
+ "structured": [
+  {
+   "case": "eta=1 (ftilde=f), n=4",
+   "instances": 250,
+   "worst_ratio": "31/36",
+   "outcome": "PASS"
+  },
+  {
+   "case": "eta=1 (ftilde=f), n=5",
+   "instances": 250,
+   "worst_ratio": "6/7",
+   "outcome": "PASS"
+  },
+  {
+   "case": "tight instance n = 6..12",
+   "instances": 7,
+   "worst_ratio": "6149/10240",
+   "outcome": "PASS"
+  },
+  {
+   "case": "E4 family V_0 (K=2, eta=3/2)",
+   "instances": 8,
+   "worst_ratio": "2051/3072",
+   "outcome": "PASS"
+  },
+  {
+   "case": "E4 family V_1 (K=2, eta=3/2)",
+   "instances": 8,
+   "worst_ratio": "3077/5120",
+   "outcome": "PASS"
+  },
+  {
+   "case": "E4 family V_2 (K=2, eta=3/2)",
+   "instances": 8,
+   "worst_ratio": "3281/5120",
+   "outcome": "PASS"
+  },
+  {
+   "case": "E4 family U_2 (K=2, eta=3/2)",
+   "instances": 8,
+   "worst_ratio": "3281/5120",
+   "outcome": "PASS"
+  }
+ ],
+ "rerun": {
+  "path": "results/J8/J8_claude_spotcheck.py",
+  "exit_code": 0,
+  "seconds": 0.2,
+  "stdout": [
+   "tight n=6: anchors=[0, 1, 4, 2, 3] (O=[4, 5])  E[F]=6149/10240 = 3/5 + 1/2048  ok=True  queries=30<=9n=54  maxsize=5",
+   "tight n=8: anchors=[0, 1, 6, 2, 3] (O=[6, 7])  E[F]=6149/10240 = 3/5 + 1/2048  ok=True  queries=48<=9n=72  maxsize=5",
+   "tight n=12: anchors=[0, 1, 10, 2, 3] (O=[10, 11])  E[F]=6149/10240 = 3/5 + 1/2048  ok=True  queries=84<=9n=108  maxsize=5",
+   "tight n=20: anchors=[0, 1, 18, 2, 3] (O=[18, 19])  E[F]=6149/10240 = 3/5 + 1/2048  ok=True  queries=156<=9n=180  maxsize=5",
+   "random coverage: 400 instances, violations=0, worst ratio=4/5 (0.8000)"
+  ],
+  "stderr_tail": []
+ },
+ "local_search": {
+  "evaluated": 505,
+  "attempts": 3775,
+  "rejected": 3275,
+  "violations": 0,
+  "worst_ratio": "6149/10240",
+  "worst_ratio_float": 0.60048828125,
+  "worst_state": {
+   "restart": 0,
+   "generic": false,
+   "ratio": "6149/10240",
+   "ratio_float": 0.60048828125,
+   "eta_u": "1",
+   "eta_o": "3/2",
+   "F": {
+    "0,0": "0",
+    "0,1": "1/2",
+    "0,2": "1",
+    "1,0": "2/5",
+    "1,1": "7/10",
+    "1,2": "1",
+    "2,0": "3/5",
+    "2,1": "9/10",
+    "2,2": "1",
+    "3,0": "4/5",
+    "3,1": "1",
+    "3,2": "1",
+    "4,0": "1",
+    "4,1": "1",
+    "4,2": "1",
+    "5,0": "1",
+    "5,1": "1",
+    "5,2": "1",
+    "6,0": "1",
+    "6,1": "1",
+    "6,2": "1"
+   },
+   "H": {
+    "0,0": "0",
+    "0,1": "1/2",
+    "0,2": "5/4",
+    "1,0": "1/2",
+    "1,1": "4/5",
+    "1,2": "5/4",
+    "2,0": "4/5",
+    "2,1": "11/10",
+    "2,2": "5/4",
+    "3,0": "21/20",
+    "3,1": "5/4",
+    "3,2": "5/4",
+    "4,0": "5/4",
+    "4,1": "5/4",
+    "4,2": "5/4",
+    "5,0": "5/4",
+    "5,1": "5/4",
+    "5,2": "5/4",
+    "6,0": "5/4",
+    "6,1": "5/4",
+    "6,2": "5/4"
+   },
+   "order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "anchors": [
+    0,
+    1,
+    6,
+    2,
+    3
+   ],
+   "E": "6149/10240",
+   "OPT": "1"
+  },
+  "ratio_histogram": {
+   "equal_to_tight_value": 307,
+   "below_0.61": 324,
+   "below_0.65": 324,
+   "equal_to_one": 138,
+   "distinct_values": 17,
+   "five_smallest": [
+    "6149/10240",
+    "3077/5120",
+    "1541/2560",
+    "773/1280",
+    "389/640"
+   ]
+  },
+  "per_restart": [
+   {
+    "restart": 0,
+    "generic": false,
+    "best_ratio": "6149/10240",
+    "steps": 100
+   },
+   {
+    "restart": 1,
+    "generic": false,
+    "best_ratio": "6149/10240",
+    "steps": 100
+   },
+   {
+    "restart": 2,
+    "generic": false,
+    "best_ratio": "6149/10240",
+    "steps": 100
+   },
+   {
+    "restart": 3,
+    "generic": true,
+    "best_ratio": "6149/10240",
+    "steps": 100
+   },
+   {
+    "restart": 4,
+    "generic": true,
+    "best_ratio": "6149/10240",
+    "steps": 100
+   }
+  ]
+ },
+ "worst_ratio_overall": "6149/10240",
+ "worst_slack_overall": "3109/6400000",
+ "violations_total": 0,
+ "witnesses": [],
+ "problems": [],
+ "running_example": {
+  "K": 3,
+  "eta": "3/2",
+  "k1": "4",
+  "q": "3/4",
+  "V": [
+   "2/3",
+   "7/12",
+   "9/16"
+  ],
+  "rho_3": "9/16",
+  "one_over_eta": "2/3",
+  "rho_2": "3/5",
+  "tight_value": "6149/10240",
+  "claimed_bound": "240001/400000"
+ },
+ "elapsed_seconds": 9.1,
+ "exit_code": 0
+}
