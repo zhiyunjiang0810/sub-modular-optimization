@@ -27,3 +27,9 @@
   接线与 app:necessity 的 γ 构造删除留给作者（矩阵给出建议与需要改的三处引用）。
 - T2(ii)(iii) 按 addendum §B 改写进台账（TASKS11 Q0 明确授权），正文 prop:valueacc 文本不动。
 - Definition 1 方案二作为盲审输入的主定义（HANDOFF §3 原文），正文 model.tex 仍是 ≥1 约定，不动。
+
+## Q11（J9）追加
+
+| 输入 | 引用处 | 处理 |
+|---|---|---|
+| results/J9/j9_proof.md（GPT 任意大小查询确定性 matching 证明） | Q11 | 未送达；见 results/J9/MISSING_INPUT.md。已做 C1 内联不等式与盲审路线二；C2–C4、D、E、比对与 T10e 待文件 |

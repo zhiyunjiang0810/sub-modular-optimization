@@ -1,0 +1,15 @@
+PASS F2 e^{11/6} > 6 via 12-term partial sum (lower bound) partial sum = 6.254697
+PASS F1 stationary point u* = ln A - (K-2) 
+PASS F1 convex in u (phi'' = e^{K-2+u} > 0) 
+PASS F1 phi(u*) = A(K-1-ln A) - 1 identity 
+PASS F1 boundary case: e^{K-2} - 1 > 0 for K >= 3 (e^1 - 1 > 0) 
+PASS F1 g'(A) = K-2-ln A 
+PASS F1 g(1) = K-2 > 0 for K >= 3 
+PASS F1 h(3) = 11 - 6 ln 6 identity 
+PASS F1 h(3) > 0 <=> e^{11/6} > 6 (F2 certified) 
+PASS F1 h'(K) identity 
+PASS F1 K^2 - 3K + 1 >= 1 for K >= 3 
+PASS F1 d/dK [K-1-ln(K(K-1))] = 1 - (2K-1)/(K(K-1)) > 0 for K >= 3 
+PASS F1 K-1-ln(K(K-1)) at K=3 is 2 - ln 6 > 0 (ln 6 < 11/6 < 2) 
+
+ALL PASS
