@@ -1,0 +1,44 @@
+== identities (symbolic) ==
+(5)  rho = 1-P+a*delta: True
+(10a) gamma = nu^m phi(m)/(nu^m-1): True
+(10b) gamma-1 = nu^m phi(m+1)/(nu^m-1): True
+phi(theta+1) = (eta-1)(1-nu^-theta): True
+(19) g_{K+t} = (eta-eps nu^t) delta: True
+(20) h_M=0 with eps def: True
+(20) r_M = gamma*delta: True
+(21a) g_{K+t+1} = nu(g_{K+t}-delta): True
+(21b) u_{K+t} = g_{K+t+1}/eta: True
+(22) p_{j-1} = K delta/(K-1): False
+(22) p_j = (1+eps) delta: True
+(22) p_x = delta inside lin: True
+(22) p_K (lin->tail) = delta: True
+(22) p_x = delta inside tail: True
+(22) p_M = gamma delta: True
+(23) u_{j-1} = delta: False
+(23) u_x = delta inside lin (x<=K-1): True
+splice h at x=j (geo=lin): True
+splice h at x=K (lin=tail): True
+splice r at x=K (lin=tail): True
+(26) Kg_{j+s}-r_{j+s} = (s-(K-1)eps) delta: True
+g_{j+s} = (eta-eps) delta: True
+g_j = eta delta: True
+(27) Kg_{K+t}-r_{K+t} = (a+t+eps-K eps nu^t) delta: True
+(27) at t=m equals (K-1)gamma delta: True
+(27) at t=0 = (a-(K-1)eps) delta: True
+row x<j: eta u_{x-1} = q^x/K: False
+row x<j: p_x = q^x/k1: True  g_x = q^x/K: True
+row x=0: C - eta h_0 = 1/K: True
+row j<x<=K: eta u_{x-1} = eta delta: True
+row K<x<M: eta u_{x-1} = g_x: True
+(33) p_j-p_{j+1} = eps delta: True
+(34) p_j-u_j = eps delta: True
+(38) Fbar(T) = 1-P+(a+eps)delta: True
+first O at empty: g_0=1/K and H=1/K: True True  second O at {o}: h_0/(K-1)=1/K: True
+canonical: eta u_0 = q/K < 1/K: True
+
+== parameter lemma, dense numeric grid (sanity, not proof) ==
+{'m>theta': np.float64(0.084808), 'eps<eta-1': np.float64(0.0), 'eps<1/(K-1)': np.float64(0.090796), 'gamma>=0': np.float64(4.3e-05), 'gamma<1': np.float64(6.1e-05), 'e13': np.float64(0.294844), 'Kg-r tail min': np.float64(0.000313), 'p>=u': np.float64(0.090796)}
+
+== K=3, eta=3/2 example ==
+eps,gamma,delta: 1/26 6/13 1/8  Fbar(T)= 59/104  F(T)= 9/16  rho_3= 9/16
+exit 0

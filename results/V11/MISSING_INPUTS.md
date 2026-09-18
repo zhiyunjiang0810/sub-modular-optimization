@@ -32,4 +32,4 @@
 
 | 输入 | 引用处 | 处理 |
 |---|---|---|
-| results/J9/j9_proof.md（GPT 任意大小查询确定性 matching 证明） | Q11 | 未送达；见 results/J9/MISSING_INPUT.md。已做 C1 内联不等式与盲审路线二；C2–C4、D、E、比对与 T10e 待文件 |
+| results/J9/j9_proof.md（GPT 任意大小查询确定性 matching 证明） | Q11 | 未送达；见 results/J9/MISSING_INPUT.md。已做 C1 内联不等式与盲审路线二；同日送达 j9_check.py（原样复跑 + 我方 j9_own_checks.py 54/54：恒等式、参数引理、C2 序列合法性全过）；C3、C4、D、E、比对与 T10e 待文件（缺 F_{T,O}/G_O 的集合函数定义） |

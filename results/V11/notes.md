@@ -27,3 +27,7 @@
   n ≥ 4cK⁵(K+2)² 上比值 ≤ ρ_K"，并用 LP 确认 K=2..7 可解、K=2,3,4 精确有理实例；同时独立确认
   T-independent count-grid 族的 excess 严格为正（与第十晚 W 结论一致）。一般 K 闭式未闭合。
   全部只作 J9 原文到达后的比对材料。
+- Q11（j9_check.py 送达后）：交付脚本 exit 0 但 3 项恒等式打印 False，全部是 sympy 对符号指数
+  （q**(K−a−1) 与 q**(K−a)）不合并的失败，把 q^j、q^x、ν^t、ν^m 取为自由符号后 sp.cancel 逐项为 0；
+  提醒：以后交付脚本的 "True/False" 打印不能当 oracle 结论，exit code 也不反映 False 项（该脚本不 assert）。
+  脚本的浮点参数网格把 (η−1)² 量级的正数打印为 0.0，精确值 1/256（K=2, η=17/16）。
