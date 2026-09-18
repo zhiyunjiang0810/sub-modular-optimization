@@ -3,7 +3,10 @@
 规则：每条定理一张卡，字段固定。写作时只准从这里取陈述与状态，不准凭记忆。
 状态标签：[VERIFIED-SYMBOLIC] [VERIFIED-LP] [VERIFIED-EXHAUSTIVE] [HAND-PROOF-UNREVIEWED] [CONJECTURE] [OPEN]。
 "禁止声称"一栏是空洞性检验和审稿反例的沉淀，比陈述本身更重要。
-本版：2026-09-14 J6/J7 日（**新卡 T10d thm:linear-anysize**：任意大小查询线性类
+本版：2026-09-18 V11 交叉验证日（第 2/3 节 10 条陈述 + J8 按 TASKS11 五项标准逐条交叉验证：
+10 条 [HAND-PROOF-UNREVIEWED]（C/D 全过，B 或 E 有 GAP），J8 [VERIFIED-ORACLE-ONLY]，无 [FAILED]、
+无 [VERIFIED-CROSS]；每卡新增"V11 交叉验证"状态行，陈述内容一字不动；矩阵 results/V11/VERIFICATION_MATRIX.md）；
+此前 2026-09-14 J6/J7 日（**新卡 T10d thm:linear-anysize**：任意大小查询线性类
 ρ_K ≤ α_lin ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}，Ψ 修正截断规则，count-grid 合法性
 [VERIFIED-SYMBOLIC 148 项] + 99 组电池 + (18) 精确 oracle，装配 [HAND-PROOF-UNREVIEWED 来源 J7]；
 T10c 来源标注具体化为 J6；T12 candidate-bound 角色被 T10d 取代，P0/P1 与超线性预算内容保留；
@@ -39,6 +42,8 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   f(T) ≤ K/(n−K)·f(O*)。
 - 前提：任意查询访问 f̃。
 - 状态：[HAND-PROOF-UNREVIEWED]（两实例不可区分，原 Lemma 1 的推广）。
+- V11 交叉验证（2026-09-18，矩阵行 prop:necessity）：[HAND-PROOF-UNREVIEWED]。C 11 项 PASS、D 2400 随机算法
+  0 违反、B-PASS；E GAP：|T| ≤ K 与 "no constant" 的量词（固定 K、n → ∞）未写在陈述里。
 - 随机版（M1，J5 量词规格）：未单独陈述。正文注释注明：随机类比需按"对每个随机算法存在固定实例使
   E_seed[·] ≤ …"的量词经 app:hardness 式平均得出，本文未给常数，不声称。
 - 禁止声称："no algorithm is robust" 可以说，"robust" 一词不得用于描述本文算法；把 "every algorithm"
@@ -60,6 +65,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - 旧陈述（归档，2026-09-18 前）：(ii) 写 η^sel=1；(iii) 写 level max{1−1/η_u, η_o−1} 并带 η_o<2 前提。
 - 状态：(i)(ii) [HAND-PROOF-UNREVIEWED]；(iii) 按 addendum §B 第 10 条：Cici 已读 + 随机 oracle 96 个合法
   surrogate 零违反，可标 [HAND-PROOF-REVIEWED] + [VERIFIED-EXHAUSTIVE (random)]；V11 矩阵按五项标准重定。
+- V11 交叉验证（2026-09-18，矩阵行 prop:valueacc，按本卡方案二陈述）：[HAND-PROOF-UNREVIEWED]（整条；(iii)
+  单独看五项全过）。C 16 项 PASS（含 2200 个合法 surrogate × 57840 子集）、D 6597 次 0 违反、B-PASS；
+  E GAP：(i) 缺 n ≥ 2，(ii) 缺 f 不恒零，正文仍是旧约定文本。
 - (iii) 定义域修正（M1，J5 §规格；**方案二下作废**）：旧约定下 max{1−1/η_u, η_o−1} 在 η_o ≥ 2 时出域，
   曾加 η_o < 2 前提；方案二用缩放后的 level (η−1)/(η+1) ∈ [0,1)，前提消失。
 - 禁止声称："value accuracy is irrelevant"——(iii) 说明 η 有界蕴含 value accuracy up to scale，是单向蕴含；
@@ -70,6 +78,8 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - 陈述（K1 后）：f 单调 submodular；run 的选择误差 η^sel（新定义：a_t=M_t/g_t，M_t=g_t=0 取 1，g_t=0<M_t 取 ∞，η^sel=max{1,a_t}，L_K(∞)=0）。则 f(T) ≥ L_K(η^sel) f(O*) ≥ (1−e^{−1/η^sel}) f(O*)，L_K(x)=1−(1−1/(xK))^K。同一界对 η^tr、η 成立。
 - 归属：essentially due to Goundan & Schulz (2007, Theorem 1)，α=η^sel（同向，不取倒数），要求每步满足近似选择条件。证明附录 for completeness。
 - 状态：[VERIFIED-LP 第一晚基线] + 附录证明（NWF 权重求和）。
+- V11 交叉验证（2026-09-18，矩阵行 prop:guarantee）：[HAND-PROOF-UNREVIEWED]。C 8 项 PASS、D 3000 run 0 违反、
+  B-PASS；E 轻 GAP：f(∅)=0 与 r_t ≥ 0 在附录隐式使用；方案二下 η^tr 的截断须放在乘积上（矩阵重点发现 1）。
 - 禁止声称："we prove"；旧定义下的无条件证书（J2 三元素反例 (1,1,0)/(2,1,3) 比值 1/2 < 3/4）；对非单调目标（E1 accuracy、E3 ROUGE）称 certificate；对提前停止变体声称本命题（M1：停止版只有已执行步乘积界，反例 results/M0_counterexamples.py §1）；
   由**停止前**的 η^sel 推 L_K 界（M4：同一反例，已执行步 a_t 全为 1 而 ratio = 1/2）。
 - 附属 remark：逐步乘积界 1−∏(1−1/(K a_t)) [HAND-PROOF-UNREVIEWED]，反例上取等。
@@ -84,6 +94,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 ## T5 lem:coherence — coherence lemma（唯一新引理）
 - 陈述：f 单调，S⊆N，e,e'∉S，d̃_e(S) ≥ d̃_{e'}(S)。则 (i) d_e(S∪{e'}) ≥ d_{e'}(S∪{e})/η；(ii) (1−1/η) d_{e'}(S∪{e}) ≥ d_{e'}(S)−d_e(S)。
 - 状态：两行证明（f̃(S∪{e,e'}) 两种展开）；J2 §2 给出三项非负 slack 分解 [VERIFIED-SYMBOLIC]。
+- V11 交叉验证（2026-09-18，矩阵行 lem:coherence）：[HAND-PROOF-UNREVIEWED]。C 6 项 PASS、D 3468 三元组 0 违反、
+  A 逐字一致；B：引理本体路线二一致，sharp form 链不在盲审输入里（判定人一行闭合）；E GAP："f monotone"
+  前提在证明中未被使用（空洞性检验）。
 - Sharp form（H-J3 采纳）：d − g/η ≥ (1−1/η)(g−h) ≥ 0，其中 d=d_e(S)、g=d_{e'}(S)、h=d_{e'}(S∪{e})；
   第一个不等号是 (ii) 的等价改写 [VERIFIED-SYMBOLIC，results/H_J3_gate_check.py]，第二个另用 f 的
   submodularity。推论：η>1 且 d=g/η 时必有 h=g。作为 lemma 的 sharp form 陈述，不另立新定理。
@@ -95,6 +108,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - ≥ 方向：四族有效不等式（R6：J2 slack 证书 [VERIFIED-SYMBOLIC] + 1,536 目标 LP）+ 一般 K 显式对偶乘子（N1 320/320，J2 独立 456 例；G2 附录逐行）。
 - ≤ 方向：每个 j 的三类元素显式实例（N2 480/480，一般 K 符号）。
 - 全格点=reduced LP：K ≤ 5 [VERIFIED-LP]。
+- V11 交叉验证（2026-09-18，矩阵行 thm:exact）：[HAND-PROOF-UNREVIEWED]。C 10 项 PASS（自写精确有理 simplex
+  K=2..6 × 20 个 η 逐点 = min_j V_j，N1/N2 复跑）、D 2400 随机实例 0 违反、A 逐字一致、B-PASS（路线二用另一组
+  对偶支撑 sum+cons+mono 也得 ρ_K）；E GAP：n 量词只靠 rem:exact-n 的手证（restriction + padding）。
 - n 量词（M1，规格转述自 J5 §13）：ρ_{n,K}(η) = 固定 ground set 大小 n 的精确最坏比；n ≥ 2K 时
   ρ_{n,K} = ρ_{2K,K} = ρ_K。证明：restriction（把最坏 run 的实例限制到 T∪O*，run 仍合法、比值与
   OPT 不变）+ padding（补零元素，d = d̃ = 0 保带，attaining run 不受影响）
@@ -175,6 +191,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   52 个独立全格点算法侧 LP、24 个 modular 对手实例 37,056 个 all-pairs 增量 [VERIFIED-LP 同脚本]；
   一般集合上的交换、望远镜与 minimax 量词装配 [HAND-PROOF-UNREVIEWED，来源 J5 套 A]。
   **达到方向由 [CONJECTURE] 升级为该标签（用户指令，J5H2）；M3.1 的 FAILED 记录由此关闭。**
+- V11 交叉验证（2026-09-18，矩阵行 thm:ceiling；正文环境已按 addendum B.1 降为 proposition，label 不变）：
+  [HAND-PROOF-UNREVIEWED]。C 8 项 PASS（含 J5 hardcore 复跑）、D 3544 次 0 违反、B-PASS（n < 2K 交换论证被
+  盲审独立复推）；E GAP：K ≥ 2 限定无用（K=1 全过 oracle）、"error exactly" 无定义、随机段缺条件于随机串一步。
 - 量词五条（J5 §5，写进附录）：下界量词是"存在算法对所有实例"（非任意算法）；|S|=K 是穷举自身的
   输出规范，|S|<K 的算法把输出补足即可被上界覆盖；无需最小重叠；需要全部交换比较（one-swap
   local optimality 不够）；穷举非多项式查询，不改变有限预算 hardness 的适用范围。
@@ -210,6 +229,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - 状态：极限由 L_K ≤ ρ_K ≤ U_K 与两侧极限；展开与单调性证书 [VERIFIED-SYMBOLIC conditional on T6，
   results/H_B_asymptotic.py，J5 hardcore oracle 独立重验（84 项分子、165 项分母全非负，常数 14/48）]；
   余项的 Taylor 装配与导数论证到离散差分的装配 [HAND-PROOF-UNREVIEWED]。
+- V11 交叉验证（2026-09-18，矩阵行 cor:limit）：[HAND-PROOF-UNREVIEWED]。C 9 项 PASS、D 18000 个 (K,η) 点
+  0 违反、B-PASS（不同路线）；E GAP：K 下端未写（ρ_K 闭式只对 K ≥ 2）、"monotone" 无方向、n 量词；
+  全部 conditional on T6。
 - 渐近展开（H-B）：固定 η ≥ 1，ρ_K(η)=1−e^{−1/η}+c(η)/K+O(1/K²)，c(η)=e^{−1/η}(2η−1)/(2η²)。
   c 不随 ⌊η⌋ 分段（1/K 项上 m=⌊η⌋ 贡献相消）；分段的是 1/K² 系数
   d(η,m)=e^{−1/η}[24η³(1−m)+12η²(m²+m−3)+20η−3]/(24η⁴)。c 在 η*=1+1/√2 处取最大 0.230579。
@@ -230,6 +252,10 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 ## T10 thm:hardness — 有界查询 hardness（K4 后按 J2 校准）
 - 陈述：c ≥ 0 实数，τ=⌈c⌉+1，K>τ，n ≥ 4K^{c+2}，η>1 且 η ≥ (K−1)/(K−τ)，θ̄=(η(K−τ)+1)/K。任意确定性算法，≤n^c 次、每次集合大小 ≤K 的 f̃ 查询、输出 ≤K 元素，存在实际误差恰为 η 的实例使 f(T)/f(O*) ≤ H_{K,τ}(η)=1−(1−1/(η(K−τ)+1))^K=L_K(θ̄)。随机版加 ε_n=K/n+K^{2τ+2}/((τ+1)! n^{τ+1−c})。
 - 状态：边表与校准 [VERIFIED-SYMBOLIC]（J2 264 实例 + 我方复核）；transcript/并集界/两次平均 [HAND-PROOF-UNREVIEWED]。
+- V11 交叉验证（2026-09-18，矩阵行 thm:hardness）：[HAND-PROOF-UNREVIEWED]。C 8 项 PASS（含非 binding 表：
+  K=3,4、τ=2、η=3/2 不 binding，K ≥ 5 binding）、D 2000 组 0 违反；B-GAP（路线二的 union bound 只到
+  n ≥ 4K^{2τ} 且未构造硬族；判定人精确复算路线一在 n ≥ 4K^{c+2} 下总失败概率 ≤ 9/32）；E GAP：随机版的
+  期望对什么取未写明。
 - 副产品：τ=1 时 H_{K,1}=U_K，故 L_K ≤ ρ_K ≤ U_K=H_{K,1}。
 - 禁止声称："error exactly η" 用旧 Φ 校准；查询大小不限（那是 F3 版本）；任意多项式次数的类最优（见 T11）；
   "non-trivial" 而不说明是渐近匹配（有限参数下 H 可大于 1/η，如 η=2,c=2,K=8 时 H≈0.533）；
@@ -316,6 +342,9 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   [VERIFIED-LP 精确有理，results/Q4_indep_check.py + Q4_gpt_check.py]。
   count-grid → 集合函数的 DR 链接、canonical transcript 归纳、随机版两次平均：
   [HAND-PROOF-UNREVIEWED，来源 Q4（GPT 平行审计），计数链本身沿 T10b [VERIFIED-SYMBOLIC]]。
+- V11 交叉验证（2026-09-18，矩阵行 thm:linear-exact）：[HAND-PROOF-UNREVIEWED]。C 7 项 PASS（Q4 三脚本复跑 +
+  计数链精确 + 自写重实现）、D 500 随机策略 + 56 结构化 0 违反；B-GAP（盲审走"全部大小 size-only"路线撞上
+  强制超额，未复现 small-set-only 机制，判定人复核路线一正确）；E GAP：sup-inf 的实例类未命名、归一化未写。
 - 量词检验（逐词）：deterministic（随机版差 ε_n，单列）；≤ nK 查询（无预算时 thm:ceiling 只给 1/η）；
   每次 |S| ≤ K（任意大小查询时该族在 (31) 处泄漏，any-size 最优值仍 [OPEN]，T12）；n ≥ 4K⁵
   （n=4, K=2 穷举反例沿 T10b；充分非必要）；输出 ≤ K（查询模型）；"恰为 (η_u,η_o)"（两个端点
@@ -351,6 +380,10 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
   canonical transcript、平均、下界方向的引用 [HAND-PROOF-UNREVIEWED，来源 J7]；
   两条经典初等不等式残留（(1+1/u)^{u+1} > e 与弦不等式 m(ν^l−1) ≤ l(ν^m−1)）
   各有精确 sweep 支持，属手证残留不升级。
+- V11 交叉验证（2026-09-18，矩阵行 thm:linear-anysize；正文环境已按 addendum 降为 proposition，label 不变）：
+  [HAND-PROOF-UNREVIEWED]。C 9 项 PASS（J7 四脚本复跑 + 自写电池 + n < K+T 反向 greedy 恰达 1 复现）、
+  D 300 随机任意大小策略 0 违反；B-PASS-with-different-route（路线二一句错误 α_{K+1}=1 被判定人反驳；整数 η
+  处 j 约定不同，路线一的 j 给更小的 W_K）；E GAP："limit" 未证存在，可写形式是 limsup/liminf。
 - 模拟证据（results/J7_grid_check.py sim 段）：对抗 tie 的 fwd/rev/max(fwd,rev) 于 K=3、
   三个 η、n = 8..12：n ≥ K+T 时全部恰 = W；**n < K+T 时反向 greedy 经泄漏区精确找回 O，
   比值恰为 1**（J7 (15) 允许此事；定理的 n → ∞ 量词必不可少）。

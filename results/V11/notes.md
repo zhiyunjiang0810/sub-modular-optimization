@@ -15,6 +15,13 @@
   建议保留 δ 版（直接匹配陈述、任意 δ 推广），γ 版随 app:model 接线时删除（作者操作）。
 - Q0：J8 的算法有 EPS = 1/10000 的池阈值与 8 个 secondary 集合、127/128 与 1/1024 概率；
   期望下界 3/5 + 1/400000 与紧实例值 3/5 + 1/2048 的关系（1/2048 = 195.3125/400000）待 Q9 复核。
+- Q1–Q8 工作流的 12 条顺便发现（η^tr 方案二下须按乘积截断；thm:linear-anysize 的 limit 未证存在；
+  J8 盲审 II-b 缺口；thm:exact 另一组对偶支撑；J6 small-set-only 机制盲审到不了；hardness 路线二只到
+  n ≥ 4K^{2τ}；thm:ceiling K ≥ 2 无用；prop:necessity |T| ≤ K；prop:valueacc n ≥ 2 与 f 不恒零；
+  cor:limit K 下端；引文 Theorem 5 vs Proposition 6；盲审提示模板噪声）逐条见
+  results/V11/VERIFICATION_MATRIX.md "重点发现"一节，此处不重复。
+- Q1–Q8：两个 oracle 代理复跑旧脚本时改写了 results/J2_core_oracles.json 与 results/N1_dual_certificate.json
+  的耗时字段（内容不变），已 `git checkout` 还原；V11 自己的产出全部在 results/V11/ 下。
 - Q11（J9 盲审，不进正文）：路线二独立给出条件定理"若有限可行性问题 (P_{K,η})（count grid +
   truncation m = 3(K−1)，f 依赖 T 与 O）可解，则任意大小查询、≤ cnK 次的确定性算法在
   n ≥ 4cK⁵(K+2)² 上比值 ≤ ρ_K"，并用 LP 确认 K=2..7 可解、K=2,3,4 精确有理实例；同时独立确认

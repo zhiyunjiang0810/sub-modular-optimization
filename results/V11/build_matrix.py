@@ -58,6 +58,39 @@ def cell(s, n=400):
     return s if len(s) <= n else s[:n] + ' ...'
 
 
+# statements.md is split at its "## " headers; each key maps to the header
+# substrings whose sections hold the verbatim ledger and paper statements.
+STMT_HEADERS = {
+    'nobound': ['prop:nobound'], 'valueacc': ['T2 prop:valueacc', 'T2 方案二'],
+    'ceiling': ['thm:ceiling'], 'guarantee': ['prop:guarantee'],
+    'coherence': ['lem:coherence'], 'exact': ['thm:exact'], 'limit': ['cor:limit'],
+    'linear_exact': ['thm:linear-exact'], 'hardness': ['thm:hardness'],
+    'linear_anysize': ['thm:linear-anysize'], 'probelottery': ['J8 ProbeLottery'],
+}
+
+
+def verbatim_sections():
+    text = open(os.path.join(V11, 'statements.md')).read().split('\n')
+    secs, cur, buf = {}, None, []
+    for line in text:
+        if line.startswith('## '):
+            if cur is not None:
+                secs[cur] = '\n'.join(buf).strip()
+            cur, buf = line[3:].strip(), []
+        else:
+            buf.append(line)
+    if cur is not None:
+        secs[cur] = '\n'.join(buf).strip()
+    out = {}
+    for key, subs in STMT_HEADERS.items():
+        parts = []
+        for h, body in secs.items():
+            if any(s in h for s in subs):
+                parts.append(f'#### {h}\n\n' + body.replace('\n### ', '\n##### '))
+        out[key] = '\n\n'.join(parts) if parts else '(statements.md 无对应节)'
+    return out
+
+
 def main():
     rows = []
     for r in R['results']:
@@ -80,10 +113,30 @@ def main():
     out.append('| label | 正文编号 | 陈述原文 | 路线一位置 | 路线二结论一致? (B) | oracle 项目与结果 (C) | 反例搜索 (D) | 量词审计 (E) | 最终标签 | 裁定理由 | 可写进正文的精确表述 | K=3, η=3/2 数字走读 |')
     out.append('|---|---|---|---|---|---|---|---|---|---|---|---|')
     for (lab, num, route1, Bv, Cs, Dd, Ev, label, why, precise, walk, key) in rows:
-        out.append(f"| {lab} | {num} | 见 statements.md §{key} | {cell(route1, 150)} | {cell(Bv, 500)} | {cell(Cs, 500)} | {cell(Dd, 300)} | {cell(Ev, 400)} | **{label}** | {cell(why, 200)} | {cell(precise, 600)} | {cell(walk, 300)} |")
+        out.append(f"| {lab} | {num} | 逐字见下方明细 §{lab}（源 statements.md） | {cell(route1, 150)} | {cell(Bv, 500)} | {cell(Cs, 500)} | {cell(Dd, 300)} | {cell(Ev, 400)} | **{label}** | {cell(why, 200)} | {cell(precise, 600)} | {cell(walk, 300)} |")
+    verb = verbatim_sections()
+    out.append('\n## 逐条明细（主表各列的未截断版本；陈述原文逐字取自 statements.md）\n')
+    for (lab, num, route1, Bv, Cs, Dd, Ev, label, why, precise, walk, key) in rows:
+        out.append(f'### {lab} ({num}) — 最终标签 **{label}**\n')
+        out.append('**陈述原文**\n')
+        out.append(verb.get(key, ''))
+        out.append('\n**路线一位置**: ' + route1)
+        out.append('\n**B 路线二比对**: ' + str(Bv))
+        out.append('\n**C oracle**: ' + str(Cs))
+        out.append('\n**D 反例搜索**: ' + str(Dd))
+        out.append('\n**E 量词审计**: ' + str(Ev))
+        out.append('\n**裁定理由**: ' + str(why))
+        out.append('\n**可写进正文的精确表述**: ' + str(precise))
+        out.append('\n**K=3, η=3/2 走读**: ' + str(walk).replace('\n', ' '))
+        out.append('')
+    out.append('\n## 重点发现（供作者判断；不进正文）\n')
+    for i, f in enumerate(OVER.get('_findings', []), 1):
+        out.append(f'{i}. {f}')
     out.append('\n## 缺失与限制\n')
     out.append('- J8：证明文件 results/J8/probe_lottery.md 未送达，路线一为 GAP；(3)、(8)–(12) 的 LP 对偶证书无法给出。')
-    out.append('- 盲审子代理输入清单（TASKS11 要求记录）：results/V11/inputs/{definition1,assumptions,notation}.md + statement_<key>.md（linear_anysize 另给 anysize_template.md）。')
+    out.append('- J9（Q11）：证明文件未送达；C1 内联不等式已过，盲审路线二 PARTIAL（results/V11/route2/j9.md），不入矩阵主表。')
+    out.append('- 盲审子代理输入清单（TASKS11 要求记录）：results/V11/inputs/{definition1,assumptions,notation}.md + statement_<key>.md（linear_anysize 另给 anysize_template.md；j9 用 statement_j9.md）。子代理被禁止读取其他任何文件；每份 route2/<key>.md 末尾列出实际读过的文件。')
+    out.append('- 标签口径：TASKS11 五项规则严格执行；"裁定理由"列说明 GAP 的性质（陈述措辞 vs 证明缺口）与一行修订后可达的标签。')
     open(os.path.join(V11, 'VERIFICATION_MATRIX.md'), 'w').write('\n'.join(out) + '\n')
     print('rows:', len(rows))
     for r in rows:

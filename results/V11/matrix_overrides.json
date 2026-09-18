@@ -1,0 +1,71 @@
+{
+  "_findings": [
+    "三把尺子在方案二下的定义细节（prop:guarantee，B 比对新发现）：路线二把 η^tr 的两个因子各自截断到 1，方案二下序关系 L_K(η^sel) ≥ L_K(η^tr) ≥ L_K(η) 会反向（f̃ = 2f：全局 (η_u,η_o) = (1/2, 2)、η = 1，逐因子截断的 η^tr = 2 > 1 [VERIFIED-EXHAUSTIVE]）。正文写 η^tr 的定义时必须把截断放在乘积上。",
+    "thm:linear-anysize（E 审计 GAP-1）：陈述把 α_lin 定义为 n → ∞ 的极限，但路线一只给出 limsup ≤ min{1/η, W_K} 与 liminf ≥ ρ_K，没有任何收敛或单调性论证；可写进正文的形式是 limsup/liminf 或 'for all sufficiently large n'（矩阵表述列已改写）。",
+    "J8（盲审 PARTIAL）：情形 II-b（o_1、o_2 都进 pool 且四轮 extension 全被其他 pool 元素占据）只得到 E ≥ (3/5 − 1.5625e−6)·OPT，比目标 3/5 + 2.5e−6 低 4.1e−6；未找到反例（显式 n=7 候选不可行），2100 个随机合法实例最差恰为紧实例 3/5 + 1/2048。未送达的证明必须覆盖该格。",
+    "thm:exact（B 比对）：路线二用不同的 LP 与对偶支撑（sum + cons + mono，不用 pred，单调乘子非零）也得到 ρ_K；台账 T6 副产品句'下界证书中单调约束乘子恒为零'只对路线一的约束集成立，不是定理性质。",
+    "thm:linear-exact（B 比对）：盲审代理走了'全部大小 size-only'路线并撞上强制超额（与第十晚 W 现象同源），未复现 J6 的 small-set-only 机制；判定人复核路线一正确。J6 的关键洞察（只在 |S| ≤ K 要求不可区分）不是盲审能自动到达的，正文应明说。",
+    "thm:hardness（B 比对）：路线二的 union bound 只能给 n ≥ 4K^{2τ}，判定人精确复算路线一的 level-(τ+1) 计数在 n ≥ 4K^{c+2} 下总失败概率 ≤ 9/32（c = 0..3、K ≤ 29 逐点），陈述阈值成立；路线二未构造出显式硬族。",
+    "thm:ceiling（E 审计）：正文 K ≥ 2 的限定在证明中无处使用（K = 1 全过 oracle），按 addendum B.3 写 K ≥ 1；'error exactly (η_u,η_o)' 在 def:eta 无定义，需一句'最小可行因子对恰为'；随机段落缺'条件于随机串'一步。",
+    "prop:necessity（E 审计）：|T| ≤ K 在陈述里未写（允许 |T| > K 则 T = N 反驳）；'no constant' 的量词（固定 K、n → ∞）未写；addendum B.9 措辞未落实。两个构造（γ = K²/(n(n−K)) 与 δ = K/(n−K)）同属一族的两个参数点，建议保留 δ 版并随 app:model 接线删除 γ 版。",
+    "prop:valueacc（E 审计）：(i) 需 n ≥ 2；(ii) 需 f 不恒零；正文仍是旧约定文本，与台账方案二陈述不一致（待作者改正文）。",
+    "cor:limit（E 审计）：K 的下端未写（ρ_K 闭式只对 K ≥ 2，1 ≤ η < 2 时平台子句涉及 K = 1 的 ρ_1 = 1/η 只在 T10b 卡）；'monotone in K' 无方向。",
+    "引文（citations.md）：GS 2007 Theorem 1 已核（全文 PDF）；Horel–Singer 的 (1−ε)/(1+ε) 观察在 Section 1 引言段'Optimization of approximate submodularity'；greedy 阈值 ε ≤ 1/k 的正面保证是 **Theorem 5**，Proposition 6 只是紧性；horel2016maximization 的页码 3045–3053 未能核实 [CITATION-NEEDS-VERIFICATION]。",
+    "模板噪声：盲审代理的通用提示里含'K = 2 for the ProbeLottery item'一句，非 J8 项的代理把它记为 FAILED 子项；这是提示模板的 artifact，不计入任何陈述的 GAP。"
+  ],
+  "nobound": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 11 项 PASS（160 实例精确穷举、18240 个固定输出、两个构造）；D 2400 随机算法 0 违反；B-PASS（路线二加了 |T| ≤ K 读法）；E GAP：|T| ≤ K、'no constant' 的量词、addendum B.9 措辞未落实、query 模型未定义。GAP 全是陈述层措辞，证明无缺口。",
+    "precise_statement": "Let K >= 1 and n >= 2K. For every deterministic algorithm with arbitrary query access to the surrogate whose output T has |T| <= K, there is a pair (f, f~) with f monotone submodular, f(empty) = f~(empty) = 0, satisfying every assumption of Section 2 except a bound on eta (its error is finite, eta = (n-K)/K), on which f(T) <= (K/(n-K)) OPT. Consequently, for fixed K, no worst-case ratio bounded away from 0 uniformly in n holds without a bound on eta."
+  },
+  "valueacc": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 16 项 PASS（含 2200 个合法 surrogate × 57840 子集的 (iii)）；D 6597 次 0 违反；B-PASS；E GAP：(i) 缺 n ≥ 2，(ii) 缺 f 不恒零，正文仍旧约定。(iii) 单独看五项全过且 addendum 记 Cici 已读，可标 [HAND-PROOF-REVIEWED]+[VERIFIED-EXHAUSTIVE]。",
+    "precise_statement": "(i) For every eps in (0,1) and every n >= 2 there are a monotone submodular f with f(empty) = 0 and a surrogate f~ with f~(empty) = 0, value-accurate at level eps, whose marginal gain vanishes at a pair (S, e) with d_e(S) > 0; hence no finite (eta_u, eta_o) of Definition 1 exists for f~, and value accuracy alone yields no bound of the form L_K(eta). (ii) For every M > 0 and every monotone submodular f not identically zero, f~ = (1+M) f is value-accurate at no level eps < M, yet satisfies Definition 1 with (eta_u, eta_o) = (1/(1+M), 1+M), so eta = 1, and predictive greedy on f~ picks at every step an element of maximum true gain. (iii) If f~ satisfies Definition 1 with (eta_u, eta_o), eta = eta_u eta_o, for a monotone f with f(empty) = f~(empty) = 0, then f(S)/eta_u <= f~(S) <= eta_o f(S) for every S, and c f~ with c = 2 eta_u/(eta+1) is value-accurate at level (eta-1)/(eta+1); submodularity is not used."
+  },
+  "ceiling": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 8 项 PASS（含 J5 hardcore 复跑：恒等式 (7)(8)(9)、52 LP、24 对手实例）；D 3544 次 0 违反；B-PASS（n<2K 交换论证被盲审独立复推）；E GAP：K ≥ 2 无用（应 K ≥ 1）、'exactly' 无定义、随机段缺条件于随机串一步。",
+    "precise_statement": "Let K >= 1 and n >= 2K, and let eta_u, eta_o > 0 with eta_u eta_o = eta >= 1. (a) For every deterministic algorithm with arbitrary query access to f~ that outputs a set T with |T| <= K, there is a pair (f, f~) with f monotone submodular, f(empty) = f~(empty) = 0, whose smallest admissible factors are exactly (eta_u, eta_o), on which f(T) <= OPT/eta. (b) On every instance satisfying Definition 1 with product eta, a K-set S maximizing f~ over all K-subsets satisfies f(S) >= K/(K + (eta-1)|O* minus S|) OPT >= OPT/eta for every optimal K-set O*. Hence the optimal worst-case ratio of deterministic algorithms with unbounded queries is exactly 1/eta. (Appendix remark: for K <= n < 2K the exact deterministic value is K/((2K-n) + (n-K) eta), attained by the same maximizer; for randomized algorithms and n >= 2K, for every algorithm there is a fixed pair on which E_seed[f(T)] <= ((1-K/n)/eta + K/n) OPT, an upper bound only.)"
+  },
+  "guarantee": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 8 项 PASS（3000 随机 run；F2_etasel_tight、T5_symbolic 复跑）；D 0 违反；B-PASS；E 轻 GAP：f(∅)=0 与 r_t ≥ 0 在附录隐式使用。B 比对新发现方案二下 η^tr 的定义须按乘积截断（见重点发现 1）。",
+    "precise_statement": "Let f be monotone submodular with f(empty) = 0, O* an optimal K-set, and T = S^K the output of a K-step run of predictive greedy with selection error eta^sel (per-step factors a_t, eta^sel = max{1, a_t}, L_K(infinity) = 0). Then f(T) >= L_K(eta^sel) OPT >= (1 - e^{-1/eta^sel}) OPT with L_K(x) = 1 - (1 - 1/(xK))^K. If f~ satisfies Definition 1 with product eta, the same bound holds with eta^sel replaced by eta^tr (the band restricted to the run's states, with the truncation at 1 applied to the product of the two factors) or by eta, and L_K(eta^sel) >= L_K(eta^tr) >= L_K(eta)."
+  },
+  "coherence": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 6 项 PASS（自写 slack 分解 + H_J3/J2 复跑）；D 3468 三元组 0 违反；A 逐字一致；B：引理本体路线二完整一致，sharp form 链不在盲审输入里由判定人一行闭合（B-GAP 形式上）；E GAP（中）：'f monotone' 前提在证明中未使用（空洞性检验）。一行修订即可升 [VERIFIED-CROSS]。",
+    "precise_statement": "Let f~ satisfy Definition 1 with product eta for a set function f, let S be a subset of N and e, e' not in S with d~_e(S) >= d~_{e'}(S). Then (i) d_e(S + e') >= d_{e'}(S + e)/eta and (ii) (1 - 1/eta) d_{e'}(S + e) >= d_{e'}(S) - d_e(S). If moreover f is submodular, with d = d_e(S), g = d_{e'}(S), h = d_{e'}(S + e): d - g/eta >= (1 - 1/eta)(g - h) >= 0, and eta > 1 with d = g/eta forces h = g. The band is used at the off-run state S + e, so the lemma holds for the global eta only (not for eta^sel or eta^tr). (The hypothesis 'f monotone' is not used by the proof.)"
+  },
+  "exact": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 10 项 PASS（自写精确有理 simplex K=2..6 × 20 个 η 逐点 = min_j V_j；N1/N2 复跑；四族有效性）；D 2400 随机实例 0 违反 + 图 1 实例复核；A 逐字一致；B-PASS（不同路线：另一组对偶支撑）；E GAP-1：n 量词只靠 rem:exact-n（restriction + padding）[HAND-PROOF-UNREVIEWED]。",
+    "precise_statement": "For every K >= 2, every eta >= 1 and every n >= 2K, the exact worst-case ratio of K-step predictive greedy under adversarial tie breaking, over all instances on n elements with f monotone submodular, f(empty) = 0, and f~ satisfying Definition 1 with product at most eta, is rho_K(eta) = min_{0 <= j <= K-1} V_j(eta), V_j = 1 - q^j (1 - (K-j)/(K eta)), q = (K-1) eta/((K-1) eta + 1); the minimum is V_j on eta in [K-j, K-j+1] (V_0 = 1/eta on [K, infinity)), the breakpoints are the integers 2, ..., K, and rho_K(eta) = 1/eta exactly when eta >= K. (The independence of n for n >= 2K rests on restriction to T union O* and zero-gain padding; ground sets with n < 2K are not covered.)"
+  },
+  "limit": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 9 项 PASS（H_B 复跑；sympy 极限与级数；精确差分 K ≤ 200）；D 18000 个 (K,η) 点 0 违反；B-PASS（不同路线）；E GAP：K 下端与 ρ_1 的出处、n 量词、'monotone' 无方向。全部 conditional on thm:exact。",
+    "precise_statement": "Fix eta >= 1. As K -> infinity, L_K(eta) increases to 1 - e^{-1/eta} and rho_K(eta) -> 1 - e^{-1/eta}. For K >= 2, rho_K(eta) is non-increasing in K: it equals 1/eta for 2 <= K <= floor(eta) and is strictly decreasing in K for K >= max{2, floor(eta)}, so the limit is approached from above. Quantitatively rho_K(eta) = 1 - e^{-1/eta} + c(eta)/K + O(1/K^2) with c(eta) = e^{-1/eta}(2 eta - 1)/(2 eta^2). (Every statement about rho_K is conditional on Theorem thm:exact and on n >= 2K.)"
+  },
+  "linear_exact": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 7 项 PASS（Q4 三脚本复跑 13 恒等式/159 电池/34 分支/111 组；计数链精确；自写重实现）；D 500 随机策略 + 56 结构化 0 违反；B-GAP：盲审走全大小 size-only 路线撞上强制超额，未复现 small-set-only 机制，判定人复核路线一正确；E GAP：sup-inf 的实例类未命名、归一化与'single-element'措辞。",
+    "precise_statement": "Let K >= 2, eta > 1 and n >= 4K^5. Let A_lin be the class of deterministic algorithms that make at most nK queries to f~, each on a set of size at most K, and output a set of size at most K; predictive greedy belongs to it. For every A in A_lin and every eta_u, eta_o > 0 with eta_u eta_o = eta there is an instance on n elements with f monotone submodular, f(empty) = f~(empty) = 0, whose smallest admissible factors are exactly (eta_u, eta_o), on which f(T)/OPT <= rho_K(eta). Hence, over instances on n elements with monotone submodular normalized f and error product at most eta, sup_{A in A_lin} inf_instances f(A)/OPT = rho_K(eta), for every such n. For every randomized algorithm with the same budget there is a fixed instance with error exactly eta on which E_seed[f(T)/OPT] <= rho_K(eta) + K^2/n + K^5/(2n)."
+  },
+  "hardness": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 8 项 PASS（J2/H3 复跑；非 binding 表：K=3,4 τ=2 η=3/2 不 binding，K ≥ 5 binding；H_{K,1}=U_K；极限）；D 2000 随机参数 0 违反；B-GAP：路线二未构造硬族且其 union bound 需 n ≥ 4K^{2τ}，判定人精确复算路线一在 n ≥ 4K^{c+2} 下失败概率 ≤ 9/32；E GAP：随机版期望对什么取与量词顺序未写。",
+    "precise_statement": "Let c >= 0 be real, tau = ceil(c) + 1, let K > tau and n >= 4K^{c+2} be integers, and let eta > 1 satisfy eta >= (K-1)/(K-tau). For every deterministic algorithm making at most n^c queries to f~, each on a set of size at most K, and outputting a set of size at most K, there is an instance with f monotone submodular, f(empty) = f~(empty) = 0, whose smallest admissible error factors have product exactly eta, on which f(T)/OPT <= H_{K,tau}(eta) = 1 - (1 - 1/(eta(K-tau)+1))^K; any prescribed split is realized by rescaling. For every randomized algorithm with the same budget there is a fixed instance with error exactly eta on which the expectation over the algorithm's own randomness satisfies E[f(T)/OPT] <= H_{K,tau}(eta) + K/n + K^{2tau+2}/((tau+1)! n^{tau+1-c}). H_{K,1} = U_K, and for fixed c and eta, H_{K,tau}(eta) -> 1 - e^{-1/eta}."
+  },
+  "linear_anysize": {
+    "label": "[HAND-PROOF-UNREVIEWED]",
+    "reason": "C 9 项 PASS（J7 四脚本复跑 148/99/F3 反例/(18)；自写电池；n < K+t* 反向 greedy 恰达 1 复现）；D 300 随机任意大小策略 0 违反；B-PASS-with-different-route 但路线二含一句错误（α_{K+1} = 1，判定人反驳）且整数 η 处 j 约定不同（路线一的 j 给更小的 W_K，两者都合法）；E GAP-1：'limit' 的存在未证（只有 limsup/liminf 夹逼），GAP-2：无显式 n_0。",
+    "precise_statement": "Let K >= 3, eta > 1 and c >= 1, and for each n let alpha_n denote the optimal worst-case ratio of deterministic algorithms that make at most c n K queries to f~ of arbitrary size and output a set of size at most K, over instances on n elements with monotone submodular normalized f and error product at most eta. Then rho_K(eta) <= alpha_n for every n >= 2K, and limsup_{n -> infinity} alpha_n <= min{1/eta, W_K(eta)}, where W_K(eta) (the value of the explicit family of the appendix, with j = max{0, min{K-1, K+1-ceil(eta)}} and the Psi truncation rule) satisfies 0 < W_K(eta) - rho_K(eta) < 1/(K(e^{K-1}-K-1)); the upper bound holds for every n >= n_0 with n_0 = max{K + t*, ceil(c K^3 (t*+K)^2)} (explicit from the leakage count). For eta >= K both bounds equal 1/eta. Randomized algorithms obey the same upper bound in expectation. (Not claimed: a finite-n bound alpha_n <= W_K for all n, which fails for n < K + t*, nor the existence of lim alpha_n.)"
+  },
+  "probelottery": {
+    "label": "[VERIFIED-ORACLE-ONLY]",
+    "reason": "C：紧实例恰 3/5 + 1/2048（n = 6..12）、2100 个随机合法实例 0 违反且最差恰为紧实例、算法 contract（≤ 9n 次、|S| ≤ 5、输出 2-集）全过；路线一缺失（证明文件未送达，对偶证书 GAP）；盲审 PARTIAL（II-b 一格差 4.1e−6 未闭合）；台账无卡、正文无环境。不可原样写进正文。",
+    "precise_statement": "Cannot be written into the paper on the repository's evidence: the proof is undelivered. Claim as delivered: for K = 2 and eta = 3/2, the randomized algorithm ProbeLottery (as implemented in results/J8/J8_claude_spotcheck.py) makes at most 9n queries, each on a set of size at most 5, outputs a 2-set, and on every instance with f monotone submodular, f(empty) = 0, and f~ satisfying Definition 1 with product 3/2 satisfies E_seed[f(T)] >= (3/5 + 1/400000) OPT; hence the query-size restriction of Theorem thm:linear-exact is necessary for randomized algorithms with budget (9/2) n K. Evidence: tight instance exactly 3/5 + 1/2048; 2100 random legal instances without violation; blind derivation closes every case except case II-b (reaches only 3/5 - 1.6e-6 there)."
+  }
+}

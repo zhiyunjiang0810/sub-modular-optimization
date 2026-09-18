@@ -1,5 +1,23 @@
 # REPORT.md
 
+## Summary（V11 交叉验证日，2026-09-18：第 2/3 节全部陈述五项交叉验证，矩阵已出）
+
+1. **成功**：TASKS11 Q0–Q10 完成，11 条陈述（第 2/3 节 10 条 + J8）逐条做完 A 陈述逐字、B 盲审独立推导、C oracle、D 反例搜索、E 量词审计；C/D 全部通过（无任何被违反的不等式），无 [FAILED] 行；Q11（J9）卡在证明文件未送达的闸门，只完成了可做部分。
+2. **[VERIFIED-CROSS] 0 条**。原因是五项规则严格执行：每条陈述的 E 量词审计都至少有一个陈述层 GAP（如 |T| ≤ K、n ≥ 2、K 下端、"limit" 是否存在、随机版期望对什么取），4 条的 B 比对有 GAP；这些都是措辞或装配层的缺口，不是证明错误，矩阵"裁定理由"列给了一行修订后可达的标签与"可写进正文的精确表述"。
+3. **[HAND-PROOF-UNREVIEWED] 10 条**：prop:necessity、prop:valueacc、thm:ceiling、prop:guarantee、lem:coherence、thm:exact、cor:limit、thm:linear-exact、thm:hardness、thm:linear-anysize（其中 B-GAP：lem:coherence 的 sharp form 链、thm:linear-exact、thm:hardness、thm:linear-anysize 的路线二各一处，判定人均已复核路线一成立）；**[VERIFIED-ORACLE-ONLY] 1 条**：J8 ProbeLottery（路线一证明文件未送达）；**[FAILED] 0 条**。
+4. **Q9 部分完成**：C/D 完成（独立重实现，紧实例恰 3/5 + 1/2048 于 n = 6..12、20；2100 个随机合法实例 0 违反且最差恰为紧实例；≤ 9n 次、|S| ≤ 5 contract 全过；spot-check 复跑 exit 0）；B 盲审 PARTIAL（情形 II-b 差 4.1e−6 未闭合）；路线一与 (3)、(8)–(12) 的 LP 对偶证书 GAP（results/J8/probe_lottery.md 未送达）。产出副本在 results/J8/V11/。
+5. **矩阵**：results/V11/VERIFICATION_MATRIX.md（主表 12 列 + 逐条明细 + 12 条重点发现）；引文核验 results/V11/citations.md（GS Theorem 1 已核；HS 观察在 Section 1 "Optimization of approximate submodularity" 段；greedy 阈值的正面保证是 **Theorem 5**，Proposition 6 只是紧性；HS 页码 [CITATION-NEEDS-VERIFICATION]）。**最需人类判断**：重点发现 1（方案二下 η^tr 的截断必须放在乘积上，否则三把尺子的序反向）与 2（thm:linear-anysize 正文应写 limsup/liminf）。
+
+### V11 明细（Q0–Q11）
+
+- **输入送达**（results/V11/MISSING_INPUTS.md）：HANDOFF、ADDENDUM、appendix_model_proofs.tex（未 \input：label 与 bib 键与正文不一致，接线留作者）、J8 spot-check 脚本本轮送达；results/J8/probe_lottery.md 与 results/J9/j9_proof.md 全渠道未送达。
+- **Q0**：results/V11/statements.md（台账 + 正文逐字）；盲审输入包 results/V11/inputs/；台账 T2 按 addendum §B 改写为方案二（授权项），正文不动。
+- **Q1–Q8（Workflow，45 个 Opus 代理，0 错误）**：每条陈述三个并行角色（盲审路线二、oracle C/D、A/E 量词审计）再交一个判定人比对。盲审子代理**只**得到 results/V11/inputs/{definition1,assumptions,notation}.md + statement_<key>.md（linear_anysize 另给 anysize_template.md，只有族的形状）；被禁止读任何证明，每份 route2/<key>.md 末尾列出实际读过的文件。产出：route2/ 61 文件、oracle/ 50（每个 <key>.py 亲跑 exit 0，含 J5 hardcore 与 N1/N2/H_B/J2/H3/Q4/J7 旧脚本复跑）、audit/ 11、compare/ 19；结构化返回存 workflow_result.json，裁定与精确表述在 matrix_overrides.json，build_matrix.py 一键生成矩阵。
+- **oracle 规模**：nobound 160 精确实例 + 2400 随机算法；valueacc 2200 合法 surrogate × 57840 子集；ceiling 3544（含 J5 复跑 52 LP + 24 对手实例）；guarantee 3000 run；coherence 3468 三元组；exact 自写精确有理 simplex K=2..6 × 20 η 逐点 = min_j V_j + 2400 随机 + 图 1 实例；limit 18000 点；linear_exact 500 策略 + 56 结构化；hardness 2000 组 + 非 binding 表；linear_anysize 300 任意大小策略；probelottery 2100。全部 0 违反。
+- **Q10**：thm:ceiling 与 thm:linear-anysize 环境按 addendum B.1 降为 proposition（label、内容不变），grep "Theorem~\ref{thm:ceiling}" = 0；编译 40 页 0 错误（results/V11/compile_q10.log；本轮其后无 .tex 改动）；台账每卡新增"V11 交叉验证"状态行，只写标签与 GAP 摘要；REPORT 本节；镜像同步。
+- **Q11（J9）**：闸门记录 results/J9/MISSING_INPUT.md；C1 两条内联不等式 [VERIFIED-SYMBOLIC]（results/V11/oracle/j9_fragments.py 13/13）；盲审路线二 PARTIAL（results/V11/route2/j9.md：机制、n ≥ 4cK⁵(K+2)² 阈值、K=2..7 有限 LP = ρ_K、无一般 K 闭式）；C2–C4、D、E、比对与 T10e 待文件。
+- **保守决定**：(1) 标签按五项规则字面执行，不因"GAP 只是措辞"而升级；(2) 不改任何陈述的数学内容（矩阵只给"可写进正文的精确表述"）；(3) appendix_model_proofs.tex 不接线；(4) 盲审代理提示模板里的 "K = 2 for the ProbeLottery item" 一句被非 J8 代理记为 FAILED 子项，判定为模板噪声不计入 GAP；(5) 两个 oracle 代理复跑旧脚本改写了 J2/N1 结果 JSON 的耗时字段，已还原。
+
 ## Summary（J6/J7 日：两份并行结果均验证通过并装配，任意大小查询定理入正文）
 
 - **两份都成功**。J6（= Q4 会话已全套处理并装配的 thm:linear-exact 构造，文件到库后内嵌脚本原样重跑 exit 0、计数逐位一致，T10c 补来源标注）；J7（新内容）验证全过并装配为 **thm:linear-anysize**（台账新卡 T10d 先行）：K ≥ 3 时任意大小查询的线性类满足 ρ_K ≤ α_lin ≤ min{1/η, ρ_K + 1/(K(e^{K−1}−K−1))}，greedy 即使放开查询大小也只差指数小项。app:hardness-anysize 从 candidate bound 改写为定理证明，**F3 candidate-bound 段落已删**（超线性预算与指数 2 材料保留，T12 余留）；编译 40 页 0 错误，审计 426 literals 0 违规。
