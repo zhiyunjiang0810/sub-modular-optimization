@@ -44,16 +44,27 @@ T10b 降为历史出处、T11 的 𝒜_lin 有限 K [OPEN] 项闭合、T12 的 m
 - 禁止声称："no algorithm is robust" 可以说，"robust" 一词不得用于描述本文算法；把 "every algorithm"
   读成含随机算法（陈述已限定 deterministic）。
 
-## T2 prop:valueacc — value accuracy 既不充分也不必要（H1 恢复）
-- 陈述：(i) ∀ε∈(0,1) 存在 value-accurate at level ε 的 f̃，某处 d̃=0 而 d>0，故 Definition 1 的 (η_u,η_o) 无限；
-  (ii) ∀M>0，f̃=(1+M)f 在任何 ε<M 下不 value-accurate，但 η^sel=1，保证完整成立；
-  (iii) 误差 ≤(η_u,η_o) 的 f̃（f 非负）是 value-accurate at level max{1−1/η_u, η_o−1}。
-- 状态：(i)(iii) 按原 Lemma 2/3 重写 [HAND-PROOF-UNREVIEWED]；(ii) 两行缩放观察。
-- (iii) 定义域修正（M1，J5 §规格）：value accuracy 的引用定义取 ε ∈ (0,1)，而 max{1−1/η_u, η_o−1}
-  在 η_o ≥ 2 时 ≥ 1 出域；(iii) 加条件"provided max{1−1/η_u, η_o−1} < 1"（即 η_o < 2），
-  不改 Hassidim-Singer 的被引定义（保守二选一，理由：引用定义不动）。
-- 禁止声称："value accuracy is irrelevant"——(iii) 说明 η 有界蕴含 value accuracy，是单向蕴含；
-  (iii) 在 η_o ≥ 2 时照原样引用。
+## T2 prop:valueacc — value accuracy 既不充分也不必要（H1 恢复；2026-09-18 方案二改写，待验证）
+- **2026-09-18 方案二改写（TASKS11 Q0 授权，来源 HANDOFF_ADDENDUM §B 与 appendix_model_proofs.tex；
+  Definition 1 方案二：η_u, η_o > 0，η = η_uη_o ≥ 1，两因子无 ≥1 下限）。标题按 addendum 改为
+  "Value accuracy is neither sufficient nor necessary for predictive greedy"。正文 prop:valueacc 仍是
+  旧约定文本（TASKS11 禁止改正文陈述），矩阵以本卡新陈述为准。**
+- 陈述（方案二）：(i) ∀ε∈(0,1) 存在单调 submodular f 与 value-accurate at level ε 的 f̃，某处
+  d̃_e(S)=0 而 d_e(S)>0，故 Definition 1 的 (η_u,η_o) 无限，value accuracy 单独不给任何 L_K(η) 界；
+  (ii) ∀M>0、∀不恒零的单调 submodular f，f̃=(1+M)f 在任何 ε<M 下不 value-accurate，但
+  Definition 1 以 η_u=1/(1+M)、η_o=1+M 成立，**全局 η=1**（且 predictive greedy 每步选真增益最大者，
+  η^sel=1）；
+  (iii) 任意误差 (η_u,η_o)、η=η_uη_o 的 f̃：沿链求和得 f(S)/η_u ≤ f̃(S) ≤ η_o f(S) ∀S；取
+  c = 2η_u/(η+1) 则 (1−ε)f ≤ c f̃ ≤ (1+ε)f，ε=(η−1)/(η+1) ∈ [0,1)，即**存在正缩放使 f̃
+  value-accurate at level (η−1)/(η+1)**；无 η_o<2 前提；只用 f 单调与 f(∅)=f̃(∅)=0，不用 submodularity。
+- 旧陈述（归档，2026-09-18 前）：(ii) 写 η^sel=1；(iii) 写 level max{1−1/η_u, η_o−1} 并带 η_o<2 前提。
+- 状态：(i)(ii) [HAND-PROOF-UNREVIEWED]；(iii) 按 addendum §B 第 10 条：Cici 已读 + 随机 oracle 96 个合法
+  surrogate 零违反，可标 [HAND-PROOF-REVIEWED] + [VERIFIED-EXHAUSTIVE (random)]；V11 矩阵按五项标准重定。
+- (iii) 定义域修正（M1，J5 §规格；**方案二下作废**）：旧约定下 max{1−1/η_u, η_o−1} 在 η_o ≥ 2 时出域，
+  曾加 η_o < 2 前提；方案二用缩放后的 level (η−1)/(η+1) ∈ [0,1)，前提消失。
+- 禁止声称："value accuracy is irrelevant"——(iii) 说明 η 有界蕴含 value accuracy up to scale，是单向蕴含；
+  "value accuracy is not sufficient" 不带限定（addendum §B 第 5 条：对不限查询的算法它是假的，穷举拿
+  (1−ε)/(1+ε)；只能说它不给 η 上界、对 predictive greedy 不够）。
 
 ## T3 prop:guarantee — predictive greedy 的保证（D2：归属 GS）
 - 陈述（K1 后）：f 单调 submodular；run 的选择误差 η^sel（新定义：a_t=M_t/g_t，M_t=g_t=0 取 1，g_t=0<M_t 取 ∞，η^sel=max{1,a_t}，L_K(∞)=0）。则 f(T) ≥ L_K(η^sel) f(O*) ≥ (1−e^{−1/η^sel}) f(O*)，L_K(x)=1−(1−1/(xK))^K。同一界对 η^tr、η 成立。

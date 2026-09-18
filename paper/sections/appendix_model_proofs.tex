@@ -1,0 +1,52 @@
+\section{Proofs for Section~\ref{sec:model}}
+\label{app:model}
+
+Throughout, $O^{\ast}$ denotes an optimal set, so $\mathrm{OPT}=f(O^{\ast})$.
+
+\subsection{Proof of Proposition~\ref{prop:nobound}}
+
+\begin{proof}
+Fix a deterministic algorithm and $n\ge 2K$. Let the surrogate be the modular function $\tilde f(S)=|S|$. It is normalized and can be evaluated on any set. Its values do not depend on $f$, so every answer the algorithm receives is determined before $f$ is chosen; hence the output $T$, with $|T|\le K$, is a fixed set determined by the algorithm alone.
+
+Choose a set $O\subseteq N\setminus T$ with $|O|=K$, which exists because $n\ge 2K$, and let $\delta=K/(n-K)\in(0,1]$. Define
+\[
+f(S)\;=\;|S\cap O|\;+\;\delta\,|S\setminus O| .
+\]
+The function $f$ is modular, hence normalized, monotone and submodular. Its marginal gains are $d_e(S)=1$ for $e\in O$ and $d_e(S)=\delta$ for $e\notin O$, while $\tilde d_e(S)=1$ for every $e$ and $S$. Thus $\tilde d_e(S)=d_e(S)$ for $e\in O$ and $\tilde d_e(S)=d_e(S)/\delta$ for $e\notin O$, so Definition~\ref{def:eta} holds with $\eta_u=1$ and $\eta_o=1/\delta$, that is, with the finite error $\eta=1/\delta=(n-K)/K$. The instance therefore satisfies every assumption of Section~\ref{sec:model}; only the value of $\eta$ is dictated by the adversary.
+
+Since $T\cap O=\emptyset$, we have $f(T)=\delta|T|\le \delta K$, while $\mathrm{OPT}\ge f(O)=K$. Hence $f(T)\le \delta\cdot\mathrm{OPT}=\tfrac{K}{n-K}\cdot\mathrm{OPT}$.
+\end{proof}
+
+\begin{remark}
+The choice $\delta=K/(n-K)$ only matches the statement. The same construction with any $\delta\in(0,1]$ gives $f(T)\le\delta\cdot\mathrm{OPT}$ with $\eta=1/\delta$, so without an upper bound on $\eta$ no algorithm has any constant guarantee, and the guarantee of every algorithm degrades at least as fast as $1/\eta$. Proposition~\ref{thm:ceiling} shows that this rate is exact.
+\end{remark}
+
+\subsection{Proof of Proposition~\ref{prop:valueacc}}
+
+\begin{proof}
+\emph{(i)} Fix $\epsilon\in(0,1)$. Let $N=\{a,b\}$ and define
+\[
+f(\emptyset)=0,\quad f(\{a\})=f(\{b\})=1,\quad f(\{a,b\})=1+\epsilon,
+\qquad
+\tilde f(\emptyset)=0,\quad \tilde f(\{a\})=\tilde f(\{b\})=\tilde f(\{a,b\})=1 .
+\]
+The function $f$ is normalized, monotone ($\epsilon>0$) and submodular ($d_a(\{b\})=d_b(\{a\})=\epsilon\le 1=d_a(\emptyset)=d_b(\emptyset)$). The surrogate is value-accurate at level $\epsilon$: on the singletons $\tilde f=f$, and on $\{a,b\}$ we have $\tilde f/f=1/(1+\epsilon)\ge 1-\epsilon$ because $(1-\epsilon)(1+\epsilon)=1-\epsilon^2\le1$. Yet $\tilde d_b(\{a\})=\tilde f(\{a,b\})-\tilde f(\{a\})=0$ while $d_b(\{a\})=\epsilon>0$, so no finite $\eta_u$ satisfies $d_b(\{a\})/\eta_u\le\tilde d_b(\{a\})$; that is, $\eta=\infty$. Any number of further elements with zero marginal gain under both $f$ and $\tilde f$ may be added to reach a prescribed $n$.
+
+\emph{(ii)} Fix $M>0$ and let $\tilde f=(1+M)f$. For every nonempty $S$ with $f(S)>0$, $\tilde f(S)/f(S)=1+M$, which exceeds $1+\epsilon$ whenever $\epsilon<M$; hence $\tilde f$ is value-accurate at no level below $M$. Its marginal gains satisfy $\tilde d_e(S)=(1+M)\,d_e(S)$ for all $S$ and $e\notin S$, so Definition~\ref{def:eta} holds with $\eta_u=1/(1+M)$ and $\eta_o=1+M$, and $\eta=\eta_u\eta_o=1$.
+
+\emph{(iii)} Let $\tilde f$ have marginal-gain error $\eta=\eta_u\eta_o$. Fix a nonempty set $S=\{e_1,\dots,e_m\}$ and write $S_i=\{e_1,\dots,e_i\}$, $S_0=\emptyset$. Since $f(\emptyset)=\tilde f(\emptyset)=0$,
+\[
+f(S)=\sum_{i=1}^{m} d_{e_i}(S_{i-1}),
+\qquad
+\tilde f(S)=\sum_{i=1}^{m} \tilde d_{e_i}(S_{i-1}) .
+\]
+Each term satisfies $d_{e_i}(S_{i-1})/\eta_u\le\tilde d_{e_i}(S_{i-1})\le\eta_o\,d_{e_i}(S_{i-1})$ by Definition~\ref{def:eta}, and all terms are nonnegative because $f$ is monotone; summing gives
+\begin{equation}\label{eq:valueband}
+f(S)/\eta_u\;\le\;\tilde f(S)\;\le\;\eta_o\,f(S)\qquad\text{for all }S\subseteq N .
+\end{equation}
+Now set $\epsilon=(\eta-1)/(\eta+1)\in[0,1)$ and $c=2\eta_u/(\eta+1)>0$. Then $c/\eta_u=2/(\eta+1)=1-\epsilon$ and $c\,\eta_o=2\eta/(\eta+1)=1+\epsilon$, so multiplying~\eqref{eq:valueband} by $c$ yields $(1-\epsilon)f(S)\le c\tilde f(S)\le(1+\epsilon)f(S)$ for all $S$: the rescaled surrogate $c\tilde f$ is value-accurate at level $\epsilon$. (For $\eta=1$ this reads $c\tilde f=f$; for $\eta>1$ the level lies in $(0,1)$.)
+\end{proof}
+
+\begin{remark}
+Part (iii) uses only that $f$ is monotone and that both functions vanish on the empty set; it does not use submodularity. Combined with the observation of \citet{horel2016} that an $\alpha$-approximation for a function within $1\pm\epsilon$ of $f$ is an $\alpha\frac{1-\epsilon}{1+\epsilon}$-approximation for $f$, it gives a second proof of the attainment direction of Proposition~\ref{thm:ceiling}: with $\epsilon=(\eta-1)/(\eta+1)$ one has $\frac{1-\epsilon}{1+\epsilon}=1/\eta$, and rescaling does not change the maximizer of $\tilde f$.
+\end{remark}
