@@ -438,7 +438,7 @@ general characterization is left open.
 % ---------------------------------------------------------------- block 7 --
 \subsection{The $1/\eta$ ceiling}\label{sec:ceiling}
 
-\begin{theorem}[Deterministic ceiling, all ground-set sizes]
+\begin{proposition}[Upper bound for unbounded queries]
 \label{thm:ceiling}
 Let $2\le K\le n$.  For every deterministic algorithm with arbitrary query
 access to $\tilde f$ and output of size at most $K$, and every
@@ -460,7 +460,7 @@ on every instance and for every optimal $K$-set $O^{\ast}$,
 \]
 so exhaustive search over predicted values attains the ceiling for every
 $n$.
-\end{theorem}
+\end{proposition}
 The deterministic value is not the randomized value.  For every randomized
 algorithm and $n\ge2K$ there is a fixed pair, again with error exactly
 $(\eta_u,\eta_o)$, on which the expectation over the algorithm's randomness
@@ -551,7 +551,7 @@ $1/K$ coefficient $e^{-1/\eta}/(2\eta^{2})$.
 % ---------------------------------------------------------------- block 9 --
 \subsection{Hardness for bounded-query algorithms}\label{sec:hardness}
 
-The ceiling of Theorem~\ref{thm:ceiling} places no restriction on the query
+The ceiling of Proposition~\ref{thm:ceiling} places no restriction on the query
 budget.  The final result bounds instead what a budget of small queries
 extracts at a prescribed error level.  Fix an integer $\tau$ with
 $1\le\tau<K$ and a design parameter $\theta\ge1$, and put
@@ -617,7 +617,7 @@ $\varepsilon_n\to0$, for example $n\ge4K^{c+3}$.  The cap on query size is
 a condition of the query model: it neither follows from nor implies
 polynomial running time, and computation between queries is unrestricted.
 At finite parameters $H_{K,\tau}$ can exceed the ceiling $1/\eta$ of
-Theorem~\ref{thm:ceiling} (at $\eta=2$, $c=2$, $K=8$ it lies above $1/2$),
+Proposition~\ref{thm:ceiling} (at $\eta=2$, $c=2$, $K=8$ it lies above $1/2$),
 so the two upper bounds combine as $\min\{H_{K,\tau}(\eta),\,1/\eta\}$;
 the content of Theorem~\ref{thm:hardness} is the asymptotic match with
 $L_K$, not a pointwise improvement.
@@ -851,7 +851,7 @@ at $\eta=1$, continuously matching Theorem~\ref{thm:linear-exact} as
 $\eta\downarrow1$.  The case
 $K=1$ sits outside the statements above (they require $K\ge2$): there
 greedy returns a predicted-argmax singleton of value at least
-$f(O^{\ast})/\eta$ on every instance, matching Theorem~\ref{thm:ceiling},
+$f(O^{\ast})/\eta$ on every instance, matching Proposition~\ref{thm:ceiling},
 so at $K=1$ greedy is exactly optimal among all deterministic algorithms,
 with no budget restriction at all.
 \end{remark}
@@ -881,7 +881,7 @@ with no budget restriction at all.
 % scales beyond O(nK).  The H-F evidence (PE_1 falls below rho_3 for
 % n >= 7 at eta in {2, 2.5}) stays consistent finite-parameter support.
 
-\begin{theorem}[Arbitrary query sizes at linear budget]
+\begin{proposition}[Arbitrary query sizes at linear budget]
 \label{thm:linear-anysize}
 % J6/J7 day (ledger card T10d; source J7).  Proof:
 % Appendix~\ref{app:hardness-anysize}.
@@ -902,7 +902,7 @@ Appendix~\ref{app:hardness-anysize}: even with arbitrary-size queries,
 predictive greedy is optimal among algorithms of its own oracle
 complexity up to an additive term exponentially small in $K$.  For
 $\eta\ge K$ both ends equal $1/\eta$.
-\end{theorem}
+\end{proposition}
 % Status (ledger T10d): count-grid legality of the hard family, the
 % corrected truncation rule (Psi criterion) with its location bounds, and
 % the value/gap arithmetic are [VERIFIED-SYMBOLIC]
