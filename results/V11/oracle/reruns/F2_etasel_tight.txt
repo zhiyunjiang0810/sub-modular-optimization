@@ -1,0 +1,49 @@
+F2.3  eta^sel tightness of L_K on the explicit family U_K
+pipeline: results/E4_worst_instances.py::run_instance (CELF + cache, quantize=10,
+          ties -> B); rulers: src/statistics.py TrajectoryStats(eps=1e-9)
+U_K: ground set B u O, |B| = |O| = K, a = 1 - 1/(ahat K),
+     f  = 1 - a^x (1 - y/K),  ftilde = 1 - a^x (+ the y-part of R7)
+theory: greedy-on-ftilde picks all of B; ratio = 1 - a^K = L_K(ahat);
+        eta^path = ahat (R7);  claim here: eta^sel = ahat as well
+
+  K  ahat   n  eta(all-pairs)            eta^sel           eta^path      eta^path(raw)              ratio          L_K(ahat)  |ratio-L_K|  |sel-ahat|  |path-ahat|  |raw-ahat|  viol%   ok
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  2  1.50   4     2.000000000     1.500000000000     1.500000000000     1.500000000000     0.555555555556     0.555555555556     0.00e+00    4.44e-16     4.44e-16    4.44e-16    0.0 PASS
+  3  1.50   6     1.750000000     1.500000000000     1.500000000236     1.500000000000     0.529492455418     0.529492455418     0.00e+00    0.00e+00     2.36e-10    0.00e+00    0.0 PASS
+  4  1.50   8     1.666666667     1.500000000000     1.500000000300     1.500000000000     0.517746913580     0.517746913580     0.00e+00    8.88e-16     3.00e-10    8.88e-16    0.0 PASS
+  5  1.50  10     1.625000000     1.500000000000     1.500000000577     1.500000000000     0.511054485597     0.511054485597     0.00e+00    6.66e-16     5.77e-10    6.66e-16    0.0 PASS
+  6  1.50  12     1.600000000     1.500000000000     1.500000000793     1.500000000000     0.506729815727     0.506729815727     0.00e+00    0.00e+00     7.93e-10    6.66e-16    0.0 PASS
+  7  1.50  14     1.583333333     1.500000000000     1.500000001156     1.500000000000     0.503704721533     0.503704721533     0.00e+00    1.11e-15     1.16e-09    8.88e-16    0.0 PASS
+  8  1.50  16     1.571428571     1.500000000000     1.500000000218     1.500000000000     0.501469753261     0.501469753261     0.00e+00    1.11e-15     2.18e-10    0.00e+00    0.0 PASS
+  2  2.00   4     3.000000000     2.000000000000     2.000000000000     2.000000000000     0.437500000000     0.437500000000     0.00e+00    0.00e+00     0.00e+00    0.00e+00    0.0 PASS
+  3  2.00   6     2.500000000     2.000000000000     2.000000000400     2.000000000000     0.421296296296     0.421296296296     0.00e+00    8.88e-16     4.00e-10    8.88e-16    0.0 PASS
+  4  2.00   8     2.333333333     2.000000000000     2.000000000597     2.000000000000     0.413818359375     0.413818359375     0.00e+00    0.00e+00     5.97e-10    0.00e+00    0.0 PASS
+  5  2.00  10     2.250000000     2.000000000000     2.000000000000     2.000000000000     0.409510000000     0.409510000000     0.00e+00    1.78e-15     3.11e-15    1.33e-15    0.0 PASS
+  6  2.00  12     2.200000000     2.000000000000     2.000000000291     2.000000000000     0.406707805534     0.406707805534     0.00e+00    0.00e+00     2.91e-10    6.66e-16    0.0 PASS
+  7  2.00  14     2.166666667     2.000000000000     2.000000000559     2.000000000000     0.404739292226     0.404739292226     0.00e+00    4.44e-15     5.59e-10    0.00e+00    0.0 PASS
+  8  2.00  16     2.142857143     2.000000000000     2.000000002235     2.000000000000     0.403280526167     0.403280526167     0.00e+00    0.00e+00     2.23e-09    0.00e+00    0.0 PASS
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tolerances used for the PASS column:
+  |eta^sel - ahat|      <= 1e-12   (true gains only, no quantization)
+  |eta^path - ahat|     <= 1e-08   (E4 pipeline value; the E4 record
+                                 callback receives the quantized predicted gain
+                                 round(g,10), which biases the max(d~/d) factor
+                                 by about 1e-10 / 0.05 = 2e-9 on these instances)
+  |eta^path(raw) - ahat| <= 1e-12  (same ruler, unrounded predicted gain)
+  |ratio - L_K(ahat)|   <= 1e-12
+
+Reading of the table:
+  - eta^sel = eta^path = ahat on every row (agreement to <= 1e-9); the two
+    rulers coincide on U_K because every greedy state S^t = {t elements of B}
+    has true gains d_B = a^t (1-a) and d_O = a^t / K, so the best-vs-chosen
+    ratio is 1/(K(1-a)) = ahat at every step, and the predicted-vs-true
+    ratios contribute the same ahat to eta^path.
+  - realized ratio = L_K(ahat) to <= 1e-12 through the experiment greedy, so
+    the Theorem 6 bound L_K is attained per K under the eta^sel ruler too,
+    not only under eta^path.
+  - the all-pairs global error eta = (ahat K - 1)/(K-1) is strictly larger,
+    which is why L_K(eta) is NOT tight on this family under the global ruler
+    (that gap is the U_K - L_K gap of R7).
+
+STATUS: ALL PASS (14 instances: K = 2..8 x ahat in {1.5, 2})

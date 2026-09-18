@@ -1,0 +1,31 @@
+V11 Q5b oracle: lem:coherence (ledger T5) and its sharp form
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seeds mono=20260918 sub=20260919 eta1=20260920 zero_d=20260921 emptyS=20260922 traj=20260923
+actual eta = realized band over the whole lattice (the smallest admissible eta, hence the sharpest form of both inequalities)
+
+--- Criterion C ---
+PASS C0 own sympy derivation of the slack decompositions [VERIFIED-SYMBOLIC]  12 identities, every residual 0
+PASS C1 random exact instances: parts (i), (ii) and the sharp form [VERIFIED-EXHAUSTIVE]  2400 instances (1200 monotone only, 1200 monotone submodular; n in 3..6), 185272 triples with dtilde_e(S) >= dtilde_{e'}(S), 185272 checks of (i), 185272 of (ii), 92788 of the sharp form first inequality, 92788 of the second, 185272 of d >= g/eta; 462732 monotonicity and 377764 submodularity checks, 169816 band pairs, 3367 draws rejected
+PASS C2 three-term nonnegative decomposition on every triple [VERIFIED-EXHAUSTIVE]  555816 nonnegative terms (3 per triple), each term >= 0 and the three summing exactly to the slack of (i) = slack of (ii)
+PASS C3 rerun results/H_J3_gate_check.py [VERIFIED-SYMBOLIC + VERIFIED-LP 浮点]  exit code 0, 9 PASS / 0 FAIL, ALL PASS, 6.9s; coherence line: PASS sharp form == coherence (ii) rearranged; PASS facet uniqueness on 40 facets (2480 LPs, max coordinate deviation 3.94e-15)
+PASS C4 rerun results/J2_core_oracles.py, coherence part [VERIFIED-SYMBOLIC + VERIFIED-LP 浮点]  exit code 0, 6.1s, 6 R6 identities with residual 0, 1368 coherence LP objectives, min slacks {"cons_a": 0.0, "cons_b": -1.1102230246251565e-16, "cons_c": 0.0, "mono_a": 0.0, "mono_b": 0.0, "mono_c": 0.0, "pred_a": 0.0, "pred_b": -6.661338147750939e-16, "pred_c": 0.0}, json restored byte-identical
+PASS C5 running example K=3 eta=3/2 worst-case trajectory [VERIFIED-EXHAUSTIVE]  d_t = (1/4, 3/16, 1/8), g_t = (1/3, 1/4, 3/16, 3/16), rho_3(3/2) = sum d_t = 9/16; sharp form is an equality at all 3 steps
+
+--- Criterion D ---
+PASS D1 eta = 1 (equalities)  200 instances with ftilde = c f (eta = 1 exactly): 7376 triples, every one has eta = 1, both parts collapse to d >= g, 3099 of them are equalities (d = g), 0 violations
+PASS D2 d_e(S) = 0 cases  212 budget-additive instances, 1395 of the 5138 triples have d_e(S) = 0 (Definition 1 then forces dtilde_e(S) = 0 and, by the hypothesis, dtilde_{e'}(S) = d_{e'}(S) = 0, so (i) reads h >= h/eta and (ii) reads (1-1/eta) h >= 0), 0 violations
+PASS D3 S = empty  205 instances restricted to S = empty, 1562 triples, 0 violations
+PASS D4a must-not-claim: explicit instance, band only on the run states  f = (0,1,2,2), ftilde = (0,1,1,3/2) on N = {e,e'}; run states {empty, {e}} carry eta^tr = 2 with no violation of Definition 1, the off-trajectory state {e'} has d_e = 0 < dtilde_e = 1/2 so the GLOBAL band is infinite; at eta^tr = 2 both parts fail: (ii) slack = -1/2, (i) slack = -1/2
+PASS D4b must-not-claim: randomized count of trajectory-only band failures  451 instances whose predictor is legal on the run states {empty, {e0}}, 1126 triples tested at eta^tr, 15 instances violate (ii); worst slack -3/2
+PASS D5 the second sharp-form inequality needs submodularity  f = (0,1,1,3) is monotone and not submodular: g - h = -1 < 0; with ftilde = (0,1,1,2) the realized eta = 2 and (1-1/eta)(g-h) = -1/2 < 0, while (i) slack = 1 and (ii) slack = 1 stay nonnegative
+
+counts: {"C0_identities": 12, "C1_band_pairs": 169816, "C1_checks_part_i": 185272, "C1_checks_part_ii": 185272, "C1_checks_prediction": 185272, "C1_checks_sharp_first": 92788, "C1_checks_sharp_second": 92788, "C1_decomposition_terms": 555816, "C1_equality_triples_part_i": 24167, "C1_instances_monotone_only": 1200, "C1_instances_submodular": 1200, "C1_instances_total": 2400, "C1_monotonicity_checks": 462732, "C1_rejected_draws": 3367, "C1_submodularity_checks": 377764, "C1_triples": 185272, "C3_HJ3_pass_lines": 9, "C4_J2_coherence_LP_objectives": 1368, "C4_J2_coherence_identities": 6, "C5_steps": 3, "D2_zero_d_triples": 1395, "D3_empty_S_triples": 1562, "D4_traj_only_triples": 1126, "D4_traj_only_violating_instances": 15, "D_random_instances_total": 3468, "D_violations": 0}
+running example K=3 eta=3/2: [{"t": 0, "d": "1/4", "g": "1/3", "h": "1/4", "d-g/eta": "1/36", "(1-1/eta)(g-h)": "1/36", "sharp_first_slack": "0", "equality": true}, {"t": 1, "d": "3/16", "g": "1/4", "h": "3/16", "d-g/eta": "1/48", "(1-1/eta)(g-h)": "1/48", "sharp_first_slack": "0", "equality": true}, {"t": 2, "d": "1/8", "g": "3/16", "h": "3/16", "d-g/eta": "0", "(1-1/eta)(g-h)": "0", "sharp_first_slack": "0", "equality": true}]
+worst slack of (ii) = slack of (i): 0 at {"S": "{}", "d": "0", "d_e(S+e2)": "0", "e": 0, "eprime": 1, "eta": "9/4", "g": "0", "h": "0", "n": 4, "tag": "C1_monotone"}
+worst ratio eta*d_e(S+e')/d_{e'}(S+e) (claimed >= 1): 1 at {"S": "{0}", "d": "0", "d_e(S+e2)": "2/3", "e": 1, "eprime": 2, "eta": "1", "g": "0", "h": "2/3", "n": 6, "tag": "C1_monotone"}
+worst ratio restricted to eta > 1 and d_{e'}(S+e) > 0 (126455 triples): 1 at {"S": "{4}", "d": "1", "d_e(S+e2)": "1", "e": 0, "eprime": 5, "eta": "3/2", "g": "3/2", "h": "3/2", "n": 6, "tag": "C1_monotone"}
+worst slack of the second sharp-form inequality (submodular half): 0 at {"S": "{}", "e": 1, "eprime": 0, "eta": "3", "g": "5/2", "h": "5/2", "n": 3, "tag": "C1_submodular"}
+triples attaining equality in (i)/(ii): 29398 of 199348
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/coherence.json
+OVERALL: PASS (12 checks, 0 failed, 27.3s)

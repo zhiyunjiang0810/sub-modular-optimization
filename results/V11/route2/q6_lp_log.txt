@@ -1,0 +1,28 @@
+reference: rho_2(3/2)=0.600000  rho_3(3/2)=0.562500  1/eta=0.666667
+
+[A] greedy 自身的精确最坏值 (predictor 自由, 固定 greedy 轨迹)
+  K=2 m=5: min over O* = 0.600000000
+  K=3 m=6: min over O* = 0.562500000
+
+[B] 对称 predictor 的天花板 (与算法输出 T 无关的构造)
+  K=2 m=6 count-only  all-T: 0.666666667
+  K=2 m=6 blocks(3+3) all-T: 0.666666667
+  K=3 m=6 count-only  all-T: 0.666666667
+
+[C] 1-blind predictor (tau=2): 主构造
+  K=2 m=7 split=(1,3/2): per-T 0.600000000  all-T 0.610000000  avg-T 0.610000000  all-T(f count-grid) 0.610000000
+  K=3 m=7 split=(1,3/2): per-T 0.562500000  all-T 0.562500000  avg-T 0.562500000  all-T(f count-grid) 0.562500000
+  K=2 m=7 split=(3/2,1): per-T 0.600000000  all-T 0.610000000  avg-T 0.610000000  all-T(f count-grid) 0.610000000
+  K=3 m=7 split=(3/2,1): per-T 0.562500000  all-T 0.562500000  avg-T 0.562500000  all-T(f count-grid) 0.562500000
+  K=2 m=7 split=(sqrt,sqrt): per-T 0.600000000  all-T 0.610000000  avg-T 0.610000000  all-T(f count-grid) 0.610000000
+  K=3 m=7 split=(sqrt,sqrt): per-T 0.562500000  all-T 0.562500000  avg-T 0.562500000  all-T(f count-grid) 0.562500000
+
+[D] tau=3 (2-blind) 对照, K=3
+  K=3 m=7 all-T: 0.666666667
+
+[E] 1-blind, m 依赖性 (K=2)
+  m=5: all-T 0.610000000  per-T 0.600000000
+  m=6: all-T 0.610000000  per-T 0.600000000
+  m=7: all-T 0.610000000  per-T 0.600000000
+  m=8: all-T 0.610000000  per-T 0.600000000
+  m=9: all-T 0.610000000  per-T 0.600000000

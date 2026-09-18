@@ -1,0 +1,483 @@
+{
+ "script": "/home/user/sub-modular-optimization/results/V11/oracle/guarantee.py",
+ "statement": "prop:guarantee (T3): f(T) >= L_K(eta^sel) f(O*) >= (1-e^{-1/eta^sel}) f(O*), L_K(x) = 1-(1-1/(xK))^K, L_K(infinity) = 0; same bound at eta^tr and eta, ordered L_K(eta^sel) >= L_K(eta^tr) >= L_K(eta)",
+ "sources": {
+  "statement": "results/V11/inputs/statement_guarantee.md",
+  "route_one": "paper/sections/appendix_proofs.tex subsection app:guarantee",
+  "definition": "paper/sections/model.tex def:etasel",
+  "ledger": "THEOREM_LEDGER.md section T3",
+  "attribution": "Goundan and Schulz 2007, Theorem 1 (alpha = eta^sel, same direction)"
+ },
+ "seeds": {
+  "C1": 20260918,
+  "D3_eta1": 20260919,
+  "D4_K1": 20260921,
+  "D5_Kn": 20260920
+ },
+ "tie_policy": {
+  "enumerate_cap": 400,
+  "samples_when_larger": 40,
+  "tie_trees_enumerated": 2395,
+  "tie_trees_sampled": 5
+ },
+ "counts": {
+  "C0_identities": 30,
+  "C1_mono_checks": 262260,
+  "C1_submod_checks": 338802,
+  "C1_band_pairs": 262260,
+  "C5_instances": 12,
+  "C6_F2_rows_PASS": 14,
+  "C7_T5_checks_pass": 105,
+  "D3_mono_checks": 12876,
+  "D3_submod_checks": 14318,
+  "D3_band_pairs": 12876,
+  "D3_eta1_instances": 160,
+  "D4_mono_checks": 19384,
+  "D4_submod_checks": 24537,
+  "D4_band_pairs": 19384,
+  "D4_K1_instances": 240,
+  "D5_Kn_instances": 200,
+  "C1_random_instances": 2400,
+  "C1_greedy_runs": 9076,
+  "C1_main_inequality_checks": 9064,
+  "C1_ordering_checks": 9076,
+  "C1_trivial_OPT_zero": 12,
+  "D_random_instances_total": 3000
+ },
+ "criterion_C": {
+  "checks": [
+   {
+    "name": "C0 sympy identities on L_K [VERIFIED-SYMBOLIC]",
+    "status": "PASS",
+    "detail": "30 identities, residual 0"
+   },
+   {
+    "name": "C1 random exact instances: f(T) >= L_K(eta^sel) OPT and the ordering [VERIFIED-EXHAUSTIVE]",
+    "status": "PASS",
+    "detail": "2400 instances (n <= 7, K <= 4), 9076 greedy runs, 9064 main-inequality checks, 9076 ordering checks, 2395 tie trees enumerated, 5 sampled, 2937 draws rejected"
+   },
+   {
+    "name": "C2 Step-1 covering r_t <= K M_t and the contraction [VERIFIED-EXHAUSTIVE]",
+    "status": "PASS",
+    "detail": "27985 covering checks, 19580 contraction checks over the C1 runs"
+   },
+   {
+    "name": "C3 auxiliary rem:app-product per-step product bound [VERIFIED-EXHAUSTIVE]",
+    "status": "PASS",
+    "detail": "9064 checks, worst slack 0"
+   },
+   {
+    "name": "C4 legal band implies finite eta^sel [VERIFIED-EXHAUSTIVE]",
+    "status": "PASS",
+    "detail": "9076 runs on legal predictors, no harmful zero step"
+   },
+   {
+    "name": "C5 U_K exact tightness of L_K under eta^sel [VERIFIED-EXHAUSTIVE]",
+    "status": "PASS",
+    "detail": "12 instances (K=2..5 x ahat in {3/2,2,3}), ratio = L_K(ahat) and eta^sel = ahat exactly on every one"
+   },
+   {
+    "name": "C6 rerun results/F2_etasel_tight.py [VERIFIED-LP \u6d6e\u70b9]",
+    "status": "PASS",
+    "detail": "exit code 0, STATUS: ALL PASS (14 instances: K = 2..8 x ahat in {1.5, 2}), 14 PASS rows, 0.3s, output file restored byte-identical"
+   },
+   {
+    "name": "C7 rerun results/T5_symbolic.py [VERIFIED-SYMBOLIC]",
+    "status": "PASS",
+    "detail": "exit code 0, TOTAL: 105/105 checks passed (35 general-K, 70 concrete-K), 3.1s, n_pass=105 n_fail=0, 3.4s, output file restored byte-identical"
+   },
+   {
+    "name": "D1 harmful zero step (eta^sel = infinity, bound 0)",
+    "status": "PASS",
+    "detail": "f = (0,1,1) modular, ftilde = |S|; a_0 = infinity, eta^sel = infinity, L_2(infinity) = 0, f(T) = 1, OPT = 2, ratio = 1/2 >= 0; the predictor is illegal under Definition 1 (d_a = 0 < dtilde_a), which is why the case exists at all"
+   },
+   {
+    "name": "D2 benign zero step (M_t = g_t = 0, a_t = 1)",
+    "status": "PASS",
+    "detail": "f(S) = 1 for S nonempty, ftilde = f, K = n = 3: 6 runs, 12 benign zero steps, every a_t = 1, eta^sel = 1, ratio 1 >= L_3(1) = 19/27"
+   },
+   {
+    "name": "D3 eta = 1 (ftilde = c f)",
+    "status": "PASS",
+    "detail": "160 random instances with ftilde = c f (eta = 1): 2361 runs, worst slack f(T)/OPT - L_K(eta^sel) = 0"
+   },
+   {
+    "name": "D4 K = 1",
+    "status": "PASS",
+    "detail": "240 random instances with K = 1 (L_1(x) = 1/x): 308 runs, worst slack = 0"
+   },
+   {
+    "name": "D5 K = n",
+    "status": "PASS",
+    "detail": "200 random instances with K = n: 315 runs, every output is the ground set, f(T) = OPT, worst slack = 1/4"
+   }
+  ],
+  "C5_UK_rows": [
+   {
+    "K": 2,
+    "ahat": "3/2",
+    "n": 4,
+    "opt": "1",
+    "eta_sel": "3/2",
+    "ratio": "5/9",
+    "L_K(ahat)": "5/9",
+    "eta_global": "2",
+    "eta_global_formula": "2",
+    "L_K(eta)": "7/16",
+    "equality": true
+   },
+   {
+    "K": 2,
+    "ahat": "2",
+    "n": 4,
+    "opt": "1",
+    "eta_sel": "2",
+    "ratio": "7/16",
+    "L_K(ahat)": "7/16",
+    "eta_global": "3",
+    "eta_global_formula": "3",
+    "L_K(eta)": "11/36",
+    "equality": true
+   },
+   {
+    "K": 2,
+    "ahat": "3",
+    "n": 4,
+    "opt": "1",
+    "eta_sel": "3",
+    "ratio": "11/36",
+    "L_K(ahat)": "11/36",
+    "eta_global": "5",
+    "eta_global_formula": "5",
+    "L_K(eta)": "19/100",
+    "equality": true
+   },
+   {
+    "K": 3,
+    "ahat": "3/2",
+    "n": 6,
+    "opt": "1",
+    "eta_sel": "3/2",
+    "ratio": "386/729",
+    "L_K(ahat)": "386/729",
+    "eta_global": "7/4",
+    "eta_global_formula": "7/4",
+    "L_K(eta)": "4348/9261",
+    "equality": true
+   },
+   {
+    "K": 3,
+    "ahat": "2",
+    "n": 6,
+    "opt": "1",
+    "eta_sel": "2",
+    "ratio": "91/216",
+    "L_K(ahat)": "91/216",
+    "eta_global": "5/2",
+    "eta_global_formula": "5/2",
+    "L_K(eta)": "1178/3375",
+    "equality": true
+   },
+   {
+    "K": 3,
+    "ahat": "3",
+    "n": 6,
+    "opt": "1",
+    "eta_sel": "3",
+    "ratio": "217/729",
+    "L_K(ahat)": "217/729",
+    "eta_global": "4",
+    "eta_global_formula": "4",
+    "L_K(eta)": "397/1728",
+    "equality": true
+   },
+   {
+    "K": 4,
+    "ahat": "3/2",
+    "n": 8,
+    "opt": "1",
+    "eta_sel": "3/2",
+    "ratio": "671/1296",
+    "L_K(ahat)": "671/1296",
+    "eta_global": "5/3",
+    "eta_global_formula": "5/3",
+    "L_K(eta)": "76479/160000",
+    "equality": true
+   },
+   {
+    "K": 4,
+    "ahat": "2",
+    "n": 8,
+    "opt": "1",
+    "eta_sel": "2",
+    "ratio": "1695/4096",
+    "L_K(ahat)": "1695/4096",
+    "eta_global": "7/3",
+    "eta_global_formula": "7/3",
+    "L_K(eta)": "224031/614656",
+    "equality": true
+   },
+   {
+    "K": 4,
+    "ahat": "3",
+    "n": 8,
+    "opt": "1",
+    "eta_sel": "3",
+    "ratio": "6095/20736",
+    "L_K(ahat)": "6095/20736",
+    "eta_global": "11/3",
+    "eta_global_formula": "11/3",
+    "L_K(eta)": "922335/3748096",
+    "equality": true
+   },
+   {
+    "K": 5,
+    "ahat": "3/2",
+    "n": 10,
+    "opt": "1",
+    "eta_sel": "3/2",
+    "ratio": "388082/759375",
+    "L_K(ahat)": "388082/759375",
+    "eta_global": "13/8",
+    "eta_global_formula": "13/8",
+    "L_K(eta)": "558598568/1160290625",
+    "equality": true
+   },
+   {
+    "K": 5,
+    "ahat": "2",
+    "n": 10,
+    "opt": "1",
+    "eta_sel": "2",
+    "ratio": "40951/100000",
+    "L_K(ahat)": "40951/100000",
+    "eta_global": "9/4",
+    "eta_global_formula": "9/4",
+    "L_K(eta)": "68671924/184528125",
+    "equality": true
+   },
+   {
+    "K": 5,
+    "ahat": "3",
+    "n": 10,
+    "opt": "1",
+    "eta_sel": "3",
+    "ratio": "221551/759375",
+    "L_K(ahat)": "221551/759375",
+    "eta_global": "7/2",
+    "eta_global_formula": "7/2",
+    "L_K(eta)": "13386482/52521875",
+    "equality": true
+   }
+  ]
+ },
+ "criterion_D": {
+  "random_instances": 3000,
+  "random_breakdown": {
+   "C1": 2400,
+   "D3_eta1": 160,
+   "D4_K1": 240,
+   "D5_Kn": 200
+  },
+  "families": {
+   "mixture(modular,coverage)": 27,
+   "budget_additive": 320,
+   "coverage": 280,
+   "modular": 1039,
+   "mixture(modular,modular)": 79,
+   "concave_cardinality": 318,
+   "mixture(coverage,coverage)": 13,
+   "mixture(concave_cardinality,modular)": 39,
+   "mixture(budget_additive,modular)": 27,
+   "mixture(budget_additive,coverage)": 15,
+   "mixture(coverage,budget_additive)": 19,
+   "mixture(coverage,concave_cardinality)": 21,
+   "mixture(coverage,modular)": 30,
+   "mixture(budget_additive,concave_cardinality)": 13,
+   "mixture(modular,budget_additive)": 51,
+   "mixture(concave_cardinality,concave_cardinality)": 18,
+   "mixture(concave_cardinality,coverage)": 16,
+   "mixture(budget_additive,budget_additive)": 20,
+   "mixture(modular,concave_cardinality)": 42,
+   "mixture(concave_cardinality,budget_additive)": 13
+  },
+  "structured": [
+   {
+    "case": "harmful zero step",
+    "n": 3,
+    "K": 2,
+    "ok": true,
+    "eta_sel": "infinity",
+    "bound": "0",
+    "ratio": "1/2",
+    "f(T)": "1",
+    "OPT": "2",
+    "OPT_set": "{b,c}",
+    "legal_predictor": false,
+    "detail": "f = (0,1,1) modular, ftilde = |S|; a_0 = infinity, eta^sel = infinity, L_2(infinity) = 0, f(T) = 1, OPT = 2, ratio = 1/2 >= 0; the predictor is illegal under Definition 1 (d_a = 0 < dtilde_a), which is why the case exists at all"
+   },
+   {
+    "case": "benign zero step",
+    "n": 3,
+    "K": 3,
+    "ok": true,
+    "runs": 6,
+    "zero_steps": 12,
+    "detail": "f(S) = 1 for S nonempty, ftilde = f, K = n = 3: 6 runs, 12 benign zero steps, every a_t = 1, eta^sel = 1, ratio 1 >= L_3(1) = 19/27"
+   },
+   {
+    "case": "eta = 1 (ftilde = c f)",
+    "ok": true,
+    "instances": 160,
+    "runs": 2361,
+    "worst_slack": "0",
+    "detail": "160 random instances with ftilde = c f (eta = 1): 2361 runs, worst slack f(T)/OPT - L_K(eta^sel) = 0"
+   },
+   {
+    "case": "K = 1",
+    "ok": true,
+    "instances": 240,
+    "runs": 308,
+    "worst_slack": "0",
+    "detail": "240 random instances with K = 1 (L_1(x) = 1/x): 308 runs, worst slack = 0"
+   },
+   {
+    "case": "K = n",
+    "ok": true,
+    "instances": 200,
+    "runs": 315,
+    "worst_slack": "1/4",
+    "detail": "200 random instances with K = n: 315 runs, every output is the ground set, f(T) = OPT, worst slack = 1/4"
+   }
+  ],
+  "violations": 0,
+  "worst_main_slack": {
+   "slack": "0",
+   "at": {
+    "tag": "C1",
+    "n": 3,
+    "K": 1,
+    "eta_sel": "1",
+    "ratio": "1",
+    "bound": "1",
+    "family": "budget_additive"
+   }
+  },
+  "worst_main_slack_K_ge_2_and_etasel_gt_1": {
+   "slack": "128/539",
+   "at": {
+    "tag": "C1",
+    "n": 6,
+    "K": 2,
+    "eta_sel": "7/4",
+    "ratio": "8/11",
+    "bound": "24/49",
+    "family": "modular"
+   }
+  },
+  "runs_attaining_equality": 790,
+  "worst_product_slack": {
+   "slack": "0",
+   "at": {
+    "tag": "C1",
+    "n": 3,
+    "K": 1,
+    "ratio": "1",
+    "bound": "1"
+   }
+  }
+ },
+ "reruns": [
+  {
+   "name": "F2_etasel_tight",
+   "script": "results/F2_etasel_tight.py",
+   "exit_code": 0,
+   "seconds": 0.3,
+   "stdout_tail": [
+    "",
+    "STATUS: ALL PASS (14 instances: K = 2..8 x ahat in {1.5, 2})",
+    "",
+    "wrote results/F2_etasel_tight.txt"
+   ],
+   "outputs_before_sha256": {
+    "results/F2_etasel_tight.txt": "8078a43dbdd6ec5fb9a2e4c9ddff385956956d46799fc8d23b720cf615f1f0e4"
+   },
+   "outputs_after_rerun_sha256": {
+    "results/F2_etasel_tight.txt": "8078a43dbdd6ec5fb9a2e4c9ddff385956956d46799fc8d23b720cf615f1f0e4"
+   },
+   "outputs_restored_bytewise": {
+    "results/F2_etasel_tight.txt": true
+   },
+   "copy_dir": "results/V11/oracle/reruns",
+   "key_counts": {
+    "table_rows_PASS": 14,
+    "status_line": [
+     "STATUS: ALL PASS (14 instances: K = 2..8 x ahat in {1.5, 2})"
+    ]
+   }
+  },
+  {
+   "name": "T5_symbolic",
+   "script": "results/T5_symbolic.py",
+   "exit_code": 0,
+   "seconds": 3.4,
+   "stdout_tail": [
+    "general-K symbolic ([VERIFIED-SYMBOLIC], via p=a^x, Q=a^dx parametrization);",
+    "the greedy trajectory (y=0 by induction on the tie identity) is verified by",
+    "explicit symbolic simulation for K=2..8 and by the general-K tie identity",
+    "plus a one-line induction for general K."
+   ],
+   "outputs_before_sha256": {
+    "results/T5_symbolic.json": "23dfd279b8d6004e35391f9bdc9cbe42b5c88c198ae4c6c98f04b5cf322d8cf8"
+   },
+   "outputs_after_rerun_sha256": {
+    "results/T5_symbolic.json": "23dfd279b8d6004e35391f9bdc9cbe42b5c88c198ae4c6c98f04b5cf322d8cf8"
+   },
+   "outputs_restored_bytewise": {
+    "results/T5_symbolic.json": true
+   },
+   "copy_dir": "results/V11/oracle/reruns",
+   "key_counts": {
+    "total_line": [
+     "TOTAL: 105/105 checks passed (35 general-K, 70 concrete-K), 3.1s"
+    ],
+    "all_pass": true,
+    "n_pass": 105,
+    "n_fail": 0,
+    "allpairs_exhaustive_K": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ]
+   }
+  }
+ ],
+ "violations": [],
+ "witnesses": [],
+ "running_example_K3_eta_3_2": {
+  "K": 3,
+  "eta_sel": "3/2",
+  "eta_tr": "3/2",
+  "eta": "7/4",
+  "L_3(3/2)": "386/729",
+  "L_3(eta_tr)": "386/729",
+  "L_3(eta)": "4348/9261",
+  "f(T)": "386/729",
+  "OPT": "1",
+  "ratio": "386/729",
+  "a_list": [
+   "3/2",
+   "3/2",
+   "3/2"
+  ],
+  "L_3(3/2)_float": 0.5294924554183813,
+  "L_3(eta)_float": 0.46949573480185725
+ },
+ "failed_checks": [],
+ "overall": "PASS",
+ "seconds": 22.9
+}

@@ -1,0 +1,148 @@
+V11 oracle: thm:linear-exact (ledger T10c, J6; Theorem 2)
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seed 20260918
+no existing repository file is modified; the three Q4 scripts are rerun by subprocess
+
+=== Criterion C ===
+C1  rerun results/Q4_gpt_check.py  (13 identities + 159 configs)
+    exit code 0, 2.1s
+      | 13 symbolic identities: PASS
+      | {'configs': 159, 'edges': 111032, 'DR': 207842, 'balanced': 2441}
+PASS C1 results/Q4_gpt_check.py rerun   exit=0; snippets {'13 symbolic identities: PASS': True, "'configs': 159": True, "'edges': 111032": True, "'DR': 207842": True, "'balanced': 2441": True}
+
+C2  rerun results/Q4_symbolic_ineq.py  (34 branch inequalities)
+    exit code 0, 0.6s
+      | PASS S8 at/above the switch: eta - K + j = ts + a >= 0, tie iff ts=a=0
+      | PASS S9 phase-1 step: C q^s (1-q) = q^s/K > 0
+      | PASS S9 phase-2 step: eta delta > 0
+      | PASS S9 H(0,0) = C - 1 - (eta-1)(K-1)/K = 0
+      | 
+      | ALL PASS
+PASS C2 results/Q4_symbolic_ineq.py rerun   exit=0; snippets {'ALL PASS': True}
+
+C3  rerun results/Q4_indep_check.py  (111 configs)
+    exit code 0, 8.4s
+      | configs checked: 111
+      | ALL PASS
+PASS C3 results/Q4_indep_check.py rerun   exit=0; snippets {'configs checked: 111': True, 'ALL PASS': True}
+
+C4  counting chain of the transcript argument   [VERIFIED-SYMBOLIC]
+PASS C4a Pr[fixed pair in O] = C(n-2,K-2)/C(n,K) = K(K-1)/(n(n-1)) 
+PASS C4a' exact enumeration of the same probability, 32 (n,K) pairs   []
+PASS C4b (K/n)^2 - K(K-1)/(n(n-1)) = K(n-K)/(n^2(n-1)) >= 0 for K<=n 
+PASS C4b' per query: C(K,2) K(K-1)/(n(n-1)) = K^2(K-1)^2/(2n(n-1)) 
+PASS C4c union over nK queries (loose) = K^4(K-1)/(2n) 
+PASS C4c' K^4(K-1)/(2n) <= K^5/(2n), slack K^4/(2n) 
+PASS C4c'' union over nK queries (tight) = K^3(K-1)^2/(2(n-1)) 
+PASS C4d Pr[T0 cap O != empty] <= |T0| K/n <= K^2/n  (union over the <= K output elements, each in O with probability K/n) 
+PASS C4e total at n = 4K^5 equals 1/8 - 1/(8K) + 1/(4K^3) 
+PASS C4e' the crude form 1/8 + 1/(4K^3) <= 1/8 + 1/32 = 5/32 for K >= 2, and 5/32 < 1 
+PASS C4e'' exact totals at n = 4K^5 for K = 2..12: loose <= 5/32 and tight < loose 
+
+C5  smallest n with total failure probability < 1   [exact]
+PASS C5a loose chain (the one written in the statement) gives n > K^5/2 + K^2; smallest n = floor(K^5/2 + K^2) + 1, checked K = 2..12 with both sides of the threshold   K=2: 21, K=3: 131, K=4: 529, K=5: 1588, K=6: 3925
+PASS C5b tight chain (keeping K(K-1)/(n(n-1))) gives exactly n = K^3(K-1)^2/2 + K^2 + 1 for K = 2..12, so the handoff figure K^3(K-1)^2/2 + K^2 is the strict threshold and is itself one below the smallest admissible n   K=2: 9 (figure 8), K=3: 64 (figure 63), K=4: 305 (figure 304), K=5: 1026 (figure 1025), K=6: 2737 (figure 2736)
+PASS C5c the tight condition is the quadratic n^2 - (A+B+1)n + B > 0 with A = K^3(K-1)^2/2, B = K^2 
+PASS C5c' its larger root M/2 + sqrt(M^2-4B)/2, M = A+B+1, lies in (A+B, A+B+1) whenever 0 < B < M, hence the smallest integer n is A+B+1   root = M - B/M + O(B^2/M^3), 0 < B/M < 1
+
+C6  eps_n of the randomized clause   [VERIFIED-SYMBOLIC]
+PASS C6 eps_n = K^2/n + K^5/(2n) is exactly the chain total 
+PASS C6' eps_{4K^5} = 1/8 + 1/(4K^3) <= 5/32 for K >= 2 
+
+C7  own re-implementation of the family, count-grid legality   [VERIFIED-EXHAUSTIVE]
+PASS C7 K=2 eta=3/2 split(1,3/2): legality, calibration, rigidity, F(K,0)=rho_K=3/5   leak above size K: True
+PASS C7 K=2 eta=3/2 split(3/2,1): legality, calibration, rigidity, F(K,0)=rho_K=3/5   leak above size K: True
+PASS C7 K=2 eta=2 split(1,2): legality, calibration, rigidity, F(K,0)=rho_K=1/2   leak above size K: True
+PASS C7 K=2 eta=2 split(2,1): legality, calibration, rigidity, F(K,0)=rho_K=1/2   leak above size K: True
+PASS C7 K=3 eta=3/2 split(1,3/2): legality, calibration, rigidity, F(K,0)=rho_K=9/16   leak above size K: True
+PASS C7 K=3 eta=3/2 split(3/2,1): legality, calibration, rigidity, F(K,0)=rho_K=9/16   leak above size K: True
+PASS C7 K=3 eta=2 split(1,2): legality, calibration, rigidity, F(K,0)=rho_K=7/15   leak above size K: True
+PASS C7 K=3 eta=2 split(2,1): legality, calibration, rigidity, F(K,0)=rho_K=7/15   leak above size K: True
+    C7 counts: {"DR": 608, "balanced": 48, "configs": 8, "edges": 392, "leaks": 8}
+
+=== Criterion D ===
+
+D1  structured candidates on the J6 family   [VERIFIED-EXHAUSTIVE]
+  --- K=2 eta=3/2 n=128  rho_K=3/5 (0.600000) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=3/5 (0.600000) slack=0 queries=8510 maxsize=127 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=3/5 (0.600000) slack=0 queries=256 maxsize=2
+    top-(K+1) shortlist                    PASS         ratio=3/5 (0.600000) slack=0 queries=131 maxsize=2
+    greedy + one swap pass                 PASS         ratio=3/5 (0.600000) slack=0 queries=509 maxsize=2
+    random-permutation greedy seed=1       PASS         ratio=3/5 (0.600000) slack=0 queries=256 maxsize=2
+    random-permutation greedy seed=2       PASS         ratio=3/5 (0.600000) slack=0 queries=256 maxsize=2
+    random-permutation greedy seed=3       PASS         ratio=3/5 (0.600000) slack=0 queries=256 maxsize=2
+  --- K=2 eta=3/2 n=256  rho_K=3/5 (0.600000) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=3/5 (0.600000) slack=0 queries=33406 maxsize=255 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=3/5 (0.600000) slack=0 queries=512 maxsize=2
+    top-(K+1) shortlist                    PASS         ratio=3/5 (0.600000) slack=0 queries=259 maxsize=2
+    greedy + one swap pass                 PASS         ratio=3/5 (0.600000) slack=0 queries=1021 maxsize=2
+    random-permutation greedy seed=1       PASS         ratio=3/5 (0.600000) slack=0 queries=512 maxsize=2
+    random-permutation greedy seed=2       PASS         ratio=3/5 (0.600000) slack=0 queries=512 maxsize=2
+    random-permutation greedy seed=3       PASS         ratio=3/5 (0.600000) slack=0 queries=512 maxsize=2
+  --- K=2 eta=2 n=128  rho_K=1/2 (0.500000) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=1/2 (0.500000) slack=0 queries=8510 maxsize=127 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=1/2 (0.500000) slack=0 queries=256 maxsize=2
+    top-(K+1) shortlist                    PASS         ratio=1/2 (0.500000) slack=0 queries=131 maxsize=2
+    greedy + one swap pass                 PASS         ratio=1/2 (0.500000) slack=0 queries=509 maxsize=2
+    random-permutation greedy seed=1       PASS         ratio=1/2 (0.500000) slack=0 queries=256 maxsize=2
+    random-permutation greedy seed=2       PASS         ratio=1/2 (0.500000) slack=0 queries=256 maxsize=2
+    random-permutation greedy seed=3       PASS         ratio=1/2 (0.500000) slack=0 queries=256 maxsize=2
+  --- K=2 eta=2 n=256  rho_K=1/2 (0.500000) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=1/2 (0.500000) slack=0 queries=33406 maxsize=255 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=1/2 (0.500000) slack=0 queries=512 maxsize=2
+    top-(K+1) shortlist                    PASS         ratio=1/2 (0.500000) slack=0 queries=259 maxsize=2
+    greedy + one swap pass                 PASS         ratio=1/2 (0.500000) slack=0 queries=1021 maxsize=2
+    random-permutation greedy seed=1       PASS         ratio=1/2 (0.500000) slack=0 queries=512 maxsize=2
+    random-permutation greedy seed=2       PASS         ratio=1/2 (0.500000) slack=0 queries=512 maxsize=2
+    random-permutation greedy seed=3       PASS         ratio=1/2 (0.500000) slack=0 queries=512 maxsize=2
+  --- K=3 eta=3/2 n=972  rho_K=9/16 (0.562500) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=9/16 (0.562500) slack=0 queries=475787 maxsize=971 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=9/16 (0.562500) slack=0 queries=2914 maxsize=3
+    top-(K+1) shortlist                    PASS         ratio=9/16 (0.562500) slack=0 queries=976 maxsize=3
+    greedy + one swap pass                 PASS         ratio=9/16 (0.562500) slack=0 queries=5822 maxsize=3
+    random-permutation greedy seed=1       PASS         ratio=9/16 (0.562500) slack=0 queries=2914 maxsize=3
+    random-permutation greedy seed=2       PASS         ratio=9/16 (0.562500) slack=0 queries=2914 maxsize=3
+    random-permutation greedy seed=3       PASS         ratio=9/16 (0.562500) slack=0 queries=2914 maxsize=3
+  --- K=3 eta=3/2 n=1944  rho_K=9/16 (0.562500) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=9/16 (0.562500) slack=0 queries=1896365 maxsize=1943 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=9/16 (0.562500) slack=0 queries=5830 maxsize=3
+    top-(K+1) shortlist                    PASS         ratio=9/16 (0.562500) slack=0 queries=1948 maxsize=3
+    greedy + one swap pass                 PASS         ratio=9/16 (0.562500) slack=0 queries=11654 maxsize=3
+    random-permutation greedy seed=1       PASS         ratio=9/16 (0.562500) slack=0 queries=5830 maxsize=3
+    random-permutation greedy seed=2       PASS         ratio=9/16 (0.562500) slack=0 queries=5830 maxsize=3
+    random-permutation greedy seed=3       PASS         ratio=9/16 (0.562500) slack=0 queries=5830 maxsize=3
+  --- K=3 eta=2 n=972  rho_K=7/15 (0.466667) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=7/15 (0.466667) slack=0 queries=475787 maxsize=971 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=7/15 (0.466667) slack=0 queries=2914 maxsize=3
+    top-(K+1) shortlist                    PASS         ratio=7/15 (0.466667) slack=0 queries=976 maxsize=3
+    greedy + one swap pass                 PASS         ratio=7/15 (0.466667) slack=0 queries=5822 maxsize=3
+    random-permutation greedy seed=1       PASS         ratio=7/15 (0.466667) slack=0 queries=2914 maxsize=3
+    random-permutation greedy seed=2       PASS         ratio=7/15 (0.466667) slack=0 queries=2914 maxsize=3
+    random-permutation greedy seed=3       PASS         ratio=7/15 (0.466667) slack=0 queries=2914 maxsize=3
+  --- K=3 eta=2 n=1944  rho_K=7/15 (0.466667) ---
+    max(forward, backward greedy)          OUT-OF-CLASS ratio=7/15 (0.466667) slack=0 queries=1896365 maxsize=1943 best-placement ratio=1 (low)
+    predictive greedy                      PASS         ratio=7/15 (0.466667) slack=0 queries=5830 maxsize=3
+    top-(K+1) shortlist                    PASS         ratio=7/15 (0.466667) slack=0 queries=1948 maxsize=3
+    greedy + one swap pass                 PASS         ratio=7/15 (0.466667) slack=0 queries=11654 maxsize=3
+    random-permutation greedy seed=1       PASS         ratio=7/15 (0.466667) slack=0 queries=5830 maxsize=3
+    random-permutation greedy seed=2       PASS         ratio=7/15 (0.466667) slack=0 queries=5830 maxsize=3
+    random-permutation greedy seed=3       PASS         ratio=7/15 (0.466667) slack=0 queries=5830 maxsize=3
+
+D2  500 random deterministic strategies   [VERIFIED-EXHAUSTIVE]
+    K=2 eta=3/2 n=128: 66 strategies, max ratio so far 3/5
+    K=2 eta=3/2 n=256: 62 strategies, max ratio so far 3/5
+    K=2 eta=2 n=128: 62 strategies, max ratio so far 3/5
+    K=2 eta=2 n=256: 62 strategies, max ratio so far 3/5
+    K=3 eta=3/2 n=972: 62 strategies, max ratio so far 3/5
+    K=3 eta=3/2 n=1944: 62 strategies, max ratio so far 3/5
+    K=3 eta=2 n=972: 62 strategies, max ratio so far 3/5
+    K=3 eta=2 n=1944: 62 strategies, max ratio so far 3/5
+PASS D2 500 random deterministic strategies, every ratio <= rho_K, admissible O found every time, transcript replay identical   smallest slack rho_K - ratio: 0 (ratio 3/5) at {"K": 2, "eta": "3/2", "n": 128, "queries": 169, "rho_K": "3/5", "rule": 2, "slack_rho_minus_ratio": "0", "trial": 0}
+
+counts: {"C4a_enumerated_pairs": 32, "C4e_K_values": 11, "C5_K_values": 11, "C7": {"DR": 608, "balanced": 48, "configs": 8, "edges": 392, "leaks": 8}, "D1_structured_cases": 56, "D2": {"cases": 500, "no_O": 0, "replay_mismatch": 0, "violations": 0}}
+running example K=3 eta=3/2: {"C": "4/3", "F(0,3)": "1", "F(3,0)": "9/16", "Hhat": ["0", "1/3", "7/12", "37/48"], "K": 3, "Q": "9/16", "delta": "1/8", "eta": "3/2", "j": 2, "k1": "4", "leak_H(5,1)": "4/3", "leak_H(6,0)": "61/48", "n_min_4K5": 972, "n_min_loose_chain": 131, "n_min_tight_chain": 64, "q": "3/4", "rho_3(3/2)": "9/16"}
+D1 worst slack rho_K - ratio: 0 at {"K": 2, "candidate": "predictive greedy", "eta": "3/2", "n": 128, "ratio": "3/5", "rho_K": "3/5"}
+D2 worst slack rho_K - ratio: 0 (ratio 3/5) at {"K": 2, "eta": "3/2", "n": 128, "queries": 169, "rho_K": "3/5", "rule": 2, "slack_rho_minus_ratio": "0", "trial": 0}
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/linear_exact.json
+OVERALL: PASS (29 checks, 0 failed, 0 violations, 16.2s)

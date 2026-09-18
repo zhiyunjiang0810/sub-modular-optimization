@@ -1,0 +1,31 @@
+V11 Q5a oracle: prop:guarantee (ledger T3, Goundan-Schulz 2007)
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seeds C1=20260918 eta1=20260919 K1=20260921 Kn=20260920
+tie policy: all tie paths enumerated when at most 400, else worst over 40 sampled tie paths
+
+--- Criterion C ---
+PASS C0 sympy identities on L_K [VERIFIED-SYMBOLIC]  30 identities, residual 0
+PASS C1 random exact instances: f(T) >= L_K(eta^sel) OPT and the ordering [VERIFIED-EXHAUSTIVE]  2400 instances (n <= 7, K <= 4), 9076 greedy runs, 9064 main-inequality checks, 9076 ordering checks, 2395 tie trees enumerated, 5 sampled, 2937 draws rejected
+PASS C2 Step-1 covering r_t <= K M_t and the contraction [VERIFIED-EXHAUSTIVE]  27985 covering checks, 19580 contraction checks over the C1 runs
+PASS C3 auxiliary rem:app-product per-step product bound [VERIFIED-EXHAUSTIVE]  9064 checks, worst slack 0
+PASS C4 legal band implies finite eta^sel [VERIFIED-EXHAUSTIVE]  9076 runs on legal predictors, no harmful zero step
+PASS C5 U_K exact tightness of L_K under eta^sel [VERIFIED-EXHAUSTIVE]  12 instances (K=2..5 x ahat in {3/2,2,3}), ratio = L_K(ahat) and eta^sel = ahat exactly on every one
+PASS C6 rerun results/F2_etasel_tight.py [VERIFIED-LP 浮点]  exit code 0, STATUS: ALL PASS (14 instances: K = 2..8 x ahat in {1.5, 2}), 14 PASS rows, 0.3s, output file restored byte-identical
+PASS C7 rerun results/T5_symbolic.py [VERIFIED-SYMBOLIC]  exit code 0, TOTAL: 105/105 checks passed (35 general-K, 70 concrete-K), 3.1s, n_pass=105 n_fail=0, 3.4s, output file restored byte-identical
+
+--- Criterion D ---
+PASS D1 harmful zero step (eta^sel = infinity, bound 0)  f = (0,1,1) modular, ftilde = |S|; a_0 = infinity, eta^sel = infinity, L_2(infinity) = 0, f(T) = 1, OPT = 2, ratio = 1/2 >= 0; the predictor is illegal under Definition 1 (d_a = 0 < dtilde_a), which is why the case exists at all
+PASS D2 benign zero step (M_t = g_t = 0, a_t = 1)  f(S) = 1 for S nonempty, ftilde = f, K = n = 3: 6 runs, 12 benign zero steps, every a_t = 1, eta^sel = 1, ratio 1 >= L_3(1) = 19/27
+PASS D3 eta = 1 (ftilde = c f)  160 random instances with ftilde = c f (eta = 1): 2361 runs, worst slack f(T)/OPT - L_K(eta^sel) = 0
+PASS D4 K = 1  240 random instances with K = 1 (L_1(x) = 1/x): 308 runs, worst slack = 0
+PASS D5 K = n  200 random instances with K = n: 315 runs, every output is the ground set, f(T) = OPT, worst slack = 1/4
+
+counts: {"C0_identities": 30, "C1_band_pairs": 262260, "C1_greedy_runs": 9076, "C1_main_inequality_checks": 9064, "C1_mono_checks": 262260, "C1_ordering_checks": 9076, "C1_random_instances": 2400, "C1_submod_checks": 338802, "C1_trivial_OPT_zero": 12, "C5_instances": 12, "C6_F2_rows_PASS": 14, "C7_T5_checks_pass": 105, "D3_band_pairs": 12876, "D3_eta1_instances": 160, "D3_mono_checks": 12876, "D3_submod_checks": 14318, "D4_K1_instances": 240, "D4_band_pairs": 19384, "D4_mono_checks": 19384, "D4_submod_checks": 24537, "D5_Kn_instances": 200, "D_random_instances_total": 3000}
+running example K=3 eta=3/2: {"K": 3, "L_3(3/2)": "386/729", "L_3(3/2)_float": 0.5294924554183813, "L_3(eta)": "4348/9261", "L_3(eta)_float": 0.46949573480185725, "L_3(eta_tr)": "386/729", "OPT": "1", "a_list": ["3/2", "3/2", "3/2"], "eta": "7/4", "eta_sel": "3/2", "eta_tr": "3/2", "f(T)": "386/729", "ratio": "386/729"}
+worst main slack f(T)/OPT - L_K(eta^sel): 0 at {"K": 1, "bound": "1", "eta_sel": "1", "family": "budget_additive", "n": 3, "ratio": "1", "tag": "C1"}
+worst main slack with K >= 2 and eta^sel > 1: 128/539 at {"K": 2, "bound": "24/49", "eta_sel": "7/4", "family": "modular", "n": 6, "ratio": "8/11", "tag": "C1"}
+C1 runs attaining equality f(T) = L_K(eta^sel) OPT: 790
+worst product-bound slack: 0 at {"K": 1, "bound": "1", "n": 3, "ratio": "1", "tag": "C1"}
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/guarantee.json
+OVERALL: PASS (13 checks, 0 failed, 22.9s)

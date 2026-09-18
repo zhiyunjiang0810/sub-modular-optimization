@@ -1,0 +1,11 @@
+PASS sharp form == coherence (ii) rearranged 
+PASS V_i - V_{i+1} identity 
+PASS gamma r' = r - K d  =>  d = r/k1 
+PASS r' = q r 
+PASS K=3 eta=2, j=1 sequence 
+PASS K=3 eta=2, j=2 sequence 
+PASS both sum to 7/15 
+PASS 7/15 = V_1(2) = V_2(2) at K=3 
+PASS facet uniqueness on 40 facets (2480 LPs, max coordinate deviation 3.94e-15)
+
+ALL PASS

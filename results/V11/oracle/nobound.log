@@ -1,0 +1,35 @@
+V11 Q1 oracle: prop:necessity (T1, prop:nobound)
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction; seeds D=20260918 subsample=11
+
+==============================================================================
+CRITERION C: oracle on both constructions, K = 1..4, n = 2K..12
+==============================================================================
+PASS C0 [VERIFIED-SYMBOLIC] sympy: delta - gamma = K/n; n(n-K) - K^2 = K^2 + 3Km + m^2 at n = 2K+m; K/n + gamma = delta; 1/delta = (n-K)/K; 1/gamma = n(n-K)/K^2  residuals 0, 0, 0, 0
+PASS C1 instance validity (normalized, monotone, submodular), exhaustive  instances=160 subsets=162140 mono=896560 submod=2288035 DR(n<=8)=453630
+PASS C2 Definition 1 band, smallest factors eta_u=1, eta_o=1/delta, both attained  (S,e) pairs scanned=896560
+PASS C3 OPT = f(O) = K (subset enumeration and count lattice agree)  instances=160
+PASS C4/C5 predictive greedy and exhaustive argmax, adversarial ties: output disjoint from O and f(T) <= delta*OPT  algorithm runs=320
+PASS C6 every fixed output T with |T| <= K: disjoint O exists and f(T) <= delta*OPT  fixed outputs checked=18240
+PASS C7 n >= 2K implies a disjoint K-set O exists for every output T  outputs checked=3648
+PASS C8 n = 2K-1 exhibit: every K-set O meets the full-size output T, so the construction's conclusion f(T) <= delta*OPT is unreachable  cases=12, unreachable in 12 of them (all have delta < 1)
+PASS C9 (extra) uniform-random O averaging with gamma: E_O[f_O(T)]/OPT <= K/(n-K)  O-choices summed=2290
+PASS C10 running example K = 3, eta = 3/2 (delta = 2/3): f(O) = 3, f(T) = 2, ratio 2/3 = 1/eta; the statement constant K/(n-K) is met exactly for 2K <= n <= K + K*eta = 7  n in {6,7,8,12}
+
+==============================================================================
+CRITERION D: counterexample search on the statement, random deterministic algorithms
+==============================================================================
+PASS D random deterministic algorithms against the statement f(T) <= K/(n-K)*OPT  trials=2400 kinds={'fixed_set': 800, 'rule_on_answers': 800, 'greedy_tiebreak': 800} full rescans=214 tight(slack=0)=1502 violations=0
+PASS D error is exactly eta = (n-K)/K with both ends attained (eta_u = 1, eta_o = (n-K)/K)  trials=2400
+PASS D structured cases n = 2K, K = 1, smallest n  cases=7
+
+==============================================================================
+RERUN of existing repo scripts (not modified, output not written)
+==============================================================================
+rerun results/M0_counterexamples.py exit=0 PASS=9 FAIL=0 (0.5s)
+
+counts: {"C_algorithm_runs": 320, "C_band_pairs": 896560, "C_disjointO_checks": 3648, "C_dr_checks_small_n": 453630, "C_fixed_output_checks": 18240, "C_grid_pairs": 32, "C_instances": 160, "C_monotone_checks": 896560, "C_random_O_averages": 2290, "C_submodularity_checks": 2288035, "C_subsets_scanned": 162140, "C_tight_fixed_outputs": 11450}
+worst slack over criterion C outputs: 0 (ratio 1) at {'type': 'fixed_output', 'K': 1, 'n': 2, 'delta': '1', 'label': 'delta_K_over_nmK', 'T_size': 1}
+worst slack over criterion D trials: 0 at {'kind': 'rule_on_answers', 'K': 1, 'n': 11, 'T_size': 1, 'delta': '1/10', 'eta': '10', 'fT': '1/10', 'bound': '1/10'}
+json written: /home/user/sub-modular-optimization/results/V11/oracle/nobound.json
+OVERALL: PASS (13 checks, 0 failed, 32.4s)

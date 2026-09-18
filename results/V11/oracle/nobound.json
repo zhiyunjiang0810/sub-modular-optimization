@@ -1,0 +1,4649 @@
+{
+ "script": "/home/user/sub-modular-optimization/results/V11/oracle/nobound.py",
+ "statement": "prop:necessity / prop:nobound: for every deterministic algorithm and every n >= 2K there are pairs (f, ftilde) with f(T) <= K/(n-K) * f(O*)",
+ "constructions": {
+  "A_appendix_model_proofs": "ftilde(S)=|S|, delta=K/(n-K), f(S)=|S cap O|+delta|S\\O|, eta=(n-K)/K",
+  "B_app_necessity": "ftilde(S)=|S|, gamma=K^2/(n(n-K)), f_O(S)=|S cap O|+gamma|S\\O|, eta=n(n-K)/K^2"
+ },
+ "seeds": {
+  "D": 20260918,
+  "subsample": 11
+ },
+ "counts": {
+  "C_grid_pairs": 32,
+  "C_tight_fixed_outputs": 11450,
+  "C_instances": 160,
+  "C_subsets_scanned": 162140,
+  "C_monotone_checks": 896560,
+  "C_submodularity_checks": 2288035,
+  "C_dr_checks_small_n": 453630,
+  "C_band_pairs": 896560,
+  "C_algorithm_runs": 320,
+  "C_fixed_output_checks": 18240,
+  "C_disjointO_checks": 3648,
+  "C_random_O_averages": 2290
+ },
+ "criterion_C": {
+  "checks": [
+   {
+    "name": "C0 [VERIFIED-SYMBOLIC] sympy: delta - gamma = K/n; n(n-K) - K^2 = K^2 + 3Km + m^2 at n = 2K+m; K/n + gamma = delta; 1/delta = (n-K)/K; 1/gamma = n(n-K)/K^2",
+    "status": "PASS",
+    "detail": "residuals 0, 0, 0, 0",
+    "substituted_n_2K_plus_m": "K**2 + 3*K*m + m**2"
+   },
+   {
+    "name": "C1 instance validity (normalized, monotone, submodular), exhaustive",
+    "status": "PASS",
+    "detail": "instances=160 subsets=162140 mono=896560 submod=2288035 DR(n<=8)=453630",
+    "failures": []
+   },
+   {
+    "name": "C2 Definition 1 band, smallest factors eta_u=1, eta_o=1/delta, both attained",
+    "status": "PASS",
+    "detail": "(S,e) pairs scanned=896560",
+    "failures": []
+   },
+   {
+    "name": "C3 OPT = f(O) = K (subset enumeration and count lattice agree)",
+    "status": "PASS",
+    "detail": "instances=160",
+    "failures": []
+   },
+   {
+    "name": "C4/C5 predictive greedy and exhaustive argmax, adversarial ties: output disjoint from O and f(T) <= delta*OPT",
+    "status": "PASS",
+    "detail": "algorithm runs=320",
+    "failures": []
+   },
+   {
+    "name": "C6 every fixed output T with |T| <= K: disjoint O exists and f(T) <= delta*OPT",
+    "status": "PASS",
+    "detail": "fixed outputs checked=18240",
+    "failures": []
+   },
+   {
+    "name": "C7 n >= 2K implies a disjoint K-set O exists for every output T",
+    "status": "PASS",
+    "detail": "outputs checked=3648",
+    "failures": []
+   },
+   {
+    "name": "C8 n = 2K-1 exhibit: every K-set O meets the full-size output T, so the construction's conclusion f(T) <= delta*OPT is unreachable",
+    "status": "PASS",
+    "detail": "cases=12, unreachable in 12 of them (all have delta < 1)",
+    "cases": [
+     {
+      "K": 1,
+      "n": 1,
+      "delta": "1/2",
+      "label": "delta_1_2",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "1",
+      "float_best_ratio": 1.0,
+      "delta_bound": "1/2",
+      "bound_holds": false,
+      "argmin_O": [
+       0
+      ],
+      "fT": "1",
+      "OPT": "1",
+      "min_overlap": 1
+     },
+     {
+      "K": 1,
+      "n": 1,
+      "delta": "1/5",
+      "label": "delta_1_5",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "1",
+      "float_best_ratio": 1.0,
+      "delta_bound": "1/5",
+      "bound_holds": false,
+      "argmin_O": [
+       0
+      ],
+      "fT": "1",
+      "OPT": "1",
+      "min_overlap": 1
+     },
+     {
+      "K": 1,
+      "n": 1,
+      "delta": "1/50",
+      "label": "delta_1_50",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "1",
+      "float_best_ratio": 1.0,
+      "delta_bound": "1/50",
+      "bound_holds": false,
+      "argmin_O": [
+       0
+      ],
+      "fT": "1",
+      "OPT": "1",
+      "min_overlap": 1
+     },
+     {
+      "K": 2,
+      "n": 3,
+      "delta": "1/2",
+      "label": "delta_1_2",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "3/4",
+      "float_best_ratio": 0.75,
+      "delta_bound": "1/2",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       2
+      ],
+      "fT": "3/2",
+      "OPT": "2",
+      "min_overlap": 1
+     },
+     {
+      "K": 2,
+      "n": 3,
+      "delta": "1/5",
+      "label": "delta_1_5",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "3/5",
+      "float_best_ratio": 0.6,
+      "delta_bound": "1/5",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       2
+      ],
+      "fT": "6/5",
+      "OPT": "2",
+      "min_overlap": 1
+     },
+     {
+      "K": 2,
+      "n": 3,
+      "delta": "1/50",
+      "label": "delta_1_50",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "51/100",
+      "float_best_ratio": 0.51,
+      "delta_bound": "1/50",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       2
+      ],
+      "fT": "51/50",
+      "OPT": "2",
+      "min_overlap": 1
+     },
+     {
+      "K": 3,
+      "n": 5,
+      "delta": "1/2",
+      "label": "delta_1_2",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "2/3",
+      "float_best_ratio": 0.6666666666666666,
+      "delta_bound": "1/2",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       3,
+       4
+      ],
+      "fT": "2",
+      "OPT": "3",
+      "min_overlap": 1
+     },
+     {
+      "K": 3,
+      "n": 5,
+      "delta": "1/5",
+      "label": "delta_1_5",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "7/15",
+      "float_best_ratio": 0.4666666666666667,
+      "delta_bound": "1/5",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       3,
+       4
+      ],
+      "fT": "7/5",
+      "OPT": "3",
+      "min_overlap": 1
+     },
+     {
+      "K": 3,
+      "n": 5,
+      "delta": "1/50",
+      "label": "delta_1_50",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "26/75",
+      "float_best_ratio": 0.3466666666666667,
+      "delta_bound": "1/50",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       3,
+       4
+      ],
+      "fT": "26/25",
+      "OPT": "3",
+      "min_overlap": 1
+     },
+     {
+      "K": 4,
+      "n": 7,
+      "delta": "1/2",
+      "label": "delta_1_2",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "5/8",
+      "float_best_ratio": 0.625,
+      "delta_bound": "1/2",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       4,
+       5,
+       6
+      ],
+      "fT": "5/2",
+      "OPT": "4",
+      "min_overlap": 1
+     },
+     {
+      "K": 4,
+      "n": 7,
+      "delta": "1/5",
+      "label": "delta_1_5",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "2/5",
+      "float_best_ratio": 0.4,
+      "delta_bound": "1/5",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       4,
+       5,
+       6
+      ],
+      "fT": "8/5",
+      "OPT": "4",
+      "min_overlap": 1
+     },
+     {
+      "K": 4,
+      "n": 7,
+      "delta": "1/50",
+      "label": "delta_1_50",
+      "forced_overlap": 1,
+      "best_ratio_over_all_O": "53/200",
+      "float_best_ratio": 0.265,
+      "delta_bound": "1/50",
+      "bound_holds": false,
+      "argmin_O": [
+       0,
+       4,
+       5,
+       6
+      ],
+      "fT": "53/50",
+      "OPT": "4",
+      "min_overlap": 1
+     }
+    ]
+   },
+   {
+    "name": "C9 (extra) uniform-random O averaging with gamma: E_O[f_O(T)]/OPT <= K/(n-K)",
+    "status": "PASS",
+    "detail": "O-choices summed=2290",
+    "failures": []
+   },
+   {
+    "name": "C10 running example K = 3, eta = 3/2 (delta = 2/3): f(O) = 3, f(T) = 2, ratio 2/3 = 1/eta; the statement constant K/(n-K) is met exactly for 2K <= n <= K + K*eta = 7",
+    "status": "PASS",
+    "detail": "n in {6,7,8,12}",
+    "cases": [
+     {
+      "K": 3,
+      "n": 6,
+      "delta": "2/3",
+      "eta": "3/2",
+      "fO": "3",
+      "fT": "2",
+      "ratio": "2/3",
+      "statement_bound_K_over_nmK": "1",
+      "statement_constant_met": true,
+      "ok": true
+     },
+     {
+      "K": 3,
+      "n": 7,
+      "delta": "2/3",
+      "eta": "3/2",
+      "fO": "3",
+      "fT": "2",
+      "ratio": "2/3",
+      "statement_bound_K_over_nmK": "3/4",
+      "statement_constant_met": true,
+      "ok": true
+     },
+     {
+      "K": 3,
+      "n": 8,
+      "delta": "2/3",
+      "eta": "3/2",
+      "fO": "3",
+      "fT": "2",
+      "ratio": "2/3",
+      "statement_bound_K_over_nmK": "3/5",
+      "statement_constant_met": false,
+      "ok": true
+     },
+     {
+      "K": 3,
+      "n": 12,
+      "delta": "2/3",
+      "eta": "3/2",
+      "fO": "3",
+      "fT": "2",
+      "ratio": "2/3",
+      "statement_bound_K_over_nmK": "1/3",
+      "statement_constant_met": false,
+      "ok": true
+     }
+    ]
+   },
+   {
+    "name": "D random deterministic algorithms against the statement f(T) <= K/(n-K)*OPT",
+    "status": "PASS",
+    "detail": "trials=2400 kinds={'fixed_set': 800, 'rule_on_answers': 800, 'greedy_tiebreak': 800} full rescans=214 tight(slack=0)=1502 violations=0",
+    "violations": [],
+    "eta_mismatch": []
+   },
+   {
+    "name": "D error is exactly eta = (n-K)/K with both ends attained (eta_u = 1, eta_o = (n-K)/K)",
+    "status": "PASS",
+    "detail": "trials=2400",
+    "failures": []
+   },
+   {
+    "name": "D structured cases n = 2K, K = 1, smallest n",
+    "status": "PASS",
+    "detail": "cases=7",
+    "cases": [
+     {
+      "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+      "K": 1,
+      "n": 2,
+      "delta": "1",
+      "eta": "1",
+      "fT": "1",
+      "OPT": "1",
+      "bound": "1",
+      "outcome": "PASS (bound holds with equality, no information lost)"
+     },
+     {
+      "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+      "K": 2,
+      "n": 4,
+      "delta": "1",
+      "eta": "1",
+      "fT": "2",
+      "OPT": "2",
+      "bound": "2",
+      "outcome": "PASS (bound holds with equality, no information lost)"
+     },
+     {
+      "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+      "K": 3,
+      "n": 6,
+      "delta": "1",
+      "eta": "1",
+      "fT": "3",
+      "OPT": "3",
+      "bound": "3",
+      "outcome": "PASS (bound holds with equality, no information lost)"
+     },
+     {
+      "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+      "K": 4,
+      "n": 8,
+      "delta": "1",
+      "eta": "1",
+      "fT": "4",
+      "OPT": "4",
+      "bound": "4",
+      "outcome": "PASS (bound holds with equality, no information lost)"
+     },
+     {
+      "case": "K = 1, n = 2..12, every output with |T| <= 1",
+      "outputs_checked": 88,
+      "outcome": "PASS (f(T) = delta = 1/(n-1) <= K/(n-K) * OPT)"
+     },
+     {
+      "case": "smallest n for each K (n = 2K), exhaustive over all outputs",
+      "outputs_checked": 219,
+      "detail": [
+       {
+        "K": 1,
+        "n": 2,
+        "delta": "1",
+        "max_ratio_over_outputs": "1"
+       },
+       {
+        "K": 2,
+        "n": 4,
+        "delta": "1",
+        "max_ratio_over_outputs": "1"
+       },
+       {
+        "K": 3,
+        "n": 6,
+        "delta": "1",
+        "max_ratio_over_outputs": "1"
+       },
+       {
+        "K": 4,
+        "n": 8,
+        "delta": "1",
+        "max_ratio_over_outputs": "1"
+       }
+      ],
+      "outcome": "PASS (bound = 1 at n = 2K, so it is not binding)"
+     },
+     {
+      "case": "smallest instance overall K = 1, n = 2",
+      "K": 1,
+      "n": 2,
+      "delta": "1",
+      "eta": "1",
+      "OPT": "1",
+      "outcome": "PASS (delta = 1, eta = 1, bound K/(n-K) = 1)"
+     }
+    ]
+   }
+  ],
+  "worst": {
+   "slack": "0",
+   "ratio": "1",
+   "params": {
+    "type": "fixed_output",
+    "K": 1,
+    "n": 2,
+    "delta": "1",
+    "label": "delta_K_over_nmK",
+    "T_size": 1
+   }
+  },
+  "n_equals_2K_minus_1": [
+   {
+    "K": 1,
+    "n": 1,
+    "delta": "1/2",
+    "label": "delta_1_2",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "1",
+    "float_best_ratio": 1.0,
+    "delta_bound": "1/2",
+    "bound_holds": false,
+    "argmin_O": [
+     0
+    ],
+    "fT": "1",
+    "OPT": "1",
+    "min_overlap": 1
+   },
+   {
+    "K": 1,
+    "n": 1,
+    "delta": "1/5",
+    "label": "delta_1_5",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "1",
+    "float_best_ratio": 1.0,
+    "delta_bound": "1/5",
+    "bound_holds": false,
+    "argmin_O": [
+     0
+    ],
+    "fT": "1",
+    "OPT": "1",
+    "min_overlap": 1
+   },
+   {
+    "K": 1,
+    "n": 1,
+    "delta": "1/50",
+    "label": "delta_1_50",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "1",
+    "float_best_ratio": 1.0,
+    "delta_bound": "1/50",
+    "bound_holds": false,
+    "argmin_O": [
+     0
+    ],
+    "fT": "1",
+    "OPT": "1",
+    "min_overlap": 1
+   },
+   {
+    "K": 2,
+    "n": 3,
+    "delta": "1/2",
+    "label": "delta_1_2",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "3/4",
+    "float_best_ratio": 0.75,
+    "delta_bound": "1/2",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     2
+    ],
+    "fT": "3/2",
+    "OPT": "2",
+    "min_overlap": 1
+   },
+   {
+    "K": 2,
+    "n": 3,
+    "delta": "1/5",
+    "label": "delta_1_5",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "3/5",
+    "float_best_ratio": 0.6,
+    "delta_bound": "1/5",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     2
+    ],
+    "fT": "6/5",
+    "OPT": "2",
+    "min_overlap": 1
+   },
+   {
+    "K": 2,
+    "n": 3,
+    "delta": "1/50",
+    "label": "delta_1_50",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "51/100",
+    "float_best_ratio": 0.51,
+    "delta_bound": "1/50",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     2
+    ],
+    "fT": "51/50",
+    "OPT": "2",
+    "min_overlap": 1
+   },
+   {
+    "K": 3,
+    "n": 5,
+    "delta": "1/2",
+    "label": "delta_1_2",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "2/3",
+    "float_best_ratio": 0.6666666666666666,
+    "delta_bound": "1/2",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     3,
+     4
+    ],
+    "fT": "2",
+    "OPT": "3",
+    "min_overlap": 1
+   },
+   {
+    "K": 3,
+    "n": 5,
+    "delta": "1/5",
+    "label": "delta_1_5",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "7/15",
+    "float_best_ratio": 0.4666666666666667,
+    "delta_bound": "1/5",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     3,
+     4
+    ],
+    "fT": "7/5",
+    "OPT": "3",
+    "min_overlap": 1
+   },
+   {
+    "K": 3,
+    "n": 5,
+    "delta": "1/50",
+    "label": "delta_1_50",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "26/75",
+    "float_best_ratio": 0.3466666666666667,
+    "delta_bound": "1/50",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     3,
+     4
+    ],
+    "fT": "26/25",
+    "OPT": "3",
+    "min_overlap": 1
+   },
+   {
+    "K": 4,
+    "n": 7,
+    "delta": "1/2",
+    "label": "delta_1_2",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "5/8",
+    "float_best_ratio": 0.625,
+    "delta_bound": "1/2",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     4,
+     5,
+     6
+    ],
+    "fT": "5/2",
+    "OPT": "4",
+    "min_overlap": 1
+   },
+   {
+    "K": 4,
+    "n": 7,
+    "delta": "1/5",
+    "label": "delta_1_5",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "2/5",
+    "float_best_ratio": 0.4,
+    "delta_bound": "1/5",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     4,
+     5,
+     6
+    ],
+    "fT": "8/5",
+    "OPT": "4",
+    "min_overlap": 1
+   },
+   {
+    "K": 4,
+    "n": 7,
+    "delta": "1/50",
+    "label": "delta_1_50",
+    "forced_overlap": 1,
+    "best_ratio_over_all_O": "53/200",
+    "float_best_ratio": 0.265,
+    "delta_bound": "1/50",
+    "bound_holds": false,
+    "argmin_O": [
+     0,
+     4,
+     5,
+     6
+    ],
+    "fT": "53/50",
+    "OPT": "4",
+    "min_overlap": 1
+   }
+  ],
+  "running_example": [
+   {
+    "K": 3,
+    "n": 6,
+    "delta": "2/3",
+    "eta": "3/2",
+    "fO": "3",
+    "fT": "2",
+    "ratio": "2/3",
+    "statement_bound_K_over_nmK": "1",
+    "statement_constant_met": true,
+    "ok": true
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "delta": "2/3",
+    "eta": "3/2",
+    "fO": "3",
+    "fT": "2",
+    "ratio": "2/3",
+    "statement_bound_K_over_nmK": "3/4",
+    "statement_constant_met": true,
+    "ok": true
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "delta": "2/3",
+    "eta": "3/2",
+    "fO": "3",
+    "fT": "2",
+    "ratio": "2/3",
+    "statement_bound_K_over_nmK": "3/5",
+    "statement_constant_met": false,
+    "ok": true
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "delta": "2/3",
+    "eta": "3/2",
+    "fO": "3",
+    "fT": "2",
+    "ratio": "2/3",
+    "statement_bound_K_over_nmK": "1/3",
+    "statement_constant_met": false,
+    "ok": true
+   }
+  ],
+  "per_instance": [
+   {
+    "K": 1,
+    "n": 2,
+    "label": "delta_K_over_nmK",
+    "delta": "1",
+    "eta": "1",
+    "eta_u": "1",
+    "eta_o": "1",
+    "OPT": "1",
+    "greedy_T": [
+     0
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     0
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 3,
+    "argmax_queries": 2
+   },
+   {
+    "K": 1,
+    "n": 2,
+    "label": "gamma_app_necessity",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 3,
+    "argmax_queries": 2
+   },
+   {
+    "K": 1,
+    "n": 2,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 3,
+    "argmax_queries": 2
+   },
+   {
+    "K": 1,
+    "n": 2,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 3,
+    "argmax_queries": 2
+   },
+   {
+    "K": 1,
+    "n": 2,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 3,
+    "argmax_queries": 2
+   },
+   {
+    "K": 1,
+    "n": 3,
+    "label": "delta_K_over_nmK",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 4,
+    "argmax_queries": 3
+   },
+   {
+    "K": 1,
+    "n": 3,
+    "label": "gamma_app_necessity",
+    "delta": "1/6",
+    "eta": "6",
+    "eta_u": "1",
+    "eta_o": "6",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/6",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/6",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 4,
+    "argmax_queries": 3
+   },
+   {
+    "K": 1,
+    "n": 3,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 4,
+    "argmax_queries": 3
+   },
+   {
+    "K": 1,
+    "n": 3,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 4,
+    "argmax_queries": 3
+   },
+   {
+    "K": 1,
+    "n": 3,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 2,
+    "greedy_queries": 4,
+    "argmax_queries": 3
+   },
+   {
+    "K": 1,
+    "n": 4,
+    "label": "delta_K_over_nmK",
+    "delta": "1/3",
+    "eta": "3",
+    "eta_u": "1",
+    "eta_o": "3",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/3",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/3",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 5,
+    "argmax_queries": 4
+   },
+   {
+    "K": 1,
+    "n": 4,
+    "label": "gamma_app_necessity",
+    "delta": "1/12",
+    "eta": "12",
+    "eta_u": "1",
+    "eta_o": "12",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/12",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/12",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 5,
+    "argmax_queries": 4
+   },
+   {
+    "K": 1,
+    "n": 4,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 5,
+    "argmax_queries": 4
+   },
+   {
+    "K": 1,
+    "n": 4,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 5,
+    "argmax_queries": 4
+   },
+   {
+    "K": 1,
+    "n": 4,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 5,
+    "argmax_queries": 4
+   },
+   {
+    "K": 1,
+    "n": 5,
+    "label": "delta_K_over_nmK",
+    "delta": "1/4",
+    "eta": "4",
+    "eta_u": "1",
+    "eta_o": "4",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/4",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/4",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 6,
+    "argmax_queries": 5
+   },
+   {
+    "K": 1,
+    "n": 5,
+    "label": "gamma_app_necessity",
+    "delta": "1/20",
+    "eta": "20",
+    "eta_u": "1",
+    "eta_o": "20",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/20",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/20",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 6,
+    "argmax_queries": 5
+   },
+   {
+    "K": 1,
+    "n": 5,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 6,
+    "argmax_queries": 5
+   },
+   {
+    "K": 1,
+    "n": 5,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 6,
+    "argmax_queries": 5
+   },
+   {
+    "K": 1,
+    "n": 5,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 6,
+    "argmax_queries": 5
+   },
+   {
+    "K": 1,
+    "n": 6,
+    "label": "delta_K_over_nmK",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 7,
+    "argmax_queries": 6
+   },
+   {
+    "K": 1,
+    "n": 6,
+    "label": "gamma_app_necessity",
+    "delta": "1/30",
+    "eta": "30",
+    "eta_u": "1",
+    "eta_o": "30",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/30",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/30",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 7,
+    "argmax_queries": 6
+   },
+   {
+    "K": 1,
+    "n": 6,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 7,
+    "argmax_queries": 6
+   },
+   {
+    "K": 1,
+    "n": 6,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 7,
+    "argmax_queries": 6
+   },
+   {
+    "K": 1,
+    "n": 6,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 7,
+    "argmax_queries": 6
+   },
+   {
+    "K": 1,
+    "n": 7,
+    "label": "delta_K_over_nmK",
+    "delta": "1/6",
+    "eta": "6",
+    "eta_u": "1",
+    "eta_o": "6",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/6",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/6",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 8,
+    "argmax_queries": 7
+   },
+   {
+    "K": 1,
+    "n": 7,
+    "label": "gamma_app_necessity",
+    "delta": "1/42",
+    "eta": "42",
+    "eta_u": "1",
+    "eta_o": "42",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/42",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/42",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 8,
+    "argmax_queries": 7
+   },
+   {
+    "K": 1,
+    "n": 7,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 8,
+    "argmax_queries": 7
+   },
+   {
+    "K": 1,
+    "n": 7,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 8,
+    "argmax_queries": 7
+   },
+   {
+    "K": 1,
+    "n": 7,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 8,
+    "argmax_queries": 7
+   },
+   {
+    "K": 1,
+    "n": 8,
+    "label": "delta_K_over_nmK",
+    "delta": "1/7",
+    "eta": "7",
+    "eta_u": "1",
+    "eta_o": "7",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/7",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/7",
+    "argmax_tied_Ksets": 7,
+    "greedy_queries": 9,
+    "argmax_queries": 8
+   },
+   {
+    "K": 1,
+    "n": 8,
+    "label": "gamma_app_necessity",
+    "delta": "1/56",
+    "eta": "56",
+    "eta_u": "1",
+    "eta_o": "56",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/56",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/56",
+    "argmax_tied_Ksets": 7,
+    "greedy_queries": 9,
+    "argmax_queries": 8
+   },
+   {
+    "K": 1,
+    "n": 8,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 7,
+    "greedy_queries": 9,
+    "argmax_queries": 8
+   },
+   {
+    "K": 1,
+    "n": 8,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 7,
+    "greedy_queries": 9,
+    "argmax_queries": 8
+   },
+   {
+    "K": 1,
+    "n": 8,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 7,
+    "greedy_queries": 9,
+    "argmax_queries": 8
+   },
+   {
+    "K": 1,
+    "n": 9,
+    "label": "delta_K_over_nmK",
+    "delta": "1/8",
+    "eta": "8",
+    "eta_u": "1",
+    "eta_o": "8",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/8",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/8",
+    "argmax_tied_Ksets": 8,
+    "greedy_queries": 10,
+    "argmax_queries": 9
+   },
+   {
+    "K": 1,
+    "n": 9,
+    "label": "gamma_app_necessity",
+    "delta": "1/72",
+    "eta": "72",
+    "eta_u": "1",
+    "eta_o": "72",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/72",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/72",
+    "argmax_tied_Ksets": 8,
+    "greedy_queries": 10,
+    "argmax_queries": 9
+   },
+   {
+    "K": 1,
+    "n": 9,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 8,
+    "greedy_queries": 10,
+    "argmax_queries": 9
+   },
+   {
+    "K": 1,
+    "n": 9,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 8,
+    "greedy_queries": 10,
+    "argmax_queries": 9
+   },
+   {
+    "K": 1,
+    "n": 9,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 8,
+    "greedy_queries": 10,
+    "argmax_queries": 9
+   },
+   {
+    "K": 1,
+    "n": 10,
+    "label": "delta_K_over_nmK",
+    "delta": "1/9",
+    "eta": "9",
+    "eta_u": "1",
+    "eta_o": "9",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/9",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/9",
+    "argmax_tied_Ksets": 9,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 1,
+    "n": 10,
+    "label": "gamma_app_necessity",
+    "delta": "1/90",
+    "eta": "90",
+    "eta_u": "1",
+    "eta_o": "90",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/90",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/90",
+    "argmax_tied_Ksets": 9,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 1,
+    "n": 10,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 9,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 1,
+    "n": 10,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 9,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 1,
+    "n": 10,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 9,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 1,
+    "n": 11,
+    "label": "delta_K_over_nmK",
+    "delta": "1/10",
+    "eta": "10",
+    "eta_u": "1",
+    "eta_o": "10",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/10",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/10",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 12,
+    "argmax_queries": 11
+   },
+   {
+    "K": 1,
+    "n": 11,
+    "label": "gamma_app_necessity",
+    "delta": "1/110",
+    "eta": "110",
+    "eta_u": "1",
+    "eta_o": "110",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/110",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/110",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 12,
+    "argmax_queries": 11
+   },
+   {
+    "K": 1,
+    "n": 11,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 12,
+    "argmax_queries": 11
+   },
+   {
+    "K": 1,
+    "n": 11,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 12,
+    "argmax_queries": 11
+   },
+   {
+    "K": 1,
+    "n": 11,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 12,
+    "argmax_queries": 11
+   },
+   {
+    "K": 1,
+    "n": 12,
+    "label": "delta_K_over_nmK",
+    "delta": "1/11",
+    "eta": "11",
+    "eta_u": "1",
+    "eta_o": "11",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/11",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/11",
+    "argmax_tied_Ksets": 11,
+    "greedy_queries": 13,
+    "argmax_queries": 12
+   },
+   {
+    "K": 1,
+    "n": 12,
+    "label": "gamma_app_necessity",
+    "delta": "1/132",
+    "eta": "132",
+    "eta_u": "1",
+    "eta_o": "132",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/132",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/132",
+    "argmax_tied_Ksets": 11,
+    "greedy_queries": 13,
+    "argmax_queries": 12
+   },
+   {
+    "K": 1,
+    "n": 12,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 11,
+    "greedy_queries": 13,
+    "argmax_queries": 12
+   },
+   {
+    "K": 1,
+    "n": 12,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/5",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/5",
+    "argmax_tied_Ksets": 11,
+    "greedy_queries": 13,
+    "argmax_queries": 12
+   },
+   {
+    "K": 1,
+    "n": 12,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "1",
+    "greedy_T": [
+     1
+    ],
+    "greedy_fT": "1/50",
+    "argmax_T": [
+     1
+    ],
+    "argmax_fT": "1/50",
+    "argmax_tied_Ksets": 11,
+    "greedy_queries": 13,
+    "argmax_queries": 12
+   },
+   {
+    "K": 2,
+    "n": 4,
+    "label": "delta_K_over_nmK",
+    "delta": "1",
+    "eta": "1",
+    "eta_u": "1",
+    "eta_o": "1",
+    "OPT": "2",
+    "greedy_T": [
+     0,
+     1
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     0,
+     1
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 9,
+    "argmax_queries": 6
+   },
+   {
+    "K": 2,
+    "n": 4,
+    "label": "gamma_app_necessity",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 9,
+    "argmax_queries": 6
+   },
+   {
+    "K": 2,
+    "n": 4,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 9,
+    "argmax_queries": 6
+   },
+   {
+    "K": 2,
+    "n": 4,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 9,
+    "argmax_queries": 6
+   },
+   {
+    "K": 2,
+    "n": 4,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 9,
+    "argmax_queries": 6
+   },
+   {
+    "K": 2,
+    "n": 5,
+    "label": "delta_K_over_nmK",
+    "delta": "2/3",
+    "eta": "3/2",
+    "eta_u": "1",
+    "eta_o": "3/2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "4/3",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "4/3",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 2,
+    "n": 5,
+    "label": "gamma_app_necessity",
+    "delta": "4/15",
+    "eta": "15/4",
+    "eta_u": "1",
+    "eta_o": "15/4",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "8/15",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "8/15",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 2,
+    "n": 5,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 2,
+    "n": 5,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 2,
+    "n": 5,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 3,
+    "greedy_queries": 11,
+    "argmax_queries": 10
+   },
+   {
+    "K": 2,
+    "n": 6,
+    "label": "delta_K_over_nmK",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 13,
+    "argmax_queries": 15
+   },
+   {
+    "K": 2,
+    "n": 6,
+    "label": "gamma_app_necessity",
+    "delta": "1/6",
+    "eta": "6",
+    "eta_u": "1",
+    "eta_o": "6",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/3",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/3",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 13,
+    "argmax_queries": 15
+   },
+   {
+    "K": 2,
+    "n": 6,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 13,
+    "argmax_queries": 15
+   },
+   {
+    "K": 2,
+    "n": 6,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 13,
+    "argmax_queries": 15
+   },
+   {
+    "K": 2,
+    "n": 6,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 6,
+    "greedy_queries": 13,
+    "argmax_queries": 15
+   },
+   {
+    "K": 2,
+    "n": 7,
+    "label": "delta_K_over_nmK",
+    "delta": "2/5",
+    "eta": "5/2",
+    "eta_u": "1",
+    "eta_o": "5/2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 15,
+    "argmax_queries": 21
+   },
+   {
+    "K": 2,
+    "n": 7,
+    "label": "gamma_app_necessity",
+    "delta": "4/35",
+    "eta": "35/4",
+    "eta_u": "1",
+    "eta_o": "35/4",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "8/35",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "8/35",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 15,
+    "argmax_queries": 21
+   },
+   {
+    "K": 2,
+    "n": 7,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 15,
+    "argmax_queries": 21
+   },
+   {
+    "K": 2,
+    "n": 7,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 15,
+    "argmax_queries": 21
+   },
+   {
+    "K": 2,
+    "n": 7,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 15,
+    "argmax_queries": 21
+   },
+   {
+    "K": 2,
+    "n": 8,
+    "label": "delta_K_over_nmK",
+    "delta": "1/3",
+    "eta": "3",
+    "eta_u": "1",
+    "eta_o": "3",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/3",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/3",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 17,
+    "argmax_queries": 28
+   },
+   {
+    "K": 2,
+    "n": 8,
+    "label": "gamma_app_necessity",
+    "delta": "1/12",
+    "eta": "12",
+    "eta_u": "1",
+    "eta_o": "12",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/6",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/6",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 17,
+    "argmax_queries": 28
+   },
+   {
+    "K": 2,
+    "n": 8,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 17,
+    "argmax_queries": 28
+   },
+   {
+    "K": 2,
+    "n": 8,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 17,
+    "argmax_queries": 28
+   },
+   {
+    "K": 2,
+    "n": 8,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 17,
+    "argmax_queries": 28
+   },
+   {
+    "K": 2,
+    "n": 9,
+    "label": "delta_K_over_nmK",
+    "delta": "2/7",
+    "eta": "7/2",
+    "eta_u": "1",
+    "eta_o": "7/2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "4/7",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "4/7",
+    "argmax_tied_Ksets": 21,
+    "greedy_queries": 19,
+    "argmax_queries": 36
+   },
+   {
+    "K": 2,
+    "n": 9,
+    "label": "gamma_app_necessity",
+    "delta": "4/63",
+    "eta": "63/4",
+    "eta_u": "1",
+    "eta_o": "63/4",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "8/63",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "8/63",
+    "argmax_tied_Ksets": 21,
+    "greedy_queries": 19,
+    "argmax_queries": 36
+   },
+   {
+    "K": 2,
+    "n": 9,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 21,
+    "greedy_queries": 19,
+    "argmax_queries": 36
+   },
+   {
+    "K": 2,
+    "n": 9,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 21,
+    "greedy_queries": 19,
+    "argmax_queries": 36
+   },
+   {
+    "K": 2,
+    "n": 9,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 21,
+    "greedy_queries": 19,
+    "argmax_queries": 36
+   },
+   {
+    "K": 2,
+    "n": 10,
+    "label": "delta_K_over_nmK",
+    "delta": "1/4",
+    "eta": "4",
+    "eta_u": "1",
+    "eta_o": "4",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 28,
+    "greedy_queries": 21,
+    "argmax_queries": 45
+   },
+   {
+    "K": 2,
+    "n": 10,
+    "label": "gamma_app_necessity",
+    "delta": "1/20",
+    "eta": "20",
+    "eta_u": "1",
+    "eta_o": "20",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/10",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/10",
+    "argmax_tied_Ksets": 28,
+    "greedy_queries": 21,
+    "argmax_queries": 45
+   },
+   {
+    "K": 2,
+    "n": 10,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 28,
+    "greedy_queries": 21,
+    "argmax_queries": 45
+   },
+   {
+    "K": 2,
+    "n": 10,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 28,
+    "greedy_queries": 21,
+    "argmax_queries": 45
+   },
+   {
+    "K": 2,
+    "n": 10,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 28,
+    "greedy_queries": 21,
+    "argmax_queries": 45
+   },
+   {
+    "K": 2,
+    "n": 11,
+    "label": "delta_K_over_nmK",
+    "delta": "2/9",
+    "eta": "9/2",
+    "eta_u": "1",
+    "eta_o": "9/2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "4/9",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "4/9",
+    "argmax_tied_Ksets": 36,
+    "greedy_queries": 23,
+    "argmax_queries": 55
+   },
+   {
+    "K": 2,
+    "n": 11,
+    "label": "gamma_app_necessity",
+    "delta": "4/99",
+    "eta": "99/4",
+    "eta_u": "1",
+    "eta_o": "99/4",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "8/99",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "8/99",
+    "argmax_tied_Ksets": 36,
+    "greedy_queries": 23,
+    "argmax_queries": 55
+   },
+   {
+    "K": 2,
+    "n": 11,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 36,
+    "greedy_queries": 23,
+    "argmax_queries": 55
+   },
+   {
+    "K": 2,
+    "n": 11,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 36,
+    "greedy_queries": 23,
+    "argmax_queries": 55
+   },
+   {
+    "K": 2,
+    "n": 11,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 36,
+    "greedy_queries": 23,
+    "argmax_queries": 55
+   },
+   {
+    "K": 2,
+    "n": 12,
+    "label": "delta_K_over_nmK",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 45,
+    "greedy_queries": 25,
+    "argmax_queries": 66
+   },
+   {
+    "K": 2,
+    "n": 12,
+    "label": "gamma_app_necessity",
+    "delta": "1/30",
+    "eta": "30",
+    "eta_u": "1",
+    "eta_o": "30",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/15",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/15",
+    "argmax_tied_Ksets": 45,
+    "greedy_queries": 25,
+    "argmax_queries": 66
+   },
+   {
+    "K": 2,
+    "n": 12,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 45,
+    "greedy_queries": 25,
+    "argmax_queries": 66
+   },
+   {
+    "K": 2,
+    "n": 12,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "2/5",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "2/5",
+    "argmax_tied_Ksets": 45,
+    "greedy_queries": 25,
+    "argmax_queries": 66
+   },
+   {
+    "K": 2,
+    "n": 12,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "2",
+    "greedy_T": [
+     2,
+     3
+    ],
+    "greedy_fT": "1/25",
+    "argmax_T": [
+     2,
+     3
+    ],
+    "argmax_fT": "1/25",
+    "argmax_tied_Ksets": 45,
+    "greedy_queries": 25,
+    "argmax_queries": 66
+   },
+   {
+    "K": 3,
+    "n": 6,
+    "label": "delta_K_over_nmK",
+    "delta": "1",
+    "eta": "1",
+    "eta_u": "1",
+    "eta_o": "1",
+    "OPT": "3",
+    "greedy_T": [
+     0,
+     1,
+     2
+    ],
+    "greedy_fT": "3",
+    "argmax_T": [
+     0,
+     1,
+     2
+    ],
+    "argmax_fT": "3",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 18,
+    "argmax_queries": 20
+   },
+   {
+    "K": 3,
+    "n": 6,
+    "label": "gamma_app_necessity",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 18,
+    "argmax_queries": 20
+   },
+   {
+    "K": 3,
+    "n": 6,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 18,
+    "argmax_queries": 20
+   },
+   {
+    "K": 3,
+    "n": 6,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 18,
+    "argmax_queries": 20
+   },
+   {
+    "K": 3,
+    "n": 6,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 18,
+    "argmax_queries": 20
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "label": "delta_K_over_nmK",
+    "delta": "3/4",
+    "eta": "4/3",
+    "eta_u": "1",
+    "eta_o": "4/3",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "9/4",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "9/4",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 21,
+    "argmax_queries": 35
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "label": "gamma_app_necessity",
+    "delta": "9/28",
+    "eta": "28/9",
+    "eta_u": "1",
+    "eta_o": "28/9",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "27/28",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "27/28",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 21,
+    "argmax_queries": 35
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 21,
+    "argmax_queries": 35
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 21,
+    "argmax_queries": 35
+   },
+   {
+    "K": 3,
+    "n": 7,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 4,
+    "greedy_queries": 21,
+    "argmax_queries": 35
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "label": "delta_K_over_nmK",
+    "delta": "3/5",
+    "eta": "5/3",
+    "eta_u": "1",
+    "eta_o": "5/3",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "9/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "9/5",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 24,
+    "argmax_queries": 56
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "label": "gamma_app_necessity",
+    "delta": "9/40",
+    "eta": "40/9",
+    "eta_u": "1",
+    "eta_o": "40/9",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "27/40",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "27/40",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 24,
+    "argmax_queries": 56
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 24,
+    "argmax_queries": 56
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 24,
+    "argmax_queries": 56
+   },
+   {
+    "K": 3,
+    "n": 8,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 10,
+    "greedy_queries": 24,
+    "argmax_queries": 56
+   },
+   {
+    "K": 3,
+    "n": 9,
+    "label": "delta_K_over_nmK",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 27,
+    "argmax_queries": 84
+   },
+   {
+    "K": 3,
+    "n": 9,
+    "label": "gamma_app_necessity",
+    "delta": "1/6",
+    "eta": "6",
+    "eta_u": "1",
+    "eta_o": "6",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "1/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "1/2",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 27,
+    "argmax_queries": 84
+   },
+   {
+    "K": 3,
+    "n": 9,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 27,
+    "argmax_queries": 84
+   },
+   {
+    "K": 3,
+    "n": 9,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 27,
+    "argmax_queries": 84
+   },
+   {
+    "K": 3,
+    "n": 9,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 20,
+    "greedy_queries": 27,
+    "argmax_queries": 84
+   },
+   {
+    "K": 3,
+    "n": 10,
+    "label": "delta_K_over_nmK",
+    "delta": "3/7",
+    "eta": "7/3",
+    "eta_u": "1",
+    "eta_o": "7/3",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "9/7",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "9/7",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 30,
+    "argmax_queries": 120
+   },
+   {
+    "K": 3,
+    "n": 10,
+    "label": "gamma_app_necessity",
+    "delta": "9/70",
+    "eta": "70/9",
+    "eta_u": "1",
+    "eta_o": "70/9",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "27/70",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "27/70",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 30,
+    "argmax_queries": 120
+   },
+   {
+    "K": 3,
+    "n": 10,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 30,
+    "argmax_queries": 120
+   },
+   {
+    "K": 3,
+    "n": 10,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 30,
+    "argmax_queries": 120
+   },
+   {
+    "K": 3,
+    "n": 10,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 30,
+    "argmax_queries": 120
+   },
+   {
+    "K": 3,
+    "n": 11,
+    "label": "delta_K_over_nmK",
+    "delta": "3/8",
+    "eta": "8/3",
+    "eta_u": "1",
+    "eta_o": "8/3",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "9/8",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "9/8",
+    "argmax_tied_Ksets": 56,
+    "greedy_queries": 33,
+    "argmax_queries": 165
+   },
+   {
+    "K": 3,
+    "n": 11,
+    "label": "gamma_app_necessity",
+    "delta": "9/88",
+    "eta": "88/9",
+    "eta_u": "1",
+    "eta_o": "88/9",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "27/88",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "27/88",
+    "argmax_tied_Ksets": 56,
+    "greedy_queries": 33,
+    "argmax_queries": 165
+   },
+   {
+    "K": 3,
+    "n": 11,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 56,
+    "greedy_queries": 33,
+    "argmax_queries": 165
+   },
+   {
+    "K": 3,
+    "n": 11,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 56,
+    "greedy_queries": 33,
+    "argmax_queries": 165
+   },
+   {
+    "K": 3,
+    "n": 11,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 56,
+    "greedy_queries": 33,
+    "argmax_queries": 165
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "label": "delta_K_over_nmK",
+    "delta": "1/3",
+    "eta": "3",
+    "eta_u": "1",
+    "eta_o": "3",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "1",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "1",
+    "argmax_tied_Ksets": 84,
+    "greedy_queries": 36,
+    "argmax_queries": 220
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "label": "gamma_app_necessity",
+    "delta": "1/12",
+    "eta": "12",
+    "eta_u": "1",
+    "eta_o": "12",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "1/4",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "1/4",
+    "argmax_tied_Ksets": 84,
+    "greedy_queries": 36,
+    "argmax_queries": 220
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/2",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/2",
+    "argmax_tied_Ksets": 84,
+    "greedy_queries": 36,
+    "argmax_queries": 220
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/5",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/5",
+    "argmax_tied_Ksets": 84,
+    "greedy_queries": 36,
+    "argmax_queries": 220
+   },
+   {
+    "K": 3,
+    "n": 12,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "3",
+    "greedy_T": [
+     3,
+     4,
+     5
+    ],
+    "greedy_fT": "3/50",
+    "argmax_T": [
+     3,
+     4,
+     5
+    ],
+    "argmax_fT": "3/50",
+    "argmax_tied_Ksets": 84,
+    "greedy_queries": 36,
+    "argmax_queries": 220
+   },
+   {
+    "K": 4,
+    "n": 8,
+    "label": "delta_K_over_nmK",
+    "delta": "1",
+    "eta": "1",
+    "eta_u": "1",
+    "eta_o": "1",
+    "OPT": "4",
+    "greedy_T": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "greedy_fT": "4",
+    "argmax_T": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "argmax_fT": "4",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 30,
+    "argmax_queries": 70
+   },
+   {
+    "K": 4,
+    "n": 8,
+    "label": "gamma_app_necessity",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 30,
+    "argmax_queries": 70
+   },
+   {
+    "K": 4,
+    "n": 8,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 30,
+    "argmax_queries": 70
+   },
+   {
+    "K": 4,
+    "n": 8,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 30,
+    "argmax_queries": 70
+   },
+   {
+    "K": 4,
+    "n": 8,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/25",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/25",
+    "argmax_tied_Ksets": 1,
+    "greedy_queries": 30,
+    "argmax_queries": 70
+   },
+   {
+    "K": 4,
+    "n": 9,
+    "label": "delta_K_over_nmK",
+    "delta": "4/5",
+    "eta": "5/4",
+    "eta_u": "1",
+    "eta_o": "5/4",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "16/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "16/5",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 34,
+    "argmax_queries": 126
+   },
+   {
+    "K": 4,
+    "n": 9,
+    "label": "gamma_app_necessity",
+    "delta": "16/45",
+    "eta": "45/16",
+    "eta_u": "1",
+    "eta_o": "45/16",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "64/45",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "64/45",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 34,
+    "argmax_queries": 126
+   },
+   {
+    "K": 4,
+    "n": 9,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 34,
+    "argmax_queries": 126
+   },
+   {
+    "K": 4,
+    "n": 9,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 34,
+    "argmax_queries": 126
+   },
+   {
+    "K": 4,
+    "n": 9,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/25",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/25",
+    "argmax_tied_Ksets": 5,
+    "greedy_queries": 34,
+    "argmax_queries": 126
+   },
+   {
+    "K": 4,
+    "n": 10,
+    "label": "delta_K_over_nmK",
+    "delta": "2/3",
+    "eta": "3/2",
+    "eta_u": "1",
+    "eta_o": "3/2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "8/3",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "8/3",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 38,
+    "argmax_queries": 210
+   },
+   {
+    "K": 4,
+    "n": 10,
+    "label": "gamma_app_necessity",
+    "delta": "4/15",
+    "eta": "15/4",
+    "eta_u": "1",
+    "eta_o": "15/4",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "16/15",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "16/15",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 38,
+    "argmax_queries": 210
+   },
+   {
+    "K": 4,
+    "n": 10,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 38,
+    "argmax_queries": 210
+   },
+   {
+    "K": 4,
+    "n": 10,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 38,
+    "argmax_queries": 210
+   },
+   {
+    "K": 4,
+    "n": 10,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/25",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/25",
+    "argmax_tied_Ksets": 15,
+    "greedy_queries": 38,
+    "argmax_queries": 210
+   },
+   {
+    "K": 4,
+    "n": 11,
+    "label": "delta_K_over_nmK",
+    "delta": "4/7",
+    "eta": "7/4",
+    "eta_u": "1",
+    "eta_o": "7/4",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "16/7",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "16/7",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 42,
+    "argmax_queries": 330
+   },
+   {
+    "K": 4,
+    "n": 11,
+    "label": "gamma_app_necessity",
+    "delta": "16/77",
+    "eta": "77/16",
+    "eta_u": "1",
+    "eta_o": "77/16",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "64/77",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "64/77",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 42,
+    "argmax_queries": 330
+   },
+   {
+    "K": 4,
+    "n": 11,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 42,
+    "argmax_queries": 330
+   },
+   {
+    "K": 4,
+    "n": 11,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 42,
+    "argmax_queries": 330
+   },
+   {
+    "K": 4,
+    "n": 11,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/25",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/25",
+    "argmax_tied_Ksets": 35,
+    "greedy_queries": 42,
+    "argmax_queries": 330
+   },
+   {
+    "K": 4,
+    "n": 12,
+    "label": "delta_K_over_nmK",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 46,
+    "argmax_queries": 495
+   },
+   {
+    "K": 4,
+    "n": 12,
+    "label": "gamma_app_necessity",
+    "delta": "1/6",
+    "eta": "6",
+    "eta_u": "1",
+    "eta_o": "6",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/3",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/3",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 46,
+    "argmax_queries": 495
+   },
+   {
+    "K": 4,
+    "n": 12,
+    "label": "delta_1_2",
+    "delta": "1/2",
+    "eta": "2",
+    "eta_u": "1",
+    "eta_o": "2",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 46,
+    "argmax_queries": 495
+   },
+   {
+    "K": 4,
+    "n": 12,
+    "label": "delta_1_5",
+    "delta": "1/5",
+    "eta": "5",
+    "eta_u": "1",
+    "eta_o": "5",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "4/5",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "4/5",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 46,
+    "argmax_queries": 495
+   },
+   {
+    "K": 4,
+    "n": 12,
+    "label": "delta_1_50",
+    "delta": "1/50",
+    "eta": "50",
+    "eta_u": "1",
+    "eta_o": "50",
+    "OPT": "4",
+    "greedy_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "greedy_fT": "2/25",
+    "argmax_T": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "argmax_fT": "2/25",
+    "argmax_tied_Ksets": 70,
+    "greedy_queries": 46,
+    "argmax_queries": 495
+   }
+  ]
+ },
+ "criterion_D": {
+  "trials": 2400,
+  "by_kind": {
+   "fixed_set": 800,
+   "rule_on_answers": 800,
+   "greedy_tiebreak": 800
+  },
+  "full_subset_rescans": 214,
+  "violations": [],
+  "eta_mismatch": [],
+  "tight_cases": 1502,
+  "worst_slack": {
+   "slack": "0",
+   "ratio": "1/10",
+   "params": {
+    "kind": "rule_on_answers",
+    "K": 1,
+    "n": 11,
+    "T_size": 1,
+    "delta": "1/10",
+    "eta": "10",
+    "fT": "1/10",
+    "bound": "1/10"
+   }
+  },
+  "worst_ratio": {
+   "ratio": "1",
+   "params": {
+    "kind": "greedy_tiebreak",
+    "K": 3,
+    "n": 6,
+    "T_size": 3,
+    "bound_ratio": "1"
+   }
+  },
+  "structured": [
+   {
+    "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+    "K": 1,
+    "n": 2,
+    "delta": "1",
+    "eta": "1",
+    "fT": "1",
+    "OPT": "1",
+    "bound": "1",
+    "outcome": "PASS (bound holds with equality, no information lost)"
+   },
+   {
+    "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+    "K": 2,
+    "n": 4,
+    "delta": "1",
+    "eta": "1",
+    "fT": "2",
+    "OPT": "2",
+    "bound": "2",
+    "outcome": "PASS (bound holds with equality, no information lost)"
+   },
+   {
+    "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+    "K": 3,
+    "n": 6,
+    "delta": "1",
+    "eta": "1",
+    "fT": "3",
+    "OPT": "3",
+    "bound": "3",
+    "outcome": "PASS (bound holds with equality, no information lost)"
+   },
+   {
+    "case": "n = 2K (delta = 1, eta = 1, bound = 1, trivial)",
+    "K": 4,
+    "n": 8,
+    "delta": "1",
+    "eta": "1",
+    "fT": "4",
+    "OPT": "4",
+    "bound": "4",
+    "outcome": "PASS (bound holds with equality, no information lost)"
+   },
+   {
+    "case": "K = 1, n = 2..12, every output with |T| <= 1",
+    "outputs_checked": 88,
+    "outcome": "PASS (f(T) = delta = 1/(n-1) <= K/(n-K) * OPT)"
+   },
+   {
+    "case": "smallest n for each K (n = 2K), exhaustive over all outputs",
+    "outputs_checked": 219,
+    "detail": [
+     {
+      "K": 1,
+      "n": 2,
+      "delta": "1",
+      "max_ratio_over_outputs": "1"
+     },
+     {
+      "K": 2,
+      "n": 4,
+      "delta": "1",
+      "max_ratio_over_outputs": "1"
+     },
+     {
+      "K": 3,
+      "n": 6,
+      "delta": "1",
+      "max_ratio_over_outputs": "1"
+     },
+     {
+      "K": 4,
+      "n": 8,
+      "delta": "1",
+      "max_ratio_over_outputs": "1"
+     }
+    ],
+    "outcome": "PASS (bound = 1 at n = 2K, so it is not binding)"
+   },
+   {
+    "case": "smallest instance overall K = 1, n = 2",
+    "K": 1,
+    "n": 2,
+    "delta": "1",
+    "eta": "1",
+    "OPT": "1",
+    "outcome": "PASS (delta = 1, eta = 1, bound K/(n-K) = 1)"
+   }
+  ]
+ },
+ "reruns": [
+  {
+   "path": "/home/user/sub-modular-optimization/results/M0_counterexamples.py",
+   "rerun": true,
+   "reason": "",
+   "exit_code": 0,
+   "pass_lines": 9,
+   "fail_lines": 0,
+   "all_pass_marker": true,
+   "seconds": 0.5,
+   "writes_files": false
+  },
+  {
+   "path": "/home/user/sub-modular-optimization/results/J2_core_oracles.py",
+   "rerun": false,
+   "reason": "would overwrite results/J2_core_oracles.json; the task forbids modifying existing repo files",
+   "exit_code": null
+  }
+ ],
+ "violations": [],
+ "failed_checks": [],
+ "overall": "PASS",
+ "seconds": 32.4
+}

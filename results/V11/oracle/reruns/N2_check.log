@@ -1,0 +1,31 @@
+== Part A: full 2^{2K} lattice checks (floats) ==
+   ... K=2 done
+   ... K=3 done
+   ... K=4 done
+   ... K=5 done
+   ... K=6 done
+== Part B: exact (Fraction) count-lattice sweep, K=2..8 ==
+== Part C: general-K symbolic (sympy) ==
+== Part D: reproduce the recorded R5 table ==
+== Part E: strict-tie-breaking variant ==
+== Part F: L_K <= min_j V_j <= U_K ==
+== Part F2: asymmetric error splits eta_u * eta_o = eta ==
+== Part F3: j=0 / j=K endpoints (R2 and R7 instances) ==
+== Part G: predictor shape + K=2 LP witness ==
+== Part H: LP cross-checks ==
+wrote results/N2_examples.json
+
+  full  : 165/165 PASS
+  count : 152/152 PASS
+  sym   : 44/44 PASS
+  R5    : 25/25 PASS
+  strict: 12/12 PASS
+  bounds: 2/2 PASS
+  split : 24/24 PASS
+  R7    : 10/10 PASS
+  shape : 1/1 PASS
+  witness: 6/6 PASS
+  lp    : 39/39 PASS
+
+TOTAL 480/480 PASS
+wrote results/N2_check.json

@@ -1,0 +1,15 @@
+PASS J2 case-(b) consistency slack identity 
+PASS J2 case-(b) prediction slack identity 
+PASS J2 3-elem counterexample: greedy picks (e3,e1), ratio 1/2 
+PASS J2 3-elem counterexample: old etasel=1 but L_2(1)=3/4 > 1/2 
+PASS J2 two-rulers: f and ftilde monotone submodular 
+PASS J2 two-rulers: no C-vs-O tie at this step 
+PASS J2 two-rulers: no C-vs-O tie at this step 
+PASS J2 two-rulers: picks C twice, ratio 7/16 
+PASS J2 two-rulers: etasel=2, etatr=6, eta=27/2 sel=2 tr=6 glob=27/2
+PASS J2 two-rulers: ratio = L_2(2) < rho_2(2)=1/2 
+PASS J2 hardness: edge extremes = A and 1/(theta B); eta_act=(theta K-1)/(K-tau) 
+PASS J2 hardness recalibration table (new bound stronger, >= L_K(eta)) 
+PASS J2 E2 zero steps: 225 affected K>=2 prefixes, 16 K=30 trajectories prefixes=225 trajs=16
+
+ALL PASS

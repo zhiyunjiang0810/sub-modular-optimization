@@ -1,0 +1,116 @@
+V11 oracle: thm:linear-anysize (ledger T10d, J7; Proposition)
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seed 20260918
+existing repository scripts are rerun by subprocess and never modified
+
+=== Criterion C ===
+PASS C1 rerun results/J7_symbolic.py: exit 0 (expected 0), 0 FAIL lines, 15.6s   PASS      116 | EXACT      15 | ASSEMBLY   17 | FAILED items: none
+      > EXACT    S12.4        0 < W_K - rho_K < 1/(K(e^(K-1)-K-1)) at every grid point
+      > EXACT    S12.5        full (x,y) count-grid legality battery (range, monotone, band, three DR second differences, O-independence on y <= 1, normalisation) on 10 exact-rational configurations
+      > PASS      116
+      > EXACT      15
+      > ASSEMBLY   17
+      > FAILED items: none
+PASS C1 results/J7_symbolic.json byte-identical after the rerun (restored=False)   sha256 14307741cd75d8f6 -> 14307741cd75d8f6
+PASS C2 rerun results/J7_grid_check.py: exit 0 (expected 0), 0 FAIL lines, 6.0s   configs: 99 | ALL PASS
+      > configs: 99
+      > ALL PASS
+PASS C3 rerun results/J7_fragment_checks.py: exit 0 (expected 0), 0 FAIL lines, 0.3s   ALL PASS
+      > ALL PASS
+PASS C4 rerun results/J7_bound18_check.py: exit 0 (expected 0), 0 FAIL lines, 0.0s   configs: 99 | ALL PASS
+      > configs: 99
+      > ALL PASS
+
+C5  F3 counterexample at K = 3, eta = 667/500   [VERIFIED-EXHAUSTIVE]
+PASS C5.1 j = 2   j=2
+PASS C5.2 old rule m = ceil(K eta) - 1 = 4   K eta = 2001/500, ceil = 5
+PASS C5.3 Psi rule gives m = 3   Psi(2)=2502/167>0, Psi(3)=-4073296/4657463<=0
+PASS C5.4 Psi(2) > 0 and Psi(3) <= 0 exactly   Psi(2)=2502/167 Psi(3)=-4073296/4657463
+PASS C5.5 old rule gives r_{t*} = -151089222203006/81950355825200625 < 0   r_{t*} = -151089222203006/81950355825200625 (-1.8436676776e-03)
+PASS C5.6 the excess-slope reading gives the same r_{t*}   identical exact fraction
+PASS C5.7 Psi rule family closes legally: r_{t*} = 20664743922357/157947123981500 >= 0   r_{t*} = 0.1308333030, g_{t*} = 0.1308333030
+PASS C5.8 Psi rule closing identity r_{t*} = g_{t*}   both = 20664743922357/157947123981500
+PASS C5.9 the true argmax of the plateau slope is m = 3   D(3)=0.250903569740 D(4)=0.250871183525
+     {"K": 3, "Psi(2)": "2502/167", "Psi(3)": "-4073296/4657463", "W": "286046512059143/473841371944500", "eta": "667/500", "j": 2, "m_Psi_rule": 3, "m_old_rule": 4, "r_tstar_Psi_rule": "20664743922357/157947123981500", "r_tstar_old_rule": "-151089222203006/81950355825200625", "t_star": 5}
+
+C6  running example K = 3, eta = 3/2   [VERIFIED-EXHAUSTIVE]
+PASS C6.1 j = 2, m = 4, t* = 6   j=2 m=4 t*=6
+PASS C6.2 B_m = 116, d = 13/58, Q = 9/16, D = 117/928   B_m=116 d=13/58 Q=9/16 D=117/928
+PASS C6.3 W_3(3/2) = 523/928 = 9/16 + 1/928   W = 523/928 (0.563577586)
+PASS C6.4 rho_3(3/2) = 9/16 and W - rho = 1/928   rho = 9/16 (0.562500000), gap = 1/928 (1.078e-03)
+PASS C6.5 W_3(3/2) = F(K,0) on the count grid   F(3,0) = 523/928
+PASS C6.6 W_3(3/2) < 2/3 = 1/eta (unconditional ceiling)   523/928 < 2/3
+     {"B_m": "116", "C": "4/3", "D": "117/928", "K": 3, "K_plus_t_star": 9, "Q": "9/16", "W_3": "523/928", "d": "13/58", "eta": "3/2", "gap": "1/928", "j": 2, "m": 4, "nu": "3", "one_over_eta": "2/3", "q": "3/4", "rho_3": "9/16", "t_star": 6}
+
+C7  own count-grid legality battery   [VERIFIED-EXHAUSTIVE]
+PASS C7 K=3 eta=3/2: 48 cells, 80 edges, 130 second differences, 10 leak cells, all legality checks 
+PASS C7 K=3 eta=2: 52 cells, 87 edges, 142 second differences, 12 leak cells, all legality checks 
+PASS C7 K=3 eta=667/500: 44 cells, 73 edges, 118 second differences, 8 leak cells, all legality checks 
+
+C8  own exact sweep of (5), (7), (8), (17), (18) on 99 configs   [VERIFIED-EXHAUSTIVE]
+PASS C8 99 configurations, 11 exact facts each (1089 assertions), no violation 
+    worst (W - rho)/bound over the sweep: {"K": 12, "bound_lower": "250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000/179583425538799069213084521922630857770751596734378084798822214292146374480235727258874250117614567696887", "eta": "25/2", "gap": "1816249060426471931081397084415022095710620741516323055109918990462799418455218915688596773828479900521761410098724432932268137124416171507931496957440092045323695035164212125383133341654067911458802467249/6136048000944702892220943589788134742775044102309360993157479600921968805243361648993727019852128745233507437861055126406765809888959601659271859903224653690462773377587676301697319246301499751224296382428430950", "gap_over_bound": 0.21262430010508027}
+
+C9  sympy cross-check of the d-identities   [VERIFIED-SYMBOLIC]
+PASS C9.1 (7a) d - 1/(m+1) = -Psi(m)/(K(m+1)B_m) identically   sympy simplify -> 0
+PASS C9.2 (7b) 1/m - d = nu Psi(m-1)/(K m B_m) identically   sympy simplify -> 0
+PASS C9.3 (8) d - 1/(K eta) = (m - eta(K-1))/(K eta B_m) identically   sympy simplify -> 0
+
+=== Criterion D ===
+
+D1  structured strategies, adversarial ties, count-grid DP   [VERIFIED-EXHAUSTIVE]
+  --- K=3 eta=3/2  j=2 m=4 t*=6  K+t*=9  W=523/928 (0.563577586)  rho=9/16 (0.562500000) ---
+    n= 8 (n<K+t*   ) fwd=0.563577586 rev=1.000000000 max=1.000000000  W=0.563577586  fwd<=W:True rev<=W:False  rev==1:True  q_rev=30 vs nK=24
+    n= 9 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=39 vs nK=27
+    n=10 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=49 vs nK=30
+    n=11 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=60 vs nK=33
+    n=12 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=72 vs nK=36
+    n=13 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=85 vs nK=39
+    n=14 (n>=K+t*  ) fwd=0.563577586 rev=0.563577586 max=0.563577586  W=0.563577586  fwd<=W:True rev<=W:True  rev==1:False  q_rev=99 vs nK=42
+  --- K=3 eta=2  j=2 m=5 t*=7  K+t*=10  W=2003/4275 (0.468538012)  rho=7/15 (0.466666667) ---
+    n= 8 (n<K+t*   ) fwd=0.468538012 rev=1.000000000 max=1.000000000  W=0.468538012  fwd<=W:True rev<=W:False  rev==1:True  q_rev=30 vs nK=24
+    n= 9 (n<K+t*   ) fwd=0.468538012 rev=1.000000000 max=1.000000000  W=0.468538012  fwd<=W:True rev<=W:False  rev==1:True  q_rev=39 vs nK=27
+    n=10 (n>=K+t*  ) fwd=0.468538012 rev=0.468538012 max=0.468538012  W=0.468538012  fwd<=W:True rev<=W:True  rev==1:False  q_rev=49 vs nK=30
+    n=11 (n>=K+t*  ) fwd=0.468538012 rev=0.468538012 max=0.468538012  W=0.468538012  fwd<=W:True rev<=W:True  rev==1:False  q_rev=60 vs nK=33
+    n=12 (n>=K+t*  ) fwd=0.468538012 rev=0.468538012 max=0.468538012  W=0.468538012  fwd<=W:True rev<=W:True  rev==1:False  q_rev=72 vs nK=36
+    n=13 (n>=K+t*  ) fwd=0.468538012 rev=0.468538012 max=0.468538012  W=0.468538012  fwd<=W:True rev<=W:True  rev==1:False  q_rev=85 vs nK=39
+    n=14 (n>=K+t*  ) fwd=0.468538012 rev=0.468538012 max=0.468538012  W=0.468538012  fwd<=W:True rev<=W:True  rev==1:False  q_rev=99 vs nK=42
+  --- K=3 eta=667/500  j=2 m=3 t*=5  K+t*=8  W=286046512059143/473841371944500 (0.603675679)  rho=1521500/2522667 (0.603131527) ---
+    n= 8 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=30 vs nK=24
+    n= 9 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=39 vs nK=27
+    n=10 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=49 vs nK=30
+    n=11 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=60 vs nK=33
+    n=12 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=72 vs nK=36
+    n=13 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=85 vs nK=39
+    n=14 (n>=K+t*  ) fwd=0.603675679 rev=0.603675679 max=0.603675679  W=0.603675679  fwd<=W:True rev<=W:True  rev==1:False  q_rev=99 vs nK=42
+
+D2  300 random deterministic strategies, arbitrary-size queries, adversary over every placement of O   [VERIFIED-EXHAUSTIVE]
+    eta=3/2      n= 8 (n<K+t*   ):  20 strategies, adversary-min ratio max = n/a (leak regime)
+    eta=3/2      n= 9 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=3/2      n=10 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=3/2      n=11 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=3/2      n=12 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=3/2      n=13 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=3/2      n=14 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.563577586
+    eta=2        n= 8 (n<K+t*   ):  14 strategies, adversary-min ratio max = n/a (leak regime)
+    eta=2        n= 9 (n<K+t*   ):  14 strategies, adversary-min ratio max = n/a (leak regime)
+    eta=2        n=10 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.468538012
+    eta=2        n=11 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.468538012
+    eta=2        n=12 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.468538012
+    eta=2        n=13 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.468538012
+    eta=2        n=14 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.468538012
+    eta=667/500  n= 8 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n= 9 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n=10 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n=11 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n=12 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n=13 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+    eta=667/500  n=14 (n>=K+t*  ):  14 strategies, adversary-min ratio max = 0.603675679
+PASS D2 300 random arbitrary-size strategies; in the leak-free regime n >= K+t* every adversary-min ratio <= W_K(eta) (252 cases, 0 violations)   worst slack ratio - W = 0 at {"W": "523/928", "adversary_min_ratio": "523/928", "eta": "3/2", "n": 9, "queries": 1, "rule": 1}
+
+counts: {"C5_F3_counterexample": {"K": 3, "Psi(2)": "2502/167", "Psi(3)": "-4073296/4657463", "W": "286046512059143/473841371944500", "eta": "667/500", "j": 2, "m_Psi_rule": 3, "m_old_rule": 4, "r_tstar_Psi_rule": "20664743922357/157947123981500", "r_tstar_old_rule": "-151089222203006/81950355825200625", "t_star": 5}, "C6_running_example": {"B_m": "116", "C": "4/3", "D": "117/928", "K": 3, "K_plus_t_star": 9, "Q": "9/16", "W_3": "523/928", "d": "13/58", "eta": "3/2", "gap": "1/928", "j": 2, "m": 4, "nu": "3", "one_over_eta": "2/3", "q": "3/4", "rho_3": "9/16", "t_star": 6}, "C7_configs": [{"K": 3, "W": "523/928", "cells": 48, "edges": 80, "eta": "3/2", "gap": "1/928", "j": 2, "leak_cells": 10, "m": 4, "rho_K": "9/16", "second_differences": 130, "t_star": 6, "violations": 0}, {"K": 3, "W": "2003/4275", "cells": 52, "edges": 87, "eta": "2", "gap": "8/4275", "j": 2, "leak_cells": 12, "m": 5, "rho_K": "7/15", "second_differences": 142, "t_star": 7, "violations": 0}, {"K": 3, "W": "286046512059143/473841371944500", "cells": 44, "edges": 73, "eta": "667/500", "gap": "257841809143/473841371944500", "j": 2, "leak_cells": 8, "m": 3, "rho_K": "1521500/2522667", "second_differences": 118, "t_star": 5, "violations": 0}], "C8_assertions": 1089, "C8_configs": 99, "C8_worst_gap_over_bound": {"K": 12, "bound_lower": "250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000/179583425538799069213084521922630857770751596734378084798822214292146374480235727258874250117614567696887", "eta": "25/2", "gap": "1816249060426471931081397084415022095710620741516323055109918990462799418455218915688596773828479900521761410098724432932268137124416171507931496957440092045323695035164212125383133341654067911458802467249/6136048000944702892220943589788134742775044102309360993157479600921968805243361648993727019852128745233507437861055126406765809888959601659271859903224653690462773377587676301697319246301499751224296382428430950", "gap_over_bound": 0.21262430010508
+D1 worst slack ratio - W in the leak-free regime: {"slack_ratio_minus_W": "0", "where": {"K": 3, "W": "523/928", "candidate": "forward greedy (adversarial ties)", "eta": "3/2", "n": 9, "ratio": "523/928"}}
+D2 worst slack ratio - W in the leak-free regime: {"slack_ratio_minus_W": "0", "where": {"K": 3, "W": "523/928", "adversary_min_ratio": "523/928", "eta": "3/2", "n": 9, "queries": 1, "rule": 1}}
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/linear_anysize.json
+OVERALL: PASS (28 checks, 0 failed, 0 violations, 63 structured D cases, 300 random D strategies, 38.9s)

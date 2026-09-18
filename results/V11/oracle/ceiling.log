@@ -1,0 +1,32 @@
+V11 Q3 oracle: thm:ceiling (ledger T8), Proposition form
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seeds C2=20260918 C5=20260919 eta1=20260920 alg=20260921
+
+--- Criterion C, n >= 2K ---
+PASS C0 [VERIFIED-SYMBOLIC] sympy: C* two branches, slack identity (7), E decomposition (8), single-exchange decomposition (9), Horel-Singer eps=(eta-1)/(eta+1), adversary ratios  residuals all zero, 10 identities
+PASS C1 [VERIFIED-EXHAUSTIVE] n >= 2K adversary: monotone submodular, band with smallest factors exactly (eta_u,eta_o), O optimal with f(O)=cK eta_u, and f(T) <= f(O)/eta for every T disjoint from O  instances=186 subsets=73280 mono=337728 submod=704096 band_pairs=337728 disjoint_T_checks=4828
+PASS C1b (K = 1, run separately) [VERIFIED-EXHAUSTIVE] n >= 2K adversary: monotone submodular, band with smallest factors exactly (eta_u,eta_o), O optimal with f(O)=cK eta_u, and f(T) <= f(O)/eta for every T disjoint from O  instances=108 subsets=24528 mono=110592 submod=227316 band_pairs=110592 disjoint_T_checks=648
+PASS C2 [VERIFIED-EXHAUSTIVE] attainment, 2200 random exact instances (n >= 2K, n <= 7, K <= 3): worst ftilde-argmax K-set satisfies f(S) >= OPT/eta and f(S) >= K/(K+(eta-1)|O*\S|) OPT for every optimal O*  instances=2200 per-instance-checks=4454 rejected-draws=2830 families={"budget_additive": 297, "concave_cardinality": 262, "coverage": 242, "mixture(budget_additive,budget_additive)": 16, "mixture(budget_additive,concave_cardinality)": 12, "mixture(budget_additive,coverage)": 15, "mixture(budget_additive,modular)": 56, "mixture(concave_cardinality,budget_additive)": 10, "mixture(concave_cardinality,concave_cardinality)": 7, "mixture(concave_cardinality,coverage)": 6, "mixture(concave_cardinality,modular)": 41, "mixture(coverage,budget_additive)": 14, "mixture(coverage,concave_cardinality)": 13, "mixture(coverage,coverage)": 7, "mixture(coverage,modular)": 39, "mixture(modular,budget_additive)": 41, "mixture(modular,concave_cardinality)": 33, "mixture(modular,coverage)": 37, "mixture(modular,modular)": 65, "modular": 987}
+PASS C3 [VERIFIED-EXHAUSTIVE] adversary direction against predictive greedy on ftilde, exhaustive argmax ftilde and a fixed output: f(T)/f(O*) <= 1/eta on every adversary instance  runs=882 largest ratio-over-bound margin at {"K": 1, "alg": "predictive_greedy", "bound": "1", "eta": "1", "n": 2, "ratio": "1"}
+
+--- Criterion C, K <= n < 2K ---
+PASS C4 [VERIFIED-LP floats] rerun of results/J5_hardcore/J5_hardcore_oracles.py (slack identities (7)(8)(9), 52 full-lattice LPs, 24 modular adversary instances); the 52 LPs use scipy linprog, so that item is float LP, not exact; the modular instances and the K=4 dual certificates are exact  exit_code=0 seconds=26.9 {"K4_dual_certificates": "K=4 eta=3/2: all 16 rational dual certificates pass; minimum 23/41", "PE1_witness": "PE1 rational witness: 4/9; greedy on same instance: 5/9; count table and zero padding pass", "double_submodular_instances": "double-submodular instances: 56", "exhaustive_search_LPs": "exhaustive-search independent LPs: 52", "modular_witnesses": "modular witnesses: {'instances': 24, 'all_pairs_gains_checked': 37056}", "monotonicity_numerator_terms": "monotonicity numerator terms: 84", "status": "status: PASS", "symbolic_identities": "symbolic identities: 14"}
+PASS C5 [VERIFIED-EXHAUSTIVE] K <= n < 2K, 1200 random exact instances (K = 2..4, n = K..2K-1): exhaustive argmax ftilde satisfies the per-instance form and C*_{n,K}  instances=1200 per-instance-checks=2330 rejected-draws=966
+PASS C6 [VERIFIED-EXHAUSTIVE] K <= n < 2K adversary of app:ceiling: ratio exactly K/(K+(eta-1)min{K,n-K}), band factors exactly (eta_u,eta_o) (at n = K the calibrated mixed-weight variant, output the whole ground set, ratio 1)  instances=198 mono=68892 submod=119116 band_pairs=68892 n=1_factor_exempt=12
+
+--- Criterion D ---
+  structured eta = 1                            PASS  C* = 1 on every (n,K) checked; 144 random instances with ftilde = c f have actual eta = 1 and the ftilde-argmax K-set is exactly optimal
+  structured eta = K                            PASS  K=2 n=4 ratio=1/2 C*=1/2; K=3 n=6 ratio=1/3 C*=1/3; K=4 n=8 ratio=1/4 C*=1/4
+  structured n = 2K                             PASS  both branches of C* equal 1/eta at n = 2K; adversary at eta = 3/2: K=1 ratio=2/3; K=2 ratio=2/3; K=3 ratio=2/3; K=4 ratio=2/3
+  structured n = K (output the whole ground set) PASS  C* = 1 and the ratio is exactly 1 on every split; the calibrated mixed-weight variant still attains both error ends; K=2 ratio=1; K=3 ratio=1; K=4 ratio=1; K=5 ratio=1
+  structured n = 2K-1                           PASS  C* = K/(1+(K-1)eta), attained exactly; K=2 C*(eta=3/2)=4/5; K=3 C*(eta=3/2)=3/4; K=4 C*(eta=3/2)=8/11; K=5 C*(eta=3/2)=5/7
+PASS D structured cases (eta=1, eta=K, n=2K, n=K, n=2K-1)  5 cases, 5 PASS
+
+counts: {"C0_identities": 10, "C1_adversary_instances": 186, "C1_band_pairs": 448320, "C1_disjoint_T_checks": 5476, "C1_mono_checks": 448320, "C1_submod_checks": 931412, "C1b_adversary_instances": 108, "C2_per_instance_checks": 4454, "C2_random_instances": 2200, "C2_rejected_ftilde_draws": 2830, "C2_zero_OPT_instances": 5, "C3_algorithm_runs": 882, "C5_per_instance_checks": 2330, "C5_random_instances": 1200, "C5_rejected_ftilde_draws": 966, "C6_band_pairs": 68892, "C6_instances": 198, "C6_mono_checks": 68892, "C6_submod_checks": 119116, "D_eta1_random_instances": 144, "D_random_instances_total": 3544}
+running example K=3 eta=3/2: {"adversary_n5": {"C*_{5,3}": "3/4", "f(O)": "4", "f(S)": "3", "ratio": "3/4"}, "adversary_n6": {"1/eta": "2/3", "f(O)": "9/2", "f(T)": "3", "ratio": "2/3"}, "per_instance": {"0": "1", "1": "6/7", "2": "3/4", "3": "2/3"}}
+worst per-instance slack: 0 at {"K": 1, "a": 0, "bound": "1", "eta": "372/227", "family": "concave_cardinality", "n": 2, "ratio": "1", "tag": "C2"}
+worst global slack (f(S)/OPT - 1/eta): 0 at {"K": 1, "bound": "1", "eta": "1", "family": "budget_additive", "n": 5, "ratio": "1", "tag": "C2"}
+tightest adversary margin (1/eta - max ratio over disjoint T): 0 at {"K": 2, "bound_1_over_eta": "1", "eta": "1", "eta_o": "1", "eta_u": "1", "max_ratio_over_disjoint_T": "1", "n": 4}
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/ceiling.json
+OVERALL: PASS (9 checks, 0 failed, 55.0s)

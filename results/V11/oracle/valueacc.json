@@ -1,0 +1,332 @@
+{
+ "script": "results/V11/oracle/valueacc.py",
+ "statement": "prop:valueacc (ledger T2, convention-B rewrite of 2026-09-18); source results/V11/inputs/statement_valueacc.md",
+ "route_one_sources": [
+  "paper/sections/appendix_model_proofs.tex (Proof of Proposition prop:valueacc)",
+  "paper/sections/appendix_proofs.tex subsection app:valueacc (old convention)",
+  "THEOREM_LEDGER.md section ## T2"
+ ],
+ "seeds": {
+  "part_i": 20260918,
+  "part_ii": 20260919,
+  "part_iii": 20260920
+ },
+ "counts": {
+  "C2_random_instances": 200,
+  "C4_legal_surrogates": 2200,
+  "C4_rejected_draws": 404,
+  "C4_subsets_scanned": 57840,
+  "C4_kinds": {
+   "scaled": 498,
+   "plus_modular": 1418,
+   "elementwise": 181,
+   "jitter": 103
+  },
+  "C4_tight_lower_end": 34472,
+  "C4_tight_upper_end": 31725,
+  "C4_eta_gt_1": 1253,
+  "C4b_non_submodular_instances": 400,
+  "C5_zero_gain_instances": 25,
+  "D_i_draws": 2000,
+  "D_ii_draws": 1997,
+  "D_total_random": 6597,
+  "monotone_checks": 182476,
+  "submodularity_checks": 401245,
+  "value_accuracy_subset_checks": 216,
+  "band_pair_checks": 183231
+ },
+ "criterion_C": {
+  "checks": [
+   {
+    "name": "C1 part (i) base n=2, eps=1/10",
+    "status": "PASS",
+    "detail": "eps=1/10 n=2: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=1/10, no finite eta_u=True, d=0 => dtilde=0 on 0 pairs=True",
+    "eps": "1/10",
+    "n": 2,
+    "pad": 0,
+    "d_b_at_a": "1/10",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 0
+   },
+   {
+    "name": "C1 part (i) base n=2, eps=1/2",
+    "status": "PASS",
+    "detail": "eps=1/2 n=2: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=1/2, no finite eta_u=True, d=0 => dtilde=0 on 0 pairs=True",
+    "eps": "1/2",
+    "n": 2,
+    "pad": 0,
+    "d_b_at_a": "1/2",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 0
+   },
+   {
+    "name": "C1 part (i) base n=2, eps=9/10",
+    "status": "PASS",
+    "detail": "eps=9/10 n=2: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=9/10, no finite eta_u=True, d=0 => dtilde=0 on 0 pairs=True",
+    "eps": "9/10",
+    "n": 2,
+    "pad": 0,
+    "d_b_at_a": "9/10",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 0
+   },
+   {
+    "name": "C1 part (i) padded n=6 (4 zero-gain elements), eps=1/10",
+    "status": "PASS",
+    "detail": "eps=1/10 n=6: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=1/10, no finite eta_u=True, d=0 => dtilde=0 on 128 pairs=True",
+    "eps": "1/10",
+    "n": 6,
+    "pad": 4,
+    "d_b_at_a": "1/10",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 128
+   },
+   {
+    "name": "C1 part (i) padded n=6 (4 zero-gain elements), eps=1/2",
+    "status": "PASS",
+    "detail": "eps=1/2 n=6: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=1/2, no finite eta_u=True, d=0 => dtilde=0 on 128 pairs=True",
+    "eps": "1/2",
+    "n": 6,
+    "pad": 4,
+    "d_b_at_a": "1/2",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 128
+   },
+   {
+    "name": "C1 part (i) padded n=6 (4 zero-gain elements), eps=9/10",
+    "status": "PASS",
+    "detail": "eps=9/10 n=6: normalized+monotone+submodular=True, value-accurate at level eps=True (min slack 0 at S=0), dtilde_b({a})=0 < d_b({a})=9/10, no finite eta_u=True, d=0 => dtilde=0 on 128 pairs=True",
+    "eps": "9/10",
+    "n": 6,
+    "pad": 4,
+    "d_b_at_a": "9/10",
+    "dtilde_b_at_a": "0",
+    "value_accuracy_min_slack": "0",
+    "zero_gain_pairs": 128
+   },
+   {
+    "name": "C1b [VERIFIED-EXHAUSTIVE] old appendix (i) instance f(b)=2eps/(1-eps), f(ab)=(1+eps)/(1-eps), ftilde(a)=ftilde(ab)=1+eps",
+    "status": "PASS",
+    "detail": "eps=1/10: modular+monotone+VA ok, d_b({a})=2/9, dtilde_b({a})=0, min VA slack 0 at S=0; eps=1/2: modular+monotone+VA ok, d_b({a})=2, dtilde_b({a})=0, min VA slack 0 at S=0; eps=9/10: modular+monotone+VA ok, d_b({a})=18, dtilde_b({a})=0, min VA slack 0 at S=0"
+   },
+   {
+    "name": "C2a [VERIFIED-SYMBOLIC] sympy in M: smallest eta_o = 1+M, smallest eta_u = 1/(1+M), product eta = 1; band ends both attained",
+    "status": "PASS",
+    "detail": "residuals 0, 0, 0, 0",
+    "eta_u": "1/(1+M)",
+    "eta_o": "1+M",
+    "eta": "1"
+   },
+   {
+    "name": "C2b [VERIFIED-EXHAUSTIVE] 200 random monotone submodular f (coverage/modular/mixture/budget, n <= 6) with random rational M: smallest factors = (1/(1+M), 1+M), eta = 1, value accuracy fails below M, argmax of dtilde = argmax of d at every state",
+    "status": "PASS",
+    "detail": "instances=200 failures=0",
+    "failures": []
+   },
+   {
+    "name": "C3a [VERIFIED-SYMBOLIC] c/eta_u = 1-eps and c*eta_o = 1+eps for c = 2 eta_u/(eta+1), eps = (eta-1)/(eta+1), eta = eta_u eta_o; also 1-eps = 2/(eta+1), 1+eps = 2eta/(eta+1), (1-eps)/(1+eps) = 1/eta",
+    "status": "PASS",
+    "detail": "residuals 0, 0, 0, 0, 0"
+   },
+   {
+    "name": "C3b [VERIFIED-SYMBOLIC] eps(1) = 0, 1-eps = 2/(eta+1) > 0 for eta >= 1 (so eps < 1), d eps/d eta = 2/(eta+1)^2 > 0 (so eps in [0,1))",
+    "status": "PASS",
+    "detail": "residuals 0, 0, 0"
+   },
+   {
+    "name": "C4 [VERIFIED-EXHAUSTIVE] 2200 random legal surrogates (n <= 7; f exact monotone submodular; eta_u, eta_o the ACTUAL smallest factors): chain band f/eta_u <= ftilde <= eta_o f and (1-eps) f <= c ftilde <= (1+eps) f on every subset",
+    "status": "PASS",
+    "detail": "surrogates=2200 subsets=57840 rejected draws=404 violations=0 kinds={'scaled': 498, 'plus_modular': 1418, 'elementwise': 181, 'jitter': 103}",
+    "violations": []
+   },
+   {
+    "name": "C4b [VERIFIED-EXHAUSTIVE] part (iii) on 400 monotone f that FAIL the submodularity test (the statement's claim that (iii) uses no submodularity): chain band and value accuracy of c*ftilde hold",
+    "status": "PASS",
+    "detail": "instances=400 violations=0 (each instance was checked to be monotone and to have a submodularity violation before use)",
+    "violations": []
+   },
+   {
+    "name": "C5a [VERIFIED-EXHAUSTIVE] structured: eta = 1, ftilde = c0 f, c = 2 eta_u/(eta+1) = eta_u = 1/c0 and c*ftilde = f exactly, eps = 0",
+    "status": "PASS",
+    "detail": "c0=1 -> eta_u=1 eta_o=1 eta=1 eps=0 c=1, c*ftilde == f: True; c0=1/7 -> eta_u=7 eta_o=1/7 eta=1 eps=0 c=7, c*ftilde == f: True; c0=13/3 -> eta_u=3/13 eta_o=13/3 eta=1 eps=0 c=3/13, c*ftilde == f: True; c0=1000 -> eta_u=1/1000 eta_o=1000 eta=1 eps=0 c=1/1000, c*ftilde == f: True"
+   },
+   {
+    "name": "C5b [VERIFIED-EXHAUSTIVE] structured: very large eta, eps = (eta-1)/(eta+1) stays in (0,1) and both bands hold",
+    "status": "PASS",
+    "detail": "spread=100 -> eta=10000 eps=9999/10001 (float 0.999800020) c=200/10001 ok=True; spread=10000 -> eta=100000000 eps=99999999/100000001 (float 0.999999980) c=20000/100000001 ok=True; spread=1000000 -> eta=1000000000000 eps=999999999999/1000000000001 (float 1.000000000) c=2000000/1000000000001 ok=True"
+   },
+   {
+    "name": "C5c [VERIFIED-EXHAUSTIVE] structured: f with zero-gain elements, 25 instances",
+    "status": "PASS",
+    "detail": "instances with at least one zero-gain element: 25, all bands hold and dtilde = 0 wherever d = 0"
+   },
+   {
+    "name": "C6 [VERIFIED-SYMBOLIC] rescaling ftilde by c maps (eta_u, eta_o) -> (c eta_u, eta_o/c) with eta unchanged, and the rescaling constant of (iii) composes so that c*ftilde is the same function either way",
+    "status": "PASS",
+    "detail": "residuals 0, 0"
+   },
+   {
+    "name": "C7a [VERIFIED-SYMBOLIC] old level max{1-1/eta_u, eta_o-1} leaves (0,1) exactly when eta_o >= 2 (the reason for the old eta_o < 2 proviso); the convention-B level (eta-1)/(eta+1) never does",
+    "status": "PASS",
+    "detail": "at (eta_u, eta_o) = (1, 5/2): old level = 3/2 >= 1, new level = 3/7 (float 0.428571)",
+    "old_level": "3/2",
+    "new_level": "3/7"
+   },
+   {
+    "name": "C7b rerun of the existing repo script results/M1_checks.py (old-convention (iii) domain boundary and band-rescaling identities; not modified)",
+    "status": "PASS",
+    "detail": "exit_code=0 PASS lines=8 FAIL lines=0 tail=['PASS eta_o - 1 < 1  iff  eta_o < 2 (boundary identity) ', 'PASS 1 - 1/eta_u < 1 always (difference -1/eta_u < 0) ', 'ALL PASS']"
+   },
+   {
+    "name": "D [VERIFIED-EXHAUSTIVE] counterexample search: 6597 random draws ((i) 2000, (ii) 1997, (iii) 2200 legal surrogates on submodular f plus 400 on monotone non-submodular f), violations = 0",
+    "status": "PASS",
+    "detail": "violations=0",
+    "violations": []
+   },
+   {
+    "name": "RE [VERIFIED-EXHAUSTIVE] running example K = 3, eta = 3/2 numbers",
+    "status": "PASS",
+    "detail": "eps = 1/5, c = 4/5, f(S) = 3, ftilde(S) = 7/2, c ftilde(S) = 14/5 in [12/5, 18/5]"
+   }
+  ],
+  "pass": 21,
+  "fail": 0
+ },
+ "criterion_D": {
+  "random_draws_total": 6597,
+  "part_i_draws": 2000,
+  "part_ii_draws": 1997,
+  "part_iii_legal_surrogates": 2200,
+  "part_iii_non_submodular_instances": 400,
+  "violations": 0,
+  "violation_records": [],
+  "structured_cases": [
+   {
+    "case": "eta = 1 (ftilde = c0 f)",
+    "outcome": "PASS",
+    "detail": "c0=1 -> eta_u=1 eta_o=1 eta=1 eps=0 c=1, c*ftilde == f: True; c0=1/7 -> eta_u=7 eta_o=1/7 eta=1 eps=0 c=7, c*ftilde == f: True; c0=13/3 -> eta_u=3/13 eta_o=13/3 eta=1 eps=0 c=3/13, c*ftilde == f: True; c0=1000 -> eta_u=1/1000 eta_o=1000 eta=1 eps=0 c=1/1000, c*ftilde == f: True"
+   },
+   {
+    "case": "very large eta (per-element factors on modular f)",
+    "outcome": "PASS",
+    "detail": "spread=100 -> eta=10000 eps=9999/10001 (float 0.999800020) c=200/10001 ok=True; spread=10000 -> eta=100000000 eps=99999999/100000001 (float 0.999999980) c=20000/100000001 ok=True; spread=1000000 -> eta=1000000000000 eps=999999999999/1000000000001 (float 1.000000000) c=2000000/1000000000001 ok=True"
+   },
+   {
+    "case": "monotone f that is NOT submodular (C4b)",
+    "outcome": "PASS",
+    "detail": "400 instances, each confirmed monotone and confirmed to violate submodularity; violations 0"
+   },
+   {
+    "case": "f with zero-gain elements",
+    "outcome": "PASS",
+    "detail": "instances with at least one zero-gain element: 25, all bands hold and dtilde = 0 wherever d = 0"
+   }
+  ],
+  "worst_relative_slack": "0",
+  "worst_slack_witness": {
+   "n": 4,
+   "S": 1,
+   "f": "1/2",
+   "ftilde": "9/2",
+   "eta_u": "1/9",
+   "eta_o": "9",
+   "eta": "1",
+   "eps": "0",
+   "c": "1/9",
+   "f_kind": "coverage",
+   "surrogate": "scaled(c=9)"
+  },
+  "worst_relative_slack_eta_gt_1": "0",
+  "worst_slack_witness_eta_gt_1": {
+   "n": 2,
+   "S": 1,
+   "f": "1/2",
+   "ftilde": "1/2",
+   "eta_u": "1",
+   "eta_o": "89/80",
+   "eta": "89/80",
+   "eps": "9/169",
+   "c": "160/169",
+   "f_kind": "budget",
+   "surrogate": "plus_modular(theta=9/8)"
+  },
+  "largest_eta": "22608/35",
+  "largest_eta_witness": {
+   "n": 6,
+   "f_kind": "modular",
+   "surrogate": "jitter",
+   "eta_u": "360",
+   "eta_o": "314/175"
+  }
+ },
+ "witnesses": {
+  "C4_worst_relative_slack": {
+   "relative_slack": "0",
+   "absolute_slack": "0",
+   "at": {
+    "n": 4,
+    "S": 1,
+    "f": "1/2",
+    "ftilde": "9/2",
+    "eta_u": "1/9",
+    "eta_o": "9",
+    "eta": "1",
+    "eps": "0",
+    "c": "1/9",
+    "f_kind": "coverage",
+    "surrogate": "scaled(c=9)"
+   }
+  },
+  "C4_worst_relative_slack_eta_gt_1": {
+   "relative_slack": "0",
+   "at": {
+    "n": 2,
+    "S": 1,
+    "f": "1/2",
+    "ftilde": "1/2",
+    "eta_u": "1",
+    "eta_o": "89/80",
+    "eta": "89/80",
+    "eps": "9/169",
+    "c": "160/169",
+    "f_kind": "budget",
+    "surrogate": "plus_modular(theta=9/8)"
+   }
+  },
+  "C4_largest_eta": {
+   "eta": "22608/35",
+   "at": {
+    "n": 6,
+    "f_kind": "modular",
+    "surrogate": "jitter",
+    "eta_u": "360",
+    "eta_o": "314/175"
+   }
+  }
+ },
+ "reran_repo_scripts": [
+  {
+   "path": "results/M1_checks.py",
+   "exit_code": 0,
+   "pass_lines": 8,
+   "fail_lines": 0,
+   "tail": [
+    "PASS eta_o - 1 < 1  iff  eta_o < 2 (boundary identity) ",
+    "PASS 1 - 1/eta_u < 1 always (difference -1/eta_u < 0) ",
+    "ALL PASS"
+   ]
+  }
+ ],
+ "running_example_K3_eta_1_5": [
+  "K = 3, eta = 3/2: (eta_u, eta_o) = (1, 3/2), eps = (eta-1)/(eta+1) = 1/5, c = 2 eta_u/(eta+1) = 4/5.",
+  "modular instance n = 4, weights (1,1,1,1), predicted factors (1, 3/2, 1, 3/2); on the 3-set S = {0,1,2}: f(S) = 3, ftilde(S) = 7/2, c ftilde(S) = 14/5.",
+  "band: (1-eps) f(S) = 12/5 <= 14/5 <= 18/5 = (1+eps) f(S); (1-eps)/(1+eps) = 2/3 = 1/eta."
+ ],
+ "elapsed_seconds": 7.78,
+ "exit_code": 0
+}

@@ -1,0 +1,1098 @@
+{
+  "theorem": "thm:hardness (ledger T10, paper Theorem 3)",
+  "statement_file": "results/V11/inputs/statement_hardness.md",
+  "route_one_material": [
+    "paper/sections/appendix_proofs.tex app:hardness",
+    "THEOREM_LEDGER.md section T10"
+  ],
+  "seed": 20260918,
+  "elapsed_seconds": 15.86,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "C1 rerun results/J2_core_oracles.py",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "exit=0, 6.37s, count-grid instances=264, edges=57728, symbolic identities=24, dual sums=456, R6 LP objectives=1536, json restored=True"
+    },
+    {
+      "name": "C2 rerun results/H3_j2_recheck.py",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "exit=0, 0.45s, PASS lines=13, FAIL lines=0, ALL PASS=True"
+    },
+    {
+      "name": "C3 exact error product theta*A*B",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "sympy residue 0; exact rational sweep 396 (K,tau,theta) triples, 0 violations; inflation delta = A B - 1 = (tau-1/theta)/(K-tau) also exact"
+    },
+    {
+      "name": "C4 exact min{H,1/eta} table",
+      "status": "VERIFIED-EXHAUSTIVE",
+      "detail": "30 cells in the domain, 20 of them NOT binding (H > 1/eta); tightest cell K=7, tau=3, eta=3/2 with |H - 1/eta| = 16265/2470629; all entries exact rationals"
+    },
+    {
+      "name": "C5 tau=2, eta=3/2 column expectation",
+      "status": "VERIFIED-EXHAUSTIVE",
+      "detail": "K=3 is outside the domain (not merely non-binding); K=4 not binding; K=5..8 binding"
+    },
+    {
+      "name": "C6 identity H_{K,1} = U_K",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "sympy residue 0 in (K, eta); exact rational sweep 114 (K,eta) pairs, 0 violations"
+    },
+    {
+      "name": "C7 limit 1 - e^{-1/eta}",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "sympy limit exact; 18 exact rational convergence points (K up to 1600, tau=2, three eta), 0 violations. The target is an exact rational enclosure from the alternating Taylor series, width below 1e-30, so every comparison stays exact"
+    },
+    {
+      "name": "C8 calibration thetabar",
+      "status": "VERIFIED-SYMBOLIC",
+      "detail": "sympy residues 0; exact sweep 264 (K,tau,eta) triples in the domain, 0 violations"
+    },
+    {
+      "name": "D counterexample search on the family",
+      "status": "VERIFIED-EXHAUSTIVE",
+      "detail": "2000 random + 84 structured configurations, 0 violations"
+    }
+  ],
+  "counts": {
+    "C1_J2": {
+      "exact_count_grid_cases": 264,
+      "edges_checked": 57728,
+      "K_range": [
+        2,
+        12
+      ],
+      "symbolic_identities": 24,
+      "dual_weighted_sums": 456,
+      "R6_lp_objectives": 1536,
+      "all_passed": true
+    },
+    "C2_H3": {
+      "pass_lines": 13,
+      "fail_lines": 0,
+      "all_pass": true,
+      "edge_extremes_line": "PASS J2 hardness: edge extremes = A and 1/(theta B); eta_act=(theta K-1)/(K-tau)",
+      "recalibration_line": "PASS J2 hardness recalibration table (new bound stronger, >= L_K(eta))"
+    },
+    "C3_product_cases": 396,
+    "C4_cells": 30,
+    "C4_nonbinding": 20,
+    "C4_tightest_cell": {
+      "K": 7,
+      "tau": 3,
+      "eta": "3/2",
+      "gap": "16265/2470629",
+      "gap_float": 0.006583343755780411,
+      "which": "H",
+      "binding": true
+    },
+    "C5_notes": [
+      "K=3 is OUTSIDE the domain: (K-1)/(K-tau) = 2 > 3/2, so the cell does not exist and cannot be 'not binding'",
+      "K=4 NOT binding as expected: H = 175/256 (0.683594) > 2/3",
+      "K=5 binding: H = 0.633352 <= 2/3",
+      "K=6 binding: H = 0.603431 <= 2/3",
+      "K=7 binding: H = 0.583614 <= 2/3",
+      "K=8 binding: H = 0.569533 <= 2/3"
+    ],
+    "C6_cases": 114,
+    "C7_convergence_points": 18,
+    "C8_cases": 264,
+    "D_random": 2000,
+    "D_random_passed": 2000,
+    "D_random_distinct": 2000
+  },
+  "violations": [],
+  "reruns": [
+    {
+      "name": "J2_core_oracles",
+      "script": "results/J2_core_oracles.py",
+      "exit_code": 0,
+      "seconds": 6.37,
+      "stdout_tail": [
+        "  },",
+        "  \"elapsed_seconds\": 5.745200834999196,",
+        "  \"all_passed\": true",
+        "}"
+      ],
+      "outputs_before_sha256": {
+        "results/J2_core_oracles.json": "c12fc7cd5e96eff45a6f13c49e55f107082d87acd3a7b717e65635b3a73a9891"
+      },
+      "outputs_after_rerun_sha256": {
+        "results/J2_core_oracles.json": "0561eb5674fcbf877a2b30871b823e2c89dbd4b65d387eb209587d8978e8fc90"
+      },
+      "outputs_restored_bytewise": {
+        "results/J2_core_oracles.json": true
+      },
+      "copy_dir": "results/V11/oracle/reruns_hardness",
+      "key_counts": {
+        "exact_count_grid_cases": 264,
+        "edges_checked": 57728,
+        "K_range": [
+          2,
+          12
+        ],
+        "symbolic_identities": 24,
+        "dual_weighted_sums": 456,
+        "R6_lp_objectives": 1536,
+        "all_passed": true
+      }
+    },
+    {
+      "name": "H3_j2_recheck",
+      "script": "results/H3_j2_recheck.py",
+      "exit_code": 0,
+      "seconds": 0.45,
+      "stdout_tail": [
+        "PASS J2 hardness recalibration table (new bound stronger, >= L_K(eta)) ",
+        "PASS J2 E2 zero steps: 225 affected K>=2 prefixes, 16 K=30 trajectories prefixes=225 trajs=16",
+        "",
+        "ALL PASS"
+      ],
+      "outputs_before_sha256": {},
+      "outputs_after_rerun_sha256": {},
+      "outputs_restored_bytewise": {},
+      "copy_dir": "results/V11/oracle/reruns_hardness",
+      "key_counts": {
+        "pass_lines": 13,
+        "fail_lines": 0,
+        "all_pass": true,
+        "edge_extremes_line": "PASS J2 hardness: edge extremes = A and 1/(theta B); eta_act=(theta K-1)/(K-tau)",
+        "recalibration_line": "PASS J2 hardness recalibration table (new bound stronger, >= L_K(eta))"
+      }
+    }
+  ],
+  "C4_table": [
+    {
+      "K": 3,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "2",
+      "H": "19/27",
+      "H_float": 0.7037037037037037,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 3,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "2",
+      "H": "37/64",
+      "H_float": 0.578125,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "3/2",
+      "H": "175/256",
+      "H_float": 0.68359375,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "2/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "3/2",
+      "H": "369/625",
+      "H_float": 0.5904,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "3/2",
+      "H": "1105/2401",
+      "H_float": 0.4602249062890462,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "3",
+      "H": "175/256",
+      "H_float": 0.68359375,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "4/3",
+      "H": "102002/161051",
+      "H_float": 0.6333521679467995,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "102002/161051",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "4/3",
+      "H": "9031/16807",
+      "H_float": 0.5373356339620396,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "4/3",
+      "H": "40951/100000",
+      "H_float": 0.40951,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "2",
+      "H": "2101/3125",
+      "H_float": 0.67232,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "2",
+      "H": "9031/16807",
+      "H_float": 0.5373356339620396,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "5/4",
+      "H": "70993/117649",
+      "H_float": 0.603430543396034,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "70993/117649",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 6,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "5/4",
+      "H": "269297/531441",
+      "H_float": 0.5067298157274279,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "5/4",
+      "H": "1840825/4826809",
+      "H_float": 0.38137514867482847,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "5/3",
+      "H": "70993/117649",
+      "H_float": 0.603430543396034,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "5/3",
+      "H": "468559/1000000",
+      "H_float": 0.468559,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 2,
+      "eta": "6/5",
+      "eta_lower_bound": "6/5",
+      "H": "543607/823543",
+      "H_float": 0.6600833229108862,
+      "inv_eta": "5/6",
+      "inv_eta_float": 0.8333333333333334,
+      "min": "543607/823543",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 7,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "6/5",
+      "H": "239479298/410338673",
+      "H_float": 0.5836137653055188,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "239479298/410338673",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 7,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "6/5",
+      "H": "9487171/19487171",
+      "H_float": 0.4868418817692932,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "9487171/19487171",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 7,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "6/5",
+      "H": "97576081/268435456",
+      "H_float": 0.3634992279112339,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 3,
+      "eta": "3/2",
+      "eta_lower_bound": "3/2",
+      "H": "543607/823543",
+      "H_float": 0.6600833229108862,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "543607/823543",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 7,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "3/2",
+      "H": "2685817/4782969",
+      "H_float": 0.5615376139799358,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "3/2",
+      "H": "26916709/62748517",
+      "H_float": 0.4289616756998416,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 2,
+      "eta": "6/5",
+      "eta_lower_bound": "7/6",
+      "H": "5163815321665/7984925229121",
+      "H_float": 0.6466955135450211,
+      "inv_eta": "5/6",
+      "inv_eta_float": 0.8333333333333334,
+      "min": "5163815321665/7984925229121",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 8,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "7/6",
+      "H": "56953279/100000000",
+      "H_float": 0.56953279,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "56953279/100000000",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 8,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "7/6",
+      "H": "385749025/815730721",
+      "H_float": 0.47288770064600766,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "385749025/815730721",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 8,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "7/6",
+      "H": "5963602465/16983563041",
+      "H_float": 0.3511396548888637,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 3,
+      "eta": "3/2",
+      "eta_lower_bound": "7/5",
+      "H": "4412866816/6975757441",
+      "H_float": 0.6326003811519283,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "4412866816/6975757441",
+      "binding": true,
+      "which": "H"
+    },
+    {
+      "K": 8,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "7/5",
+      "H": "114358881/214358881",
+      "H_float": 0.5334926197902666,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "7/5",
+      "H": "1732076671/4294967296",
+      "H_float": 0.4032805261667818,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    }
+  ],
+  "C4_nonbinding_cells": [
+    {
+      "K": 3,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "2",
+      "H": "19/27",
+      "H_float": 0.7037037037037037,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 3,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "2",
+      "H": "37/64",
+      "H_float": 0.578125,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "3/2",
+      "eta_lower_bound": "3/2",
+      "H": "175/256",
+      "H_float": 0.68359375,
+      "inv_eta": "2/3",
+      "inv_eta_float": 0.6666666666666666,
+      "min": "2/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "3/2",
+      "H": "369/625",
+      "H_float": 0.5904,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "3/2",
+      "H": "1105/2401",
+      "H_float": 0.4602249062890462,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 4,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "3",
+      "H": "175/256",
+      "H_float": 0.68359375,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "4/3",
+      "H": "9031/16807",
+      "H_float": 0.5373356339620396,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "4/3",
+      "H": "40951/100000",
+      "H_float": 0.40951,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "2",
+      "H": "2101/3125",
+      "H_float": 0.67232,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 5,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "2",
+      "H": "9031/16807",
+      "H_float": 0.5373356339620396,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 2,
+      "eta": "2",
+      "eta_lower_bound": "5/4",
+      "H": "269297/531441",
+      "H_float": 0.5067298157274279,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "5/4",
+      "H": "1840825/4826809",
+      "H_float": 0.38137514867482847,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "5/3",
+      "H": "70993/117649",
+      "H_float": 0.603430543396034,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 6,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "5/3",
+      "H": "468559/1000000",
+      "H_float": 0.468559,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "6/5",
+      "H": "97576081/268435456",
+      "H_float": 0.3634992279112339,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "3/2",
+      "H": "2685817/4782969",
+      "H_float": 0.5615376139799358,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 7,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "3/2",
+      "H": "26916709/62748517",
+      "H_float": 0.4289616756998416,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 2,
+      "eta": "3",
+      "eta_lower_bound": "7/6",
+      "H": "5963602465/16983563041",
+      "H_float": 0.3511396548888637,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 3,
+      "eta": "2",
+      "eta_lower_bound": "7/5",
+      "H": "114358881/214358881",
+      "H_float": 0.5334926197902666,
+      "inv_eta": "1/2",
+      "inv_eta_float": 0.5,
+      "min": "1/2",
+      "binding": false,
+      "which": "1/eta"
+    },
+    {
+      "K": 8,
+      "tau": 3,
+      "eta": "3",
+      "eta_lower_bound": "7/5",
+      "H": "1732076671/4294967296",
+      "H_float": 0.4032805261667818,
+      "inv_eta": "1/3",
+      "inv_eta_float": 0.3333333333333333,
+      "min": "1/3",
+      "binding": false,
+      "which": "1/eta"
+    }
+  ],
+  "C5_notes": [
+    "K=3 is OUTSIDE the domain: (K-1)/(K-tau) = 2 > 3/2, so the cell does not exist and cannot be 'not binding'",
+    "K=4 NOT binding as expected: H = 175/256 (0.683594) > 2/3",
+    "K=5 binding: H = 0.633352 <= 2/3",
+    "K=6 binding: H = 0.603431 <= 2/3",
+    "K=7 binding: H = 0.583614 <= 2/3",
+    "K=8 binding: H = 0.569533 <= 2/3"
+  ],
+  "C7_convergence": [
+    {
+      "K": 50,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.49825643004114356,
+      "abs_gap_upper": 0.011673549073735565
+    },
+    {
+      "K": 100,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.49235286989114097,
+      "abs_gap_upper": 0.005769988923732971
+    },
+    {
+      "K": 200,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.4894514487143947,
+      "abs_gap_upper": 0.0028685677469867674
+    },
+    {
+      "K": 400,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.48801309129847786,
+      "abs_gap_upper": 0.001430210331069873
+    },
+    {
+      "K": 800,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.4872969718539786,
+      "abs_gap_upper": 0.000714090886570607
+    },
+    {
+      "K": 1600,
+      "tau": 2,
+      "eta": "3/2",
+      "H": 0.48693967335208654,
+      "abs_gap_upper": 0.0003567923846785645
+    },
+    {
+      "K": 50,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.404372228671732,
+      "abs_gap_upper": 0.010902888384365423
+    },
+    {
+      "K": 100,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.39884769109017504,
+      "abs_gap_upper": 0.005378350802808475
+    },
+    {
+      "K": 200,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.3961405981521232,
+      "abs_gap_upper": 0.002671257864756662
+    },
+    {
+      "K": 400,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.39480053334126664,
+      "abs_gap_upper": 0.0013311930539000576
+    },
+    {
+      "K": 800,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.394133833223579,
+      "abs_gap_upper": 0.0006644929362124065
+    },
+    {
+      "K": 1600,
+      "tau": 2,
+      "eta": "2",
+      "H": 0.3938013115264815,
+      "abs_gap_upper": 0.00033197123911494147
+    },
+    {
+      "K": 50,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.29250317862335046,
+      "abs_gap_upper": 0.009034489197139721
+    },
+    {
+      "K": 100,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.2879156461745931,
+      "abs_gap_upper": 0.004446956748382357
+    },
+    {
+      "K": 200,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.2856749989023032,
+      "abs_gap_upper": 0.0022063094760924394
+    },
+    {
+      "K": 400,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.2845676009953976,
+      "abs_gap_upper": 0.001098911569186819
+    },
+    {
+      "K": 800,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.2840170904698884,
+      "abs_gap_upper": 0.0005484010436776416
+    },
+    {
+      "K": 1600,
+      "tau": 2,
+      "eta": "3",
+      "H": 0.2837426270142618,
+      "abs_gap_upper": 0.000273937588051013
+    }
+  ],
+  "D_structured": [
+    {
+      "case": "tau = 1 (the U_K case)",
+      "configs": 24,
+      "passed": 24,
+      "outcome": "PASS"
+    },
+    {
+      "case": "eta at the boundary (K-1)/(K-tau), thetabar = 1",
+      "configs": 21,
+      "passed": 21,
+      "skipped_eta_equals_one": 6,
+      "outcome": "PASS"
+    },
+    {
+      "case": "K = tau + 1 (so K - tau = 1, eta >= K-1)",
+      "configs": 24,
+      "passed": 24,
+      "outcome": "PASS"
+    },
+    {
+      "case": "running example K = 3, tau = 1, eta = 3/2",
+      "configs": 1,
+      "passed": 1,
+      "outcome": "PASS"
+    },
+    {
+      "case": "edge table independent of n (three n each)",
+      "configs": 6,
+      "passed": 6,
+      "outcome": "PASS"
+    },
+    {
+      "case": "full power-set monotone+submodular enumeration",
+      "configs": 8,
+      "passed": 8,
+      "outcome": "PASS"
+    }
+  ],
+  "D_setlevel": [
+    {
+      "K": 3,
+      "tau": 1,
+      "eta": "3/2",
+      "n": 10,
+      "subsets": 1024,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 3,
+      "tau": 2,
+      "eta": "2",
+      "n": 10,
+      "subsets": 1024,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 4,
+      "tau": 1,
+      "eta": "2",
+      "n": 11,
+      "subsets": 2048,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 4,
+      "tau": 2,
+      "eta": "3",
+      "n": 11,
+      "subsets": 2048,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 4,
+      "tau": 3,
+      "eta": "3",
+      "n": 11,
+      "subsets": 2048,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 5,
+      "tau": 2,
+      "eta": "3/2",
+      "n": 12,
+      "subsets": 4096,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 5,
+      "tau": 4,
+      "eta": "4",
+      "n": 12,
+      "subsets": 4096,
+      "ok": true,
+      "witness": {}
+    },
+    {
+      "K": 3,
+      "tau": 1,
+      "eta": "6/5",
+      "n": 12,
+      "subsets": 4096,
+      "ok": true,
+      "witness": {}
+    }
+  ],
+  "D_random_count": 2000,
+  "D_random_passed": 2000,
+  "D_worst": {
+    "min_positive_DR_margin": "31255875/25207246020608",
+    "params": {
+      "K": 8,
+      "tau": 1,
+      "eta": "45",
+      "n": 13
+    }
+  },
+  "running_example": {
+    "K": 3,
+    "tau": 1,
+    "eta": "3/2",
+    "thetabar": "4/3",
+    "a": "3/4",
+    "A": "9/8",
+    "B": "1",
+    "theta_A_B": "3/2",
+    "eta_o_squared": "27/16",
+    "eta_u_squared": "4/3",
+    "H": "37/64",
+    "H_float": 0.578125,
+    "inv_eta": "2/3",
+    "inv_eta_float": 0.6666666666666666,
+    "U_K": "37/64",
+    "binding": true,
+    "value_ratio_balanced": "37/64"
+  }
+}

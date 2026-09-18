@@ -1,0 +1,93 @@
+V11 oracle for thm:hardness (ledger T10, paper Theorem 3)
+seed=20260918  root=/home/user/sub-modular-optimization
+python=3.11.15  sympy=1.14.0
+
+--- C1  rerun results/J2_core_oracles.py ---
+[PASS] C1 rerun results/J2_core_oracles.py                  VERIFIED-SYMBOLIC        exit=0, 6.37s, count-grid instances=264, edges=57728, symbolic identities=24, dual sums=456, R6 LP objectives=1536, json restored=True
+
+--- C2  rerun results/H3_j2_recheck.py ---
+[PASS] C2 rerun results/H3_j2_recheck.py                    VERIFIED-SYMBOLIC        exit=0, 0.45s, PASS lines=13, FAIL lines=0, ALL PASS=True
+
+--- C3  exact error product theta A B = (theta K - 1)/(K - tau) ---
+  sympy residue theta*A*B - (theta K - 1)/(K - tau) = 0
+[PASS] C3 exact error product theta*A*B                     VERIFIED-SYMBOLIC        sympy residue 0; exact rational sweep 396 (K,tau,theta) triples, 0 violations; inflation delta = A B - 1 = (tau-1/theta)/(K-tau) also exact
+
+--- C4  exact table min{H_{K,tau}(eta), 1/eta} ---
+  cells in the domain (K > tau and eta >= (K-1)/(K-tau)): 30
+  cells where H is NOT binding (H > 1/eta): 20
+  K tau eta        H                          1/eta      min      note
+  3 2   2      19/27                              (0.703704)  1/2  (0.500000)  1/eta NOT-BINDING
+  3 2   3      37/64                              (0.578125)  1/3  (0.333333)  1/eta NOT-BINDING
+  4 2   3/2    175/256                            (0.683594)  2/3  (0.666667)  1/eta NOT-BINDING
+  4 2   2      369/625                            (0.590400)  1/2  (0.500000)  1/eta NOT-BINDING
+  4 2   3      1105/2401                          (0.460225)  1/3  (0.333333)  1/eta NOT-BINDING
+  4 3   3      175/256                            (0.683594)  1/3  (0.333333)  1/eta NOT-BINDING
+  5 2   3/2    102002/161051                      (0.633352)  2/3  (0.666667)  H     
+  5 2   2      9031/16807                         (0.537336)  1/2  (0.500000)  1/eta NOT-BINDING
+  5 2   3      40951/100000                       (0.409510)  1/3  (0.333333)  1/eta NOT-BINDING
+  5 3   2      2101/3125                          (0.672320)  1/2  (0.500000)  1/eta NOT-BINDING
+  5 3   3      9031/16807                         (0.537336)  1/3  (0.333333)  1/eta NOT-BINDING
+  6 2   3/2    70993/117649                       (0.603431)  2/3  (0.666667)  H     
+  6 2   2      269297/531441                      (0.506730)  1/2  (0.500000)  1/eta NOT-BINDING
+  6 2   3      1840825/4826809                    (0.381375)  1/3  (0.333333)  1/eta NOT-BINDING
+  6 3   2      70993/117649                       (0.603431)  1/2  (0.500000)  1/eta NOT-BINDING
+  6 3   3      468559/1000000                     (0.468559)  1/3  (0.333333)  1/eta NOT-BINDING
+  7 2   6/5    543607/823543                      (0.660083)  5/6  (0.833333)  H     
+  7 2   3/2    239479298/410338673                (0.583614)  2/3  (0.666667)  H     
+  7 2   2      9487171/19487171                   (0.486842)  1/2  (0.500000)  H     
+  7 2   3      97576081/268435456                 (0.363499)  1/3  (0.333333)  1/eta NOT-BINDING
+  7 3   3/2    543607/823543                      (0.660083)  2/3  (0.666667)  H     
+  7 3   2      2685817/4782969                    (0.561538)  1/2  (0.500000)  1/eta NOT-BINDING
+  7 3   3      26916709/62748517                  (0.428962)  1/3  (0.333333)  1/eta NOT-BINDING
+  8 2   6/5    5163815321665/7984925229121        (0.646696)  5/6  (0.833333)  H     
+  8 2   3/2    56953279/100000000                 (0.569533)  2/3  (0.666667)  H     
+  8 2   2      385749025/815730721                (0.472888)  1/2  (0.500000)  H     
+  8 2   3      5963602465/16983563041             (0.351140)  1/3  (0.333333)  1/eta NOT-BINDING
+  8 3   3/2    4412866816/6975757441              (0.632600)  2/3  (0.666667)  H     
+  8 3   2      114358881/214358881                (0.533493)  1/2  (0.500000)  1/eta NOT-BINDING
+  8 3   3      1732076671/4294967296              (0.403281)  1/3  (0.333333)  1/eta NOT-BINDING
+  tightest cell: K=7, tau=3, eta=3/2, |H - 1/eta| = 16265/2470629 (0.006583), min is H
+[PASS] C4 exact min{H,1/eta} table                          VERIFIED-EXHAUSTIVE      30 cells in the domain, 20 of them NOT binding (H > 1/eta); tightest cell K=7, tau=3, eta=3/2 with |H - 1/eta| = 16265/2470629; all entries exact rationals
+
+--- C5  the stated expectation along tau = 2, eta = 3/2 ---
+  K=3 is OUTSIDE the domain: (K-1)/(K-tau) = 2 > 3/2, so the cell does not exist and cannot be 'not binding'
+  K=4 NOT binding as expected: H = 175/256 (0.683594) > 2/3
+  K=5 binding: H = 0.633352 <= 2/3
+  K=6 binding: H = 0.603431 <= 2/3
+  K=7 binding: H = 0.583614 <= 2/3
+  K=8 binding: H = 0.569533 <= 2/3
+[PASS] C5 tau=2, eta=3/2 column expectation                 VERIFIED-EXHAUSTIVE      K=3 is outside the domain (not merely non-binding); K=4 not binding; K=5..8 binding
+
+--- C6  identity H_{K,1}(eta) = U_K(eta) ---
+  sympy residue H_(K,tau=1) - U_K = 0
+[PASS] C6 identity H_{K,1} = U_K                            VERIFIED-SYMBOLIC        sympy residue 0 in (K, eta); exact rational sweep 114 (K,eta) pairs, 0 violations
+
+--- C7  limit H_{K,tau}(eta) -> 1 - e^{-1/eta} as K -> infinity ---
+  sympy limit = 1 - exp(-1/eta)
+  residue vs 1 - exp(-1/eta) = 0
+  eta=3/2: target in [0.486582880967, 0.486582880967]; gap at K=50 1.167355e-02 -> K=1600 3.567924e-04
+  eta=2: target in [0.393469340287, 0.393469340287]; gap at K=50 1.090289e-02 -> K=1600 3.319712e-04
+  eta=3: target in [0.283468689426, 0.283468689426]; gap at K=50 9.034489e-03 -> K=1600 2.739376e-04
+[PASS] C7 limit 1 - e^{-1/eta}                              VERIFIED-SYMBOLIC        sympy limit exact; 18 exact rational convergence points (K up to 1600, tau=2, three eta), 0 violations. The target is an exact rational enclosure from the alternating Taylor series, width below 1e-30, so every comparison stays exact
+
+--- C8  calibration Psi(thetabar) = eta and H = L_K(thetabar) ---
+  residue Psi(thetabar) - eta      = 0
+  residue L_K(thetabar) - H_(K,tau) = 0
+[PASS] C8 calibration thetabar                              VERIFIED-SYMBOLIC        sympy residues 0; exact sweep 264 (K,tau,eta) triples in the domain, 0 violations
+
+--- D  counterexample search on the hardness family ---
+  structured tau=1            : 24/24 PASS
+  structured eta = boundary   : 21/21 PASS (6 tau=1 cells skipped, their boundary is eta = 1 which the statement excludes)
+  structured K = tau + 1      : 24/24 PASS
+  structured running example  : 1/1 PASS
+  structured n independence   : 6/6 PASS
+  structured set-level 2^n    : 8/8 PASS (20480 subsets total)
+  random configurations       : 2000/2000 PASS (2000 distinct (K,tau,eta,n))
+[PASS] D counterexample search on the family                VERIFIED-EXHAUSTIVE      2000 random + 84 structured configurations, 0 violations
+
+--- running example K = 3, tau = 1, eta = 3/2 ---
+  thetabar = 4/3, a = 3/4, A = 9/8, B = 1, theta*A*B = 3/2
+  H = 37/64 (0.578125) = U_3(3/2), 1/eta = 2/3 (0.666667), binding = True
+
+checks: 9   FAILED: 0   violations: 0   elapsed: 15.86s
+ALL PASS

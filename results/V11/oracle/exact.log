@@ -1,0 +1,31 @@
+V11 Q4 oracle: thm:exact (ledger T6, Theorem 1: rho_K = min_j V_j)
+repo root: /home/user/sub-modular-optimization
+exact arithmetic: fractions.Fraction and sympy; seed D1=20260918
+LP under test: code/reduced_lp.py, full rows, solved by an exact rational two-phase simplex written here
+
+--- Criterion C ---
+PASS C0a closed-form identities for V_j, K=2..8 [VERIFIED-SYMBOLIC]  35 identities, residual 0
+PASS C0b V_j = min_i V_i on segment [K-j,K-j+1], K=2..8, exact root isolation [VERIFIED-SYMBOLIC]  168 ordered pairs (i,j) over all segments, no interior root, breakpoints are the integers 2..K
+PASS C0c rho_K = 1/eta exactly when eta >= K, K=2..8 [VERIFIED-SYMBOLIC]  49 exact points, strict inequality below K
+PASS C1 exact rational simplex on the LP of code/reduced_lp.py equals min_j V_j [VERIFIED-LP]  100 LPs (K=2..6 x 20 rational eta), Fraction equality on every one
+PASS C2 exact primal-dual certificate at every optimum [VERIFIED-LP]  100 certificates: primal feasible with c'x = min_j V_j, lam >= 0 with A'lam + c >= 0 and -b'lam = c'x
+PASS C6 cross-check against float scipy code/reduced_lp.reduced [VERIFIED-LP 浮点]  100 points, worst |exact - float| = 3.33e-16
+PASS C3 printed closed forms for K=2,3,4 [VERIFIED-SYMBOLIC + LP]  9 segment identities (sympy residual 0) and 60 exact LP values
+PASS C4 rerun results/N1_dual_certificate.py [VERIFIED-SYMBOLIC]  exit code 0, 320/320 checks passed   (50.3 s), OVERALL: PASS, 50.8s, artifacts restored byte-identical
+PASS C5 rerun results/N2_check.py [VERIFIED-SYMBOLIC]  exit code 0, TOTAL 480/480 PASS, 16.0s, artifacts restored byte-identical
+
+--- Criterion D (C7 runs on the D1 instances, printed here) ---
+PASS C7 the vector induced by every run satisfies the four LP families of eq:redlp [VERIFIED-EXHAUSTIVE]  174548 constraint checks over the 6878 runs of D1, worst slack 0 at pred(0,0); this is the reduction step rho_K >= LP optimum, on random instances
+PASS D1 2400 random exact instances: f(T)/OPT >= rho_K(actual eta) [VERIFIED-EXHAUSTIVE]  K in {2,3}, n <= 7, 6878 tie-enumerated runs, 4419 draws rejected, max actual eta 54236.000, worst slack 269/3168
+PASS D2a Figure 1: true f is monotone submodular [VERIFIED-EXHAUSTIVE]  all 8 sets, 3 monotonicity and 3 submodularity families checked exactly
+PASS D2b Figure 1: OPT = f({a,b}) = 19/2  OPT = 19/2
+PASS D2c Figure 1 surrogate A [VERIFIED-EXHAUSTIVE]  actual eta = 54/25 (2.1600) = eta_u 27/16 x eta_o 32/25; greedy output {b,c}; ratio 14/19 (0.7368) >= rho_2(eta) = 25/54 (0.4630); eta^sel = 27/22 (1.2273)
+PASS D2d Figure 1 surrogate B [VERIFIED-EXHAUSTIVE]  actual eta = 1628/351 (4.6382) = eta_u 22/13 x eta_o 74/27; greedy output {a,b}; ratio 1 (1.0000) >= rho_2(eta) = 351/1628 (0.2156); eta^sel = 1 (1.0000)
+
+counts: {"C0_eta_ge_K_points": 49, "C0_identities": 35, "C0_segment_comparisons": 168, "C1_LPs": 100, "C1_eta_points_per_K": 20, "C3_numeric_points": 60, "C3_symbolic_segments": 9, "C4_N1_checks_pass": 320, "C5_N2_checks_pass": 480, "C7_validity_constraint_checks": 174548, "C7_validity_failed_runs": 0, "D1_equality_instances": 0, "D1_greedy_runs": 6878, "D1_instances_K2": 1200, "D1_instances_K3": 1200, "D1_random_instances": 2400, "D1_rejected_draws": 4419, "D1_trivial_OPT_zero": 0, "D2_structured_cases": 2}
+running example K=3 eta=3/2: {"K": 3, "V": ["2/3", "7/12", "9/16"], "argmin_j": [2], "closed_form": "9/16", "eta": "3/2", "k1": "4", "lp_exact": "9/16", "q": "3/4", "rho": "9/16", "rho_float": 0.5625}
+worst D1 slack f(T)/OPT - rho_K(eta): 269/3168 at {"K": 2, "eta": "288/17", "eta_float": 16.941176470588236, "family": "modular", "mode": "indep", "n": 4, "ratio": "19/132", "ratio_float": 0.14393939393939395, "rho": "17/288", "rho_float": 0.059027777777777776, "tag": "D1"}
+worst D1 slack among instances with eta <= 2: 35/316 at {"K": 2, "eta": "1", "eta_float": 1.0, "family": "twocov", "mode": "scale", "n": 4, "ratio": "68/79", "ratio_float": 0.8607594936708861, "rho": "3/4", "rho_float": 0.75, "tag": "D1"}
+violations: 0
+json written: /home/user/sub-modular-optimization/results/V11/oracle/exact.json
+OVERALL: PASS (15 checks, 0 failed, 189.5s)
